@@ -215,8 +215,29 @@ void main() {
     await t.pumpAndSettle();
     expect(find.text('How to use ShenTarot'), findsOneWidget);
     expect(find.text('Scan a card'), findsOneWidget);
+    expect(find.text('Draw today\'s card'), findsOneWidget);
+    await t.scrollUntilVisible(find.text('Myths and worries'), 400);
     expect(find.text('Learn tarot in 12 short lessons'), findsOneWidget);
     expect(find.text('Myths and worries'), findsOneWidget);
+  });
+
+  testWidgets('guide shows today\'s card and your journey', (t) async {
+    final s = AppState(deck: deck, onboarded: true);
+    final r = Reading(
+      id: 'a',
+      createdAt: DateTime(2026, 10, 1),
+      spread: SpreadType.single,
+      cards: [DrawnCard(card: deck.byId('major_19_sun')!, reversed: false)],
+      interpretation: 'x',
+    );
+    s.history.addAll([r, r]);
+    s.drawDailyCard(Random(3), false);
+    await start(t, s);
+    await t.tap(find.text('Guide').last);
+    await t.pumpAndSettle();
+    expect(find.text('TODAY\'S CARD'), findsOneWidget);
+    expect(find.text('Your journey'), findsOneWidget);
+    expect(find.textContaining('The Sun (2 times)'), findsOneWidget);
   });
 
   test('digital draws never repeat a card (seeded)', () {

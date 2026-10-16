@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+
+import 'today_section.dart';
+
 import 'package:go_router/go_router.dart';
 
 import '../../app/theme.dart';
@@ -41,7 +44,7 @@ class GuideScreen extends StatelessWidget {
     (
       Icons.notifications_outlined,
       'A daily reminder',
-      'Turn it on under You > Daily card reminder. It is a notification on your phone; nothing is sent to a server.',
+      'Turn it on under You > Reminders. It is a notification on your phone, skipped on days you have already drawn your card; nothing is sent to a server.',
     ),
   ];
 
@@ -134,6 +137,8 @@ class GuideScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
+          const TodaySection(),
+          const SizedBox(height: 20),
           const Text(
             'How to use ShenTarot',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
