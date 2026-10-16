@@ -10,8 +10,10 @@ import 'app/router.dart';
 import 'app/theme.dart';
 import 'core/api_reading_service.dart';
 import 'core/reading_service.dart';
+import 'core/reminder_service.dart';
 import 'core/subscription_service.dart';
 import 'data/deck.dart';
+import 'data/history_repository.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,10 +29,13 @@ Future<void> main() async {
     readingService: apiBaseUrl.isEmpty
         ? const UnconfiguredReadingService()
         : ApiReadingService(apiBaseUrl),
+    historyRepository: SqliteHistoryRepository(),
+    reminders: LocalNotificationReminderService(),
     subscriptions: storeKey.isEmpty
         ? const UnconfiguredSubscriptionService()
         : RevenueCatSubscriptionService(storeKey),
   );
+  await state.loadPersisted();
   unawaited(state.startSubscriptions());
   runApp(VeilscanApp(initialState: state));
 }

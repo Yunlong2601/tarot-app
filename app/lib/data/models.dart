@@ -76,6 +76,7 @@ class Reading {
     required this.cards,
     required this.interpretation,
     this.question,
+    this.note,
   });
 
   final String id;
@@ -84,4 +85,17 @@ class Reading {
   final List<DrawnCard> cards;
   final String interpretation;
   final String? question;
+
+  /// The user's own journal note about this reading (Premium).
+  final String? note;
+
+  Reading withNote(String? note) => Reading(
+        id: id,
+        createdAt: createdAt,
+        spread: spread,
+        cards: cards,
+        interpretation: interpretation,
+        question: question,
+        note: note == null || note.trim().isEmpty ? null : note.trim(),
+      );
 }

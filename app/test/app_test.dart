@@ -76,6 +76,14 @@ void main() {
     });
   });
 
+  Reading sample(String id) => Reading(
+        id: id,
+        createdAt: DateTime(2026, 10, 16),
+        spread: SpreadType.single,
+        cards: [DrawnCard(card: deck.cards.first, reversed: false)],
+        interpretation: 'x',
+      );
+
   group('AppState free-tier rules', () {
     test('free user gets one single-card reading per day', () {
       final s = AppState(deck: deck);
@@ -86,14 +94,14 @@ void main() {
 
     test('free reading is consumed after one reading', () {
       final s = AppState(deck: deck);
-      s.addReading(s.history.first);
+      s.addReading(sample('a'));
       expect(s.canStart(SpreadType.single), isFalse);
     });
 
     test('premium unlocks all spreads, unlimited', () {
       final s = AppState(deck: deck)..setPremium(true);
-      s.addReading(s.history.first);
-      s.addReading(s.history.first);
+      s.addReading(sample('a'));
+      s.addReading(sample('b'));
       for (final t in SpreadType.values) {
         expect(s.canStart(t), isTrue);
       }

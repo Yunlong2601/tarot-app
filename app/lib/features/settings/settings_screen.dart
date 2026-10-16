@@ -13,8 +13,6 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final state = AppScope.of(context);
-    void soon(String what) => ScaffoldMessenger.of(context)
-        .showSnackBar(SnackBar(content: Text('$what arrives in a later phase')));
     Future<void> manage() async {
       final url = Uri.parse(await state.subscriptions.manageUrl());
       if (!await launchUrl(url, mode: LaunchMode.externalApplication) &&
@@ -59,9 +57,31 @@ class SettingsScreen extends StatelessWidget {
         SwitchListTile(
           secondary: const Icon(Icons.notifications_outlined),
           title: const Text('Daily card reminder'),
-          value: false,
-          onChanged: (_) => soon('Notifications'),
+          subtitle: Text(state.reminderEnabled
+              ? 'Every day at ${state.reminderTime.format(context)}'
+              : 'Off'),
+          value: state.reminderEnabled,
+          onChanged: (on) async {
+            final messenger = ScaffoldMessenger.of(context);
+            final ok = await state.setReminder(on);
+            if (!ok && on) {
+              messenger.showSnackBar(const SnackBar(
+                  content: Text(
+                      'Notifications are off for this app. Turn them on in your phone Settings.')));
+            }
+          },
         ),
+        if (state.reminderEnabled)
+          ListTile(
+            leading: const Icon(Icons.schedule),
+            title: const Text('Reminder time'),
+            subtitle: Text(state.reminderTime.format(context)),
+            onTap: () async {
+              final t = await showTimePicker(
+                  context: context, initialTime: state.reminderTime);
+              if (t != null) await state.setReminder(true, time: t);
+            },
+          ),
         const Divider(),
         ListTile(
           leading: const Icon(Icons.privacy_tip_outlined),
@@ -99,7 +119,7 @@ class SettingsScreen extends StatelessWidget {
                 ],
               ),
             );
-            if (ok == true) state.deleteAllData();
+            if (ok == true) await state.deleteAllData();
           },
         ),
         if (kDebugMode && state.isPremium) ListTile(

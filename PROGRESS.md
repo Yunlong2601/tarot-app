@@ -12,11 +12,13 @@ Primary working copy: the owner's local Mac folder. This repo is the backup and 
 | C | Camera scan, on-device recognition, manual fallback | Code built on branch `phase-c-scan`; unit tests pass; NOT run on a device; no trained model yet |
 | D | Cloudflare Worker proxy + AI reading | Code built on branch `phase-d-backend` (on top of `phase-c-scan`); backend + app tests pass; NOT deployed, never called the real API; device attestation not implemented |
 | E | RevenueCat subscriptions + real paywall | Code built on branch `phase-e-subscriptions`; fake-service tests pass; NOT run against RevenueCat or a store (`docs/phase-e-subscriptions-setup.md`) |
-| F | SQLite history/journal, notifications, accessibility, polish | Not started |
+| F | SQLite history/journal, notifications, accessibility, polish | Code built on branch `phase-f-history`; 47 tests pass; iOS simulator build OK; notifications and SQLite NOT tried on a device; accessibility audit and follow-ups not done |
 | G | Tests, store checklists, privacy and terms drafts | Not started |
 
 ## Next step
-Phase E is coded. Owner: follow `docs/phase-e-subscriptions-setup.md` (Apple + RevenueCat setup), then sandbox-test. Next build phase: F (history/notifications/polish) after "continue". iOS is the priority; Play Store work starts after.
+Phase F is coded: readings are saved in SQLite on the device (history list, swipe/delete, delete-all), Premium journal notes, daily reminder (local notification, permission asked only when switched on), onboarding flag and the daily free-reading count now persist. Decisions: history is visible to everyone; writing journal notes is Premium. Follow-up questions are NOT implemented (removed from the paywall and reading screen until the backend supports them). Remaining before release: accessibility pass (VoiceOver, Dynamic Type), app icon and launch screen, real-device test of notifications. Next: Phase G (tests, store checklists, privacy and terms drafts) after "continue".
+
+(Earlier) Phase E is coded. Owner: follow `docs/phase-e-subscriptions-setup.md` (Apple + RevenueCat setup), then sandbox-test. Next build phase: F (history/notifications/polish) after "continue". iOS is the priority; Play Store work starts after.
 
 (Earlier) Phase D is coded (`backend/`, `app/lib/core/`). Remaining: owner creates Anthropic/Cloudflare accounts and keys, deploys (`backend/README.md`), builds the app with `--dart-define=API_BASE_URL=...`, and tests a real reading; implement App Attest / Play Integrity in `POST /v1/install`. Then Phase E after "continue".
 
