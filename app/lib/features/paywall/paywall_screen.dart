@@ -120,7 +120,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
           ),
           const SizedBox(height: 16),
           for (final f in const [
-            'Up to 20 AI readings a day (free: 1 a day)',
+            'Unlimited AI readings (free: 1 a day)',
             'Follow-up questions on your readings',
             'A clarifier card to shed light on a reading',
             'A look back a week later, with a reminder',

@@ -85,7 +85,7 @@ class ReadHomeScreen extends StatelessWidget {
                                   ),
                                 Text(
                                   state.isPremium
-                                      ? 'Premium: up to 20 readings a day'
+                                      ? 'Premium: unlimited readings'
                                       : state.canReadForFree
                                       ? '1 free reading left today'
                                       : 'Free reading used. Come back tomorrow or go Premium.',

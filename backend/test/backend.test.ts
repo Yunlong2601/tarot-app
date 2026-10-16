@@ -234,7 +234,7 @@ describe("POST /v1/reading", () => {
     }
     // fill the day directly up to the cap, then one more request is refused
     const hash = await hashId(UUID, "salt");
-    while ((await s.usage.count(hash, "2026-10-16", "reading")) < 20) await s.usage.reserve(hash, "2026-10-16", "reading");
+    while ((await s.usage.count(hash, "2026-10-16", "reading")) < 50) await s.usage.reserve(hash, "2026-10-16", "reading");
     s.kv.m.clear();
     expect((await post(s, single)).status).toBe(429);
   });
@@ -336,7 +336,7 @@ describe("follow-up questions", () => {
   it("follow-ups are capped at 30 a day and do not use up readings", async () => {
     const s = setup({ premium: true });
     const hash = await hashId(UUID, "salt");
-    while ((await s.usage.count(hash, "2026-10-16", "followup")) < 30) await s.usage.reserve(hash, "2026-10-16", "followup");
+    while ((await s.usage.count(hash, "2026-10-16", "followup")) < 50) await s.usage.reserve(hash, "2026-10-16", "followup");
     expect((await post(s, base)).status).toBe(429);
     const reading = await authHeaders(s.env).then((h) =>
       s.call("/v1/reading", { method: "POST", headers: h, body: JSON.stringify(single) }));
@@ -428,14 +428,14 @@ describe("providers and own keys", () => {
     const used: { key: string; byok: boolean }[] = [];
     const s = setup({ premium: true, cap: "100", llm: async (_p, t) => { used.push({ key: t.apiKey, byok: t.byok }); return ok; } });
     const hash = await hashId(UUID, "salt");
-    while ((await s.usage.count(hash, "2026-10-16", "reading")) < 20) await s.usage.reserve(hash, "2026-10-16", "reading");
+    while ((await s.usage.count(hash, "2026-10-16", "reading")) < 50) await s.usage.reserve(hash, "2026-10-16", "reading");
     s.usage.rows.forEach((r) => { r.i = 100; }); // our budget of 100 is used up
     expect((await post(s)).status).toBe(503); // our key: budget gone
     const r = await post(s, { "x-user-provider": "anthropic", "x-user-key": OWN });
     expect(r.status).toBe(200);
     expect(used).toEqual([{ key: OWN, byok: true }]);
     expect(s.usage.rows.at(-1)!.model).toBe("byok:claude-haiku-5-5");
-    expect(await s.usage.tokensToday("2026-10-16")).toBe(2000);
+    expect(await s.usage.tokensToday("2026-10-16")).toBe(5000);
   });
 
   it("own key: bad shape is refused; a rejected key is reported and never retried on ours", async () => {

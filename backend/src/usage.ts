@@ -60,8 +60,10 @@ export class D1UsageStore implements UsageStore {
 }
 
 export const FREE_READINGS_PER_DAY = 1;
-export const PREMIUM_READINGS_PER_DAY = 20;
-export const PREMIUM_FOLLOWUPS_PER_DAY = 30;
+// Premium is sold as unlimited; these are hidden fair-use caps against bots or
+// leaked devices (Terms: "fair use"). Real users should never reach them.
+export const PREMIUM_READINGS_PER_DAY = 50;
+export const PREMIUM_FOLLOWUPS_PER_DAY = 50;
 export const BURST_PER_MINUTE = 10;
 export const IP_PER_MINUTE = 30;
 export const DEFAULT_GLOBAL_DAILY_TOKEN_CAP = 2_000_000;

@@ -21,7 +21,7 @@ HOLD THE CARDS. WE EXPLAIN THEM.
 BUILT FOR BEGINNERS, USEFUL FOR EVERYONE
 - Free: one reading every day (one card or Past, Present, Future), plus a free trial reading of any longer spread.
 - Free: one AI reading a day with any of the 14 spreads (including the Celtic Cross), scanning, journal, Card of the Day, library, lessons.
-- Premium: up to 20 readings a day, follow-up questions, a clarifier card, and a look back a week later.
+- Premium: unlimited readings (fair use), follow-up questions, a clarifier card, and a look back a week later.
 - A card library with keywords and upright and reversed meanings for all 78 cards.
 - Daily reminder, if you want one.
 

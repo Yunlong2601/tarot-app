@@ -14,7 +14,7 @@ Goal (owner): Premium only needs to cover building and running costs. All figure
 
 ## What a user costs per month (AI only)
 - Free user, 1 reading a day, every day: 30 x US$0.0003 = **about US$0.01**; worst case US$0.045.
-- Premium user, 20 readings and 30 follow-ups a day every day (heavy use): about US$0.45 typical, under US$2.30 worst case. A typical subscriber uses far less.
+- Premium is sold as unlimited, with a hidden fair-use cap of 50 readings and 50 follow-ups a day. Typical subscriber, 2 readings a day: about US$0.02 a month. Heavy, 10 a day: about US$0.10. At the cap every day: about US$0.90 typical, under US$4.50 worst case.
 
 ## Revenue per subscriber per month, after the 15% store fee
 | Plan | Price | Net per month |
