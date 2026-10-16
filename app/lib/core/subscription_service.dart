@@ -88,6 +88,13 @@ abstract class SubscriptionService {
   /// ends, or null if the user is not in one.
   Future<DateTime?> introEndsAt();
 
+  /// Google Play: the annual plan with the friend's offer (tagged [offerTag]),
+  /// or null if the store has no such offer for this user.
+  Future<PlanOption?> referralPlan(String offerTag);
+
+  /// iOS: Apple's sheet to redeem an offer code.
+  Future<void> redeemOfferCode();
+
   /// Moves an active monthly subscriber to [plan] (the store handles the
   /// change; on Google Play the old product is replaced).
   Future<bool> switchTo(PlanOption plan);
@@ -137,6 +144,12 @@ class UnconfiguredSubscriptionService implements SubscriptionService {
 
   @override
   Future<DateTime?> introEndsAt() async => null;
+
+  @override
+  Future<PlanOption?> referralPlan(String offerTag) async => null;
+
+  @override
+  Future<void> redeemOfferCode() => throw const SubscriptionException(_msg);
 
   @override
   Future<bool> switchTo(PlanOption plan) =>
@@ -191,6 +204,34 @@ class RevenueCatSubscriptionService implements SubscriptionService {
     final latest = DateTime.tryParse(ent.latestPurchaseDate);
     if (first == null || latest == null) return null;
     return monthsPaidBetween(first, latest);
+  }
+
+  @override
+  Future<PlanOption?> referralPlan(String offerTag) async {
+    if (!_started || !Platform.isAndroid) return null;
+    final pkg = (await Purchases.getOfferings()).current?.annual;
+    final option = pkg?.storeProduct.subscriptionOptions
+        ?.where((o) => o.tags.contains(offerTag))
+        .firstOrNull;
+    final intro = option?.introPhase;
+    if (pkg == null || option == null || intro == null) return null;
+    return PlanOption(
+      id: 'annual-friend',
+      title: 'Annual',
+      priceString: pkg.storeProduct.priceString,
+      periodLabel: 'per year',
+      trialLabel: '${intro.price.formatted} for your first year',
+      trialIsFree: false,
+      handle: option,
+      price: pkg.storeProduct.price,
+      perMonthString: pkg.storeProduct.pricePerMonthString,
+      productId: pkg.storeProduct.identifier.split(':').first,
+    );
+  }
+
+  @override
+  Future<void> redeemOfferCode() async {
+    if (Platform.isIOS) await Purchases.presentCodeRedemptionSheet();
   }
 
   @override
@@ -311,10 +352,14 @@ class RevenueCatSubscriptionService implements SubscriptionService {
 
   @override
   Future<bool> purchase(PlanOption plan) async {
-    final pkg = plan.handle;
-    if (pkg is! Package) throw const SubscriptionException('Unknown plan.');
+    final handle = plan.handle;
+    final params = switch (handle) {
+      Package p => PurchaseParams.package(p),
+      SubscriptionOption o => PurchaseParams.subscriptionOption(o),
+      _ => throw const SubscriptionException('Unknown plan.'),
+    };
     try {
-      final result = await Purchases.purchase(PurchaseParams.package(pkg));
+      final result = await Purchases.purchase(params);
       return _isPremium(result.customerInfo);
     } on PlatformException catch (e) {
       if (PurchasesErrorHelper.getErrorCode(e) ==

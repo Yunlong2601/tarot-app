@@ -65,6 +65,14 @@ class FakeSubscriptions implements SubscriptionService {
   @override
   Future<DateTime?> introEndsAt() async => introEnd;
 
+  PlanOption? friendPlan;
+  @override
+  Future<PlanOption?> referralPlan(String offerTag) async => friendPlan;
+
+  int redeemSheets = 0;
+  @override
+  Future<void> redeemOfferCode() async => redeemSheets++;
+
   int? monthsPaid;
   @override
   Future<int?> monthlyMonthsPaid() async => monthsPaid;

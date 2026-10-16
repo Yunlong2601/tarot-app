@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import '../features/you/own_key_screen.dart';
 import '../features/cards/card_detail_screen.dart';
 import '../features/draw/draw_screen.dart';
+import '../features/invite/invite_screen.dart';
 import '../features/you/account_screen.dart';
 import '../features/guide/guide_screen.dart';
 import '../features/history/history_screen.dart';
@@ -73,6 +74,7 @@ GoRouter buildRouter(AppState state) {
       GoRoute(path: '/daily', builder: (_, _) => const DailyCardScreen()),
       GoRoute(path: '/history', builder: (_, _) => const HistoryScreen()),
       GoRoute(path: '/account', builder: (_, _) => const AccountScreen()),
+      GoRoute(path: '/invite', builder: (_, _) => const InviteScreen()),
       GoRoute(
         path: '/card/:id',
         builder: (_, s) => CardDetailScreen(cardId: s.pathParameters['id']!),

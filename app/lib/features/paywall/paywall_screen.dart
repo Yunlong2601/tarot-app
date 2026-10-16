@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../app/app_scope.dart';
@@ -36,9 +37,19 @@ class _PaywallScreenState extends State<PaywallScreen> {
   }
 
   Future<void> _load() async {
-    final service = AppScope.of(context).subscriptions;
+    final state = AppScope.of(context);
+    final service = state.subscriptions;
     try {
-      final plans = await service.plans();
+      var plans = await service.plans();
+      // A friend's code on Android: the annual plan with the referral offer
+      // replaces the normal annual plan.
+      final tag = state.referralOffer?.playOfferTag;
+      if (tag != null) {
+        final friend = await service.referralPlan(tag);
+        if (friend != null) {
+          plans = [friend, ...plans.where((p) => p.title != 'Annual')];
+        }
+      }
       if (!mounted) return;
       setState(() {
         _plans = plans;
@@ -141,6 +152,9 @@ class _PaywallScreenState extends State<PaywallScreen> {
               ),
             ),
           const SizedBox(height: 16),
+          if (AppScope.of(context).referralOffer?.appleOfferCode
+              case final code?)
+            _AppleFriendOffer(code),
           if (plans == null)
             const Center(child: CircularProgressIndicator())
           else if (plans.isEmpty)
@@ -290,6 +304,54 @@ class _Badge extends StatelessWidget {
         color: AppColors.onGold,
         fontSize: 11,
         fontWeight: FontWeight.w700,
+      ),
+    ),
+  );
+}
+
+/// iOS: the friend's 50%-off first year comes as a one-time App Store offer
+/// code, redeemed in Apple's own sheet.
+class _AppleFriendOffer extends StatelessWidget {
+  const _AppleFriendOffer(this.code);
+  final String code;
+
+  @override
+  Widget build(BuildContext context) => Card(
+    margin: const EdgeInsets.only(bottom: 16),
+    child: Padding(
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Friend\'s offer: 50% off your first year',
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+          const SizedBox(height: 6),
+          SelectableText('Your App Store code: $code'),
+          const SizedBox(height: 4),
+          const Text(
+            'Copy the code, then redeem it in the App Store sheet. The price '
+            'and renewal terms are shown there before you confirm.',
+            style: TextStyle(color: AppColors.textMuted, fontSize: 12),
+          ),
+          const SizedBox(height: 8),
+          OverflowBar(
+            spacing: 8,
+            children: [
+              TextButton(
+                onPressed: () => Clipboard.setData(ClipboardData(text: code)),
+                child: const Text('Copy code'),
+              ),
+              FilledButton(
+                style: FilledButton.styleFrom(minimumSize: const Size(0, 44)),
+                onPressed: () =>
+                    AppScope.of(context).subscriptions.redeemOfferCode(),
+                child: const Text('Redeem in App Store'),
+              ),
+            ],
+          ),
+        ],
       ),
     ),
   );

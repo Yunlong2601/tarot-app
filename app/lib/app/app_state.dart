@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../core/account_service.dart';
+import '../core/referral_service.dart';
 import 'flags.dart';
 import '../core/install_id.dart';
 import '../core/reading_service.dart';
@@ -28,6 +29,7 @@ class AppState extends ChangeNotifier {
     this.reminders = const NoopReminderService(),
     UserKeyStore? userKeys,
     this.accountApi = const UnconfiguredAccountBackend(),
+    this.referralApi = const UnconfiguredReferralBackend(),
     SignInProvider? signIn,
     List<AccountProvider>? accountProviders,
     DateTime Function()? clock,
@@ -48,6 +50,35 @@ class AppState extends ChangeNotifier {
 
   /// Optional account (Google / Apple). Null = guest, which is fine.
   final AccountBackend accountApi;
+
+  /// Refer and earn (behind `referralsEnabled`).
+  final ReferralBackend referralApi;
+
+  /// The friend's offer unlocked by a code typed on this phone, if any.
+  ReferralOffer? referralOffer;
+  static const _kRefTag = 'referral_offer_tag';
+  static const _kRefApple = 'referral_apple_code';
+
+  /// Uses a friend's code. Unlocks only the paywall offer; nothing is given
+  /// for entering it (Apple 3.2.2). Throws [ReferralException].
+  Future<void> redeemReferral(String code, {required bool ios}) async {
+    final offer = await referralApi.redeem(
+      code.trim(),
+      ios ? 'ios' : 'android',
+    );
+    referralOffer = offer;
+    notifyListeners();
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      if (offer.playOfferTag != null) {
+        await prefs.setString(_kRefTag, offer.playOfferTag!);
+      }
+      if (offer.appleOfferCode != null) {
+        await prefs.setString(_kRefApple, offer.appleOfferCode!);
+      }
+    } catch (_) {}
+  }
+
   final SignInProvider _signIn;
   Account? account;
 
@@ -219,6 +250,14 @@ class AppState extends ChangeNotifier {
       trialUsed = prefs.getBool(_kTrial) ?? false;
       readReversed = prefs.getBool(_kReversed) ?? true;
       _upgradeShown = prefs.getInt(_kUpgradeShown) ?? 0;
+      final refTag = prefs.getString(_kRefTag);
+      final refApple = prefs.getString(_kRefApple);
+      if (refTag != null || refApple != null) {
+        referralOffer = ReferralOffer(
+          playOfferTag: refTag,
+          appleOfferCode: refApple,
+        );
+      }
       if (testerMode && (prefs.getBool(_kTesterPremium) ?? false)) {
         isPremium = true;
       }

@@ -6,3 +6,7 @@ library;
 /// so Premium screens can be tried before subscriptions exist. The server only
 /// honours it for install IDs listed in its TESTER_INSTALL_IDS setting.
 bool testerMode = const bool.fromEnvironment('TESTER_MODE');
+
+/// Refer and earn (`--dart-define=REFERRALS=true`). Off until the store offers
+/// (App Store offer codes, Play "referral-50" offer) and server keys exist.
+bool referralsEnabled = const bool.fromEnvironment('REFERRALS');

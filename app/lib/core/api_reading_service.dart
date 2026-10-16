@@ -4,12 +4,14 @@ import 'dart:io';
 import '../data/models.dart';
 import 'install_id.dart';
 import 'account_service.dart';
+import 'referral_service.dart';
 import 'reading_service.dart';
 import 'user_key_store.dart';
 
 /// Talks to the Cloudflare Worker (`backend/`). Sends only the card IDs,
 /// orientation, spread and the optional question, plus an anonymous install ID.
-class ApiReadingService implements ReadingService, AccountBackend {
+class ApiReadingService
+    implements ReadingService, AccountBackend, ReferralBackend {
   ApiReadingService(
     this.baseUrl, {
     HttpClient Function()? clientFactory,
@@ -94,6 +96,37 @@ class ApiReadingService implements ReadingService, AccountBackend {
         'The account could not be deleted. Please try again.',
       );
     }
+  }
+
+  @override
+  Future<ReferralInfo> me() async {
+    final res = await _post('/v1/referral/me', const {}, auth: true);
+    if (res.status != 200) {
+      throw const ReferralException('Invites are not available right now.');
+    }
+    return ReferralInfo.fromJson(res.json);
+  }
+
+  @override
+  Future<ReferralOffer> redeem(String code, String platform) async {
+    final res = await _post('/v1/referral/redeem', {
+      'code': code,
+      'platform': platform,
+    }, auth: true);
+    if (res.status == 200) {
+      return ReferralOffer(
+        appleOfferCode: res.json['appleOfferCode'] as String?,
+        playOfferTag: res.json['offer'] as String?,
+      );
+    }
+    throw ReferralException(switch (res.json['error']) {
+      'unknown_code' => 'That code was not found. Check it and try again.',
+      'own_code' => 'That is your own code. Share it with a friend instead.',
+      'already_referred' => 'A friend\'s code is already used on this phone.',
+      'no_codes_left' => 'Friend offers are out right now. Please try later.',
+      'rate_limited' => 'Too many tries. Please wait a minute.',
+      _ => 'The code could not be used. Please try again.',
+    });
   }
 
   Future<ReadingResult> _send(

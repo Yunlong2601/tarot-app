@@ -9,6 +9,7 @@ import 'app/app_state.dart';
 import 'app/router.dart';
 import 'app/theme.dart';
 import 'core/account_service.dart';
+import 'core/referral_service.dart';
 import 'core/api_reading_service.dart';
 import 'core/reading_service.dart';
 import 'core/reminder_service.dart';
@@ -34,6 +35,7 @@ Future<void> main() async {
     deck: deck,
     userKeys: SecureUserKeyStore(),
     accountApi: api ?? const UnconfiguredAccountBackend(),
+    referralApi: api ?? const UnconfiguredReferralBackend(),
     readingService: api ?? const UnconfiguredReadingService(),
     historyRepository: SqliteHistoryRepository(),
     reminders: LocalNotificationReminderService(),

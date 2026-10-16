@@ -76,6 +76,13 @@ class YouScreen extends StatelessWidget {
                   )
                 : null,
           ),
+          if (referralsEnabled)
+            ListTile(
+              leading: const Icon(Icons.card_giftcard),
+              title: const Text('Invite friends'),
+              subtitle: const Text('Free months for you, 50% off for them'),
+              onTap: () => context.push('/invite'),
+            ),
           ListTile(
             leading: const Icon(Icons.history),
             title: const Text('Reading History'),
