@@ -38,7 +38,13 @@ class _FlipCardState extends State<FlipCard>
   @override
   void didUpdateWidget(FlipCard old) {
     super.didUpdateWidget(old);
-    if (widget.flipped && !old.flipped) _c.forward();
+    if (widget.flipped && !old.flipped) {
+      if (MediaQuery.disableAnimationsOf(context)) {
+        _c.value = 1;
+      } else {
+        _c.forward();
+      }
+    }
   }
 
   @override
