@@ -52,6 +52,10 @@ Every feature the paywall, store listing or README promises, checked on the sign
 4. Accessibility pass on the new screens (reading panels, look back, Look first dialog) at 2x text.
 5. Play Integrity code path behind a flag (server verification stays off until the owner links the app).
 
+### Before public launch (do not forget)
+- Remove the `TESTER_INSTALL_IDS` secret on the Worker (`npx wrangler secret delete TESTER_INSTALL_IDS`) and never build store releases with `TESTER_MODE=true`.
+- Switch from `npm run deploy:beta` to attested installs (Play Integrity / App Attest).
+
 ### (B) Blocked on the owner
 1. RevenueCat + Play subscriptions (product ids in `docs/play-release-guide.md`), then the `goog_` key and `REVENUECAT_SECRET_KEY`.
 2. Upload the AAB to a closed test, recruit testers (check the current tester/day rule).
