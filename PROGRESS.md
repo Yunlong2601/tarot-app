@@ -8,7 +8,7 @@ Primary working copy: the owner's local Mac folder. This repo is the backup and 
 |---|---|---|
 | Step 1 | Plan, research, costs (`docs/step1-plan.md`) | Done |
 | A | Project setup, navigation, mock screens | Done (PR #1) |
-| B | 78-card data, card list/search/detail | Done (PR #1); card art not yet added |
+| B | 78-card data, card list/search/detail | Done; card art added on branch `phase-g-card-art` |
 | C | Camera scan, on-device recognition, manual fallback | Code built on branch `phase-c-scan`; unit tests pass; NOT run on a device; no trained model yet |
 | D | Cloudflare Worker proxy + AI reading | Code built on branch `phase-d-backend` (on top of `phase-c-scan`); backend + app tests pass; NOT deployed, never called the real API; device attestation not implemented |
 | E | RevenueCat subscriptions + real paywall | Code built on branch `phase-e-subscriptions`; fake-service tests pass; NOT run against RevenueCat or a store (`docs/phase-e-subscriptions-setup.md`) |
@@ -16,7 +16,7 @@ Primary working copy: the owner's local Mac folder. This repo is the backup and 
 | G | Tests, store checklists, privacy and terms drafts | Docs written on branch `phase-g-release-docs` (checklists, test plan, data inventory, legal DRAFTS bundled in the app); lawyer review and device testing still to do |
 
 ## Next step
-Phase G docs are done (see README for the list). The privacy policy and terms are filled in (provider ShenTech, contact shenyunlongbusiness@gmail.com, minimum age 13, usage records kept 90 days) and bundled in the app; NOT lawyer-reviewed (owner has no budget; use Apple's standard EULA on iOS). Static pages for the public URLs are in `site/`; published via GitHub Pages from the public repo Yunlong2601/veilscan-legal: https://yunlong2601.github.io/veilscan-legal/privacy.html and .../terms.html (edit `site/`, then copy to that repo and push). Owner now: Apple enrollment, then `docs/phase-e-subscriptions-setup.md`, deploy the backend (`backend/README.md`), build to a real iPhone and run `docs/test-plan.md`. Accessibility pass done in code (`app/test/accessibility_test.dart`: WCAG contrast of theme colours, tap-target and label guidelines, no overflow at 2x text on a small phone; fixed onboarding, Cards grid and paywall close button); still needs a real VoiceOver check on a device. App icon and dark launch screen are done (original art, rendered by `app/tool/make_icon_test.dart`; regenerate with `flutter test tool/make_icon_test.dart && dart run flutter_launcher_icons`). Engineering still open: App Attest / Play Integrity, trained card model (`ml/` pipeline), card art, follow-up questions, Android build.
+Phase G docs are done (see README for the list). The privacy policy and terms are filled in (provider ShenTech, contact shenyunlongbusiness@gmail.com, minimum age 13, usage records kept 90 days) and bundled in the app; NOT lawyer-reviewed (owner has no budget; use Apple's standard EULA on iOS). Static pages for the public URLs are in `site/`; published via GitHub Pages from the public repo Yunlong2601/veilscan-legal: https://yunlong2601.github.io/veilscan-legal/privacy.html and .../terms.html (edit `site/`, then copy to that repo and push). Owner now: Apple enrollment, then `docs/phase-e-subscriptions-setup.md`, deploy the backend (`backend/README.md`), build to a real iPhone and run `docs/test-plan.md`. Accessibility pass done in code (`app/test/accessibility_test.dart`: WCAG contrast of theme colours, tap-target and label guidelines, no overflow at 2x text on a small phone; fixed onboarding, Cards grid and paywall close button); still needs a real VoiceOver check on a device. App icon and dark launch screen are done (original art, rendered by `app/tool/make_icon_test.dart`; regenerate with `flutter test tool/make_icon_test.dart && dart run flutter_launcher_icons`). Engineering still open: App Attest / Play Integrity, trained card model (`ml/` pipeline), follow-up questions, Android build.
 
 (Earlier) Phase F is coded: readings are saved in SQLite on the device (history list, swipe/delete, delete-all), Premium journal notes, daily reminder (local notification, permission asked only when switched on), onboarding flag and the daily free-reading count now persist. Decisions: history is visible to everyone; writing journal notes is Premium. Follow-up questions are NOT implemented (removed from the paywall and reading screen until the backend supports them). Remaining before release: accessibility pass (VoiceOver, Dynamic Type), real-device test of notifications. Next: Phase G (tests, store checklists, privacy and terms drafts) after "continue".
 
@@ -32,7 +32,7 @@ Phase G docs are done (see README for the list). The privacy policy and terms ar
 
 ## I need to do (owner)
 - Run the tests and `flutter run` on the Mac and report problems (nothing has run on a real device yet).
-- Card art: run `python3 app/tools/fetch_art.py --check`, then without `--check`; review every Commons file page (1909 printing, public domain). The file titles in the script are unverified guesses.
+- Card art: open the Commons pages in `app/assets/cards/art/CREDITS.md` and confirm each is the original 1909/1910 Pamela Colman Smith scan, not a 1971+ recolour.
 - Skim `app/assets/cards/cards.json` meanings (original wording) before release.
 - Pick the final app name; check trademarks and store names (top pick: Veilscan).
 - Create Anthropic API account with a monthly spend limit; Cloudflare and RevenueCat accounts; join Apple Small Business Program.
@@ -42,5 +42,5 @@ Phase G docs are done (see README for the list). The privacy policy and terms ar
 
 ## Known issues / not verified
 - Nothing has been built or run on iOS or Android; only `flutter analyze` and 17 tests (in a Linux sandbox, all passing).
-- No card art in the repo yet (placeholders shown).
+- Card art: 78 Commons scans (all report licence "Public domain", dated 1910, 1909 Pamela Colman Smith deck) are in the repo; I spot-checked 3 by eye. Owner must still open the Commons file pages (listed in `app/assets/cards/art/CREDITS.md`) and confirm none is a 1971+ US Games recolour before release.
 - Store fees, prices and policies in the plan were checked on the web on 2026-10-16 and must be re-verified before launch.

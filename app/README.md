@@ -27,7 +27,7 @@ flutter test
 
 ## Card data and art (Phase B)
 - `assets/cards/cards.json`: 78 cards, original wording (keywords, upright, reversed, element, major-arcana association). Regenerate with `python3 tools/make_cards.py assets/cards/cards.json`.
-- `assets/cards/art/<card_id>.jpg`: card images. **Not included yet.** Until they exist the app shows a text placeholder. To add public-domain 1909 scans, run on your own machine: `python3 tools/fetch_art.py --check` (reports licences), then `python3 tools/fetch_art.py`. The Commons file titles are unverified guesses: review every file page yourself and read the "Legal" notes in the plan.
+- `assets/cards/art/<card_id>.jpg`: card images. Included: 78 public-domain scans of the original Pamela Colman Smith deck (dated 1910 on Wikimedia Commons, licence "Public domain"), fetched by `python3 -I tools/fetch_art.py` and shrunk to 600 px tall with `sips` to keep the app small. Sources are in `assets/cards/art/CREDITS.md`. If a card has no image the app shows a text placeholder. Re-verify each Commons file page before release (see PROGRESS.md).
 - All meaning text should be read through once by you before release.
 
 ## Layout
