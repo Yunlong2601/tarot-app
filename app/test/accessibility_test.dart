@@ -55,6 +55,21 @@ class _Plans implements SubscriptionService {
 
   @override
   Future<void> switchUser(String appUserId) async {}
+
+  String? currentId = 'monthly';
+  @override
+  Future<String?> currentProductId() async => currentId;
+
+  int? monthsPaid;
+  @override
+  Future<int?> monthlyMonthsPaid() async => monthsPaid;
+
+  PlanOption? switchedTo;
+  @override
+  Future<bool> switchTo(PlanOption plan) async {
+    switchedTo = plan;
+    return true;
+  }
 }
 
 void main() {

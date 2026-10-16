@@ -10,7 +10,7 @@ Flutter app (iOS + Android). The user scans a physical Rider-Waite-Smith tarot c
 - Flutter; Cloudflare Workers backend (TypeScript, KV + D1); LLM Claude Haiku 5.5 (`claude-haiku-5-5`, effort low, model name in a backend env var); RevenueCat; no user accounts; SQLite on device for history; English first (strings should be easy to localise later).
 - Deck: Rider-Waite-Smith only. Card art must be public domain (1909 scans) or original. Never use 1971+ US Games art. Do not use "Rider-Waite" in the app name, icon or keywords.
 - The mobile app never contains an LLM API key. Secrets live in backend env vars (`wrangler secret put`). Never commit keys.
-- Prices (USD, to be re-set in SGD per storefront): weekly $3.99, monthly $7.99, annual $39.99 with a 7-day trial.
+- Prices (USD, to be re-set in SGD per storefront): annual $99.99 with a 7-day trial, 3 months $34.99, monthly $14.99; no weekly (owner decision 2026-10-17).
 - Owner is a student in Singapore (PDPA, tax forms, store account rules are in the plan addendum; all items are "to verify").
 
 ## Layout

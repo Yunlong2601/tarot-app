@@ -261,8 +261,8 @@ int? annualSaving(List<PlanOption> plans) {
 Widget? _planDetails(PlanOption p, List<PlanOption> plans) {
   final parts = <String>[
     if (p.trialLabel != null) p.trialLabel!,
-    if (p.title == 'Annual' && p.perMonthString != null)
-      'just ${p.perMonthString}/month',
+    if (p.title != 'Monthly' && p.perMonthString != null)
+      '${p.title == 'Annual' ? 'just ' : ''}${p.perMonthString}/month',
     if (p.title == 'Annual' && annualSaving(plans) != null)
       'save ${annualSaving(plans)}% vs monthly',
   ];

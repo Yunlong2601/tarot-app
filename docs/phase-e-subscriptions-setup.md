@@ -4,16 +4,16 @@ The app code is done (`app/lib/core/subscription_service.dart`, paywall, setting
 
 ## What the code expects
 - RevenueCat entitlement id: `premium`.
-- One **current offering** with packages of type **Annual**, **Monthly**, **Weekly** (use RevenueCat's standard package types so the paywall can label them).
+- One **current offering** with packages of type **Annual**, **Three Month**, **Monthly** (no weekly) (use RevenueCat's standard package types so the paywall can label them).
 - Annual product has a **7-day free trial** introductory offer; the paywall reads the trial from the store product, never hardcoded.
-- Prices come from the store (localised). Set base prices in App Store Connect (plan: weekly $3.99, monthly $7.99, annual $39.99 USD, to re-set per storefront).
+- Prices come from the store (localised). Set base prices in App Store Connect (plan: annual $99.99 with a 7-day free trial, 3 months $34.99, monthly $14.99 USD; weekly is not offered).
 - The RevenueCat **app user ID** is the anonymous install ID (stored on device), and the backend looks up the same ID via the RevenueCat REST API to decide whether a request is premium. No accounts.
 
 ## I need to do (owner), iOS
 1. Apple Developer Program membership; real **bundle ID** (replace `com.shentech.shentarot` in Xcode; Runner target > Signing & Capabilities; also the RunnerTests ids).
-2. In App Store Connect create the app, a **subscription group**, and three auto-renewing subscriptions (weekly, monthly, annual with a 7-day free-trial introductory offer). Accept the Paid Applications agreement and fill tax/banking.
+2. In App Store Connect create the app, a **subscription group**, and three auto-renewing subscriptions (annual at level 1, 3 months at level 2, monthly at level 3; annual with a 7-day free-trial introductory offer). Accept the Paid Applications agreement and fill tax/banking.
 3. In Xcode add the **In-App Purchase** capability to the Runner target.
-4. Create a RevenueCat project and an **iOS app**, add the **App Store Connect API key / In-App Purchase key** RevenueCat asks for, import the three products, create entitlement `premium` attached to all three, create an offering marked **current** with Annual/Monthly/Weekly packages.
+4. Create a RevenueCat project and an **iOS app**, add the **App Store Connect API key / In-App Purchase key** RevenueCat asks for, import the three products, create entitlement `premium` attached to all three, create an offering marked **current** with Annual, Three Month and Monthly packages (no weekly).
 5. Copy the iOS **public SDK key** (starts with `appl_`) and a **secret API key** (v1 REST, for the backend).
 6. Backend: `npx wrangler secret put REVENUECAT_SECRET_KEY`.
 7. Run the app with the keys:
@@ -34,7 +34,7 @@ Create the Play Console subscriptions, a RevenueCat Android app and pass `REVENU
 - Restore needs a real sandbox account to confirm.
 
 ## Test purchases on the Mac without App Store Connect (StoreKit file)
-`app/ios/ShenTarot.storekit` defines the three subscriptions locally: product ids `shentarot_annual` (US$39.99, 7-day free trial), `shentarot_monthly` (US$7.99) and `shentarot_weekly` (US$3.99). Use the same product ids when you create the products in App Store Connect.
+`app/ios/ShenTarot.storekit` defines the three subscriptions locally: product ids `shentarot_annual` (US$99.99, 7-day free trial, group level 1), `shentarot_quarterly` (US$34.99, every 3 months, level 2) and `shentarot_monthly` (US$14.99, level 3). Use the same product ids when you create the products in App Store Connect.
 
 To use it in Xcode: open `app/ios/Runner.xcworkspace`, Product > Scheme > Edit Scheme > Run > Options > StoreKit Configuration > choose `ShenTarot.storekit`. Run on the simulator or your own iPhone. Xcode's Debug > StoreKit > Manage Transactions lets you approve, fail, expire or refund purchases.
 

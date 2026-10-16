@@ -218,6 +218,7 @@ class AppState extends ChangeNotifier {
       _usedCount = prefs.getInt(_kUsedCount) ?? 0;
       trialUsed = prefs.getBool(_kTrial) ?? false;
       readReversed = prefs.getBool(_kReversed) ?? true;
+      _upgradeShown = prefs.getInt(_kUpgradeShown) ?? 0;
       if (testerMode && (prefs.getBool(_kTesterPremium) ?? false)) {
         isPremium = true;
       }
@@ -337,6 +338,29 @@ class AppState extends ChangeNotifier {
 
   /// Re-notifies listeners (used after a draw made during a widget build).
   void notifyChanged() => notifyListeners();
+
+  static const _kUpgradeShown = 'annual_upgrade_shown';
+  int _upgradeShown = 0;
+
+  /// Monthly subscribers: offer annual once after 2 renewals (3 months paid)
+  /// and one reminder after 6 months. Null when there is nothing to show.
+  Future<int?> annualUpgradeMonths() async {
+    if (!isPremium || !subscriptions.isConfigured) return null;
+    final months = await subscriptions.monthlyMonthsPaid();
+    if (months == null) return null;
+    if (_upgradeShown == 0 && months >= 3) return months;
+    if (_upgradeShown == 1 && months >= 6) return months;
+    return null;
+  }
+
+  Future<void> dismissAnnualUpgrade() async {
+    _upgradeShown++;
+    notifyListeners();
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setInt(_kUpgradeShown, _upgradeShown);
+    } catch (_) {}
+  }
 
   static const _kTesterPremium = 'tester_premium';
 

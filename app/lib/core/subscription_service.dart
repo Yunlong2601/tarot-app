@@ -14,6 +14,7 @@ class PlanOption {
     this.handle,
     this.price,
     this.perMonthString,
+    this.productId,
   });
 
   final String id;
@@ -34,6 +35,9 @@ class PlanOption {
 
   /// Store-formatted price per month, e.g. "$3.33" for an annual plan.
   final String? perMonthString;
+
+  /// Store product id (Play ids may carry ":baseplan"; compare the part before).
+  final String? productId;
 }
 
 class SubscriptionException implements Exception {
@@ -68,7 +72,22 @@ abstract class SubscriptionService {
   /// Switches the RevenueCat app user (account id when signed in, install id
   /// when not), so Premium follows the account.
   Future<void> switchUser(String appUserId);
+
+  /// Months of Premium so far when the active plan is shorter than a year
+  /// (monthly, 3-month), else null. (Name kept from the monthly-only version.)
+  Future<int?> monthlyMonthsPaid();
+
+  /// Store product id of the active plan (without any ":baseplan"), or null.
+  Future<String?> currentProductId();
+
+  /// Moves an active monthly subscriber to [plan] (the store handles the
+  /// change; on Google Play the old product is replaced).
+  Future<bool> switchTo(PlanOption plan);
 }
+
+/// Months paid on a monthly plan, from the first and latest purchase dates.
+int monthsPaidBetween(DateTime first, DateTime latest) =>
+    1 + (latest.difference(first).inDays / 30.4).round();
 
 /// Used when `REVENUECAT_IOS_KEY` / `REVENUECAT_ANDROID_KEY` were not given
 /// via `--dart-define`. No purchases are possible; nothing is faked.
@@ -101,6 +120,16 @@ class UnconfiguredSubscriptionService implements SubscriptionService {
 
   @override
   Future<void> switchUser(String appUserId) async {}
+
+  @override
+  Future<int?> monthlyMonthsPaid() async => null;
+
+  @override
+  Future<String?> currentProductId() async => null;
+
+  @override
+  Future<bool> switchTo(PlanOption plan) =>
+      throw const SubscriptionException(_msg);
 }
 
 String _storeSubscriptionsUrl() => Platform.isIOS
@@ -136,6 +165,58 @@ class RevenueCatSubscriptionService implements SubscriptionService {
     onPremiumChanged(_isPremium(await Purchases.getCustomerInfo()));
   }
 
+  String? _monthlyProductId;
+
+  @override
+  Future<int?> monthlyMonthsPaid() async {
+    if (!_started) return null;
+    final ent = (await Purchases.getCustomerInfo())
+        .entitlements
+        .active[premiumEntitlement];
+    if (ent == null || ent.productIdentifier.contains('annual')) return null;
+    if (ent.periodType != PeriodType.normal) return null;
+    _monthlyProductId = ent.productIdentifier;
+    final first = DateTime.tryParse(ent.originalPurchaseDate);
+    final latest = DateTime.tryParse(ent.latestPurchaseDate);
+    if (first == null || latest == null) return null;
+    return monthsPaidBetween(first, latest);
+  }
+
+  @override
+  Future<String?> currentProductId() async {
+    if (!_started) return null;
+    final ent = (await Purchases.getCustomerInfo())
+        .entitlements
+        .active[premiumEntitlement];
+    return ent?.productIdentifier.split(':').first;
+  }
+
+  @override
+  Future<bool> switchTo(PlanOption plan) async {
+    final pkg = plan.handle;
+    if (pkg is! Package) throw const SubscriptionException('Unknown plan.');
+    final old = _monthlyProductId;
+    try {
+      final result = await Purchases.purchase(
+        PurchaseParams.package(
+          pkg,
+          productChangeInfo: Platform.isAndroid && old != null
+              ? StoreProductChangeInfo(old.split(':').first)
+              : null,
+        ),
+      );
+      return _isPremium(result.customerInfo);
+    } on PlatformException catch (e) {
+      if (PurchasesErrorHelper.getErrorCode(e) ==
+          PurchasesErrorCode.purchaseCancelledError) {
+        return false;
+      }
+      throw const SubscriptionException(
+        'The change could not be completed. You were not charged.',
+      );
+    }
+  }
+
   @override
   Future<void> switchUser(String appUserId) async {
     if (!_started) return;
@@ -146,7 +227,13 @@ class RevenueCatSubscriptionService implements SubscriptionService {
   Future<List<PlanOption>> plans() async {
     final packages =
         (await Purchases.getOfferings()).current?.availablePackages ?? const [];
-    const order = [PackageType.annual, PackageType.monthly, PackageType.weekly];
+    // Annual first (best value), then 3 months, then monthly. Weekly is not
+    // offered (owner decision 2026-10-17); a weekly package is ignored.
+    const order = [
+      PackageType.annual,
+      PackageType.threeMonth,
+      PackageType.monthly,
+    ];
     final known = [
       for (final t in order) ...packages.where((p) => p.packageType == t),
     ];
@@ -156,6 +243,7 @@ class RevenueCatSubscriptionService implements SubscriptionService {
   PlanOption _toPlan(Package p) {
     final (title, period) = switch (p.packageType) {
       PackageType.annual => ('Annual', 'per year'),
+      PackageType.threeMonth => ('3 Months', 'every 3 months'),
       PackageType.monthly => ('Monthly', 'per month'),
       PackageType.weekly => ('Weekly', 'per week'),
       _ => (p.storeProduct.title, ''),
@@ -174,6 +262,7 @@ class RevenueCatSubscriptionService implements SubscriptionService {
       handle: p,
       price: p.storeProduct.price,
       perMonthString: p.storeProduct.pricePerMonthString,
+      productId: p.storeProduct.identifier.split(':').first,
     );
   }
 

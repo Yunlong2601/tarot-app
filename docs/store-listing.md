@@ -33,7 +33,7 @@ PRIVATE BY DESIGN
 ShenTarot is for entertainment and self-reflection only. Readings are written by AI, are not predictions, and are not medical, legal, financial or other professional advice.
 
 SUBSCRIPTION INFO
-Premium is an auto-renewing subscription (weekly, monthly or annual; the annual plan may include a free trial). Payment is charged to your Apple ID at confirmation of purchase. The subscription renews automatically unless cancelled at least 24 hours before the end of the current period. Manage or cancel in your Apple ID account settings. Privacy Policy: https://yunlong2601.github.io/shentarot-legal/privacy.html  Terms of Use (Apple standard EULA; verify the URL): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+Premium is an auto-renewing subscription (monthly, every 3 months or annual; the annual plan may include a free trial). Payment is charged to your Apple ID at confirmation of purchase. The subscription renews automatically unless cancelled at least 24 hours before the end of the current period. Manage or cancel in your Apple ID account settings. Privacy Policy: https://yunlong2601.github.io/shentarot-legal/privacy.html  Terms of Use (Apple standard EULA; verify the URL): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 - **Support URL:** https://yunlong2601.github.io/shentarot-legal/
 - **Category:** Lifestyle (primary), Entertainment (secondary): decide.

@@ -19,17 +19,17 @@ Goal (owner): Premium only needs to cover building and running costs. All figure
 ## Revenue per subscriber per month, after the 15% store fee
 | Plan | Price | Net per month |
 |---|---|---|
-| Weekly | US$3.99 | about US$14.70 |
-| Monthly | US$7.99 | about US$6.79 |
-| Annual | US$39.99 | about US$2.83 |
+| Monthly | US$14.99 | about US$12.74 |
+| 3 months | US$34.99 | about US$9.91 |
+| Annual | US$99.99 (7-day trial) | about US$7.08 |
 
 ## Break-even
 Fixed costs are about **US$10 to US$15 a month** (Apple fee, plus US$5 Cloudflare if needed). Free users add about US$0.01 each per month.
 
 | Free daily users | AI cost a month | Total to cover | Annual subscribers needed | Or monthly subscribers |
 |---|---|---|---|---|
-| 100 | about US$1 | about US$16 | 6 | 3 |
-| 1,000 | about US$10 | about US$25 | 9 | 4 |
-| 10,000 | about US$90 | about US$105 | 37 | 16 |
+| 100 | about US$1 | about US$16 | 3 | 2 |
+| 1,000 | about US$10 | about US$25 | 4 | 2 |
+| 10,000 | about US$90 | about US$105 | 15 | 9 |
 
-So a generous free plan is affordable: even 10,000 daily free readers cost about US$90 a month in AI, covered by a few dozen subscribers. The server's global daily token cap (currently 500,000 tokens in test mode, about US$0.50 a day) stops runaway costs; raise it as real users arrive.
+So a generous free plan is affordable: even 10,000 daily free readers cost about US$90 a month in AI, covered by about 15 annual subscribers. Prices (owner decision 2026-10-17): annual US$99.99, 3 months US$34.99, monthly US$14.99; no weekly. The server's global daily token cap (currently 500,000 tokens in test mode, about US$0.50 a day) stops runaway costs; raise it as real users arrive.

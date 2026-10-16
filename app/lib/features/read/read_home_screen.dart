@@ -5,6 +5,7 @@ import '../../app/app_scope.dart';
 import '../../app/app_state.dart';
 import '../../app/brand.dart';
 import '../../app/theme.dart';
+import '../paywall/annual_upgrade_card.dart';
 import 'hero_background.dart';
 
 /// The landing screen (Read tab): artwork, tagline and one big button that
@@ -95,6 +96,7 @@ class ReadHomeScreen extends StatelessWidget {
                                   ),
                                   textAlign: TextAlign.center,
                                 ),
+                                const AnnualUpgradeCard(),
                               ],
                             ),
                           ),
