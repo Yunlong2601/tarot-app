@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../app/app_scope.dart';
-import '../../app/app_state.dart';
 import '../../app/theme.dart';
 import '../../data/models.dart';
 import '../cards/cards_browser.dart';
@@ -57,12 +56,6 @@ class _SpreadsList extends StatefulWidget {
 
 class _SpreadsListState extends State<_SpreadsList> {
   SpreadCategory _category = SpreadCategory.classics;
-
-  String _badge(AppState state, SpreadType t) {
-    if (t.isFree) return 'FREE';
-    if (state.isPremium) return 'Premium';
-    return state.trialUsed ? 'Premium' : 'Free trial reading';
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -129,14 +122,9 @@ class _SpreadsListState extends State<_SpreadsList> {
                                 ),
                                 const SizedBox(height: 6),
                                 Text(
-                                  _badge(state, t),
-                                  style: TextStyle(
-                                    color:
-                                        t.isFree ||
-                                            (!state.isPremium &&
-                                                !state.trialUsed)
-                                        ? AppColors.success
-                                        : AppColors.gold,
+                                  '${t.cardCount} ${t.cardCount == 1 ? 'card' : 'cards'}',
+                                  style: const TextStyle(
+                                    color: AppColors.gold,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),

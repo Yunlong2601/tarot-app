@@ -142,42 +142,32 @@ void main() {
     expect(find.text('A thoughtful reading.'), findsOneWidget);
   });
 
-  testWidgets(
-    'spread picker recommends by the question and shows the free trial',
-    (t) async {
-      final s = AppState(deck: deck, onboarded: true);
-      await start(t, s);
-      await t.tap(find.text('Photo reading'));
-      await t.pumpAndSettle();
-      await t.enterText(
-        find.byType(TextField),
-        'How do I heal after my breakup?',
-      );
-      await t.tap(find.text('Next'));
-      await t.pumpAndSettle();
-      expect(find.text('Healing & Reconnection'), findsOneWidget);
-      expect(find.text('Recommended'), findsOneWidget);
-      expect(
-        find.text('Uses your one-time free premium reading'),
-        findsOneWidget,
-      );
-      expect(find.text('Start free reading'), findsOneWidget);
-    },
-  );
+  testWidgets('spread picker recommends by the question', (t) async {
+    final s = AppState(deck: deck, onboarded: true);
+    await start(t, s);
+    await t.tap(find.text('Photo reading'));
+    await t.pumpAndSettle();
+    await t.enterText(
+      find.byType(TextField),
+      'How do I heal after my breakup?',
+    );
+    await t.tap(find.text('Next'));
+    await t.pumpAndSettle();
+    expect(find.text('Healing & Reconnection'), findsOneWidget);
+    expect(find.text('Recommended'), findsOneWidget);
+    expect(find.text('Start reading'), findsOneWidget);
+  });
 
-  testWidgets('library: spreads by category, with free and trial badges', (
-    t,
-  ) async {
+  testWidgets('library: spreads by category, Classics first', (t) async {
     final s = AppState(deck: deck, onboarded: true);
     await start(t, s);
     await t.tap(find.text('Library').last);
     await t.pumpAndSettle();
     // Classics is the first tab and selected by default.
     expect(find.text('One-Card Reading'), findsOneWidget);
-    expect(find.text('FREE'), findsNWidgets(2));
+    expect(find.text('1 card'), findsOneWidget);
     await tapVisible(t, find.text('Love'));
     expect(find.text('Love & Relationship'), findsOneWidget);
-    expect(find.text('Free trial reading'), findsWidgets);
   });
 
   testWidgets(

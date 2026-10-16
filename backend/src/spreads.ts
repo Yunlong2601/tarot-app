@@ -99,4 +99,6 @@ export const isSpread = (v: unknown): v is Spread => typeof v === "string" && Ob
 
 /** Free for everyone within the daily reading limit. Others need Premium or the one-time trial. */
 export const FREE_SPREADS: readonly Spread[] = ["single", "three"];
-export const isFreeSpread = (s: Spread): boolean => FREE_SPREADS.includes(s);
+/** Every spread is free within the daily limit (owner decision 2026-10-17).
+ * FREE_SPREADS is kept so a spread can be made Premium again in one place. */
+export const isFreeSpread = (_s: Spread): boolean => true;

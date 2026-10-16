@@ -26,7 +26,7 @@ class GuideScreen extends StatelessWidget {
     (
       Icons.dashboard_customize_outlined,
       'Pick a spread',
-      'One card is a quick answer. Three cards show past, present and future. The Celtic Cross uses ten cards for a deeper look. Spreads of more than one card are Premium.',
+      'One card is a quick answer. Three cards show past, present and future. The Celtic Cross uses ten cards for a deeper look. Every spread is free, one AI reading a day.',
     ),
     (
       Icons.edit_note,
@@ -36,7 +36,7 @@ class GuideScreen extends StatelessWidget {
     (
       Icons.chat_bubble_outline,
       'Follow-ups and journal',
-      'Premium members can ask follow-up questions about a reading and add private journal notes. Your history and notes stay on your phone.',
+      'Anyone can add private journal notes to a reading. Premium adds follow-up questions, a clarifier card and a look back a week later. Your history and notes stay on your phone.',
     ),
     (
       Icons.notifications_outlined,

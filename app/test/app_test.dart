@@ -90,13 +90,12 @@ void main() {
   );
 
   group('AppState free-tier rules', () {
-    test('single card and Past, Present, Future are free; a longer spread uses the one-time trial', () {
+    test('every spread is free within the daily reading', () {
       final s = AppState(deck: deck);
-      expect(s.canStart(SpreadType.single), isTrue);
-      expect(s.canStart(SpreadType.threeCard), isTrue);
-      expect(s.canStart(SpreadType.celticCross), isTrue); // trial
-      expect(s.usesTrial(SpreadType.celticCross), isTrue);
-      expect(s.usesTrial(SpreadType.single), isFalse);
+      for (final t in SpreadType.values) {
+        expect(s.canStart(t), isTrue, reason: t.name);
+        expect(s.usesTrial(t), isFalse);
+      }
     });
 
     test('free reading is consumed after one reading', () {
@@ -107,16 +106,13 @@ void main() {
     });
 
     test(
-      'the trial reading is used once, then longer spreads need Premium',
+      'a long spread uses the daily reading, and is free again tomorrow',
       () {
         var now = DateTime(2026, 10, 16);
         final s = AppState(deck: deck, clock: () => now);
         s.addReading(sample('a', spread: SpreadType.horseshoe));
-        expect(s.trialUsed, isTrue);
-        now = DateTime(2026, 10, 17); // a new day: daily limit reset
-        expect(s.canStart(SpreadType.single), isTrue);
         expect(s.canStart(SpreadType.horseshoe), isFalse);
-        s.setPremium(true);
+        now = DateTime(2026, 10, 17); // a new day: daily limit reset
         expect(s.canStart(SpreadType.horseshoe), isTrue);
       },
     );
@@ -145,9 +141,7 @@ void main() {
       expect(find.text('Photo reading'), findsOneWidget);
     });
 
-    testWidgets('locked spread opens the paywall with required links', (
-      tester,
-    ) async {
+    testWidgets('the paywall shows the required links', (tester) async {
       tallPhone(tester);
       await tester.pumpWidget(
         ShenTarotApp(

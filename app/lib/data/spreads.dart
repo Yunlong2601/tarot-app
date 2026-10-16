@@ -254,9 +254,10 @@ extension SpreadInfo on SpreadType {
   List<String> get positions => def.positions;
   int get cardCount => def.positions.length;
 
-  /// Free for everyone within the daily reading limit. Others are Premium,
-  /// with one free trial reading per install.
-  bool get isFree => this == SpreadType.single || this == SpreadType.threeCard;
+  /// Every spread is free within the daily reading limit (owner decision
+  /// 2026-10-17: Premium only needs to cover running costs). Kept as a getter
+  /// so a spread can be made Premium again in one place.
+  bool get isFree => true;
   bool get isPremium => !isFree;
 }
 

@@ -133,7 +133,7 @@ class ApiReadingService implements ReadingService, AccountBackend {
         ),
       (402, _) => const ReadingException(
         ReadingErrorKind.premiumRequired,
-        'This spread is part of Premium.',
+        'This is part of Premium.',
       ),
       (422, _) => const ReadingException(
         ReadingErrorKind.declined,

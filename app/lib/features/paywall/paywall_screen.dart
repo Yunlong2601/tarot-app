@@ -120,10 +120,11 @@ class _PaywallScreenState extends State<PaywallScreen> {
           ),
           const SizedBox(height: 16),
           for (final f in const [
-            'Every spread: Celtic Cross, Horseshoe, Love, Career and more',
-            'Up to 20 readings a day',
-            'Follow-up questions and a clarifier card',
-            'Journal notes, and a look back a week later',
+            'Up to 20 AI readings a day (free: 1 a day)',
+            'Follow-up questions on your readings',
+            'A clarifier card to shed light on a reading',
+            'A look back a week later, with a reminder',
+            'Helps keep ShenTarot running',
           ])
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 4),

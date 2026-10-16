@@ -211,15 +211,14 @@ describe("POST /v1/reading", () => {
     expect(s.calls()).toBe(1);
   });
 
-  it("longer spreads need Premium after one free trial reading, checked server-side", async () => {
+  it("free users can use any spread, one reading a day", async () => {
     const fiveCross = { spread: "five_cross", cards: ["major_00_fool", "major_01_magician", "major_02_high_priestess", "major_03_empress", "major_04_emperor"].map((id) => ({ id, reversed: false })) };
     const free = setup();
-    expect((await post(free, fiveCross)).status).toBe(200); // the one-time trial
+    expect((await post(free, fiveCross)).status).toBe(200);
     free.kv.m.clear();
-    free.usage.rows.forEach((r) => (r.day = "2000-01-01")); // next day: daily limit reset, trial still used
-    expect((await post(free, fiveCross)).status).toBe(402);
-    expect((await post(free, single)).status).toBe(200); // free spreads still work
-    expect((await post(setup({ premium: true }), fiveCross)).status).toBe(200);
+    expect((await post(free, single)).status).toBe(429); // daily limit
+    free.usage.rows.forEach((r) => (r.day = "2000-01-01")); // next day
+    expect((await post(free, fiveCross)).status).toBe(200); // no trial limit any more
   });
 
   it("the three-card Past, Present, Future spread is free for everyone", async () => {

@@ -217,7 +217,7 @@ class _FollowUpsState extends State<_FollowUps> {
   }
 }
 
-/// Journal note: Premium to write, readable by everyone who has one.
+/// Journal note: free for everyone, kept on this phone.
 class _Journal extends StatefulWidget {
   const _Journal({required this.reading});
   final Reading reading;
@@ -238,13 +238,6 @@ class _JournalState extends State<_Journal> {
   @override
   Widget build(BuildContext context) {
     final state = AppScope.of(context);
-    if (!state.isPremium) {
-      return OutlinedButton.icon(
-        onPressed: () => context.push('/paywall'),
-        icon: const Icon(Icons.lock_outline),
-        label: const Text('Add a journal note (Premium)'),
-      );
-    }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

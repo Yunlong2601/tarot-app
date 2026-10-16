@@ -9,20 +9,11 @@ Future<void> goPhoto(WidgetTester t) async {
   await tapVisible(t, find.text('Start reading'));
 }
 
-/// Read tab, with the trial reading already used: Library > Classics >
-/// Celtic Cross sends a free user to the paywall.
+/// You tab -> Go Premium opens the paywall.
 Future<void> openPaywall(WidgetTester t) async {
-  await t.tap(find.text('Library').last);
+  await t.tap(find.text('You').last);
   await t.pumpAndSettle();
-  await tapVisible(t, find.text('Classics'));
-  for (var i = 0; i < 20 && find.text('Celtic Cross').evaluate().isEmpty; i++) {
-    await t.drag(find.byType(ListView).last, const Offset(0, -500));
-    await t.pumpAndSettle();
-  }
-  await t.ensureVisible(find.text('Celtic Cross'));
-  await t.pumpAndSettle();
-  await t.tap(find.text('Celtic Cross'));
-  await t.pumpAndSettle();
+  await tapVisible(t, find.text('Go Premium'));
 }
 
 /// You tab -> Reading History.

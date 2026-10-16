@@ -163,8 +163,8 @@ describe("spread catalog", () => {
       }
     }
   });
-  it("only the single card and Past, Present, Future are free", () => {
-    expect(SPREAD_IDS.filter(isFreeSpread)).toEqual(["single", "three"]);
+  it("every spread is free within the daily limit", () => {
+    expect(SPREAD_IDS.filter(isFreeSpread)).toEqual(SPREAD_IDS);
   });
   it("the prompt names the spread and its purpose", () => {
     const m = buildReadingMessage({

@@ -29,13 +29,6 @@ class _SpreadPickerScreenState extends State<SpreadPickerScreen> {
     super.dispose();
   }
 
-  String _badge(AppState s, SpreadType t, bool recommended) {
-    if (recommended) return 'Recommended';
-    if (t.isFree) return 'FREE';
-    if (s.isPremium) return 'Premium';
-    return s.trialUsed ? 'Premium' : 'Free trial reading';
-  }
-
   @override
   Widget build(BuildContext context) {
     final state = AppScope.of(context);
@@ -87,8 +80,10 @@ class _SpreadPickerScreenState extends State<SpreadPickerScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Chip(label: Text(_badge(state, t, recommended))),
-                            const SizedBox(height: 8),
+                            if (recommended) ...[
+                              const Chip(label: Text('Recommended')),
+                              const SizedBox(height: 8),
+                            ],
                             Text(
                               t.label,
                               style: Theme.of(context).textTheme.headlineSmall,

@@ -333,9 +333,7 @@ void main() {
       expect(find.text('Draw your first card'), findsOneWidget);
     });
 
-    testWidgets('free users see a locked journal; premium can save a note', (
-      tester,
-    ) async {
+    testWidgets('free users can write a journal note', (tester) async {
       tall(tester);
       final state = AppState(deck: deck, onboarded: true);
       state.addReading(reading('a', DateTime(2026, 5, 5)));
@@ -344,8 +342,11 @@ void main() {
       await goHistory(tester);
       await tester.tap(find.textContaining('Past, Present, Future'));
       await tester.pumpAndSettle();
-      expect(find.text('Add a journal note (Premium)'), findsOneWidget);
-      expect(find.text('Ask a follow-up'), findsNothing);
+      expect(find.text('Ask a follow-up (Premium)'), findsOneWidget);
+      await tester.enterText(find.byType(TextField), 'My note');
+      await tester.tap(find.text('Save note'));
+      await tester.pump();
+      expect(state.history.single.note, 'My note');
     });
 
     testWidgets('premium journal note is saved', (tester) async {
