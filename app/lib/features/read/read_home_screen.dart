@@ -5,7 +5,6 @@ import '../../app/app_scope.dart';
 import '../../app/app_state.dart';
 import '../../app/brand.dart';
 import '../../app/theme.dart';
-import '../../data/models.dart';
 import 'hero_background.dart';
 
 /// The landing screen (Read tab): artwork, tagline and one big button that
@@ -57,9 +56,7 @@ class ReadHomeScreen extends StatelessWidget {
                                 const SizedBox(height: 24),
                                 _ModeButton(
                                   photo: photo,
-                                  onMain: () => context.push(
-                                    photo ? '/photo' : '/digital',
-                                  ),
+                                  onMain: () => context.push('/ask'),
                                   onSwap: () => state.setReadMode(
                                     photo ? ReadMode.digital : ReadMode.photo,
                                   ),
@@ -75,16 +72,6 @@ class ReadHomeScreen extends StatelessWidget {
                                     state.dailyCardIfDrawn == null
                                         ? 'Card of the Day (free)'
                                         : "Today's card: ${state.dailyCardIfDrawn!.card.name}",
-                                  ),
-                                ),
-                                TextButton.icon(
-                                  onPressed: () => _pickSpread(context, state),
-                                  icon: const Icon(
-                                    Icons.dashboard_customize_outlined,
-                                    size: 18,
-                                  ),
-                                  label: Text(
-                                    'Spread: ${state.selectedSpread.label}',
                                   ),
                                 ),
                                 Text(
@@ -113,45 +100,6 @@ class ReadHomeScreen extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  Future<void> _pickSpread(BuildContext context, AppState state) async {
-    final chosen = await showModalBottomSheet<SpreadType>(
-      context: context,
-      builder: (ctx) => SafeArea(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Padding(
-              padding: EdgeInsets.all(16),
-              child: Text(
-                'Choose a spread',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-              ),
-            ),
-            for (final s in SpreadType.values)
-              ListTile(
-                title: Text(s.label),
-                subtitle: Text(
-                  '${s.cardCount} card${s.cardCount == 1 ? '' : 's'}',
-                ),
-                trailing: s.isPremium && !state.isPremium
-                    ? const Icon(Icons.lock_outline)
-                    : (s == state.selectedSpread
-                          ? const Icon(Icons.check)
-                          : null),
-                onTap: () => Navigator.pop(ctx, s),
-              ),
-          ],
-        ),
-      ),
-    );
-    if (chosen == null || !context.mounted) return;
-    if (chosen.isPremium && !state.isPremium) {
-      context.push('/paywall');
-    } else {
-      state.selectSpread(chosen);
-    }
   }
 }
 

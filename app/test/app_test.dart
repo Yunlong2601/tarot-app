@@ -81,27 +81,45 @@ void main() {
     });
   });
 
-  Reading sample(String id) => Reading(
+  Reading sample(String id, {SpreadType spread = SpreadType.single}) => Reading(
     id: id,
     createdAt: DateTime(2026, 10, 16),
-    spread: SpreadType.single,
+    spread: spread,
     cards: [DrawnCard(card: deck.cards.first, reversed: false)],
     interpretation: 'x',
   );
 
   group('AppState free-tier rules', () {
-    test('free user gets one single-card reading per day', () {
+    test('single card and Past, Present, Future are free; a longer spread uses the one-time trial', () {
       final s = AppState(deck: deck);
       expect(s.canStart(SpreadType.single), isTrue);
-      expect(s.canStart(SpreadType.threeCard), isFalse);
-      expect(s.canStart(SpreadType.celticCross), isFalse);
+      expect(s.canStart(SpreadType.threeCard), isTrue);
+      expect(s.canStart(SpreadType.celticCross), isTrue); // trial
+      expect(s.usesTrial(SpreadType.celticCross), isTrue);
+      expect(s.usesTrial(SpreadType.single), isFalse);
     });
 
     test('free reading is consumed after one reading', () {
       final s = AppState(deck: deck);
       s.addReading(sample('a'));
       expect(s.canStart(SpreadType.single), isFalse);
+      expect(s.canStart(SpreadType.threeCard), isFalse);
     });
+
+    test(
+      'the trial reading is used once, then longer spreads need Premium',
+      () {
+        var now = DateTime(2026, 10, 16);
+        final s = AppState(deck: deck, clock: () => now);
+        s.addReading(sample('a', spread: SpreadType.horseshoe));
+        expect(s.trialUsed, isTrue);
+        now = DateTime(2026, 10, 17); // a new day: daily limit reset
+        expect(s.canStart(SpreadType.single), isTrue);
+        expect(s.canStart(SpreadType.horseshoe), isFalse);
+        s.setPremium(true);
+        expect(s.canStart(SpreadType.horseshoe), isTrue);
+      },
+    );
 
     test('premium unlocks all spreads, unlimited', () {
       final s = AppState(deck: deck)..setPremium(true);
@@ -134,11 +152,12 @@ void main() {
     ) async {
       tallPhone(tester);
       await tester.pumpWidget(
-        ShenTarotApp(initialState: AppState(deck: deck, onboarded: true)),
+        ShenTarotApp(
+          initialState: AppState(deck: deck, onboarded: true)..trialUsed = true,
+        ),
       );
       await tester.pumpAndSettle();
-      await goPhoto(tester);
-      await tester.tap(find.textContaining('Three cards'));
+      await openPaywall(tester);
       await tester.pumpAndSettle();
       expect(find.text('Unlock Premium'), findsOneWidget);
       expect(find.text('Restore Purchases'), findsOneWidget);

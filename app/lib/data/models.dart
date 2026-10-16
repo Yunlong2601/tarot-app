@@ -1,3 +1,7 @@
+import 'spreads.dart';
+
+export 'spreads.dart';
+
 enum Arcana { major, minor }
 
 enum Suit { wands, cups, swords, pentacles }
@@ -97,22 +101,6 @@ class TarotCard {
 
   /// Bundled art path. May be missing until public-domain art is added.
   String get artAsset => 'assets/cards/art/$id.jpg';
-}
-
-enum SpreadType { single, threeCard, celticCross }
-
-extension SpreadTypeInfo on SpreadType {
-  String get label => switch (this) {
-    SpreadType.single => 'Single card',
-    SpreadType.threeCard => 'Three cards',
-    SpreadType.celticCross => 'Celtic Cross',
-  };
-  int get cardCount => switch (this) {
-    SpreadType.single => 1,
-    SpreadType.threeCard => 3,
-    SpreadType.celticCross => 10,
-  };
-  bool get isPremium => this != SpreadType.single;
 }
 
 class DrawnCard {

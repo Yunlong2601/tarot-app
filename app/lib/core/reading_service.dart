@@ -75,8 +75,4 @@ class UnconfiguredReadingService implements ReadingService {
   );
 }
 
-String spreadWireName(SpreadType s) => switch (s) {
-  SpreadType.single => 'single',
-  SpreadType.threeCard => 'three',
-  SpreadType.celticCross => 'celtic',
-};
+String spreadWireName(SpreadType s) => s.wire;

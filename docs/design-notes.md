@@ -24,3 +24,12 @@ Dark theme with a gold accent (`lib/app/theme.dart`). The card back used in digi
 - Serif headlines (Georgia on iOS, system serif on Android); body stays system sans. Glow around the onboarding icons and cards.
 - The landing shows the card fan until you add `assets/hero/hero.jpg`.
 - To look at the app without tapping: `flutter build ios --simulator`, then `xcrun simctl install booted build/ios/iphonesimulator/Runner.app` and `xcrun simctl launch booted com.example.shentarot`, `xcrun simctl io booted screenshot out.png`.
+
+## Reading flow (owner's second wireframe set, built 2026-10-16)
+Read -> **Ask** (question, starters, wording nudge, or skip) -> **Select a Spread** (carousel, best match for the question marked Recommended, layout diagram, free / free trial / Premium badge) -> **draw**: Digital (tap the deck to place cards into the numbered slots, then flip each) or Photo (scan or pick manually, slot by slot) -> reading with a layout view for 5+ cards and section titles (In short, one block per card, To reflect on, A small step). Library > Spreads is the same catalog by category (Love, Career, Growth, Classics); tapping one starts Ask with it already chosen.
+
+Spread catalog: 14 spreads, defined in `app/lib/data/spreads.dart` and `backend/src/spreads.ts` (same ids and position labels; a backend test keeps wording about the user's own side only).
+
+Free rules: **One-Card** and **Past, Present, Future** are free (one reading per day). Any other spread is Premium, with **one free trial reading per install** (tracked on the phone and enforced by the backend).
+
+Changed from the wireframe on purpose: "Ex, Reconciliation" became "Healing & Reconnection" with positions about the user; "Their Feelings & Thoughts About Me" became "What I Bring to This Connection"; the "Three-Card Yes/No Method" is not offered (the cards cannot answer yes or no); "Love & Relationship" is a trial spread, not free. Not built: the Guide-match quiz, credits, referrals, a streaming reading screen (we show a spinner), Wirth/other named variants beyond the five-card cross.

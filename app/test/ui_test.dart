@@ -7,7 +7,11 @@ import 'package:shentarot/app/app_state.dart';
 import 'package:shentarot/core/reading_service.dart';
 import 'package:shentarot/data/deck.dart';
 import 'package:shentarot/data/models.dart';
+import 'package:shentarot/features/read/flip_card.dart';
 import 'package:shentarot/main.dart';
+
+import 'helpers.dart';
+
 import 'package:shentarot/app/brand.dart';
 
 class _Fake implements ReadingService {
@@ -58,7 +62,7 @@ void main() {
     expect(find.text('Photo reading'), findsNothing);
   });
 
-  testWidgets('digital reading: flip every card, then get a reading', (
+  testWidgets('digital reading: ask, pick, draw into slots, flip, read', (
     t,
   ) async {
     final fake = _Fake();
@@ -68,45 +72,94 @@ void main() {
     await t.pumpAndSettle();
     await t.tap(find.text('Digital card reading'));
     await t.pumpAndSettle();
-    // Single card spread: one face-down card, no reading button yet.
-    expect(find.text('Get my reading'), findsNothing);
-    await t.tap(find.bySemanticsLabel('Face-down card. Tap to turn over.'));
+    await t.enterText(
+      find.byType(TextField),
+      'What should I focus on this week?',
+    );
+    await t.tap(find.text('Next'));
     await t.pumpAndSettle();
+    expect(find.text('Select a Spread'), findsOneWidget);
+    expect(find.text('Recommended'), findsOneWidget);
+    await t.tap(find.textContaining('Start '));
+    await t.pumpAndSettle();
+    // Past, Present, Future: three cards. Draw each from the deck.
+    expect(find.text('Get my reading'), findsNothing);
+    for (var i = 0; i < 3; i++) {
+      await t.tap(find.bySemanticsLabel('Deck. Tap to draw the next card.'));
+      await t.pumpAndSettle();
+    }
+    for (var i = 0; i < 3; i++) {
+      await t.tap(find.byType(FlipCard).at(i));
+      await t.pumpAndSettle();
+    }
     expect(find.text('Get my reading'), findsOneWidget);
     await t.tap(find.text('Get my reading'));
     await t.pumpAndSettle();
-    expect(fake.calls.single.length, 1);
+    expect(fake.calls.single.length, 3);
     expect(find.text('A thoughtful reading.'), findsOneWidget);
     expect(s.history.length, 1);
+    expect(s.history.first.question, 'What should I focus on this week?');
   });
 
-  testWidgets('library: spreads list, Premium lock, and the cards tab', (
+  testWidgets(
+    'spread picker recommends by the question and shows the free trial',
+    (t) async {
+      final s = AppState(deck: deck, onboarded: true);
+      await start(t, s);
+      await t.tap(find.text('Photo reading'));
+      await t.pumpAndSettle();
+      await t.enterText(
+        find.byType(TextField),
+        'How do I heal after my breakup?',
+      );
+      await t.tap(find.text('Next'));
+      await t.pumpAndSettle();
+      expect(find.text('Healing & Reconnection'), findsOneWidget);
+      expect(find.text('Recommended'), findsOneWidget);
+      expect(
+        find.text('Uses your one-time free premium reading'),
+        findsOneWidget,
+      );
+      expect(find.text('Start free reading'), findsOneWidget);
+    },
+  );
+
+  testWidgets('library: spreads by category, with free and trial badges', (
     t,
   ) async {
     final s = AppState(deck: deck, onboarded: true);
     await start(t, s);
     await t.tap(find.text('Library').last);
     await t.pumpAndSettle();
-    expect(find.text('Single card'), findsOneWidget);
-    expect(find.text('Premium'), findsNWidgets(2)); // three-card + Celtic Cross
-    await t.tap(find.text('Three cards'));
-    await t.pumpAndSettle();
-    expect(find.text('Unlock Premium'), findsOneWidget);
+    expect(find.text('Love & Relationship'), findsOneWidget);
+    expect(find.text('Free trial reading'), findsWidgets);
+    await tapVisible(t, find.text('Classics'));
+    expect(find.text('One-Card Reading'), findsOneWidget);
+    expect(find.text('FREE'), findsNWidgets(2));
   });
 
   testWidgets(
-    'library: picking a free spread returns to Read with it selected',
+    'library: a premium spread opens the paywall once the trial is used',
     (t) async {
-      final s = AppState(deck: deck, onboarded: true)..setPremium(true);
+      final s = AppState(deck: deck, onboarded: true)..trialUsed = true;
       await start(t, s);
-      await t.tap(find.text('Library').last);
-      await t.pumpAndSettle();
-      await t.tap(find.text('Three cards'));
-      await t.pumpAndSettle();
-      expect(s.selectedSpread, SpreadType.threeCard);
-      expect(find.text('Spread: Three cards'), findsOneWidget);
+      await openPaywall(t);
+      expect(find.text('Unlock Premium'), findsOneWidget);
     },
   );
+
+  testWidgets('library: a free spread starts the ask flow with it selected', (
+    t,
+  ) async {
+    final s = AppState(deck: deck, onboarded: true);
+    await start(t, s);
+    await t.tap(find.text('Library').last);
+    await t.pumpAndSettle();
+    await tapVisible(t, find.text('Classics'));
+    await tapVisible(t, find.text('Past, Present, Future'));
+    expect(s.selectedSpread, SpreadType.threeCard);
+    expect(find.text('Your question'), findsOneWidget);
+  });
 
   testWidgets('guide explains how to use the app', (t) async {
     await start(t, AppState(deck: deck, onboarded: true));

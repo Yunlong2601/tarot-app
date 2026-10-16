@@ -107,9 +107,10 @@ export function parseModelReply(raw: string, req: ReadingRequest): StructuredRea
 
 /** Plain text for the app (the app can render the structured form later). */
 export function renderReading(s: StructuredReading): string {
-  const parts = s.cards.map((c) =>
-    `${c.position}: ${c.card}${c.orientation === "reversed" ? " (reversed)" : ""}\n${c.reading}\nWhy: ${c.why}`);
-  parts.push(`Overview\n${s.overview}`);
+  const parts = [`In short\n${s.overview}`];
+  for (const c of s.cards) {
+    parts.push(`${c.position}: ${c.card}${c.orientation === "reversed" ? " (reversed)" : ""}\n${c.reading}\nWhy: ${c.why}`);
+  }
   parts.push(`To reflect on\n${s.reflection_question}`);
   parts.push(`A small step\n${s.small_step}`);
   return parts.join("\n\n");

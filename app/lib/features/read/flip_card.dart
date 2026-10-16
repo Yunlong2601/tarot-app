@@ -13,7 +13,13 @@ class FlipCard extends StatefulWidget {
     required this.drawn,
     required this.flipped,
     required this.onTap,
+    this.width = 90,
+    this.showCaption = true,
   });
+  final double width;
+
+  /// Show the card name under the card once flipped.
+  final bool showCaption;
   final DrawnCard drawn;
   final bool flipped;
   final VoidCallback onTap;
@@ -72,23 +78,25 @@ class _FlipCardState extends State<FlipCard>
                           CardArt(
                             card: widget.drawn.card,
                             reversed: widget.drawn.reversed,
-                            width: 90,
+                            width: widget.width,
                           ),
-                          const SizedBox(height: 4),
-                          SizedBox(
-                            width: 96,
-                            child: Text(
-                              '$name${widget.drawn.reversed ? ' (reversed)' : ''}',
-                              textAlign: TextAlign.center,
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                              style: const TextStyle(fontSize: 11),
+                          if (widget.showCaption) ...[
+                            const SizedBox(height: 4),
+                            SizedBox(
+                              width: 96,
+                              child: Text(
+                                '$name${widget.drawn.reversed ? ' (reversed)' : ''}',
+                                textAlign: TextAlign.center,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(fontSize: 11),
+                              ),
                             ),
-                          ),
+                          ],
                         ],
                       ),
                     )
-                  : const CardBack(width: 90),
+                  : CardBack(width: widget.width),
             );
           },
         ),

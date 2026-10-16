@@ -5,8 +5,8 @@ import '../../app/app_scope.dart';
 import '../../app/theme.dart';
 import '../../core/reading_service.dart';
 import '../../data/models.dart';
-import '../../data/spreads.dart';
 import '../cards/card_art.dart';
+import '../spreads/spread_layout.dart';
 
 class _AskDialog extends StatefulWidget {
   const _AskDialog();
@@ -237,36 +237,55 @@ class ReadingScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(24),
         children: [
-          Wrap(
-            spacing: 12,
-            runSpacing: 12,
-            alignment: WrapAlignment.center,
-            children: [
-              for (final (i, d) in reading.cards.indexed)
-                InkWell(
-                  onTap: () => context.push('/card/${d.card.id}'),
-                  child: Column(
-                    children: [
-                      CardArt(card: d.card, reversed: d.reversed, width: 90),
-                      const SizedBox(height: 4),
-                      SizedBox(
-                        width: 96,
-                        child: Text(
-                          spreadPositions[reading.spread]![i],
-                          textAlign: TextAlign.center,
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(
-                            fontSize: 11,
-                            color: AppColors.textMuted,
-                          ),
-                        ),
-                      ),
-                    ],
+          if (reading.cards.length >= 5)
+            Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 380),
+                child: SpreadLayoutView(
+                  type: reading.spread,
+                  slotBuilder: (i, w, h) => InkWell(
+                    onTap: () =>
+                        context.push('/card/${reading.cards[i].card.id}'),
+                    child: CardArt(
+                      card: reading.cards[i].card,
+                      reversed: reading.cards[i].reversed,
+                      width: w,
+                    ),
                   ),
                 ),
-            ],
-          ),
+              ),
+            )
+          else
+            Wrap(
+              spacing: 12,
+              runSpacing: 12,
+              alignment: WrapAlignment.center,
+              children: [
+                for (final (i, d) in reading.cards.indexed)
+                  InkWell(
+                    onTap: () => context.push('/card/${d.card.id}'),
+                    child: Column(
+                      children: [
+                        CardArt(card: d.card, reversed: d.reversed, width: 90),
+                        const SizedBox(height: 4),
+                        SizedBox(
+                          width: 96,
+                          child: Text(
+                            reading.spread.positions[i],
+                            textAlign: TextAlign.center,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(
+                              fontSize: 11,
+                              color: AppColors.textMuted,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+              ],
+            ),
           if (reading.question != null) ...[
             const SizedBox(height: 20),
             Text(
@@ -278,7 +297,7 @@ class ReadingScreen extends StatelessWidget {
             ),
           ],
           const SizedBox(height: 20),
-          Text(reading.interpretation),
+          _ReadingText(reading.interpretation),
           const SizedBox(height: 20),
           _FollowUps(reading: reading),
           const SizedBox(height: 12),
@@ -291,6 +310,66 @@ class ReadingScreen extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+/// Shows the reading with its section titles ("In short", the card lines, "To
+/// reflect on", "A small step") in the heading style. Older plain readings
+/// have no titles and just show as text.
+class _ReadingText extends StatelessWidget {
+  const _ReadingText(this.text);
+  final String text;
+
+  static bool _isTitle(String line) =>
+      line.length <= 70 &&
+      !line.endsWith('.') &&
+      !line.endsWith('?') &&
+      !line.startsWith('Why:');
+
+  @override
+  Widget build(BuildContext context) {
+    final blocks = text.split('\n\n');
+    final t = Theme.of(context).textTheme;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        for (final b in blocks)
+          Padding(
+            padding: const EdgeInsets.only(bottom: 16),
+            child: Builder(
+              builder: (_) {
+                final lines = b.split('\n');
+                if (lines.length > 1 && _isTitle(lines.first)) {
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        lines.first,
+                        style: t.titleMedium?.copyWith(color: AppColors.gold),
+                      ),
+                      const SizedBox(height: 4),
+                      for (final l in lines.skip(1))
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 4),
+                          child: Text(
+                            l,
+                            style: l.startsWith('Why:')
+                                ? const TextStyle(
+                                    color: AppColors.textMuted,
+                                    fontStyle: FontStyle.italic,
+                                  )
+                                : null,
+                          ),
+                        ),
+                    ],
+                  );
+                }
+                return Text(b);
+              },
+            ),
+          ),
+      ],
     );
   }
 }

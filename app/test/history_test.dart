@@ -233,7 +233,7 @@ void main() {
       await tester.pumpWidget(ShenTarotApp(initialState: state));
       await tester.pumpAndSettle();
       await goHistory(tester);
-      await tester.tap(find.textContaining('Three cards'));
+      await tester.tap(find.textContaining('Past, Present, Future'));
       await tester.pumpAndSettle();
       expect(find.text('Add a journal note (Premium)'), findsOneWidget);
       expect(find.text('Ask a follow-up'), findsNothing);
@@ -246,7 +246,7 @@ void main() {
       await tester.pumpWidget(ShenTarotApp(initialState: state));
       await tester.pumpAndSettle();
       await goHistory(tester);
-      await tester.tap(find.textContaining('Three cards'));
+      await tester.tap(find.textContaining('Past, Present, Future'));
       await tester.pumpAndSettle();
       await tester.enterText(find.byType(TextField), 'My note');
       await tester.tap(find.text('Save note'));
@@ -273,7 +273,7 @@ void main() {
       await tester.pumpWidget(ShenTarotApp(initialState: state));
       await tester.pumpAndSettle();
       await goHistory(tester);
-      await tester.tap(find.textContaining('Three cards'));
+      await tester.tap(find.textContaining('Past, Present, Future'));
       await tester.pumpAndSettle();
       await tester.tap(find.text('Ask a follow-up'));
       await tester.pumpAndSettle();
@@ -293,7 +293,7 @@ void main() {
       await tester.pumpWidget(ShenTarotApp(initialState: state));
       await tester.pumpAndSettle();
       await goHistory(tester);
-      await tester.tap(find.textContaining('Three cards'));
+      await tester.tap(find.textContaining('Past, Present, Future'));
       await tester.pumpAndSettle();
       await tester.tap(find.text('Ask a follow-up (Premium)'));
       await tester.pumpAndSettle();

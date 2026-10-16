@@ -149,9 +149,8 @@ void main() {
 
     testWidgets('paywall', (t) async {
       phone(t, scale: 2.0);
-      await open(t, state(), 'Read');
-      await goPhoto(t);
-      await tapVisible(t, find.textContaining('Three cards'));
+      await open(t, state()..trialUsed = true, 'Read');
+      await openPaywall(t);
       await t.pumpAndSettle();
       expect(find.text('Unlock Premium'), findsOneWidget);
       expect(t.takeException(), isNull);
@@ -183,9 +182,8 @@ void main() {
     testWidgets('paywall', (t) async {
       phone(t);
       final h = t.ensureSemantics();
-      await open(t, state(), 'Read');
-      await goPhoto(t);
-      await tapVisible(t, find.textContaining('Three cards'));
+      await open(t, state()..trialUsed = true, 'Read');
+      await openPaywall(t);
       await t.pumpAndSettle();
       await expectLater(t, meetsGuideline(androidTapTargetGuideline));
       await expectLater(t, meetsGuideline(labeledTapTargetGuideline));

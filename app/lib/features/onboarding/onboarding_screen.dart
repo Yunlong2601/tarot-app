@@ -23,7 +23,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     (
       Icons.auto_awesome,
       'Readings that fit your question',
-      'Ask what is on your mind and get a thoughtful, plain-language reading of your cards. One free single-card reading every day.',
+      'Ask what is on your mind and get a thoughtful, plain-language reading of your cards. One free reading every day, and a free taste of the longer spreads.',
     ),
     (
       Icons.verified_user_outlined,

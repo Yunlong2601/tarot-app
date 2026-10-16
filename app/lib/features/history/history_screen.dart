@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../app/app_scope.dart';
 import '../../app/theme.dart';
-import '../../data/models.dart';
+import '../../data/spreads.dart';
 
 class HistoryScreen extends StatelessWidget {
   const HistoryScreen({super.key});

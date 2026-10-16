@@ -5,7 +5,9 @@ import '../features/auth/signin_demo_screen.dart';
 import '../features/guide/guide_screen.dart';
 import '../features/history/history_screen.dart';
 import '../features/library/library_screen.dart';
+import '../features/read/ask_screen.dart';
 import '../features/read/daily_card_screen.dart';
+import '../features/read/spread_picker_screen.dart';
 import '../features/read/digital_reading_screen.dart';
 import '../features/read/read_home_screen.dart';
 import '../features/home/home_shell.dart';
@@ -59,6 +61,11 @@ GoRouter buildRouter(AppState state) {
           ),
         ],
       ),
+      GoRoute(
+        path: '/ask',
+        builder: (_, s) => AskScreen(skipPicker: s.extra == true),
+      ),
+      GoRoute(path: '/spreads', builder: (_, _) => const SpreadPickerScreen()),
       GoRoute(path: '/photo', builder: (_, _) => const ScanScreen()),
       GoRoute(
         path: '/digital',

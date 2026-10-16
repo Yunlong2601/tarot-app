@@ -118,7 +118,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
           ),
           const SizedBox(height: 16),
           for (final f in const [
-            'Three-card and Celtic Cross spreads',
+            'Every spread: Celtic Cross, Horseshoe, Love, Career and more',
             'Unlimited readings',
             'Follow-up questions on your readings',
             'Journal notes on every reading',

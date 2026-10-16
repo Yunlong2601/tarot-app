@@ -10,6 +10,7 @@ import 'package:shentarot/core/reading_service.dart';
 import 'package:shentarot/data/deck.dart';
 import 'package:shentarot/data/models.dart';
 import 'package:shentarot/features/read/question_nudge.dart';
+import 'package:shentarot/features/read/flip_card.dart';
 import 'package:shentarot/main.dart';
 
 class _Crisis implements ReadingService {
@@ -144,8 +145,18 @@ void main() {
       await t.pumpAndSettle();
       await t.tap(find.text('Digital card reading'));
       await t.pumpAndSettle();
-      await t.tap(find.bySemanticsLabel(RegExp('Face-down card')));
+      await t.tap(find.text('Skip: general reading'));
       await t.pumpAndSettle();
+      await t.tap(find.textContaining('Start '));
+      await t.pumpAndSettle();
+      for (var i = 0; i < 3; i++) {
+        await t.tap(find.bySemanticsLabel('Deck. Tap to draw the next card.'));
+        await t.pumpAndSettle();
+      }
+      for (var i = 0; i < 3; i++) {
+        await t.tap(find.byType(FlipCard).at(i));
+        await t.pumpAndSettle();
+      }
       await t.tap(find.text('Get my reading'));
       await t.pumpAndSettle();
       expect(find.text('You are not alone'), findsOneWidget);
@@ -176,7 +187,7 @@ void main() {
       await t.pumpAndSettle();
       await t.tap(find.text('Reading History'));
       await t.pumpAndSettle();
-      await t.tap(find.textContaining('Three cards'));
+      await t.tap(find.textContaining('Past, Present, Future'));
       await t.pumpAndSettle();
       expect(find.text('Where it began'), findsOneWidget);
       expect(find.text('Where it is heading'), findsOneWidget);

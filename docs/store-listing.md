@@ -16,11 +16,11 @@ Got a tarot deck but not sure what you drew? ShenTarot scans your card, tells yo
 HOLD THE CARDS. WE EXPLAIN THEM.
 - Point your camera at a card and ShenTarot recognises it on your phone. Your photo is never saved or uploaded.
 - Not sure it saw the right card? Pick it from the full 78-card list in a few taps.
-- Ask a question, or leave it open, and get a thoughtful reading of your cards.
+- Ask a question, choose a spread for it (love, career, growth or classics), and get a thoughtful reading of your cards.
 
 BUILT FOR BEGINNERS, USEFUL FOR EVERYONE
-- Free: one single-card reading every day.
-- Premium: three-card and ten-card Celtic Cross spreads, unlimited readings, follow-up questions, and a journal to keep your own notes.
+- Free: one reading every day (one card or Past, Present, Future), plus a free trial reading of any longer spread.
+- Premium: 14 spreads including the Celtic Cross and Horseshoe, unlimited readings, follow-up questions, and a journal to keep your own notes.
 - A card library with keywords and upright and reversed meanings for all 78 cards.
 - Daily reminder, if you want one.
 

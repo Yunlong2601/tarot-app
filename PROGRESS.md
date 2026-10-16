@@ -16,7 +16,9 @@ Primary working copy: the owner's local Mac folder. This repo is the backup and 
 | G | Tests, store checklists, privacy and terms drafts | Docs written on branch `phase-g-release-docs` (checklists, test plan, data inventory, legal DRAFTS bundled in the app); lawyer review and device testing still to do |
 
 ## Next step
-Tarot knowledge pass (branch `tarot-knowledge`, see `docs/tarot-knowledge-plan.md` for what is done and not done): reversed-card bug fixed (backend now sends orientation-specific data), new reading prompt with JSON output, crisis pre-check, stored-text fallback, 22 Majors written richly, Card of the Day, reversed setting, position labels, question nudge, 12-lesson Guide. Next content work: courts, then pips; then Look-first, clarifier, journal revisit.
+New reading flow from the owner's second wireframe set (branch `spreads-and-flow`): Ask -> Select a Spread -> draw (digital slots / photo) -> reading; 14 spreads in two catalogs (app + backend), free trial reading for longer spreads, Library by category, layout view. See `docs/design-notes.md`. Deliberately changed/omitted wireframe items are listed there.
+
+(Earlier) Tarot knowledge pass (branch `tarot-knowledge`, see `docs/tarot-knowledge-plan.md` for what is done and not done): reversed-card bug fixed (backend now sends orientation-specific data), new reading prompt with JSON output, crisis pre-check, stored-text fallback, 22 Majors written richly, Card of the Day, reversed setting, position labels, question nudge, 12-lesson Guide. Next content work: courts, then pips; then Look-first, clarifier, journal revisit.
 
 (Earlier) UI redesign (branch `ui-redesign`, from the owner's wireframe): tabs Read / Guide / Library / You, landing with Photo-or-Digital reading button, digital card reading (tap to flip), Guide (how to use + tarot basics), Library (Spreads | Cards), You tab, and a DEMO sign-in page (no accounts; closable). Details and what is NOT built: `docs/design-notes.md`. Owner to supply: hero artwork (`app/assets/hero/hero.jpg`) and the landing video. Before release decide: build real sign-in or remove the demo "Sign in" button.
 

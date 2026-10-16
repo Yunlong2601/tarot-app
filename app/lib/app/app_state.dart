@@ -39,6 +39,12 @@ class AppState extends ChangeNotifier {
   /// Spread chosen on the Read tab / Library; shared by photo and digital readings.
   SpreadType selectedSpread = SpreadType.single;
 
+  /// The question typed on the Ask screen for the reading in progress.
+  String draftQuestion = '';
+
+  /// Whether the one-time free reading of a longer spread has been used.
+  bool trialUsed = false;
+
   /// The Read tab's main button: scan a physical deck or draw digitally.
   ReadMode readMode = ReadMode.photo;
   bool isPremium = false;
@@ -64,6 +70,7 @@ class AppState extends ChangeNotifier {
   static const _kOnboarded = 'onboarded';
   static const _kUsedDay = 'free_used_day';
   static const _kUsedCount = 'free_used_count';
+  static const _kTrial = 'trial_used';
   static const _kReversed = 'read_reversed';
   static const _kDailyDate = 'daily_date';
   static const _kDailyId = 'daily_id';
@@ -83,8 +90,13 @@ class AppState extends ChangeNotifier {
   /// Premium users are unlimited; free users get one single-card reading a day.
   bool canStart(SpreadType spread) {
     if (isPremium) return true;
-    return !spread.isPremium && canReadForFree;
+    if (!canReadForFree) return false;
+    return spread.isFree || !trialUsed;
   }
+
+  /// True when this spread would use the one-time free trial reading.
+  bool usesTrial(SpreadType spread) =>
+      !isPremium && !spread.isFree && !trialUsed;
 
   /// Loads saved history and settings. Failures leave the app usable.
   Future<void> loadPersisted() async {
@@ -93,6 +105,7 @@ class AppState extends ChangeNotifier {
       onboarded = prefs.getBool(_kOnboarded) ?? onboarded;
       _usedDay = prefs.getString(_kUsedDay) ?? '';
       _usedCount = prefs.getInt(_kUsedCount) ?? 0;
+      trialUsed = prefs.getBool(_kTrial) ?? false;
       readReversed = prefs.getBool(_kReversed) ?? true;
       _dailyDate = prefs.getString(_kDailyDate) ?? '';
       _dailyId = prefs.getString(_kDailyId);
@@ -119,6 +132,7 @@ class AppState extends ChangeNotifier {
       await prefs.setBool(_kOnboarded, onboarded);
       await prefs.setString(_kUsedDay, _usedDay);
       await prefs.setInt(_kUsedCount, _usedCount);
+      await prefs.setBool(_kTrial, trialUsed);
       await prefs.setBool(_kReversed, readReversed);
       await prefs.setString(_kDailyDate, _dailyDate);
       if (_dailyId != null) await prefs.setString(_kDailyId, _dailyId!);
@@ -141,6 +155,10 @@ class AppState extends ChangeNotifier {
     } catch (e) {
       debugPrint('Subscriptions failed to start: $e');
     }
+  }
+
+  void setDraftQuestion(String q) {
+    draftQuestion = q.trim();
   }
 
   void selectSpread(SpreadType s) {
@@ -203,6 +221,7 @@ class AppState extends ChangeNotifier {
   void addReading(Reading reading) {
     history.insert(0, reading);
     if (!isPremium) {
+      if (!reading.spread.isFree) trialUsed = true;
       _usedCount = freeReadingsUsedToday + 1;
       _usedDay = _today;
       _savePrefs();

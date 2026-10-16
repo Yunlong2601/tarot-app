@@ -66,16 +66,15 @@ void main() {
     tall(tester);
     await tester.pumpWidget(
       ShenTarotApp(
-        initialState: AppState(
+        initialState: (AppState(
           deck: deck,
           onboarded: true,
           subscriptions: FakeSubscriptions(),
-        ),
+        )..trialUsed = true),
       ),
     );
     await tester.pumpAndSettle();
-    await goPhoto(tester);
-    await tester.tap(find.textContaining('Three cards'));
+    await openPaywall(tester);
     await tester.pumpAndSettle();
     expect(find.textContaining('S\$52.98 per year'), findsWidgets);
     expect(find.textContaining('7 days free, then'), findsOneWidget);
@@ -88,11 +87,11 @@ void main() {
   testWidgets('buying unlocks premium and closes the paywall', (tester) async {
     tall(tester);
     final subs = FakeSubscriptions();
-    final state = AppState(deck: deck, onboarded: true, subscriptions: subs);
+    final state = AppState(deck: deck, onboarded: true, subscriptions: subs)
+      ..trialUsed = true;
     await tester.pumpWidget(ShenTarotApp(initialState: state));
     await tester.pumpAndSettle();
-    await goPhoto(tester);
-    await tester.tap(find.textContaining('Three cards'));
+    await openPaywall(tester);
     await tester.pumpAndSettle();
     await tester.tap(find.text('Start 7 days free trial'));
     await tester.pumpAndSettle();
@@ -106,11 +105,12 @@ void main() {
   ) async {
     tall(tester);
     await tester.pumpWidget(
-      ShenTarotApp(initialState: AppState(deck: deck, onboarded: true)),
+      ShenTarotApp(
+        initialState: AppState(deck: deck, onboarded: true)..trialUsed = true,
+      ),
     );
     await tester.pumpAndSettle();
-    await goPhoto(tester);
-    await tester.tap(find.textContaining('Three cards'));
+    await openPaywall(tester);
     await tester.pumpAndSettle();
     expect(find.text('Subscriptions are not available yet.'), findsOneWidget);
     final buy = tester.widget<FilledButton>(find.byType(FilledButton));
