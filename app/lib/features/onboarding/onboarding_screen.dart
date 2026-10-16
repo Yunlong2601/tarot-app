@@ -18,17 +18,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     (
       Icons.center_focus_strong,
       'Scan your cards',
-      'Hold a physical tarot card up to your camera. Veilscan recognises it on your device. Photos are never saved or uploaded.'
+      'Hold a physical tarot card up to your camera. Veilscan recognises it on your device. Photos are never saved or uploaded.',
     ),
     (
       Icons.auto_awesome,
       'Reflect on a reading',
-      'Get a thoughtful interpretation of your cards and your question. A fresh free reading every day.'
+      'Get a thoughtful interpretation of your cards and your question. A fresh free reading every day.',
     ),
     (
       Icons.verified_user_outlined,
       'For reflection only',
-      'Veilscan is for entertainment and self-reflection. It does not predict the future or give medical, legal or financial advice.'
+      'Veilscan is for entertainment and self-reflection. It does not predict the future or give medical, legal or financial advice.',
     ),
   ];
 
@@ -53,22 +53,29 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   onPageChanged: (i) => setState(() => _page = i),
                   children: [
                     for (final p in _pages)
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(p.$1, size: 96, color: AppColors.gold),
-                          const SizedBox(height: 32),
-                          Text(p.$2,
-                              style: Theme.of(context).textTheme.headlineMedium,
-                              textAlign: TextAlign.center),
-                          const SizedBox(height: 16),
-                          Text(p.$3,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyLarge
-                                  ?.copyWith(color: AppColors.textMuted),
-                              textAlign: TextAlign.center),
-                        ],
+                      Center(
+                        child: SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              Icon(p.$1, size: 96, color: AppColors.gold),
+                              const SizedBox(height: 32),
+                              Text(
+                                p.$2,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headlineMedium,
+                                textAlign: TextAlign.center,
+                              ),
+                              const SizedBox(height: 16),
+                              Text(
+                                p.$3,
+                                style: Theme.of(context).textTheme.bodyLarge
+                                    ?.copyWith(color: AppColors.textMuted),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
                   ],
                 ),
@@ -97,8 +104,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     AppScope.of(context).completeOnboarding();
                   } else {
                     _controller.nextPage(
-                        duration: const Duration(milliseconds: 250),
-                        curve: Curves.easeOut);
+                      duration: const Duration(milliseconds: 250),
+                      curve: Curves.easeOut,
+                    );
                   }
                 },
                 child: Text(last ? 'Get started' : 'Next'),

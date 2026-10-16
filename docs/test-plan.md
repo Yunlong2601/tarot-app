@@ -25,5 +25,5 @@ Build with real values: `flutter run --release --dart-define=API_BASE_URL=... --
 - [ ] Reminder: switch on, grant permission, set a time 2 minutes ahead, background the app, notification arrives. Deny permission: switch returns to off with a message. Change time; switch off cancels.
 
 ## General
-- [ ] iPhone SE-size and large-size screens; Dynamic Type at the largest size; dark mode; VoiceOver can reach every control (card art needs a label: known gap).
+- [ ] iPhone SE-size and large-size screens; Dynamic Type at the largest size; dark mode; VoiceOver can reach every control (card art has labels; confirm by ear). The camera screen's guide frame is not announced: check it.
 - [ ] Offline launch works (no crash).

@@ -98,6 +98,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
+            tooltip: 'Close',
             icon: const Icon(Icons.close), onPressed: () => context.pop()),
       ),
       body: ListView(
