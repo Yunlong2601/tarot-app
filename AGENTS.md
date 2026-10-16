@@ -20,11 +20,14 @@ ml/         Training pipeline for the card classifier (Phase C)
 docs/       step1-plan.md and later docs (privacy, terms drafts, store checklists in Phase G)
 ```
 
+## Working copy
+The owner's local folder on their Mac (`/Users/syl/tarot-app`) is the primary working copy. This GitHub repo is the backup and the hand-off point between tools. The repo must stay self-contained and tool-agnostic: any AI tool or developer should be able to continue from README.md, AGENTS.md, PROGRESS.md and docs/ alone. Never put cloud-only paths or secrets in the repo.
+
 ## Run and test
 ```bash
 cd app && flutter pub get && flutter analyze && flutter test && flutter run
 ```
-Toolchain used so far: Flutter 3.47.7 stable. In the Claude cloud sandbox a hook blocks the shell test command; use the `very_good_cli` MCP `test` tool there. Run `flutter pub get` first or the tool reports a missing flutter_test dependency.
+Toolchain used so far: Flutter 3.47.7 stable. (In one cloud sandbox a hook forced the test run through an MCP tool; that is an environment quirk, not a project rule. Run `flutter pub get` first or the test run reports a missing flutter_test dependency.)
 
 ## Conventions
 - Small commits, one branch per phase (`phase-x-name`), PR to `main`, never push to `main` directly. Commit trailers: `Co-Authored-By` and `Claude-Session` lines as used in existing commits.
