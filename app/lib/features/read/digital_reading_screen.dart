@@ -140,12 +140,6 @@ class _DigitalReadingScreenState extends State<DigitalReadingScreen> {
               child: const Text('Get my reading'),
             ),
           ],
-          const SizedBox(height: 8),
-          const Text(
-            'For entertainment and self-reflection only.',
-            textAlign: TextAlign.center,
-            style: TextStyle(color: AppColors.textMuted, fontSize: 12),
-          ),
         ],
       ),
     );

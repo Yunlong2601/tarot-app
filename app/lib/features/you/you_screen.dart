@@ -132,12 +132,6 @@ class YouScreen extends StatelessWidget {
             title: const Text('Terms of Use'),
             onTap: () => context.push('/legal/terms'),
           ),
-          ListTile(
-            leading: const Icon(Icons.info_outline),
-            title: const Text('Disclaimer'),
-            subtitle: const Text('For entertainment and self-reflection only'),
-            onTap: () => context.push('/legal/disclaimer'),
-          ),
           const Divider(),
           ListTile(
             leading: const Icon(Icons.delete_outline),

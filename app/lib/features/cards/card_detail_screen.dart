@@ -93,12 +93,6 @@ class CardDetailScreen extends StatelessWidget {
               style: const TextStyle(fontStyle: FontStyle.italic),
             ),
           ],
-          const SizedBox(height: 24),
-          const Text(
-            'For entertainment and self-reflection only.',
-            textAlign: TextAlign.center,
-            style: TextStyle(color: AppColors.textMuted, fontSize: 12),
-          ),
         ],
       ),
     );

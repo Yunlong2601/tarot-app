@@ -115,7 +115,7 @@ class _AskScreenState extends State<AskScreen> {
           ),
           const SizedBox(height: 8),
           const Text(
-            'For entertainment and self-reflection only. Please keep personal details out of your question.',
+            'Please keep personal details out of your question.',
             textAlign: TextAlign.center,
             style: TextStyle(color: AppColors.textMuted, fontSize: 12),
           ),

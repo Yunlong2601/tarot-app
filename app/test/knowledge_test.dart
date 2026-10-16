@@ -127,7 +127,6 @@ void main() {
       await t.tap(find.bySemanticsLabel(RegExp('Face-down card')));
       await t.pumpAndSettle();
       expect(find.text('Go deeper: reading for this card'), findsOneWidget);
-      expect(find.textContaining('entertainment'), findsWidgets);
     });
   });
 

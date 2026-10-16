@@ -35,10 +35,50 @@ class LegalScreen extends StatelessWidget {
           }
           return SingleChildScrollView(
             padding: const EdgeInsets.all(24),
-            child: SelectableText(snap.data!),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                if (doc == 'terms') const _DisclaimerCard(),
+                SelectableText(snap.data!),
+              ],
+            ),
           );
         },
       ),
     );
   }
+}
+
+/// The entertainment-only disclaimer, shown at the top of the Terms of Use.
+class _DisclaimerCard extends StatelessWidget {
+  const _DisclaimerCard();
+
+  @override
+  Widget build(BuildContext context) => FutureBuilder<String>(
+    future: rootBundle.loadString('assets/legal/disclaimer.txt'),
+    builder: (context, snap) => Card(
+      margin: const EdgeInsets.only(bottom: 20),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'Disclaimer',
+              style: TextStyle(
+                color: AppColors.gold,
+                fontSize: 17,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              snap.data ?? 'For entertainment and self-reflection only.',
+              style: const TextStyle(color: AppColors.textMuted),
+            ),
+          ],
+        ),
+      ),
+    ),
+  );
 }

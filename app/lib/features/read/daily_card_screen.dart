@@ -121,12 +121,6 @@ class _DailyCardScreenState extends State<DailyCardScreen> {
               child: const Text('Learn about this card'),
             ),
           ],
-          const SizedBox(height: 12),
-          const Text(
-            'For entertainment and self-reflection only.',
-            textAlign: TextAlign.center,
-            style: TextStyle(color: AppColors.textMuted, fontSize: 12),
-          ),
         ],
       ),
     );
