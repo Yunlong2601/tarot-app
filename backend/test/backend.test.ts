@@ -8,6 +8,7 @@ import { buildReadingMessage } from "../src/reading";
 import { isPremium } from "../src/revenuecat";
 import { parseOpenAI } from "../src/llm";
 import type { UsageStore } from "../src/usage";
+import { verifyIdToken, type AccountStore } from "../src/accounts";
 import { allowWithinMinute } from "../src/usage";
 import { cleanQuestion, parseFollowupRequest, parseReadingRequest } from "../src/validate";
 
@@ -15,6 +16,25 @@ class FakeKV {
   m = new Map<string, string>();
   async get(k: string) { return this.m.get(k) ?? null; }
   async put(k: string, v: string) { this.m.set(k, v); }
+  async delete(k: string) { this.m.delete(k); }
+}
+
+class MemAccounts implements AccountStore {
+  accounts = new Map<string, string>(); // subjectHash -> id
+  links = new Map<string, string>(); // installHash -> accountId
+  async accountFor(h: string) { return this.links.get(h) ?? null; }
+  async findOrCreate(_p: string, subjectHash: string) {
+    if (!this.accounts.has(subjectHash)) this.accounts.set(subjectHash, `acct-${this.accounts.size + 1}`);
+    return this.accounts.get(subjectHash)!;
+  }
+  async link(h: string, id: string) { this.links.set(h, id); }
+  async unlink(h: string) { this.links.delete(h); }
+  deletedUsageKeys: string[] = [];
+  async delete(id: string, usageKey: string) {
+    for (const [h, a] of this.links) if (a === id) this.links.delete(h);
+    for (const [s, a] of this.accounts) if (a === id) this.accounts.delete(s);
+    this.deletedUsageKeys.push(usageKey);
+  }
 }
 
 class MemUsage implements UsageStore {
@@ -31,24 +51,27 @@ const NOW = Date.UTC(2026, 9, 16, 12, 0, 0);
 const UUID = "123e4567-e89b-42d3-a456-426614174000";
 const GOOD = "The Fool upright invites a fresh start. Stay curious and open, and let small steps lead the way today.";
 
-function setup(opts: { premium?: boolean; llm?: Deps["llm"]; allowInstall?: boolean; cap?: string; openaiKey?: string } = {}) {
+function setup(opts: { premium?: boolean | ((id: string) => boolean); llm?: Deps["llm"]; allowInstall?: boolean; cap?: string; openaiKey?: string; google?: string } = {}) {
+  const accounts = new MemAccounts();
   const usage = new MemUsage();
   const kv = new FakeKV();
   let llmCalls = 0;
   const deps: Deps = {
     llm: opts.llm ?? (async () => { llmCalls++; return { text: GOOD, inputTokens: 1000, outputTokens: 500, refused: false }; }),
     usage: () => usage,
-    premium: async () => opts.premium ?? false,
+    premium: async (id) => (typeof opts.premium === "function" ? opts.premium(id) : opts.premium ?? false),
     now: () => NOW,
+    accounts: () => accounts,
+    verifyIdToken: async (_p, token) => (token.startsWith("good:") ? token.slice(5) : null),
   };
   const env = {
     KV: kv, DB: {}, JWT_SECRET: "s".repeat(32), HASH_SALT: "salt", ANTHROPIC_API_KEY: "k",
     ALLOW_UNATTESTED_INSTALLS: opts.allowInstall === false ? "false" : "true",
-    GLOBAL_DAILY_TOKEN_CAP: opts.cap, OPENAI_API_KEY: opts.openaiKey,
+    GLOBAL_DAILY_TOKEN_CAP: opts.cap, OPENAI_API_KEY: opts.openaiKey, GOOGLE_CLIENT_IDS: opts.google,
   } as unknown as Env;
   const app = createApp(deps);
   const call = (path: string, init?: RequestInit) => app.request(path, init, env);
-  return { app, call, usage, kv, env, calls: () => llmCalls };
+  return { app, call, usage, kv, env, accounts, calls: () => llmCalls };
 }
 
 async function authHeaders(env: Env) {
@@ -450,5 +473,89 @@ describe("providers and own keys", () => {
     });
     expect(r).toEqual({ text: "Hello.", inputTokens: 10, outputTokens: 3, refused: false });
     expect(parseOpenAI({ output: [{ type: "message", content: [{ type: "refusal", refusal: "no" }] }] }).refused).toBe(true);
+  });
+});
+
+describe("accounts", () => {
+  const signin = async (s: ReturnType<typeof setup>, body: unknown) =>
+    s.call("/v1/account/signin", { method: "POST", headers: await authHeaders(s.env), body: JSON.stringify(body) });
+
+  it("is off until client ids are configured", async () => {
+    const s = setup();
+    expect((await signin(s, { provider: "google", idToken: "good:123" })).status).toBe(503);
+  });
+
+  it("signs in, links this install, and limits and Premium follow the account", async () => {
+    const seen: string[] = [];
+    const s = setup({ google: "web-client", premium: (id) => { seen.push(id); return false; } });
+    expect((await signin(s, { provider: "google", idToken: "bad" })).status).toBe(401);
+    expect((await signin(s, { provider: "facebook", idToken: "good:1" })).status).toBe(400);
+    const r = await signin(s, { provider: "google", idToken: "good:user-1" });
+    expect(r.status).toBe(200);
+    const { accountId } = (await r.json()) as { accountId: string };
+    expect(accountId).toBe("acct-1");
+    // Same Google user again -> same account.
+    expect(((await (await signin(s, { provider: "google", idToken: "good:user-1" })).json()) as { accountId: string }).accountId).toBe("acct-1");
+    // A reading now counts against the account and asks RevenueCat about the account id.
+    const res = await s.call("/v1/reading", { method: "POST", headers: await authHeaders(s.env), body: JSON.stringify(single) });
+    expect(res.status).toBe(200);
+    expect(seen.at(-1)).toBe("acct-1");
+    expect(s.usage.rows.at(-1)!.hash).toBe(await hashId("acct:acct-1", "salt"));
+  });
+
+  it("stores no email: only a salted hash of the provider id", async () => {
+    const s = setup({ google: "web-client" });
+    await signin(s, { provider: "google", idToken: "good:someone@example.com" });
+    expect([...s.accounts.accounts.keys()].join()).not.toContain("example.com");
+  });
+
+  it("sign out unlinks; delete removes the account and its usage", async () => {
+    const s = setup({ google: "web-client" });
+    const h = await authHeaders(s.env);
+    expect((await s.call("/v1/account/delete", { method: "POST", headers: h })).status).toBe(400);
+    await signin(s, { provider: "google", idToken: "good:u" });
+    expect((await s.call("/v1/account/signout", { method: "POST", headers: h })).status).toBe(200);
+    expect(s.accounts.links.size).toBe(0);
+    await signin(s, { provider: "google", idToken: "good:u" });
+    const d = await s.call("/v1/account/delete", { method: "POST", headers: h });
+    expect(await d.json()).toEqual({ deleted: true });
+    expect(s.accounts.accounts.size).toBe(0);
+    expect(s.accounts.links.size).toBe(0);
+    expect(s.accounts.deletedUsageKeys).toEqual([await hashId("acct:acct-1", "salt")]);
+  });
+});
+
+describe("ID token verification (RS256)", () => {
+  const b64 = (o: unknown) => btoa(JSON.stringify(o)).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+  async function setupKeys() {
+    const pair = (await crypto.subtle.generateKey(
+      { name: "RSASSA-PKCS1-v1_5", modulusLength: 2048, publicExponent: new Uint8Array([1, 0, 1]), hash: "SHA-256" },
+      true, ["sign", "verify"],
+    )) as CryptoKeyPair;
+    const jwk = (await crypto.subtle.exportKey("jwk", pair.publicKey)) as JsonWebKey;
+    const sign = async (claims: Record<string, unknown>, kid = "k1") => {
+      const data = `${b64({ alg: "RS256", kid })}.${b64(claims)}`;
+      const sig = new Uint8Array(await crypto.subtle.sign("RSASSA-PKCS1-v1_5", pair.privateKey, new TextEncoder().encode(data)));
+      let str = ""; for (const x of sig) str += String.fromCharCode(x);
+      return `${data}.${btoa(str).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "")}`;
+    };
+    const fetchFn = (async () => new Response(JSON.stringify({ keys: [{ ...jwk, kid: "k1" }] }))) as unknown as typeof fetch;
+    return { sign, fetchFn };
+  }
+  const now = 1_800_000_000;
+  const good = { iss: "https://accounts.google.com", aud: "web-client", exp: now + 600, iat: now, sub: "g-123" };
+
+  it("accepts a valid Google token and rejects wrong audience, issuer, expiry or signature", async () => {
+    const { sign, fetchFn } = await setupKeys();
+    const kv = new FakeKV() as unknown as KVNamespace;
+    const v = (t: string) => verifyIdToken("google", t, ["web-client"], kv, now, fetchFn);
+    expect(await v(await sign(good))).toBe("g-123");
+    expect(await v(await sign({ ...good, aud: "other" }))).toBeNull();
+    expect(await v(await sign({ ...good, iss: "https://evil.example" }))).toBeNull();
+    expect(await v(await sign({ ...good, exp: now - 1 }))).toBeNull();
+    expect(await v(await sign(good, "unknown-kid"))).toBeNull();
+    const t = await sign(good);
+    expect(await v(t.slice(0, -4) + "AAAA")).toBeNull();
+    expect(await verifyIdToken("apple", await sign(good), ["web-client"], kv, now, fetchFn)).toBeNull(); // Google issuer on Apple path
   });
 });

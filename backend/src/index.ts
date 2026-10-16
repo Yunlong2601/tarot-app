@@ -13,6 +13,9 @@ import {
 } from "./reading";
 import { isPremium } from "./revenuecat";
 import {
+  D1AccountStore, audiencesFrom, isAccountProvider, verifyIdToken, type AccountProvider, type AccountStore,
+} from "./accounts";
+import {
   BURST_PER_MINUTE, D1UsageStore, DEFAULT_GLOBAL_DAILY_TOKEN_CAP, FREE_READINGS_PER_DAY,
   IP_PER_MINUTE, PREMIUM_FOLLOWUPS_PER_DAY, PREMIUM_READINGS_PER_DAY, allowWithinMinute, utcDay, type UsageStore,
 } from "./usage";
@@ -22,8 +25,11 @@ import { isUuid, parseFollowupRequest, parseReadingRequest } from "./validate";
 export interface Deps {
   llm: LlmFn;
   usage: (env: Env) => UsageStore;
-  premium: (installId: string, env: Env, nowMs: number) => Promise<boolean>;
+  /** `appUserId` is the RevenueCat app user id: the account id when signed in, else the install id. */
+  premium: (appUserId: string, env: Env, nowMs: number) => Promise<boolean>;
   now: () => number;
+  accounts: (env: Env) => AccountStore;
+  verifyIdToken: (provider: AccountProvider, token: string, audiences: string[], kv: KVNamespace, nowSeconds: number) => Promise<string | null>;
 }
 
 const defaultDeps: Deps = {
@@ -31,6 +37,8 @@ const defaultDeps: Deps = {
   usage: (env) => new D1UsageStore(env.DB),
   premium: (id, env, now) => isPremium(id, env.REVENUECAT_SECRET_KEY, env.KV, now),
   now: () => Date.now(),
+  accounts: (env) => new D1AccountStore(env.DB),
+  verifyIdToken: (p, t, a, kv, n) => verifyIdToken(p, t, a, kv, n),
 };
 
 const MAX_BODY_BYTES = 4096;
@@ -39,6 +47,21 @@ export function createApp(deps: Deps = defaultDeps) {
   const app = new Hono<{ Bindings: Env }>();
 
   app.get("/health", (c) => c.json({ ok: true }));
+
+  /** Who is asking: limits and Premium follow the account when this install
+   * is signed in, else the install. */
+  async function identity(env: Env, installId: string) {
+    const installHash = await hashId(installId, env.HASH_SALT);
+    const accountId = await deps.accounts(env).accountFor(installHash);
+    const usageKey = accountId ? await hashId(`acct:${accountId}`, env.HASH_SALT) : installHash;
+    return { installHash, accountId, usageKey, appUserId: accountId ?? installId };
+  }
+
+  async function installFrom(authHeader: string | undefined, env: Env, now: number): Promise<string | null> {
+    const auth = authHeader ?? "";
+    const token = auth.startsWith("Bearer ") ? auth.slice(7) : "";
+    return token ? await verifyToken(token, env.JWT_SECRET, Math.floor(now / 1000)) : null;
+  }
 
   // Anonymous install -> short-lived token.
   app.post("/v1/install", async (c) => {
@@ -67,7 +90,8 @@ export function createApp(deps: Deps = defaultDeps) {
     const installId = token ? await verifyToken(token, c.env.JWT_SECRET, Math.floor(now / 1000)) : null;
     if (!installId) return c.json({ error: "unauthorized" }, 401);
 
-    const installHash = await hashId(installId, c.env.HASH_SALT);
+    const who = await identity(c.env, installId);
+    const installHash = who.installHash;
     const ip = c.req.header("cf-connecting-ip") ?? "unknown";
     if (
       !(await allowWithinMinute(c.env.KV, `burst:${installHash}`, BURST_PER_MINUTE, now)) ||
@@ -91,11 +115,11 @@ export function createApp(deps: Deps = defaultDeps) {
       return c.json({ crisis: true, message: CRISIS_MESSAGE });
     }
 
-    const premium = await deps.premium(installId, c.env, now);
+    const premium = await deps.premium(who.appUserId, c.env, now);
     const usage = deps.usage(c.env);
     // Longer spreads are Premium, with one free trial reading per install.
     if (!isFreeSpread(req.spread) && !premium) {
-      if ((await usage.countTrial(await hashId(installId, c.env.HASH_SALT))) > 0) {
+      if ((await usage.countTrial(who.usageKey)) > 0) {
         return c.json({ error: "premium_required" }, 402);
       }
     }
@@ -109,11 +133,11 @@ export function createApp(deps: Deps = defaultDeps) {
     // output checks) is the same on both paths.
     if (user.target && !premium) return c.json({ error: "premium_required" }, 402);
     const limit = premium ? PREMIUM_READINGS_PER_DAY : FREE_READINGS_PER_DAY;
-    if (!user.target && (await usage.count(installHash, day, "reading")) >= limit) {
+    if (!user.target && (await usage.count(who.usageKey, day, "reading")) >= limit) {
       return c.json({ error: "daily_limit", premium }, 429);
     }
 
-    const slot = await usage.reserve(installHash, day, "reading", req.spread, usageModel(targets[0]!));
+    const slot = await usage.reserve(who.usageKey, day, "reading", req.spread, usageModel(targets[0]!));
     try {
       const result = await callWithFallback(
         deps.llm,
@@ -161,7 +185,8 @@ export function createApp(deps: Deps = defaultDeps) {
     const installId = token ? await verifyToken(token, c.env.JWT_SECRET, Math.floor(now / 1000)) : null;
     if (!installId) return c.json({ error: "unauthorized" }, 401);
 
-    const installHash = await hashId(installId, c.env.HASH_SALT);
+    const who = await identity(c.env, installId);
+    const installHash = who.installHash;
     const ip = c.req.header("cf-connecting-ip") ?? "unknown";
     if (
       !(await allowWithinMinute(c.env.KV, `burst:${installHash}`, BURST_PER_MINUTE, now)) ||
@@ -181,17 +206,17 @@ export function createApp(deps: Deps = defaultDeps) {
 
     if (detectCrisis(req.followup, req.question)) return c.json({ crisis: true, message: CRISIS_MESSAGE });
 
-    if (!(await deps.premium(installId, c.env, now))) return c.json({ error: "premium_required" }, 402);
+    if (!(await deps.premium(who.appUserId, c.env, now))) return c.json({ error: "premium_required" }, 402);
 
     const usage = deps.usage(c.env);
     const day = utcDay(now);
     const cap = Number(c.env.GLOBAL_DAILY_TOKEN_CAP ?? DEFAULT_GLOBAL_DAILY_TOKEN_CAP);
     if (!user.target && (await usage.tokensToday(day)) >= cap) return c.json({ error: "service_busy" }, 503);
-    if (!user.target && (await usage.count(installHash, day, "followup")) >= PREMIUM_FOLLOWUPS_PER_DAY) {
+    if (!user.target && (await usage.count(who.usageKey, day, "followup")) >= PREMIUM_FOLLOWUPS_PER_DAY) {
       return c.json({ error: "daily_limit", premium: true }, 429);
     }
 
-    const slot = await usage.reserve(installHash, day, "followup", req.spread, usageModel(targets[0]!));
+    const slot = await usage.reserve(who.usageKey, day, "followup", req.spread, usageModel(targets[0]!));
     try {
       const result = await callWithFallback(
         deps.llm,
@@ -209,6 +234,51 @@ export function createApp(deps: Deps = defaultDeps) {
       logUpstreamError(e);
       return c.json({ error: "upstream_failed" }, 502);
     }
+  });
+
+  // Optional accounts. The app signs in with Google or Apple, sends the ID
+  // token here, and this install is linked to our account id. No email or
+  // name is stored.
+  app.post("/v1/account/signin", async (c) => {
+    const now = deps.now();
+    const installId = await installFrom(c.req.header("authorization"), c.env, now);
+    if (!installId) return c.json({ error: "unauthorized" }, 401);
+    const ip = c.req.header("cf-connecting-ip") ?? "unknown";
+    if (!(await allowWithinMinute(c.env.KV, `signin:${await hashId(ip, c.env.HASH_SALT)}`, 10, now))) {
+      return c.json({ error: "rate_limited" }, 429);
+    }
+    const body = (await readJson(c.req.raw)) as { provider?: unknown; idToken?: unknown } | null;
+    if (!body || !isAccountProvider(body.provider) || typeof body.idToken !== "string" || body.idToken.length > 4096) {
+      return c.json({ error: "invalid_request" }, 400);
+    }
+    const provider = body.provider;
+    const audiences = audiencesFrom(provider === "google" ? c.env.GOOGLE_CLIENT_IDS : c.env.APPLE_CLIENT_IDS);
+    if (audiences.length === 0) return c.json({ error: "accounts_not_configured" }, 503);
+    const subject = await deps.verifyIdToken(provider, body.idToken, audiences, c.env.KV, Math.floor(now / 1000));
+    if (!subject) return c.json({ error: "invalid_token" }, 401);
+    const store = deps.accounts(c.env);
+    const accountId = await store.findOrCreate(provider, await hashId(`${provider}:${subject}`, c.env.HASH_SALT));
+    await store.link(await hashId(installId, c.env.HASH_SALT), accountId);
+    return c.json({ accountId, provider });
+  });
+
+  app.post("/v1/account/signout", async (c) => {
+    const installId = await installFrom(c.req.header("authorization"), c.env, deps.now());
+    if (!installId) return c.json({ error: "unauthorized" }, 401);
+    await deps.accounts(c.env).unlink(await hashId(installId, c.env.HASH_SALT));
+    return c.json({ ok: true });
+  });
+
+  // Deletes the signed-in account, all its device links and its usage rows.
+  // A store subscription is not cancelled by this; the app tells the user.
+  app.post("/v1/account/delete", async (c) => {
+    const installId = await installFrom(c.req.header("authorization"), c.env, deps.now());
+    if (!installId) return c.json({ error: "unauthorized" }, 401);
+    const who = await identity(c.env, installId);
+    if (!who.accountId) return c.json({ error: "not_signed_in" }, 400);
+    await deps.accounts(c.env).delete(who.accountId, who.usageKey);
+    await c.env.KV.delete(`premium:${who.accountId}`);
+    return c.json({ deleted: true });
   });
 
   return app;

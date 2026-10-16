@@ -12,6 +12,10 @@ export interface Env {
   REVENUECAT_SECRET_KEY?: string;
   LLM_MODEL?: string;
   GLOBAL_DAILY_TOKEN_CAP?: string;
+  /** Comma-separated OAuth client ids accepted as the ID-token audience. Unset = accounts off. */
+  GOOGLE_CLIENT_IDS?: string;
+  /** Apple bundle id and/or Services ID, comma-separated. */
+  APPLE_CLIENT_IDS?: string;
   /** Local testing only: skips device attestation. Never set in production. */
   ALLOW_UNATTESTED_INSTALLS?: string;
 }
