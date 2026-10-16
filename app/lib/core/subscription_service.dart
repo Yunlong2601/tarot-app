@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:flutter/services.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 
+import 'credit_service.dart';
+
 /// One purchasable plan, with the store-localised price. Never hardcode prices.
 class PlanOption {
   const PlanOption({
@@ -95,6 +97,9 @@ abstract class SubscriptionService {
   /// iOS: Apple's sheet to redeem an offer code.
   Future<void> redeemOfferCode();
 
+  /// The Starter Pack (consumable credits) with its store price, or null.
+  Future<PlanOption?> starterPack();
+
   /// Moves an active monthly subscriber to [plan] (the store handles the
   /// change; on Google Play the old product is replaced).
   Future<bool> switchTo(PlanOption plan);
@@ -150,6 +155,9 @@ class UnconfiguredSubscriptionService implements SubscriptionService {
 
   @override
   Future<void> redeemOfferCode() => throw const SubscriptionException(_msg);
+
+  @override
+  Future<PlanOption?> starterPack() async => null;
 
   @override
   Future<bool> switchTo(PlanOption plan) =>
@@ -226,6 +234,25 @@ class RevenueCatSubscriptionService implements SubscriptionService {
       price: pkg.storeProduct.price,
       perMonthString: pkg.storeProduct.pricePerMonthString,
       productId: pkg.storeProduct.identifier.split(':').first,
+    );
+  }
+
+  @override
+  Future<PlanOption?> starterPack() async {
+    if (!_started) return null;
+    final products = await Purchases.getProducts(const [
+      starterPackProductId,
+    ], productCategory: ProductCategory.nonSubscription);
+    final p = products.firstOrNull;
+    if (p == null) return null;
+    return PlanOption(
+      id: 'starter-pack',
+      title: 'Starter Pack',
+      priceString: p.priceString,
+      periodLabel: 'one time',
+      handle: p,
+      price: p.price,
+      productId: p.identifier,
     );
   }
 
@@ -356,6 +383,7 @@ class RevenueCatSubscriptionService implements SubscriptionService {
     final params = switch (handle) {
       Package p => PurchaseParams.package(p),
       SubscriptionOption o => PurchaseParams.subscriptionOption(o),
+      StoreProduct p => PurchaseParams.storeProduct(p),
       _ => throw const SubscriptionException('Unknown plan.'),
     };
     try {

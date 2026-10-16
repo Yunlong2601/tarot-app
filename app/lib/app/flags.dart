@@ -10,3 +10,7 @@ bool testerMode = const bool.fromEnvironment('TESTER_MODE');
 /// Refer and earn (`--dart-define=REFERRALS=true`). Off until the store offers
 /// (App Store offer codes, Play "referral-50" offer) and server keys exist.
 bool referralsEnabled = const bool.fromEnvironment('REFERRALS');
+
+/// Reading credits and the Starter Pack (`--dart-define=CREDITS=true`). Off
+/// until the consumable product exists in both stores and RevenueCat.
+bool creditsEnabled = const bool.fromEnvironment('CREDITS');

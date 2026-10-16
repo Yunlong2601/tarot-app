@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shentarot/app/app_state.dart';
 import 'package:shentarot/core/subscription_service.dart';
 import 'package:shentarot/data/deck.dart';
+import 'package:shentarot/data/models.dart';
 import 'package:shentarot/main.dart';
 
 import 'dart:io';
@@ -11,6 +12,7 @@ import 'dart:io';
 import 'helpers.dart';
 
 import 'package:shentarot/app/brand.dart';
+import 'package:shentarot/app/flags.dart';
 
 class FakeSubscriptions implements SubscriptionService {
   FakeSubscriptions({this.restores = false});
@@ -72,6 +74,10 @@ class FakeSubscriptions implements SubscriptionService {
   int redeemSheets = 0;
   @override
   Future<void> redeemOfferCode() async => redeemSheets++;
+
+  PlanOption? pack;
+  @override
+  Future<PlanOption?> starterPack() async => pack;
 
   int? monthsPaid;
   @override
@@ -224,6 +230,53 @@ void main() {
       ),
       findsOneWidget,
     );
+  });
+
+  testWidgets('Starter Pack on the paywall when credits are on', (
+    tester,
+  ) async {
+    tall(tester);
+    creditsEnabled = true;
+    addTearDown(() => creditsEnabled = false);
+    final subs = FakeSubscriptions()
+      ..pack = const PlanOption(
+        id: 'starter-pack',
+        title: 'Starter Pack',
+        priceString: '\$2.99',
+        periodLabel: 'one time',
+      );
+    await tester.pumpWidget(
+      ShenTarotApp(
+        initialState: AppState(
+          deck: deck,
+          onboarded: true,
+          subscriptions: subs,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    await openPaywall(tester);
+    await tester.pumpAndSettle();
+    expect(find.text('Not ready to subscribe?'), findsOneWidget);
+    expect(find.text('Buy for \$2.99'), findsOneWidget);
+  });
+
+  test('credits let a free user read past the daily reading', () {
+    creditsEnabled = true;
+    addTearDown(() => creditsEnabled = false);
+    final s = AppState(deck: deck);
+    s.addReading(
+      Reading(
+        id: 'a',
+        createdAt: DateTime.now(),
+        spread: SpreadType.single,
+        cards: [DrawnCard(card: deck.cards.first, reversed: false)],
+        interpretation: 'x',
+      ),
+    );
+    expect(s.canStart(SpreadType.single), isFalse);
+    s.credits = 2;
+    expect(s.canStart(SpreadType.single), isTrue);
   });
 }
 

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../core/account_service.dart';
+import '../core/credit_service.dart';
 import '../core/referral_service.dart';
 import 'flags.dart';
 import '../core/install_id.dart';
@@ -30,6 +31,7 @@ class AppState extends ChangeNotifier {
     UserKeyStore? userKeys,
     this.accountApi = const UnconfiguredAccountBackend(),
     this.referralApi = const UnconfiguredReferralBackend(),
+    this.creditApi = const UnconfiguredCreditBackend(),
     SignInProvider? signIn,
     List<AccountProvider>? accountProviders,
     DateTime Function()? clock,
@@ -53,6 +55,22 @@ class AppState extends ChangeNotifier {
 
   /// Refer and earn (behind `referralsEnabled`).
   final ReferralBackend referralApi;
+
+  /// Reading credits (behind `creditsEnabled`); the server holds the balance.
+  final CreditBackend creditApi;
+  int credits = 0;
+
+  Future<void> refreshCredits() async {
+    if (!creditsEnabled) return;
+    try {
+      credits = await creditApi.balance();
+      notifyListeners();
+    } catch (_) {}
+  }
+
+  /// Free users with credits can read past the daily free reading, and ask
+  /// follow-ups. The server checks and spends the credit.
+  bool get hasCredits => creditsEnabled && credits > 0;
 
   /// The friend's offer unlocked by a code typed on this phone, if any.
   ReferralOffer? referralOffer;
@@ -231,7 +249,7 @@ class AppState extends ChangeNotifier {
   /// Premium users are unlimited; free users get one single-card reading a day.
   bool canStart(SpreadType spread) {
     if (isPremium) return true;
-    if (!canReadForFree) return false;
+    if (!canReadForFree) return hasCredits;
     return spread.isFree || !trialUsed;
   }
 

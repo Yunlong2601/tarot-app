@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../app/app_scope.dart';
+import '../../app/flags.dart';
 import '../../app/brand.dart';
 import '../../app/theme.dart';
 import '../../core/subscription_service.dart';
@@ -23,6 +24,7 @@ class PaywallScreen extends StatefulWidget {
 
 class _PaywallScreenState extends State<PaywallScreen> {
   List<PlanOption>? _plans;
+  PlanOption? _pack;
   String? _loadError;
   String? _selected;
   bool _busy = false;
@@ -50,8 +52,10 @@ class _PaywallScreenState extends State<PaywallScreen> {
           plans = [friend, ...plans.where((p) => p.title != 'Annual')];
         }
       }
+      final pack = creditsEnabled ? await service.starterPack() : null;
       if (!mounted) return;
       setState(() {
+        _pack = pack;
         _plans = plans;
         _selected = plans.isEmpty ? null : plans.first.id;
       });
@@ -61,6 +65,27 @@ class _PaywallScreenState extends State<PaywallScreen> {
         _plans = const [];
         _loadError = 'Could not load subscription options. Please try again.';
       });
+    }
+  }
+
+  Future<void> _buyPack(PlanOption pack) async {
+    final state = AppScope.of(context);
+    final messenger = ScaffoldMessenger.of(context);
+    setState(() => _busy = true);
+    try {
+      await state.subscriptions.purchase(pack);
+      // The server adds the credits when the store confirms; check twice.
+      for (var i = 0; i < 2; i++) {
+        await Future<void>.delayed(const Duration(seconds: 2));
+        await state.refreshCredits();
+      }
+      messenger.showSnackBar(
+        SnackBar(content: Text('You have ${state.credits} reading credits.')),
+      );
+    } on SubscriptionException catch (e) {
+      messenger.showSnackBar(SnackBar(content: Text(e.message)));
+    } finally {
+      if (mounted) setState(() => _busy = false);
     }
   }
 
@@ -203,6 +228,8 @@ class _PaywallScreenState extends State<PaywallScreen> {
                 ],
               ),
             ),
+          if (_pack case final pack?)
+            _StarterPackCard(pack: pack, busy: _busy, onBuy: _buyPack),
           const SizedBox(height: 8),
           FilledButton(
             onPressed: (plan == null || _busy) ? null : () => _buy(plan),
@@ -350,6 +377,49 @@ class _AppleFriendOffer extends StatelessWidget {
                 child: const Text('Redeem in App Store'),
               ),
             ],
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+/// A one-time pack of reading credits for people not ready to subscribe.
+class _StarterPackCard extends StatelessWidget {
+  const _StarterPackCard({
+    required this.pack,
+    required this.busy,
+    required this.onBuy,
+  });
+  final PlanOption pack;
+  final bool busy;
+  final void Function(PlanOption) onBuy;
+
+  @override
+  Widget build(BuildContext context) => Card(
+    margin: const EdgeInsets.only(top: 16),
+    child: Padding(
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Not ready to subscribe?',
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+          const SizedBox(height: 4),
+          Text(
+            'Starter Pack: 5 reading credits for ${pack.priceString}, one '
+            'time. Use them for extra readings or follow-up questions. '
+            'Credits never expire.',
+          ),
+          const SizedBox(height: 8),
+          Align(
+            alignment: Alignment.centerRight,
+            child: OutlinedButton(
+              onPressed: busy ? null : () => onBuy(pack),
+              child: Text('Buy for ${pack.priceString}'),
+            ),
           ),
         ],
       ),

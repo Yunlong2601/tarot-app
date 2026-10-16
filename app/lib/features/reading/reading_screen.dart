@@ -152,6 +152,7 @@ class _FollowUpsState extends State<_FollowUps> {
         clarifier: clarifier,
       );
       if (mounted) setState(() => _thread.add((label, result.text)));
+      if (!state.isPremium) state.refreshCredits();
     } on ReadingException catch (e) {
       if (!mounted) return;
       if (e.kind == ReadingErrorKind.premiumRequired) {
@@ -186,15 +187,21 @@ class _FollowUpsState extends State<_FollowUps> {
         OutlinedButton.icon(
           onPressed: _busy
               ? null
-              : (state.isPremium ? _ask : () => context.push('/paywall')),
+              : (state.isPremium || state.hasCredits
+                    ? _ask
+                    : () => context.push('/paywall')),
           icon: Icon(
-            state.isPremium ? Icons.chat_bubble_outline : Icons.lock_outline,
+            state.isPremium || state.hasCredits
+                ? Icons.chat_bubble_outline
+                : Icons.lock_outline,
           ),
           label: Text(
             _busy
                 ? 'Thinking...'
                 : state.isPremium
                 ? 'Ask a follow-up'
+                : state.hasCredits
+                ? 'Ask a follow-up (1 credit)'
                 : 'Ask a follow-up (Premium)',
           ),
         ),
@@ -202,13 +209,19 @@ class _FollowUpsState extends State<_FollowUps> {
         OutlinedButton.icon(
           onPressed: _busy
               ? null
-              : (state.isPremium ? _clarify : () => context.push('/paywall')),
+              : (state.isPremium || state.hasCredits
+                    ? _clarify
+                    : () => context.push('/paywall')),
           icon: Icon(
-            state.isPremium ? Icons.add_card_outlined : Icons.lock_outline,
+            state.isPremium || state.hasCredits
+                ? Icons.add_card_outlined
+                : Icons.lock_outline,
           ),
           label: Text(
             state.isPremium
                 ? 'Draw a clarifier card'
+                : state.hasCredits
+                ? 'Draw a clarifier card (1 credit)'
                 : 'Draw a clarifier card (Premium)',
           ),
         ),

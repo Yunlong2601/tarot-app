@@ -4,6 +4,7 @@ import 'dart:io';
 import '../data/models.dart';
 import 'install_id.dart';
 import 'account_service.dart';
+import 'credit_service.dart';
 import 'referral_service.dart';
 import 'reading_service.dart';
 import 'user_key_store.dart';
@@ -11,7 +12,7 @@ import 'user_key_store.dart';
 /// Talks to the Cloudflare Worker (`backend/`). Sends only the card IDs,
 /// orientation, spread and the optional question, plus an anonymous install ID.
 class ApiReadingService
-    implements ReadingService, AccountBackend, ReferralBackend {
+    implements ReadingService, AccountBackend, ReferralBackend, CreditBackend {
   ApiReadingService(
     this.baseUrl, {
     HttpClient Function()? clientFactory,
@@ -96,6 +97,12 @@ class ApiReadingService
         'The account could not be deleted. Please try again.',
       );
     }
+  }
+
+  @override
+  Future<int> balance() async {
+    final res = await _post('/v1/credits/me', const {}, auth: true);
+    return res.status == 200 ? (res.json['balance'] as num?)?.toInt() ?? 0 : 0;
   }
 
   @override

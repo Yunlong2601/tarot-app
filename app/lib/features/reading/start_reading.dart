@@ -43,6 +43,7 @@ Future<void> startReading(
     );
     if (result == null || !context.mounted) return;
     text = result.text;
+    if (!state.isPremium && !state.canReadForFree) state.refreshCredits();
   }
   final id = 'r${DateTime.now().microsecondsSinceEpoch}';
   state.addReading(

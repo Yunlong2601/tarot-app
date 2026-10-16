@@ -130,6 +130,13 @@ class YouScreen extends StatelessWidget {
             title: Text(state.isPremium ? 'Premium active' : 'Go Premium'),
             onTap: state.isPremium ? null : () => context.push('/paywall'),
           ),
+          if (creditsEnabled && !state.isPremium)
+            ListTile(
+              leading: const Icon(Icons.toll_outlined),
+              title: Text('Reading credits: ${state.credits}'),
+              subtitle: const Text('Extra readings and follow-ups'),
+              onTap: () => context.push('/paywall'),
+            ),
           ListTile(
             leading: const Icon(Icons.credit_card),
             title: const Text('Manage subscription'),

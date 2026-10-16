@@ -72,6 +72,10 @@ class _Plans implements SubscriptionService {
   @override
   Future<void> redeemOfferCode() async => redeemSheets++;
 
+  PlanOption? pack;
+  @override
+  Future<PlanOption?> starterPack() async => pack;
+
   int? monthsPaid;
   @override
   Future<int?> monthlyMonthsPaid() async => monthsPaid;
