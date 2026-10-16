@@ -19,6 +19,7 @@ class _Crisis implements ReadingService {
     required SpreadType spread,
     required List<DrawnCard> cards,
     String? question,
+    String? impression,
   }) async => throw const ReadingException(
     ReadingErrorKind.crisis,
     'Please reach out. Call 988.',

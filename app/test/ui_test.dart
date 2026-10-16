@@ -16,13 +16,16 @@ import 'package:shentarot/app/brand.dart';
 
 class _Fake implements ReadingService {
   final calls = <List<DrawnCard>>[];
+  final impressions = <String?>[];
   @override
   Future<ReadingResult> interpret({
     required SpreadType spread,
     required List<DrawnCard> cards,
     String? question,
+    String? impression,
   }) async {
     calls.add(cards);
+    impressions.add(impression);
     return const ReadingResult(text: 'A thoughtful reading.', disclaimer: 'd');
   }
 
@@ -99,6 +102,39 @@ void main() {
     expect(find.text('A thoughtful reading.'), findsOneWidget);
     expect(s.history.length, 1);
     expect(s.history.first.question, 'What should I focus on this week?');
+  });
+
+  testWidgets('look first: the typed impression goes with the reading', (
+    t,
+  ) async {
+    final fake = _Fake();
+    final s = AppState(deck: deck, onboarded: true, readingService: fake)
+      ..lookFirst = true;
+    await start(t, s);
+    await t.tap(find.byTooltip('Switch to digital card reading'));
+    await t.pumpAndSettle();
+    await t.tap(find.text('Digital card reading'));
+    await t.pumpAndSettle();
+    await t.tap(find.text('Skip: general reading'));
+    await t.pumpAndSettle();
+    await t.tap(find.textContaining('Start '));
+    await t.pumpAndSettle();
+    for (var i = 0; i < 3; i++) {
+      await t.tap(find.bySemanticsLabel('Deck. Tap to draw the next card.'));
+      await t.pumpAndSettle();
+    }
+    for (var i = 0; i < 3; i++) {
+      await t.tap(find.byType(FlipCard).at(i));
+      await t.pumpAndSettle();
+    }
+    await t.tap(find.text('Get my reading'));
+    await t.pumpAndSettle();
+    expect(find.text('Look first'), findsOneWidget);
+    await t.enterText(find.byType(TextField).last, 'a bright sun');
+    await t.tap(find.text('Read'));
+    await t.pumpAndSettle();
+    expect(fake.impressions.single, 'a bright sun');
+    expect(find.text('A thoughtful reading.'), findsOneWidget);
   });
 
   testWidgets(

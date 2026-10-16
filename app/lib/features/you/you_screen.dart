@@ -86,6 +86,15 @@ class YouScreen extends StatelessWidget {
             onTap: restore,
           ),
           SwitchListTile(
+            secondary: const Icon(Icons.visibility_outlined),
+            title: const Text('Look first'),
+            subtitle: const Text(
+              'Note what you see in the cards before the reading',
+            ),
+            value: state.lookFirst,
+            onChanged: state.setLookFirst,
+          ),
+          SwitchListTile(
             secondary: const Icon(Icons.notifications_outlined),
             title: const Text('Daily card reminder'),
             subtitle: Text(

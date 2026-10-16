@@ -26,6 +26,7 @@ class FakeReadingService implements ReadingService {
     required SpreadType spread,
     required List<DrawnCard> cards,
     String? question,
+    String? impression,
   }) async => const ReadingResult(text: 'x', disclaimer: 'd');
 
   @override

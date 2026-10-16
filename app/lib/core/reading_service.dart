@@ -34,6 +34,7 @@ abstract class ReadingService {
     required SpreadType spread,
     required List<DrawnCard> cards,
     String? question,
+    String? impression,
   });
 
   /// Premium: answers a follow-up question about an earlier reading. The
@@ -57,6 +58,7 @@ class UnconfiguredReadingService implements ReadingService {
     required SpreadType spread,
     required List<DrawnCard> cards,
     String? question,
+    String? impression,
   }) => throw const ReadingException(
     ReadingErrorKind.notConfigured,
     'The reading service is not set up yet.',

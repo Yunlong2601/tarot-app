@@ -68,6 +68,22 @@ void main() {
     },
   );
 
+  test('sends the look-first impression only when there is one', () async {
+    final svc = ApiReadingService('http://127.0.0.1:${server.port}');
+    await svc.interpret(
+      spread: SpreadType.single,
+      cards: await cards(),
+      impression: '  a bright sun  ',
+    );
+    expect((seen.last['body'] as Map)['impression'], 'a bright sun');
+    await svc.interpret(
+      spread: SpreadType.single,
+      cards: await cards(),
+      impression: '',
+    );
+    expect((seen.last['body'] as Map).containsKey('impression'), isFalse);
+  });
+
   test('maps daily limit and premium errors', () async {
     final svc = ApiReadingService('http://127.0.0.1:${server.port}');
     readingStatus = 429;

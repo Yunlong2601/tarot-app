@@ -54,6 +54,10 @@ class AppState extends ChangeNotifier {
   /// Whether digital draws and the Card of the Day may come up reversed.
   bool readReversed = true;
 
+  /// Whether to ask what you notice in the cards before the AI reading.
+  /// Off in the constructor so tests stay simple; loadPersisted defaults it on.
+  bool lookFirst = false;
+
   // Card of the Day: one free card per local day, drawn on the phone.
   String _dailyDate = '';
   String? _dailyId;
@@ -72,6 +76,7 @@ class AppState extends ChangeNotifier {
   static const _kUsedCount = 'free_used_count';
   static const _kTrial = 'trial_used';
   static const _kReversed = 'read_reversed';
+  static const _kLookFirst = 'look_first';
   static const _kDailyDate = 'daily_date';
   static const _kDailyId = 'daily_id';
   static const _kDailyRev = 'daily_reversed';
@@ -107,6 +112,7 @@ class AppState extends ChangeNotifier {
       _usedCount = prefs.getInt(_kUsedCount) ?? 0;
       trialUsed = prefs.getBool(_kTrial) ?? false;
       readReversed = prefs.getBool(_kReversed) ?? true;
+      lookFirst = prefs.getBool(_kLookFirst) ?? true;
       _dailyDate = prefs.getString(_kDailyDate) ?? '';
       _dailyId = prefs.getString(_kDailyId);
       _dailyReversed = prefs.getBool(_kDailyRev) ?? false;
@@ -134,6 +140,7 @@ class AppState extends ChangeNotifier {
       await prefs.setInt(_kUsedCount, _usedCount);
       await prefs.setBool(_kTrial, trialUsed);
       await prefs.setBool(_kReversed, readReversed);
+      await prefs.setBool(_kLookFirst, lookFirst);
       await prefs.setString(_kDailyDate, _dailyDate);
       if (_dailyId != null) await prefs.setString(_kDailyId, _dailyId!);
       await prefs.setBool(_kDailyRev, _dailyReversed);
@@ -168,6 +175,12 @@ class AppState extends ChangeNotifier {
 
   void setReadMode(ReadMode m) {
     readMode = m;
+    notifyListeners();
+  }
+
+  void setLookFirst(bool value) {
+    lookFirst = value;
+    _savePrefs();
     notifyListeners();
   }
 

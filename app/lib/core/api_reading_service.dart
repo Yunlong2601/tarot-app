@@ -20,6 +20,7 @@ class ApiReadingService implements ReadingService {
     required SpreadType spread,
     required List<DrawnCard> cards,
     String? question,
+    String? impression,
   }) async {
     final body = {
       'spread': spreadWireName(spread),
@@ -27,6 +28,8 @@ class ApiReadingService implements ReadingService {
         for (final c in cards) {'id': c.card.id, 'reversed': c.reversed},
       ],
       if (question != null && question.trim().isNotEmpty) 'question': question,
+      if (impression != null && impression.trim().isNotEmpty)
+        'impression': impression.trim(),
     };
     return _send('/v1/reading', body, 'reading');
   }

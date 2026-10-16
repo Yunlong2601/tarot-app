@@ -7,6 +7,7 @@ Single source for the privacy policy, Apple privacy labels and Google Data safet
 | Card photo (camera) | Processed only | Device memory; temp file deleted right after recognition | Identify the card | No | Never stored or uploaded |
 | Card IDs + orientation + spread | Yes | App -> our server -> Anthropic (LLM) | Generate the reading | Not stored by us | Not stored by us; Anthropic's retention applies (verify current policy) |
 | Optional question text | Yes, only if typed | App -> our server -> Anthropic | Generate the reading | Not stored by us | Not stored by us; Anthropic's retention applies |
+| Optional "Look first" note (what the user notices in the cards) | Yes, only if typed | App -> our server -> Anthropic | Personalise the reading | Not stored by us | Not stored by us; Anthropic's retention applies |
 | Follow-up question + the earlier reading text (Premium) | Yes, when the user asks a follow-up | App -> our server -> Anthropic | Answer the follow-up in context | Not stored by us | Not stored by us; Anthropic's retention applies |
 | Anonymous install ID (random UUID) | Yes | App -> our server (hashed with a secret salt) and RevenueCat (as the app user ID) | Rate limits, free daily limit, restore purchases | Pseudonymous | Server keeps the hash with daily usage rows; RevenueCat keeps purchase records per its policy |
 | Usage rows: date, spread, model, input/output token counts | Yes | Our D1 database | Cost control, abuse prevention | Pseudonymous (hashed ID) | Decide a limit (suggest 90 days) and add a cleanup job |

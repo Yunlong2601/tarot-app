@@ -25,7 +25,20 @@ Future<void> startReading(
   final q = (question ?? '').trim();
   var text = mockInterpretation;
   if (!simulated) {
-    final result = await _interpret(context, state, spread, cards, q);
+    String? impression;
+    if (state.lookFirst) {
+      impression = await _lookFirst(context, cards);
+      if (!context.mounted) return;
+      if (impression == null) return; // backed out
+    }
+    final result = await _interpret(
+      context,
+      state,
+      spread,
+      cards,
+      q,
+      impression ?? '',
+    );
     if (result == null || !context.mounted) return;
     text = result.text;
   }
@@ -49,6 +62,7 @@ Future<ReadingResult?> _interpret(
   SpreadType spread,
   List<DrawnCard> cards,
   String question,
+  String impression,
 ) async {
   final nav = Navigator.of(context, rootNavigator: true);
   showDialog<void>(
@@ -63,6 +77,7 @@ Future<ReadingResult?> _interpret(
       spread: spread,
       cards: cards,
       question: question,
+      impression: impression,
     );
   } on ReadingException catch (e) {
     failure = e;
@@ -93,4 +108,54 @@ Future<ReadingResult?> _interpret(
     }
   }
   return result;
+}
+
+/// "Look first": before the reading, a moment to notice the cards yourself.
+/// Returns the typed impression ('' if skipped), or null if the user backs out.
+Future<String?> _lookFirst(BuildContext context, List<DrawnCard> cards) {
+  final names = cards.map((c) => c.card.name).join(', ');
+  final controller = TextEditingController();
+  return showDialog<String>(
+    context: context,
+    builder: (ctx) => AlertDialog(
+      title: const Text('Look first'),
+      content: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(names),
+            const SizedBox(height: 12),
+            const Text(
+              'Before the reading, what do you notice? A colour, a figure, a '
+              'feeling. Optional.',
+            ),
+            const SizedBox(height: 12),
+            TextField(
+              controller: controller,
+              maxLength: 300,
+              maxLines: 3,
+              textCapitalization: TextCapitalization.sentences,
+              decoration: const InputDecoration(hintText: 'I notice...'),
+            ),
+          ],
+        ),
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(ctx),
+          child: const Text('Cancel'),
+        ),
+        TextButton(
+          onPressed: () => Navigator.pop(ctx, ''),
+          child: const Text('Skip'),
+        ),
+        FilledButton(
+          style: FilledButton.styleFrom(minimumSize: const Size(0, 44)),
+          onPressed: () => Navigator.pop(ctx, controller.text.trim()),
+          child: const Text('Read'),
+        ),
+      ],
+    ),
+  );
 }
