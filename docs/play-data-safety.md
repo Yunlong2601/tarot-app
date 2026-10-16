@@ -23,3 +23,13 @@ Source of truth: `docs/data-inventory.md`. Google's definitions and the form wor
 - CAMERA: recognise the tarot card the user holds up (core feature).
 - POST_NOTIFICATIONS: the optional daily reminder (local notification).
 - BILLING: subscriptions.
+
+## When the build with sign-in is uploaded (not before)
+The form must match the build Google reviews. Until a build with Google sign-in turned on (`GOOGLE_SERVER_CLIENT_ID` set) is uploaded, keep "My app does not allow users to create an account".
+
+Then change (or re-import `store/play/data_safety_with_accounts.csv`, which has exactly these changes on top of the current answers):
+- Account creation: **OAuth** (instead of "does not allow accounts").
+- Delete account URL and Delete data URL: https://yunlong2601.github.io/shentarot-legal/delete-account.html
+- Personal info > **User IDs**: collected (not shared), optional, purposes App functionality and Account management, not ephemeral. This is our random account id; we store no name or email.
+- Email address: **not** collected (the Google/Apple token may contain one; the server never stores or logs it).
+- Also publish the updated `site/privacy.html` and `site/terms.html` to the legal site at the same time.

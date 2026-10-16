@@ -18,6 +18,7 @@ Single source for the privacy policy, Apple privacy labels and Google Data safet
 | Reminder time, onboarding flag, daily count | Yes | Device only | Feature | n/a | Until uninstall |
 | Analytics | **No** (TelemetryDeck was planned but is not implemented) | n/a | n/a | n/a | If added, update this file, the policy and the store forms |
 | Ads / ad IDs / third-party trackers | No | n/a | n/a | n/a | n/a |
-| Accounts, email, name, location, contacts | No | n/a | n/a | n/a | n/a (so no account deletion flow is required; re-check store rules if accounts are ever added) |
+| Optional account (Google / Apple sign-in) | Yes, only if the user signs in | Our D1: random account id, provider, salted hash of the provider user id; linked to the hashed install ids; account id shared with RevenueCat as the app user id | Premium across devices, per-account limits | Yes (account id) | Until the user deletes the account (in app, or by email via the deletion page) |
+| Email, name, location, contacts | No (the Google/Apple token may contain an email; it is never stored or logged) | n/a | n/a | n/a | n/a |
 
 Third parties: Anthropic (LLM), Cloudflare (hosting), RevenueCat (subscriptions), Apple / Google (payments). Servers are outside Singapore, so the policy must say data is sent overseas (PDPA transfer rules: verify at pdpc.gov.sg).

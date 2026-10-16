@@ -41,7 +41,7 @@ Every feature the paywall, store listing or README promises, checked on the sign
 | Crisis wording → fixed care message | Built | Hotline numbers still to verify (owner) |
 | Paywall, restore, manage subscription | Built | Shows "not available yet" until RevenueCat key exists (blocked on owner) |
 | Own AI key | Built, hidden for launch | `OWN_KEY` flag |
-| Accounts / sign-in | Not built | Demo screen hidden (`SIGNIN_DEMO` flag); plan in `docs/accounts-plan.md`, waits for owner go-ahead |
+| Accounts / sign-in | Built, off until set up | Google (Android) and Apple (iOS, behind `APPLE_SIGNIN`) sign-in, sign out, Delete account; server endpoints + migration `0002_accounts.sql` NOT deployed yet. Owner steps: `docs/accounts-setup.md`. Deletion page live: https://yunlong2601.github.io/shentarot-legal/delete-account.html |
 | Play Integrity / App Attest | Not built | Blocked: app must exist in Play Console (Android) and Apple enrollment (iOS) |
 | Topic chips on the question screen | Not built | Nice to have |
 
