@@ -111,6 +111,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
           for (final f in const [
             'Three-card and Celtic Cross spreads',
             'Unlimited readings',
+            'Follow-up questions on your readings',
             'Journal notes on every reading',
           ])
             Padding(

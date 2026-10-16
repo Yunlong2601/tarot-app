@@ -32,6 +32,16 @@ abstract class ReadingService {
     required List<DrawnCard> cards,
     String? question,
   });
+
+  /// Premium: answers a follow-up question about an earlier reading. The
+  /// backend stores nothing, so the earlier [reading] text is sent as context.
+  Future<ReadingResult> followUp({
+    required SpreadType spread,
+    required List<DrawnCard> cards,
+    String? question,
+    required String reading,
+    required String followUp,
+  });
 }
 
 /// Used when no backend URL was provided at build time
@@ -44,6 +54,17 @@ class UnconfiguredReadingService implements ReadingService {
     required SpreadType spread,
     required List<DrawnCard> cards,
     String? question,
+  }) =>
+      throw const ReadingException(ReadingErrorKind.notConfigured,
+          'The reading service is not set up yet.');
+
+  @override
+  Future<ReadingResult> followUp({
+    required SpreadType spread,
+    required List<DrawnCard> cards,
+    String? question,
+    required String reading,
+    required String followUp,
   }) =>
       throw const ReadingException(ReadingErrorKind.notConfigured,
           'The reading service is not set up yet.');

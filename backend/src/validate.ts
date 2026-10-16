@@ -24,15 +24,11 @@ export function cleanQuestion(raw: string): string {
     .trim();
 }
 
-export function parseReadingRequest(body: unknown): Parsed<ReadingRequest> {
-  if (typeof body !== "object" || body === null) return fail("body must be a JSON object");
-  const b = body as Record<string, unknown>;
-
+function parseSpreadAndCards(b: Record<string, unknown>): Parsed<{ spread: Spread; cards: ReadingRequest["cards"] }> {
   const spread = b.spread;
   if (spread !== "single" && spread !== "three" && spread !== "celtic") {
     return fail("spread must be single, three or celtic");
   }
-
   if (!Array.isArray(b.cards) || b.cards.length !== SPREAD_SIZE[spread]) {
     return fail(`spread ${spread} needs exactly ${SPREAD_SIZE[spread]} cards`);
   }
@@ -47,17 +43,51 @@ export function parseReadingRequest(body: unknown): Parsed<ReadingRequest> {
     seen.add(id);
     cards.push({ id, reversed });
   }
+  return { ok: true, value: { spread, cards } };
+}
 
-  let question: string | null = null;
-  if (b.question !== undefined && b.question !== null) {
-    if (typeof b.question !== "string") return fail("question must be text");
-    if (b.question.length > MAX_QUESTION_LENGTH * 2) return fail("question too long");
-    const cleaned = cleanQuestion(b.question);
-    if (cleaned.length > MAX_QUESTION_LENGTH) return fail("question too long");
-    question = cleaned === "" ? null : cleaned;
-  }
+function parseText(raw: unknown, max: number, what: string): Parsed<string | null> {
+  if (raw === undefined || raw === null) return { ok: true, value: null };
+  if (typeof raw !== "string") return fail(`${what} must be text`);
+  if (raw.length > max * 2) return fail(`${what} too long`);
+  const cleaned = cleanQuestion(raw);
+  if (cleaned.length > max) return fail(`${what} too long`);
+  return { ok: true, value: cleaned === "" ? null : cleaned };
+}
 
-  return { ok: true, value: { spread, cards, question } };
+export function parseReadingRequest(body: unknown): Parsed<ReadingRequest> {
+  if (typeof body !== "object" || body === null) return fail("body must be a JSON object");
+  const b = body as Record<string, unknown>;
+  const sc = parseSpreadAndCards(b);
+  if (!sc.ok) return sc;
+  const q = parseText(b.question, MAX_QUESTION_LENGTH, "question");
+  if (!q.ok) return q;
+  return { ok: true, value: { ...sc.value, question: q.value } };
+}
+
+export const MAX_FOLLOWUP_LENGTH = 300;
+export const MAX_CONTEXT_READING_LENGTH = 4000;
+
+export interface FollowupRequest extends ReadingRequest {
+  /** The earlier reading text, sent back by the app as context. Untrusted. */
+  reading: string;
+  followup: string;
+}
+
+export function parseFollowupRequest(body: unknown): Parsed<FollowupRequest> {
+  if (typeof body !== "object" || body === null) return fail("body must be a JSON object");
+  const b = body as Record<string, unknown>;
+  const sc = parseSpreadAndCards(b);
+  if (!sc.ok) return sc;
+  const q = parseText(b.question, MAX_QUESTION_LENGTH, "question");
+  if (!q.ok) return q;
+  const f = parseText(b.followup, MAX_FOLLOWUP_LENGTH, "followup");
+  if (!f.ok) return f;
+  if (f.value === null) return fail("followup is required");
+  const r = parseText(b.reading, MAX_CONTEXT_READING_LENGTH, "reading");
+  if (!r.ok) return r;
+  if (r.value === null) return fail("reading is required");
+  return { ok: true, value: { ...sc.value, question: q.value, reading: r.value, followup: f.value } };
 }
 
 function fail(error: string): { ok: false; error: string } {

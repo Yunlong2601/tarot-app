@@ -22,6 +22,7 @@ check "bad body is rejected" 400 "$(code -X POST "$BASE/v1/reading" -H "$AUTH" -
 check "unknown card is rejected" 400 "$(code -X POST "$BASE/v1/reading" -H "$AUTH" -d '{"spread":"single","cards":[{"id":"nope","reversed":false}]}')"
 check "long question is rejected" 400 "$(code -X POST "$BASE/v1/reading" -H "$AUTH" -d "{\"spread\":\"single\",\"cards\":[{\"id\":\"major_00_fool\",\"reversed\":false}],\"question\":\"$(printf 'a%.0s' $(seq 1 301))\"}")"
 check "3-card spread needs premium" 402 "$(code -X POST "$BASE/v1/reading" -H "$AUTH" -d '{"spread":"three","cards":[{"id":"major_00_fool","reversed":false},{"id":"cups_ace","reversed":false},{"id":"swords_ten","reversed":true}]}')"
+check "follow-up needs premium" 402 "$(code -X POST "$BASE/v1/followup" -H "$AUTH" -d '{"spread":"single","cards":[{"id":"major_00_fool","reversed":false}],"reading":"The Fool invites a fresh start.","followup":"What next?"}')"
 S=$(code -X POST "$BASE/v1/reading" -H "$AUTH" -d '{"spread":"single","cards":[{"id":"major_00_fool","reversed":false}],"question":"smoke test"}')
 echo "info  single reading returned HTTP $S (200 = real reading; 502 = no or invalid Anthropic key; 429 = rate limit, wait a minute or restart local dev)"
 exit $fail

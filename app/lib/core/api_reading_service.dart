@@ -28,19 +28,48 @@ class ApiReadingService implements ReadingService {
       ],
       if (question != null && question.trim().isNotEmpty) 'question': question,
     };
-    var res = await _post('/v1/reading', body, auth: true);
-    if (res.status == 401) {
-      _token = null;
-      res = await _post('/v1/reading', body, auth: true);
-    }
-    return _toResult(res);
+    return _send('/v1/reading', body, 'reading');
   }
 
-  ReadingResult _toResult(_Response res) {
+  @override
+  Future<ReadingResult> followUp({
+    required SpreadType spread,
+    required List<DrawnCard> cards,
+    String? question,
+    required String reading,
+    required String followUp,
+  }) {
+    return _send(
+      '/v1/followup',
+      {
+        'spread': spreadWireName(spread),
+        'cards': [
+          for (final c in cards) {'id': c.card.id, 'reversed': c.reversed},
+        ],
+        if (question != null && question.trim().isNotEmpty)
+          'question': question,
+        'reading': reading,
+        'followup': followUp,
+      },
+      'answer',
+    );
+  }
+
+  Future<ReadingResult> _send(
+      String path, Map<String, Object?> body, String textKey) async {
+    var res = await _post(path, body, auth: true);
+    if (res.status == 401) {
+      _token = null;
+      res = await _post(path, body, auth: true);
+    }
+    return _toResult(res, textKey);
+  }
+
+  ReadingResult _toResult(_Response res, String textKey) {
     if (res.status == 200) {
       final j = res.json;
       return ReadingResult(
-          text: j['reading'] as String, disclaimer: j['disclaimer'] as String);
+          text: j[textKey] as String, disclaimer: j['disclaimer'] as String);
     }
     final error = res.json['error'];
     throw switch ((res.status, error)) {

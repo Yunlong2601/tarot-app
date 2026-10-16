@@ -5,11 +5,39 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'package:veilscan/app/app_state.dart';
+import 'package:veilscan/core/reading_service.dart';
 import 'package:veilscan/core/reminder_service.dart';
 import 'package:veilscan/data/deck.dart';
 import 'package:veilscan/data/history_repository.dart';
 import 'package:veilscan/data/models.dart';
 import 'package:veilscan/main.dart';
+
+class FakeReadingService implements ReadingService {
+  FakeReadingService({this.error});
+  final ReadingException? error;
+  final calls = <Map<String, Object?>>[];
+
+  @override
+  Future<ReadingResult> interpret({
+    required SpreadType spread,
+    required List<DrawnCard> cards,
+    String? question,
+  }) async =>
+      const ReadingResult(text: 'x', disclaimer: 'd');
+
+  @override
+  Future<ReadingResult> followUp({
+    required SpreadType spread,
+    required List<DrawnCard> cards,
+    String? question,
+    required String reading,
+    required String followUp,
+  }) async {
+    if (error != null) throw error!;
+    calls.add({'reading': reading, 'followUp': followUp, 'n': cards.length});
+    return const ReadingResult(text: 'Here is more to explore.', disclaimer: 'd');
+  }
+}
 
 class FakeReminders implements ReminderService {
   FakeReminders({this.allow = true});
@@ -205,6 +233,53 @@ void main() {
       await tester.tap(find.text('Save note'));
       await tester.pump();
       expect(state.history.single.note, 'My note');
+    });
+  });
+
+  group('follow-up questions', () {
+    void tall(WidgetTester t) {
+      t.view.physicalSize = const Size(1080, 5000);
+      t.view.devicePixelRatio = 2.75;
+      addTearDown(t.view.reset);
+    }
+
+    testWidgets('premium asks and sees the answer under the reading',
+        (tester) async {
+      tall(tester);
+      final fake = FakeReadingService();
+      final state = AppState(deck: deck, onboarded: true, readingService: fake)
+        ..setPremium(true);
+      state.addReading(reading('a', DateTime(2026, 5, 5)));
+      await tester.pumpWidget(VeilscanApp(initialState: state));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('History').last);
+      await tester.pumpAndSettle();
+      await tester.tap(find.textContaining('Three cards'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Ask a follow-up'));
+      await tester.pumpAndSettle();
+      await tester.enterText(find.byType(TextField).last, 'What next?');
+      await tester.tap(find.text('Ask'));
+      await tester.pumpAndSettle();
+      expect(find.text('Here is more to explore.'), findsOneWidget);
+      expect(fake.calls.single['followUp'], 'What next?');
+      expect(fake.calls.single['reading'], 'A reading.');
+      expect(fake.calls.single['n'], 3);
+    });
+
+    testWidgets('free users are sent to the paywall', (tester) async {
+      tall(tester);
+      final state = AppState(deck: deck, onboarded: true);
+      state.addReading(reading('a', DateTime(2026, 5, 5)));
+      await tester.pumpWidget(VeilscanApp(initialState: state));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('History').last);
+      await tester.pumpAndSettle();
+      await tester.tap(find.textContaining('Three cards'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Ask a follow-up (Premium)'));
+      await tester.pumpAndSettle();
+      expect(find.text('Unlock Premium'), findsOneWidget);
     });
   });
 }

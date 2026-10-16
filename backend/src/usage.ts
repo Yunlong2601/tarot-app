@@ -2,13 +2,15 @@ import type { Spread } from "./validate";
 
 /** Per-install daily usage and the global token budget. D1 in production,
  * in-memory in tests. */
+export type UsageKind = "reading" | "followup";
+
 export interface UsageStore {
-  /** Readings counted for this install today (including in-flight ones). */
-  countReadings(installHash: string, day: string): Promise<number>;
+  /** Requests of this kind counted for this install today (including in-flight ones). */
+  count(installHash: string, day: string, kind: UsageKind): Promise<number>;
   /** Total tokens used by everyone today. */
   tokensToday(day: string): Promise<number>;
   /** Reserve a slot before calling the model; returns a row id. */
-  reserve(installHash: string, day: string, spread: Spread, model: string): Promise<number>;
+  reserve(installHash: string, day: string, kind: UsageKind, spread: Spread, model: string): Promise<number>;
   finalize(id: number, inputTokens: number, outputTokens: number): Promise<void>;
   /** Give the slot back when the model call failed. */
   release(id: number): Promise<void>;
@@ -17,10 +19,10 @@ export interface UsageStore {
 export class D1UsageStore implements UsageStore {
   constructor(private db: D1Database) {}
 
-  async countReadings(installHash: string, day: string): Promise<number> {
+  async count(installHash: string, day: string, kind: UsageKind): Promise<number> {
     const r = await this.db
-      .prepare("SELECT COUNT(*) AS n FROM usage WHERE install_hash = ?1 AND day = ?2 AND kind = 'reading'")
-      .bind(installHash, day).first<{ n: number }>();
+      .prepare("SELECT COUNT(*) AS n FROM usage WHERE install_hash = ?1 AND day = ?2 AND kind = ?3")
+      .bind(installHash, day, kind).first<{ n: number }>();
     return r?.n ?? 0;
   }
 
@@ -31,10 +33,10 @@ export class D1UsageStore implements UsageStore {
     return r?.n ?? 0;
   }
 
-  async reserve(installHash: string, day: string, spread: Spread, model: string): Promise<number> {
+  async reserve(installHash: string, day: string, kind: UsageKind, spread: Spread, model: string): Promise<number> {
     const r = await this.db
-      .prepare("INSERT INTO usage (install_hash, day, kind, spread, model, created_at) VALUES (?1, ?2, 'reading', ?3, ?4, ?5)")
-      .bind(installHash, day, spread, model, new Date().toISOString()).run();
+      .prepare("INSERT INTO usage (install_hash, day, kind, spread, model, created_at) VALUES (?1, ?2, ?3, ?4, ?5, ?6)")
+      .bind(installHash, day, kind, spread, model, new Date().toISOString()).run();
     return r.meta.last_row_id;
   }
 
@@ -50,6 +52,7 @@ export class D1UsageStore implements UsageStore {
 
 export const FREE_READINGS_PER_DAY = 1;
 export const PREMIUM_READINGS_PER_DAY = 20;
+export const PREMIUM_FOLLOWUPS_PER_DAY = 30;
 export const BURST_PER_MINUTE = 10;
 export const IP_PER_MINUTE = 30;
 export const DEFAULT_GLOBAL_DAILY_TOKEN_CAP = 2_000_000;

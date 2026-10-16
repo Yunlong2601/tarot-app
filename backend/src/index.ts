@@ -2,13 +2,16 @@ import { Hono } from "hono";
 import { hashId, signToken, verifyToken } from "./auth";
 import type { Env } from "./env";
 import { callAnthropic, type LlmFn } from "./llm";
-import { DISCLAIMER, checkOutput } from "./prompts";
+import {
+  DISCLAIMER, FOLLOWUP_MAX_TOKENS, FOLLOWUP_SYSTEM_PROMPT, MAX_TOKENS, SYSTEM_PROMPT,
+  buildFollowupMessage, buildUserMessage, checkOutput,
+} from "./prompts";
 import { isPremium } from "./revenuecat";
 import {
   BURST_PER_MINUTE, D1UsageStore, DEFAULT_GLOBAL_DAILY_TOKEN_CAP, FREE_READINGS_PER_DAY,
-  IP_PER_MINUTE, PREMIUM_READINGS_PER_DAY, allowWithinMinute, utcDay, type UsageStore,
+  IP_PER_MINUTE, PREMIUM_FOLLOWUPS_PER_DAY, PREMIUM_READINGS_PER_DAY, allowWithinMinute, utcDay, type UsageStore,
 } from "./usage";
-import { isUuid, parseReadingRequest } from "./validate";
+import { isUuid, parseFollowupRequest, parseReadingRequest } from "./validate";
 
 export interface Deps {
   llm: LlmFn;
@@ -81,14 +84,17 @@ export function createApp(deps: Deps = defaultDeps) {
     if ((await usage.tokensToday(day)) >= cap) return c.json({ error: "service_busy" }, 503);
 
     const limit = premium ? PREMIUM_READINGS_PER_DAY : FREE_READINGS_PER_DAY;
-    if ((await usage.countReadings(installHash, day)) >= limit) {
+    if ((await usage.count(installHash, day, "reading")) >= limit) {
       return c.json({ error: "daily_limit", premium }, 429);
     }
 
     const model = c.env.LLM_MODEL ?? "claude-haiku-5-5";
-    const slot = await usage.reserve(installHash, day, req.spread, model);
+    const slot = await usage.reserve(installHash, day, "reading", req.spread, model);
     try {
-      const result = await deps.llm(req, model, c.env.ANTHROPIC_API_KEY);
+      const result = await deps.llm(
+        { system: SYSTEM_PROMPT, user: buildUserMessage(req), maxTokens: MAX_TOKENS[req.spread] },
+        model, c.env.ANTHROPIC_API_KEY,
+      );
       await usage.finalize(slot, result.inputTokens, result.outputTokens);
       if (result.refused) return c.json({ error: "declined" }, 422);
       const checked = checkOutput(result.text);
@@ -100,13 +106,64 @@ export function createApp(deps: Deps = defaultDeps) {
     }
   });
 
+  // Follow-up question about an earlier reading. Premium only. The server does
+  // not store readings, so the app sends the earlier text back as context,
+  // which is treated as untrusted.
+  app.post("/v1/followup", async (c) => {
+    const now = deps.now();
+    const auth = c.req.header("authorization") ?? "";
+    const token = auth.startsWith("Bearer ") ? auth.slice(7) : "";
+    const installId = token ? await verifyToken(token, c.env.JWT_SECRET, Math.floor(now / 1000)) : null;
+    if (!installId) return c.json({ error: "unauthorized" }, 401);
+
+    const installHash = await hashId(installId, c.env.HASH_SALT);
+    const ip = c.req.header("cf-connecting-ip") ?? "unknown";
+    if (
+      !(await allowWithinMinute(c.env.KV, `burst:${installHash}`, BURST_PER_MINUTE, now)) ||
+      !(await allowWithinMinute(c.env.KV, `ip:${await hashId(ip, c.env.HASH_SALT)}`, IP_PER_MINUTE, now))
+    ) {
+      return c.json({ error: "rate_limited" }, 429);
+    }
+
+    const parsed = parseFollowupRequest(await readJson(c.req.raw, 16384));
+    if (!parsed.ok) return c.json({ error: "invalid_request", detail: parsed.error }, 400);
+    const req = parsed.value;
+
+    if (!(await deps.premium(installId, c.env, now))) return c.json({ error: "premium_required" }, 402);
+
+    const usage = deps.usage(c.env);
+    const day = utcDay(now);
+    const cap = Number(c.env.GLOBAL_DAILY_TOKEN_CAP ?? DEFAULT_GLOBAL_DAILY_TOKEN_CAP);
+    if ((await usage.tokensToday(day)) >= cap) return c.json({ error: "service_busy" }, 503);
+    if ((await usage.count(installHash, day, "followup")) >= PREMIUM_FOLLOWUPS_PER_DAY) {
+      return c.json({ error: "daily_limit", premium: true }, 429);
+    }
+
+    const model = c.env.LLM_MODEL ?? "claude-haiku-5-5";
+    const slot = await usage.reserve(installHash, day, "followup", req.spread, model);
+    try {
+      const result = await deps.llm(
+        { system: FOLLOWUP_SYSTEM_PROMPT, user: buildFollowupMessage(req), maxTokens: FOLLOWUP_MAX_TOKENS },
+        model, c.env.ANTHROPIC_API_KEY,
+      );
+      await usage.finalize(slot, result.inputTokens, result.outputTokens);
+      if (result.refused) return c.json({ error: "declined" }, 422);
+      const checked = checkOutput(result.text);
+      if (!checked.ok) return c.json({ error: "bad_output" }, 502);
+      return c.json({ answer: checked.text, disclaimer: DISCLAIMER });
+    } catch {
+      await usage.release(slot);
+      return c.json({ error: "upstream_failed" }, 502);
+    }
+  });
+
   return app;
 }
 
-async function readJson(req: Request): Promise<unknown> {
+async function readJson(req: Request, maxBytes = MAX_BODY_BYTES): Promise<unknown> {
   try {
     const text = await req.text();
-    if (text.length > MAX_BODY_BYTES) return null;
+    if (text.length > maxBytes) return null;
     return JSON.parse(text);
   } catch {
     return null;

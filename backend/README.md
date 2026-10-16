@@ -5,6 +5,7 @@ TypeScript + Hono. Proxies AI readings so the app never holds an LLM key.
 ## Endpoints
 - `POST /v1/install` `{installId}` -> `{token}`. Anonymous 12 h token (HS256 JWT). **Returns 501 until device attestation (App Attest / Play Integrity) is implemented**, unless `ALLOW_UNATTESTED_INSTALLS=true` (local testing only, never in production).
 - `POST /v1/reading` (Bearer token) `{spread: single|three|celtic, cards: [{id, reversed}], question?}` -> `{reading, disclaimer}`.
+- `POST /v1/followup` (Bearer token, **Premium only**) `{spread, cards, question?, reading, followup}` -> `{answer, disclaimer}`. The server stores no readings, so the app sends the earlier reading text back as context; it is treated as untrusted (inside `<reading>` tags, length-capped). Limit 30 a day per install, counted separately from readings.
 - `GET /health`.
 
 ## Rules enforced server-side

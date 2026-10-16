@@ -3,8 +3,133 @@ import 'package:go_router/go_router.dart';
 
 import '../../app/app_scope.dart';
 import '../../app/theme.dart';
+import '../../core/reading_service.dart';
 import '../../data/models.dart';
 import '../cards/card_art.dart';
+
+class _AskDialog extends StatefulWidget {
+  const _AskDialog();
+
+  @override
+  State<_AskDialog> createState() => _AskDialogState();
+}
+
+class _AskDialogState extends State<_AskDialog> {
+  final _controller = TextEditingController();
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => AlertDialog(
+    title: const Text('Ask a follow-up'),
+    content: TextField(
+      controller: _controller,
+      autofocus: true,
+      maxLength: 300,
+      maxLines: 3,
+      decoration: const InputDecoration(
+        hintText: 'What would you like to explore?',
+      ),
+    ),
+    actions: [
+      TextButton(
+        onPressed: () => Navigator.pop(context),
+        child: const Text('Cancel'),
+      ),
+      FilledButton(
+        onPressed: () => Navigator.pop(context, _controller.text.trim()),
+        child: const Text('Ask'),
+      ),
+    ],
+  );
+}
+
+/// Follow-up questions about this reading (Premium). Answers are shown here
+/// for this visit only; they are not saved (save what matters in the journal).
+class _FollowUps extends StatefulWidget {
+  const _FollowUps({required this.reading});
+  final Reading reading;
+
+  @override
+  State<_FollowUps> createState() => _FollowUpsState();
+}
+
+class _FollowUpsState extends State<_FollowUps> {
+  final List<(String, String)> _thread = [];
+  bool _busy = false;
+
+  Future<void> _ask() async {
+    final text = await showDialog<String>(
+      context: context,
+      builder: (_) => const _AskDialog(),
+    );
+    if (text == null || text.isEmpty || !mounted) return;
+    final state = AppScope.of(context);
+    final r = widget.reading;
+    setState(() => _busy = true);
+    try {
+      final result = await state.readingService.followUp(
+        spread: r.spread,
+        cards: r.cards,
+        question: r.question,
+        reading: r.interpretation,
+        followUp: text,
+      );
+      if (mounted) setState(() => _thread.add((text, result.text)));
+    } on ReadingException catch (e) {
+      if (!mounted) return;
+      if (e.kind == ReadingErrorKind.premiumRequired) {
+        context.push('/paywall');
+      } else {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text(e.message)));
+      }
+    } finally {
+      if (mounted) setState(() => _busy = false);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final state = AppScope.of(context);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        for (final (q, a) in _thread) ...[
+          Text(
+            '“$q”',
+            style: const TextStyle(
+              fontStyle: FontStyle.italic,
+              color: AppColors.textMuted,
+            ),
+          ),
+          const SizedBox(height: 6),
+          Text(a),
+          const SizedBox(height: 16),
+        ],
+        OutlinedButton.icon(
+          onPressed: _busy
+              ? null
+              : (state.isPremium ? _ask : () => context.push('/paywall')),
+          icon: Icon(
+            state.isPremium ? Icons.chat_bubble_outline : Icons.lock_outline,
+          ),
+          label: Text(
+            _busy
+                ? 'Thinking...'
+                : state.isPremium
+                ? 'Ask a follow-up'
+                : 'Ask a follow-up (Premium)',
+          ),
+        ),
+      ],
+    );
+  }
+}
 
 /// Journal note: Premium to write, readable by everyone who has one.
 class _Journal extends StatefulWidget {
@@ -34,26 +159,31 @@ class _JournalState extends State<_Journal> {
         label: const Text('Add a journal note (Premium)'),
       );
     }
-    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      TextField(
-        controller: _controller,
-        maxLines: 4,
-        maxLength: 1000,
-        decoration: const InputDecoration(
-            labelText: 'Your journal note', border: OutlineInputBorder()),
-      ),
-      Align(
-        alignment: Alignment.centerRight,
-        child: FilledButton(
-          onPressed: () {
-            state.setNote(widget.reading.id, _controller.text);
-            ScaffoldMessenger.of(context)
-                .showSnackBar(const SnackBar(content: Text('Note saved')));
-          },
-          child: const Text('Save note'),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        TextField(
+          controller: _controller,
+          maxLines: 4,
+          maxLength: 1000,
+          decoration: const InputDecoration(
+            labelText: 'Your journal note',
+            border: OutlineInputBorder(),
+          ),
         ),
-      ),
-    ]);
+        Align(
+          alignment: Alignment.centerRight,
+          child: FilledButton(
+            onPressed: () {
+              state.setNote(widget.reading.id, _controller.text);
+              ScaffoldMessenger.of(context)
+                  .showSnackBar(const SnackBar(content: Text('Note saved')));
+            },
+            child: const Text('Save note'),
+          ),
+        ),
+      ],
+    );
   }
 }
 
@@ -64,12 +194,12 @@ class ReadingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final state = AppScope.of(context);
-    final reading =
-        state.history.where((r) => r.id == readingId).firstOrNull;
+    final reading = state.history.where((r) => r.id == readingId).firstOrNull;
     if (reading == null) {
       return Scaffold(
-          appBar: AppBar(),
-          body: const Center(child: Text('Reading not found')));
+        appBar: AppBar(),
+        body: const Center(child: Text('Reading not found')),
+      );
     }
     return Scaffold(
       appBar: AppBar(
@@ -85,11 +215,13 @@ class ReadingScreen extends StatelessWidget {
                   title: const Text('Delete this reading?'),
                   actions: [
                     TextButton(
-                        onPressed: () => Navigator.pop(c, false),
-                        child: const Text('Cancel')),
+                      onPressed: () => Navigator.pop(c, false),
+                      child: const Text('Cancel'),
+                    ),
                     TextButton(
-                        onPressed: () => Navigator.pop(c, true),
-                        child: const Text('Delete')),
+                      onPressed: () => Navigator.pop(c, true),
+                      child: const Text('Delete'),
+                    ),
                   ],
                 ),
               );
@@ -104,22 +236,33 @@ class ReadingScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(24),
         children: [
-          Wrap(spacing: 12, runSpacing: 12, alignment: WrapAlignment.center, children: [
-            for (final d in reading.cards)
-              InkWell(
-                onTap: () => context.push('/card/${d.card.id}'),
-                child: CardArt(card: d.card, reversed: d.reversed, width: 90),
-              ),
-          ]),
+          Wrap(
+            spacing: 12,
+            runSpacing: 12,
+            alignment: WrapAlignment.center,
+            children: [
+              for (final d in reading.cards)
+                InkWell(
+                  onTap: () => context.push('/card/${d.card.id}'),
+                  child: CardArt(card: d.card, reversed: d.reversed, width: 90),
+                ),
+            ],
+          ),
           if (reading.question != null) ...[
             const SizedBox(height: 20),
-            Text('“${reading.question}”',
-                style: const TextStyle(
-                    fontStyle: FontStyle.italic, color: AppColors.textMuted)),
+            Text(
+              '“${reading.question}”',
+              style: const TextStyle(
+                fontStyle: FontStyle.italic,
+                color: AppColors.textMuted,
+              ),
+            ),
           ],
           const SizedBox(height: 20),
           Text(reading.interpretation),
           const SizedBox(height: 20),
+          _FollowUps(reading: reading),
+          const SizedBox(height: 12),
           _Journal(reading: reading),
           const SizedBox(height: 24),
           const Text(
