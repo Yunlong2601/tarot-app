@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../app/flags.dart';
 import '../../app/app_scope.dart';
 import '../../core/user_key_store.dart';
 import '../../app/theme.dart';
@@ -60,10 +61,12 @@ class YouScreen extends StatelessWidget {
             subtitle: const Text(
               'No account needed. Your readings stay on this phone.',
             ),
-            trailing: TextButton(
-              onPressed: () => context.push('/signin-demo'),
-              child: const Text('Sign in'),
-            ),
+            trailing: signInDemoEnabled
+                ? TextButton(
+                    onPressed: () => context.push('/signin-demo'),
+                    child: const Text('Sign in'),
+                  )
+                : null,
           ),
           ListTile(
             leading: const Icon(Icons.history),

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -119,9 +121,9 @@ class _PaywallScreenState extends State<PaywallScreen> {
           const SizedBox(height: 16),
           for (final f in const [
             'Every spread: Celtic Cross, Horseshoe, Love, Career and more',
-            'Unlimited readings',
-            'Follow-up questions on your readings',
-            'Journal notes on every reading',
+            'Up to 20 readings a day',
+            'Follow-up questions and a clarifier card',
+            'Journal notes, and a look back a week later',
           ])
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 4),
@@ -196,11 +198,16 @@ class _PaywallScreenState extends State<PaywallScreen> {
               style: const TextStyle(fontSize: 12, color: AppColors.textMuted),
             ),
           const SizedBox(height: 4),
-          const Text(
-            'Payment is charged to your Apple ID or Google Play account. '
-            'The subscription renews automatically unless cancelled at least '
-            '24 hours before the end of the current period. Manage or cancel '
-            'in your account settings in the App Store or Google Play.',
+          Text(
+            Platform.isIOS
+                ? 'Payment is charged to your Apple ID account. The '
+                      'subscription renews automatically unless cancelled at '
+                      'least 24 hours before the end of the current period. '
+                      'Manage or cancel in your App Store account settings.'
+                : 'Payment is charged to your Google Play account. The '
+                      'subscription renews automatically unless cancelled '
+                      'before the end of the current period. Manage or cancel '
+                      'in Google Play > Payments & subscriptions.',
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 12, color: AppColors.textMuted),
           ),

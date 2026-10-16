@@ -66,7 +66,7 @@ class HistoryScreen extends StatelessWidget {
                     child: ListTile(
                       title: Text(r.cards.map((c) => c.card.name).join(', ')),
                       subtitle: Text(
-                        '${r.spread.label} · ${d.day}/${d.month}/${d.year}',
+                        '${r.spread.label} · ${MaterialLocalizations.of(context).formatMediumDate(d)}',
                       ),
                       leading: r.note == null
                           ? null

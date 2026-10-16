@@ -53,7 +53,11 @@ Future<void> startReading(
       question: q.isEmpty ? null : q,
     ),
   );
-  context.push('/reading/$id');
+  // Back from the reading goes to the Read tab, not through the question and
+  // spread screens again.
+  final router = GoRouter.of(context);
+  router.go('/read');
+  router.push('/reading/$id');
 }
 
 Future<ReadingResult?> _interpret(

@@ -20,7 +20,7 @@ HOLD THE CARDS. WE EXPLAIN THEM.
 
 BUILT FOR BEGINNERS, USEFUL FOR EVERYONE
 - Free: one reading every day (one card or Past, Present, Future), plus a free trial reading of any longer spread.
-- Premium: 14 spreads including the Celtic Cross and Horseshoe, unlimited readings, follow-up questions, and a journal to keep your own notes.
+- Premium: 14 spreads including the Celtic Cross and Horseshoe, up to 20 readings a day, follow-up questions, a clarifier card, and a journal with a look back a week later.
 - A card library with keywords and upright and reversed meanings for all 78 cards.
 - Daily reminder, if you want one.
 

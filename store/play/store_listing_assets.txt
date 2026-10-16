@@ -1,0 +1,37 @@
+# Google Play Store Listing Text Assets
+# App Name (max 30 chars):
+ShenTarot: AI Scan & Read
+
+# Short Description (max 80 chars):
+Drawn a card? Scan it with your camera for a deep, personalized AI reading.
+
+# Full Description (max 4000 chars):
+Point your camera at your card and watch ShenTarot bring it to life. Powered by intelligent AI, ShenTarot looks beyond generic booklet definitions to give you deep, personal, and nuanced readings tailored specifically to your situation and spread.
+
+Whether you're holding a physical deck in your hands or exploring daily spreads, ShenTarot turns every card into an illuminating conversation.
+
+Point your camera. Reveal the meaning.
+• Instant card scan: Simply frame your physical card in your camera. ShenTarot identifies it in seconds using fast, on-device recognition.
+• 100% private scanning: Your camera frames and photos are processed on your phone and never uploaded, stored, or shared.
+• Manual selection & digital cards: Prefer drawing cards on screen or choosing manually? Seamlessly shuffle and pick from the full 78-card deck.
+
+Intelligent AI readings that speak to your life
+• Beyond generic booklets: Most guidebooks give you dry, disconnected keywords. ShenTarot’s AI understands how your cards connect to your exact question—whether about love, career, or personal crossroads.
+• Structured, clear insights: Every reading provides an executive summary, card-by-card interpretations in their exact spread positions, reflection questions, and a practical next step.
+• Interactive follow-ups: Want to dig deeper? Draw a clarifier card or ask follow-up questions to uncover hidden layers.
+• Add your intuition: Note your initial gut feelings before the reading, and the AI weaves your personal impression into the interpretation.
+
+Designed for beginners and tarot lovers alike
+• 14 classic & modern spreads: Explore 1-card daily pulls, Past-Present-Future, Love & Relationship, Career Path, and deep 10-card Celtic Cross spreads.
+• Complete 78-card library: Master tarot symbols, keywords, and both upright and reversed meanings.
+• Private journal & history: Keep your past readings safely stored on your device to revisit and see how your journey unfolds.
+• Daily reflection: Draw your Card of the Day and set a gentle notification to pause and reflect.
+
+Important notice
+ShenTarot is designed for mindfulness and self-reflection. AI readings offer perspective and food for thought; they do not predict the future and do not replace professional medical, psychological, legal, or financial advice.
+
+Subscription information
+ShenTarot includes a daily free reading plus a trial of longer spreads. Unlock up to 20 readings a day, all 14 spreads, clarifier cards, follow-up questions, and the private journal with ShenTarot Premium. Premium is an auto-renewing subscription billed through Google Play and can be managed or cancelled anytime in Google Play > Payments & subscriptions.
+
+Privacy Policy: https://yunlong2601.github.io/shentarot-legal/privacy.html
+Terms of Use: https://yunlong2601.github.io/shentarot-legal/terms.html
