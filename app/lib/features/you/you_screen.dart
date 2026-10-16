@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-
 import '../../app/app_scope.dart';
 import '../../app/flags.dart';
 import '../../core/account_service.dart';

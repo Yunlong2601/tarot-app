@@ -8,7 +8,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "audit": "npm audit --omit=dev",
-    "deploy:beta": "wrangler deploy --var ALLOW_UNATTESTED_INSTALLS:true --var GLOBAL_DAILY_TOKEN_CAP:500000"
+    "deploy:beta": "wrangler deploy --var ALLOW_UNATTESTED_INSTALLS:true --var GLOBAL_DAILY_TOKEN_CAP:500000 --var REFERRALS_ENABLED:true --var CREDITS_ENABLED:true"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "0.135.0",

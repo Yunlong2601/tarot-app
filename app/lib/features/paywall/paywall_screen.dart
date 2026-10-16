@@ -229,7 +229,10 @@ class _PaywallScreenState extends State<PaywallScreen> {
               ),
             ),
           if (_pack case final pack?)
-            _StarterPackCard(pack: pack, busy: _busy, onBuy: _buyPack),
+            _StarterPackCard(pack: pack, busy: _busy, onBuy: _buyPack)
+          else if (creditsEnabled && plans != null)
+            // Preview until the store product exists: shown, not buyable.
+            const _StarterPackCard(pack: null, busy: true, onBuy: _noop),
           const SizedBox(height: 8),
           FilledButton(
             onPressed: (plan == null || _busy) ? null : () => _buy(plan),
@@ -385,15 +388,21 @@ class _AppleFriendOffer extends StatelessWidget {
 }
 
 /// A one-time pack of reading credits for people not ready to subscribe.
+void _noop(PlanOption? _) {}
+
 class _StarterPackCard extends StatelessWidget {
   const _StarterPackCard({
     required this.pack,
     required this.busy,
     required this.onBuy,
   });
-  final PlanOption pack;
+
+  /// Null while the store product does not exist yet (preview).
+  final PlanOption? pack;
   final bool busy;
   final void Function(PlanOption) onBuy;
+
+  String get _price => pack?.priceString ?? 'a small one-time price';
 
   @override
   Widget build(BuildContext context) => Card(
@@ -409,7 +418,7 @@ class _StarterPackCard extends StatelessWidget {
           ),
           const SizedBox(height: 4),
           Text(
-            'Starter Pack: 5 reading credits for ${pack.priceString}, one '
+            'Starter Pack: 5 reading credits for $_price, one '
             'time. Use them for extra readings or follow-up questions. '
             'Credits never expire.',
           ),
@@ -417,8 +426,10 @@ class _StarterPackCard extends StatelessWidget {
           Align(
             alignment: Alignment.centerRight,
             child: OutlinedButton(
-              onPressed: busy ? null : () => onBuy(pack),
-              child: Text('Buy for ${pack.priceString}'),
+              onPressed: busy || pack == null ? null : () => onBuy(pack!),
+              child: Text(
+                pack == null ? 'Coming soon' : 'Buy for ${pack!.priceString}',
+              ),
             ),
           ),
         ],
