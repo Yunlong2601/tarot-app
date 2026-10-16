@@ -12,6 +12,8 @@ class PlanOption {
     required this.periodLabel,
     this.trialLabel,
     this.handle,
+    this.price,
+    this.perMonthString,
   });
 
   final String id;
@@ -26,6 +28,12 @@ class PlanOption {
 
   /// Opaque store object used by the service when purchasing.
   final Object? handle;
+
+  /// Numeric store price in the user's currency (for honest comparisons).
+  final double? price;
+
+  /// Store-formatted price per month, e.g. "$3.33" for an annual plan.
+  final String? perMonthString;
 }
 
 class SubscriptionException implements Exception {
@@ -164,6 +172,8 @@ class RevenueCatSubscriptionService implements SubscriptionService {
       periodLabel: period,
       trialLabel: trial,
       handle: p,
+      price: p.storeProduct.price,
+      perMonthString: p.storeProduct.pricePerMonthString,
     );
   }
 

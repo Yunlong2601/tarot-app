@@ -168,12 +168,22 @@ class _PaywallScreenState extends State<PaywallScreen> {
                       ),
                       child: RadioListTile<String>(
                         value: p.id,
-                        title: Text(
-                          '${p.title} · ${p.priceString} ${p.periodLabel}',
+                        title: Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                '${p.title} · ${p.priceString} ${p.periodLabel}',
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ),
+                            if (p.title == 'Annual' &&
+                                annualSaving(plans) != null)
+                              const _Badge('Best value'),
+                          ],
                         ),
-                        subtitle: p.trialLabel == null
-                            ? null
-                            : Text(p.trialLabel!),
+                        subtitle: _planDetails(p, plans),
                       ),
                     ),
                 ],
@@ -233,4 +243,50 @@ class _PaywallScreenState extends State<PaywallScreen> {
       ),
     );
   }
+}
+
+/// How much the annual plan saves against paying monthly for a year, in whole
+/// percent, from the store's own prices (so it is right in every currency).
+/// Null when either price is missing or there is no saving.
+int? annualSaving(List<PlanOption> plans) {
+  final annual = plans.where((p) => p.title == 'Annual').firstOrNull?.price;
+  final monthly = plans.where((p) => p.title == 'Monthly').firstOrNull?.price;
+  if (annual == null || monthly == null || monthly <= 0) return null;
+  final pct = ((1 - annual / (monthly * 12)) * 100).floor();
+  return pct > 0 ? pct : null;
+}
+
+/// Trial, per-month equivalent and saving under the billed price. The billed
+/// price stays in the title, the most prominent line (Apple 3.1.2(c)).
+Widget? _planDetails(PlanOption p, List<PlanOption> plans) {
+  final parts = <String>[
+    if (p.trialLabel != null) p.trialLabel!,
+    if (p.title == 'Annual' && p.perMonthString != null)
+      'just ${p.perMonthString}/month',
+    if (p.title == 'Annual' && annualSaving(plans) != null)
+      'save ${annualSaving(plans)}% vs monthly',
+  ];
+  return parts.isEmpty ? null : Text(parts.join(' · '));
+}
+
+class _Badge extends StatelessWidget {
+  const _Badge(this.text);
+  final String text;
+
+  @override
+  Widget build(BuildContext context) => Container(
+    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+    decoration: BoxDecoration(
+      color: AppColors.gold,
+      borderRadius: BorderRadius.circular(8),
+    ),
+    child: Text(
+      text,
+      style: const TextStyle(
+        color: AppColors.onGold,
+        fontSize: 11,
+        fontWeight: FontWeight.w700,
+      ),
+    ),
+  );
 }

@@ -29,12 +29,15 @@ class FakeSubscriptions implements SubscriptionService {
       priceString: 'S\$52.98',
       periodLabel: 'per year',
       trialLabel: '7 days free',
+      price: 52.98,
+      perMonthString: 'S\$4.41',
     ),
     PlanOption(
       id: 'monthly',
       title: 'Monthly',
       priceString: 'S\$10.98',
       periodLabel: 'per month',
+      price: 10.98,
     ),
   ];
   @override
@@ -85,6 +88,12 @@ void main() {
     expect(find.text('Restore Purchases'), findsOneWidget);
     expect(find.text('Privacy Policy'), findsOneWidget);
     expect(find.text('Terms of Use'), findsOneWidget);
+    // Honest anchoring from store prices: 52.98 vs 10.98 x 12 = 131.76.
+    expect(find.text('Best value'), findsOneWidget);
+    expect(
+      find.textContaining('just S\$4.41/month · save 59% vs monthly'),
+      findsOneWidget,
+    );
   });
 
   testWidgets('buying unlocks premium and closes the paywall', (tester) async {
