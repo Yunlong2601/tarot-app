@@ -86,6 +86,15 @@ class ReadHomeScreen extends StatelessWidget {
                                   ),
                                   textAlign: TextAlign.center,
                                 ),
+                                const SizedBox(height: 6),
+                                const Text(
+                                  'For entertainment and self-reflection only.',
+                                  style: TextStyle(
+                                    color: AppColors.textMuted,
+                                    fontSize: 11,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
                               ],
                             ),
                           ),

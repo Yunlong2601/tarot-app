@@ -25,11 +25,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       'Readings that fit your question',
       'Ask what is on your mind and get a thoughtful, plain-language reading of your cards. One free reading every day, and a free taste of the longer spreads.',
     ),
-    (
-      Icons.verified_user_outlined,
-      'For reflection only',
-      'ShenTarot is for entertainment and self-reflection. It does not predict the future or give medical, legal or financial advice.',
-    ),
   ];
 
   @override
