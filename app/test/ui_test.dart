@@ -158,6 +158,22 @@ void main() {
     expect(find.text('Start reading'), findsOneWidget);
   });
 
+  testWidgets('library: mode toggle switches between scan and digital', (
+    t,
+  ) async {
+    final s = AppState(deck: deck, onboarded: true);
+    await start(t, s);
+    await t.tap(find.text('Library').last);
+    await t.pumpAndSettle();
+    expect(s.readMode, ReadMode.photo);
+    await t.tap(find.text('Draw digitally'));
+    await t.pumpAndSettle();
+    expect(s.readMode, ReadMode.digital);
+    await t.tap(find.text('Read').last);
+    await t.pumpAndSettle();
+    expect(find.text('Digital card reading'), findsOneWidget);
+  });
+
   testWidgets('library: spreads by category, Classics first', (t) async {
     final s = AppState(deck: deck, onboarded: true);
     await start(t, s);

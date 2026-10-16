@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../app/app_scope.dart';
+import '../../app/app_state.dart';
 import '../../app/theme.dart';
 import '../../data/models.dart';
 import '../cards/cards_browser.dart';
@@ -66,6 +67,31 @@ class _SpreadsListState extends State<_SpreadsList> {
     ];
     return Column(
       children: [
+        // Same setting as the Read tab's main button: scan a physical deck or
+        // draw on screen. The spread you tap starts in this mode.
+        Padding(
+          padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
+          child: SizedBox(
+            width: double.infinity,
+            child: SegmentedButton<ReadMode>(
+              segments: const [
+                ButtonSegment(
+                  value: ReadMode.photo,
+                  icon: Icon(Icons.center_focus_strong_outlined),
+                  label: Text('Scan my cards'),
+                ),
+                ButtonSegment(
+                  value: ReadMode.digital,
+                  icon: Icon(Icons.style_outlined),
+                  label: Text('Draw digitally'),
+                ),
+              ],
+              selected: {state.readMode},
+              showSelectedIcon: false,
+              onSelectionChanged: (m) => state.setReadMode(m.first),
+            ),
+          ),
+        ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Wrap(
