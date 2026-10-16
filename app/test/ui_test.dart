@@ -104,6 +104,10 @@ void main() {
     expect(find.text('A thoughtful reading.'), findsOneWidget);
     expect(s.history.length, 1);
     expect(s.history.first.question, 'What should I focus on this week?');
+    // Back from the reading lands on the Read tab, not the draw screen.
+    await t.tap(find.byTooltip('Back'));
+    await t.pumpAndSettle();
+    expect(find.text('Hold the cards.'), findsOneWidget);
   });
 
   testWidgets('look first: the typed impression goes with the reading', (

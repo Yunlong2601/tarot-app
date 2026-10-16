@@ -15,6 +15,50 @@ Primary working copy: the owner's local Mac folder. This repo is the backup and 
 | F | SQLite history/journal, notifications, accessibility, polish | Code built on branch `phase-f-history`; 47 tests pass; iOS simulator build OK; notifications and SQLite NOT tried on a device; accessibility audit and follow-ups not done |
 | G | Tests, store checklists, privacy and terms drafts | Docs written on branch `phase-g-release-docs` (checklists, test plan, data inventory, legal DRAFTS bundled in the app); lawyer review and device testing still to do |
 
+## Launch readiness (Android first; shared code for iOS) — 2026-10-17
+
+Every feature the paywall, store listing or README promises, checked on the signed release build against the live server where possible.
+
+| Feature | Status | Notes |
+|---|---|---|
+| Camera scan, on-device recognition | Partly built | Works in code and on the emulator; model trained only on public-domain art, never tested on a real deck photo. Blocked on owner: deck photos for training, real-phone test |
+| Manual card picker (with upright/reversed) | Built | Verified on emulator |
+| Digital draw on screen | Built | Verified on emulator |
+| 14 spreads, free one-time trial of a longer spread | Built | |
+| AI reading (Claude Haiku, GPT-6 Luna backup) | Built, live | Verified on emulator with the live server |
+| Look first note | Built | Verified live |
+| Card-by-card layout, Why this card | Built | Verified live |
+| Follow-up questions (Premium) | Built | Tested in code; live test needs Premium (blocked on RevenueCat) |
+| Clarifier card (Premium) | Built | Same as above |
+| Journal notes (Premium) | Built | Same as above |
+| Look back a week later (Premium) | Built | In-app prompt only; no reminder notification yet |
+| Reading history | Built | Verified on emulator |
+| Card of the Day (free) | Built | |
+| Daily reminder notification | Built | Not tried on a real phone |
+| Card library (78 cards, upright/reversed) | Built | |
+| Guide (how to use + 12 lessons + myths) | Built | |
+| Report a reading (AI content) | Built | |
+| Crisis wording → fixed care message | Built | Hotline numbers still to verify (owner) |
+| Paywall, restore, manage subscription | Built | Shows "not available yet" until RevenueCat key exists (blocked on owner) |
+| Own AI key | Built, hidden for launch | `OWN_KEY` flag |
+| Accounts / sign-in | Not built | Demo screen hidden (`SIGNIN_DEMO` flag); plan in `docs/accounts-plan.md`, waits for owner go-ahead |
+| Play Integrity / App Attest | Not built | Blocked: app must exist in Play Console (Android) and Apple enrollment (iOS) |
+| Topic chips on the question screen | Not built | Nice to have |
+
+### (A) Can build now, no accounts needed (in order)
+1. Reminder notification for the week-later look back (reuses the daily-reminder permission).
+2. Clearer slow-server / offline / daily-limit states on the reading spinner (a message after ~10 s, retry button).
+3. Topic chips (Love / Work / Self) on the question screen feeding the spread recommendation.
+4. Accessibility pass on the new screens (reading panels, look back, Look first dialog) at 2x text.
+5. Play Integrity code path behind a flag (server verification stays off until the owner links the app).
+
+### (B) Blocked on the owner
+1. RevenueCat + Play subscriptions (product ids in `docs/play-release-guide.md`), then the `goog_` key and `REVENUECAT_SECRET_KEY`.
+2. Upload the AAB to a closed test, recruit testers (check the current tester/day rule).
+3. Real-phone test, including a real card scan; deck photos for model training.
+4. Verify crisis hotline numbers; decide on accounts (`docs/accounts-plan.md`).
+5. Hero art and landing video (optional for v1).
+
 ## Next step
 Backend live (test mode) at https://shentarot-api.shentech.workers.dev with Claude Haiku 5.5, GPT-6 Luna fallback and own-key support. Verified 2026-10-16 on the Android emulator: debug build with `--dart-define-from-file=config/live.json`, digital Career Path reading with a question and a Look-first note returned a real AI reading that used the note. Own-key mode is hidden in the app for launch (flag `OWN_KEY`). See `docs/own-key-and-providers.md`.
 
