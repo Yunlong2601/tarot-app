@@ -53,6 +53,8 @@ class _DailyCardScreenState extends State<DailyCardScreen> {
             child: FlipCard(
               drawn: drawn,
               flipped: _flipped,
+              width: 190,
+              showCaption: false,
               onTap: () => setState(() => _flipped = true),
             ),
           ),

@@ -38,7 +38,7 @@ lib/features/  onboarding, home (tab shell), scan, cards, reading, history, payw
 test/          deck data, search, free-tier rules, navigation tests
 tools/         make_cards.py, fetch_art.py
 ```
-Bundle ID is the placeholder `com.example.shentarot`; set the real one before any store work.
+Bundle ID is the placeholder `com.shentech.shentarot`; set the real one before any store work.
 
 ## Dependency audit (run before each release)
 ```bash

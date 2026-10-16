@@ -7,6 +7,7 @@ import '../../core/reading_service.dart';
 import '../../data/models.dart';
 import '../cards/card_art.dart';
 import '../spreads/spread_layout.dart';
+import 'report_reading.dart';
 
 class _AskDialog extends StatefulWidget {
   const _AskDialog();
@@ -206,6 +207,11 @@ class ReadingScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(reading.spread.label),
         actions: [
+          IconButton(
+            tooltip: 'Report a problem with this reading',
+            icon: const Icon(Icons.flag_outlined),
+            onPressed: () => reportReading(context, reading),
+          ),
           IconButton(
             tooltip: 'Delete reading',
             icon: const Icon(Icons.delete_outline),

@@ -23,7 +23,7 @@ Dark theme with a gold accent (`lib/app/theme.dart`). The card back used in digi
 - `lib/app/brand.dart`: drawn logo mark (card + eye), gradient wordmark "SHENTAROT", lockup, card back with glow, and a gently floating fan of card backs. Animations stop when the device asks to reduce motion.
 - Serif headlines (Georgia on iOS, system serif on Android); body stays system sans. Glow around the onboarding icons and cards.
 - The landing shows the card fan until you add `assets/hero/hero.jpg`.
-- To look at the app without tapping: `flutter build ios --simulator`, then `xcrun simctl install booted build/ios/iphonesimulator/Runner.app` and `xcrun simctl launch booted com.example.shentarot`, `xcrun simctl io booted screenshot out.png`.
+- To look at the app without tapping: `flutter build ios --simulator`, then `xcrun simctl install booted build/ios/iphonesimulator/Runner.app` and `xcrun simctl launch booted com.shentech.shentarot`, `xcrun simctl io booted screenshot out.png`.
 
 ## Reading flow (owner's second wireframe set, built 2026-10-16)
 Read -> **Ask** (question, starters, wording nudge, or skip) -> **Select a Spread** (carousel, best match for the question marked Recommended, layout diagram, free / free trial / Premium badge) -> **draw**: Digital (tap the deck to place cards into the numbered slots, then flip each) or Photo (scan or pick manually, slot by slot) -> reading with a layout view for 5+ cards and section titles (In short, one block per card, To reflect on, A small step). Library > Spreads is the same catalog by category (Love, Career, Growth, Classics); tapping one starts Ask with it already chosen.

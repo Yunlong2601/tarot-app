@@ -1,4 +1,4 @@
-package com.example.shentarot
+package com.shentech.shentarot
 
 import io.flutter.embedding.android.FlutterActivity
 

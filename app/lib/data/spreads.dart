@@ -299,7 +299,7 @@ SpreadType recommendSpread(String question) {
   if (any(['job', 'career', 'work', 'boss', 'promotion', 'study', 'school'])) {
     return SpreadType.careerPath;
   }
-  if (any(['decide', 'decision', 'choose', 'choice', 'should i', 'option'])) {
+  if (any(['decide', 'decision', 'choose', 'choice', 'option', 'whether'])) {
     return SpreadType.threeDecision;
   }
   if (any(['feel', 'anxious', 'stuck', 'confus', 'myself', 'growth'])) {

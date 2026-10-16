@@ -192,4 +192,35 @@ void main() {
       expect(find.text('Where it is heading'), findsOneWidget);
     });
   });
+
+  testWidgets(
+    'a reading can be reported (needed for AI content on Google Play)',
+    (t) async {
+      tall(t);
+      final s = AppState(deck: deck, onboarded: true);
+      s.addReading(
+        Reading(
+          id: 'a',
+          createdAt: DateTime(2026, 5, 5),
+          spread: SpreadType.single,
+          cards: [
+            DrawnCard(card: deck.byId('major_00_fool')!, reversed: false),
+          ],
+          interpretation: 'x',
+        ),
+      );
+      await t.pumpWidget(ShenTarotApp(initialState: s));
+      await t.pumpAndSettle();
+      await t.tap(find.text('You').last);
+      await t.pumpAndSettle();
+      await t.tap(find.text('Reading History'));
+      await t.pumpAndSettle();
+      await t.tap(find.textContaining('The Fool'));
+      await t.pumpAndSettle();
+      await t.tap(find.byTooltip('Report a problem with this reading'));
+      await t.pumpAndSettle();
+      expect(find.text('What is wrong with this reading?'), findsOneWidget);
+      expect(find.text('Offensive or harmful'), findsOneWidget);
+    },
+  );
 }
