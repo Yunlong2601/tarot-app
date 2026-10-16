@@ -117,6 +117,9 @@ void main() {
     await t.tap(find.text('Continue with Google'));
     await t.pumpAndSettle();
     expect(find.text('Signed in with Google'), findsWidgets);
+    // Back on the You tab; open the account page to delete.
+    await t.tap(find.text('Account'));
+    await t.pumpAndSettle();
     await t.tap(find.text('Delete account'));
     await t.pumpAndSettle();
     expect(find.text('Delete your account?'), findsOneWidget);
@@ -125,5 +128,44 @@ void main() {
     expect(backend.calls.last, 'delete');
     expect(s.account, isNull);
     expect(find.text('Continue with Google'), findsOneWidget);
+  });
+
+  testWidgets('after onboarding, sign-in is offered once and can be skipped', (
+    t,
+  ) async {
+    t.view.physicalSize = const Size(1080, 4000);
+    t.view.devicePixelRatio = 2.75;
+    addTearDown(t.view.reset);
+    final s = AppState(
+      deck: deck,
+      accountApi: _FakeBackend(),
+      signIn: _FakeSignIn(),
+      accountProviders: const [AccountProvider.google],
+    );
+    await t.pumpWidget(ShenTarotApp(initialState: s));
+    await t.pumpAndSettle();
+    await t.tap(find.text('Next'));
+    await t.pumpAndSettle();
+    await t.tap(find.text('Get started'));
+    await t.pumpAndSettle();
+    expect(find.text('Continue with Google'), findsOneWidget);
+    await t.tap(find.text('Continue with Google'));
+    await t.pumpAndSettle();
+    expect(s.account?.id, 'acct-1');
+    expect(find.text('Hold the cards.'), findsOneWidget);
+  });
+
+  testWidgets('no sign-in step when accounts are off', (t) async {
+    t.view.physicalSize = const Size(1080, 4000);
+    t.view.devicePixelRatio = 2.75;
+    addTearDown(t.view.reset);
+    final s = AppState(deck: deck, accountProviders: const []);
+    await t.pumpWidget(ShenTarotApp(initialState: s));
+    await t.pumpAndSettle();
+    await t.tap(find.text('Next'));
+    await t.pumpAndSettle();
+    await t.tap(find.text('Get started'));
+    await t.pumpAndSettle();
+    expect(find.text('Hold the cards.'), findsOneWidget);
   });
 }

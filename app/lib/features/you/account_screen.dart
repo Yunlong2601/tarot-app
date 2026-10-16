@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../app/app_scope.dart';
 import '../../app/theme.dart';
@@ -101,8 +102,13 @@ class _AccountScreenState extends State<AccountScreen> {
               for (final p in state.accountProviders) ...[
                 FilledButton.icon(
                   onPressed: () => _run(() async {
-                    if (await state.signIn(p) && context.mounted) {
+                    final router = GoRouter.of(context);
+                    if (await state.signIn(p)) {
                       _toast('Signed in with ${p.label}');
+                      // Let the router finish its refresh from the state
+                      // change first, or it would restore this page.
+                      await WidgetsBinding.instance.endOfFrame;
+                      if (router.canPop()) router.pop();
                     }
                   }),
                   icon: Icon(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../app/app_scope.dart';
 import '../../app/theme.dart';
@@ -96,7 +97,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               FilledButton(
                 onPressed: () {
                   if (last) {
-                    AppScope.of(context).completeOnboarding();
+                    final state = AppScope.of(context);
+                    final router = GoRouter.of(context);
+                    state.completeOnboarding();
+                    // Offer sign-in once, right after install. Always
+                    // skippable: the app works fully without an account.
+                    if (state.accountsAvailable && state.account == null) {
+                      router.push('/account');
+                    }
                   } else {
                     _controller.nextPage(
                       duration: const Duration(milliseconds: 250),
