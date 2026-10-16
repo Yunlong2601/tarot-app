@@ -37,19 +37,19 @@ Future<void> main() async {
   );
   await state.loadPersisted();
   unawaited(state.startSubscriptions());
-  runApp(VeilscanApp(initialState: state));
+  runApp(ShenScanApp(initialState: state));
 }
 
-class VeilscanApp extends StatefulWidget {
-  const VeilscanApp({super.key, required this.initialState});
+class ShenScanApp extends StatefulWidget {
+  const ShenScanApp({super.key, required this.initialState});
 
   final AppState initialState;
 
   @override
-  State<VeilscanApp> createState() => _VeilscanAppState();
+  State<ShenScanApp> createState() => _ShenScanAppState();
 }
 
-class _VeilscanAppState extends State<VeilscanApp> {
+class _ShenScanAppState extends State<ShenScanApp> {
   late final AppState _state = widget.initialState;
   late final GoRouter _router = buildRouter(_state);
 
@@ -64,7 +64,7 @@ class _VeilscanAppState extends State<VeilscanApp> {
     return AppScope(
       state: _state,
       child: MaterialApp.router(
-        title: 'Veilscan',
+        title: 'ShenScan',
         theme: buildTheme(),
         routerConfig: _router,
         debugShowCheckedModeBanner: false,

@@ -2,8 +2,8 @@ import 'dart:typed_data';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:image/image.dart' as img;
-import 'package:veilscan/features/scan/recognition/preprocess.dart';
-import 'package:veilscan/features/scan/recognition/scan_logic.dart';
+import 'package:shenscan/features/scan/recognition/preprocess.dart';
+import 'package:shenscan/features/scan/recognition/scan_logic.dart';
 
 List<double> _scores(Map<int, double> set, int n) =>
     [for (var i = 0; i < n; i++) set[i] ?? 0.0];

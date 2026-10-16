@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
-import 'package:veilscan/app/app_state.dart';
-import 'package:veilscan/core/reading_service.dart';
-import 'package:veilscan/core/reminder_service.dart';
-import 'package:veilscan/data/deck.dart';
-import 'package:veilscan/data/history_repository.dart';
-import 'package:veilscan/data/models.dart';
-import 'package:veilscan/main.dart';
+import 'package:shenscan/app/app_state.dart';
+import 'package:shenscan/core/reading_service.dart';
+import 'package:shenscan/core/reminder_service.dart';
+import 'package:shenscan/data/deck.dart';
+import 'package:shenscan/data/history_repository.dart';
+import 'package:shenscan/data/models.dart';
+import 'package:shenscan/main.dart';
 
 class FakeReadingService implements ReadingService {
   FakeReadingService({this.error});
@@ -77,7 +77,7 @@ void main() {
   late String dbPath;
   setUp(() {
     SharedPreferences.setMockInitialValues({});
-    final dir = Directory.systemTemp.createTempSync('veilscan_test');
+    final dir = Directory.systemTemp.createTempSync('shenscan_test');
     addTearDown(() => dir.deleteSync(recursive: true));
     dbPath = '${dir.path}/h.db';
   });
@@ -195,7 +195,7 @@ void main() {
 
     testWidgets('empty history offers to draw a card', (tester) async {
       tall(tester);
-      await tester.pumpWidget(VeilscanApp(
+      await tester.pumpWidget(ShenScanApp(
           initialState: AppState(deck: deck, onboarded: true)));
       await tester.pumpAndSettle();
       await tester.tap(find.text('History').last);
@@ -209,7 +209,7 @@ void main() {
       tall(tester);
       final state = AppState(deck: deck, onboarded: true);
       state.addReading(reading('a', DateTime(2026, 5, 5)));
-      await tester.pumpWidget(VeilscanApp(initialState: state));
+      await tester.pumpWidget(ShenScanApp(initialState: state));
       await tester.pumpAndSettle();
       await tester.tap(find.text('History').last);
       await tester.pumpAndSettle();
@@ -223,7 +223,7 @@ void main() {
       tall(tester);
       final state = AppState(deck: deck, onboarded: true)..setPremium(true);
       state.addReading(reading('a', DateTime(2026, 5, 5)));
-      await tester.pumpWidget(VeilscanApp(initialState: state));
+      await tester.pumpWidget(ShenScanApp(initialState: state));
       await tester.pumpAndSettle();
       await tester.tap(find.text('History').last);
       await tester.pumpAndSettle();
@@ -250,7 +250,7 @@ void main() {
       final state = AppState(deck: deck, onboarded: true, readingService: fake)
         ..setPremium(true);
       state.addReading(reading('a', DateTime(2026, 5, 5)));
-      await tester.pumpWidget(VeilscanApp(initialState: state));
+      await tester.pumpWidget(ShenScanApp(initialState: state));
       await tester.pumpAndSettle();
       await tester.tap(find.text('History').last);
       await tester.pumpAndSettle();
@@ -271,7 +271,7 @@ void main() {
       tall(tester);
       final state = AppState(deck: deck, onboarded: true);
       state.addReading(reading('a', DateTime(2026, 5, 5)));
-      await tester.pumpWidget(VeilscanApp(initialState: state));
+      await tester.pumpWidget(ShenScanApp(initialState: state));
       await tester.pumpAndSettle();
       await tester.tap(find.text('History').last);
       await tester.pumpAndSettle();

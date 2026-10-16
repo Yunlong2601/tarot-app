@@ -18,7 +18,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     (
       Icons.center_focus_strong,
       'Hold the cards. We explain them.',
-      'Got a tarot deck but not sure what you drew? Hold a card up to your camera and Veilscan tells you what it is. Photos are never saved or uploaded.',
+      'Got a tarot deck but not sure what you drew? Hold a card up to your camera and ShenScan tells you what it is. Photos are never saved or uploaded.',
     ),
     (
       Icons.auto_awesome,
@@ -28,7 +28,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     (
       Icons.verified_user_outlined,
       'For reflection only',
-      'Veilscan is for entertainment and self-reflection. It does not predict the future or give medical, legal or financial advice.',
+      'ShenScan is for entertainment and self-reflection. It does not predict the future or give medical, legal or financial advice.',
     ),
   ];
 

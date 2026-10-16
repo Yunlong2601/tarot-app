@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:veilscan/app/app_state.dart';
-import 'package:veilscan/core/subscription_service.dart';
-import 'package:veilscan/data/deck.dart';
-import 'package:veilscan/main.dart';
+import 'package:shenscan/app/app_state.dart';
+import 'package:shenscan/core/subscription_service.dart';
+import 'package:shenscan/data/deck.dart';
+import 'package:shenscan/main.dart';
 import 'dart:io';
 
 class FakeSubscriptions implements SubscriptionService {
@@ -55,7 +55,7 @@ void main() {
   testWidgets('paywall shows store prices, trial terms and required links',
       (tester) async {
     tall(tester);
-    await tester.pumpWidget(VeilscanApp(
+    await tester.pumpWidget(ShenScanApp(
         initialState: AppState(
             deck: deck, onboarded: true, subscriptions: FakeSubscriptions())));
     await tester.pumpAndSettle();
@@ -73,7 +73,7 @@ void main() {
     tall(tester);
     final subs = FakeSubscriptions();
     final state = AppState(deck: deck, onboarded: true, subscriptions: subs);
-    await tester.pumpWidget(VeilscanApp(initialState: state));
+    await tester.pumpWidget(ShenScanApp(initialState: state));
     await tester.pumpAndSettle();
     await tester.tap(find.textContaining('Three cards'));
     await tester.pumpAndSettle();
@@ -87,7 +87,7 @@ void main() {
   testWidgets('without store keys the paywall cannot sell anything',
       (tester) async {
     tall(tester);
-    await tester.pumpWidget(VeilscanApp(
+    await tester.pumpWidget(ShenScanApp(
         initialState: AppState(deck: deck, onboarded: true)));
     await tester.pumpAndSettle();
     await tester.tap(find.textContaining('Three cards'));

@@ -22,7 +22,7 @@ TypeScript + Hono. Proxies AI readings so the app never holds an LLM key.
 cd backend
 npm install
 cp .dev.vars.example .dev.vars        # use made-up local values; never commit
-npx wrangler d1 migrations apply veilscan --local
+npx wrangler d1 migrations apply shenscan --local
 npm run dev                            # http://localhost:8787
 scripts/smoke.sh http://localhost:8787
 ```
@@ -30,8 +30,8 @@ Local mode uses a real (local) D1 and KV, so the SQL and routing are exercised. 
 
 ## Deploy runbook (needs your accounts; nothing here has been done yet)
 1. **Cloudflare account** (free plan is enough to start). `npx wrangler login` opens a browser to approve.
-2. **Create resources:** `npx wrangler d1 create veilscan` and `npx wrangler kv namespace create KV`. Paste the two ids into `wrangler.toml` (replace the `REPLACE_...` values) and commit that change.
-3. **Migrate:** `npx wrangler d1 migrations apply veilscan --remote`.
+2. **Create resources:** `npx wrangler d1 create shenscan` and `npx wrangler kv namespace create KV`. Paste the two ids into `wrangler.toml` (replace the `REPLACE_...` values) and commit that change.
+3. **Migrate:** `npx wrangler d1 migrations apply shenscan --remote`.
 4. **Anthropic:** create an account, add billing, set a **monthly spend limit** (for example US$10), create an API key.
 5. **Secrets** (each prompts for the value; never put them in files or chat):
    ```bash
@@ -41,7 +41,7 @@ Local mode uses a real (local) D1 and KV, so the SQL and routing are exercised. 
    npx wrangler secret put REVENUECAT_SECRET_KEY # after RevenueCat setup (Phase E doc)
    ```
    Generate random strings with `openssl rand -base64 48`.
-6. **Deploy:** `npm run deploy`. Note the URL (`https://veilscan-api.<your-subdomain>.workers.dev`).
+6. **Deploy:** `npm run deploy`. Note the URL (`https://shenscan-api.<your-subdomain>.workers.dev`).
 7. **Limits:** keep `GLOBAL_DAILY_TOKEN_CAP` low at first (default 2,000,000 tokens a day is about US$1 of Haiku output at the plan's prices; verify current prices).
 8. **Build the app against it:** `flutter run --dart-define=API_BASE_URL=https://<your-worker-url>`.
 

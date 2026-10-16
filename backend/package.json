@@ -1,5 +1,5 @@
 {
-  "name": "veilscan-backend",
+  "name": "shenscan-backend",
   "private": true,
   "type": "module",
   "scripts": {

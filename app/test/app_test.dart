@@ -2,10 +2,10 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:veilscan/app/app_state.dart';
-import 'package:veilscan/data/deck.dart';
-import 'package:veilscan/data/models.dart';
-import 'package:veilscan/main.dart';
+import 'package:shenscan/app/app_state.dart';
+import 'package:shenscan/data/deck.dart';
+import 'package:shenscan/data/models.dart';
+import 'package:shenscan/main.dart';
 
 void tallPhone(WidgetTester tester) {
   tester.view.physicalSize = const Size(1080, 5000);
@@ -111,7 +111,7 @@ void main() {
   group('navigation', () {
     testWidgets('new user sees onboarding, then the scan tab', (tester) async {
       tallPhone(tester);
-      await tester.pumpWidget(VeilscanApp(initialState: AppState(deck: deck)));
+      await tester.pumpWidget(ShenScanApp(initialState: AppState(deck: deck)));
       await tester.pumpAndSettle();
       expect(find.text('Hold the cards. We explain them.'), findsOneWidget);
 
@@ -128,7 +128,7 @@ void main() {
         (tester) async {
       tallPhone(tester);
       await tester.pumpWidget(
-          VeilscanApp(initialState: AppState(deck: deck, onboarded: true)));
+          ShenScanApp(initialState: AppState(deck: deck, onboarded: true)));
       await tester.pumpAndSettle();
       await tester.tap(find.textContaining('Three cards'));
       await tester.pumpAndSettle();
@@ -142,7 +142,7 @@ void main() {
         (tester) async {
       tallPhone(tester);
       await tester.pumpWidget(
-          VeilscanApp(initialState: AppState(deck: deck, onboarded: true)));
+          ShenScanApp(initialState: AppState(deck: deck, onboarded: true)));
       await tester.pumpAndSettle();
       await tester.tap(find.text('Simulate scan'));
       await tester.pumpAndSettle();
@@ -153,7 +153,7 @@ void main() {
         (tester) async {
       tallPhone(tester);
       await tester.pumpWidget(
-          VeilscanApp(initialState: AppState(deck: deck, onboarded: true)));
+          ShenScanApp(initialState: AppState(deck: deck, onboarded: true)));
       await tester.pumpAndSettle();
       await tester.tap(find.text('Cards').last);
       await tester.pumpAndSettle();

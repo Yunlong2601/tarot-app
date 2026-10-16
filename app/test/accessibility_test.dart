@@ -3,12 +3,12 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:veilscan/app/app_state.dart';
-import 'package:veilscan/app/theme.dart';
-import 'package:veilscan/core/subscription_service.dart';
-import 'package:veilscan/data/deck.dart';
-import 'package:veilscan/data/models.dart';
-import 'package:veilscan/main.dart';
+import 'package:shenscan/app/app_state.dart';
+import 'package:shenscan/app/theme.dart';
+import 'package:shenscan/core/subscription_service.dart';
+import 'package:shenscan/data/deck.dart';
+import 'package:shenscan/data/models.dart';
+import 'package:shenscan/main.dart';
 
 double _lum(Color c) {
   double ch(double v) => v <= 0.03928 ? v / 12.92 : math.pow((v + 0.055) / 1.055, 2.4).toDouble();
@@ -82,7 +82,7 @@ void main() {
   }
 
   Future<void> open(WidgetTester t, AppState s, String tab) async {
-    await t.pumpWidget(VeilscanApp(initialState: s));
+    await t.pumpWidget(ShenScanApp(initialState: s));
     await t.pumpAndSettle();
     if (tab != 'Scan') {
       await t.tap(find.text(tab).last);
@@ -101,7 +101,7 @@ void main() {
 
     testWidgets('onboarding', (t) async {
       phone(t, scale: 2.0);
-      await t.pumpWidget(VeilscanApp(initialState: AppState(deck: deck)));
+      await t.pumpWidget(ShenScanApp(initialState: AppState(deck: deck)));
       await t.pumpAndSettle();
       expect(t.takeException(), isNull);
     });

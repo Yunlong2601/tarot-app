@@ -23,7 +23,7 @@ import urllib.request
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 ART = ROOT / "assets" / "cards" / "art"
 API = "https://commons.wikimedia.org/w/api.php"
-UA = "VeilscanArtFetcher/0.1 (student project; contact: shenyunlongbusiness@gmail.com)"
+UA = "ShenScanArtFetcher/0.1 (student project; contact: shenyunlongbusiness@gmail.com)"
 MAJOR = ["Fool", "Magician", "High_Priestess", "Empress", "Emperor", "Hierophant",
          "Lovers", "Chariot", "Strength", "Hermit", "Wheel_of_Fortune", "Justice",
          "Hanged_Man", "Death", "Temperance", "Devil", "Tower", "Star", "Moon",
