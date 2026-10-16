@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -6,8 +7,8 @@ import '../../app/theme.dart';
 import '../../data/mock_data.dart';
 import '../../data/models.dart';
 
-/// Phase A: the camera is a placeholder. "Simulate scan" draws mock cards.
-/// Phase C replaces it with a live camera + on-device recognition.
+/// Starts a reading by scanning with the camera (Phase C), picking manually,
+/// or - in debug builds - simulating a scan.
 class ScanScreen extends StatefulWidget {
   const ScanScreen({super.key});
 
@@ -25,7 +26,7 @@ class _ScanScreenState extends State<ScanScreen> {
     super.dispose();
   }
 
-  void _startReading(List<TarotCard> cards) {
+  void _startReading(List<DrawnCard> cards) {
     final state = AppScope.of(context);
     if (!state.canStart(_spread)) {
       context.push('/paywall');
@@ -37,10 +38,7 @@ class _ScanScreenState extends State<ScanScreen> {
       id: id,
       createdAt: DateTime.now(),
       spread: _spread,
-      cards: [
-        for (var i = 0; i < cards.length; i++)
-          DrawnCard(card: cards[i], reversed: i.isOdd),
-      ],
+      cards: cards,
       interpretation: mockInterpretation,
       question: q.isEmpty ? null : q,
     ));
@@ -53,13 +51,29 @@ class _ScanScreenState extends State<ScanScreen> {
     return cards.take(_spread.cardCount).toList();
   }
 
+  List<DrawnCard> _asDrawn(List<TarotCard> cards) => [
+        for (var i = 0; i < cards.length; i++)
+          DrawnCard(card: cards[i], reversed: i.isOdd),
+      ];
+
+  Future<void> _scanWithCamera() async {
+    if (!AppScope.of(context).canStart(_spread)) {
+      context.push('/paywall');
+      return;
+    }
+    final cards = await context
+        .push<List<DrawnCard>>('/scan-camera', extra: _spread.cardCount);
+    if (cards == null || !mounted) return;
+    _startReading(cards);
+  }
+
   Future<void> _pickManually() async {
     final id = await context.push<String>('/pick');
     if (id == null || !mounted) return;
     final card = AppScope.of(context).deck.byId(id)!;
     final rest =
         _mockDraw().where((c) => c.id != id).take(_spread.cardCount - 1);
-    _startReading([card, ...rest]);
+    _startReading(_asDrawn([card, ...rest]));
   }
 
   @override
@@ -84,7 +98,7 @@ class _ScanScreenState extends State<ScanScreen> {
                 Icon(Icons.camera_alt_outlined,
                     size: 56, color: AppColors.textMuted),
                 SizedBox(height: 8),
-                Text('Camera preview arrives in Phase C',
+                Text('Hold up a Rider-Waite-Smith card',
                     style: TextStyle(color: AppColors.textMuted)),
               ],
             ),
@@ -114,10 +128,18 @@ class _ScanScreenState extends State<ScanScreen> {
                 border: OutlineInputBorder()),
           ),
           const SizedBox(height: 8),
-          FilledButton(
-            onPressed: () => _startReading(_mockDraw()),
-            child: const Text('Simulate scan'),
+          FilledButton.icon(
+            onPressed: _scanWithCamera,
+            icon: const Icon(Icons.camera_alt),
+            label: const Text('Scan with camera'),
           ),
+          if (kDebugMode) ...[
+            const SizedBox(height: 8),
+            OutlinedButton(
+              onPressed: () => _startReading(_asDrawn(_mockDraw())),
+              child: const Text('Simulate scan'),
+            ),
+          ],
           const SizedBox(height: 8),
           OutlinedButton(
             onPressed: _pickManually,

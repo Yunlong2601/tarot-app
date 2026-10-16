@@ -7,6 +7,7 @@ import '../features/home/home_shell.dart';
 import '../features/onboarding/onboarding_screen.dart';
 import '../features/paywall/paywall_screen.dart';
 import '../features/reading/reading_screen.dart';
+import '../features/scan/camera_scan_screen.dart';
 import '../features/scan/card_picker_screen.dart';
 import '../features/scan/scan_screen.dart';
 import '../features/settings/legal_screen.dart';
@@ -50,6 +51,10 @@ GoRouter buildRouter(AppState state) {
       GoRoute(
         path: '/card/:id',
         builder: (_, s) => CardDetailScreen(cardId: s.pathParameters['id']!),
+      ),
+      GoRoute(
+        path: '/scan-camera',
+        builder: (_, s) => CameraScanScreen(count: s.extra! as int),
       ),
       GoRoute(path: '/pick', builder: (_, _) => const CardPickerScreen()),
       GoRoute(
