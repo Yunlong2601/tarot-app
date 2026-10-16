@@ -17,13 +17,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   static const _pages = [
     (
       Icons.center_focus_strong,
-      'Scan your cards',
-      'Hold a physical tarot card up to your camera. Veilscan recognises it on your device. Photos are never saved or uploaded.',
+      'Hold the cards. We explain them.',
+      'Got a tarot deck but not sure what you drew? Hold a card up to your camera and Veilscan tells you what it is. Photos are never saved or uploaded.',
     ),
     (
       Icons.auto_awesome,
-      'Reflect on a reading',
-      'Get a thoughtful interpretation of your cards and your question. A fresh free reading every day.',
+      'Readings that fit your question',
+      'Ask what is on your mind and get a thoughtful, plain-language reading of your cards. One free single-card reading every day.',
     ),
     (
       Icons.verified_user_outlined,

@@ -1,4 +1,4 @@
-# AGENTS.md: Veilscan (working name) tarot scan app
+# AGENTS.md: Veilscan tarot scan app
 
 Read this first, then `PROGRESS.md` (current status and next steps), then `docs/step1-plan.md` (full plan, costs, store notes). Keep `PROGRESS.md` updated at the end of every phase.
 
@@ -6,6 +6,7 @@ Read this first, then `PROGRESS.md` (current status and next steps), then `docs/
 Flutter app (iOS + Android). The user scans a physical Rider-Waite-Smith tarot card with the camera; an on-device model identifies it (manual picker fallback); a backend returns an AI reading. Free tier: 1 single-card reading/day. Premium (RevenueCat entitlement `premium`): multi-card spreads, unlimited readings, follow-ups, history and journal. Entertainment and self-reflection only; no medical, legal, financial or life-or-death predictions.
 
 ## Decisions (do not re-litigate without the owner)
+- Store name: **Veilscan: Tarot Card Scanner** (owner, 2026-10-16; trademark/name availability still to be checked by the owner). Audience: people who own a physical deck and don't know how to read what they drew. Copy: `docs/store-listing.md`.
 - Flutter; Cloudflare Workers backend (TypeScript, KV + D1); LLM Claude Haiku 5.5 (`claude-haiku-5-5`, effort low, model name in a backend env var); RevenueCat; no user accounts; SQLite on device for history; English first (strings should be easy to localise later).
 - Deck: Rider-Waite-Smith only. Card art must be public domain (1909 scans) or original. Never use 1971+ US Games art. Do not use "Rider-Waite" in the app name, icon or keywords.
 - The mobile app never contains an LLM API key. Secrets live in backend env vars (`wrangler secret put`). Never commit keys.

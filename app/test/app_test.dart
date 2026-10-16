@@ -113,7 +113,7 @@ void main() {
       tallPhone(tester);
       await tester.pumpWidget(VeilscanApp(initialState: AppState(deck: deck)));
       await tester.pumpAndSettle();
-      expect(find.text('Scan your cards'), findsOneWidget);
+      expect(find.text('Hold the cards. We explain them.'), findsOneWidget);
 
       await tester.tap(find.text('Next'));
       await tester.pumpAndSettle();
