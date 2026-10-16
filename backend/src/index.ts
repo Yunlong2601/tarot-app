@@ -2,10 +2,14 @@ import { Hono } from "hono";
 import { hashId, signToken, verifyToken } from "./auth";
 import type { Env } from "./env";
 import { callAnthropic, type LlmFn } from "./llm";
+import { CRISIS_MESSAGE, detectCrisis } from "./knowledge";
 import {
-  DISCLAIMER, FOLLOWUP_MAX_TOKENS, FOLLOWUP_SYSTEM_PROMPT, MAX_TOKENS, SYSTEM_PROMPT,
-  buildFollowupMessage, buildUserMessage, checkOutput,
+  DISCLAIMER, FOLLOWUP_MAX_TOKENS, FOLLOWUP_SYSTEM_PROMPT, buildFollowupMessage, checkOutput,
 } from "./prompts";
+import {
+  READING_MAX_TOKENS, READING_SYSTEM_PROMPT, buildReadingMessage, fallbackReading, hitsBannedClaim,
+  parseModelReply, renderReading,
+} from "./reading";
 import { isPremium } from "./revenuecat";
 import {
   BURST_PER_MINUTE, D1UsageStore, DEFAULT_GLOBAL_DAILY_TOKEN_CAP, FREE_READINGS_PER_DAY,
@@ -75,6 +79,11 @@ export function createApp(deps: Deps = defaultDeps) {
     if (!parsed.ok) return c.json({ error: "invalid_request", detail: parsed.error }, 400);
     const req = parsed.value;
 
+    // Fixed care reply, no model call, nothing logged or counted.
+    if (detectCrisis(req.question, req.impression)) {
+      return c.json({ crisis: true, message: CRISIS_MESSAGE });
+    }
+
     const premium = await deps.premium(installId, c.env, now);
     if (req.spread !== "single" && !premium) return c.json({ error: "premium_required" }, 402);
 
@@ -92,14 +101,32 @@ export function createApp(deps: Deps = defaultDeps) {
     const slot = await usage.reserve(installHash, day, "reading", req.spread, model);
     try {
       const result = await deps.llm(
-        { system: SYSTEM_PROMPT, user: buildUserMessage(req), maxTokens: MAX_TOKENS[req.spread] },
+        { system: READING_SYSTEM_PROMPT, user: buildReadingMessage(req), maxTokens: READING_MAX_TOKENS[req.spread] },
         model, c.env.ANTHROPIC_API_KEY,
       );
       await usage.finalize(slot, result.inputTokens, result.outputTokens);
       if (result.refused) return c.json({ error: "declined" }, 422);
-      const checked = checkOutput(result.text);
-      if (!checked.ok) return c.json({ error: "bad_output" }, 502);
-      return c.json({ reading: checked.text, disclaimer: DISCLAIMER });
+      // Structured JSON is the normal case. If the model ignored the format,
+      // accept a clean plain-text reply; anything else (or any banned claim)
+      // falls back to a reading built from stored card text, never an error.
+      const structured = parseModelReply(result.text, req);
+      if (structured?.crisis) return c.json({ crisis: true, message: CRISIS_MESSAGE });
+      let text: string | null = structured ? renderReading(structured) : null;
+      if (text === null) {
+        const plain = checkOutput(result.text);
+        text = plain.ok ? plain.text : null;
+      }
+      let usedFallback = false;
+      if (text === null || hitsBannedClaim(text)) {
+        text = fallbackReading(req);
+        usedFallback = true;
+      }
+      return c.json({
+        reading: text,
+        structured: usedFallback ? null : structured,
+        fallback: usedFallback,
+        disclaimer: DISCLAIMER,
+      });
     } catch {
       await usage.release(slot);
       return c.json({ error: "upstream_failed" }, 502);
@@ -128,6 +155,8 @@ export function createApp(deps: Deps = defaultDeps) {
     const parsed = parseFollowupRequest(await readJson(c.req.raw, 16384));
     if (!parsed.ok) return c.json({ error: "invalid_request", detail: parsed.error }, 400);
     const req = parsed.value;
+
+    if (detectCrisis(req.followup, req.question)) return c.json({ crisis: true, message: CRISIS_MESSAGE });
 
     if (!(await deps.premium(installId, c.env, now))) return c.json({ error: "premium_required" }, 402);
 

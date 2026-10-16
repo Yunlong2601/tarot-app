@@ -10,6 +10,8 @@ export interface ReadingRequest {
   spread: Spread;
   cards: { id: string; reversed: boolean }[];
   question: string | null;
+  /** What the user noticed in the cards before the reading (optional). */
+  impression?: string | null;
 }
 
 export type Parsed<T> = { ok: true; value: T } | { ok: false; error: string };
@@ -62,7 +64,9 @@ export function parseReadingRequest(body: unknown): Parsed<ReadingRequest> {
   if (!sc.ok) return sc;
   const q = parseText(b.question, MAX_QUESTION_LENGTH, "question");
   if (!q.ok) return q;
-  return { ok: true, value: { ...sc.value, question: q.value } };
+  const imp = parseText(b.impression, MAX_QUESTION_LENGTH, "impression");
+  if (!imp.ok) return imp;
+  return { ok: true, value: { ...sc.value, question: q.value, impression: imp.value } };
 }
 
 export const MAX_FOLLOWUP_LENGTH = 300;
