@@ -2,6 +2,7 @@ import 'package:go_router/go_router.dart';
 
 import '../features/you/own_key_screen.dart';
 import '../features/cards/card_detail_screen.dart';
+import '../features/draw/draw_screen.dart';
 import '../features/you/account_screen.dart';
 import '../features/guide/guide_screen.dart';
 import '../features/history/history_screen.dart';
@@ -9,7 +10,6 @@ import '../features/library/library_screen.dart';
 import '../features/read/ask_screen.dart';
 import '../features/read/daily_card_screen.dart';
 import '../features/read/spread_picker_screen.dart';
-import '../features/read/digital_reading_screen.dart';
 import '../features/read/read_home_screen.dart';
 import '../features/home/home_shell.dart';
 import '../features/onboarding/onboarding_screen.dart';
@@ -69,10 +69,7 @@ GoRouter buildRouter(AppState state) {
       GoRoute(path: '/spreads', builder: (_, _) => const SpreadPickerScreen()),
       GoRoute(path: '/own-key', builder: (_, _) => const OwnKeyScreen()),
       GoRoute(path: '/photo', builder: (_, _) => const ScanScreen()),
-      GoRoute(
-        path: '/digital',
-        builder: (_, _) => const DigitalReadingScreen(),
-      ),
+      GoRoute(path: '/digital', builder: (_, _) => const DrawScreen()),
       GoRoute(path: '/daily', builder: (_, _) => const DailyCardScreen()),
       GoRoute(path: '/history', builder: (_, _) => const HistoryScreen()),
       GoRoute(path: '/account', builder: (_, _) => const AccountScreen()),
