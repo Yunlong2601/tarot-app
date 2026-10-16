@@ -3,7 +3,7 @@ import 'dart:ui' show Offset;
 /// The spread catalog. Keep in sync with backend/src/spreads.ts (same wire ids
 /// and position labels). Positions are about the reader's own situation, never
 /// about what another person thinks or feels.
-enum SpreadCategory { love, career, growth, classics }
+enum SpreadCategory { classics, love, career, growth }
 
 extension SpreadCategoryLabel on SpreadCategory {
   String get label => switch (this) {

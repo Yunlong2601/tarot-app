@@ -172,11 +172,12 @@ void main() {
     await start(t, s);
     await t.tap(find.text('Library').last);
     await t.pumpAndSettle();
-    expect(find.text('Love & Relationship'), findsOneWidget);
-    expect(find.text('Free trial reading'), findsWidgets);
-    await tapVisible(t, find.text('Classics'));
+    // Classics is the first tab and selected by default.
     expect(find.text('One-Card Reading'), findsOneWidget);
     expect(find.text('FREE'), findsNWidgets(2));
+    await tapVisible(t, find.text('Love'));
+    expect(find.text('Love & Relationship'), findsOneWidget);
+    expect(find.text('Free trial reading'), findsWidgets);
   });
 
   testWidgets(

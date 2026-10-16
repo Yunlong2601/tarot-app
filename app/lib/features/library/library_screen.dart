@@ -56,7 +56,7 @@ class _SpreadsList extends StatefulWidget {
 }
 
 class _SpreadsListState extends State<_SpreadsList> {
-  SpreadCategory _category = SpreadCategory.love;
+  SpreadCategory _category = SpreadCategory.classics;
 
   String _badge(AppState state, SpreadType t) {
     if (t.isFree) return 'FREE';
