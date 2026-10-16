@@ -2,7 +2,7 @@
 
 Tarot card scan + AI reading subscription app for iOS and Android. The user scans a physical Rider-Waite-Smith card with the phone camera, the app identifies it on device, and a backend returns an AI-written reflection. Entertainment and self-reflection only.
 
-Stack: Flutter (app), Cloudflare Workers (backend, Phase D), Claude Haiku 5.5 (readings), RevenueCat (subscriptions), SQLite (history).
+Stack: Flutter (app), Cloudflare Workers (backend, `backend/`), Claude Haiku 5.5 (readings), RevenueCat (subscriptions), SQLite (history).
 
 This repository is meant to be self-contained: any developer or AI coding tool can pick it up from these files.
 
@@ -34,6 +34,16 @@ flutter analyze
 flutter test
 ```
 All should pass with no issues. If something fails, record it in PROGRESS.md under Known issues.
+
+## Dependency audit (before every release)
+```bash
+cd app && flutter pub outdated && flutter pub deps --no-dev | head -50   # review new/changed packages and their licences
+cd backend && npm audit --omit=dev                                         # must report 0 vulnerabilities
+```
+Check each new dependency's licence and what data it touches. Backend dependencies are pinned to exact versions; app versions are locked by `pubspec.lock`.
+
+## Backend, store setup and release
+See [backend/README.md](backend/README.md), [docs/phase-e-subscriptions-setup.md](docs/phase-e-subscriptions-setup.md), [docs/app-store-checklist.md](docs/app-store-checklist.md), [docs/play-store-checklist.md](docs/play-store-checklist.md), [docs/test-plan.md](docs/test-plan.md), [docs/data-inventory.md](docs/data-inventory.md), and the legal drafts [privacy](docs/privacy-policy-draft.md) and [terms](docs/terms-draft.md).
 
 ## Not in the repo on purpose
 No API keys or secrets, ever. The Anthropic key lives only in the backend as a Cloudflare secret (`wrangler secret put`). Card art (public domain scans) is not committed yet; see `app/README.md` for how to fetch and verify it.

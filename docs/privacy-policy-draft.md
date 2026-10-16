@@ -1,0 +1,37 @@
+# Privacy Policy (DRAFT for legal review)
+
+> DRAFT. Not legal advice. Have it reviewed (PDPA; GDPR/UK GDPR if you launch there; Apple and Google requirements) before publishing. Replace the bracketed items. Host the final text at a public URL; both stores require a URL. The same text is bundled in the app at `app/assets/legal/privacy.txt`.
+
+**Veilscan** ("the app") is provided by [LEGAL NAME / TRADING NAME], Singapore. Contact: [PRIVACY CONTACT EMAIL]. Effective date: [DATE].
+
+The app is for entertainment and self-reflection only.
+
+## What we handle and why
+- **Camera.** When you scan a card, the photo is analysed on your phone to recognise the card. The photo is not saved and is not sent to us or anyone else.
+- **Your reading request.** To write a reading we send the cards (names/IDs and whether upright or reversed), the spread type and, if you typed one, your question to our server, which passes it to an AI provider (Anthropic) to generate the text. We do not store your question or the reading on our servers. The AI provider may keep API data for a limited time under its own policy: [LINK TO ANTHROPIC POLICY]. Please do not put sensitive personal information in your question.
+- **Anonymous ID.** The app creates a random ID on your phone. We store only a scrambled (hashed) version, together with the date, spread type and the amount of AI text used, to apply daily limits, prevent abuse and control costs. We do not know who you are from this.
+- **Network address.** Our hosting provider (Cloudflare) sees your IP address when the app connects. We use a scrambled version of it for a short-lived (about two minutes) request counter to prevent abuse.
+- **Purchases.** Subscriptions are handled by Apple or Google and by RevenueCat, which receives your anonymous ID and purchase status so we can unlock Premium and restore purchases. We do not receive your payment details.
+- **Stored on your device only.** Your reading history, journal notes, reminder time and settings stay on your phone. You can delete them in Settings > Delete all my data, or by uninstalling the app.
+- **Reminders.** The daily reminder is a local notification scheduled on your phone. We do not send push notifications.
+
+## What we do not do
+No accounts, no advertising, no tracking across other apps or websites, no sale of data. [If analytics are added later, list them here.]
+
+## Sharing and overseas transfers
+We share data only with service providers needed to run the app: Anthropic (AI), Cloudflare (hosting), RevenueCat (subscriptions), and Apple/Google (payments). These providers operate outside Singapore, so your request data is transferred overseas. [PDPA: confirm wording on consent and comparable protection.]
+
+## Retention
+Usage records (hashed ID, date, spread, token counts) are kept for [90 days]. Everything on your device stays until you delete it.
+
+## Your choices and rights
+You can use the app without typing a question. You can delete your on-device data at any time. To ask about, access or correct data we hold (the hashed ID and usage records), or to ask us to delete it, contact [PRIVACY CONTACT EMAIL]. [PDPA: name your Data Protection Officer contact.] Our contact person for data protection is [NAME].
+
+## Children
+The app is not directed to children under [13 / 16: decide with your lawyer and the store age-rating questionnaires].
+
+## Security
+Requests use HTTPS. Secrets are kept on the server, not in the app. No method is perfectly secure.
+
+## Changes
+We will update this page and the date above when this policy changes.
