@@ -44,12 +44,15 @@ void main() {
   ) async {
     await openDraw(t);
     expect(fanCards(), findsWidgets);
-    await t.drag(find.byType(DeckFan), const Offset(-200, 0));
+    await t.timedDrag(
+      find.byType(DeckFan),
+      const Offset(-120, 0),
+      const Duration(seconds: 1),
+    );
     await t.pumpAndSettle();
     for (var i = 0; i < 3; i++) {
       // A card left of the middle, not the one the screen-reader button takes.
-      final cards = fanCards();
-      await t.tap(cards.at(cards.evaluate().length ~/ 3), warnIfMissed: false);
+      await t.tapAt(t.getCenter(find.byType(DeckFan)) - const Offset(80, 0));
       await t.pumpAndSettle();
       expect(find.byType(FlipCard), findsNWidgets(i + 1));
       if (i == 0) {
