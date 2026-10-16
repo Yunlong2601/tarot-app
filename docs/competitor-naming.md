@@ -30,3 +30,7 @@ Other names seen: Tarot Simple, Trusted Tarot, Daily Tarot Card & Astrology, Gal
 - **The scan idea is not unique.** At least Taroter, Thoth Tarot School and one MWM app already offer camera scanning. My earlier claim that scanning is "uncommon" (in the App Store checklist and the plan) should read "less common". The reviewer note should still lead with it, but also lead with the AI reflection and the journal.
 - **Check before committing:** exact-name and near-name availability in both stores, trademark searches (Singapore IPOS, plus the US and EU if you sell there), a free domain and social handle. "Veilscan" has not been checked.
 - Alternatives in the same style if "Veilscan" is taken: a calm invented word + "Tarot Scanner" subtitle. Avoid "Rider-Waite" in the name (trademark) and avoid copying Taroter's pattern too closely.
+
+## Positioning (owner, 2026-10-16)
+Veilscan is for people who **already own a physical deck and don't know how to read what they drew**. The app scans the cards, says which cards they are, and explains them in the context of the user's question. Lead store copy, onboarding and review notes with that: "Hold the cards. We explain them."
+Subtitle ideas (30-character limit to verify): "Scan tarot cards, get answers", "Tarot scanner and reader", "Your tarot cards, explained".

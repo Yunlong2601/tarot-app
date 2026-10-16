@@ -33,7 +33,7 @@ Rules and menu names change. Items marked (verify) must be checked against the c
 - [ ] If you ever add accounts, account deletion inside the app is required (verify). Not needed now.
 
 ## Review risk: guideline 4.3 "spam / saturated category" (verify)
-Tarot and astrology apps are a crowded category. Lead the screenshots, subtitle and review notes with the **physical-card scan**, which is uncommon. Draft review notes:
+Tarot and astrology apps are a crowded category. Lead the screenshots, subtitle and review notes with the **physical-card scan**, which is less common than plain digital draws (Taroter, Thoth Tarot School and others also scan, so pair it with the interpretation angle: "you hold the cards, the app explains them"). Draft review notes:
 
 > Veilscan identifies a physical Rider-Waite-Smith tarot card with the camera (on-device recognition) and shows an AI-written reflection. It is for entertainment and self-reflection and says so on every reading. To test without a deck: open Scan, tap "Can't scan? Pick a card manually", choose any card and orientation, then the reading appears. Printable card images to scan are at [URL]. To see Premium: use the sandbox account [EMAIL] (password in the Notes field). Subscriptions: weekly, monthly, annual (7-day free trial); Restore Purchases and Manage Subscription are in Settings. No account is required. A demo video is at [URL].
 
