@@ -52,6 +52,9 @@ class _Plans implements SubscriptionService {
   Future<bool> restore() async => false;
   @override
   Future<String> manageUrl() async => 'https://example.invalid';
+
+  @override
+  Future<void> switchUser(String appUserId) async {}
 }
 
 void main() {

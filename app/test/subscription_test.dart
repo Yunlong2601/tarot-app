@@ -48,6 +48,9 @@ class FakeSubscriptions implements SubscriptionService {
   Future<bool> restore() async => restores;
   @override
   Future<String> manageUrl() async => 'https://example.invalid';
+
+  @override
+  Future<void> switchUser(String appUserId) async {}
 }
 
 void main() {

@@ -56,6 +56,10 @@ abstract class SubscriptionService {
 
   /// The store page where the user can manage or cancel.
   Future<String> manageUrl();
+
+  /// Switches the RevenueCat app user (account id when signed in, install id
+  /// when not), so Premium follows the account.
+  Future<void> switchUser(String appUserId);
 }
 
 /// Used when `REVENUECAT_IOS_KEY` / `REVENUECAT_ANDROID_KEY` were not given
@@ -86,6 +90,9 @@ class UnconfiguredSubscriptionService implements SubscriptionService {
 
   @override
   Future<String> manageUrl() async => _storeSubscriptionsUrl();
+
+  @override
+  Future<void> switchUser(String appUserId) async {}
 }
 
 String _storeSubscriptionsUrl() => Platform.isIOS
@@ -119,6 +126,12 @@ class RevenueCatSubscriptionService implements SubscriptionService {
       (info) => onPremiumChanged(_isPremium(info)),
     );
     onPremiumChanged(_isPremium(await Purchases.getCustomerInfo()));
+  }
+
+  @override
+  Future<void> switchUser(String appUserId) async {
+    if (!_started) return;
+    await Purchases.logIn(appUserId);
   }
 
   @override

@@ -3,12 +3,13 @@ import 'dart:io';
 
 import '../data/models.dart';
 import 'install_id.dart';
+import 'account_service.dart';
 import 'reading_service.dart';
 import 'user_key_store.dart';
 
 /// Talks to the Cloudflare Worker (`backend/`). Sends only the card IDs,
 /// orientation, spread and the optional question, plus an anonymous install ID.
-class ApiReadingService implements ReadingService {
+class ApiReadingService implements ReadingService, AccountBackend {
   ApiReadingService(
     this.baseUrl, {
     HttpClient Function()? clientFactory,
@@ -62,6 +63,37 @@ class ApiReadingService implements ReadingService {
       if (clarifier != null)
         'clarifier': {'id': clarifier.card.id, 'reversed': clarifier.reversed},
     }, 'answer');
+  }
+
+  @override
+  Future<String> signIn(AccountProvider provider, String idToken) async {
+    final res = await _post('/v1/account/signin', {
+      'provider': provider.wire,
+      'idToken': idToken,
+    }, auth: true);
+    final id = res.json['accountId'];
+    if (res.status == 200 && id is String) return id;
+    throw AccountException(switch (res.json['error']) {
+      'accounts_not_configured' => 'Accounts are not available yet.',
+      'invalid_token' => 'Sign-in could not be confirmed. Please try again.',
+      'rate_limited' => 'Too many attempts. Please wait a minute.',
+      _ => 'Sign-in failed. Please try again.',
+    });
+  }
+
+  @override
+  Future<void> signOut() async {
+    await _post('/v1/account/signout', const {}, auth: true);
+  }
+
+  @override
+  Future<void> deleteAccount() async {
+    final res = await _post('/v1/account/delete', const {}, auth: true);
+    if (res.status != 200) {
+      throw const AccountException(
+        'The account could not be deleted. Please try again.',
+      );
+    }
   }
 
   Future<ReadingResult> _send(

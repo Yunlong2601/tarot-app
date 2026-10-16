@@ -3,7 +3,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:shentarot/app/flags.dart';
 import 'package:shentarot/app/app_state.dart';
 import 'package:shentarot/core/reading_service.dart';
 import 'package:shentarot/data/deck.dart';
@@ -211,43 +210,6 @@ void main() {
     expect(find.text('Scan a card'), findsOneWidget);
     expect(find.text('Learn tarot in 12 short lessons'), findsOneWidget);
     expect(find.text('Myths and worries'), findsOneWidget);
-  });
-
-  testWidgets('sign-in demo is hidden for launch', (t) async {
-    await start(t, AppState(deck: deck, onboarded: true));
-    await t.tap(find.text('You').last);
-    await t.pumpAndSettle();
-    expect(find.text('Guest'), findsOneWidget);
-    expect(find.text('Sign in'), findsNothing);
-  });
-
-  testWidgets('sign-in demo can be closed and skipped, and signs nobody in', (
-    t,
-  ) async {
-    signInDemoEnabled = true;
-    addTearDown(() => signInDemoEnabled = false);
-    final s = AppState(deck: deck, onboarded: true);
-    await start(t, s);
-    await t.tap(find.text('You').last);
-    await t.pumpAndSettle();
-    await t.tap(find.text('Sign in'));
-    await t.pumpAndSettle();
-    expect(
-      find.text('Demo screen: accounts are not available yet.'),
-      findsOneWidget,
-    );
-    await t.tap(find.text('Continue with Apple'));
-    await t.pump();
-    expect(find.textContaining('Accounts are coming later'), findsOneWidget);
-    await t.tap(find.text('Skip for now'));
-    await t.pumpAndSettle();
-    expect(find.text('Guest'), findsOneWidget);
-    // And the close button works too.
-    await t.tap(find.text('Sign in'));
-    await t.pumpAndSettle();
-    await t.tap(find.byTooltip('Close'));
-    await t.pumpAndSettle();
-    expect(find.text('Guest'), findsOneWidget);
   });
 
   test('digital draws never repeat a card (seeded)', () {

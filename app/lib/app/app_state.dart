@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../core/account_service.dart';
 import '../core/install_id.dart';
 import '../core/reading_service.dart';
 import '../core/reminder_service.dart';
@@ -25,8 +26,13 @@ class AppState extends ChangeNotifier {
     HistoryRepository? historyRepository,
     this.reminders = const NoopReminderService(),
     UserKeyStore? userKeys,
+    this.accountApi = const UnconfiguredAccountBackend(),
+    SignInProvider? signIn,
+    List<AccountProvider>? accountProviders,
     DateTime Function()? clock,
   }) : userKeys = userKeys ?? MemoryUserKeyStore(),
+       accountProviders = accountProviders ?? availableProviders(),
+       _signIn = signIn ?? PlatformSignIn(),
        _repo = historyRepository ?? InMemoryHistoryRepository(),
        _clock = clock ?? DateTime.now;
 
@@ -38,6 +44,76 @@ class AppState extends ChangeNotifier {
   /// The user's own AI key (Premium). Only the provider is kept in memory for
   /// the UI; the key is read from secure storage when a request is made.
   final UserKeyStore userKeys;
+
+  /// Optional account (Google / Apple). Null = guest, which is fine.
+  final AccountBackend accountApi;
+  final SignInProvider _signIn;
+  Account? account;
+
+  /// Sign-in buttons offered on this build and platform (may be empty).
+  final List<AccountProvider> accountProviders;
+  bool get accountsAvailable => accountProviders.isNotEmpty || account != null;
+
+  /// Signs in. Returns false if the user cancelled. Throws [AccountException].
+  Future<bool> signIn(AccountProvider provider) async {
+    final token = await _signIn.idToken(provider);
+    if (token == null) return false;
+    final id = await accountApi.signIn(provider, token);
+    account = Account(id, provider);
+    await _saveAccount();
+    await _switchSubscriptionUser();
+    notifyListeners();
+    return true;
+  }
+
+  Future<void> signOut() async {
+    try {
+      await accountApi.signOut();
+    } catch (_) {}
+    await _signIn.signOut();
+    account = null;
+    await _saveAccount();
+    await _switchSubscriptionUser();
+    notifyListeners();
+  }
+
+  /// Deletes the account on our server (and its usage records), then signs
+  /// out here. History on this phone is kept; "Delete all my data" removes it.
+  Future<void> deleteAccount() async {
+    await accountApi.deleteAccount();
+    await _signIn.signOut();
+    account = null;
+    await _saveAccount();
+    await _switchSubscriptionUser();
+    setPremium(false);
+    notifyListeners();
+  }
+
+  Future<void> _switchSubscriptionUser() async {
+    try {
+      await subscriptions.switchUser(account?.id ?? await loadInstallId());
+    } catch (e) {
+      debugPrint('Subscription user switch failed: $e');
+    }
+  }
+
+  static const _kAccountId = 'account_id';
+  static const _kAccountProvider = 'account_provider';
+
+  Future<void> _saveAccount() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final a = account;
+      if (a == null) {
+        await prefs.remove(_kAccountId);
+        await prefs.remove(_kAccountProvider);
+      } else {
+        await prefs.setString(_kAccountId, a.id);
+        await prefs.setString(_kAccountProvider, a.provider.wire);
+      }
+    } catch (_) {}
+  }
+
   AiProvider? ownKeyProvider;
 
   /// Own-key mode applies only while Premium is active.
@@ -141,6 +217,13 @@ class AppState extends ChangeNotifier {
       _usedCount = prefs.getInt(_kUsedCount) ?? 0;
       trialUsed = prefs.getBool(_kTrial) ?? false;
       readReversed = prefs.getBool(_kReversed) ?? true;
+      final accId = prefs.getString(_kAccountId);
+      final accProvider = AccountProvider.values
+          .where((p) => p.wire == prefs.getString(_kAccountProvider))
+          .firstOrNull;
+      account = accId != null && accProvider != null
+          ? Account(accId, accProvider)
+          : null;
       lookFirst = prefs.getBool(_kLookFirst) ?? true;
       _dailyDate = prefs.getString(_kDailyDate) ?? '';
       _dailyId = prefs.getString(_kDailyId);
@@ -187,7 +270,10 @@ class AppState extends ChangeNotifier {
   /// stays on the free tier until it works.
   Future<void> startSubscriptions() async {
     try {
-      await subscriptions.start(await loadInstallId(), setPremium);
+      await subscriptions.start(
+        account?.id ?? await loadInstallId(),
+        setPremium,
+      );
     } catch (e) {
       debugPrint('Subscriptions failed to start: $e');
     }

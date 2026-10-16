@@ -4,8 +4,8 @@ import 'package:go_router/go_router.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../app/flags.dart';
 import '../../app/app_scope.dart';
+import '../../core/account_service.dart';
 import '../../core/user_key_store.dart';
 import '../../app/theme.dart';
 import '../../core/subscription_service.dart';
@@ -57,14 +57,20 @@ class YouScreen extends StatelessWidget {
               foregroundColor: AppColors.onGold,
               child: Icon(Icons.person_outline),
             ),
-            title: const Text('Guest'),
-            subtitle: const Text(
-              'No account needed. Your readings stay on this phone.',
+            title: Text(
+              state.account == null
+                  ? 'Guest'
+                  : 'Signed in with ${state.account!.provider.label}',
             ),
-            trailing: signInDemoEnabled
+            subtitle: Text(
+              state.account == null
+                  ? 'No account needed. Your readings stay on this phone.'
+                  : 'Your readings stay on this phone.',
+            ),
+            trailing: state.accountsAvailable
                 ? TextButton(
-                    onPressed: () => context.push('/signin-demo'),
-                    child: const Text('Sign in'),
+                    onPressed: () => context.push('/account'),
+                    child: Text(state.account == null ? 'Sign in' : 'Account'),
                   )
                 : null,
           ),

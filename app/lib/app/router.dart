@@ -2,7 +2,7 @@ import 'package:go_router/go_router.dart';
 
 import '../features/you/own_key_screen.dart';
 import '../features/cards/card_detail_screen.dart';
-import '../features/auth/signin_demo_screen.dart';
+import '../features/you/account_screen.dart';
 import '../features/guide/guide_screen.dart';
 import '../features/history/history_screen.dart';
 import '../features/library/library_screen.dart';
@@ -75,10 +75,7 @@ GoRouter buildRouter(AppState state) {
       ),
       GoRoute(path: '/daily', builder: (_, _) => const DailyCardScreen()),
       GoRoute(path: '/history', builder: (_, _) => const HistoryScreen()),
-      GoRoute(
-        path: '/signin-demo',
-        builder: (_, _) => const SignInDemoScreen(),
-      ),
+      GoRoute(path: '/account', builder: (_, _) => const AccountScreen()),
       GoRoute(
         path: '/card/:id',
         builder: (_, s) => CardDetailScreen(cardId: s.pathParameters['id']!),
