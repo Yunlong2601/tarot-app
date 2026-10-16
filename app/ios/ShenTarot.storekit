@@ -1,0 +1,94 @@
+{
+  "identifier": "4424D251-09EE-44C7-98C7-703FD31047AB",
+  "nonRenewingSubscriptions": [],
+  "products": [],
+  "settings": {
+    "_failTransactionsEnabled": false,
+    "_locale": "en_US",
+    "_storefront": "USA",
+    "_storeKitErrors": []
+  },
+  "subscriptionGroups": [
+    {
+      "id": "2CE865E4-38E5-4246-9910-E791C8AF9833",
+      "localizations": [],
+      "name": "ShenTarot Premium",
+      "subscriptions": [
+        {
+          "adHocOffers": [],
+          "codeOffers": [],
+          "displayPrice": "39.99",
+          "familyShareable": false,
+          "groupNumber": 1,
+          "internalID": "125C637D-394F-47F7-9503-670B38461E45",
+          "introductoryOffer": {
+            "internalID": "4EFA48E7-FAE9-4E64-A8A7-B410ECE58FA7",
+            "paymentMode": "free",
+            "subscriptionPeriod": "P1W"
+          },
+          "localizations": [
+            {
+              "description": "Everything in Premium, best value (7-day free trial)",
+              "displayName": "Annual",
+              "locale": "en_US"
+            }
+          ],
+          "productID": "shentarot_annual",
+          "recurringSubscriptionPeriod": "P1Y",
+          "referenceName": "Annual",
+          "subscriptionGroupID": "2CE865E4-38E5-4246-9910-E791C8AF9833",
+          "type": "RecurringSubscription",
+          "winbackOffers": []
+        },
+        {
+          "adHocOffers": [],
+          "codeOffers": [],
+          "displayPrice": "7.99",
+          "familyShareable": false,
+          "groupNumber": 2,
+          "internalID": "5A1CE170-0BBD-4631-A7EC-DBD4786393AE",
+          "introductoryOffer": null,
+          "localizations": [
+            {
+              "description": "Everything in Premium, billed monthly",
+              "displayName": "Monthly",
+              "locale": "en_US"
+            }
+          ],
+          "productID": "shentarot_monthly",
+          "recurringSubscriptionPeriod": "P1M",
+          "referenceName": "Monthly",
+          "subscriptionGroupID": "2CE865E4-38E5-4246-9910-E791C8AF9833",
+          "type": "RecurringSubscription",
+          "winbackOffers": []
+        },
+        {
+          "adHocOffers": [],
+          "codeOffers": [],
+          "displayPrice": "3.99",
+          "familyShareable": false,
+          "groupNumber": 3,
+          "internalID": "CBDBAD89-BDF5-4F5F-8931-E0260E1A6EA3",
+          "introductoryOffer": null,
+          "localizations": [
+            {
+              "description": "Everything in Premium, billed weekly",
+              "displayName": "Weekly",
+              "locale": "en_US"
+            }
+          ],
+          "productID": "shentarot_weekly",
+          "recurringSubscriptionPeriod": "P1W",
+          "referenceName": "Weekly",
+          "subscriptionGroupID": "2CE865E4-38E5-4246-9910-E791C8AF9833",
+          "type": "RecurringSubscription",
+          "winbackOffers": []
+        }
+      ]
+    }
+  ],
+  "version": {
+    "major": 4,
+    "minor": 0
+  }
+}

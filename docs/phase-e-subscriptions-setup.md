@@ -32,3 +32,10 @@ Create the Play Console subscriptions, a RevenueCat Android app and pass `REVENU
 - Never run against RevenueCat or the stores: only unit/widget tests with a fake service, and a successful iOS simulator build.
 - Intro-offer detection assumes a free-trial intro price of 0; check how a "pay as you go" or "pay up front" offer appears.
 - Restore needs a real sandbox account to confirm.
+
+## Test purchases on the Mac without App Store Connect (StoreKit file)
+`app/ios/ShenTarot.storekit` defines the three subscriptions locally: product ids `shentarot_annual` (US$39.99, 7-day free trial), `shentarot_monthly` (US$7.99) and `shentarot_weekly` (US$3.99). Use the same product ids when you create the products in App Store Connect.
+
+To use it in Xcode: open `app/ios/Runner.xcworkspace`, Product > Scheme > Edit Scheme > Run > Options > StoreKit Configuration > choose `ShenTarot.storekit`. Run on the simulator or your own iPhone. Xcode's Debug > StoreKit > Manage Transactions lets you approve, fail, expire or refund purchases.
+
+Limits (not verified): the app reads plans through RevenueCat, so you still need a RevenueCat project whose products use these ids and an offering marked current; RevenueCat then loads prices from the local StoreKit file in this test mode (confirm in RevenueCat's StoreKit testing guide). Prices in the file are placeholders; real prices are set in App Store Connect.
