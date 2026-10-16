@@ -11,12 +11,14 @@ Primary working copy: the owner's local Mac folder. This repo is the backup and 
 | B | 78-card data, card list/search/detail | Done (PR #1); card art not yet added |
 | C | Camera scan, on-device recognition, manual fallback | Code built on branch `phase-c-scan`; unit tests pass; NOT run on a device; no trained model yet |
 | D | Cloudflare Worker proxy + AI reading | Code built on branch `phase-d-backend` (on top of `phase-c-scan`); backend + app tests pass; NOT deployed, never called the real API; device attestation not implemented |
-| E | RevenueCat subscriptions + real paywall | Not started |
+| E | RevenueCat subscriptions + real paywall | Code built on branch `phase-e-subscriptions`; fake-service tests pass; NOT run against RevenueCat or a store (`docs/phase-e-subscriptions-setup.md`) |
 | F | SQLite history/journal, notifications, accessibility, polish | Not started |
 | G | Tests, store checklists, privacy and terms drafts | Not started |
 
 ## Next step
-Phase D is coded (`backend/`, `app/lib/core/`). Remaining: owner creates Anthropic/Cloudflare accounts and keys, deploys (`backend/README.md`), builds the app with `--dart-define=API_BASE_URL=...`, and tests a real reading; implement App Attest / Play Integrity in `POST /v1/install`. Then Phase E after "continue".
+Phase E is coded. Owner: follow `docs/phase-e-subscriptions-setup.md` (Apple + RevenueCat setup), then sandbox-test. Next build phase: F (history/notifications/polish) after "continue". iOS is the priority; Play Store work starts after.
+
+(Earlier) Phase D is coded (`backend/`, `app/lib/core/`). Remaining: owner creates Anthropic/Cloudflare accounts and keys, deploys (`backend/README.md`), builds the app with `--dart-define=API_BASE_URL=...`, and tests a real reading; implement App Attest / Play Integrity in `POST /v1/install`. Then Phase E after "continue".
 
 (Earlier note) Phase C is coded (`app/lib/features/scan/`: `recognition/scan_logic.dart`, `preprocess.dart`, `recognizer.dart`, `camera_scan_screen.dart`). Remaining for Phase C: write the `ml/` training pipeline, train and export `app/assets/models/tarot_classifier.tflite` (needs the owner's card photos), and test on real iPhone and Android. Without the model the scan screen falls back to the manual picker. Then Phase D after the owner says "continue".
 

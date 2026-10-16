@@ -1,7 +1,11 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import 'package:url_launcher/url_launcher.dart';
+
 import '../../app/app_scope.dart';
+import '../../core/subscription_service.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -11,6 +15,29 @@ class SettingsScreen extends StatelessWidget {
     final state = AppScope.of(context);
     void soon(String what) => ScaffoldMessenger.of(context)
         .showSnackBar(SnackBar(content: Text('$what arrives in a later phase')));
+    Future<void> manage() async {
+      final url = Uri.parse(await state.subscriptions.manageUrl());
+      if (!await launchUrl(url, mode: LaunchMode.externalApplication) &&
+          context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+            content: Text('Open Settings > Subscriptions on your device.')));
+      }
+    }
+
+    Future<void> restore() async {
+      final messenger = ScaffoldMessenger.of(context);
+      try {
+        final premium = await state.subscriptions.restore();
+        if (premium) state.setPremium(true);
+        messenger.showSnackBar(SnackBar(
+            content: Text(premium
+                ? 'Premium restored.'
+                : 'No active subscription found for this account.')));
+      } on SubscriptionException catch (e) {
+        messenger.showSnackBar(SnackBar(content: Text(e.message)));
+      }
+    }
+
     return Scaffold(
       appBar: AppBar(title: const Text('Settings')),
       body: ListView(children: [
@@ -22,12 +49,12 @@ class SettingsScreen extends StatelessWidget {
         ListTile(
           leading: const Icon(Icons.credit_card),
           title: const Text('Manage subscription'),
-          onTap: () => soon('Manage subscription'),
+          onTap: manage,
         ),
         ListTile(
           leading: const Icon(Icons.restore),
           title: const Text('Restore Purchases'),
-          onTap: () => soon('Restore'),
+          onTap: restore,
         ),
         SwitchListTile(
           secondary: const Icon(Icons.notifications_outlined),
@@ -75,7 +102,7 @@ class SettingsScreen extends StatelessWidget {
             if (ok == true) state.deleteAllData();
           },
         ),
-        if (!state.isPremium) const SizedBox.shrink() else ListTile(
+        if (kDebugMode && state.isPremium) ListTile(
           leading: const Icon(Icons.bug_report_outlined),
           title: const Text('Dev: turn Premium off'),
           onTap: () => state.setPremium(false),

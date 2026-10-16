@@ -1,10 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
-import 'dart:math';
-
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../data/models.dart';
+import 'install_id.dart';
 import 'reading_service.dart';
 
 /// Talks to the Cloudflare Worker (`backend/`). Sends only the card IDs,
@@ -16,19 +14,6 @@ class ApiReadingService implements ReadingService {
   final String baseUrl;
   final HttpClient Function() _newClient;
   String? _token;
-
-  static const _installKey = 'install_id';
-
-  /// Also the RevenueCat app user ID (Phase E).
-  Future<String> installId() async {
-    final prefs = await SharedPreferences.getInstance();
-    var id = prefs.getString(_installKey);
-    if (id == null) {
-      id = _uuidV4();
-      await prefs.setString(_installKey, id);
-    }
-    return id;
-  }
 
   @override
   Future<ReadingResult> interpret({
@@ -104,7 +89,7 @@ class ApiReadingService implements ReadingService {
     final existing = _token;
     if (existing != null) return existing;
     final res =
-        await _post('/v1/install', {'installId': await installId()}, auth: false);
+        await _post('/v1/install', {'installId': await loadInstallId()}, auth: false);
     final token = res.json['token'];
     if (res.status != 200 || token is! String) {
       throw const ReadingException(ReadingErrorKind.failed,
@@ -118,14 +103,4 @@ class _Response {
   _Response(this.status, this.json);
   final int status;
   final Map<String, dynamic> json;
-}
-
-String _uuidV4() {
-  final r = Random.secure();
-  final b = List<int>.generate(16, (_) => r.nextInt(256));
-  b[6] = (b[6] & 0x0f) | 0x40;
-  b[8] = (b[8] & 0x3f) | 0x80;
-  String h(int from, int to) =>
-      b.sublist(from, to).map((x) => x.toRadixString(16).padLeft(2, '0')).join();
-  return '${h(0, 4)}-${h(4, 6)}-${h(6, 8)}-${h(8, 10)}-${h(10, 16)}';
 }

@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -7,6 +10,7 @@ import 'app/router.dart';
 import 'app/theme.dart';
 import 'core/api_reading_service.dart';
 import 'core/reading_service.dart';
+import 'core/subscription_service.dart';
 import 'data/deck.dart';
 
 Future<void> main() async {
@@ -14,14 +18,21 @@ Future<void> main() async {
   final deck = await Deck.load();
   // Set at build time: flutter run --dart-define=API_BASE_URL=https://...
   const apiBaseUrl = String.fromEnvironment('API_BASE_URL');
-  runApp(VeilscanApp(
-    initialState: AppState(
-      deck: deck,
-      readingService: apiBaseUrl.isEmpty
-          ? const UnconfiguredReadingService()
-          : ApiReadingService(apiBaseUrl),
-    ),
-  ));
+  // RevenueCat public SDK keys (one per platform), also via --dart-define.
+  const iosKey = String.fromEnvironment('REVENUECAT_IOS_KEY');
+  const androidKey = String.fromEnvironment('REVENUECAT_ANDROID_KEY');
+  final storeKey = Platform.isIOS ? iosKey : androidKey;
+  final state = AppState(
+    deck: deck,
+    readingService: apiBaseUrl.isEmpty
+        ? const UnconfiguredReadingService()
+        : ApiReadingService(apiBaseUrl),
+    subscriptions: storeKey.isEmpty
+        ? const UnconfiguredSubscriptionService()
+        : RevenueCatSubscriptionService(storeKey),
+  );
+  unawaited(state.startSubscriptions());
+  runApp(VeilscanApp(initialState: state));
 }
 
 class VeilscanApp extends StatefulWidget {

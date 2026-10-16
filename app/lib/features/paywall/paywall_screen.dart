@@ -3,25 +3,13 @@ import 'package:go_router/go_router.dart';
 
 import '../../app/app_scope.dart';
 import '../../app/theme.dart';
+import '../../core/subscription_service.dart';
 
-class _Plan {
-  const _Plan(this.id, this.title, this.price, this.period, {this.note});
-  final String id;
-  final String title;
-  final String price;
-  final String period;
-  final String? note;
-}
-
-/// Phase A mock paywall. Phase E loads real products from RevenueCat and
-/// shows the store-localised price. Never hardcode prices in production.
-const _plans = [
-  _Plan('annual', 'Annual', r'$39.99', 'per year',
-      note: '7-day free trial · best value'),
-  _Plan('monthly', 'Monthly', r'$7.99', 'per month'),
-  _Plan('weekly', 'Weekly', r'$3.99', 'per week'),
-];
-
+/// Paywall. Prices, periods and the trial come from the store through
+/// RevenueCat (localised); nothing is hardcoded. Shows price, billing period,
+/// auto-renew terms, Restore Purchases and Privacy/Terms links next to the
+/// buy button, as the store guidelines require (verify current rules in
+/// docs/step1-plan.md).
 class PaywallScreen extends StatefulWidget {
   const PaywallScreen({super.key});
 
@@ -30,13 +18,83 @@ class PaywallScreen extends StatefulWidget {
 }
 
 class _PaywallScreenState extends State<PaywallScreen> {
-  String _selected = 'annual';
+  List<PlanOption>? _plans;
+  String? _loadError;
+  String? _selected;
+  bool _busy = false;
+  bool _started = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_started) return;
+    _started = true;
+    _load();
+  }
+
+  Future<void> _load() async {
+    final service = AppScope.of(context).subscriptions;
+    try {
+      final plans = await service.plans();
+      if (!mounted) return;
+      setState(() {
+        _plans = plans;
+        _selected = plans.isEmpty ? null : plans.first.id;
+      });
+    } catch (_) {
+      if (!mounted) return;
+      setState(() {
+        _plans = const [];
+        _loadError = 'Could not load subscription options. Please try again.';
+      });
+    }
+  }
+
+  Future<void> _buy(PlanOption plan) async {
+    final state = AppScope.of(context);
+    setState(() => _busy = true);
+    try {
+      final premium = await state.subscriptions.purchase(plan);
+      if (!mounted) return;
+      if (premium) {
+        context.pop();
+        state.setPremium(true);
+      }
+    } on SubscriptionException catch (e) {
+      _toast(e.message);
+    } finally {
+      if (mounted) setState(() => _busy = false);
+    }
+  }
+
+  Future<void> _restore() async {
+    final state = AppScope.of(context);
+    setState(() => _busy = true);
+    try {
+      final premium = await state.subscriptions.restore();
+      if (!mounted) return;
+      if (premium) {
+        context.pop();
+        state.setPremium(true);
+      } else {
+        _toast('No active subscription found for this account.');
+      }
+    } on SubscriptionException catch (e) {
+      _toast(e.message);
+    } finally {
+      if (mounted) setState(() => _busy = false);
+    }
+  }
+
+  void _toast(String m) => ScaffoldMessenger.of(context)
+      .showSnackBar(SnackBar(content: Text(m)));
 
   @override
   Widget build(BuildContext context) {
-    final state = AppScope.of(context);
-    final plan = _plans.firstWhere((p) => p.id == _selected);
-    final trial = plan.id == 'annual';
+    final plans = _plans;
+    final plan = (plans == null || _selected == null)
+        ? null
+        : plans.firstWhere((p) => p.id == _selected);
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -64,46 +122,54 @@ class _PaywallScreenState extends State<PaywallScreen> {
               ]),
             ),
           const SizedBox(height: 16),
-          RadioGroup<String>(
-            groupValue: _selected,
-            onChanged: (v) => setState(() => _selected = v ?? _selected),
-            child: Column(children: [
-              for (final p in _plans)
-                Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(14),
-                    side: BorderSide(
-                        color: p.id == _selected
-                            ? AppColors.gold
-                            : Colors.transparent,
-                        width: 2),
+          if (plans == null)
+            const Center(child: CircularProgressIndicator())
+          else if (plans.isEmpty)
+            Text(
+              _loadError ?? 'Subscriptions are not available yet.',
+              textAlign: TextAlign.center,
+              style: const TextStyle(color: AppColors.textMuted),
+            )
+          else
+            RadioGroup<String>(
+              groupValue: _selected,
+              onChanged: (v) => setState(() => _selected = v ?? _selected),
+              child: Column(children: [
+                for (final p in plans)
+                  Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(14),
+                      side: BorderSide(
+                          color: p.id == _selected
+                              ? AppColors.gold
+                              : Colors.transparent,
+                          width: 2),
+                    ),
+                    child: RadioListTile<String>(
+                      value: p.id,
+                      title: Text('${p.title} · ${p.priceString} ${p.periodLabel}'),
+                      subtitle: p.trialLabel == null ? null : Text(p.trialLabel!),
+                    ),
                   ),
-                  child: RadioListTile<String>(
-                    value: p.id,
-                    title: Text('${p.title} · ${p.price} ${p.period}'),
-                    subtitle: p.note == null ? null : Text(p.note!),
-                  ),
-                ),
-            ]),
-          ),
+              ]),
+            ),
           const SizedBox(height: 8),
           FilledButton(
-            onPressed: () {
-              // Mock purchase. Phase E calls RevenueCat here.
-              state.setPremium(true);
-              context.pop();
-            },
-            child: Text(trial ? 'Start 7-day free trial' : 'Subscribe'),
+            onPressed: (plan == null || _busy) ? null : () => _buy(plan),
+            child: Text(plan?.trialLabel != null
+                ? 'Start ${plan!.trialLabel!.replaceAll(' free', '')} free trial'
+                : 'Subscribe'),
           ),
           const SizedBox(height: 12),
-          Text(
-            trial
-                ? '7 days free, then ${plan.price} ${plan.period}. '
-                    'Cancel any time at least 24 hours before the trial ends.'
-                : '${plan.price} ${plan.period}.',
-            textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 12, color: AppColors.textMuted),
-          ),
+          if (plan != null)
+            Text(
+              plan.trialLabel != null
+                  ? '${plan.trialLabel}, then ${plan.priceString} ${plan.periodLabel}. '
+                      'Cancel any time at least 24 hours before the trial ends.'
+                  : '${plan.priceString} ${plan.periodLabel}.',
+              textAlign: TextAlign.center,
+              style: const TextStyle(fontSize: 12, color: AppColors.textMuted),
+            ),
           const SizedBox(height: 4),
           const Text(
             'Payment is charged to your Apple ID or Google Play account. '
@@ -115,8 +181,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
           ),
           Wrap(alignment: WrapAlignment.center, children: [
             TextButton(
-                onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Restore arrives in Phase E'))),
+                onPressed: _busy ? null : _restore,
                 child: const Text('Restore Purchases')),
             TextButton(
                 onPressed: () => context.push('/legal/privacy'),

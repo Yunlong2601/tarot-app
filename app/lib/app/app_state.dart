@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 
+import '../core/install_id.dart';
 import '../core/reading_service.dart';
+import '../core/subscription_service.dart';
 import '../data/deck.dart';
 import '../data/mock_data.dart';
 import '../data/models.dart';
@@ -12,10 +14,12 @@ class AppState extends ChangeNotifier {
     required this.deck,
     this.onboarded = false,
     this.readingService = const UnconfiguredReadingService(),
+    this.subscriptions = const UnconfiguredSubscriptionService(),
   }) : history = buildMockHistory(deck);
 
   final Deck deck;
   final ReadingService readingService;
+  final SubscriptionService subscriptions;
 
   bool onboarded;
   bool isPremium = false;
@@ -31,12 +35,23 @@ class AppState extends ChangeNotifier {
     return !spread.isPremium && canReadForFree;
   }
 
+  /// Starts the store SDK. A failure must not block the app: the user simply
+  /// stays on the free tier until it works.
+  Future<void> startSubscriptions() async {
+    try {
+      await subscriptions.start(await loadInstallId(), setPremium);
+    } catch (e) {
+      debugPrint('Subscriptions failed to start: $e');
+    }
+  }
+
   void completeOnboarding() {
     onboarded = true;
     notifyListeners();
   }
 
   void setPremium(bool value) {
+    if (isPremium == value) return;
     isPremium = value;
     notifyListeners();
   }
