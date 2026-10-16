@@ -1,5 +1,10 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
+/// Own-key mode is off for launch: the You tab hides it unless the app is
+/// built with `--dart-define=OWN_KEY=true`. The code and backend stay in place.
+/// Not const so tests can turn it on.
+bool ownKeyEnabled = const bool.fromEnvironment('OWN_KEY');
+
 /// AI providers a Premium user can bring their own key for.
 enum AiProvider { anthropic, openai }
 

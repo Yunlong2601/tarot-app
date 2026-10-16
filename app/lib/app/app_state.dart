@@ -41,7 +41,7 @@ class AppState extends ChangeNotifier {
   AiProvider? ownKeyProvider;
 
   /// Own-key mode applies only while Premium is active.
-  bool get usesOwnKey => isPremium && ownKeyProvider != null;
+  bool get usesOwnKey => ownKeyEnabled && isPremium && ownKeyProvider != null;
 
   /// What the reading service sends: the key, only in own-key mode.
   Future<UserKey?> activeUserKey() async =>

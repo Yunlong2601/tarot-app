@@ -10,6 +10,7 @@ import 'package:shentarot/main.dart';
 
 void main() {
   brandAnimations = false;
+  ownKeyEnabled = true;
   final deck = Deck.fromJsonString(File(Deck.assetPath).readAsStringSync());
   final key = 'sk-ant-${'k' * 40}';
 
@@ -56,6 +57,22 @@ void main() {
     expect((await store.read())!.key, key);
     expect(find.text('Using your Anthropic (Claude) key'), findsOneWidget);
     expect(find.text(key), findsNothing);
+  });
+
+  testWidgets('hidden from the You tab when the flag is off', (t) async {
+    ownKeyEnabled = false;
+    addTearDown(() => ownKeyEnabled = true);
+    t.view.physicalSize = const Size(1080, 4000);
+    t.view.devicePixelRatio = 2.75;
+    addTearDown(t.view.reset);
+    final s = AppState(deck: deck, onboarded: true)..setPremium(true);
+    await s.setOwnKey(UserKey(AiProvider.anthropic, key));
+    await t.pumpWidget(ShenTarotApp(initialState: s));
+    await t.pumpAndSettle();
+    await t.tap(find.text('You').last);
+    await t.pumpAndSettle();
+    expect(find.text('Your own AI key'), findsNothing);
+    expect(await s.activeUserKey(), isNull);
   });
 
   testWidgets('free users are pointed to Premium', (t) async {

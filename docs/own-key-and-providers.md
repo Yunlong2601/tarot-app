@@ -1,6 +1,6 @@
 # AI providers and the user's own key
 
-Status 2026-10-16: coded and tested (backend 58 tests, app 99 tests). **Not deployed.** Deploy only after the owner says so.
+Status 2026-10-16: deployed to the live Worker. The app hides own-key mode for launch (`ownKeyEnabled` in `app/lib/core/user_key_store.dart`); build with `--dart-define=OWN_KEY=true` to show it.
 
 ## What is built
 - **Providers.** Anthropic Claude Haiku 5.5 is the default (`claude-haiku-5-5`, effort `low`, SDK `maxRetries: 1`, 30 s timeout). OpenAI GPT-6 Luna (`gpt-6-luna`, Responses API, `reasoning.effort: "none"`, `store: false`, `max_output_tokens` capped, 30 s timeout) is the second provider. Code: `backend/src/llm.ts`, `backend/src/route.ts`.

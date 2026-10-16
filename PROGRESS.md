@@ -16,7 +16,7 @@ Primary working copy: the owner's local Mac folder. This repo is the backup and 
 | G | Tests, store checklists, privacy and terms drafts | Docs written on branch `phase-g-release-docs` (checklists, test plan, data inventory, legal DRAFTS bundled in the app); lawyer review and device testing still to do |
 
 ## Next step
-Backend deployed (test mode) at https://shentarot-api.shentech.workers.dev on 2026-10-16; the Anthropic key was rejected at the first test, owner is re-entering it. Since then (NOT deployed yet): OpenAI GPT-6 Luna as second provider/fallback and Premium own-key mode (unlimited readings with the user's own Anthropic/OpenAI key). See `docs/own-key-and-providers.md`.
+Backend live (test mode) at https://shentarot-api.shentech.workers.dev with Claude Haiku 5.5, GPT-6 Luna fallback and own-key support. Verified 2026-10-16 on the Android emulator: debug build with `--dart-define-from-file=config/live.json`, digital Career Path reading with a question and a Look-first note returned a real AI reading that used the note. Own-key mode is hidden in the app for launch (flag `OWN_KEY`). See `docs/own-key-and-providers.md`.
 
 Readings are now laid out by section (`app/lib/features/reading/reading_sections.dart` parses the backend text; no backend change): a gold "In short" panel, one panel per card with its art, position and an expandable "Why this card", then "To reflect on" and "A small step". Old plain readings still show as text. Debug "Simulate scan" now produces a sample in the same layout. 93 app tests pass.
 

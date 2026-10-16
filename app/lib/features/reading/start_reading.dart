@@ -113,7 +113,9 @@ Future<ReadingResult?> _interpret(
 /// "Look first": before the reading, a moment to notice the cards yourself.
 /// Returns the typed impression ('' if skipped), or null if the user backs out.
 Future<String?> _lookFirst(BuildContext context, List<DrawnCard> cards) {
-  final names = cards.map((c) => c.card.name).join(', ');
+  final names = cards
+      .map((c) => '${c.card.name}${c.reversed ? ' (reversed)' : ''}')
+      .join(', ');
   final controller = TextEditingController();
   return showDialog<String>(
     context: context,
