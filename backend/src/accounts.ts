@@ -78,6 +78,8 @@ export async function verifyIdToken(
 export interface AccountStore {
   /** The account this install is signed in to, if any. */
   accountFor(installHash: string): Promise<string | null>;
+  /** Whether this id is one of our account ids. */
+  isAccount(id: string): Promise<boolean>;
   findOrCreate(provider: AccountProvider, subjectHash: string): Promise<string>;
   link(installHash: string, accountId: string): Promise<void>;
   unlink(installHash: string): Promise<void>;
@@ -92,6 +94,10 @@ export class D1AccountStore implements AccountStore {
     const r = await this.db.prepare("SELECT account_id FROM account_installs WHERE install_hash = ?1")
       .bind(installHash).first<{ account_id: string }>();
     return r?.account_id ?? null;
+  }
+
+  async isAccount(id: string): Promise<boolean> {
+    return !!(await this.db.prepare("SELECT 1 AS x FROM accounts WHERE id = ?1").bind(id).first());
   }
 
   async findOrCreate(provider: AccountProvider, subjectHash: string): Promise<string> {

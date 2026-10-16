@@ -20,3 +20,7 @@ migrations_dir = "migrations"
 [[kv_namespaces]]
 binding = "KV"
 id = "1d3064f83fee4fd48cfe6ec48102d260"
+
+# Daily referral credits (does nothing unless REFERRALS_ENABLED=true).
+[triggers]
+crons = ["0 3 * * *"]

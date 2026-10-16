@@ -13,6 +13,10 @@ import {
 } from "./reading";
 import { isPremium } from "./revenuecat";
 import {
+  CREDIT_DELAY_DAYS, D1ReferralStore, MAX_CREDITS_PER_YEAR, PLAY_REFERRAL_OFFER_TAG, grantFreeMonth,
+  hasStoreSubscription, newCode, normaliseCode, type ReferralStore,
+} from "./referrals";
+import {
   D1AccountStore, audiencesFrom, isAccountProvider, verifyIdToken, type AccountProvider, type AccountStore,
 } from "./accounts";
 import {
@@ -29,6 +33,7 @@ export interface Deps {
   premium: (appUserId: string, env: Env, nowMs: number) => Promise<boolean>;
   now: () => number;
   accounts: (env: Env) => AccountStore;
+  referrals: (env: Env) => ReferralStore;
   verifyIdToken: (provider: AccountProvider, token: string, audiences: string[], kv: KVNamespace, nowSeconds: number) => Promise<string | null>;
 }
 
@@ -39,6 +44,7 @@ const defaultDeps: Deps = {
     testerIds(env).includes(id) || isPremium(id, env.REVENUECAT_SECRET_KEY, env.KV, now),
   now: () => Date.now(),
   accounts: (env) => new D1AccountStore(env.DB),
+  referrals: (env) => new D1ReferralStore(env.DB),
   verifyIdToken: (p, t, a, kv, n) => verifyIdToken(p, t, a, kv, n),
 };
 
@@ -287,7 +293,122 @@ export function createApp(deps: Deps = defaultDeps) {
     return c.json({ deleted: true });
   });
 
+  // ---- Refer and earn (off unless REFERRALS_ENABLED=true) ----
+  const referralsOn = (env: Env) => env.REFERRALS_ENABLED === "true";
+
+  // My code (created on first ask) and how many friends paid / credits earned.
+  app.post("/v1/referral/me", async (c) => {
+    if (!referralsOn(c.env)) return c.json({ error: "referrals_off" }, 404);
+    const installId = await installFrom(c.req.header("authorization"), c.env, deps.now());
+    if (!installId) return c.json({ error: "unauthorized" }, 401);
+    const who = await identity(c.env, installId);
+    const store = deps.referrals(c.env);
+    let code = await store.codeFor(who.usageKey);
+    for (let i = 0; !code && i < 5; i++) {
+      const candidate = newCode();
+      if (!(await store.ownerOf(candidate))) {
+        await store.createCode(who.usageKey, who.appUserId, candidate);
+        code = candidate;
+      }
+    }
+    if (!code) return c.json({ error: "try_again" }, 503);
+    const s = await store.stats(who.usageKey);
+    const friends = (await store.friendsOf(who.usageKey)).map((f) => ({
+      joined: f.joinedAt.slice(0, 10),
+      status: f.creditedAt ? "credited" : f.paidAt ? "pending" : "joined",
+    }));
+    return c.json({
+      code, friendsJoined: s.redeemed, friendsPaid: s.paid, monthsEarned: s.credited,
+      monthsPending: s.paid - s.credited, maxPerYear: MAX_CREDITS_PER_YEAR, friends,
+    });
+  });
+
+  // A friend enters a code. Nothing is given for this alone: it only unlocks
+  // the 50%-off first-year offer at the paywall (Apple 3.2.2).
+  app.post("/v1/referral/redeem", async (c) => {
+    if (!referralsOn(c.env)) return c.json({ error: "referrals_off" }, 404);
+    const now = deps.now();
+    const installId = await installFrom(c.req.header("authorization"), c.env, now);
+    if (!installId) return c.json({ error: "unauthorized" }, 401);
+    const ip = c.req.header("cf-connecting-ip") ?? "unknown";
+    if (!(await allowWithinMinute(c.env.KV, `refcode:${await hashId(ip, c.env.HASH_SALT)}`, 5, now))) {
+      return c.json({ error: "rate_limited" }, 429);
+    }
+    const body = (await readJson(c.req.raw)) as { code?: unknown; platform?: unknown } | null;
+    const code = normaliseCode(body?.code);
+    const platform = body?.platform === "ios" || body?.platform === "android" ? body.platform : null;
+    if (!code || !platform) return c.json({ error: "invalid_request" }, 400);
+    const who = await identity(c.env, installId);
+    const store = deps.referrals(c.env);
+    const referrerKey = await store.ownerOf(code);
+    if (!referrerKey) return c.json({ error: "unknown_code" }, 404);
+    if (referrerKey === who.usageKey) return c.json({ error: "own_code" }, 400);
+    const iso = new Date(now).toISOString();
+    const existing = await store.referralOf(who.usageKey);
+    if (existing && existing.code !== code) return c.json({ error: "already_referred" }, 409);
+    if (!existing) {
+      await store.addReferral({ friendKey: who.usageKey, referrerKey, code, platform, redeemedAt: iso, paidTxn: null, paidAt: null, creditedAt: null });
+    }
+    if (platform === "android") return c.json({ offer: PLAY_REFERRAL_OFFER_TAG });
+    const appleCode = await store.takeAppleCode(who.usageKey, iso);
+    if (!appleCode) return c.json({ error: "no_codes_left" }, 503);
+    return c.json({ appleOfferCode: appleCode });
+  });
+
+  // RevenueCat webhook: a referred friend's first paid purchase qualifies the
+  // referral. Trials and promotional grants do not count.
+  app.post("/v1/webhooks/revenuecat", async (c) => {
+    const secret = c.env.REVENUECAT_WEBHOOK_AUTH;
+    if (!secret || c.req.header("authorization") !== secret) return c.json({ error: "unauthorized" }, 401);
+    if (!referralsOn(c.env)) return c.json({ ok: true });
+    const body = (await readJson(c.req.raw, 65536)) as { event?: Record<string, unknown> } | null;
+    const e = body?.event;
+    if (!e) return c.json({ error: "invalid_request" }, 400);
+    const type = String(e.type ?? "");
+    const price = Number(e.price ?? 0);
+    const txn = String(e.transaction_id ?? "");
+    const appUser = String(e.app_user_id ?? "");
+    const store = String(e.store ?? "");
+    if (!["INITIAL_PURCHASE", "RENEWAL"].includes(type) || !(price > 0) || !txn || !appUser || store === "PROMOTIONAL") {
+      return c.json({ ok: true, ignored: true });
+    }
+    const key = (await deps.accounts(c.env).isAccount(appUser))
+      ? await hashId(`acct:${appUser}`, c.env.HASH_SALT)
+      : await hashId(appUser, c.env.HASH_SALT);
+    const paid = await deps.referrals(c.env).markPaid(key, txn, new Date(Number(e.event_timestamp_ms ?? deps.now())).toISOString());
+    return c.json({ ok: true, qualified: paid });
+  });
+
   return app;
+}
+
+/** Daily: give referrers their free month 14 days after the friend paid, at
+ * most 6 a year. Referrers with an active store subscription are skipped
+ * (credit stays banked) until it lapses; store extensions come later. */
+export async function grantReferralCredits(env: Env, deps: Pick<Deps, "referrals"> & {
+  now: () => number;
+  grant?: (appUserId: string) => Promise<boolean>;
+  subscribed?: (appUserId: string) => Promise<boolean>;
+}): Promise<number> {
+  if (env.REFERRALS_ENABLED !== "true" || !env.REVENUECAT_SECRET_KEY) return 0;
+  const key = env.REVENUECAT_SECRET_KEY;
+  const now = deps.now();
+  const grant = deps.grant ?? ((u: string) => grantFreeMonth(u, key));
+  const subscribed = deps.subscribed ?? ((u: string) => hasStoreSubscription(u, key, now));
+  const store = deps.referrals(env);
+  const due = await store.dueForCredit(new Date(now - CREDIT_DELAY_DAYS * 86_400_000).toISOString());
+  const yearAgo = new Date(now - 365 * 86_400_000).toISOString();
+  let granted = 0;
+  for (const r of due) {
+    if ((await store.creditsSince(r.referrerKey, yearAgo)) >= MAX_CREDITS_PER_YEAR) continue;
+    const appUser = await store.appUserOf(r.referrerKey);
+    if (!appUser || (await subscribed(appUser))) continue;
+    if (await grant(appUser)) {
+      await store.markCredited(r.friendKey, new Date(now).toISOString());
+      granted++;
+    }
+  }
+  return granted;
 }
 
 /** Tries each target once, in order; the first success wins. With our keys
@@ -325,4 +446,10 @@ async function readJson(req: Request, maxBytes = MAX_BODY_BYTES): Promise<unknow
   }
 }
 
-export default createApp();
+const worker = createApp();
+export default {
+  fetch: worker.fetch,
+  async scheduled(_event: ScheduledEvent, env: Env, ctx: ExecutionContext) {
+    ctx.waitUntil(grantReferralCredits(env, { referrals: (e) => new D1ReferralStore(e.DB), now: () => Date.now() }));
+  },
+};

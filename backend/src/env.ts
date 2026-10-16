@@ -16,6 +16,10 @@ export interface Env {
   GOOGLE_CLIENT_IDS?: string;
   /** Apple bundle id and/or Services ID, comma-separated. */
   APPLE_CLIENT_IDS?: string;
+  /** "true" turns on refer-and-earn (needs store offers set up first). */
+  REFERRALS_ENABLED?: string;
+  /** Shared secret RevenueCat sends in the webhook Authorization header. */
+  REVENUECAT_WEBHOOK_AUTH?: string;
   /** Testing only: comma-separated install/account ids treated as Premium. */
   TESTER_INSTALL_IDS?: string;
   /** Local testing only: skips device attestation. Never set in production. */

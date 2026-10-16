@@ -9,6 +9,8 @@ import { isPremium } from "../src/revenuecat";
 import { parseOpenAI } from "../src/llm";
 import type { UsageStore } from "../src/usage";
 import { verifyIdToken, type AccountStore } from "../src/accounts";
+import type { Referral, ReferralStore } from "../src/referrals";
+import { grantReferralCredits } from "../src/index";
 import { allowWithinMinute } from "../src/usage";
 import { cleanQuestion, parseFollowupRequest, parseReadingRequest } from "../src/validate";
 
@@ -19,10 +21,42 @@ class FakeKV {
   async delete(k: string) { this.m.delete(k); }
 }
 
+class MemReferrals implements ReferralStore {
+  codes = new Map<string, { owner: string; app: string }>();
+  refs = new Map<string, Referral>();
+  apple: { code: string; to: string | null }[] = [];
+  async codeFor(k: string) { return [...this.codes].find(([, v]) => v.owner === k)?.[0] ?? null; }
+  async createCode(k: string, app: string, code: string) { this.codes.set(code, { owner: k, app }); }
+  async ownerOf(code: string) { return this.codes.get(code)?.owner ?? null; }
+  async appUserOf(k: string) { return [...this.codes.values()].find((v) => v.owner === k)?.app ?? null; }
+  async referralOf(f: string) { return this.refs.get(f) ?? null; }
+  async addReferral(r: Referral) { this.refs.set(r.friendKey, r); }
+  async markPaid(f: string, txn: string, at: string) {
+    const r = this.refs.get(f);
+    if (!r || r.paidTxn || [...this.refs.values()].some((x) => x.paidTxn === txn)) return false;
+    r.paidTxn = txn; r.paidAt = at; return true;
+  }
+  async dueForCredit(before: string) { return [...this.refs.values()].filter((r) => r.paidAt && r.paidAt <= before && !r.creditedAt); }
+  async creditsSince(k: string, since: string) { return [...this.refs.values()].filter((r) => r.referrerKey === k && r.creditedAt && r.creditedAt >= since).length; }
+  async markCredited(f: string, at: string) { this.refs.get(f)!.creditedAt = at; }
+  async stats(k: string) {
+    const rs = [...this.refs.values()].filter((r) => r.referrerKey === k);
+    return { redeemed: rs.length, paid: rs.filter((r) => r.paidAt).length, credited: rs.filter((r) => r.creditedAt).length };
+  }
+  async friendsOf(k: string) {
+    return [...this.refs.values()].filter((r) => r.referrerKey === k).map((r) => ({ joinedAt: r.redeemedAt, paidAt: r.paidAt, creditedAt: r.creditedAt }));
+  }
+  async takeAppleCode(f: string) {
+    const mine = this.apple.find((a) => a.to === f); if (mine) return mine.code;
+    const free = this.apple.find((a) => !a.to); if (!free) return null; free.to = f; return free.code;
+  }
+}
+
 class MemAccounts implements AccountStore {
   accounts = new Map<string, string>(); // subjectHash -> id
   links = new Map<string, string>(); // installHash -> accountId
   async accountFor(h: string) { return this.links.get(h) ?? null; }
+  async isAccount(id: string) { return [...this.accounts.values()].includes(id); }
   async findOrCreate(_p: string, subjectHash: string) {
     if (!this.accounts.has(subjectHash)) this.accounts.set(subjectHash, `acct-${this.accounts.size + 1}`);
     return this.accounts.get(subjectHash)!;
@@ -51,8 +85,9 @@ const NOW = Date.UTC(2026, 9, 16, 12, 0, 0);
 const UUID = "123e4567-e89b-42d3-a456-426614174000";
 const GOOD = "The Fool upright invites a fresh start. Stay curious and open, and let small steps lead the way today.";
 
-function setup(opts: { premium?: boolean | ((id: string) => boolean); llm?: Deps["llm"]; allowInstall?: boolean; cap?: string; openaiKey?: string; google?: string } = {}) {
+function setup(opts: { premium?: boolean | ((id: string) => boolean); llm?: Deps["llm"]; allowInstall?: boolean; cap?: string; openaiKey?: string; google?: string; referrals?: boolean } = {}) {
   const accounts = new MemAccounts();
+  const referrals = new MemReferrals();
   const usage = new MemUsage();
   const kv = new FakeKV();
   let llmCalls = 0;
@@ -62,16 +97,17 @@ function setup(opts: { premium?: boolean | ((id: string) => boolean); llm?: Deps
     premium: async (id) => (typeof opts.premium === "function" ? opts.premium(id) : opts.premium ?? false),
     now: () => NOW,
     accounts: () => accounts,
+    referrals: () => referrals,
     verifyIdToken: async (_p, token) => (token.startsWith("good:") ? token.slice(5) : null),
   };
   const env = {
     KV: kv, DB: {}, JWT_SECRET: "s".repeat(32), HASH_SALT: "salt", ANTHROPIC_API_KEY: "k",
     ALLOW_UNATTESTED_INSTALLS: opts.allowInstall === false ? "false" : "true",
-    GLOBAL_DAILY_TOKEN_CAP: opts.cap, OPENAI_API_KEY: opts.openaiKey, GOOGLE_CLIENT_IDS: opts.google,
+    GLOBAL_DAILY_TOKEN_CAP: opts.cap, OPENAI_API_KEY: opts.openaiKey, GOOGLE_CLIENT_IDS: opts.google, REFERRALS_ENABLED: opts.referrals ? "true" : undefined, REVENUECAT_WEBHOOK_AUTH: "hook-secret", REVENUECAT_SECRET_KEY: "rc",
   } as unknown as Env;
   const app = createApp(deps);
   const call = (path: string, init?: RequestInit) => app.request(path, init, env);
-  return { app, call, usage, kv, env, accounts, calls: () => llmCalls };
+  return { app, call, usage, kv, env, accounts, referrals, deps, calls: () => llmCalls };
 }
 
 async function authHeaders(env: Env) {
@@ -556,5 +592,59 @@ describe("ID token verification (RS256)", () => {
     const t = await sign(good);
     expect(await v(t.slice(0, -4) + "AAAA")).toBeNull();
     expect(await verifyIdToken("apple", await sign(good), ["web-client"], kv, now, fetchFn)).toBeNull(); // Google issuer on Apple path
+  });
+});
+
+describe("refer and earn", () => {
+  const FRIEND = "223e4567-e89b-42d3-a456-426614174999";
+  const headersFor = async (env: Env, id: string) => ({
+    authorization: `Bearer ${await signToken(id, env.JWT_SECRET, Math.floor(NOW / 1000))}`, "content-type": "application/json",
+  });
+  const call = async (s: ReturnType<typeof setup>, path: string, id: string, body?: unknown) =>
+    s.call(path, { method: "POST", headers: await headersFor(s.env, id), body: body ? JSON.stringify(body) : undefined });
+
+  it("is off by default", async () => {
+    const s = setup();
+    expect((await call(s, "/v1/referral/me", UUID)).status).toBe(404);
+  });
+
+  it("referrer gets a code; friend redeems it; own code and bad codes are refused", async () => {
+    const s = setup({ referrals: true });
+    const me = (await (await call(s, "/v1/referral/me", UUID)).json()) as { code: string; friendsPaid: number };
+    expect(me.code).toMatch(/^[A-HJ-NP-Z2-9]{8}$/);
+    expect(((await (await call(s, "/v1/referral/me", UUID)).json()) as { code: string }).code).toBe(me.code); // stable
+    expect((await call(s, "/v1/referral/redeem", UUID, { code: me.code, platform: "android" })).status).toBe(400);
+    expect((await call(s, "/v1/referral/redeem", FRIEND, { code: "ZZZZZZZZ", platform: "android" })).status).toBe(404);
+    const r = await call(s, "/v1/referral/redeem", FRIEND, { code: me.code.toLowerCase(), platform: "android" });
+    expect(await r.json()).toEqual({ offer: "referral-50" });
+    // iOS: a one-time App Store offer code from the pool, or a clear error when empty.
+    const s2 = setup({ referrals: true });
+    const code2 = ((await (await call(s2, "/v1/referral/me", UUID)).json()) as { code: string }).code;
+    expect((await call(s2, "/v1/referral/redeem", FRIEND, { code: code2, platform: "ios" })).status).toBe(503);
+    s2.referrals.apple.push({ code: "APPLECODE1", to: null });
+    expect(await (await call(s2, "/v1/referral/redeem", FRIEND, { code: code2, platform: "ios" })).json()).toEqual({ appleOfferCode: "APPLECODE1" });
+  });
+
+  it("only a paid purchase qualifies; credit comes 14 days later, max 6 a year, banked while subscribed", async () => {
+    const s = setup({ referrals: true });
+    const code = ((await (await call(s, "/v1/referral/me", UUID)).json()) as { code: string }).code;
+    await call(s, "/v1/referral/redeem", FRIEND, { code, platform: "android" });
+    const hook = (event: Record<string, unknown>, auth = "hook-secret") =>
+      s.call("/v1/webhooks/revenuecat", { method: "POST", headers: { authorization: auth }, body: JSON.stringify({ event }) });
+    expect((await hook({ type: "INITIAL_PURCHASE" }, "wrong")).status).toBe(401);
+    expect(await (await hook({ type: "INITIAL_PURCHASE", price: 0, transaction_id: "t0", app_user_id: FRIEND })).json()).toMatchObject({ ignored: true });
+    const paidAt = NOW - 15 * 86_400_000;
+    expect(await (await hook({ type: "INITIAL_PURCHASE", price: 49.99, transaction_id: "t1", app_user_id: FRIEND, event_timestamp_ms: paidAt })).json()).toMatchObject({ qualified: true });
+    expect(await (await hook({ type: "RENEWAL", price: 99.99, transaction_id: "t1", app_user_id: FRIEND })).json()).toMatchObject({ qualified: false }); // no double
+    const granted: string[] = [];
+    let subscribed = true;
+    const run = () => grantReferralCredits(s.env, { referrals: () => s.referrals, now: () => NOW, grant: async (u) => { granted.push(u); return true; }, subscribed: async () => subscribed });
+    expect(await run()).toBe(0); // banked while the referrer has a store subscription
+    subscribed = false;
+    expect(await run()).toBe(1);
+    expect(granted).toEqual([UUID]);
+    expect(await run()).toBe(0); // only once
+    const me = (await (await call(s, "/v1/referral/me", UUID)).json()) as Record<string, unknown>;
+    expect(me).toMatchObject({ friendsPaid: 1, monthsEarned: 1, monthsPending: 0, friends: [{ joined: "2026-10-16", status: "credited" }] });
   });
 });
