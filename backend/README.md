@@ -43,7 +43,7 @@ Local mode uses a real (local) D1 and KV, so the SQL and routing are exercised. 
    npx wrangler secret put REVENUECAT_SECRET_KEY # after RevenueCat setup (Phase E doc)
    ```
    Generate random strings with `openssl rand -base64 48`.
-6. **Deploy:** `npm run deploy`. Note the URL (`https://shentarot-api.<your-subdomain>.workers.dev`).
+6. **Deploy:** testing phase (before App Attest / Play Integrity): `npm run deploy:beta` (allows installs without attestation, cap 500,000 tokens a day). Public launch: `npm run deploy` (attestation required). Note the URL (`https://shentarot-api.<your-subdomain>.workers.dev`).
 7. **Limits:** keep `GLOBAL_DAILY_TOKEN_CAP` low at first (default 2,000,000 tokens a day is about US$1 of Haiku output at the plan's prices; verify current prices).
 8. **Build the app against it:** `flutter run --dart-define=API_BASE_URL=https://<your-worker-url>`.
 

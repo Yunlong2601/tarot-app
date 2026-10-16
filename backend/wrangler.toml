@@ -13,7 +13,7 @@ GLOBAL_DAILY_TOKEN_CAP = "2000000"
 # then paste the ids below.
 [[d1_databases]]
 binding = "DB"
-database_name = "ShenTarot"
+database_name = "shentarot"
 database_id = "REPLACE_AFTER_wrangler_d1_create"
 migrations_dir = "migrations"
 
