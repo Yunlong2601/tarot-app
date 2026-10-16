@@ -10,7 +10,7 @@ Primary working copy: the owner's local Mac folder. This repo is the backup and 
 | A | Project setup, navigation, mock screens | Done (PR #1) |
 | B | 78-card data, card list/search/detail | Done; card art added on branch `phase-g-card-art` |
 | C | Camera scan, on-device recognition, manual fallback | Code built; a BASELINE model (public-domain art + synthetic augmentation only) is in `app/assets/models/`; NOT run on a device; not validated on real photos (see `ml/README.md`) |
-| D | Cloudflare Worker proxy + AI reading | Code built on branch `phase-d-backend` (on top of `phase-c-scan`); backend + app tests pass; NOT deployed, never called the real API; device attestation not implemented |
+| D | Cloudflare Worker proxy + AI reading | Code built on branch `phase-d-backend` (on top of `phase-c-scan`); backend + app tests pass; verified locally with wrangler dev (real local D1/KV, `backend/scripts/smoke.sh` passes); NOT deployed, never called the real API; device attestation not implemented (decision needed, see backend/README.md) |
 | E | RevenueCat subscriptions + real paywall | Code built on branch `phase-e-subscriptions`; fake-service tests pass; NOT run against RevenueCat or a store (`docs/phase-e-subscriptions-setup.md`) |
 | F | SQLite history/journal, notifications, accessibility, polish | Code built on branch `phase-f-history`; 47 tests pass; iOS simulator build OK; notifications and SQLite NOT tried on a device; accessibility audit and follow-ups not done |
 | G | Tests, store checklists, privacy and terms drafts | Docs written on branch `phase-g-release-docs` (checklists, test plan, data inventory, legal DRAFTS bundled in the app); lawyer review and device testing still to do |

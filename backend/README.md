@@ -16,17 +16,38 @@ TypeScript + Hono. Proxies AI readings so the app never holds an LLM key.
 - Token usage is logged per request in D1 (`usage` table). Questions and readings are never stored.
 - Model: `LLM_MODEL` (default `claude-haiku-5-5`), effort `low`, no sampling parameters.
 
-## Setup from zero
+## Local run (verified on 2026-10-16)
 ```bash
 cd backend
 npm install
-cp .dev.vars.example .dev.vars        # fill in values; never commit
-npx wrangler d1 create veilscan       # paste database_id into wrangler.toml
-npx wrangler kv namespace create KV   # paste id into wrangler.toml
+cp .dev.vars.example .dev.vars        # use made-up local values; never commit
 npx wrangler d1 migrations apply veilscan --local
-npm run dev
+npm run dev                            # http://localhost:8787
+scripts/smoke.sh http://localhost:8787
 ```
-Deploy: `npx wrangler login`, apply migrations without `--local` (`--remote`), set secrets with `npx wrangler secret put JWT_SECRET` (also `HASH_SALT`, `ANTHROPIC_API_KEY`, `REVENUECAT_SECRET_KEY`), then `npm run deploy`.
+Local mode uses a real (local) D1 and KV, so the SQL and routing are exercised. Without an `ANTHROPIC_API_KEY` the last step returns 502 (expected); everything before it should print `ok`.
+
+## Deploy runbook (needs your accounts; nothing here has been done yet)
+1. **Cloudflare account** (free plan is enough to start). `npx wrangler login` opens a browser to approve.
+2. **Create resources:** `npx wrangler d1 create veilscan` and `npx wrangler kv namespace create KV`. Paste the two ids into `wrangler.toml` (replace the `REPLACE_...` values) and commit that change.
+3. **Migrate:** `npx wrangler d1 migrations apply veilscan --remote`.
+4. **Anthropic:** create an account, add billing, set a **monthly spend limit** (for example US$10), create an API key.
+5. **Secrets** (each prompts for the value; never put them in files or chat):
+   ```bash
+   npx wrangler secret put JWT_SECRET            # long random string
+   npx wrangler secret put HASH_SALT             # another long random string
+   npx wrangler secret put ANTHROPIC_API_KEY
+   npx wrangler secret put REVENUECAT_SECRET_KEY # after RevenueCat setup (Phase E doc)
+   ```
+   Generate random strings with `openssl rand -base64 48`.
+6. **Deploy:** `npm run deploy`. Note the URL (`https://veilscan-api.<your-subdomain>.workers.dev`).
+7. **Limits:** keep `GLOBAL_DAILY_TOKEN_CAP` low at first (default 2,000,000 tokens a day is about US$1 of Haiku output at the plan's prices; verify current prices).
+8. **Build the app against it:** `flutter run --dart-define=API_BASE_URL=https://<your-worker-url>`.
+
+### Device attestation (decision needed before a public launch)
+`POST /v1/install` returns 501 in production until App Attest (iOS) / Play Integrity (Android) is implemented, because without it anyone can mint install IDs. Options:
+- **Recommended:** implement App Attest and Play Integrity before the public launch. Needs your Apple Team ID, final bundle ID and a Google Cloud project for Play Integrity.
+- **TestFlight beta only:** set `ALLOW_UNATTESTED_INSTALLS=true` as a Worker variable with a low Anthropic spend limit and low `GLOBAL_DAILY_TOKEN_CAP`. Worst case, someone burns the daily cap (service stops for the day) or your spend limit. **Remove it before the public release.**
 
 ## Test
 ```bash
