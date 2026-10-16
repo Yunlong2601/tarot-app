@@ -28,8 +28,17 @@ describe("card knowledge sent to the model", () => {
     expect(rev).toContain("meaning (reversed): " + CARDS["swords_five"]!.reversed);
     expect(rev).toContain("Swords (Air)");
     expect(rev).toContain("number 5");
-    const court = cardBlock({ id: "cups_queen", reversed: false }, 0, "x");
-    expect(court).toContain("court:");
+  });
+
+  it("every court card has rich knowledge and is labelled a court", () => {
+    const courts = Object.entries(CARDS).filter(([id]) => /_(page|knight|queen|king)$/.test(id));
+    expect(courts).toHaveLength(16);
+    for (const [id, c] of courts) {
+      expect(c.k, id).toBeTruthy();
+      expect(c.k!.upright.core.length, id).toBeGreaterThan(20);
+      expect(c.k!.reversed.modes, id).toHaveLength(3);
+    }
+    expect(cardBlock({ id: "cups_queen", reversed: false }, 0, "x")).toContain("cups court");
   });
 
   it("every major has rich knowledge with all fields", () => {

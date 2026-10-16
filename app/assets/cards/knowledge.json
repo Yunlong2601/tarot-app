@@ -1,6 +1,6 @@
 {
  "version": 2,
- "note": "Original wording. Majors only; minors use cards.json until written.",
+ "note": "Original wording. Majors and courts; pips use cards.json until written.",
  "cards": {
   "major_00_fool": {
    "essence": "The step you take before you feel ready.",
@@ -484,6 +484,358 @@
      "Inward: not quite ready to let go."
     ],
     "question": "What is the last step I keep avoiding?"
+   }
+  },
+  "wands_page": {
+   "essence": "A spark of curiosity you are allowed to follow.",
+   "imagery": "A young person in a tunic patterned with salamanders stands in a desert holding a tall wand and studying its top. Pyramids sit far behind.",
+   "why": "Pages are beginners and messengers. Wands are fire, so this is eager, early-stage drive. The salamanders are a traditional fire symbol, and the barren ground suggests a talent that has not yet been tried.",
+   "upright": {
+    "core": "Enthusiasm for something new, and the willingness to explore it before being good at it.",
+    "light": "curiosity, play, a bold first try",
+    "shadow": "scattered interest, dropping things when they get hard",
+    "love": "Fresh excitement about a person or a way of connecting; being upfront about what thrills you.",
+    "work": "A new idea or side project; learning by doing.",
+    "question": "What am I curious enough about to try badly?"
+   },
+   "reversed": {
+    "core": "Excitement without direction, or a spark that fizzles early.",
+    "modes": [
+     "Blocked: fear of looking like a beginner.",
+     "Excess: starting many things and finishing none.",
+     "Fading: interest cooling before it has been tested."
+    ],
+    "question": "Which of my ideas deserves one real week of effort?"
+   }
+  },
+  "wands_knight": {
+   "essence": "Energy that charges forward, for better or worse.",
+   "imagery": "A rider in armour under a plumed helmet rears up on a galloping horse, holding a wand. The landscape is dry and pale, with pyramids in the distance.",
+   "why": "Knights are action in motion. With fire as the element, speed and zeal are the point. The rearing horse shows momentum that is hard to steer, and the empty ground shows how little has been built yet.",
+   "upright": {
+    "core": "Drive and adventure, with a question over whether the speed is aimed at anything.",
+    "light": "boldness, passion, momentum",
+    "shadow": "impatience, burning out, leaving before finishing",
+    "love": "Strong attraction or a rush of feeling; the question is whether it lasts past the thrill.",
+    "work": "A burst of productivity, a fast change of direction.",
+    "question": "Is my speed carrying me toward something, or away from something?"
+   },
+   "reversed": {
+    "core": "Energy is stalled, rushed, or scattered in several directions.",
+    "modes": [
+     "Blocked: wanting to move but held in place.",
+     "Excess: recklessness and haste.",
+     "Fading: enthusiasm gone flat."
+    ],
+    "question": "What would change if I slowed down by half?"
+   }
+  },
+  "wands_queen": {
+   "essence": "Warm confidence that lets others be themselves.",
+   "imagery": "A crowned woman sits on a throne carved with lions, holding a wand in one hand and a sunflower in the other. A black cat sits at her feet.",
+   "why": "Queens carry their suit inwardly. Fire turned inward becomes confidence and warmth rather than hurry. Sunflowers face the sun, and lions suggest courage worn lightly.",
+   "upright": {
+    "core": "Self-assured warmth: knowing who you are and being generous with it.",
+    "light": "charisma, loyalty, joy in what you do",
+    "shadow": "jealousy, needing to be the centre of attention",
+    "love": "Open, affectionate presence; comfort with being seen.",
+    "work": "Leading by enthusiasm; making a place people want to be part of.",
+    "question": "Where do I feel most like myself, and am I bringing that in?"
+   },
+   "reversed": {
+    "core": "Confidence wavers, or warmth turns controlling.",
+    "modes": [
+     "Blocked: doubting your own worth.",
+     "Excess: needing admiration.",
+     "Inward: warmth held back from others."
+    ],
+    "question": "Am I seeking approval, or sharing what I actually feel?"
+   }
+  },
+  "wands_king": {
+   "essence": "Vision with the will to lead it.",
+   "imagery": "A crowned king sits relaxed on a throne decorated with lions and salamanders, holding a flowering wand. His cloak is orange and his gaze goes into the distance.",
+   "why": "Kings turn their suit outward into mastery. Fire mastered becomes vision and leadership. The salamanders and lions repeat the fire themes, and the budding wand shows growth under steady hands.",
+   "upright": {
+    "core": "Leading with energy and a clear picture of where things are going.",
+    "light": "inspiration, decisiveness, big-picture thinking",
+    "shadow": "domineering, impatience with details or people",
+    "love": "Passion held with maturity: loyal, generous, direct.",
+    "work": "Taking charge of a project; setting a direction others will follow.",
+    "question": "What am I building toward, and who comes with me?"
+   },
+   "reversed": {
+    "core": "Leadership slips into control, or vision lacks follow-through.",
+    "modes": [
+     "Excess: bossiness, running over others.",
+     "Blocked: a plan that never leaves your head.",
+     "Fading: energy needing rest."
+    ],
+    "question": "Am I leading people, or just pushing them?"
+   }
+  },
+  "cups_page": {
+   "essence": "A gentle message from your own feelings.",
+   "imagery": "A young person in a flowered tunic stands by the sea holding a cup, from which a small fish pokes its head. The water behind is calm.",
+   "why": "Pages are beginnings, and Cups are feeling and imagination. The fish rising from the cup is a playful picture of an unexpected idea or emotion surfacing. The sea behind is the deeper unconscious.",
+   "upright": {
+    "core": "A tender, creative impulse; being open to surprise in your inner life.",
+    "light": "sensitivity, wonder, imagination",
+    "shadow": "moodiness, escaping into daydreams",
+    "love": "A sweet gesture or an honest feeling shared for the first time.",
+    "work": "A creative idea that needs room; a gentle beginning.",
+    "question": "What small feeling is trying to get my attention?"
+   },
+   "reversed": {
+    "core": "Feelings are held back, or become melodrama.",
+    "modes": [
+     "Blocked: afraid to be vulnerable.",
+     "Excess: oversensitivity.",
+     "Inward: a creative idea kept secret."
+    ],
+    "question": "Am I ignoring a quiet feeling because it seems childish?"
+   }
+  },
+  "cups_knight": {
+   "essence": "Following the heart, with a romantic eye.",
+   "imagery": "A knight in armour with winged helmet and boots rides a calm white horse at a gentle pace, holding a cup in front of him. A river and distant hills lie ahead.",
+   "why": "Knights pursue, and in Cups the pursuit is of feeling. The slow horse shows that this is courtship rather than conquest. Wings on the helmet suggest ideals and imagination.",
+   "upright": {
+    "core": "Pursuing something because it moves you; an offer, an invitation, an ideal.",
+    "light": "romance, charm, idealism",
+    "shadow": "daydreaming, promises that outrun reality",
+    "love": "A romantic gesture or the wish for one; the gap between the ideal and the person.",
+    "work": "Following inspiration; pitching an idea with feeling.",
+    "question": "Am I following a person or a picture of them?"
+   },
+   "reversed": {
+    "core": "Charm without substance, or a retreat from feeling.",
+    "modes": [
+     "Excess: chasing an ideal that is not real.",
+     "Blocked: unable to say what you feel.",
+     "Fading: enthusiasm cooling."
+    ],
+    "question": "What would change if I acted from what is real, not what I hope?"
+   }
+  },
+  "cups_queen": {
+   "essence": "Deep feeling held with care.",
+   "imagery": "A crowned woman sits on a shell-like throne at the water's edge, holding an ornate closed cup with both hands and gazing at it. Small figures decorate the throne.",
+   "why": "Queens embody their suit inwardly. The closed, ornate cup shows feelings treasured and not spilled. Being at the shore places her where the conscious and unconscious meet.",
+   "upright": {
+    "core": "Empathy and intuition used with care, including toward yourself.",
+    "light": "compassion, intuition, emotional depth",
+    "shadow": "absorbing others' moods, losing your own boundaries",
+    "love": "Listening closely; being available without losing yourself.",
+    "work": "Supportive roles, reading what a team needs.",
+    "question": "Whose feelings am I carrying that are not mine?"
+   },
+   "reversed": {
+    "core": "Empathy tips into over-giving, or feelings are shut away.",
+    "modes": [
+     "Excess: taking on everyone's problems.",
+     "Blocked: numbing your own feelings.",
+     "Inward: caring for others but not yourself."
+    ],
+    "question": "Where do my feelings end and other people's begin?"
+   }
+  },
+  "cups_king": {
+   "essence": "Calm that holds feeling without being ruled by it.",
+   "imagery": "A crowned king sits on a throne that floats on rough water, holding a cup in one hand and a sceptre in the other. A fish leaps in the waves and a ship sails behind him.",
+   "why": "Kings master their suit outwardly. The throne is steady on turbulent water, which is the whole message: feeling is present but held. The leaping fish shows creativity still alive.",
+   "upright": {
+    "core": "Emotional maturity: feeling deeply and still choosing how to respond.",
+    "light": "diplomacy, balance, generosity",
+    "shadow": "emotional distance, suppressing feelings, manipulation",
+    "love": "Steady, kind presence in hard conversations.",
+    "work": "Mediating, counselling, leading with calm.",
+    "question": "How do I stay steady when the water is rough?"
+   },
+   "reversed": {
+    "core": "Control of feeling hardens into coldness, or composure cracks.",
+    "modes": [
+     "Blocked: bottling things up.",
+     "Excess: moods that run the room.",
+     "Inward: calm on the surface, storm underneath."
+    ],
+    "question": "Am I calm, or am I just not showing it?"
+   }
+  },
+  "swords_page": {
+   "essence": "A sharp mind that wants to find out.",
+   "imagery": "A young figure stands on a windy hill holding a sword upright with both hands, glancing to the side. Clouds race overhead and trees bend in the wind.",
+   "why": "Pages are learners, and Swords are thought and speech. The wind and clouds show restless ideas, and the alert pose is of someone who watches before speaking.",
+   "upright": {
+    "core": "Curiosity and vigilance: asking questions and noticing details.",
+    "light": "alertness, honesty, learning",
+    "shadow": "gossip, sharp words used carelessly",
+    "love": "Wanting honest conversation; asking direct questions.",
+    "work": "Research, studying, a new way of thinking.",
+    "question": "What question have I not asked yet?"
+   },
+   "reversed": {
+    "core": "Words and ideas used to hurt, or thoughts that spin without conclusion.",
+    "modes": [
+     "Excess: sarcasm, nit-picking.",
+     "Blocked: afraid to speak up.",
+     "Inward: ideas that never get shared."
+    ],
+    "question": "Am I seeking truth, or just winning an argument?"
+   }
+  },
+  "swords_knight": {
+   "essence": "A direct charge toward an idea.",
+   "imagery": "A knight in armour gallops fast with a raised sword. Trees bend in a strong wind and clouds stream across the sky.",
+   "why": "Knights are action. In Air, action is thought and speech at speed. The horse races into the wind, and nothing in the picture slows it down.",
+   "upright": {
+    "core": "Decisive, quick thinking; the willingness to say what needs saying.",
+    "light": "determination, directness, fast thinking",
+    "shadow": "bluntness, haste, not listening",
+    "love": "Saying things plainly; the risk is saying them too sharply.",
+    "work": "Pushing a plan through; fast decisions.",
+    "question": "Who am I rushing past in my hurry to be right?"
+   },
+   "reversed": {
+    "core": "Haste turns to carelessness, or plans stall in overthinking.",
+    "modes": [
+     "Excess: aggression, tactless words.",
+     "Blocked: scattered thoughts.",
+     "Fading: motivation running out."
+    ],
+    "question": "What would I notice if I paused before acting?"
+   }
+  },
+  "swords_queen": {
+   "essence": "Clear sight, kindly or coldly used.",
+   "imagery": "A crowned woman sits side-on on a throne, one hand raised and the other holding a sword upright. Clouds and a bird are behind her and the carvings on the throne show butterflies and cherubs.",
+   "why": "Queens embody their suit inwardly. Air turned inward becomes clarity and independence. The raised hand is open, and the upright sword shows truth held in readiness, not used to strike.",
+   "upright": {
+    "core": "Straight, thoughtful honesty grounded in experience.",
+    "light": "clarity, independence, perception",
+    "shadow": "coldness, cutting remarks, closing off",
+    "love": "Honest communication and clear boundaries.",
+    "work": "Seeing through noise to what matters; fair, direct feedback.",
+    "question": "What do I see clearly that I have been softening?"
+   },
+   "reversed": {
+    "core": "Clarity turns harsh, or truth is held back.",
+    "modes": [
+     "Excess: criticism and cynicism.",
+     "Blocked: avoiding an honest conversation.",
+     "Inward: loneliness behind independence."
+    ],
+    "question": "Is my honesty serving someone, or just protecting me?"
+   }
+  },
+  "swords_king": {
+   "essence": "Authority built on reason.",
+   "imagery": "A crowned king sits on a throne facing forward, holding an upright sword in one hand and gesturing with the other. Clouds and birds fill the sky behind.",
+   "why": "Kings turn their suit outward into mastery. Air mastered is judgment, ethics and clear rule. The head-on pose suggests someone who stands behind their words.",
+   "upright": {
+    "core": "Fair, informed judgment; thinking things through and standing by the result.",
+    "light": "intellect, fairness, integrity",
+    "shadow": "rigidity, using authority to cut people off",
+    "love": "Clear agreements and fair dealing.",
+    "work": "Analysis, decisions made on principle, advising.",
+    "question": "What principle do I want my decisions to stand on?"
+   },
+   "reversed": {
+    "core": "Reason becomes rigid or cold, or judgment is clouded.",
+    "modes": [
+     "Excess: tyranny of logic.",
+     "Blocked: inability to decide.",
+     "Fading: trust in your own judgment shaken."
+    ],
+    "question": "Am I being fair, or just being firm?"
+   }
+  },
+  "pentacles_page": {
+   "essence": "A patient first step on solid ground.",
+   "imagery": "A young person stands in a green field holding up a single golden coin and studying it closely. Trees and gentle hills lie behind.",
+   "why": "Pages begin things, and Pentacles are the physical world. Looking closely at one coin is the picture of careful study. Fertile ground implies that growth is possible.",
+   "upright": {
+    "core": "Learning a craft or starting a practical goal with care.",
+    "light": "diligence, curiosity about the real world, steadiness",
+    "shadow": "procrastination, only dreaming",
+    "love": "Slow, sincere interest; showing care through consistency.",
+    "work": "A course, an apprenticeship, a first step on a goal.",
+    "question": "What one practical step can I take this week?"
+   },
+   "reversed": {
+    "core": "Plans stay dreams, or effort is misdirected.",
+    "modes": [
+     "Blocked: waiting for the perfect moment.",
+     "Excess: perfectionism.",
+     "Fading: motivation dropping off."
+    ],
+    "question": "What am I postponing that only needs a start?"
+   }
+  },
+  "pentacles_knight": {
+   "essence": "Steady effort that gets there in the end.",
+   "imagery": "A knight in dark armour sits calmly on a heavy, still horse, holding a coin and gazing at it. The field around him is ploughed.",
+   "why": "Knights pursue, and in Pentacles they pursue steadily. The horse is the only one in the Knights that stands still, showing patience over speed. The ploughed field shows work already done.",
+   "upright": {
+    "core": "Reliability and persistence: doing the work and finishing it.",
+    "light": "dependability, routine, thoroughness",
+    "shadow": "stubbornness, boredom, getting stuck in routine",
+    "love": "Showing love through dependable acts.",
+    "work": "Following a long project through; consistent routines.",
+    "question": "Where is my steadiness serving me, and where am I just stuck?"
+   },
+   "reversed": {
+    "core": "Routine turns into rut, or progress stalls.",
+    "modes": [
+     "Blocked: stuck in the same pattern.",
+     "Excess: workaholism or rigidity.",
+     "Fading: losing interest in the long task."
+    ],
+    "question": "What would a small change to my routine open up?"
+   }
+  },
+  "pentacles_queen": {
+   "essence": "Care that is practical and warm.",
+   "imagery": "A crowned woman sits in a garden bower of flowers and fruit, holding a coin on her lap and looking at it tenderly. A rabbit is nearby.",
+   "why": "Queens embody their suit inwardly. Earth held tenderly is nurture through practical things. The garden and rabbit suggest abundance and fertility of ideas and resources.",
+   "upright": {
+    "core": "Resourcefulness and nurture: making a home, a budget or a life that works.",
+    "light": "generosity, practicality, comfort",
+    "shadow": "overworking, neglecting yourself to provide",
+    "love": "Caring through everyday actions and a welcoming home.",
+    "work": "Managing resources well; creating a stable environment.",
+    "question": "Am I looking after myself with the same care I give others?"
+   },
+   "reversed": {
+    "core": "Support turns into smothering, or self-care is neglected.",
+    "modes": [
+     "Excess: taking on too much.",
+     "Blocked: scarcity worries.",
+     "Inward: provides for others but not herself."
+    ],
+    "question": "What do I need to make my own life feel secure?"
+   }
+  },
+  "pentacles_king": {
+   "essence": "Stability built over time.",
+   "imagery": "A crowned king sits on a throne carved with bulls and decorated with vines, holding a coin and a sceptre. A castle and a garden are behind him.",
+   "why": "Kings turn their suit outward into mastery. Earth mastered is lasting security. Bulls and vines suggest strength and abundance that have been cultivated.",
+   "upright": {
+    "core": "Prosperity through patience, discipline and fair dealing.",
+    "light": "reliability, generosity, long-term thinking",
+    "shadow": "materialism, resisting change",
+    "love": "Providing security and commitment.",
+    "work": "Building something lasting; sound financial habits.",
+    "question": "What am I building that will still stand in five years?"
+   },
+   "reversed": {
+    "core": "Security hardens into possessiveness, or resources are mismanaged.",
+    "modes": [
+     "Excess: valuing things over people.",
+     "Blocked: fear of loss.",
+     "Fading: neglected foundations."
+    ],
+    "question": "What does enough look like for me?"
    }
   }
  }

@@ -282,7 +282,10 @@ K["major_21_world"] = card(
  ["Blocked: the last step is missing.", "Fading: closure is near.", "Inward: not quite ready to let go."],
  "What is the last step I keep avoiding?")
 
-out = {"version": 2, "note": "Original wording. Majors only; minors use cards.json until written.", "cards": K}
+from knowledge_courts import add_courts
+add_courts(K, card)
+
+out = {"version": 2, "note": "Original wording. Majors and courts; pips use cards.json until written.", "cards": K}
 p = pathlib.Path(__file__).resolve().parent.parent / "assets" / "cards" / "knowledge.json"
 p.write_text(json.dumps(out, indent=1, ensure_ascii=False) + "\n")
 print("wrote", p, len(K))
