@@ -52,7 +52,7 @@ class YouScreen extends StatelessWidget {
           ListTile(
             leading: const CircleAvatar(
               backgroundColor: AppColors.gold,
-              foregroundColor: Color(0xFF1B1408),
+              foregroundColor: AppColors.onGold,
               child: Icon(Icons.person_outline),
             ),
             title: const Text('Guest'),

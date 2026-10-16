@@ -52,7 +52,7 @@ class _StarsPainter extends CustomPainter {
         ..shader = const RadialGradient(
           center: Alignment(0.3, -0.4),
           radius: 1.1,
-          colors: [Color(0xFF2B2152), AppColors.background],
+          colors: [Color(0xFF2A2415), AppColors.background],
         ).createShader(Offset.zero & size),
     );
     final ring = Paint()

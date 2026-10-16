@@ -6,9 +6,9 @@ import 'dart:ui' as ui;
 
 import 'package:flutter_test/flutter_test.dart';
 
-const _gold = ui.Color(0xFFD9B26F);
-const _bgTop = ui.Color(0xFF241D42);
-const _bgBottom = ui.Color(0xFF0E0B1A);
+const _gold = ui.Color(0xFFEBD48C);
+const _bgTop = ui.Color(0xFF211F1A);
+const _bgBottom = ui.Color(0xFF080808);
 
 void _paintMark(ui.Canvas c, double size, double scale) {
   c.save();

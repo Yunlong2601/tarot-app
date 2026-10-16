@@ -1,68 +1,150 @@
 import 'package:flutter/material.dart';
 
+/// Black and gold. Neutral blacks and charcoals with a warm gold accent.
 class AppColors {
-  static const background = Color(0xFF0E0B1A);
-  static const surface = Color(0xFF1A1530);
-  static const surfaceHigh = Color(0xFF241D42);
-  static const gold = Color(0xFFD9B26F);
-  static const goldLight = Color(0xFFEBD59B);
-  static const violet = Color(0xFF8B7BFF);
-  static const textMuted = Color(0xFFB4AECB);
+  static const background = Color(0xFF0B0B0B);
+  static const surface = Color(0xFF151515);
+  static const surfaceHigh = Color(0xFF1F1D19);
+
+  /// Selected segment / chip fill: a dark, warm gold tint.
+  static const goldTint = Color(0xFF2B261B);
+  static const gold = Color(0xFFEBD48C);
+  static const goldLight = Color(0xFFF6E8B8);
+  static const goldDeep = Color(0xFFC9A24D);
+  static const textMuted = Color(0xFFA9A59B);
+  static const onGold = Color(0xFF17130A);
+  static const success = Color(0xFF3FD6A0);
 }
 
 ThemeData buildTheme() {
   final scheme =
       ColorScheme.fromSeed(
-        seedColor: AppColors.violet,
+        seedColor: AppColors.gold,
         brightness: Brightness.dark,
       ).copyWith(
         surface: AppColors.surface,
         primary: AppColors.gold,
-        onPrimary: const Color(0xFF1B1408),
-        secondary: AppColors.violet,
+        onPrimary: AppColors.onGold,
+        secondary: AppColors.goldDeep,
+        primaryContainer: AppColors.goldTint,
+        onPrimaryContainer: AppColors.gold,
+        outline: const Color(0xFF3A372F),
+        outlineVariant: const Color(0xFF2A2822),
       );
   return ThemeData(
     useMaterial3: true,
     colorScheme: scheme,
-    textTheme: _serifHeadlines(
-      ThemeData(brightness: Brightness.dark).textTheme,
-    ),
     scaffoldBackgroundColor: AppColors.background,
     appBarTheme: const AppBarTheme(
       backgroundColor: AppColors.background,
       elevation: 0,
       centerTitle: true,
+      scrolledUnderElevation: 0,
+      titleTextStyle: TextStyle(
+        fontSize: 20,
+        fontWeight: FontWeight.w600,
+        color: Colors.white,
+      ),
     ),
     cardTheme: CardThemeData(
       color: AppColors.surface,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+        side: const BorderSide(color: Color(0xFF2A2822)),
+      ),
     ),
     filledButtonTheme: FilledButtonThemeData(
       style: FilledButton.styleFrom(
-        minimumSize: const Size.fromHeight(52),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+        minimumSize: const Size.fromHeight(54),
+        backgroundColor: AppColors.gold,
+        foregroundColor: AppColors.onGold,
+        textStyle: const TextStyle(fontSize: 17, fontWeight: FontWeight.w700),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
       ),
     ),
-    navigationBarTheme: const NavigationBarThemeData(
-      backgroundColor: AppColors.surface,
+    outlinedButtonTheme: OutlinedButtonThemeData(
+      style: OutlinedButton.styleFrom(
+        foregroundColor: Colors.white,
+        side: const BorderSide(color: Color(0xFF3A372F)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+      ),
     ),
-  );
-}
-
-/// Headlines and titles use a serif face (Georgia on iOS, the system serif on
-/// Android) for a more mystical feel; body text stays in the system sans.
-TextTheme _serifHeadlines(TextTheme t) {
-  TextStyle? serif(TextStyle? s) => s?.copyWith(
-    fontFamily: 'Georgia',
-    fontFamilyFallback: const ['Times New Roman', 'serif'],
-  );
-  return t.copyWith(
-    displayLarge: serif(t.displayLarge),
-    displayMedium: serif(t.displayMedium),
-    displaySmall: serif(t.displaySmall),
-    headlineLarge: serif(t.headlineLarge),
-    headlineMedium: serif(t.headlineMedium),
-    headlineSmall: serif(t.headlineSmall),
-    titleLarge: serif(t.titleLarge),
+    textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(foregroundColor: AppColors.gold),
+    ),
+    chipTheme: ChipThemeData(
+      backgroundColor: AppColors.surface,
+      selectedColor: AppColors.goldTint,
+      side: const BorderSide(color: Color(0xFF2A2822)),
+      labelStyle: const TextStyle(color: Colors.white),
+      secondaryLabelStyle: const TextStyle(color: AppColors.gold),
+      checkmarkColor: AppColors.gold,
+    ),
+    segmentedButtonTheme: SegmentedButtonThemeData(
+      style: ButtonStyle(
+        backgroundColor: WidgetStateProperty.resolveWith(
+          (s) => s.contains(WidgetState.selected)
+              ? AppColors.goldTint
+              : AppColors.surface,
+        ),
+        foregroundColor: WidgetStateProperty.resolveWith(
+          (s) => s.contains(WidgetState.selected)
+              ? AppColors.gold
+              : AppColors.textMuted,
+        ),
+        side: const WidgetStatePropertyAll(
+          BorderSide(color: Color(0xFF2A2822)),
+        ),
+      ),
+    ),
+    navigationBarTheme: NavigationBarThemeData(
+      backgroundColor: AppColors.background,
+      indicatorColor: Colors.transparent,
+      surfaceTintColor: Colors.transparent,
+      iconTheme: WidgetStateProperty.resolveWith(
+        (s) => IconThemeData(
+          color: s.contains(WidgetState.selected)
+              ? AppColors.gold
+              : AppColors.textMuted,
+        ),
+      ),
+      labelTextStyle: WidgetStateProperty.resolveWith(
+        (s) => TextStyle(
+          fontSize: 12,
+          fontWeight: FontWeight.w600,
+          color: s.contains(WidgetState.selected)
+              ? AppColors.gold
+              : AppColors.textMuted,
+        ),
+      ),
+    ),
+    switchTheme: SwitchThemeData(
+      thumbColor: WidgetStateProperty.resolveWith(
+        (s) => s.contains(WidgetState.selected) ? AppColors.gold : Colors.grey,
+      ),
+      trackColor: WidgetStateProperty.resolveWith(
+        (s) => s.contains(WidgetState.selected)
+            ? AppColors.goldTint
+            : const Color(0xFF2A2822),
+      ),
+    ),
+    dividerTheme: const DividerThemeData(color: Color(0xFF242320)),
+    inputDecorationTheme: InputDecorationTheme(
+      filled: true,
+      fillColor: AppColors.surface,
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: const BorderSide(color: Color(0xFF2A2822)),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: const BorderSide(color: Color(0xFF2A2822)),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: const BorderSide(color: AppColors.goldDeep),
+      ),
+    ),
   );
 }

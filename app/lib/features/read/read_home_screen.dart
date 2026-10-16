@@ -137,14 +137,14 @@ class _ModeButton extends StatelessWidget {
                     children: [
                       Icon(
                         photo ? Icons.center_focus_strong : Icons.auto_awesome,
-                        color: const Color(0xFF1B1408),
+                        color: AppColors.onGold,
                       ),
                       const SizedBox(width: 10),
                       Flexible(
                         child: Text(
                           label,
                           style: const TextStyle(
-                            color: Color(0xFF1B1408),
+                            color: AppColors.onGold,
                             fontWeight: FontWeight.w700,
                             fontSize: 17,
                           ),
@@ -161,7 +161,7 @@ class _ModeButton extends StatelessWidget {
                   ? 'Switch to digital card reading'
                   : 'Switch to photo reading',
               onPressed: onSwap,
-              icon: const Icon(Icons.swap_horiz, color: Color(0xFF1B1408)),
+              icon: const Icon(Icons.swap_horiz, color: AppColors.onGold),
               padding: const EdgeInsets.symmetric(horizontal: 14),
             ),
           ],

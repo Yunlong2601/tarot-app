@@ -135,7 +135,7 @@ class _SpreadsListState extends State<_SpreadsList> {
                                         t.isFree ||
                                             (!state.isPremium &&
                                                 !state.trialUsed)
-                                        ? Colors.greenAccent
+                                        ? AppColors.success
                                         : AppColors.gold,
                                     fontWeight: FontWeight.w600,
                                   ),
