@@ -14,6 +14,8 @@ import 'package:shentarot/main.dart';
 
 import 'helpers.dart';
 
+import 'package:shentarot/app/brand.dart';
+
 class FakeReadingService implements ReadingService {
   FakeReadingService({this.error});
   final ReadingException? error;
@@ -61,6 +63,7 @@ class FakeReminders implements ReminderService {
 }
 
 void main() {
+  brandAnimations = false;
   sqfliteFfiInit();
   databaseFactory = databaseFactoryFfi;
   final deck = Deck.fromJsonString(File(Deck.assetPath).readAsStringSync());

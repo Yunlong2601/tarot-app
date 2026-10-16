@@ -3,6 +3,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 import '../../app/app_scope.dart';
+import '../../app/brand.dart';
 import '../../app/theme.dart';
 import '../../data/models.dart';
 import '../cards/card_art.dart';
@@ -202,39 +203,6 @@ class _FlipCardState extends State<_FlipCard>
                   : const CardBack(width: 90),
             );
           },
-        ),
-      ),
-    );
-  }
-}
-
-/// Original card-back design: gold border and a small eye on deep purple.
-class CardBack extends StatelessWidget {
-  const CardBack({super.key, this.width = 90});
-  final double width;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: width,
-      height: width * 1.6,
-      decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [AppColors.surfaceHigh, AppColors.background],
-        ),
-        border: Border.all(color: AppColors.gold, width: 1.5),
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Container(
-        margin: const EdgeInsets.all(6),
-        decoration: BoxDecoration(
-          border: Border.all(color: AppColors.gold.withValues(alpha: 0.4)),
-          borderRadius: BorderRadius.circular(5),
-        ),
-        child: const Center(
-          child: Icon(Icons.visibility_outlined, color: AppColors.gold),
         ),
       ),
     );

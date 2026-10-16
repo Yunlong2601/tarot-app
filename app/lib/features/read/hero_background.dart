@@ -2,6 +2,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
+import '../../app/brand.dart';
 import '../../app/theme.dart';
 
 /// Landing backdrop. Shows `assets/hero/hero.jpg` when the owner adds it,
@@ -19,7 +20,10 @@ class HeroBackground extends StatelessWidget {
           'assets/hero/hero.jpg',
           fit: BoxFit.cover,
           alignment: Alignment.topCenter,
-          errorBuilder: (_, _, _) => const SizedBox.shrink(),
+          errorBuilder: (_, _, _) => const Align(
+            alignment: Alignment(0, -0.45),
+            child: CardFan(cardWidth: 118),
+          ),
         ),
         // Fade to the app background so the text and button stay readable.
         const DecoratedBox(

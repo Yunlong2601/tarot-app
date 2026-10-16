@@ -8,7 +8,7 @@ import 'package:shentarot/core/reading_service.dart';
 import 'package:shentarot/data/deck.dart';
 import 'package:shentarot/data/models.dart';
 import 'package:shentarot/main.dart';
-
+import 'package:shentarot/app/brand.dart';
 
 class _Fake implements ReadingService {
   final calls = <List<DrawnCard>>[];
@@ -33,6 +33,7 @@ class _Fake implements ReadingService {
 }
 
 void main() {
+  brandAnimations = false;
   final deck = Deck.fromJsonString(File(Deck.assetPath).readAsStringSync());
 
   void tall(WidgetTester t) {

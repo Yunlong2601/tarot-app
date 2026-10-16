@@ -57,7 +57,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         child: SingleChildScrollView(
                           child: Column(
                             children: [
-                              Icon(p.$1, size: 96, color: AppColors.gold),
+                              _PageIcon(icon: p.$1),
                               const SizedBox(height: 32),
                               Text(
                                 p.$2,
@@ -117,4 +117,30 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       ),
     );
   }
+}
+
+/// Gold ring with a soft glow around the page icon.
+class _PageIcon extends StatelessWidget {
+  const _PageIcon({required this.icon});
+  final IconData icon;
+
+  @override
+  Widget build(BuildContext context) => Container(
+    width: 120,
+    height: 120,
+    decoration: BoxDecoration(
+      shape: BoxShape.circle,
+      border: Border.all(color: AppColors.gold, width: 1.5),
+      gradient: const RadialGradient(
+        colors: [AppColors.surfaceHigh, AppColors.background],
+      ),
+      boxShadow: [
+        BoxShadow(
+          color: AppColors.gold.withValues(alpha: 0.25),
+          blurRadius: 30,
+        ),
+      ],
+    ),
+    child: Icon(icon, size: 52, color: AppColors.gold),
+  );
 }

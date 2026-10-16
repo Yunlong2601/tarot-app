@@ -41,14 +41,25 @@ class CardArt extends StatelessWidget {
       excludeSemantics: true,
       child: Transform.rotate(
         angle: reversed ? 3.14159265 : 0,
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(8),
-          child: Image.asset(
-            card.artAsset,
-            width: width,
-            height: height,
-            fit: BoxFit.cover,
-            errorBuilder: (_, _, _) => placeholder,
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            boxShadow: [
+              BoxShadow(
+                color: AppColors.gold.withValues(alpha: 0.18),
+                blurRadius: 14,
+              ),
+            ],
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(8),
+            child: Image.asset(
+              card.artAsset,
+              width: width,
+              height: height,
+              fit: BoxFit.cover,
+              errorBuilder: (_, _, _) => placeholder,
+            ),
           ),
         ),
       ),

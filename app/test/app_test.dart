@@ -9,6 +9,8 @@ import 'package:shentarot/main.dart';
 
 import 'helpers.dart';
 
+import 'package:shentarot/app/brand.dart';
+
 void tallPhone(WidgetTester tester) {
   tester.view.physicalSize = const Size(1080, 5000);
   tester.view.devicePixelRatio = 2.75;
@@ -19,6 +21,7 @@ Deck loadDeckFromDisk() =>
     Deck.fromJsonString(File(Deck.assetPath).readAsStringSync());
 
 void main() {
+  brandAnimations = false;
   final deck = loadDeckFromDisk();
 
   group('Deck data', () {

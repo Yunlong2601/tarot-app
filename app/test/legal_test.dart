@@ -5,8 +5,10 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shentarot/app/app_state.dart';
 import 'package:shentarot/data/deck.dart';
 import 'package:shentarot/main.dart';
+import 'package:shentarot/app/brand.dart';
 
 void main() {
+  brandAnimations = false;
   final deck = Deck.fromJsonString(File(Deck.assetPath).readAsStringSync());
 
   test('bundled legal texts exist and carry the key statements', () {

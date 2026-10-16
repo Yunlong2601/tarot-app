@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../app/app_scope.dart';
 import '../../app/app_state.dart';
+import '../../app/brand.dart';
 import '../../app/theme.dart';
 import '../../data/models.dart';
 import 'hero_background.dart';
@@ -33,14 +34,7 @@ class ReadHomeScreen extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(
-                            'SHENTAROT',
-                            style: TextStyle(
-                              letterSpacing: 4,
-                              fontWeight: FontWeight.w600,
-                              color: AppColors.gold,
-                            ),
-                          ),
+                          const BrandLockup(),
                           const Spacer(),
                           Center(
                             child: Column(

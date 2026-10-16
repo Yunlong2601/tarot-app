@@ -18,3 +18,9 @@ Reference: the owner's wireframe screens (landing, tabs, library, you, paywall, 
 
 ## Look
 Dark theme with a gold accent (`lib/app/theme.dart`). The card back used in digital readings is drawn in code (`CardBack`), original design.
+
+## Brand polish (done)
+- `lib/app/brand.dart`: drawn logo mark (card + eye), gradient wordmark "SHENTAROT", lockup, card back with glow, and a gently floating fan of card backs. Animations stop when the device asks to reduce motion.
+- Serif headlines (Georgia on iOS, system serif on Android); body stays system sans. Glow around the onboarding icons and cards.
+- The landing shows the card fan until you add `assets/hero/hero.jpg`.
+- To look at the app without tapping: `flutter build ios --simulator`, then `xcrun simctl install booted build/ios/iphonesimulator/Runner.app` and `xcrun simctl launch booted com.example.shentarot`, `xcrun simctl io booted screenshot out.png`.

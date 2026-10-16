@@ -12,6 +12,8 @@ import 'package:shentarot/main.dart';
 
 import 'helpers.dart';
 
+import 'package:shentarot/app/brand.dart';
+
 double _lum(Color c) {
   double ch(double v) =>
       v <= 0.03928 ? v / 12.92 : math.pow((v + 0.055) / 1.055, 2.4).toDouble();
@@ -53,6 +55,7 @@ class _Plans implements SubscriptionService {
 }
 
 void main() {
+  brandAnimations = false;
   final deck = Deck.fromJsonString(File(Deck.assetPath).readAsStringSync());
 
   group('colour contrast (WCAG AA 4.5:1 for text)', () {

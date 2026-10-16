@@ -9,6 +9,8 @@ import 'dart:io';
 
 import 'helpers.dart';
 
+import 'package:shentarot/app/brand.dart';
+
 class FakeSubscriptions implements SubscriptionService {
   FakeSubscriptions({this.restores = false});
   final bool restores;
@@ -49,6 +51,7 @@ class FakeSubscriptions implements SubscriptionService {
 }
 
 void main() {
+  brandAnimations = false;
   final deck = Deck.fromJsonString(File(Deck.assetPath).readAsStringSync());
 
   void tall(WidgetTester t) {

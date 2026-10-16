@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../app/app_scope.dart';
+import '../../app/brand.dart';
 import '../../app/theme.dart';
 import '../../core/subscription_service.dart';
 
@@ -106,6 +107,10 @@ class _PaywallScreenState extends State<PaywallScreen> {
       body: ListView(
         padding: const EdgeInsets.all(24),
         children: [
+          const Center(child: CardFan(cardWidth: 64)),
+          const SizedBox(height: 4),
+          const Center(child: BrandWordmark(size: 13)),
+          const SizedBox(height: 12),
           Text(
             'Unlock Premium',
             style: Theme.of(context).textTheme.headlineMedium,
