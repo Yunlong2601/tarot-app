@@ -163,9 +163,7 @@ void main() {
       expect(find.text('Terms of Use'), findsOneWidget);
     });
 
-    testWidgets('simulated scan opens a reading with the disclaimer', (
-      tester,
-    ) async {
+    testWidgets('simulated scan opens a reading', (tester) async {
       tallPhone(tester);
       await tester.pumpWidget(
         ShenTarotApp(initialState: AppState(deck: deck, onboarded: true)),
@@ -174,7 +172,7 @@ void main() {
       await goPhoto(tester);
       await tester.tap(find.text('Simulate scan'));
       await tester.pumpAndSettle();
-      expect(find.textContaining('entertainment'), findsWidgets);
+      expect(find.textContaining('sample reading'), findsOneWidget);
     });
 
     testWidgets('cards tab lists the deck, filters, and opens a detail page', (

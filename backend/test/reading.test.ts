@@ -116,7 +116,6 @@ describe("model reply handling", () => {
     const fb = fallbackReading(r);
     expect(fb).toContain("Where it began: The Fool");
     expect(fb).toContain("(reversed)");
-    expect(fb).toMatch(/entertainment and self-reflection/i);
     expect(hitsBannedClaim(fb)).toBe(false);
   });
 });

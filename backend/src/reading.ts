@@ -1,5 +1,4 @@
 import { CARDS } from "./cards";
-import { DISCLAIMER } from "./prompts";
 import { POSITIONS, cardBlock, restrictedTopic, spreadFacts } from "./knowledge";
 import type { ReadingRequest } from "./validate";
 
@@ -137,5 +136,5 @@ export function fallbackReading(req: ReadingRequest): string {
     ? (req.cards[0]!.reversed ? CARDS[req.cards[0]!.id]!.k!.reversed.question : CARDS[req.cards[0]!.id]!.k!.upright.question)
     : "What stands out to you most in these cards, and why?";
   parts.push(`To reflect on\n${q}`);
-  return `${parts.join("\n\n")}\n\n${DISCLAIMER}`;
+  return parts.join("\n\n");
 }

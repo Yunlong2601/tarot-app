@@ -302,12 +302,6 @@ class ReadingScreen extends StatelessWidget {
           _FollowUps(reading: reading),
           const SizedBox(height: 12),
           _Journal(reading: reading),
-          const SizedBox(height: 24),
-          const Text(
-            'For entertainment and self-reflection only. Not advice.',
-            textAlign: TextAlign.center,
-            style: TextStyle(color: AppColors.textMuted, fontSize: 12),
-          ),
         ],
       ),
     );
