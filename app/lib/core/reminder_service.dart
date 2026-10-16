@@ -11,7 +11,16 @@ abstract class ReminderService {
   /// Schedules a daily reminder. Returns false if the user denied permission.
   Future<bool> enable(TimeOfDay time);
   Future<void> disable();
+
+  /// One-off "look back" nudge for a reading, about a week later. Only used
+  /// when the daily reminder is on (permission already granted).
+  Future<void> scheduleLookBack(String readingId, DateTime at);
+  Future<void> cancelLookBack(String readingId);
 }
+
+/// Stable notification id for a reading's look-back (1 is the daily reminder).
+int lookBackNotificationId(String readingId) =>
+    1000 + (readingId.hashCode & 0x7fffff);
 
 class NoopReminderService implements ReminderService {
   const NoopReminderService();
@@ -19,6 +28,10 @@ class NoopReminderService implements ReminderService {
   Future<bool> enable(TimeOfDay time) async => false;
   @override
   Future<void> disable() async {}
+  @override
+  Future<void> scheduleLookBack(String readingId, DateTime at) async {}
+  @override
+  Future<void> cancelLookBack(String readingId) async {}
 }
 
 class LocalNotificationReminderService implements ReminderService {
@@ -95,5 +108,32 @@ class LocalNotificationReminderService implements ReminderService {
   Future<void> disable() async {
     await _init();
     await _plugin.cancel(id: _id);
+  }
+
+  @override
+  Future<void> scheduleLookBack(String readingId, DateTime at) async {
+    await _init();
+    await _plugin.zonedSchedule(
+      id: lookBackNotificationId(readingId),
+      title: 'Look back',
+      body:
+          'How did last week\'s reading turn out? Add a line to your journal.',
+      scheduledDate: tz.TZDateTime.from(at, tz.local),
+      notificationDetails: const NotificationDetails(
+        iOS: DarwinNotificationDetails(),
+        android: AndroidNotificationDetails(
+          'look_back',
+          'Look back',
+          channelDescription: 'A nudge a week after a reading',
+        ),
+      ),
+      androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
+    );
+  }
+
+  @override
+  Future<void> cancelLookBack(String readingId) async {
+    await _init();
+    await _plugin.cancel(id: lookBackNotificationId(readingId));
   }
 }

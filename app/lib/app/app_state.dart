@@ -269,6 +269,7 @@ class AppState extends ChangeNotifier {
       _savePrefs();
     }
     _guard(() => _repo.add(reading));
+    _scheduleLookBack(reading);
     notifyListeners();
   }
 
@@ -281,6 +282,21 @@ class AppState extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Premium with the daily reminder on: a one-off nudge 7 days later at the
+  /// reminder time, so the look back is not forgotten.
+  void _scheduleLookBack(Reading r) {
+    if (!isPremium || !reminderEnabled) return;
+    final d = r.createdAt.add(const Duration(days: 7));
+    final at = DateTime(
+      d.year,
+      d.month,
+      d.day,
+      reminderTime.hour,
+      reminderTime.minute,
+    );
+    _guard(() => reminders.scheduleLookBack(r.id, at));
+  }
+
   /// Look back about a week later (Premium): saves what the user writes, or
   /// '' to dismiss the prompt for this reading.
   void setRevisit(String id, String text) {
@@ -288,6 +304,7 @@ class AppState extends ChangeNotifier {
     if (i < 0) return;
     history[i] = history[i].withRevisit(text);
     _guard(() => _repo.setRevisit(id, text));
+    _guard(() => reminders.cancelLookBack(id));
     notifyListeners();
   }
 
@@ -304,6 +321,7 @@ class AppState extends ChangeNotifier {
 
   void deleteReading(String id) {
     history.removeWhere((r) => r.id == id);
+    _guard(() => reminders.cancelLookBack(id));
     _guard(() => _repo.delete(id));
     notifyListeners();
   }

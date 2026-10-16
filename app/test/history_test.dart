@@ -67,6 +67,14 @@ class FakeReminders implements ReminderService {
 
   @override
   Future<void> disable() async => cancels++;
+
+  final lookBacks = <String, DateTime>{};
+  @override
+  Future<void> scheduleLookBack(String readingId, DateTime at) async =>
+      lookBacks[readingId] = at;
+  @override
+  Future<void> cancelLookBack(String readingId) async =>
+      lookBacks.remove(readingId);
 }
 
 void main() {
@@ -253,6 +261,30 @@ void main() {
   });
 
   group('reminder', () {
+    test(
+      'Premium readings get a look-back nudge 7 days later; saving cancels it',
+      () async {
+        final fake = FakeReminders();
+        final s = AppState(deck: deck, reminders: fake)..setPremium(true);
+        await s.setReminder(true, time: const TimeOfDay(hour: 20, minute: 30));
+        s.addReading(reading('a', DateTime(2026, 10, 1, 9)));
+        expect(fake.lookBacks['a'], DateTime(2026, 10, 8, 20, 30));
+        s.setRevisit('a', 'It went well.');
+        await Future<void>.delayed(Duration.zero);
+        expect(fake.lookBacks, isEmpty);
+      },
+    );
+
+    test('no nudge for free users or with the reminder off', () async {
+      final fake = FakeReminders();
+      final free = AppState(deck: deck, reminders: fake);
+      await free.setReminder(true);
+      free.addReading(reading('a', DateTime(2026, 10, 1)));
+      final off = AppState(deck: deck, reminders: fake)..setPremium(true);
+      off.addReading(reading('b', DateTime(2026, 10, 1)));
+      expect(fake.lookBacks, isEmpty);
+    });
+
     test('turning on schedules at the chosen time and persists', () async {
       final fake = FakeReminders();
       final s = AppState(deck: deck, reminders: fake);
