@@ -1,15 +1,12 @@
 import { CARDS } from "./cards";
-import type { Spread } from "./validate";
+import type { Spread } from "./spreads";
 
-/** Position labels. The three-card spread uses the "path" framing for now. */
-export const POSITIONS: Record<Spread, string[]> = {
-  single: ["The card"],
-  three: ["Where it began", "Where it stands", "Where it is heading"],
-  celtic: [
-    "The heart of it", "What crosses it", "Foundation", "Recent past", "Aim",
-    "Near horizon", "You", "Surroundings", "Hopes and fears", "Direction",
-  ],
-};
+import { SPREADS } from "./spreads";
+
+/** Position labels per spread (see spreads.ts). */
+export const POSITIONS: Record<Spread, readonly string[]> = Object.fromEntries(
+  Object.entries(SPREADS).map(([id, d]) => [id, d.positions]),
+) as unknown as Record<Spread, readonly string[]>;
 
 const SUIT_LOGIC: Record<string, string> = {
   wands: "Wands (Fire): drive, creativity, will; asks what do I want and will I act",

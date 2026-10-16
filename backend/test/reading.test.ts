@@ -135,3 +135,37 @@ describe("crisis pre-check", () => {
     expect(CRISIS_MESSAGE).toMatch(/988/);
   });
 });
+
+import { SPREADS, SPREAD_IDS, isFreeSpread, spreadSize } from "../src/spreads";
+
+describe("spread catalog", () => {
+  it("every spread has 1 to 10 unique positions and a purpose", () => {
+    expect(SPREAD_IDS.length).toBeGreaterThanOrEqual(14);
+    for (const id of SPREAD_IDS) {
+      const d = SPREADS[id];
+      expect(spreadSize(id), id).toBeGreaterThanOrEqual(1);
+      expect(spreadSize(id), id).toBeLessThanOrEqual(10);
+      expect(new Set(d.positions).size, id).toBe(d.positions.length);
+      expect(d.purpose.length, id).toBeGreaterThan(20);
+    }
+  });
+  it("no position claims to read another person's mind", () => {
+    for (const id of SPREAD_IDS) {
+      for (const p of SPREADS[id].positions) {
+        expect(p, `${id}: ${p}`).not.toMatch(/\b(he|she|they|their|his|her|other person|ex)\b/i);
+      }
+    }
+  });
+  it("only the single card and Past, Present, Future are free", () => {
+    expect(SPREAD_IDS.filter(isFreeSpread)).toEqual(["single", "three"]);
+  });
+  it("the prompt names the spread and its purpose", () => {
+    const m = buildReadingMessage({
+      spread: "love_reconnect", question: null, impression: null,
+      cards: ["major_00_fool", "major_01_magician", "major_02_high_priestess", "major_03_empress", "major_04_emperor", "major_05_hierophant", "major_06_lovers"].map((id) => ({ id, reversed: false })),
+    });
+    expect(m).toContain("Healing & Reconnection");
+    expect(m).toMatch(/never predict whether anyone returns/i);
+    expect(m).toContain("What I am still carrying");
+  });
+});

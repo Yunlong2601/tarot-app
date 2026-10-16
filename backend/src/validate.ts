@@ -1,8 +1,7 @@
 import { CARDS } from "./cards";
+import { isSpread, spreadSize, type Spread } from "./spreads";
 
-export type Spread = "single" | "three" | "celtic";
-
-export const SPREAD_SIZE: Record<Spread, number> = { single: 1, three: 3, celtic: 10 };
+export type { Spread };
 
 export const MAX_QUESTION_LENGTH = 300;
 
@@ -28,11 +27,9 @@ export function cleanQuestion(raw: string): string {
 
 function parseSpreadAndCards(b: Record<string, unknown>): Parsed<{ spread: Spread; cards: ReadingRequest["cards"] }> {
   const spread = b.spread;
-  if (spread !== "single" && spread !== "three" && spread !== "celtic") {
-    return fail("spread must be single, three or celtic");
-  }
-  if (!Array.isArray(b.cards) || b.cards.length !== SPREAD_SIZE[spread]) {
-    return fail(`spread ${spread} needs exactly ${SPREAD_SIZE[spread]} cards`);
+  if (!isSpread(spread)) return fail("unknown spread");
+  if (!Array.isArray(b.cards) || b.cards.length !== spreadSize(spread)) {
+    return fail(`spread ${spread} needs exactly ${spreadSize(spread)} cards`);
   }
   const seen = new Set<string>();
   const cards: ReadingRequest["cards"] = [];

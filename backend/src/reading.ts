@@ -35,22 +35,28 @@ OUTPUT (JSON only, no markdown, no text outside the JSON)
     { "position": "<position label as given>", "card": "<card name as given>", "orientation": "upright" | "reversed",
       "reading": "<2 to 4 sentences: image, meaning, position, question>", "why": "<1 to 2 sentences>" }
   ],
-  "overview": "<for 1 card: 1 to 2 sentences. For 3 cards: 3 to 4. For 10 cards: 5 to 7. Name the central theme or tension>",
+  "overview": "<a short answer to open the reading. For 1 card: 1 to 2 sentences. For 3 cards: 3 to 4. For 5 to 10 cards: 5 to 7. Name the central theme or tension. Never a yes or no, and never what will happen>",
   "reflection_question": "<one open question for the user, not yes/no>",
   "small_step": "<one low-stakes action: notice, write, ask, pause. Never medical, legal, financial or about a relationship decision>",
   "declined_topic": null | "medical" | "legal" | "financial" | "death" | "pregnancy" | "gambling" | "third_party" | "other",
   "crisis": false
 }
-Length limits for the whole reading: 1 card about 180 words, 3 cards about 380, 10 cards about 650.`;
+Length limits for the whole reading: 1 card about 180 words, 3 cards about 380, 5 cards about 480, 7 cards about 560, 10 cards about 650.`;
 
-export const READING_MAX_TOKENS = { single: 2200, three: 3000, celtic: 4800 } as const;
+import { SPREADS, spreadSize, type Spread } from "./spreads";
+
+/** Output budget grows with the number of cards. */
+export function readingMaxTokens(spread: Spread): number {
+  const n = spreadSize(spread);
+  return n <= 1 ? 2200 : n <= 3 ? 3000 : n <= 5 ? 3800 : n <= 7 ? 4400 : 5000;
+}
 
 export function buildReadingMessage(req: ReadingRequest): string {
   const positions = POSITIONS[req.spread];
   const topic = restrictedTopic(req.question, req.impression);
   const blocks = req.cards.map((c, i) => cardBlock(c, i, positions[i]!));
   return [
-    `Spread: ${req.spread}`,
+    `Spread: ${SPREADS[req.spread].name} (${req.cards.length} cards). Purpose: ${SPREADS[req.spread].purpose}`,
     topic ? `Possible restricted topic in the user's text: ${topic} (set declined_topic and keep the reading general)` : null,
     `Spread facts:\n${spreadFacts(req.cards)}`,
     `Cards:\n${blocks.join("\n")}`,

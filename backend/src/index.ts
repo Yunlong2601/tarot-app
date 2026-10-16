@@ -7,7 +7,7 @@ import {
   DISCLAIMER, FOLLOWUP_MAX_TOKENS, FOLLOWUP_SYSTEM_PROMPT, buildFollowupMessage, checkOutput,
 } from "./prompts";
 import {
-  READING_MAX_TOKENS, READING_SYSTEM_PROMPT, buildReadingMessage, fallbackReading, hitsBannedClaim,
+  readingMaxTokens, READING_SYSTEM_PROMPT, buildReadingMessage, fallbackReading, hitsBannedClaim,
   parseModelReply, renderReading,
 } from "./reading";
 import { isPremium } from "./revenuecat";
@@ -15,6 +15,7 @@ import {
   BURST_PER_MINUTE, D1UsageStore, DEFAULT_GLOBAL_DAILY_TOKEN_CAP, FREE_READINGS_PER_DAY,
   IP_PER_MINUTE, PREMIUM_FOLLOWUPS_PER_DAY, PREMIUM_READINGS_PER_DAY, allowWithinMinute, utcDay, type UsageStore,
 } from "./usage";
+import { isFreeSpread } from "./spreads";
 import { isUuid, parseFollowupRequest, parseReadingRequest } from "./validate";
 
 export interface Deps {
@@ -85,9 +86,13 @@ export function createApp(deps: Deps = defaultDeps) {
     }
 
     const premium = await deps.premium(installId, c.env, now);
-    if (req.spread !== "single" && !premium) return c.json({ error: "premium_required" }, 402);
-
     const usage = deps.usage(c.env);
+    // Longer spreads are Premium, with one free trial reading per install.
+    if (!isFreeSpread(req.spread) && !premium) {
+      if ((await usage.countTrial(await hashId(installId, c.env.HASH_SALT))) > 0) {
+        return c.json({ error: "premium_required" }, 402);
+      }
+    }
     const day = utcDay(now);
     const cap = Number(c.env.GLOBAL_DAILY_TOKEN_CAP ?? DEFAULT_GLOBAL_DAILY_TOKEN_CAP);
     if ((await usage.tokensToday(day)) >= cap) return c.json({ error: "service_busy" }, 503);
@@ -101,7 +106,7 @@ export function createApp(deps: Deps = defaultDeps) {
     const slot = await usage.reserve(installHash, day, "reading", req.spread, model);
     try {
       const result = await deps.llm(
-        { system: READING_SYSTEM_PROMPT, user: buildReadingMessage(req), maxTokens: READING_MAX_TOKENS[req.spread] },
+        { system: READING_SYSTEM_PROMPT, user: buildReadingMessage(req), maxTokens: readingMaxTokens(req.spread) },
         model, c.env.ANTHROPIC_API_KEY,
       );
       await usage.finalize(slot, result.inputTokens, result.outputTokens);

@@ -17,10 +17,11 @@ class FakeKV {
 }
 
 class MemUsage implements UsageStore {
-  rows: { id: number; hash: string; day: string; kind: string; i: number; o: number }[] = [];
+  rows: { id: number; hash: string; day: string; kind: string; spread: string; i: number; o: number }[] = [];
+  async countTrial(h: string) { return this.rows.filter((r) => r.hash === h && r.kind === "reading" && r.spread !== "single" && r.spread !== "three").length; }
   async count(h: string, d: string, kind: string) { return this.rows.filter((r) => r.hash === h && r.day === d && r.kind === kind).length; }
   async tokensToday(d: string) { return this.rows.filter((r) => r.day === d).reduce((s, r) => s + r.i + r.o, 0); }
-  async reserve(h: string, d: string, kind: string) { const id = this.rows.length + 1; this.rows.push({ id, hash: h, day: d, kind, i: 0, o: 0 }); return id; }
+  async reserve(h: string, d: string, kind: string, spread = "single") { const id = this.rows.length + 1; this.rows.push({ id, hash: h, day: d, kind, spread, i: 0, o: 0 }); return id; }
   async finalize(id: number, i: number, o: number) { const r = this.rows.find((x) => x.id === id)!; r.i = i; r.o = o; }
   async release(id: number) { this.rows = this.rows.filter((r) => r.id !== id); }
 }
@@ -186,9 +187,19 @@ describe("POST /v1/reading", () => {
     expect(s.calls()).toBe(1);
   });
 
-  it("multi-card spreads need premium, checked server-side", async () => {
-    expect((await post(setup(), three)).status).toBe(402);
-    expect((await post(setup({ premium: true }), three)).status).toBe(200);
+  it("longer spreads need Premium after one free trial reading, checked server-side", async () => {
+    const fiveCross = { spread: "five_cross", cards: ["major_00_fool", "major_01_magician", "major_02_high_priestess", "major_03_empress", "major_04_emperor"].map((id) => ({ id, reversed: false })) };
+    const free = setup();
+    expect((await post(free, fiveCross)).status).toBe(200); // the one-time trial
+    free.kv.m.clear();
+    free.usage.rows.forEach((r) => (r.day = "2000-01-01")); // next day: daily limit reset, trial still used
+    expect((await post(free, fiveCross)).status).toBe(402);
+    expect((await post(free, single)).status).toBe(200); // free spreads still work
+    expect((await post(setup({ premium: true }), fiveCross)).status).toBe(200);
+  });
+
+  it("the three-card Past, Present, Future spread is free for everyone", async () => {
+    expect((await post(setup(), three)).status).toBe(200);
   });
 
   it("premium users are capped at 20 a day", async () => {
@@ -214,7 +225,7 @@ describe("POST /v1/reading", () => {
 
   it("stops everything when the global token budget is spent", async () => {
     const s = setup({ cap: "100" });
-    s.usage.rows.push({ id: 99, hash: "other", day: "2026-10-16", kind: "reading", i: 80, o: 80 });
+    s.usage.rows.push({ id: 99, hash: "other", day: "2026-10-16", kind: "reading", spread: "single", i: 80, o: 80 });
     expect((await post(s, single)).status).toBe(503);
     expect(s.calls()).toBe(0);
   });

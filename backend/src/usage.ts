@@ -7,6 +7,8 @@ export type UsageKind = "reading" | "followup";
 export interface UsageStore {
   /** Requests of this kind counted for this install today (including in-flight ones). */
   count(installHash: string, day: string, kind: UsageKind): Promise<number>;
+  /** Readings of non-free spreads ever made by this install (the free trial). */
+  countTrial(installHash: string): Promise<number>;
   /** Total tokens used by everyone today. */
   tokensToday(day: string): Promise<number>;
   /** Reserve a slot before calling the model; returns a row id. */
@@ -23,6 +25,13 @@ export class D1UsageStore implements UsageStore {
     const r = await this.db
       .prepare("SELECT COUNT(*) AS n FROM usage WHERE install_hash = ?1 AND day = ?2 AND kind = ?3")
       .bind(installHash, day, kind).first<{ n: number }>();
+    return r?.n ?? 0;
+  }
+
+  async countTrial(installHash: string): Promise<number> {
+    const r = await this.db
+      .prepare("SELECT COUNT(*) AS n FROM usage WHERE install_hash = ?1 AND kind = 'reading' AND spread NOT IN ('single', 'three')")
+      .bind(installHash).first<{ n: number }>();
     return r?.n ?? 0;
   }
 
