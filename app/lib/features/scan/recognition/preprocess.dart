@@ -24,12 +24,19 @@ ModelInput preprocessForModel(Uint8List jpegBytes) {
   if (decoded == null) throw const FormatException('Could not decode photo');
   final photo = img.bakeOrientation(decoded);
   final box = guideCrop(photo.width, photo.height);
-  final cropped = img.copyCrop(photo,
-      x: box.left, y: box.top, width: box.width, height: box.height);
-  final resized = img.copyResize(cropped,
-      width: modelWidth,
-      height: modelHeight,
-      interpolation: img.Interpolation.average);
+  final cropped = img.copyCrop(
+    photo,
+    x: box.left,
+    y: box.top,
+    width: box.width,
+    height: box.height,
+  );
+  final resized = img.copyResize(
+    cropped,
+    width: modelWidth,
+    height: modelHeight,
+    interpolation: img.Interpolation.average,
+  );
 
   final tensor = Float32List(modelInputLength);
   var o = 0;

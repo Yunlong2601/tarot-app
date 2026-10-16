@@ -18,7 +18,10 @@ void main() {
     SharedPreferences.setMockInitialValues({});
     seen = [];
     readingStatus = 200;
-    readingBody = {'reading': 'A reading.', 'disclaimer': 'Entertainment only.'};
+    readingBody = {
+      'reading': 'A reading.',
+      'disclaimer': 'Entertainment only.',
+    };
     server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
     server.listen((req) async {
       final body = jsonDecode(await utf8.decoder.bind(req).join());
@@ -39,48 +42,67 @@ void main() {
   tearDown(() => server.close(force: true));
 
   Future<List<DrawnCard>> cards() async {
-    final deck =
-        Deck.fromJsonString(File(Deck.assetPath).readAsStringSync());
+    final deck = Deck.fromJsonString(File(Deck.assetPath).readAsStringSync());
     return [DrawnCard(card: deck.cards.first, reversed: true)];
   }
 
-  test('installs, then requests a reading with only ids and the question',
-      () async {
-    final svc = ApiReadingService('http://127.0.0.1:${server.port}');
-    final r = await svc.interpret(
-        spread: SpreadType.single, cards: await cards(), question: 'Hello?');
-    expect(r.text, 'A reading.');
-    expect(seen.map((s) => s['path']), ['/v1/install', '/v1/reading']);
-    expect(seen[1]['auth'], 'Bearer tok');
-    expect(seen[1]['body'], {
-      'spread': 'single',
-      'cards': [
-        {'id': 'major_00_fool', 'reversed': true}
-      ],
-      'question': 'Hello?',
-    });
-  });
+  test(
+    'installs, then requests a reading with only ids and the question',
+    () async {
+      final svc = ApiReadingService('http://127.0.0.1:${server.port}');
+      final r = await svc.interpret(
+        spread: SpreadType.single,
+        cards: await cards(),
+        question: 'Hello?',
+      );
+      expect(r.text, 'A reading.');
+      expect(seen.map((s) => s['path']), ['/v1/install', '/v1/reading']);
+      expect(seen[1]['auth'], 'Bearer tok');
+      expect(seen[1]['body'], {
+        'spread': 'single',
+        'cards': [
+          {'id': 'major_00_fool', 'reversed': true},
+        ],
+        'question': 'Hello?',
+      });
+    },
+  );
 
   test('maps daily limit and premium errors', () async {
     final svc = ApiReadingService('http://127.0.0.1:${server.port}');
     readingStatus = 429;
     readingBody = {'error': 'daily_limit'};
     await expectLater(
-        svc.interpret(spread: SpreadType.single, cards: await cards()),
-        throwsA(isA<ReadingException>()
-            .having((e) => e.kind, 'kind', ReadingErrorKind.dailyLimit)));
+      svc.interpret(spread: SpreadType.single, cards: await cards()),
+      throwsA(
+        isA<ReadingException>().having(
+          (e) => e.kind,
+          'kind',
+          ReadingErrorKind.dailyLimit,
+        ),
+      ),
+    );
     readingStatus = 402;
     readingBody = {'error': 'premium_required'};
     await expectLater(
-        svc.interpret(spread: SpreadType.single, cards: await cards()),
-        throwsA(isA<ReadingException>()
-            .having((e) => e.kind, 'kind', ReadingErrorKind.premiumRequired)));
+      svc.interpret(spread: SpreadType.single, cards: await cards()),
+      throwsA(
+        isA<ReadingException>().having(
+          (e) => e.kind,
+          'kind',
+          ReadingErrorKind.premiumRequired,
+        ),
+      ),
+    );
   });
 
   test('unconfigured service refuses instead of inventing a reading', () {
     expect(
-        () => const UnconfiguredReadingService()
-            .interpret(spread: SpreadType.single, cards: const []),
-        throwsA(isA<ReadingException>()));
+      () => const UnconfiguredReadingService().interpret(
+        spread: SpreadType.single,
+        cards: const [],
+      ),
+      throwsA(isA<ReadingException>()),
+    );
   });
 }

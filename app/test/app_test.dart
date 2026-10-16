@@ -7,6 +7,8 @@ import 'package:shentarot/data/deck.dart';
 import 'package:shentarot/data/models.dart';
 import 'package:shentarot/main.dart';
 
+import 'helpers.dart';
+
 void tallPhone(WidgetTester tester) {
   tester.view.physicalSize = const Size(1080, 5000);
   tester.view.devicePixelRatio = 2.75;
@@ -77,12 +79,12 @@ void main() {
   });
 
   Reading sample(String id) => Reading(
-        id: id,
-        createdAt: DateTime(2026, 10, 16),
-        spread: SpreadType.single,
-        cards: [DrawnCard(card: deck.cards.first, reversed: false)],
-        interpretation: 'x',
-      );
+    id: id,
+    createdAt: DateTime(2026, 10, 16),
+    spread: SpreadType.single,
+    cards: [DrawnCard(card: deck.cards.first, reversed: false)],
+    interpretation: 'x',
+  );
 
   group('AppState free-tier rules', () {
     test('free user gets one single-card reading per day', () {
@@ -121,15 +123,18 @@ void main() {
       await tester.pumpAndSettle();
       await tester.tap(find.text('Get started'));
       await tester.pumpAndSettle();
-      expect(find.text('Simulate scan'), findsOneWidget);
+      expect(find.text('Photo reading'), findsOneWidget);
     });
 
-    testWidgets('locked spread opens the paywall with required links',
-        (tester) async {
+    testWidgets('locked spread opens the paywall with required links', (
+      tester,
+    ) async {
       tallPhone(tester);
       await tester.pumpWidget(
-          ShenTarotApp(initialState: AppState(deck: deck, onboarded: true)));
+        ShenTarotApp(initialState: AppState(deck: deck, onboarded: true)),
+      );
       await tester.pumpAndSettle();
+      await goPhoto(tester);
       await tester.tap(find.textContaining('Three cards'));
       await tester.pumpAndSettle();
       expect(find.text('Unlock Premium'), findsOneWidget);
@@ -138,24 +143,31 @@ void main() {
       expect(find.text('Terms of Use'), findsOneWidget);
     });
 
-    testWidgets('simulated scan opens a reading with the disclaimer',
-        (tester) async {
+    testWidgets('simulated scan opens a reading with the disclaimer', (
+      tester,
+    ) async {
       tallPhone(tester);
       await tester.pumpWidget(
-          ShenTarotApp(initialState: AppState(deck: deck, onboarded: true)));
+        ShenTarotApp(initialState: AppState(deck: deck, onboarded: true)),
+      );
       await tester.pumpAndSettle();
+      await goPhoto(tester);
       await tester.tap(find.text('Simulate scan'));
       await tester.pumpAndSettle();
       expect(find.textContaining('entertainment'), findsWidgets);
     });
 
-    testWidgets('cards tab lists the deck, filters, and opens a detail page',
-        (tester) async {
+    testWidgets('cards tab lists the deck, filters, and opens a detail page', (
+      tester,
+    ) async {
       tallPhone(tester);
       await tester.pumpWidget(
-          ShenTarotApp(initialState: AppState(deck: deck, onboarded: true)));
+        ShenTarotApp(initialState: AppState(deck: deck, onboarded: true)),
+      );
       await tester.pumpAndSettle();
-      await tester.tap(find.text('Cards').last);
+      await tester.tap(find.text('Library').last);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Cards').first);
       await tester.pumpAndSettle();
 
       await tester.tap(find.text('Cups'));

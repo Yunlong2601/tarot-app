@@ -16,7 +16,9 @@ Primary working copy: the owner's local Mac folder. This repo is the backup and 
 | G | Tests, store checklists, privacy and terms drafts | Docs written on branch `phase-g-release-docs` (checklists, test plan, data inventory, legal DRAFTS bundled in the app); lawyer review and device testing still to do |
 
 ## Next step
-Store name chosen (ShenTarot: AI Scan & Read); onboarding text rewritten to the "hold the cards, we explain them" positioning; listing copy drafted in `docs/store-listing.md` (do not publish before real-device tests pass).
+UI redesign (branch `ui-redesign`, from the owner's wireframe): tabs Read / Guide / Library / You, landing with Photo-or-Digital reading button, digital card reading (tap to flip), Guide (how to use + tarot basics), Library (Spreads | Cards), You tab, and a DEMO sign-in page (no accounts; closable). Details and what is NOT built: `docs/design-notes.md`. Owner to supply: hero artwork (`app/assets/hero/hero.jpg`) and the landing video. Before release decide: build real sign-in or remove the demo "Sign in" button.
+
+(Earlier) Store name chosen (ShenTarot: AI Scan & Read); onboarding text rewritten to the "hold the cards, we explain them" positioning; listing copy drafted in `docs/store-listing.md` (do not publish before real-device tests pass).
 
 (Earlier) Android: toolchain installed and debug APK + release AAB build (see `docs/play-store-checklist.md`); not run on any device; release is debug-signed.
 

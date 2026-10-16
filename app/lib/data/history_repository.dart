@@ -20,8 +20,8 @@ class InMemoryHistoryRepository implements HistoryRepository {
   final Map<String, Reading> _rows = {};
 
   @override
-  Future<List<Reading>> load(Deck deck) async => _rows.values.toList()
-    ..sort((a, b) => b.createdAt.compareTo(a.createdAt));
+  Future<List<Reading>> load(Deck deck) async =>
+      _rows.values.toList()..sort((a, b) => b.createdAt.compareTo(a.createdAt));
 
   @override
   Future<void> add(Reading r) async => _rows[r.id] = r;
@@ -68,50 +68,59 @@ class SqliteHistoryRepository implements HistoryRepository {
 
   @override
   Future<List<Reading>> load(Deck deck) async {
-    final rows = await (await _open()).query('readings', orderBy: 'created_at DESC');
+    final rows = await (await _open()).query(
+      'readings',
+      orderBy: 'created_at DESC',
+    );
     final out = <Reading>[];
     for (final row in rows) {
       final cards = <DrawnCard>[];
       for (final c in jsonDecode(row['cards']! as String) as List) {
         final card = deck.byId((c as Map)['id'] as String);
-        if (card != null) cards.add(DrawnCard(card: card, reversed: c['reversed'] as bool));
+        if (card != null) {
+          cards.add(DrawnCard(card: card, reversed: c['reversed'] as bool));
+        }
       }
       if (cards.isEmpty) continue; // unknown cards: skip a corrupt row
-      out.add(Reading(
-        id: row['id']! as String,
-        createdAt: DateTime.fromMillisecondsSinceEpoch(row['created_at']! as int),
-        spread: SpreadType.values.byName(row['spread']! as String),
-        cards: cards,
-        interpretation: row['interpretation']! as String,
-        question: row['question'] as String?,
-        note: row['note'] as String?,
-      ));
+      out.add(
+        Reading(
+          id: row['id']! as String,
+          createdAt: DateTime.fromMillisecondsSinceEpoch(
+            row['created_at']! as int,
+          ),
+          spread: SpreadType.values.byName(row['spread']! as String),
+          cards: cards,
+          interpretation: row['interpretation']! as String,
+          question: row['question'] as String?,
+          note: row['note'] as String?,
+        ),
+      );
     }
     return out;
   }
 
   @override
-  Future<void> add(Reading r) async => (await _open()).insert(
-        'readings',
-        {
-          'id': r.id,
-          'created_at': r.createdAt.millisecondsSinceEpoch,
-          'spread': r.spread.name,
-          'cards': jsonEncode([
-            for (final c in r.cards) {'id': c.card.id, 'reversed': c.reversed},
-          ]),
-          'interpretation': r.interpretation,
-          'question': r.question,
-          'note': r.note,
-        },
-        conflictAlgorithm: ConflictAlgorithm.replace,
-      );
+  Future<void> add(Reading r) async => (await _open()).insert('readings', {
+    'id': r.id,
+    'created_at': r.createdAt.millisecondsSinceEpoch,
+    'spread': r.spread.name,
+    'cards': jsonEncode([
+      for (final c in r.cards) {'id': c.card.id, 'reversed': c.reversed},
+    ]),
+    'interpretation': r.interpretation,
+    'question': r.question,
+    'note': r.note,
+  }, conflictAlgorithm: ConflictAlgorithm.replace);
 
   @override
   Future<void> setNote(String id, String? note) async {
     final clean = note == null || note.trim().isEmpty ? null : note.trim();
-    await (await _open())
-        .update('readings', {'note': clean}, where: 'id = ?', whereArgs: [id]);
+    await (await _open()).update(
+      'readings',
+      {'note': clean},
+      where: 'id = ?',
+      whereArgs: [id],
+    );
   }
 
   @override

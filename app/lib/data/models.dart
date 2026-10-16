@@ -17,17 +17,17 @@ class TarotCard {
   });
 
   factory TarotCard.fromJson(Map<String, dynamic> j) => TarotCard(
-        id: j['id'] as String,
-        name: j['name'] as String,
-        arcana: Arcana.values.byName(j['arcana'] as String),
-        suit: j['suit'] == null ? null : Suit.values.byName(j['suit'] as String),
-        number: j['number'] as int?,
-        element: j['element'] as String?,
-        association: j['association'] as String?,
-        keywords: List<String>.from(j['keywords'] as List),
-        upright: j['upright'] as String,
-        reversed: j['reversed'] as String,
-      );
+    id: j['id'] as String,
+    name: j['name'] as String,
+    arcana: Arcana.values.byName(j['arcana'] as String),
+    suit: j['suit'] == null ? null : Suit.values.byName(j['suit'] as String),
+    number: j['number'] as int?,
+    element: j['element'] as String?,
+    association: j['association'] as String?,
+    keywords: List<String>.from(j['keywords'] as List),
+    upright: j['upright'] as String,
+    reversed: j['reversed'] as String,
+  );
 
   final String id;
   final String name;
@@ -50,15 +50,15 @@ enum SpreadType { single, threeCard, celticCross }
 
 extension SpreadTypeInfo on SpreadType {
   String get label => switch (this) {
-        SpreadType.single => 'Single card',
-        SpreadType.threeCard => 'Three cards',
-        SpreadType.celticCross => 'Celtic Cross',
-      };
+    SpreadType.single => 'Single card',
+    SpreadType.threeCard => 'Three cards',
+    SpreadType.celticCross => 'Celtic Cross',
+  };
   int get cardCount => switch (this) {
-        SpreadType.single => 1,
-        SpreadType.threeCard => 3,
-        SpreadType.celticCross => 10,
-      };
+    SpreadType.single => 1,
+    SpreadType.threeCard => 3,
+    SpreadType.celticCross => 10,
+  };
   bool get isPremium => this != SpreadType.single;
 }
 
@@ -90,12 +90,12 @@ class Reading {
   final String? note;
 
   Reading withNote(String? note) => Reading(
-        id: id,
-        createdAt: createdAt,
-        spread: spread,
-        cards: cards,
-        interpretation: interpretation,
-        question: question,
-        note: note == null || note.trim().isEmpty ? null : note.trim(),
-      );
+    id: id,
+    createdAt: createdAt,
+    spread: spread,
+    cards: cards,
+    interpretation: interpretation,
+    question: question,
+    note: note == null || note.trim().isEmpty ? null : note.trim(),
+  );
 }

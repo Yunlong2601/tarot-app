@@ -20,7 +20,9 @@ class CardDetailScreen extends StatelessWidget {
     final card = AppScope.of(context).deck.byId(cardId);
     if (card == null) {
       return Scaffold(
-          appBar: AppBar(), body: const Center(child: Text('Card not found')));
+        appBar: AppBar(),
+        body: const Center(child: Text('Card not found')),
+      );
     }
     final t = Theme.of(context).textTheme;
     return Scaffold(
@@ -30,13 +32,18 @@ class CardDetailScreen extends StatelessWidget {
         children: [
           Center(child: CardArt(card: card, width: 160)),
           const SizedBox(height: 16),
-          Text(_subtitle(card),
-              textAlign: TextAlign.center,
-              style: const TextStyle(color: AppColors.textMuted)),
+          Text(
+            _subtitle(card),
+            textAlign: TextAlign.center,
+            style: const TextStyle(color: AppColors.textMuted),
+          ),
           const SizedBox(height: 16),
-          Wrap(spacing: 8, runSpacing: 4, alignment: WrapAlignment.center, children: [
-            for (final k in card.keywords) Chip(label: Text(k)),
-          ]),
+          Wrap(
+            spacing: 8,
+            runSpacing: 4,
+            alignment: WrapAlignment.center,
+            children: [for (final k in card.keywords) Chip(label: Text(k))],
+          ),
           if (card.element != null || card.association != null) ...[
             const SizedBox(height: 8),
             Text(
@@ -50,11 +57,17 @@ class CardDetailScreen extends StatelessWidget {
             ),
           ],
           const SizedBox(height: 24),
-          Text('Upright', style: t.titleMedium?.copyWith(color: AppColors.gold)),
+          Text(
+            'Upright',
+            style: t.titleMedium?.copyWith(color: AppColors.gold),
+          ),
           const SizedBox(height: 4),
           Text(card.upright),
           const SizedBox(height: 20),
-          Text('Reversed', style: t.titleMedium?.copyWith(color: AppColors.gold)),
+          Text(
+            'Reversed',
+            style: t.titleMedium?.copyWith(color: AppColors.gold),
+          ),
           const SizedBox(height: 4),
           Text(card.reversed),
           const SizedBox(height: 24),

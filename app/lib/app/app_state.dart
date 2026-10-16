@@ -9,6 +9,8 @@ import '../data/deck.dart';
 import '../data/history_repository.dart';
 import '../data/models.dart';
 
+enum ReadMode { photo, digital }
+
 /// App-wide state: onboarding, premium, today's free reading, saved history
 /// (on device only) and the daily reminder.
 class AppState extends ChangeNotifier {
@@ -20,8 +22,8 @@ class AppState extends ChangeNotifier {
     HistoryRepository? historyRepository,
     this.reminders = const NoopReminderService(),
     DateTime Function()? clock,
-  })  : _repo = historyRepository ?? InMemoryHistoryRepository(),
-        _clock = clock ?? DateTime.now;
+  }) : _repo = historyRepository ?? InMemoryHistoryRepository(),
+       _clock = clock ?? DateTime.now;
 
   final Deck deck;
   final ReadingService readingService;
@@ -31,6 +33,12 @@ class AppState extends ChangeNotifier {
   final DateTime Function() _clock;
 
   bool onboarded;
+
+  /// Spread chosen on the Read tab / Library; shared by photo and digital readings.
+  SpreadType selectedSpread = SpreadType.single;
+
+  /// The Read tab's main button: scan a physical deck or draw digitally.
+  ReadMode readMode = ReadMode.photo;
   bool isPremium = false;
   static const freeReadingsPerDay = 1;
   final List<Reading> history = [];
@@ -95,7 +103,9 @@ class AppState extends ChangeNotifier {
       await prefs.setInt(_kUsedCount, _usedCount);
       await prefs.setBool(_kReminderOn, reminderEnabled);
       await prefs.setInt(
-          _kReminderMin, reminderTime.hour * 60 + reminderTime.minute);
+        _kReminderMin,
+        reminderTime.hour * 60 + reminderTime.minute,
+      );
     } catch (e) {
       debugPrint('Could not save settings: $e');
     }
@@ -109,6 +119,16 @@ class AppState extends ChangeNotifier {
     } catch (e) {
       debugPrint('Subscriptions failed to start: $e');
     }
+  }
+
+  void selectSpread(SpreadType s) {
+    selectedSpread = s;
+    notifyListeners();
+  }
+
+  void setReadMode(ReadMode m) {
+    readMode = m;
+    notifyListeners();
   }
 
   void completeOnboarding() {

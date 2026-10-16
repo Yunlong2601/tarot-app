@@ -10,15 +10,16 @@ class AppColors {
 }
 
 ThemeData buildTheme() {
-  final scheme = ColorScheme.fromSeed(
-    seedColor: AppColors.violet,
-    brightness: Brightness.dark,
-  ).copyWith(
-    surface: AppColors.surface,
-    primary: AppColors.gold,
-    onPrimary: const Color(0xFF1B1408),
-    secondary: AppColors.violet,
-  );
+  final scheme =
+      ColorScheme.fromSeed(
+        seedColor: AppColors.violet,
+        brightness: Brightness.dark,
+      ).copyWith(
+        surface: AppColors.surface,
+        primary: AppColors.gold,
+        onPrimary: const Color(0xFF1B1408),
+        secondary: AppColors.violet,
+      );
   return ThemeData(
     useMaterial3: true,
     colorScheme: scheme,

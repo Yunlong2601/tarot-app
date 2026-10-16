@@ -54,9 +54,10 @@ class UnconfiguredReadingService implements ReadingService {
     required SpreadType spread,
     required List<DrawnCard> cards,
     String? question,
-  }) =>
-      throw const ReadingException(ReadingErrorKind.notConfigured,
-          'The reading service is not set up yet.');
+  }) => throw const ReadingException(
+    ReadingErrorKind.notConfigured,
+    'The reading service is not set up yet.',
+  );
 
   @override
   Future<ReadingResult> followUp({
@@ -65,13 +66,14 @@ class UnconfiguredReadingService implements ReadingService {
     String? question,
     required String reading,
     required String followUp,
-  }) =>
-      throw const ReadingException(ReadingErrorKind.notConfigured,
-          'The reading service is not set up yet.');
+  }) => throw const ReadingException(
+    ReadingErrorKind.notConfigured,
+    'The reading service is not set up yet.',
+  );
 }
 
 String spreadWireName(SpreadType s) => switch (s) {
-      SpreadType.single => 'single',
-      SpreadType.threeCard => 'three',
-      SpreadType.celticCross => 'celtic',
-    };
+  SpreadType.single => 'single',
+  SpreadType.threeCard => 'three',
+  SpreadType.celticCross => 'celtic',
+};

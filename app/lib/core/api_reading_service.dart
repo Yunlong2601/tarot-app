@@ -9,7 +9,7 @@ import 'reading_service.dart';
 /// orientation, spread and the optional question, plus an anonymous install ID.
 class ApiReadingService implements ReadingService {
   ApiReadingService(this.baseUrl, {HttpClient Function()? clientFactory})
-      : _newClient = clientFactory ?? HttpClient.new;
+    : _newClient = clientFactory ?? HttpClient.new;
 
   final String baseUrl;
   final HttpClient Function() _newClient;
@@ -39,24 +39,22 @@ class ApiReadingService implements ReadingService {
     required String reading,
     required String followUp,
   }) {
-    return _send(
-      '/v1/followup',
-      {
-        'spread': spreadWireName(spread),
-        'cards': [
-          for (final c in cards) {'id': c.card.id, 'reversed': c.reversed},
-        ],
-        if (question != null && question.trim().isNotEmpty)
-          'question': question,
-        'reading': reading,
-        'followup': followUp,
-      },
-      'answer',
-    );
+    return _send('/v1/followup', {
+      'spread': spreadWireName(spread),
+      'cards': [
+        for (final c in cards) {'id': c.card.id, 'reversed': c.reversed},
+      ],
+      if (question != null && question.trim().isNotEmpty) 'question': question,
+      'reading': reading,
+      'followup': followUp,
+    }, 'answer');
   }
 
   Future<ReadingResult> _send(
-      String path, Map<String, Object?> body, String textKey) async {
+    String path,
+    Map<String, Object?> body,
+    String textKey,
+  ) async {
     var res = await _post(path, body, auth: true);
     if (res.status == 401) {
       _token = null;
@@ -69,26 +67,42 @@ class ApiReadingService implements ReadingService {
     if (res.status == 200) {
       final j = res.json;
       return ReadingResult(
-          text: j[textKey] as String, disclaimer: j['disclaimer'] as String);
+        text: j[textKey] as String,
+        disclaimer: j['disclaimer'] as String,
+      );
     }
     final error = res.json['error'];
     throw switch ((res.status, error)) {
       (429, 'daily_limit') => const ReadingException(
-          ReadingErrorKind.dailyLimit, 'You have used today\'s free reading.'),
-      (402, _) => const ReadingException(ReadingErrorKind.premiumRequired,
-          'This spread is part of Premium.'),
-      (422, _) => const ReadingException(ReadingErrorKind.declined,
-          'A reading could not be made for this question. Try rewording it.'),
-      (429, _) || (503, _) => const ReadingException(ReadingErrorKind.failed,
-          'The service is busy. Please try again in a minute.'),
+        ReadingErrorKind.dailyLimit,
+        'You have used today\'s free reading.',
+      ),
+      (402, _) => const ReadingException(
+        ReadingErrorKind.premiumRequired,
+        'This spread is part of Premium.',
+      ),
+      (422, _) => const ReadingException(
+        ReadingErrorKind.declined,
+        'A reading could not be made for this question. Try rewording it.',
+      ),
+      (429, _) || (503, _) => const ReadingException(
+        ReadingErrorKind.failed,
+        'The service is busy. Please try again in a minute.',
+      ),
       _ => const ReadingException(
-          ReadingErrorKind.failed, 'Something went wrong. Please try again.'),
+        ReadingErrorKind.failed,
+        'Something went wrong. Please try again.',
+      ),
     };
   }
 
-  Future<_Response> _post(String path, Map<String, Object?> body,
-      {required bool auth}) async {
-    final client = _newClient()..connectionTimeout = const Duration(seconds: 15);
+  Future<_Response> _post(
+    String path,
+    Map<String, Object?> body, {
+    required bool auth,
+  }) async {
+    final client = _newClient()
+      ..connectionTimeout = const Duration(seconds: 15);
     try {
       final headers = <String, String>{};
       if (auth) headers['authorization'] = 'Bearer ${await _ensureToken()}';
@@ -104,11 +118,15 @@ class ApiReadingService implements ReadingService {
       } catch (_) {}
       return _Response(resp.statusCode, json);
     } on SocketException {
-      throw const ReadingException(ReadingErrorKind.network,
-          'No connection. Check your internet and try again.');
+      throw const ReadingException(
+        ReadingErrorKind.network,
+        'No connection. Check your internet and try again.',
+      );
     } on HttpException {
-      throw const ReadingException(ReadingErrorKind.network,
-          'No connection. Check your internet and try again.');
+      throw const ReadingException(
+        ReadingErrorKind.network,
+        'No connection. Check your internet and try again.',
+      );
     } finally {
       client.close();
     }
@@ -117,12 +135,15 @@ class ApiReadingService implements ReadingService {
   Future<String> _ensureToken() async {
     final existing = _token;
     if (existing != null) return existing;
-    final res =
-        await _post('/v1/install', {'installId': await loadInstallId()}, auth: false);
+    final res = await _post('/v1/install', {
+      'installId': await loadInstallId(),
+    }, auth: false);
     final token = res.json['token'];
     if (res.status != 200 || token is! String) {
-      throw const ReadingException(ReadingErrorKind.failed,
-          'Something went wrong. Please try again.');
+      throw const ReadingException(
+        ReadingErrorKind.failed,
+        'Something went wrong. Please try again.',
+      );
     }
     return _token = token;
   }

@@ -36,7 +36,8 @@ class TfliteRecognizer implements CardRecognizer {
       final interpreter = await Interpreter.fromAsset(modelAsset);
       final inShape = interpreter.getInputTensor(0).shape;
       final outShape = interpreter.getOutputTensor(0).shape;
-      final ok = listEquals(inShape, [1, modelHeight, modelWidth, modelChannels]) &&
+      final ok =
+          listEquals(inShape, [1, modelHeight, modelWidth, modelChannels]) &&
           listEquals(outShape, [1, classCount * 2]);
       if (!ok) {
         interpreter.close();
@@ -49,9 +50,14 @@ class TfliteRecognizer implements CardRecognizer {
   }
 
   List<double> _run(Float32List input) {
-    final output = List.filled(_classCount * 2, 0.0).reshape([1, _classCount * 2]);
-    _interpreter.run(input.reshape([1, modelHeight, modelWidth, modelChannels]),
-        output);
+    final output = List.filled(
+      _classCount * 2,
+      0.0,
+    ).reshape([1, _classCount * 2]);
+    _interpreter.run(
+      input.reshape([1, modelHeight, modelWidth, modelChannels]),
+      output,
+    );
     return List<double>.from(output.first as List);
   }
 
@@ -59,7 +65,9 @@ class TfliteRecognizer implements CardRecognizer {
   Future<RecognizerScores> recognize(ModelInput input) async {
     final all = _run(input.tensor);
     return RecognizerScores(
-        all.sublist(0, _classCount), all.sublist(_classCount));
+      all.sublist(0, _classCount),
+      all.sublist(_classCount),
+    );
   }
 
   @override

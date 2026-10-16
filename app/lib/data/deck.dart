@@ -8,22 +8,22 @@ enum CardFilter { all, major, wands, cups, swords, pentacles }
 
 extension CardFilterLabel on CardFilter {
   String get label => switch (this) {
-        CardFilter.all => 'All',
-        CardFilter.major => 'Major',
-        CardFilter.wands => 'Wands',
-        CardFilter.cups => 'Cups',
-        CardFilter.swords => 'Swords',
-        CardFilter.pentacles => 'Pentacles',
-      };
+    CardFilter.all => 'All',
+    CardFilter.major => 'Major',
+    CardFilter.wands => 'Wands',
+    CardFilter.cups => 'Cups',
+    CardFilter.swords => 'Swords',
+    CardFilter.pentacles => 'Pentacles',
+  };
 
   bool matches(TarotCard c) => switch (this) {
-        CardFilter.all => true,
-        CardFilter.major => c.arcana == Arcana.major,
-        CardFilter.wands => c.suit == Suit.wands,
-        CardFilter.cups => c.suit == Suit.cups,
-        CardFilter.swords => c.suit == Suit.swords,
-        CardFilter.pentacles => c.suit == Suit.pentacles,
-      };
+    CardFilter.all => true,
+    CardFilter.major => c.arcana == Arcana.major,
+    CardFilter.wands => c.suit == Suit.wands,
+    CardFilter.cups => c.suit == Suit.cups,
+    CardFilter.swords => c.suit == Suit.swords,
+    CardFilter.pentacles => c.suit == Suit.pentacles,
+  };
 }
 
 /// The 78-card Rider-Waite-Smith deck, loaded once from `cards.json`.
@@ -40,7 +40,9 @@ class Deck {
         TarotCard.fromJson(j as Map<String, dynamic>),
     ];
     if (cards.length != expectedSize) {
-      throw FormatException('Expected $expectedSize cards, got ${cards.length}');
+      throw FormatException(
+        'Expected $expectedSize cards, got ${cards.length}',
+      );
     }
     return Deck(cards);
   }

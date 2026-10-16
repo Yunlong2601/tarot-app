@@ -86,8 +86,8 @@ class _PaywallScreenState extends State<PaywallScreen> {
     }
   }
 
-  void _toast(String m) => ScaffoldMessenger.of(context)
-      .showSnackBar(SnackBar(content: Text(m)));
+  void _toast(String m) =>
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(m)));
 
   @override
   Widget build(BuildContext context) {
@@ -98,15 +98,19 @@ class _PaywallScreenState extends State<PaywallScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-            tooltip: 'Close',
-            icon: const Icon(Icons.close), onPressed: () => context.pop()),
+          tooltip: 'Close',
+          icon: const Icon(Icons.close),
+          onPressed: () => context.pop(),
+        ),
       ),
       body: ListView(
         padding: const EdgeInsets.all(24),
         children: [
-          Text('Unlock Premium',
-              style: Theme.of(context).textTheme.headlineMedium,
-              textAlign: TextAlign.center),
+          Text(
+            'Unlock Premium',
+            style: Theme.of(context).textTheme.headlineMedium,
+            textAlign: TextAlign.center,
+          ),
           const SizedBox(height: 16),
           for (final f in const [
             'Three-card and Celtic Cross spreads',
@@ -116,11 +120,17 @@ class _PaywallScreenState extends State<PaywallScreen> {
           ])
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 4),
-              child: Row(children: [
-                const Icon(Icons.check_circle, color: AppColors.gold, size: 20),
-                const SizedBox(width: 12),
-                Expanded(child: Text(f)),
-              ]),
+              child: Row(
+                children: [
+                  const Icon(
+                    Icons.check_circle,
+                    color: AppColors.gold,
+                    size: 20,
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(child: Text(f)),
+                ],
+              ),
             ),
           const SizedBox(height: 16),
           if (plans == null)
@@ -135,38 +145,47 @@ class _PaywallScreenState extends State<PaywallScreen> {
             RadioGroup<String>(
               groupValue: _selected,
               onChanged: (v) => setState(() => _selected = v ?? _selected),
-              child: Column(children: [
-                for (final p in plans)
-                  Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(14),
-                      side: BorderSide(
+              child: Column(
+                children: [
+                  for (final p in plans)
+                    Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(14),
+                        side: BorderSide(
                           color: p.id == _selected
                               ? AppColors.gold
                               : Colors.transparent,
-                          width: 2),
+                          width: 2,
+                        ),
+                      ),
+                      child: RadioListTile<String>(
+                        value: p.id,
+                        title: Text(
+                          '${p.title} · ${p.priceString} ${p.periodLabel}',
+                        ),
+                        subtitle: p.trialLabel == null
+                            ? null
+                            : Text(p.trialLabel!),
+                      ),
                     ),
-                    child: RadioListTile<String>(
-                      value: p.id,
-                      title: Text('${p.title} · ${p.priceString} ${p.periodLabel}'),
-                      subtitle: p.trialLabel == null ? null : Text(p.trialLabel!),
-                    ),
-                  ),
-              ]),
+                ],
+              ),
             ),
           const SizedBox(height: 8),
           FilledButton(
             onPressed: (plan == null || _busy) ? null : () => _buy(plan),
-            child: Text(plan?.trialLabel != null
-                ? 'Start ${plan!.trialLabel!.replaceAll(' free', '')} free trial'
-                : 'Subscribe'),
+            child: Text(
+              plan?.trialLabel != null
+                  ? 'Start ${plan!.trialLabel!.replaceAll(' free', '')} free trial'
+                  : 'Subscribe',
+            ),
           ),
           const SizedBox(height: 12),
           if (plan != null)
             Text(
               plan.trialLabel != null
                   ? '${plan.trialLabel}, then ${plan.priceString} ${plan.periodLabel}. '
-                      'Cancel any time at least 24 hours before the trial ends.'
+                        'Cancel any time at least 24 hours before the trial ends.'
                   : '${plan.priceString} ${plan.periodLabel}.',
               textAlign: TextAlign.center,
               style: const TextStyle(fontSize: 12, color: AppColors.textMuted),
@@ -180,17 +199,23 @@ class _PaywallScreenState extends State<PaywallScreen> {
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 12, color: AppColors.textMuted),
           ),
-          Wrap(alignment: WrapAlignment.center, children: [
-            TextButton(
+          Wrap(
+            alignment: WrapAlignment.center,
+            children: [
+              TextButton(
                 onPressed: _busy ? null : _restore,
-                child: const Text('Restore Purchases')),
-            TextButton(
+                child: const Text('Restore Purchases'),
+              ),
+              TextButton(
                 onPressed: () => context.push('/legal/privacy'),
-                child: const Text('Privacy Policy')),
-            TextButton(
+                child: const Text('Privacy Policy'),
+              ),
+              TextButton(
                 onPressed: () => context.push('/legal/terms'),
-                child: const Text('Terms of Use')),
-          ]),
+                child: const Text('Terms of Use'),
+              ),
+            ],
+          ),
         ],
       ),
     );

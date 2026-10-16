@@ -25,9 +25,10 @@ void main() {
     tester.view.devicePixelRatio = 2.75;
     addTearDown(tester.view.reset);
     await tester.pumpWidget(
-        ShenTarotApp(initialState: AppState(deck: deck, onboarded: true)));
+      ShenTarotApp(initialState: AppState(deck: deck, onboarded: true)),
+    );
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Settings').last);
+    await tester.tap(find.text('You').last);
     await tester.pumpAndSettle();
     await tester.tap(find.text('Privacy Policy'));
     await tester.pumpAndSettle();

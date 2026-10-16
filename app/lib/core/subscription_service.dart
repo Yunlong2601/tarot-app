@@ -42,7 +42,10 @@ abstract class SubscriptionService {
 
   /// Starts the SDK with the anonymous install ID and reports entitlement
   /// changes ("premium") through [onPremiumChanged].
-  Future<void> start(String appUserId, void Function(bool premium) onPremiumChanged);
+  Future<void> start(
+    String appUserId,
+    void Function(bool premium) onPremiumChanged,
+  );
 
   Future<List<PlanOption>> plans();
 
@@ -66,13 +69,17 @@ class UnconfiguredSubscriptionService implements SubscriptionService {
   bool get isConfigured => false;
 
   @override
-  Future<void> start(String appUserId, void Function(bool) onPremiumChanged) async {}
+  Future<void> start(
+    String appUserId,
+    void Function(bool) onPremiumChanged,
+  ) async {}
 
   @override
   Future<List<PlanOption>> plans() async => const [];
 
   @override
-  Future<bool> purchase(PlanOption plan) => throw const SubscriptionException(_msg);
+  Future<bool> purchase(PlanOption plan) =>
+      throw const SubscriptionException(_msg);
 
   @override
   Future<bool> restore() => throw const SubscriptionException(_msg);
@@ -100,12 +107,17 @@ class RevenueCatSubscriptionService implements SubscriptionService {
       info.entitlements.active.containsKey(premiumEntitlement);
 
   @override
-  Future<void> start(String appUserId, void Function(bool) onPremiumChanged) async {
+  Future<void> start(
+    String appUserId,
+    void Function(bool) onPremiumChanged,
+  ) async {
     if (_started) return;
     final config = PurchasesConfiguration(apiKey)..appUserID = appUserId;
     await Purchases.configure(config);
     _started = true;
-    Purchases.addCustomerInfoUpdateListener((info) => onPremiumChanged(_isPremium(info)));
+    Purchases.addCustomerInfoUpdateListener(
+      (info) => onPremiumChanged(_isPremium(info)),
+    );
     onPremiumChanged(_isPremium(await Purchases.getCustomerInfo()));
   }
 
@@ -130,7 +142,7 @@ class RevenueCatSubscriptionService implements SubscriptionService {
     final intro = p.storeProduct.introductoryPrice;
     final trial = (intro != null && intro.price == 0)
         ? '${intro.periodNumberOfUnits * intro.cycles} '
-            '${_unit(intro.periodUnit, intro.periodNumberOfUnits * intro.cycles)} free'
+              '${_unit(intro.periodUnit, intro.periodNumberOfUnits * intro.cycles)} free'
         : null;
     return PlanOption(
       id: p.identifier,
@@ -166,7 +178,8 @@ class RevenueCatSubscriptionService implements SubscriptionService {
         return false;
       }
       throw const SubscriptionException(
-          'The purchase could not be completed. You were not charged.');
+        'The purchase could not be completed. You were not charged.',
+      );
     }
   }
 
@@ -176,7 +189,8 @@ class RevenueCatSubscriptionService implements SubscriptionService {
       return _isPremium(await Purchases.restorePurchases());
     } on PlatformException {
       throw const SubscriptionException(
-          'Could not restore purchases. Please try again.');
+        'Could not restore purchases. Please try again.',
+      );
     }
   }
 

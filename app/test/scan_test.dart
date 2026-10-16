@@ -5,8 +5,9 @@ import 'package:image/image.dart' as img;
 import 'package:shentarot/features/scan/recognition/preprocess.dart';
 import 'package:shentarot/features/scan/recognition/scan_logic.dart';
 
-List<double> _scores(Map<int, double> set, int n) =>
-    [for (var i = 0; i < n; i++) set[i] ?? 0.0];
+List<double> _scores(Map<int, double> set, int n) => [
+  for (var i = 0; i < n; i++) set[i] ?? 0.0,
+];
 
 void main() {
   const ids = ['a', 'b', 'c', 'd'];
@@ -28,22 +29,26 @@ void main() {
     });
 
     test('low score is uncertain with top 3', () {
-      final d = decideScan(ids,
-          _scores({0: 0.5, 1: 0.3, 2: 0.1}, 4), _scores({}, 4));
+      final d = decideScan(
+        ids,
+        _scores({0: 0.5, 1: 0.3, 2: 0.1}, 4),
+        _scores({}, 4),
+      );
       expect(d, isA<UncertainScan>());
-      expect((d as UncertainScan).topGuesses.map((g) => g.cardId),
-          ['a', 'b', 'c']);
+      expect((d as UncertainScan).topGuesses.map((g) => g.cardId), [
+        'a',
+        'b',
+        'c',
+      ]);
     });
 
     test('small lead over runner-up is uncertain', () {
-      final d = decideScan(ids,
-          _scores({0: 0.85, 1: 0.80}, 4), _scores({}, 4));
+      final d = decideScan(ids, _scores({0: 0.85, 1: 0.80}, 4), _scores({}, 4));
       expect(d, isA<UncertainScan>());
     });
 
     test('ambiguous orientation is uncertain', () {
-      final d = decideScan(ids,
-          _scores({0: 0.88}, 4), _scores({0: 0.80}, 4));
+      final d = decideScan(ids, _scores({0: 0.88}, 4), _scores({0: 0.80}, 4));
       expect(d, isA<UncertainScan>());
     });
 
@@ -108,8 +113,10 @@ void main() {
     });
 
     test('garbage bytes throw FormatException', () {
-      expect(() => preprocessForModel(Uint8List.fromList([1, 2, 3])),
-          throwsFormatException);
+      expect(
+        () => preprocessForModel(Uint8List.fromList([1, 2, 3])),
+        throwsFormatException,
+      );
     });
   });
 }

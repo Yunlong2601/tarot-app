@@ -25,8 +25,9 @@ class LegalScreen extends StatelessWidget {
             return const Padding(
               padding: EdgeInsets.all(24),
               child: Text(
-                  'For entertainment and self-reflection only. This text could not be loaded.',
-                  style: TextStyle(color: AppColors.textMuted)),
+                'For entertainment and self-reflection only. This text could not be loaded.',
+                style: TextStyle(color: AppColors.textMuted),
+              ),
             );
           }
           if (!snap.hasData) {

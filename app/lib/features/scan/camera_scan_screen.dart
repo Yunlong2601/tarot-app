@@ -44,15 +44,21 @@ class _CameraScanScreenState extends State<CameraScanScreen> {
 
   Future<void> _init() async {
     final deck = AppScope.of(context).deck;
-    final recognizer = await TfliteRecognizer.load(classCount: deck.cards.length);
+    final recognizer = await TfliteRecognizer.load(
+      classCount: deck.cards.length,
+    );
     try {
       final cameras = await availableCameras();
       if (cameras.isEmpty) throw StateError('No camera found');
       final back = cameras.firstWhere(
-          (c) => c.lensDirection == CameraLensDirection.back,
-          orElse: () => cameras.first);
-      final controller = CameraController(back, ResolutionPreset.medium,
-          enableAudio: false);
+        (c) => c.lensDirection == CameraLensDirection.back,
+        orElse: () => cameras.first,
+      );
+      final controller = CameraController(
+        back,
+        ResolutionPreset.medium,
+        enableAudio: false,
+      );
       await controller.initialize();
       if (!mounted) {
         await controller.dispose();
@@ -75,7 +81,8 @@ class _CameraScanScreenState extends State<CameraScanScreen> {
       if (!mounted) return;
       setState(() {
         _recognizer = recognizer;
-        _cameraError = 'The camera could not start. You can pick cards manually.';
+        _cameraError =
+            'The camera could not start. You can pick cards manually.';
       });
     }
   }
@@ -105,7 +112,10 @@ class _CameraScanScreenState extends State<CameraScanScreen> {
       final input = await preprocessOffUi(bytes);
       final scores = await recognizer.recognize(input);
       final decision = decideScan(
-          [for (final c in deck.cards) c.id], scores.upright, scores.reversed);
+        [for (final c in deck.cards) c.id],
+        scores.upright,
+        scores.reversed,
+      );
       if (!mounted) return;
       await _handleDecision(decision);
     } catch (_) {
@@ -139,31 +149,36 @@ class _CameraScanScreenState extends State<CameraScanScreen> {
         builder: (ctx, setSheet) => SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(20),
-            child: Column(mainAxisSize: MainAxisSize.min, children: [
-              Text('Is this ${card.name}?',
-                  style: Theme.of(ctx).textTheme.titleLarge),
-              const SizedBox(height: 8),
-              SegmentedButton<bool>(
-                segments: const [
-                  ButtonSegment(value: false, label: Text('Upright')),
-                  ButtonSegment(value: true, label: Text('Reversed')),
-                ],
-                selected: {reversed},
-                onSelectionChanged: (s) => setSheet(() => reversed = s.first),
-              ),
-              const SizedBox(height: 16),
-              FilledButton(
-                onPressed: () {
-                  _accept(card.id, reversed);
-                  Navigator.of(ctx).pop(false);
-                },
-                child: const Text('Yes, use this card'),
-              ),
-              TextButton(
-                onPressed: () => Navigator.of(ctx).pop(false),
-                child: const Text('Not this card'),
-              ),
-            ]),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  'Is this ${card.name}?',
+                  style: Theme.of(ctx).textTheme.titleLarge,
+                ),
+                const SizedBox(height: 8),
+                SegmentedButton<bool>(
+                  segments: const [
+                    ButtonSegment(value: false, label: Text('Upright')),
+                    ButtonSegment(value: true, label: Text('Reversed')),
+                  ],
+                  selected: {reversed},
+                  onSelectionChanged: (s) => setSheet(() => reversed = s.first),
+                ),
+                const SizedBox(height: 16),
+                FilledButton(
+                  onPressed: () {
+                    _accept(card.id, reversed);
+                    Navigator.of(ctx).pop(false);
+                  },
+                  child: const Text('Yes, use this card'),
+                ),
+                TextButton(
+                  onPressed: () => Navigator.of(ctx).pop(false),
+                  child: const Text('Not this card'),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -177,27 +192,32 @@ class _CameraScanScreenState extends State<CameraScanScreen> {
       builder: (ctx) => SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20),
-          child: Column(mainAxisSize: MainAxisSize.min, children: [
-            Text("I'm not sure. Is it one of these?",
-                style: Theme.of(ctx).textTheme.titleLarge),
-            const SizedBox(height: 8),
-            for (final g in guesses)
-              ListTile(
-                title: Text(deck.byId(g.cardId)!.name),
-                subtitle: Text(g.reversed ? 'Reversed?' : 'Upright?'),
-                onTap: () {
-                  Navigator.of(ctx).pop();
-                  _accept(g.cardId, g.reversed);
-                },
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                "I'm not sure. Is it one of these?",
+                style: Theme.of(ctx).textTheme.titleLarge,
               ),
-            TextButton(
-              onPressed: () {
-                Navigator.of(ctx).pop();
-                _pickManually();
-              },
-              child: const Text('Pick manually'),
-            ),
-          ]),
+              const SizedBox(height: 8),
+              for (final g in guesses)
+                ListTile(
+                  title: Text(deck.byId(g.cardId)!.name),
+                  subtitle: Text(g.reversed ? 'Reversed?' : 'Upright?'),
+                  onTap: () {
+                    Navigator.of(ctx).pop();
+                    _accept(g.cardId, g.reversed);
+                  },
+                ),
+              TextButton(
+                onPressed: () {
+                  Navigator.of(ctx).pop();
+                  _pickManually();
+                },
+                child: const Text('Pick manually'),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -238,9 +258,11 @@ class _CameraScanScreenState extends State<CameraScanScreen> {
     final camera = _camera;
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.count == 1
-            ? 'Scan your card'
-            : 'Card ${_session.nextIndex} of ${widget.count}'),
+        title: Text(
+          widget.count == 1
+              ? 'Scan your card'
+              : 'Card ${_session.nextIndex} of ${widget.count}',
+        ),
         actions: [
           if (_session.cards.isNotEmpty)
             TextButton(
@@ -249,49 +271,61 @@ class _CameraScanScreenState extends State<CameraScanScreen> {
             ),
         ],
       ),
-      body: Column(children: [
-        Expanded(
-          child: camera != null
-              ? Stack(fit: StackFit.expand, children: [
-                  Center(child: CameraPreview(camera)),
-                  const _GuideOverlay(),
-                ])
-              : Center(
-                  child: Padding(
-                    padding: const EdgeInsets.all(24),
-                    child: _cameraError != null
-                        ? Text(_cameraError!,
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(color: AppColors.textMuted))
-                        : const CircularProgressIndicator(),
+      body: Column(
+        children: [
+          Expanded(
+            child: camera != null
+                ? Stack(
+                    fit: StackFit.expand,
+                    children: [
+                      Center(child: CameraPreview(camera)),
+                      const _GuideOverlay(),
+                    ],
+                  )
+                : Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(24),
+                      child: _cameraError != null
+                          ? Text(
+                              _cameraError!,
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                color: AppColors.textMuted,
+                              ),
+                            )
+                          : const CircularProgressIndicator(),
+                    ),
                   ),
-                ),
-        ),
-        SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(mainAxisSize: MainAxisSize.min, children: [
-              const Text(
-                'Line the card up inside the frame. The photo is read on your '
-                'phone and never saved or uploaded.',
-                textAlign: TextAlign.center,
-                style: TextStyle(color: AppColors.textMuted),
-              ),
-              const SizedBox(height: 12),
-              if (camera != null)
-                FilledButton.icon(
-                  onPressed: _busy ? null : _capture,
-                  icon: const Icon(Icons.camera_alt),
-                  label: Text(_busy ? 'Reading card...' : 'Scan card'),
-                ),
-              OutlinedButton(
-                onPressed: _busy ? null : _pickManually,
-                child: const Text('Pick a card manually'),
-              ),
-            ]),
           ),
-        ),
-      ]),
+          SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Text(
+                    'Line the card up inside the frame. The photo is read on your '
+                    'phone and never saved or uploaded.',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: AppColors.textMuted),
+                  ),
+                  const SizedBox(height: 12),
+                  if (camera != null)
+                    FilledButton.icon(
+                      onPressed: _busy ? null : _capture,
+                      icon: const Icon(Icons.camera_alt),
+                      label: Text(_busy ? 'Reading card...' : 'Scan card'),
+                    ),
+                  OutlinedButton(
+                    onPressed: _busy ? null : _pickManually,
+                    child: const Text('Pick a card manually'),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -303,24 +337,26 @@ class _GuideOverlay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => LayoutBuilder(
-        builder: (_, c) {
-          final box = guideCrop(c.maxWidth.round(), c.maxHeight.round());
-          return Stack(children: [
-            Positioned(
-              left: box.left.toDouble(),
-              top: box.top.toDouble(),
-              width: box.width.toDouble(),
-              height: box.height.toDouble(),
-              child: IgnorePointer(
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    border: Border.all(color: AppColors.gold, width: 2),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
+    builder: (_, c) {
+      final box = guideCrop(c.maxWidth.round(), c.maxHeight.round());
+      return Stack(
+        children: [
+          Positioned(
+            left: box.left.toDouble(),
+            top: box.top.toDouble(),
+            width: box.width.toDouble(),
+            height: box.height.toDouble(),
+            child: IgnorePointer(
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  border: Border.all(color: AppColors.gold, width: 2),
+                  borderRadius: BorderRadius.circular(12),
                 ),
               ),
             ),
-          ]);
-        },
+          ),
+        ],
       );
+    },
+  );
 }

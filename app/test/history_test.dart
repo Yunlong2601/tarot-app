@@ -12,6 +12,8 @@ import 'package:shentarot/data/history_repository.dart';
 import 'package:shentarot/data/models.dart';
 import 'package:shentarot/main.dart';
 
+import 'helpers.dart';
+
 class FakeReadingService implements ReadingService {
   FakeReadingService({this.error});
   final ReadingException? error;
@@ -22,8 +24,7 @@ class FakeReadingService implements ReadingService {
     required SpreadType spread,
     required List<DrawnCard> cards,
     String? question,
-  }) async =>
-      const ReadingResult(text: 'x', disclaimer: 'd');
+  }) async => const ReadingResult(text: 'x', disclaimer: 'd');
 
   @override
   Future<ReadingResult> followUp({
@@ -35,7 +36,10 @@ class FakeReadingService implements ReadingService {
   }) async {
     if (error != null) throw error!;
     calls.add({'reading': reading, 'followUp': followUp, 'n': cards.length});
-    return const ReadingResult(text: 'Here is more to explore.', disclaimer: 'd');
+    return const ReadingResult(
+      text: 'Here is more to explore.',
+      disclaimer: 'd',
+    );
   }
 }
 
@@ -62,17 +66,17 @@ void main() {
   final deck = Deck.fromJsonString(File(Deck.assetPath).readAsStringSync());
 
   Reading reading(String id, DateTime at, {String? question}) => Reading(
-        id: id,
-        createdAt: at,
-        spread: SpreadType.threeCard,
-        cards: [
-          DrawnCard(card: deck.byId('major_00_fool')!, reversed: true),
-          DrawnCard(card: deck.byId('cups_ace')!, reversed: false),
-          DrawnCard(card: deck.byId('swords_ten')!, reversed: false),
-        ],
-        interpretation: 'A reading.',
-        question: question,
-      );
+    id: id,
+    createdAt: at,
+    spread: SpreadType.threeCard,
+    cards: [
+      DrawnCard(card: deck.byId('major_00_fool')!, reversed: true),
+      DrawnCard(card: deck.byId('cups_ace')!, reversed: false),
+      DrawnCard(card: deck.byId('swords_ten')!, reversed: false),
+    ],
+    interpretation: 'A reading.',
+    question: question,
+  );
 
   late String dbPath;
   setUp(() {
@@ -83,18 +87,20 @@ void main() {
   });
 
   group('SqliteHistoryRepository', () {
-    test('round-trips readings, newest first, with orientation and question',
-        () async {
-      final repo = SqliteHistoryRepository(path: dbPath);
-      await repo.add(reading('old', DateTime(2026, 1, 1)));
-      await repo.add(reading('new', DateTime(2026, 6, 1), question: 'Why?'));
-      final all = await repo.load(deck);
-      expect(all.map((r) => r.id), ['new', 'old']);
-      expect(all.first.question, 'Why?');
-      expect(all.first.cards.map((c) => c.reversed), [true, false, false]);
-      expect(all.first.cards.first.card.id, 'major_00_fool');
-      expect(all.first.spread, SpreadType.threeCard);
-    });
+    test(
+      'round-trips readings, newest first, with orientation and question',
+      () async {
+        final repo = SqliteHistoryRepository(path: dbPath);
+        await repo.add(reading('old', DateTime(2026, 1, 1)));
+        await repo.add(reading('new', DateTime(2026, 6, 1), question: 'Why?'));
+        final all = await repo.load(deck);
+        expect(all.map((r) => r.id), ['new', 'old']);
+        expect(all.first.question, 'Why?');
+        expect(all.first.cards.map((c) => c.reversed), [true, false, false]);
+        expect(all.first.cards.first.card.id, 'major_00_fool');
+        expect(all.first.spread, SpreadType.threeCard);
+      },
+    );
 
     test('notes can be set, cleared, and readings deleted', () async {
       final repo = SqliteHistoryRepository(path: dbPath);
@@ -114,39 +120,47 @@ void main() {
   group('AppState persistence', () {
     test('readings survive a restart and delete-all clears them', () async {
       final first = AppState(
-          deck: deck, historyRepository: SqliteHistoryRepository(path: dbPath));
+        deck: deck,
+        historyRepository: SqliteHistoryRepository(path: dbPath),
+      );
       first.addReading(reading('a', DateTime(2026, 3, 1)));
       await Future<void>.delayed(const Duration(milliseconds: 50));
 
       final second = AppState(
-          deck: deck, historyRepository: SqliteHistoryRepository(path: dbPath));
+        deck: deck,
+        historyRepository: SqliteHistoryRepository(path: dbPath),
+      );
       await second.loadPersisted();
       expect(second.history.map((r) => r.id), ['a']);
 
       await second.deleteAllData();
       final third = AppState(
-          deck: deck, historyRepository: SqliteHistoryRepository(path: dbPath));
+        deck: deck,
+        historyRepository: SqliteHistoryRepository(path: dbPath),
+      );
       await third.loadPersisted();
       expect(third.history, isEmpty);
     });
 
-    test('onboarding and the daily free reading persist, and reset next day',
-        () async {
-      var now = DateTime(2026, 10, 16, 10);
-      AppState make() => AppState(deck: deck, clock: () => now);
-      final a = make();
-      a.completeOnboarding();
-      a.addReading(reading('a', now));
-      await Future<void>.delayed(const Duration(milliseconds: 20));
+    test(
+      'onboarding and the daily free reading persist, and reset next day',
+      () async {
+        var now = DateTime(2026, 10, 16, 10);
+        AppState make() => AppState(deck: deck, clock: () => now);
+        final a = make();
+        a.completeOnboarding();
+        a.addReading(reading('a', now));
+        await Future<void>.delayed(const Duration(milliseconds: 20));
 
-      final b = make();
-      await b.loadPersisted();
-      expect(b.onboarded, isTrue);
-      expect(b.canStart(SpreadType.single), isFalse);
+        final b = make();
+        await b.loadPersisted();
+        expect(b.onboarded, isTrue);
+        expect(b.canStart(SpreadType.single), isFalse);
 
-      now = DateTime(2026, 10, 17, 8);
-      expect(b.canStart(SpreadType.single), isTrue);
-    });
+        now = DateTime(2026, 10, 17, 8);
+        expect(b.canStart(SpreadType.single), isTrue);
+      },
+    );
 
     test('journal note and single delete update state', () {
       final s = AppState(deck: deck);
@@ -162,7 +176,10 @@ void main() {
     test('turning on schedules at the chosen time and persists', () async {
       final fake = FakeReminders();
       final s = AppState(deck: deck, reminders: fake);
-      expect(await s.setReminder(true, time: const TimeOfDay(hour: 20, minute: 30)), isTrue);
+      expect(
+        await s.setReminder(true, time: const TimeOfDay(hour: 20, minute: 30)),
+        isTrue,
+      );
       expect(fake.scheduled, const TimeOfDay(hour: 20, minute: 30));
 
       final again = AppState(deck: deck, reminders: fake);
@@ -195,24 +212,24 @@ void main() {
 
     testWidgets('empty history offers to draw a card', (tester) async {
       tall(tester);
-      await tester.pumpWidget(ShenTarotApp(
-          initialState: AppState(deck: deck, onboarded: true)));
+      await tester.pumpWidget(
+        ShenTarotApp(initialState: AppState(deck: deck, onboarded: true)),
+      );
       await tester.pumpAndSettle();
-      await tester.tap(find.text('History').last);
-      await tester.pumpAndSettle();
+      await goHistory(tester);
       expect(find.text('No readings yet'), findsOneWidget);
       expect(find.text('Draw your first card'), findsOneWidget);
     });
 
-    testWidgets('free users see a locked journal; premium can save a note',
-        (tester) async {
+    testWidgets('free users see a locked journal; premium can save a note', (
+      tester,
+    ) async {
       tall(tester);
       final state = AppState(deck: deck, onboarded: true);
       state.addReading(reading('a', DateTime(2026, 5, 5)));
       await tester.pumpWidget(ShenTarotApp(initialState: state));
       await tester.pumpAndSettle();
-      await tester.tap(find.text('History').last);
-      await tester.pumpAndSettle();
+      await goHistory(tester);
       await tester.tap(find.textContaining('Three cards'));
       await tester.pumpAndSettle();
       expect(find.text('Add a journal note (Premium)'), findsOneWidget);
@@ -225,8 +242,7 @@ void main() {
       state.addReading(reading('a', DateTime(2026, 5, 5)));
       await tester.pumpWidget(ShenTarotApp(initialState: state));
       await tester.pumpAndSettle();
-      await tester.tap(find.text('History').last);
-      await tester.pumpAndSettle();
+      await goHistory(tester);
       await tester.tap(find.textContaining('Three cards'));
       await tester.pumpAndSettle();
       await tester.enterText(find.byType(TextField), 'My note');
@@ -243,8 +259,9 @@ void main() {
       addTearDown(t.view.reset);
     }
 
-    testWidgets('premium asks and sees the answer under the reading',
-        (tester) async {
+    testWidgets('premium asks and sees the answer under the reading', (
+      tester,
+    ) async {
       tall(tester);
       final fake = FakeReadingService();
       final state = AppState(deck: deck, onboarded: true, readingService: fake)
@@ -252,8 +269,7 @@ void main() {
       state.addReading(reading('a', DateTime(2026, 5, 5)));
       await tester.pumpWidget(ShenTarotApp(initialState: state));
       await tester.pumpAndSettle();
-      await tester.tap(find.text('History').last);
-      await tester.pumpAndSettle();
+      await goHistory(tester);
       await tester.tap(find.textContaining('Three cards'));
       await tester.pumpAndSettle();
       await tester.tap(find.text('Ask a follow-up'));
@@ -273,8 +289,7 @@ void main() {
       state.addReading(reading('a', DateTime(2026, 5, 5)));
       await tester.pumpWidget(ShenTarotApp(initialState: state));
       await tester.pumpAndSettle();
-      await tester.tap(find.text('History').last);
-      await tester.pumpAndSettle();
+      await goHistory(tester);
       await tester.tap(find.textContaining('Three cards'));
       await tester.pumpAndSettle();
       await tester.tap(find.text('Ask a follow-up (Premium)'));

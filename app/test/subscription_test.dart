@@ -4,7 +4,10 @@ import 'package:shentarot/app/app_state.dart';
 import 'package:shentarot/core/subscription_service.dart';
 import 'package:shentarot/data/deck.dart';
 import 'package:shentarot/main.dart';
+
 import 'dart:io';
+
+import 'helpers.dart';
 
 class FakeSubscriptions implements SubscriptionService {
   FakeSubscriptions({this.restores = false});
@@ -18,18 +21,20 @@ class FakeSubscriptions implements SubscriptionService {
   Future<void> start(String id, void Function(bool) cb) async => _notify = cb;
   @override
   Future<List<PlanOption>> plans() async => const [
-        PlanOption(
-            id: 'annual',
-            title: 'Annual',
-            priceString: 'S\$52.98',
-            periodLabel: 'per year',
-            trialLabel: '7 days free'),
-        PlanOption(
-            id: 'monthly',
-            title: 'Monthly',
-            priceString: 'S\$10.98',
-            periodLabel: 'per month'),
-      ];
+    PlanOption(
+      id: 'annual',
+      title: 'Annual',
+      priceString: 'S\$52.98',
+      periodLabel: 'per year',
+      trialLabel: '7 days free',
+    ),
+    PlanOption(
+      id: 'monthly',
+      title: 'Monthly',
+      priceString: 'S\$10.98',
+      periodLabel: 'per month',
+    ),
+  ];
   @override
   Future<bool> purchase(PlanOption plan) async {
     purchases++;
@@ -52,13 +57,21 @@ void main() {
     addTearDown(t.view.reset);
   }
 
-  testWidgets('paywall shows store prices, trial terms and required links',
-      (tester) async {
+  testWidgets('paywall shows store prices, trial terms and required links', (
+    tester,
+  ) async {
     tall(tester);
-    await tester.pumpWidget(ShenTarotApp(
+    await tester.pumpWidget(
+      ShenTarotApp(
         initialState: AppState(
-            deck: deck, onboarded: true, subscriptions: FakeSubscriptions())));
+          deck: deck,
+          onboarded: true,
+          subscriptions: FakeSubscriptions(),
+        ),
+      ),
+    );
     await tester.pumpAndSettle();
+    await goPhoto(tester);
     await tester.tap(find.textContaining('Three cards'));
     await tester.pumpAndSettle();
     expect(find.textContaining('S\$52.98 per year'), findsWidgets);
@@ -75,6 +88,7 @@ void main() {
     final state = AppState(deck: deck, onboarded: true, subscriptions: subs);
     await tester.pumpWidget(ShenTarotApp(initialState: state));
     await tester.pumpAndSettle();
+    await goPhoto(tester);
     await tester.tap(find.textContaining('Three cards'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Start 7 days free trial'));
@@ -84,12 +98,15 @@ void main() {
     expect(find.text('Unlock Premium'), findsNothing);
   });
 
-  testWidgets('without store keys the paywall cannot sell anything',
-      (tester) async {
+  testWidgets('without store keys the paywall cannot sell anything', (
+    tester,
+  ) async {
     tall(tester);
-    await tester.pumpWidget(ShenTarotApp(
-        initialState: AppState(deck: deck, onboarded: true)));
+    await tester.pumpWidget(
+      ShenTarotApp(initialState: AppState(deck: deck, onboarded: true)),
+    );
     await tester.pumpAndSettle();
+    await goPhoto(tester);
     await tester.tap(find.textContaining('Three cards'));
     await tester.pumpAndSettle();
     expect(find.text('Subscriptions are not available yet.'), findsOneWidget);

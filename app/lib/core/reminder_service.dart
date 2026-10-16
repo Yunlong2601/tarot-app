@@ -30,7 +30,8 @@ class LocalNotificationReminderService implements ReminderService {
     if (_ready) return;
     tzdata.initializeTimeZones();
     tz.setLocalLocation(
-        tz.getLocation((await FlutterTimezone.getLocalTimezone()).identifier));
+      tz.getLocation((await FlutterTimezone.getLocalTimezone()).identifier),
+    );
     await _plugin.initialize(
       settings: const InitializationSettings(
         iOS: DarwinInitializationSettings(
@@ -47,18 +48,29 @@ class LocalNotificationReminderService implements ReminderService {
   @override
   Future<bool> enable(TimeOfDay time) async {
     await _init();
-    final ios = _plugin.resolvePlatformSpecificImplementation<
-        IOSFlutterLocalNotificationsPlugin>();
-    final android = _plugin.resolvePlatformSpecificImplementation<
-        AndroidFlutterLocalNotificationsPlugin>();
-    final granted = (await ios?.requestPermissions(alert: true, sound: true)) ??
+    final ios = _plugin
+        .resolvePlatformSpecificImplementation<
+          IOSFlutterLocalNotificationsPlugin
+        >();
+    final android = _plugin
+        .resolvePlatformSpecificImplementation<
+          AndroidFlutterLocalNotificationsPlugin
+        >();
+    final granted =
+        (await ios?.requestPermissions(alert: true, sound: true)) ??
         (await android?.requestNotificationsPermission()) ??
         false;
     if (!granted) return false;
 
     final now = tz.TZDateTime.now(tz.local);
     var at = tz.TZDateTime(
-        tz.local, now.year, now.month, now.day, time.hour, time.minute);
+      tz.local,
+      now.year,
+      now.month,
+      now.day,
+      time.hour,
+      time.minute,
+    );
     if (!at.isAfter(now)) at = at.add(const Duration(days: 1));
     await _plugin.zonedSchedule(
       id: _id,
@@ -68,8 +80,10 @@ class LocalNotificationReminderService implements ReminderService {
       notificationDetails: const NotificationDetails(
         iOS: DarwinNotificationDetails(),
         android: AndroidNotificationDetails(
-            'daily_reminder', 'Daily reminder',
-            channelDescription: 'A once-a-day nudge to draw your card'),
+          'daily_reminder',
+          'Daily reminder',
+          channelDescription: 'A once-a-day nudge to draw your card',
+        ),
       ),
       androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
       matchDateTimeComponents: DateTimeComponents.time,
