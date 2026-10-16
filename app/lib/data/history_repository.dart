@@ -49,7 +49,7 @@ class SqliteHistoryRepository implements HistoryRepository {
   Future<Database> _open() async {
     final existing = _db;
     if (existing != null) return existing;
-    final location = path ?? p.join(await getDatabasesPath(), 'veilscan.db');
+    final location = path ?? p.join(await getDatabasesPath(), 'shentarot.db');
     return _db = await openDatabase(
       location,
       version: 1,

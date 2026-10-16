@@ -1,4 +1,4 @@
-package com.example.veilscan
+package com.example.shentarot
 
 import io.flutter.embedding.android.FlutterActivity
 

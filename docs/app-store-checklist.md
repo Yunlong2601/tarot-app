@@ -8,7 +8,7 @@ Rules and menu names change. Items marked (verify) must be checked against the c
 - [ ] Small Business Program application (verify eligibility and the fee rate).
 
 ## Project
-- [ ] Real **bundle ID** (replace `com.example.veilscan` everywhere, including RunnerTests) and a final **app name** (check trademarks and App Store name availability; do not use "Rider-Waite" in the name, icon or keywords).
+- [ ] Real **bundle ID** (replace `com.example.shentarot` everywhere, including RunnerTests) and a final **app name** (check trademarks and App Store name availability; do not use "Rider-Waite" in the name, icon or keywords).
 - [x] **App icon** (1024x1024, no transparency, original art) and launch screen: done (see PROGRESS.md). Check how they look on a device.
 - [ ] Version/build numbers set; signing set to your team; **In-App Purchase** capability added.
 - [ ] Release build runs on a **real iPhone** (camera, notifications, purchases). Not verified yet.

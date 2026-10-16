@@ -10,7 +10,7 @@ The app code is done (`app/lib/core/subscription_service.dart`, paywall, setting
 - The RevenueCat **app user ID** is the anonymous install ID (stored on device), and the backend looks up the same ID via the RevenueCat REST API to decide whether a request is premium. No accounts.
 
 ## I need to do (owner), iOS
-1. Apple Developer Program membership; real **bundle ID** (replace `com.example.veilscan` in Xcode; Runner target > Signing & Capabilities; also the RunnerTests ids).
+1. Apple Developer Program membership; real **bundle ID** (replace `com.example.shentarot` in Xcode; Runner target > Signing & Capabilities; also the RunnerTests ids).
 2. In App Store Connect create the app, a **subscription group**, and three auto-renewing subscriptions (weekly, monthly, annual with a 7-day free-trial introductory offer). Accept the Paid Applications agreement and fill tax/banking.
 3. In Xcode add the **In-App Purchase** capability to the Runner target.
 4. Create a RevenueCat project and an **iOS app**, add the **App Store Connect API key / In-App Purchase key** RevenueCat asks for, import the three products, create entitlement `premium` attached to all three, create an offering marked **current** with Annual/Monthly/Weekly packages.
