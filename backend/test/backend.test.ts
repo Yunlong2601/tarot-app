@@ -10,6 +10,7 @@ import { parseOpenAI } from "../src/llm";
 import type { UsageStore } from "../src/usage";
 import { verifyIdToken, type AccountStore } from "../src/accounts";
 import type { Referral, ReferralStore } from "../src/referrals";
+import type { CreditStore } from "../src/credits";
 import { grantReferralCredits } from "../src/index";
 import { allowWithinMinute } from "../src/usage";
 import { cleanQuestion, parseFollowupRequest, parseReadingRequest } from "../src/validate";
@@ -52,6 +53,15 @@ class MemReferrals implements ReferralStore {
   }
 }
 
+class MemCredits implements CreditStore {
+  bal = new Map<string, number>();
+  txns = new Set<string>();
+  async balance(k: string) { return this.bal.get(k) ?? 0; }
+  async add(k: string, n: number, txn: string) { if (this.txns.has(txn)) return false; this.txns.add(txn); this.bal.set(k, (this.bal.get(k) ?? 0) + n); return true; }
+  async spend(k: string) { const b = this.bal.get(k) ?? 0; if (b <= 0) return false; this.bal.set(k, b - 1); return true; }
+  async refund(k: string) { this.bal.set(k, (this.bal.get(k) ?? 0) + 1); }
+}
+
 class MemAccounts implements AccountStore {
   accounts = new Map<string, string>(); // subjectHash -> id
   links = new Map<string, string>(); // installHash -> accountId
@@ -85,9 +95,10 @@ const NOW = Date.UTC(2026, 9, 16, 12, 0, 0);
 const UUID = "123e4567-e89b-42d3-a456-426614174000";
 const GOOD = "The Fool upright invites a fresh start. Stay curious and open, and let small steps lead the way today.";
 
-function setup(opts: { premium?: boolean | ((id: string) => boolean); llm?: Deps["llm"]; allowInstall?: boolean; cap?: string; openaiKey?: string; google?: string; referrals?: boolean } = {}) {
+function setup(opts: { premium?: boolean | ((id: string) => boolean); llm?: Deps["llm"]; allowInstall?: boolean; cap?: string; openaiKey?: string; google?: string; referrals?: boolean; credits?: boolean } = {}) {
   const accounts = new MemAccounts();
   const referrals = new MemReferrals();
+  const credits = new MemCredits();
   const usage = new MemUsage();
   const kv = new FakeKV();
   let llmCalls = 0;
@@ -98,16 +109,17 @@ function setup(opts: { premium?: boolean | ((id: string) => boolean); llm?: Deps
     now: () => NOW,
     accounts: () => accounts,
     referrals: () => referrals,
+    credits: () => credits,
     verifyIdToken: async (_p, token) => (token.startsWith("good:") ? token.slice(5) : null),
   };
   const env = {
     KV: kv, DB: {}, JWT_SECRET: "s".repeat(32), HASH_SALT: "salt", ANTHROPIC_API_KEY: "k",
     ALLOW_UNATTESTED_INSTALLS: opts.allowInstall === false ? "false" : "true",
-    GLOBAL_DAILY_TOKEN_CAP: opts.cap, OPENAI_API_KEY: opts.openaiKey, GOOGLE_CLIENT_IDS: opts.google, REFERRALS_ENABLED: opts.referrals ? "true" : undefined, REVENUECAT_WEBHOOK_AUTH: "hook-secret", REVENUECAT_SECRET_KEY: "rc",
+    GLOBAL_DAILY_TOKEN_CAP: opts.cap, OPENAI_API_KEY: opts.openaiKey, GOOGLE_CLIENT_IDS: opts.google, REFERRALS_ENABLED: opts.referrals ? "true" : undefined, CREDITS_ENABLED: opts.credits ? "true" : undefined, REVENUECAT_WEBHOOK_AUTH: "hook-secret", REVENUECAT_SECRET_KEY: "rc",
   } as unknown as Env;
   const app = createApp(deps);
   const call = (path: string, init?: RequestInit) => app.request(path, init, env);
-  return { app, call, usage, kv, env, accounts, referrals, deps, calls: () => llmCalls };
+  return { app, call, usage, kv, env, accounts, referrals, credits, deps, calls: () => llmCalls };
 }
 
 async function authHeaders(env: Env) {
@@ -646,5 +658,47 @@ describe("refer and earn", () => {
     expect(await run()).toBe(0); // only once
     const me = (await (await call(s, "/v1/referral/me", UUID)).json()) as Record<string, unknown>;
     expect(me).toMatchObject({ friendsPaid: 1, monthsEarned: 1, monthsPending: 0, friends: [{ joined: "2026-10-16", status: "credited" }] });
+  });
+});
+
+describe("reading credits", () => {
+  const hook = (s: ReturnType<typeof setup>, event: Record<string, unknown>) =>
+    s.call("/v1/webhooks/revenuecat", { method: "POST", headers: { authorization: "hook-secret" }, body: JSON.stringify({ event }) });
+  const read = async (s: ReturnType<typeof setup>) =>
+    s.call("/v1/reading", { method: "POST", headers: await authHeaders(s.env), body: JSON.stringify(single) });
+
+  it("a Starter Pack purchase adds credits once; a credit buys a reading after the free one", async () => {
+    const s = setup({ credits: true });
+    const buy = { type: "NON_RENEWING_PURCHASE", product_id: "shentarot_credits_5", transaction_id: "c1", app_user_id: UUID };
+    expect(await (await hook(s, buy)).json()).toMatchObject({ credited: 5 });
+    expect(await (await hook(s, buy)).json()).toMatchObject({ credited: 0 }); // retry, not twice
+    expect((await read(s)).status).toBe(200); // the free daily reading
+    expect((await read(s)).status).toBe(200); // paid with a credit
+    const me = await s.call("/v1/credits/me", { method: "POST", headers: await authHeaders(s.env) });
+    expect(await me.json()).toEqual({ balance: 4 });
+  });
+
+  it("a failed reading gives the credit back; no credits means the daily limit", async () => {
+    let fail = false;
+    const s = setup({ credits: true, llm: async () => { if (fail) throw new Error("down"); return { text: GOOD, inputTokens: 1, outputTokens: 1, refused: false }; } });
+    await hook(s, { type: "NON_RENEWING_PURCHASE", product_id: "shentarot_credits_5", transaction_id: "c2", app_user_id: UUID });
+    expect((await read(s)).status).toBe(200);
+    fail = true;
+    expect((await read(s)).status).toBe(502);
+    const hash = await hashId(UUID, "salt");
+    expect(await s.credits.balance(hash)).toBe(5);
+    s.credits.bal.set(hash, 0);
+    fail = false;
+    expect((await read(s)).status).toBe(429);
+  });
+
+  it("free users can spend a credit on a follow-up; off by default", async () => {
+    const off = setup();
+    const body = JSON.stringify({ spread: "single", cards: [{ id: "major_00_fool", reversed: false }], reading: "The Fool.", followup: "More?" });
+    expect((await off.call("/v1/followup", { method: "POST", headers: await authHeaders(off.env), body })).status).toBe(402);
+    const s = setup({ credits: true });
+    await hook(s, { type: "NON_RENEWING_PURCHASE", product_id: "shentarot_credits_5", transaction_id: "c3", app_user_id: UUID });
+    expect((await s.call("/v1/followup", { method: "POST", headers: await authHeaders(s.env), body })).status).toBe(200);
+    expect(await s.credits.balance(await hashId(UUID, "salt"))).toBe(4);
   });
 });

@@ -12,6 +12,7 @@ import {
   parseModelReply, renderReading,
 } from "./reading";
 import { isPremium } from "./revenuecat";
+import { D1CreditStore, creditsInProduct, type CreditStore } from "./credits";
 import {
   CREDIT_DELAY_DAYS, D1ReferralStore, MAX_CREDITS_PER_YEAR, PLAY_REFERRAL_OFFER_TAG, grantFreeMonth,
   hasStoreSubscription, newCode, normaliseCode, type ReferralStore,
@@ -34,6 +35,7 @@ export interface Deps {
   now: () => number;
   accounts: (env: Env) => AccountStore;
   referrals: (env: Env) => ReferralStore;
+  credits: (env: Env) => CreditStore;
   verifyIdToken: (provider: AccountProvider, token: string, audiences: string[], kv: KVNamespace, nowSeconds: number) => Promise<string | null>;
 }
 
@@ -45,6 +47,7 @@ const defaultDeps: Deps = {
   now: () => Date.now(),
   accounts: (env) => new D1AccountStore(env.DB),
   referrals: (env) => new D1ReferralStore(env.DB),
+  credits: (env) => new D1CreditStore(env.DB),
   verifyIdToken: (p, t, a, kv, n) => verifyIdToken(p, t, a, kv, n),
 };
 
@@ -145,8 +148,13 @@ export function createApp(deps: Deps = defaultDeps) {
     // output checks) is the same on both paths.
     if (user.target && !premium) return c.json({ error: "premium_required" }, 402);
     const limit = premium ? PREMIUM_READINGS_PER_DAY : FREE_READINGS_PER_DAY;
+    let usedCredit = false;
     if (!user.target && (await usage.count(who.usageKey, day, "reading")) >= limit) {
-      return c.json({ error: "daily_limit", premium }, 429);
+      // Free users past today's reading can spend a credit.
+      if (premium || c.env.CREDITS_ENABLED !== "true" || !(await deps.credits(c.env).spend(who.usageKey))) {
+        return c.json({ error: "daily_limit", premium }, 429);
+      }
+      usedCredit = true;
     }
 
     const slot = await usage.reserve(who.usageKey, day, "reading", req.spread, usageModel(targets[0]!));
@@ -181,6 +189,7 @@ export function createApp(deps: Deps = defaultDeps) {
       });
     } catch (e) {
       await usage.release(slot);
+      if (usedCredit) await deps.credits(c.env).refund(who.usageKey);
       if (user.target && isAuthError(e)) return c.json({ error: "user_key_rejected" }, 400);
       logUpstreamError(e);
       return c.json({ error: "upstream_failed" }, 502);
@@ -218,7 +227,14 @@ export function createApp(deps: Deps = defaultDeps) {
 
     if (detectCrisis(req.followup, req.question)) return c.json({ crisis: true, message: CRISIS_MESSAGE });
 
-    if (!(await deps.premium(who.appUserId, c.env, now))) return c.json({ error: "premium_required" }, 402);
+    let followupCredit = false;
+    if (!(await deps.premium(who.appUserId, c.env, now))) {
+      // Free users can spend a credit on a follow-up or clarifier.
+      if (c.env.CREDITS_ENABLED !== "true" || !(await deps.credits(c.env).spend(who.usageKey))) {
+        return c.json({ error: "premium_required" }, 402);
+      }
+      followupCredit = true;
+    }
 
     const usage = deps.usage(c.env);
     const day = utcDay(now);
@@ -242,6 +258,7 @@ export function createApp(deps: Deps = defaultDeps) {
       return c.json({ answer: checked.text, disclaimer: DISCLAIMER });
     } catch (e) {
       await usage.release(slot);
+      if (followupCredit) await deps.credits(c.env).refund(who.usageKey);
       if (user.target && isAuthError(e)) return c.json({ error: "user_key_rejected" }, 400);
       logUpstreamError(e);
       return c.json({ error: "upstream_failed" }, 502);
@@ -291,6 +308,14 @@ export function createApp(deps: Deps = defaultDeps) {
     await deps.accounts(c.env).delete(who.accountId, who.usageKey);
     await c.env.KV.delete(`premium:${who.accountId}`);
     return c.json({ deleted: true });
+  });
+
+  app.post("/v1/credits/me", async (c) => {
+    if (c.env.CREDITS_ENABLED !== "true") return c.json({ error: "credits_off" }, 404);
+    const installId = await installFrom(c.req.header("authorization"), c.env, deps.now());
+    if (!installId) return c.json({ error: "unauthorized" }, 401);
+    const who = await identity(c.env, installId);
+    return c.json({ balance: await deps.credits(c.env).balance(who.usageKey) });
   });
 
   // ---- Refer and earn (off unless REFERRALS_ENABLED=true) ----
@@ -360,11 +385,23 @@ export function createApp(deps: Deps = defaultDeps) {
   app.post("/v1/webhooks/revenuecat", async (c) => {
     const secret = c.env.REVENUECAT_WEBHOOK_AUTH;
     if (!secret || c.req.header("authorization") !== secret) return c.json({ error: "unauthorized" }, 401);
-    if (!referralsOn(c.env)) return c.json({ ok: true });
     const body = (await readJson(c.req.raw, 65536)) as { event?: Record<string, unknown> } | null;
     const e = body?.event;
     if (!e) return c.json({ error: "invalid_request" }, 400);
     const type = String(e.type ?? "");
+    const keyFor = async (appUser: string) => (await deps.accounts(c.env).isAccount(appUser))
+      ? hashId(`acct:${appUser}`, c.env.HASH_SALT)
+      : hashId(appUser, c.env.HASH_SALT);
+    // Starter Pack and other credit packs (consumables).
+    if (type === "NON_RENEWING_PURCHASE" && c.env.CREDITS_ENABLED === "true") {
+      const amount = creditsInProduct(String(e.product_id ?? ""));
+      const txn = String(e.transaction_id ?? "");
+      const appUser = String(e.app_user_id ?? "");
+      if (!amount || !txn || !appUser) return c.json({ ok: true, ignored: true });
+      const added = await deps.credits(c.env).add(await keyFor(appUser), amount, txn);
+      return c.json({ ok: true, credited: added ? amount : 0 });
+    }
+    if (!referralsOn(c.env)) return c.json({ ok: true });
     const price = Number(e.price ?? 0);
     const txn = String(e.transaction_id ?? "");
     const appUser = String(e.app_user_id ?? "");
@@ -372,9 +409,7 @@ export function createApp(deps: Deps = defaultDeps) {
     if (!["INITIAL_PURCHASE", "RENEWAL"].includes(type) || !(price > 0) || !txn || !appUser || store === "PROMOTIONAL") {
       return c.json({ ok: true, ignored: true });
     }
-    const key = (await deps.accounts(c.env).isAccount(appUser))
-      ? await hashId(`acct:${appUser}`, c.env.HASH_SALT)
-      : await hashId(appUser, c.env.HASH_SALT);
+    const key = await keyFor(appUser);
     const paid = await deps.referrals(c.env).markPaid(key, txn, new Date(Number(e.event_timestamp_ms ?? deps.now())).toISOString());
     return c.json({ ok: true, qualified: paid });
   });
