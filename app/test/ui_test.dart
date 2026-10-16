@@ -114,7 +114,8 @@ void main() {
     await t.pumpAndSettle();
     expect(find.text('How to use ShenTarot'), findsOneWidget);
     expect(find.text('Scan a card'), findsOneWidget);
-    expect(find.text('Tarot basics'), findsOneWidget);
+    expect(find.text('Learn tarot in 12 short lessons'), findsOneWidget);
+    expect(find.text('Myths and worries'), findsOneWidget);
   });
 
   testWidgets('sign-in demo can be closed and skipped, and signs nobody in', (

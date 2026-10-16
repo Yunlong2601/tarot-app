@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -43,6 +45,14 @@ class AppState extends ChangeNotifier {
   static const freeReadingsPerDay = 1;
   final List<Reading> history = [];
 
+  /// Whether digital draws and the Card of the Day may come up reversed.
+  bool readReversed = true;
+
+  // Card of the Day: one free card per local day, drawn on the phone.
+  String _dailyDate = '';
+  String? _dailyId;
+  bool _dailyReversed = false;
+
   bool reminderEnabled = false;
   TimeOfDay reminderTime = const TimeOfDay(hour: 9, minute: 0);
 
@@ -54,6 +64,10 @@ class AppState extends ChangeNotifier {
   static const _kOnboarded = 'onboarded';
   static const _kUsedDay = 'free_used_day';
   static const _kUsedCount = 'free_used_count';
+  static const _kReversed = 'read_reversed';
+  static const _kDailyDate = 'daily_date';
+  static const _kDailyId = 'daily_id';
+  static const _kDailyRev = 'daily_reversed';
   static const _kReminderOn = 'reminder_on';
   static const _kReminderMin = 'reminder_minutes';
 
@@ -79,6 +93,10 @@ class AppState extends ChangeNotifier {
       onboarded = prefs.getBool(_kOnboarded) ?? onboarded;
       _usedDay = prefs.getString(_kUsedDay) ?? '';
       _usedCount = prefs.getInt(_kUsedCount) ?? 0;
+      readReversed = prefs.getBool(_kReversed) ?? true;
+      _dailyDate = prefs.getString(_kDailyDate) ?? '';
+      _dailyId = prefs.getString(_kDailyId);
+      _dailyReversed = prefs.getBool(_kDailyRev) ?? false;
       reminderEnabled = prefs.getBool(_kReminderOn) ?? false;
       final m = prefs.getInt(_kReminderMin);
       if (m != null) reminderTime = TimeOfDay(hour: m ~/ 60, minute: m % 60);
@@ -101,6 +119,10 @@ class AppState extends ChangeNotifier {
       await prefs.setBool(_kOnboarded, onboarded);
       await prefs.setString(_kUsedDay, _usedDay);
       await prefs.setInt(_kUsedCount, _usedCount);
+      await prefs.setBool(_kReversed, readReversed);
+      await prefs.setString(_kDailyDate, _dailyDate);
+      if (_dailyId != null) await prefs.setString(_kDailyId, _dailyId!);
+      await prefs.setBool(_kDailyRev, _dailyReversed);
       await prefs.setBool(_kReminderOn, reminderEnabled);
       await prefs.setInt(
         _kReminderMin,
@@ -130,6 +152,41 @@ class AppState extends ChangeNotifier {
     readMode = m;
     notifyListeners();
   }
+
+  void setReadReversed(bool value) {
+    readReversed = value;
+    _savePrefs();
+    notifyListeners();
+  }
+
+  /// Today's card if one has been drawn, else null.
+  DrawnCard? get dailyCardIfDrawn {
+    final id = _dailyId;
+    if (id == null || _dailyDate != _today) return null;
+    final card = deck.byId(id);
+    return card == null
+        ? null
+        : DrawnCard(card: card, reversed: _dailyReversed);
+  }
+
+  /// Draws today's card once; later calls on the same day return the same card.
+  /// No network and no AI: the text shown is the stored card knowledge.
+  /// [notify] false is for calls made while a widget is building.
+  DrawnCard drawDailyCard([Random? random, bool notify = true]) {
+    final existing = dailyCardIfDrawn;
+    if (existing != null) return existing;
+    final r = random ?? Random.secure();
+    final card = deck.cards[r.nextInt(deck.cards.length)];
+    _dailyDate = _today;
+    _dailyId = card.id;
+    _dailyReversed = readReversed && r.nextDouble() < 0.25;
+    _savePrefs();
+    if (notify) notifyListeners();
+    return DrawnCard(card: card, reversed: _dailyReversed);
+  }
+
+  /// Re-notifies listeners (used after a draw made during a widget build).
+  void notifyChanged() => notifyListeners();
 
   void completeOnboarding() {
     onboarded = true;

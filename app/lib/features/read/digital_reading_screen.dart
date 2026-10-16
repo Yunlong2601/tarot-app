@@ -3,11 +3,11 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 import '../../app/app_scope.dart';
-import '../../app/brand.dart';
 import '../../app/theme.dart';
 import '../../data/models.dart';
-import '../cards/card_art.dart';
 import '../reading/start_reading.dart';
+import 'flip_card.dart';
+import 'question_nudge.dart';
 
 /// Digital card reading: the app draws random, duplicate-free cards for the
 /// chosen spread; the user taps each face-down card to flip it, then gets the
@@ -24,6 +24,19 @@ class DigitalReadingScreen extends StatefulWidget {
 
 class _DigitalReadingScreenState extends State<DigitalReadingScreen> {
   final _question = TextEditingController();
+  String? _nudge;
+
+  void _onQ() {
+    final n = questionNudge(_question.text);
+    if (n != _nudge) setState(() => _nudge = n);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _question.addListener(_onQ);
+  }
+
   late final math.Random _rng = widget.random ?? math.Random.secure();
   List<DrawnCard> _drawn = [];
   Set<int> _flipped = {};
@@ -31,18 +44,23 @@ class _DigitalReadingScreenState extends State<DigitalReadingScreen> {
 
   @override
   void dispose() {
+    _question.removeListener(_onQ);
     _question.dispose();
     super.dispose();
   }
 
   void _draw(SpreadType spread) {
-    final deck = [...AppScope.of(context).deck.cards]..shuffle(_rng);
+    final state = AppScope.of(context);
+    final deck = [...state.deck.cards]..shuffle(_rng);
     setState(() {
       _drawnFor = spread;
       _flipped = {};
       _drawn = [
         for (final c in deck.take(spread.cardCount))
-          DrawnCard(card: c, reversed: _rng.nextDouble() < 0.25),
+          DrawnCard(
+            card: c,
+            reversed: state.readReversed && _rng.nextDouble() < 0.25,
+          ),
       ];
     });
   }
@@ -70,9 +88,11 @@ class _DigitalReadingScreenState extends State<DigitalReadingScreen> {
           TextField(
             controller: _question,
             maxLength: 300,
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
               labelText: 'Your question (optional)',
-              border: OutlineInputBorder(),
+              border: const OutlineInputBorder(),
+              helperText: _nudge,
+              helperMaxLines: 3,
             ),
           ),
           const SizedBox(height: 8),
@@ -82,7 +102,7 @@ class _DigitalReadingScreenState extends State<DigitalReadingScreen> {
             runSpacing: 12,
             children: [
               for (var i = 0; i < _drawn.length; i++)
-                _FlipCard(
+                FlipCard(
                   key: ValueKey('${_drawnFor?.name}-$i-${_drawn[i].card.id}'),
                   drawn: _drawn[i],
                   flipped: _flipped.contains(i),
@@ -114,96 +134,6 @@ class _DigitalReadingScreenState extends State<DigitalReadingScreen> {
             style: TextStyle(color: AppColors.textMuted, fontSize: 12),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class _FlipCard extends StatefulWidget {
-  const _FlipCard({
-    super.key,
-    required this.drawn,
-    required this.flipped,
-    required this.onTap,
-  });
-  final DrawnCard drawn;
-  final bool flipped;
-  final VoidCallback onTap;
-
-  @override
-  State<_FlipCard> createState() => _FlipCardState();
-}
-
-class _FlipCardState extends State<_FlipCard>
-    with SingleTickerProviderStateMixin {
-  late final AnimationController _c = AnimationController(
-    vsync: this,
-    duration: const Duration(milliseconds: 450),
-  );
-
-  @override
-  void didUpdateWidget(_FlipCard old) {
-    super.didUpdateWidget(old);
-    if (widget.flipped && !old.flipped) _c.forward();
-  }
-
-  @override
-  void dispose() {
-    _c.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final name = widget.drawn.card.name;
-    return Semantics(
-      button: !widget.flipped,
-      label: widget.flipped
-          ? '$name${widget.drawn.reversed ? ', reversed' : ''}'
-          : 'Face-down card. Tap to turn over.',
-      excludeSemantics: true,
-      onTap: widget.flipped ? null : widget.onTap,
-      child: GestureDetector(
-        onTap: widget.flipped ? null : widget.onTap,
-        child: AnimatedBuilder(
-          animation: _c,
-          builder: (_, _) {
-            final angle = _c.value * math.pi;
-            final showFront = angle > math.pi / 2;
-            return Transform(
-              alignment: Alignment.center,
-              transform: Matrix4.identity()
-                ..setEntry(3, 2, 0.001)
-                ..rotateY(angle),
-              child: showFront
-                  ? Transform(
-                      alignment: Alignment.center,
-                      transform: Matrix4.rotationY(math.pi),
-                      child: Column(
-                        children: [
-                          CardArt(
-                            card: widget.drawn.card,
-                            reversed: widget.drawn.reversed,
-                            width: 90,
-                          ),
-                          const SizedBox(height: 4),
-                          SizedBox(
-                            width: 96,
-                            child: Text(
-                              '$name${widget.drawn.reversed ? ' (reversed)' : ''}',
-                              textAlign: TextAlign.center,
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                              style: const TextStyle(fontSize: 11),
-                            ),
-                          ),
-                        ],
-                      ),
-                    )
-                  : const CardBack(width: 90),
-            );
-          },
-        ),
       ),
     );
   }

@@ -5,6 +5,7 @@ import '../features/auth/signin_demo_screen.dart';
 import '../features/guide/guide_screen.dart';
 import '../features/history/history_screen.dart';
 import '../features/library/library_screen.dart';
+import '../features/read/daily_card_screen.dart';
 import '../features/read/digital_reading_screen.dart';
 import '../features/read/read_home_screen.dart';
 import '../features/home/home_shell.dart';
@@ -63,6 +64,7 @@ GoRouter buildRouter(AppState state) {
         path: '/digital',
         builder: (_, _) => const DigitalReadingScreen(),
       ),
+      GoRoute(path: '/daily', builder: (_, _) => const DailyCardScreen()),
       GoRoute(path: '/history', builder: (_, _) => const HistoryScreen()),
       GoRoute(
         path: '/signin-demo',

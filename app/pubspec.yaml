@@ -73,6 +73,7 @@ flutter:
 
   assets:
     - assets/cards/cards.json
+    - assets/cards/knowledge.json
     - assets/cards/art/
     - assets/models/
     - assets/legal/

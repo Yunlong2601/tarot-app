@@ -57,19 +57,42 @@ class CardDetailScreen extends StatelessWidget {
             ),
           ],
           const SizedBox(height: 24),
+          if (card.knowledge != null) ..._richSections(card.knowledge!, t),
           Text(
             'Upright',
             style: t.titleMedium?.copyWith(color: AppColors.gold),
           ),
           const SizedBox(height: 4),
-          Text(card.upright),
+          Text(card.knowledge?.uprightCore ?? card.upright),
+          if (card.knowledge != null) ...[
+            const SizedBox(height: 6),
+            Text(
+              'Light: ${card.knowledge!.light}.  Shadow: ${card.knowledge!.shadow}.',
+              style: const TextStyle(color: AppColors.textMuted),
+            ),
+            const SizedBox(height: 6),
+            Text(
+              'To reflect on: ${card.knowledge!.uprightQuestion}',
+              style: const TextStyle(fontStyle: FontStyle.italic),
+            ),
+          ],
           const SizedBox(height: 20),
           Text(
             'Reversed',
             style: t.titleMedium?.copyWith(color: AppColors.gold),
           ),
           const SizedBox(height: 4),
-          Text(card.reversed),
+          Text(card.knowledge?.reversedCore ?? card.reversed),
+          if (card.knowledge != null) ...[
+            const SizedBox(height: 6),
+            for (final m in card.knowledge!.modes)
+              Text('• $m', style: const TextStyle(color: AppColors.textMuted)),
+            const SizedBox(height: 6),
+            Text(
+              'To reflect on: ${card.knowledge!.reversedQuestion}',
+              style: const TextStyle(fontStyle: FontStyle.italic),
+            ),
+          ],
           const SizedBox(height: 24),
           const Text(
             'For entertainment and self-reflection only.',
@@ -81,3 +104,22 @@ class CardDetailScreen extends StatelessWidget {
     );
   }
 }
+
+List<Widget> _richSections(CardKnowledge k, TextTheme t) => [
+  Text(k.essence, style: t.titleLarge, textAlign: TextAlign.center),
+  const SizedBox(height: 16),
+  Text(
+    'What is pictured',
+    style: t.titleMedium?.copyWith(color: AppColors.gold),
+  ),
+  const SizedBox(height: 4),
+  Text(k.imagery),
+  const SizedBox(height: 16),
+  Text(
+    'Why it means this',
+    style: t.titleMedium?.copyWith(color: AppColors.gold),
+  ),
+  const SizedBox(height: 4),
+  Text(k.why),
+  const SizedBox(height: 20),
+];

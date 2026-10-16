@@ -5,6 +5,7 @@ import '../../app/app_scope.dart';
 import '../../app/theme.dart';
 import '../../core/reading_service.dart';
 import '../../data/models.dart';
+import '../../data/spreads.dart';
 import '../cards/card_art.dart';
 
 class _AskDialog extends StatefulWidget {
@@ -241,10 +242,28 @@ class ReadingScreen extends StatelessWidget {
             runSpacing: 12,
             alignment: WrapAlignment.center,
             children: [
-              for (final d in reading.cards)
+              for (final (i, d) in reading.cards.indexed)
                 InkWell(
                   onTap: () => context.push('/card/${d.card.id}'),
-                  child: CardArt(card: d.card, reversed: d.reversed, width: 90),
+                  child: Column(
+                    children: [
+                      CardArt(card: d.card, reversed: d.reversed, width: 90),
+                      const SizedBox(height: 4),
+                      SizedBox(
+                        width: 96,
+                        child: Text(
+                          spreadPositions[reading.spread]![i],
+                          textAlign: TextAlign.center,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                            fontSize: 11,
+                            color: AppColors.textMuted,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
             ],
           ),

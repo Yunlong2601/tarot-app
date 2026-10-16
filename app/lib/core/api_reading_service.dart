@@ -66,6 +66,9 @@ class ApiReadingService implements ReadingService {
   ReadingResult _toResult(_Response res, String textKey) {
     if (res.status == 200) {
       final j = res.json;
+      if (j['crisis'] == true) {
+        throw ReadingException(ReadingErrorKind.crisis, j['message'] as String);
+      }
       return ReadingResult(
         text: j[textKey] as String,
         disclaimer: j['disclaimer'] as String,

@@ -7,6 +7,9 @@ enum ReadingErrorKind {
   premiumRequired,
   declined,
   failed,
+
+  /// The user's text suggested a crisis; the message is a fixed care message.
+  crisis,
 }
 
 class ReadingException implements Exception {

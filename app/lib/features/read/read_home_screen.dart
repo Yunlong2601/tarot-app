@@ -66,6 +66,18 @@ class ReadHomeScreen extends StatelessWidget {
                                 ),
                                 const SizedBox(height: 12),
                                 TextButton.icon(
+                                  onPressed: () => context.push('/daily'),
+                                  icon: const Icon(
+                                    Icons.wb_sunny_outlined,
+                                    size: 18,
+                                  ),
+                                  label: Text(
+                                    state.dailyCardIfDrawn == null
+                                        ? 'Card of the Day (free)'
+                                        : "Today's card: ${state.dailyCardIfDrawn!.card.name}",
+                                  ),
+                                ),
+                                TextButton.icon(
                                   onPressed: () => _pickSpread(context, state),
                                   icon: const Icon(
                                     Icons.dashboard_customize_outlined,

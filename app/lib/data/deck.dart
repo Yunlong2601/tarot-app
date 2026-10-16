@@ -33,11 +33,22 @@ class Deck {
   static const assetPath = 'assets/cards/cards.json';
   static const expectedSize = 78;
 
-  factory Deck.fromJsonString(String source) {
+  static const knowledgePath = 'assets/cards/knowledge.json';
+
+  factory Deck.fromJsonString(String source, [String? knowledgeSource]) {
     final root = jsonDecode(source) as Map<String, dynamic>;
+    final rich = knowledgeSource == null
+        ? const <String, dynamic>{}
+        : (jsonDecode(knowledgeSource) as Map<String, dynamic>)['cards']
+              as Map<String, dynamic>;
     final cards = [
       for (final j in root['cards'] as List)
-        TarotCard.fromJson(j as Map<String, dynamic>),
+        TarotCard.fromJson(
+          j as Map<String, dynamic>,
+          rich[(j)['id']] == null
+              ? null
+              : CardKnowledge.fromJson(rich[(j)['id']] as Map<String, dynamic>),
+        ),
     ];
     if (cards.length != expectedSize) {
       throw FormatException(
@@ -47,8 +58,13 @@ class Deck {
     return Deck(cards);
   }
 
-  static Future<Deck> load([AssetBundle? bundle]) async =>
-      Deck.fromJsonString(await (bundle ?? rootBundle).loadString(assetPath));
+  static Future<Deck> load([AssetBundle? bundle]) async {
+    final b = bundle ?? rootBundle;
+    return Deck.fromJsonString(
+      await b.loadString(assetPath),
+      await b.loadString(knowledgePath),
+    );
+  }
 
   final List<TarotCard> cards;
   final Map<String, TarotCard> _byId;

@@ -201,7 +201,7 @@ void main() {
       await goHistory(t);
       await tapVisible(t, find.textContaining('Celtic Cross'));
       await t.pumpAndSettle();
-      expect(find.bySemanticsLabel(RegExp(r', reversed$')), findsWidgets);
+      expect(find.bySemanticsLabel(RegExp(r', reversed')), findsWidgets);
       await expectLater(t, meetsGuideline(labeledTapTargetGuideline));
       h.dispose();
     });

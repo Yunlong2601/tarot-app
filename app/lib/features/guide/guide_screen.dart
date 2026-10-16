@@ -45,22 +45,85 @@ class GuideScreen extends StatelessWidget {
     ),
   ];
 
-  static const _basics = [
+  static const _lessons = [
     (
-      'Major and Minor Arcana',
-      'A tarot deck has 78 cards. The 22 Major Arcana cards (The Fool to The World) stand for big life themes. The 56 Minor Arcana cards are everyday matters, split into four suits.',
+      '1. What tarot is (and is not)',
+      'Tarot is a deck of 78 picture cards used as a mirror for your own thinking. It is not a crystal ball. A good reading helps you notice what you already half know, and gives you words and questions to take away. ShenTarot treats every card as a prompt for reflection, never as a promise about the future.',
+      'Pick a card and write one sentence about how it makes you feel.',
     ),
     (
-      'The four suits',
-      'Wands: energy, ambition and action. Cups: feelings and relationships. Swords: thoughts, truth and conflict. Pentacles: work, money and the practical world.',
+      '2. Meet the deck',
+      'The deck has two parts. The 22 Major Arcana are big life themes, from The Fool to The World. The 56 Minor Arcana are everyday matters, in four suits of 14 cards: Ace to Ten, then Page, Knight, Queen and King.',
+      'Sort five cards from the Library into Major or Minor, then by suit.',
     ),
     (
-      'Upright and reversed',
-      'A card that appears upside-down is "reversed". It often points to the same theme turned inward, blocked or in need of attention. It is not automatically bad.',
+      '3. Look before you read',
+      'Four steps work for any card. See: what is in the picture? Feel: what is your first reaction? Name: what might that stand for? Ask: what does it say about my question? Start with your own eyes and use the written meaning second.',
+      'Do these four steps with today\'s Card of the Day before opening its meaning.',
     ),
     (
-      'How to read the result',
-      'Treat a reading as a prompt for reflection, not a prediction. Ask what the cards bring to mind and how it fits your situation. ShenTarot is for entertainment and self-reflection only.',
+      '4. The Major Arcana journey',
+      'The Majors are often read as a story with three acts. Cards 1 to 7 are about building a self: skill, intuition, nurture, structure, belonging, choice and drive. Cards 8 to 14 turn inward: courage, solitude, cycles, fairness, pause, endings and balance. Cards 15 to 21 face what binds you and then integrate it. The Fool, number 0, is the traveller through all of it.',
+      'Find your last drawn Major and say which act it belongs to.',
+    ),
+    (
+      '5. The four suits',
+      'Wands are Fire: drive and creativity. Cups are Water: feelings and relationships. Swords are Air: thoughts, speech and truth. Pentacles are Earth: work, money, body and home. Some traditions swap Wands and Swords; ShenTarot uses Wands for Fire and Swords for Air.',
+      'Look at a card without reading its name and guess its suit from the picture.',
+    ),
+    (
+      '6. Numbers 1 to 10',
+      'In each suit the number tells the stage of the story: 1 a seed, 2 a choice, 3 growth, 4 stability, 5 friction, 6 relief, 7 a test, 8 movement, 9 near the end, 10 completion. Combine number and suit: the Five of Cups is friction in the world of feelings. This is a common way to read numbers, not the only one.',
+      'Read the Five of Swords using only its number and suit, then check the card page.',
+    ),
+    (
+      '7. Court cards',
+      'Pages, Knights, Queens and Kings can be a person in your life, a side of you, or an approach to take. Page: a learner. Knight: someone in motion. Queen: the suit lived from the inside. King: the suit applied in the world. Let your question decide which fits.',
+      'Draw a court card and decide: a person, a part of me, or an approach?',
+    ),
+    (
+      '8. Reversed cards',
+      'A reversed card is not bad news. It is another angle on the same theme. It may be blocked, turned inward, too much or too little, or fading. Many readers skip reversals altogether, and you can turn them off in You > Reversed cards.',
+      'Read one card upright, then imagine it reversed. What changes?',
+    ),
+    (
+      '9. Asking good questions',
+      'Open questions give richer readings than yes or no ones. Stay on your own side of the story: ask what you can understand or do, not what another person thinks. Instead of "Will I get the job?" try "What should I keep in mind about this interview?" Cards cannot answer "when" questions well.',
+      'Rewrite one question you have, so it starts with "What" or "How".',
+    ),
+    (
+      '10. Spreads',
+      'A spread gives each card a role. One card is a quick theme. Three cards can tell a story: where it began, where it stands, where it is heading. The Celtic Cross uses ten positions for a deep look: read the core first, then the roots and the aim, then the past and the near future, then the last four cards from the bottom up.',
+      'Lay out a three-card spread and say what each position asks.',
+    ),
+    (
+      '11. Reading cards together',
+      'Meaning grows from relationships. Notice repeats: the same number or suit appearing again is the loudest signal. Many Major cards suggest big themes; mostly Minors point to everyday matters. A missing suit can say something too. Read cards in order as a story: what the first sets up and what the last answers.',
+      'Draw two cards and say them in one sentence.',
+    ),
+    (
+      '12. Keeping a journal',
+      'Write down the date, your question, the cards and your first reaction. Come back a week later and add what actually happened. Over time you learn which readings helped and which you over-read. Premium members can add private notes to every reading, and they stay on your phone.',
+      'Save a reading and add one line about how it feels now.',
+    ),
+  ];
+
+  static const _myths = [
+    (
+      '"There are bad cards."',
+      'Hard cards point to difficulty, change or limits. They are about growth and awareness, not doom.',
+    ),
+    (
+      '"Death means death."',
+      'It almost never does. It is read as an ending and a change.',
+    ),
+    (
+      '"Reversed always means negative."',
+      'It is another angle on the card, often softer or more private.',
+    ),
+    (
+      '"Tarot can answer yes or no."',
+      'It can start a conversation about your question; it cannot settle a fact.',
     ),
   ];
 
@@ -93,11 +156,11 @@ class GuideScreen extends StatelessWidget {
             ),
           const SizedBox(height: 20),
           const Text(
-            'Tarot basics',
+            'Learn tarot in 12 short lessons',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
           ),
           const SizedBox(height: 8),
-          for (final (title, body) in _basics)
+          for (final (title, body, practice) in _lessons)
             Card(
               child: ExpansionTile(
                 title: Text(title),
@@ -106,6 +169,31 @@ class GuideScreen extends StatelessWidget {
                 children: [
                   Text(
                     body,
+                    style: const TextStyle(color: AppColors.textMuted),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    'Try it: $practice',
+                    style: const TextStyle(fontStyle: FontStyle.italic),
+                  ),
+                ],
+              ),
+            ),
+          const SizedBox(height: 20),
+          const Text(
+            'Myths and worries',
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+          ),
+          const SizedBox(height: 8),
+          for (final (myth, answer) in _myths)
+            Card(
+              child: ExpansionTile(
+                title: Text(myth),
+                childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                expandedAlignment: Alignment.centerLeft,
+                children: [
+                  Text(
+                    answer,
                     style: const TextStyle(color: AppColors.textMuted),
                   ),
                 ],

@@ -70,7 +70,21 @@ Future<ReadingResult?> _interpret(
     nav.pop(); // close the spinner
   }
   if (failure != null && context.mounted) {
-    if (failure.kind == ReadingErrorKind.premiumRequired ||
+    if (failure.kind == ReadingErrorKind.crisis) {
+      await showDialog<void>(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: const Text('You are not alone'),
+          content: Text(failure!.message),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(ctx),
+              child: const Text('OK'),
+            ),
+          ],
+        ),
+      );
+    } else if (failure.kind == ReadingErrorKind.premiumRequired ||
         failure.kind == ReadingErrorKind.dailyLimit) {
       context.push('/paywall');
     } else {

@@ -202,10 +202,10 @@ K["major_15_devil"] = card(
  "A horned figure perches on a block, one hand raised and the other holding a torch. A man and a woman, each with small horns and a tail, stand chained at the neck to the block. The chains are loose enough to lift off.",
  "Fifteen sits in the third act of the Majors, where hidden pulls come into view. Capricorn, the usual sign, is earthly and practical, and the card is about material attachment, habit and the shadow side. The loose chains suggest the hold is partly chosen. It is not a literal devil.",
  "Seeing a habit, attachment or fear that you could loosen once you name it.",
- "honesty about desire, naming what holds you", "feeling stuck, repeating a pattern",
+ "honesty about desire, naming what holds you", "feeling stuck, repeating a pattern (if a habit is affecting your health, a professional can help)",
  "Patterns of dependence or control in how people relate; noticing your own part.",
  "A job or arrangement kept for comfort rather than meaning.",
- "What am I holding that I could put down? (If a habit is affecting your health, a professional can help.)",
+ "What am I holding that I could put down?",
  "A hold is loosening, or you are avoiding seeing it.",
  ["Releasing: slipping out of a grip.", "Blocked: denial.", "Inward: quietly aware but not yet acting."],
  "What would I do if I trusted that I could step out?")

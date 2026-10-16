@@ -6,6 +6,7 @@ import '../../app/app_scope.dart';
 import '../../app/theme.dart';
 import '../../data/models.dart';
 import '../reading/start_reading.dart';
+import '../read/question_nudge.dart';
 import 'orientation_dialog.dart';
 
 /// Starts a reading by scanning with the camera (Phase C), picking manually,
@@ -20,9 +21,22 @@ class ScanScreen extends StatefulWidget {
 class _ScanScreenState extends State<ScanScreen> {
   late SpreadType _spread = AppScope.of(context).selectedSpread;
   final _question = TextEditingController();
+  String? _nudge;
+
+  void _onQ() {
+    final n = questionNudge(_question.text);
+    if (n != _nudge) setState(() => _nudge = n);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _question.addListener(_onQ);
+  }
 
   @override
   void dispose() {
+    _question.removeListener(_onQ);
     _question.dispose();
     super.dispose();
   }
@@ -138,9 +152,11 @@ class _ScanScreenState extends State<ScanScreen> {
           TextField(
             controller: _question,
             maxLength: 300,
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
               labelText: 'Your question (optional)',
-              border: OutlineInputBorder(),
+              border: const OutlineInputBorder(),
+              helperText: _nudge,
+              helperMaxLines: 3,
             ),
           ),
           const SizedBox(height: 8),
