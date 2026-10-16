@@ -73,6 +73,8 @@ export interface FollowupRequest extends ReadingRequest {
   /** The earlier reading text, sent back by the app as context. Untrusted. */
   reading: string;
   followup: string;
+  /** One extra card drawn to clarify the reading (optional, not in the spread). */
+  clarifier?: { id: string; reversed: boolean } | null;
 }
 
 export function parseFollowupRequest(body: unknown): Parsed<FollowupRequest> {
@@ -88,7 +90,16 @@ export function parseFollowupRequest(body: unknown): Parsed<FollowupRequest> {
   const r = parseText(b.reading, MAX_CONTEXT_READING_LENGTH, "reading");
   if (!r.ok) return r;
   if (r.value === null) return fail("reading is required");
-  return { ok: true, value: { ...sc.value, question: q.value, reading: r.value, followup: f.value } };
+  let clarifier: FollowupRequest["clarifier"] = null;
+  if (b.clarifier !== undefined && b.clarifier !== null) {
+    if (typeof b.clarifier !== "object") return fail("invalid clarifier");
+    const { id, reversed } = b.clarifier as Record<string, unknown>;
+    if (typeof id !== "string" || !Object.hasOwn(CARDS, id)) return fail("unknown clarifier card id");
+    if (typeof reversed !== "boolean") return fail("reversed must be true or false");
+    if (sc.value.cards.some((c) => c.id === id)) return fail("clarifier is already in the spread");
+    clarifier = { id, reversed };
+  }
+  return { ok: true, value: { ...sc.value, question: q.value, reading: r.value, followup: f.value, clarifier } };
 }
 
 function fail(error: string): { ok: false; error: string } {

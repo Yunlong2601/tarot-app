@@ -84,6 +84,23 @@ void main() {
     expect((seen.last['body'] as Map).containsKey('impression'), isFalse);
   });
 
+  test('sends a clarifier card with a follow-up', () async {
+    final svc = ApiReadingService('http://127.0.0.1:${server.port}');
+    readingBody = {'answer': 'More.', 'disclaimer': 'd'};
+    final deck = Deck.fromJsonString(File(Deck.assetPath).readAsStringSync());
+    await svc.followUp(
+      spread: SpreadType.single,
+      cards: await cards(),
+      reading: 'A reading.',
+      followUp: 'What does it add?',
+      clarifier: DrawnCard(card: deck.byId('cups_ace')!, reversed: true),
+    );
+    expect((seen.last['body'] as Map)['clarifier'], {
+      'id': 'cups_ace',
+      'reversed': true,
+    });
+  });
+
   test('maps daily limit and premium errors', () async {
     final svc = ApiReadingService('http://127.0.0.1:${server.port}');
     readingStatus = 429;

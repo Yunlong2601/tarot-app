@@ -41,6 +41,7 @@ class ApiReadingService implements ReadingService {
     String? question,
     required String reading,
     required String followUp,
+    DrawnCard? clarifier,
   }) {
     return _send('/v1/followup', {
       'spread': spreadWireName(spread),
@@ -50,6 +51,8 @@ class ApiReadingService implements ReadingService {
       if (question != null && question.trim().isNotEmpty) 'question': question,
       'reading': reading,
       'followup': followUp,
+      if (clarifier != null)
+        'clarifier': {'id': clarifier.card.id, 'reversed': clarifier.reversed},
     }, 'answer');
   }
 

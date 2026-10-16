@@ -45,6 +45,7 @@ abstract class ReadingService {
     String? question,
     required String reading,
     required String followUp,
+    DrawnCard? clarifier,
   });
 }
 
@@ -71,6 +72,7 @@ class UnconfiguredReadingService implements ReadingService {
     String? question,
     required String reading,
     required String followUp,
+    DrawnCard? clarifier,
   }) => throw const ReadingException(
     ReadingErrorKind.notConfigured,
     'The reading service is not set up yet.',

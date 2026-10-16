@@ -281,6 +281,18 @@ describe("follow-up questions", () => {
     expect(msg).toContain("<followup>What does the fresh start look like?</followup>");
   });
 
+  it("accepts one clarifier card not already in the spread and sends its meaning", () => {
+    const p = parseFollowupRequest({ ...base, clarifier: { id: "cups_ace", reversed: true } });
+    if (!p.ok) throw new Error(p.error);
+    const msg = buildFollowupMessage(p.value);
+    expect(msg).toContain("<clarifier>");
+    expect(msg).toContain("Clarifier: Ace of Cups, reversed");
+    expect(parseFollowupRequest({ ...base, clarifier: { id: "major_00_fool", reversed: false } }).ok).toBe(false);
+    expect(parseFollowupRequest({ ...base, clarifier: { id: "nope", reversed: false } }).ok).toBe(false);
+    expect(parseFollowupRequest({ ...base, clarifier: { id: "cups_ace" } }).ok).toBe(false);
+    expect(buildFollowupMessage(parseFollowupRequest(base).ok ? (parseFollowupRequest(base) as any).value : null)).not.toContain("<clarifier>");
+  });
+
   it("requires a token and premium", async () => {
     const s = setup();
     expect((await s.call("/v1/followup", { method: "POST", body: JSON.stringify(base) })).status).toBe(401);

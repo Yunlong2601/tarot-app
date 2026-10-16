@@ -36,6 +36,7 @@ class _Fake implements ReadingService {
     String? question,
     required String reading,
     required String followUp,
+    DrawnCard? clarifier,
   }) async => const ReadingResult(text: 'More.', disclaimer: 'd');
 }
 

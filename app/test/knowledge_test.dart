@@ -31,6 +31,7 @@ class _Crisis implements ReadingService {
     String? question,
     required String reading,
     required String followUp,
+    DrawnCard? clarifier,
   }) async => throw const ReadingException(ReadingErrorKind.crisis, 'x');
 }
 

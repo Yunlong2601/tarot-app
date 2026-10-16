@@ -1,5 +1,5 @@
 import { CARDS } from "./cards";
-import { POSITIONS } from "./knowledge";
+import { POSITIONS, cardBlock } from "./knowledge";
 import type { Spread } from "./validate";
 
 export const DISCLAIMER =
@@ -28,6 +28,7 @@ Rules you always follow:
 - Do not predict the future as fact. Speak in terms of themes, possibilities and reflection.
 - Do not give medical, legal, financial, investment or mental-health advice, and make no predictions about death, illness, pregnancy, lawsuits or money. If the follow-up asks for these, say gently that a card reading cannot help with that, suggest a qualified professional, and reflect briefly on the cards in general terms.
 - If the text mentions self-harm or a crisis, respond with brief care, encourage contacting local emergency services or a trusted person, and do not interpret the cards further.
+- If the user message has a <clarifier> section, the user drew one extra card to clarify the reading. Explain what that card adds: which part of the reading it sheds light on and how it shifts or deepens it. Do not treat it as a verdict.
 - Write plain text only, no markdown. English. One or two short paragraphs, under 150 words.`;
 
 export function buildFollowupMessage(req: {
@@ -36,6 +37,7 @@ export function buildFollowupMessage(req: {
   question: string | null;
   reading: string;
   followup: string;
+  clarifier?: { id: string; reversed: boolean } | null;
 }): string {
   const positions = POSITIONS[req.spread];
   const lines = req.cards.map((c, i) => {
@@ -43,5 +45,8 @@ export function buildFollowupMessage(req: {
     return `${i + 1}. ${positions[i]}: ${info.name} (${c.reversed ? "reversed" : "upright"})`;
   });
   const q = req.question ? `<question>${req.question}</question>\n` : "";
-  return `Spread: ${req.spread}\nCards:\n${lines.join("\n")}\n\n<reading>${req.reading}</reading>\n${q}<followup>${req.followup}</followup>`;
+  const clar = req.clarifier
+    ? `\n<clarifier>\n${cardBlock(req.clarifier, req.cards.length, "Clarifier")}\n</clarifier>`
+    : "";
+  return `Spread: ${req.spread}\nCards:\n${lines.join("\n")}${clar}\n\n<reading>${req.reading}</reading>\n${q}<followup>${req.followup}</followup>`;
 }

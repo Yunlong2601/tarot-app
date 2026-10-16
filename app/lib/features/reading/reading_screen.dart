@@ -7,7 +7,10 @@ import '../../core/reading_service.dart';
 import '../../data/models.dart';
 import '../cards/card_art.dart';
 import '../spreads/spread_layout.dart';
+import '../scan/orientation_dialog.dart';
 import 'report_reading.dart';
+
+import 'dart:math';
 
 class _AskDialog extends StatefulWidget {
   const _AskDialog();
@@ -64,12 +67,77 @@ class _FollowUpsState extends State<_FollowUps> {
   final List<(String, String)> _thread = [];
   bool _busy = false;
 
+  static const clarifierPrompt =
+      'I drew a clarifier card. What does it add to this reading?';
+
   Future<void> _ask() async {
     final text = await showDialog<String>(
       context: context,
       builder: (_) => const _AskDialog(),
     );
     if (text == null || text.isEmpty || !mounted) return;
+    await _send(text, text);
+  }
+
+  /// One extra card to shed light on the reading: drawn on screen, or picked
+  /// from the user's own deck. Never a card already in the reading.
+  Future<void> _clarify() async {
+    final how = await showModalBottomSheet<String>(
+      context: context,
+      builder: (ctx) => SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const ListTile(
+              title: Text('Draw a clarifier card'),
+              subtitle: Text('One more card to shed light on this reading.'),
+            ),
+            ListTile(
+              leading: const Icon(Icons.style_outlined),
+              title: const Text('Draw one for me'),
+              onTap: () => Navigator.pop(ctx, 'draw'),
+            ),
+            ListTile(
+              leading: const Icon(Icons.back_hand_outlined),
+              title: const Text('I drew one from my deck'),
+              onTap: () => Navigator.pop(ctx, 'pick'),
+            ),
+          ],
+        ),
+      ),
+    );
+    if (how == null || !mounted) return;
+    final state = AppScope.of(context);
+    final used = {for (final c in widget.reading.cards) c.card.id};
+    DrawnCard? card;
+    if (how == 'draw') {
+      final pool = state.deck.cards.where((c) => !used.contains(c.id)).toList();
+      final rng = Random();
+      card = DrawnCard(
+        card: pool[rng.nextInt(pool.length)],
+        reversed: state.readReversed && rng.nextDouble() < 0.25,
+      );
+    } else {
+      final id = await context.push<String>('/pick');
+      if (id == null || !mounted) return;
+      if (used.contains(id)) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('That card is already in this reading.'),
+          ),
+        );
+        return;
+      }
+      final reversed = await askOrientation(context);
+      if (reversed == null || !mounted) return;
+      card = DrawnCard(card: state.deck.byId(id)!, reversed: reversed);
+    }
+    final label =
+        'Clarifier: ${card.card.name}${card.reversed ? ' (reversed)' : ''}';
+    await _send(clarifierPrompt, label, clarifier: card);
+  }
+
+  Future<void> _send(String text, String label, {DrawnCard? clarifier}) async {
     final state = AppScope.of(context);
     final r = widget.reading;
     setState(() => _busy = true);
@@ -80,8 +148,9 @@ class _FollowUpsState extends State<_FollowUps> {
         question: r.question,
         reading: r.interpretation,
         followUp: text,
+        clarifier: clarifier,
       );
-      if (mounted) setState(() => _thread.add((text, result.text)));
+      if (mounted) setState(() => _thread.add((label, result.text)));
     } on ReadingException catch (e) {
       if (!mounted) return;
       if (e.kind == ReadingErrorKind.premiumRequired) {
@@ -126,6 +195,20 @@ class _FollowUpsState extends State<_FollowUps> {
                 : state.isPremium
                 ? 'Ask a follow-up'
                 : 'Ask a follow-up (Premium)',
+          ),
+        ),
+        const SizedBox(height: 8),
+        OutlinedButton.icon(
+          onPressed: _busy
+              ? null
+              : (state.isPremium ? _clarify : () => context.push('/paywall')),
+          icon: Icon(
+            state.isPremium ? Icons.add_card_outlined : Icons.lock_outline,
+          ),
+          label: Text(
+            state.isPremium
+                ? 'Draw a clarifier card'
+                : 'Draw a clarifier card (Premium)',
           ),
         ),
       ],

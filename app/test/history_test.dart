@@ -36,9 +36,15 @@ class FakeReadingService implements ReadingService {
     String? question,
     required String reading,
     required String followUp,
+    DrawnCard? clarifier,
   }) async {
     if (error != null) throw error!;
-    calls.add({'reading': reading, 'followUp': followUp, 'n': cards.length});
+    calls.add({
+      'reading': reading,
+      'followUp': followUp,
+      'n': cards.length,
+      'clarifier': clarifier?.card.id,
+    });
     return const ReadingResult(
       text: 'Here is more to explore.',
       disclaimer: 'd',
@@ -355,6 +361,32 @@ void main() {
       expect(fake.calls.single['followUp'], 'What next?');
       expect(fake.calls.single['reading'], 'A reading.');
       expect(fake.calls.single['n'], 3);
+    });
+
+    testWidgets('premium draws a clarifier card not already in the reading', (
+      tester,
+    ) async {
+      tall(tester);
+      final fake = FakeReadingService();
+      final state = AppState(deck: deck, onboarded: true, readingService: fake)
+        ..setPremium(true);
+      state.addReading(reading('a', DateTime(2026, 5, 5)));
+      await tester.pumpWidget(ShenTarotApp(initialState: state));
+      await tester.pumpAndSettle();
+      await goHistory(tester);
+      await tester.tap(find.textContaining('Past, Present, Future'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Draw a clarifier card'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Draw one for me'));
+      await tester.pumpAndSettle();
+      final id = fake.calls.single['clarifier'] as String;
+      expect(['major_00_fool', 'cups_ace', 'swords_ten'], isNot(contains(id)));
+      expect(
+        find.textContaining('Clarifier: ${deck.byId(id)!.name}'),
+        findsOneWidget,
+      );
+      expect(find.text('Here is more to explore.'), findsOneWidget);
     });
 
     testWidgets('free users are sent to the paywall', (tester) async {
