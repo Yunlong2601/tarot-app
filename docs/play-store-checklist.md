@@ -9,7 +9,10 @@ Verify every item in Play Console Help and the Policy Center (Subscriptions, Dat
 
 ## Project
 - [ ] Application ID (replace `com.example.veilscan`), name, version code, upload key and Play App Signing.
-- [ ] Android SDK installed (Android Studio); release `appbundle` builds: `flutter build appbundle --dart-define=...`. Not tried yet.
+- [x] Android toolchain on the Mac (JDK 17 in `~/development/jdk`, SDK in `~/development/android-sdk`, both in `~/.zshrc`). `flutter build apk --debug` and `flutter build appbundle --release` both succeed (2026-10-16; the release bundle is 85.8 MB before Play's per-device splitting and is signed with the DEBUG key, so it cannot be uploaded). Two fixes were needed: core library desugaring (for `flutter_local_notifications`) and `kotlin.jvm.target.validation.mode=warning` (for `tflite_flutter`'s Java/Kotlin target mismatch).
+- [ ] Create an **upload key** (`keytool -genkey ...`), keep it and its passwords outside the repo (back them up: losing it is painful), add a `key.properties` + release `signingConfig` in `app/android/app/build.gradle.kts`, rebuild, then enrol in Play App Signing.
+- [ ] Check R8/minify on a real device: release builds shrink code, and `tflite_flutter` / `camera` / `sqflite` have not been run on a phone. If recognition or storage fails only in release, add keep rules.
+- [ ] Run on an Android emulator or phone (no emulator image is installed yet; `flutter run` on a USB phone with debugging on is the quickest).
 - [ ] Camera permission declared (done); runtime request works on a real phone; notification permission (Android 13+) handled by the reminder switch.
 - [ ] `tflite_flutter` and `camera` verified on a real Android device. Not verified.
 - [ ] Adaptive icon and feature graphic (original art).
