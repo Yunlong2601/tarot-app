@@ -194,7 +194,9 @@ class _PaywallScreenState extends State<PaywallScreen> {
             onPressed: (plan == null || _busy) ? null : () => _buy(plan),
             child: Text(
               plan?.trialLabel != null
-                  ? 'Start ${plan!.trialLabel!.replaceAll(' free', '')} free trial'
+                  ? plan!.trialIsFree
+                        ? 'Start ${plan.trialLabel!.replaceAll(' free', '')} free trial'
+                        : 'Start: ${plan.trialLabel}'
                   : 'Subscribe',
             ),
           ),
@@ -203,10 +205,12 @@ class _PaywallScreenState extends State<PaywallScreen> {
             Text(
               plan.trialLabel != null
                   ? '${plan.trialLabel}, then ${plan.priceString} ${plan.periodLabel}. '
-                        'Cancel any time at least 24 hours before the trial ends.'
+                        'Cancel any time at least 24 hours before the '
+                        '${plan.trialIsFree ? 'trial' : 'introductory period'} ends.'
                   : '${plan.priceString} ${plan.periodLabel}.',
               textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 12, color: AppColors.textMuted),
+              // Same weight as the button: what you pay after the offer.
+              style: const TextStyle(fontSize: 14),
             ),
           const SizedBox(height: 4),
           Text(

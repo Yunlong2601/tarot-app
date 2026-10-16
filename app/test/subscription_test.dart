@@ -186,4 +186,46 @@ void main() {
     subs.monthsPaid = 6;
     expect(await state.annualUpgradeMonths(), 6); // one reminder later
   });
+
+  testWidgets('a paid introductory offer is shown as the store defines it', (
+    tester,
+  ) async {
+    tall(tester);
+    final subs = _PaidIntro();
+    await tester.pumpWidget(
+      ShenTarotApp(
+        initialState: AppState(
+          deck: deck,
+          onboarded: true,
+          subscriptions: subs,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    await openPaywall(tester);
+    await tester.pumpAndSettle();
+    expect(find.text('Start: 7 days for \$1.98'), findsOneWidget);
+    expect(
+      find.textContaining(
+        '7 days for \$1.98, then \$99.99 per year. Cancel any time at least '
+        '24 hours before the introductory period ends.',
+      ),
+      findsOneWidget,
+    );
+  });
+}
+
+class _PaidIntro extends FakeSubscriptions {
+  @override
+  Future<List<PlanOption>> plans() async => const [
+    PlanOption(
+      id: 'annual',
+      title: 'Annual',
+      priceString: '\$99.99',
+      periodLabel: 'per year',
+      trialLabel: '7 days for \$1.98',
+      trialIsFree: false,
+      price: 99.99,
+    ),
+  ];
 }

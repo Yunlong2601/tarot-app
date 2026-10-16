@@ -11,6 +11,7 @@ class PlanOption {
     required this.priceString,
     required this.periodLabel,
     this.trialLabel,
+    this.trialIsFree = true,
     this.handle,
     this.price,
     this.perMonthString,
@@ -26,6 +27,9 @@ class PlanOption {
 
   /// For example "7 days free". Null when the plan has no free trial.
   final String? trialLabel;
+
+  /// False when the introductory offer is paid (e.g. "7 days for $1.98").
+  final bool trialIsFree;
 
   /// Opaque store object used by the service when purchasing.
   final Object? handle;
@@ -249,16 +253,21 @@ class RevenueCatSubscriptionService implements SubscriptionService {
       _ => (p.storeProduct.title, ''),
     };
     final intro = p.storeProduct.introductoryPrice;
-    final trial = (intro != null && intro.price == 0)
-        ? '${intro.periodNumberOfUnits * intro.cycles} '
-              '${_unit(intro.periodUnit, intro.periodNumberOfUnits * intro.cycles)} free'
-        : null;
+    // The introductory offer as the store defines it: free ("7 days free")
+    // or paid ("7 days for $1.98"). Nothing is hardcoded here.
+    final n = intro == null ? 0 : intro.periodNumberOfUnits * intro.cycles;
+    final trial = intro == null
+        ? null
+        : intro.price == 0
+        ? '$n ${_unit(intro.periodUnit, n)} free'
+        : '$n ${_unit(intro.periodUnit, n)} for ${intro.priceString}';
     return PlanOption(
       id: p.identifier,
       title: title,
       priceString: p.storeProduct.priceString,
       periodLabel: period,
       trialLabel: trial,
+      trialIsFree: intro == null || intro.price == 0,
       handle: p,
       price: p.storeProduct.price,
       perMonthString: p.storeProduct.pricePerMonthString,
