@@ -4,6 +4,7 @@ import '../features/you/own_key_screen.dart';
 import '../features/cards/card_detail_screen.dart';
 import '../features/draw/draw_screen.dart';
 import '../features/invite/invite_screen.dart';
+import '../features/settings/settings_screen.dart';
 import '../features/settings/settings_screens.dart';
 import '../features/you/account_screen.dart';
 import '../features/guide/guide_screen.dart';
@@ -76,6 +77,7 @@ GoRouter buildRouter(AppState state) {
       GoRoute(path: '/history', builder: (_, _) => const HistoryScreen()),
       GoRoute(path: '/account', builder: (_, _) => const AccountScreen()),
       GoRoute(path: '/invite', builder: (_, _) => const InviteScreen()),
+      GoRoute(path: '/settings', builder: (_, _) => const SettingsScreen()),
       GoRoute(
         path: '/settings/reminders',
         builder: (_, _) => const ReminderSettingsScreen(),

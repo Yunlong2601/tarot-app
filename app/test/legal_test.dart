@@ -32,6 +32,8 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text('You').last);
     await tester.pumpAndSettle();
+    await tester.tap(find.text('Settings'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Privacy Policy'));
     await tester.pumpAndSettle();
     expect(find.textContaining('analysed on your phone'), findsOneWidget);
@@ -48,6 +50,8 @@ void main() {
       );
       await tester.pumpAndSettle();
       await tester.tap(find.text('You').last);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Settings'));
       await tester.pumpAndSettle();
       expect(find.text('Disclaimer'), findsNothing);
       await tester.tap(find.text('Terms of Use'));

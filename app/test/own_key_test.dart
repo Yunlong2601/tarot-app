@@ -44,6 +44,8 @@ void main() {
     await t.pumpAndSettle();
     await t.tap(find.text('You').last);
     await t.pumpAndSettle();
+    await t.tap(find.text('Settings'));
+    await t.pumpAndSettle();
     await t.tap(find.text('Your own AI key'));
     await t.pumpAndSettle();
     await t.enterText(find.byType(TextField), 'not-a-key');
@@ -71,6 +73,8 @@ void main() {
     await t.pumpAndSettle();
     await t.tap(find.text('You').last);
     await t.pumpAndSettle();
+    await t.tap(find.text('Settings'));
+    await t.pumpAndSettle();
     expect(find.text('Your own AI key'), findsNothing);
     expect(await s.activeUserKey(), isNull);
   });
@@ -83,6 +87,8 @@ void main() {
     await t.pumpWidget(ShenTarotApp(initialState: s));
     await t.pumpAndSettle();
     await t.tap(find.text('You').last);
+    await t.pumpAndSettle();
+    await t.tap(find.text('Settings'));
     await t.pumpAndSettle();
     await t.tap(find.text('Your own AI key'));
     await t.pumpAndSettle();
