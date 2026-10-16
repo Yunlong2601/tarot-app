@@ -16,6 +16,8 @@ Primary working copy: the owner's local Mac folder. This repo is the backup and 
 | G | Tests, store checklists, privacy and terms drafts | Docs written on branch `phase-g-release-docs` (checklists, test plan, data inventory, legal DRAFTS bundled in the app); lawyer review and device testing still to do |
 
 ## Next step
+Readings are now laid out by section (`app/lib/features/reading/reading_sections.dart` parses the backend text; no backend change): a gold "In short" panel, one panel per card with its art, position and an expandable "Why this card", then "To reflect on" and "A small step". Old plain readings still show as text. Debug "Simulate scan" now produces a sample in the same layout. 93 app tests pass.
+
 Clarifier card (Premium) is built: "Draw a clarifier card" under a reading draws one card on screen or takes one the user picked from their deck (never a card already in the reading) and sends it with `/v1/followup` as `clarifier` (counts against the 30 follow-ups a day). 90 app tests, 51 backend tests pass. Left from the knowledge plan: structured card-by-card rendering, intent chips, journal mood/tags.
 
 Look back after a week (Premium) is built: 7 to 59 days after a reading, the Read tab shows "Look back at last week's reading" and the reading screen asks how it turned out (Save or Not now). Answers stay on the device (SQLite schema v2, `revisit` column, upgrade tested). No push notification for it yet (would reuse the daily reminder permission). 88 app tests pass.

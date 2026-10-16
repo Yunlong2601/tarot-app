@@ -23,7 +23,7 @@ Future<void> startReading(
     return;
   }
   final q = (question ?? '').trim();
-  var text = mockInterpretation;
+  var text = mockInterpretation(spread, cards);
   if (!simulated) {
     String? impression;
     if (state.lookFirst) {

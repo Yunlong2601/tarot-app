@@ -8,6 +8,7 @@ import '../../data/models.dart';
 import '../cards/card_art.dart';
 import '../spreads/spread_layout.dart';
 import '../scan/orientation_dialog.dart';
+import 'reading_sections.dart';
 import 'report_reading.dart';
 
 import 'dart:math';
@@ -477,7 +478,7 @@ class ReadingScreen extends StatelessWidget {
             ),
           ],
           const SizedBox(height: 20),
-          _ReadingText(reading.interpretation),
+          _ReadingText(reading),
           const SizedBox(height: 20),
           _FollowUps(reading: reading),
           const SizedBox(height: 12),
@@ -489,61 +490,167 @@ class ReadingScreen extends StatelessWidget {
   }
 }
 
-/// Shows the reading with its section titles ("In short", the card lines, "To
-/// reflect on", "A small step") in the heading style. Older plain readings
-/// have no titles and just show as text.
+/// Lays the reading out by section: the summary first, one panel per card
+/// (with its art and a "Why this card" note to expand), then the question to
+/// reflect on and a small step. Plain older readings show as text.
 class _ReadingText extends StatelessWidget {
-  const _ReadingText(this.text);
-  final String text;
-
-  static bool _isTitle(String line) =>
-      line.length <= 70 &&
-      !line.endsWith('.') &&
-      !line.endsWith('?') &&
-      !line.startsWith('Why:');
+  const _ReadingText(this.reading);
+  final Reading reading;
 
   @override
   Widget build(BuildContext context) {
-    final blocks = text.split('\n\n');
+    final sections = parseReading(reading.interpretation);
+    if (sections == null) return Text(reading.interpretation);
     final t = Theme.of(context).textTheme;
+    final heading = t.titleMedium?.copyWith(color: AppColors.gold);
+    Widget panel(Widget child, {bool highlight = false}) => Container(
+      width: double.infinity,
+      margin: const EdgeInsets.only(bottom: 12),
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: highlight ? AppColors.goldTint : AppColors.surface,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(
+          color: highlight ? AppColors.goldDeep : const Color(0xFF2A2822),
+        ),
+      ),
+      child: child,
+    );
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        for (final b in blocks)
-          Padding(
-            padding: const EdgeInsets.only(bottom: 16),
-            child: Builder(
-              builder: (_) {
-                final lines = b.split('\n');
-                if (lines.length > 1 && _isTitle(lines.first)) {
-                  return Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        lines.first,
-                        style: t.titleMedium?.copyWith(color: AppColors.gold),
-                      ),
-                      const SizedBox(height: 4),
-                      for (final l in lines.skip(1))
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 4),
-                          child: Text(
-                            l,
-                            style: l.startsWith('Why:')
-                                ? const TextStyle(
-                                    color: AppColors.textMuted,
-                                    fontStyle: FontStyle.italic,
-                                  )
-                                : null,
-                          ),
-                        ),
-                    ],
-                  );
-                }
-                return Text(b);
-              },
+        for (final s in sections)
+          switch (s.kind) {
+            SectionKind.overview => panel(
+              highlight: true,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(s.title, style: heading),
+                  const SizedBox(height: 6),
+                  Text(s.body, style: t.bodyLarge),
+                ],
+              ),
             ),
+            SectionKind.card => panel(_CardSection(reading, s)),
+            SectionKind.reflect || SectionKind.step => panel(
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Icon(
+                    s.kind == SectionKind.reflect
+                        ? Icons.lightbulb_outline
+                        : Icons.directions_walk,
+                    color: AppColors.gold,
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(s.title, style: heading),
+                        const SizedBox(height: 4),
+                        Text(
+                          s.body,
+                          style: s.kind == SectionKind.reflect
+                              ? const TextStyle(fontStyle: FontStyle.italic)
+                              : null,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SectionKind.other => Padding(
+              padding: const EdgeInsets.only(bottom: 12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  if (s.title.isNotEmpty) Text(s.title, style: heading),
+                  Text(s.body),
+                ],
+              ),
+            ),
+          },
+      ],
+    );
+  }
+}
+
+class _CardSection extends StatefulWidget {
+  const _CardSection(this.reading, this.section);
+  final Reading reading;
+  final ReadingSection section;
+
+  @override
+  State<_CardSection> createState() => _CardSectionState();
+}
+
+class _CardSectionState extends State<_CardSection> {
+  bool _why = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final s = widget.section;
+    final i = s.cardIndex!;
+    final drawn = i < widget.reading.cards.length
+        ? widget.reading.cards[i]
+        : null;
+    final colon = s.title.indexOf(':');
+    final position = s.title.substring(0, colon).trim();
+    final name = s.title.substring(colon + 1).trim();
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            if (drawn != null) ...[
+              CardArt(card: drawn.card, reversed: drawn.reversed, width: 48),
+              const SizedBox(width: 12),
+            ],
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    position.toUpperCase(),
+                    style: const TextStyle(
+                      fontSize: 11,
+                      letterSpacing: 1.2,
+                      color: AppColors.textMuted,
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    name,
+                    style: Theme.of(context).textTheme.titleMedium
+                        ?.copyWith(color: AppColors.gold),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 8),
+        Text(s.body),
+        if (s.why != null && s.why!.isNotEmpty) ...[
+          TextButton.icon(
+            style: TextButton.styleFrom(padding: EdgeInsets.zero),
+            onPressed: () => setState(() => _why = !_why),
+            icon: Icon(_why ? Icons.expand_less : Icons.expand_more, size: 18),
+            label: const Text('Why this card'),
           ),
+          if (_why)
+            Text(
+              s.why!,
+              style: const TextStyle(
+                color: AppColors.textMuted,
+                fontStyle: FontStyle.italic,
+              ),
+            ),
+        ],
       ],
     );
   }
