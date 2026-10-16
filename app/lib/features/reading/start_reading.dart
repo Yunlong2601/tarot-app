@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -72,7 +74,7 @@ Future<ReadingResult?> _interpret(
   showDialog<void>(
     context: context,
     barrierDismissible: false,
-    builder: (_) => const Center(child: CircularProgressIndicator()),
+    builder: (_) => const _Waiting(),
   );
   ReadingException? failure;
   ReadingResult? result;
@@ -107,8 +109,26 @@ Future<ReadingResult?> _interpret(
         failure.kind == ReadingErrorKind.dailyLimit) {
       context.push('/paywall');
     } else {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text(failure.message)));
+      final canRetry =
+          failure.kind == ReadingErrorKind.network ||
+          failure.kind == ReadingErrorKind.failed;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(failure.message),
+          duration: const Duration(seconds: 8),
+          action: canRetry
+              ? SnackBarAction(
+                  label: 'Retry',
+                  onPressed: () => startReading(
+                    context,
+                    spread: spread,
+                    cards: cards,
+                    question: question,
+                  ),
+                )
+              : null,
+        ),
+      );
     }
   }
   return result;
@@ -164,4 +184,62 @@ Future<String?> _lookFirst(BuildContext context, List<DrawnCard> cards) {
       ],
     ),
   );
+}
+
+/// Shown while the reading is written. Readings usually take 5 to 20 seconds;
+/// after a while the text says so, so a slow server does not look frozen.
+class _Waiting extends StatefulWidget {
+  const _Waiting();
+
+  @override
+  State<_Waiting> createState() => _WaitingState();
+}
+
+class _WaitingState extends State<_Waiting> {
+  static const _steps = [
+    (Duration.zero, 'Reading your cards...'),
+    (Duration(seconds: 8), 'Writing your reading...'),
+    (Duration(seconds: 25), 'Still working. This can take up to a minute.'),
+  ];
+  final _watch = Stopwatch()..start();
+  late final Timer _timer = Timer.periodic(
+    const Duration(seconds: 1),
+    (_) => setState(() {}),
+  );
+
+  @override
+  void initState() {
+    super.initState();
+    _timer;
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final text = _steps.lastWhere((s) => _watch.elapsed >= s.$1).$2;
+    return PopScope(
+      canPop: false,
+      child: Center(
+        child: Material(
+          color: Colors.transparent,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const CircularProgressIndicator(),
+              const SizedBox(height: 20),
+              Semantics(
+                liveRegion: true,
+                child: Text(text, textAlign: TextAlign.center),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
