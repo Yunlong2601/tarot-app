@@ -16,7 +16,7 @@ Primary working copy: the owner's local Mac folder. This repo is the backup and 
 | G | Tests, store checklists, privacy and terms drafts | Docs written on branch `phase-g-release-docs` (checklists, test plan, data inventory, legal DRAFTS bundled in the app); lawyer review and device testing still to do |
 
 ## Next step
-Court cards (16) now have rich original knowledge (`app/tools/knowledge_courts.py`, run `make_knowledge.py` then `backend/scripts/gen-cards.mjs`); 38 of 78 cards rich, the 40 pips still use the short text. Backend 50 tests pass.
+All 78 cards now have rich original knowledge (`app/tools/knowledge_courts.py`, `knowledge_pips.py`; run `make_knowledge.py` then `backend/scripts/gen-cards.mjs`). Owner should skim the pip/court wording; imagery notes were written from memory of the 1909 pictures and should be spot-checked against the scans. Backend 50 tests pass.
 
 Google Play prep (branch `google-play-prep`): app id `com.shentech.shentarot`, upload key in `~/shentarot-keys` (back it up), signed release AAB, minimal permissions, report-a-reading button (Play AI content policy), data-safety answers, release guide, store assets in `store/play/`, release build verified on an Android emulator. See `docs/play-release-guide.md` for what only the owner can do.
 

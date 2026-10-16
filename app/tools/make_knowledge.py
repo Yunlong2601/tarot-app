@@ -284,8 +284,10 @@ K["major_21_world"] = card(
 
 from knowledge_courts import add_courts
 add_courts(K, card)
+from knowledge_pips import add_pips
+add_pips(K, card)
 
-out = {"version": 2, "note": "Original wording. Majors and courts; pips use cards.json until written.", "cards": K}
+out = {"version": 2, "note": "Original wording. All 78 cards.", "cards": K}
 p = pathlib.Path(__file__).resolve().parent.parent / "assets" / "cards" / "knowledge.json"
 p.write_text(json.dumps(out, indent=1, ensure_ascii=False) + "\n")
 print("wrote", p, len(K))

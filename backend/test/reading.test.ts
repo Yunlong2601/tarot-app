@@ -23,11 +23,10 @@ describe("card knowledge sent to the model", () => {
     expect(up).toContain("image:");
   });
 
-  it("minor cards without rich data still send orientation-specific meaning, suit and number logic", () => {
+  it("minor cards send orientation-specific meaning, suit and number", () => {
     const rev = cardBlock({ id: "swords_five", reversed: true }, 2, "Where it stands");
-    expect(rev).toContain("meaning (reversed): " + CARDS["swords_five"]!.reversed);
-    expect(rev).toContain("Swords (Air)");
-    expect(rev).toContain("number 5");
+    expect(rev).toContain("core (reversed): " + CARDS["swords_five"]!.k!.reversed.core);
+    expect(rev).toContain("swords 5, Air");
   });
 
   it("every court card has rich knowledge and is labelled a court", () => {
