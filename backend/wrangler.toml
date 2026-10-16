@@ -14,9 +14,9 @@ GLOBAL_DAILY_TOKEN_CAP = "2000000"
 [[d1_databases]]
 binding = "DB"
 database_name = "shentarot"
-database_id = "REPLACE_AFTER_wrangler_d1_create"
+database_id = "3b23ed42-1d88-4cfc-9662-27d9bd21f837"
 migrations_dir = "migrations"
 
 [[kv_namespaces]]
 binding = "KV"
-id = "REPLACE_AFTER_wrangler_kv_namespace_create"
+id = "1d3064f83fee4fd48cfe6ec48102d260"
