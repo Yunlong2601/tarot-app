@@ -23,8 +23,10 @@
           "internalID": "125C637D-394F-47F7-9503-670B38461E45",
           "introductoryOffer": {
             "internalID": "4EFA48E7-FAE9-4E64-A8A7-B410ECE58FA7",
-            "paymentMode": "free",
-            "subscriptionPeriod": "P1W"
+            "paymentMode": "payUpFront",
+            "subscriptionPeriod": "P1M",
+            "displayPrice": "1.99",
+            "numberOfPeriods": 1
           },
           "localizations": [
             {

@@ -60,6 +60,10 @@ class _Plans implements SubscriptionService {
   @override
   Future<String?> currentProductId() async => currentId;
 
+  DateTime? introEnd;
+  @override
+  Future<DateTime?> introEndsAt() async => introEnd;
+
   int? monthsPaid;
   @override
   Future<int?> monthlyMonthsPaid() async => monthsPaid;

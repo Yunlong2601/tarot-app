@@ -16,7 +16,13 @@ abstract class ReminderService {
   /// when the daily reminder is on (permission already granted).
   Future<void> scheduleLookBack(String readingId, DateTime at);
   Future<void> cancelLookBack(String readingId);
+
+  /// One-off reminder 2 days before a paid introductory period (e.g. the
+  /// US$1.99 first month) ends and the full price is charged.
+  Future<void> scheduleIntroEnding(DateTime at);
 }
+
+const _introEndingId = 2;
 
 /// Stable notification id for a reading's look-back (1 is the daily reminder).
 int lookBackNotificationId(String readingId) =>
@@ -32,6 +38,8 @@ class NoopReminderService implements ReminderService {
   Future<void> scheduleLookBack(String readingId, DateTime at) async {}
   @override
   Future<void> cancelLookBack(String readingId) async {}
+  @override
+  Future<void> scheduleIntroEnding(DateTime at) async {}
 }
 
 class LocalNotificationReminderService implements ReminderService {
@@ -135,5 +143,28 @@ class LocalNotificationReminderService implements ReminderService {
   Future<void> cancelLookBack(String readingId) async {
     await _init();
     await _plugin.cancel(id: lookBackNotificationId(readingId));
+  }
+
+  @override
+  Future<void> scheduleIntroEnding(DateTime at) async {
+    if (!at.isAfter(DateTime.now())) return;
+    await _init();
+    await _plugin.zonedSchedule(
+      id: _introEndingId,
+      title: 'Your first month ends in 2 days',
+      body:
+          'Premium then renews at the yearly price. You can manage or cancel '
+          'in your store subscription settings.',
+      scheduledDate: tz.TZDateTime.from(at, tz.local),
+      notificationDetails: const NotificationDetails(
+        iOS: DarwinNotificationDetails(),
+        android: AndroidNotificationDetails(
+          'billing_reminder',
+          'Billing reminder',
+          channelDescription: 'Before an introductory price ends',
+        ),
+      ),
+      androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
+    );
   }
 }

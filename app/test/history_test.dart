@@ -7,6 +7,7 @@ import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'package:shentarot/app/app_state.dart';
 import 'package:shentarot/core/reading_service.dart';
 import 'package:shentarot/core/reminder_service.dart';
+import 'package:shentarot/core/subscription_service.dart';
 import 'package:shentarot/data/deck.dart';
 import 'package:shentarot/data/history_repository.dart';
 import 'package:shentarot/data/models.dart';
@@ -75,6 +76,10 @@ class FakeReminders implements ReminderService {
   @override
   Future<void> cancelLookBack(String readingId) async =>
       lookBacks.remove(readingId);
+
+  DateTime? introReminder;
+  @override
+  Future<void> scheduleIntroEnding(DateTime at) async => introReminder = at;
 }
 
 void main() {
@@ -261,6 +266,16 @@ void main() {
   });
 
   group('reminder', () {
+    test('a reminder 2 days before a paid first month ends', () async {
+      final fake = FakeReminders();
+      final subs = _IntroSubs(DateTime(2026, 11, 17, 10));
+      final s = AppState(deck: deck, reminders: fake, subscriptions: subs);
+      await s.setReminder(true);
+      s.setPremium(true);
+      await Future<void>.delayed(Duration.zero);
+      expect(fake.introReminder, DateTime(2026, 11, 15, 10));
+    });
+
     test(
       'Premium readings get a look-back nudge 7 days later; saving cancels it',
       () async {
@@ -436,4 +451,11 @@ void main() {
       expect(find.text('Unlock Premium'), findsOneWidget);
     });
   });
+}
+
+class _IntroSubs extends UnconfiguredSubscriptionService {
+  const _IntroSubs(this.end);
+  final DateTime end;
+  @override
+  Future<DateTime?> introEndsAt() async => end;
 }

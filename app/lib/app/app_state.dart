@@ -380,9 +380,25 @@ class AppState extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// With reminders on: a heads-up 2 days before an introductory price ends.
+  Future<void> scheduleIntroReminder() async {
+    if (!isPremium || !reminderEnabled) return;
+    try {
+      final end = await subscriptions.introEndsAt();
+      if (end != null) {
+        await reminders.scheduleIntroEnding(
+          end.subtract(const Duration(days: 2)),
+        );
+      }
+    } catch (e) {
+      debugPrint('Intro reminder failed: $e');
+    }
+  }
+
   void setPremium(bool value) {
     if (isPremium == value) return;
     isPremium = value;
+    if (value) scheduleIntroReminder();
     notifyListeners();
   }
 

@@ -196,7 +196,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
               plan?.trialLabel != null
                   ? plan!.trialIsFree
                         ? 'Start ${plan.trialLabel!.replaceAll(' free', '')} free trial'
-                        : 'Start: ${plan.trialLabel}'
+                        : 'Start for ${plan.trialLabel!.split(' for ').first}'
                   : 'Subscribe',
             ),
           ),
@@ -206,7 +206,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
               plan.trialLabel != null
                   ? '${plan.trialLabel}, then ${plan.priceString} ${plan.periodLabel}. '
                         'Cancel any time at least 24 hours before the '
-                        '${plan.trialIsFree ? 'trial' : 'introductory period'} ends.'
+                        '${plan.trialIsFree ? 'trial' : 'first period'} ends.'
                   : '${plan.priceString} ${plan.periodLabel}.',
               textAlign: TextAlign.center,
               // Same weight as the button: what you pay after the offer.

@@ -84,6 +84,10 @@ abstract class SubscriptionService {
   /// Store product id of the active plan (without any ":baseplan"), or null.
   Future<String?> currentProductId();
 
+  /// When the active introductory period (free trial or paid first month)
+  /// ends, or null if the user is not in one.
+  Future<DateTime?> introEndsAt();
+
   /// Moves an active monthly subscriber to [plan] (the store handles the
   /// change; on Google Play the old product is replaced).
   Future<bool> switchTo(PlanOption plan);
@@ -130,6 +134,9 @@ class UnconfiguredSubscriptionService implements SubscriptionService {
 
   @override
   Future<String?> currentProductId() async => null;
+
+  @override
+  Future<DateTime?> introEndsAt() async => null;
 
   @override
   Future<bool> switchTo(PlanOption plan) =>
@@ -184,6 +191,21 @@ class RevenueCatSubscriptionService implements SubscriptionService {
     final latest = DateTime.tryParse(ent.latestPurchaseDate);
     if (first == null || latest == null) return null;
     return monthsPaidBetween(first, latest);
+  }
+
+  @override
+  Future<DateTime?> introEndsAt() async {
+    if (!_started) return null;
+    final ent = (await Purchases.getCustomerInfo())
+        .entitlements
+        .active[premiumEntitlement];
+    if (ent == null ||
+        (ent.periodType != PeriodType.intro &&
+            ent.periodType != PeriodType.trial)) {
+      return null;
+    }
+    final end = ent.expirationDate;
+    return end == null ? null : DateTime.tryParse(end);
   }
 
   @override
@@ -260,7 +282,8 @@ class RevenueCatSubscriptionService implements SubscriptionService {
         ? null
         : intro.price == 0
         ? '$n ${_unit(intro.periodUnit, n)} free'
-        : '$n ${_unit(intro.periodUnit, n)} for ${intro.priceString}';
+        : '${intro.priceString} for your first '
+              '${n == 1 ? _unit(intro.periodUnit, 1) : '$n ${_unit(intro.periodUnit, n)}'}';
     return PlanOption(
       id: p.identifier,
       title: title,

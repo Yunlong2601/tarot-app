@@ -5,8 +5,8 @@ The app code is done (`app/lib/core/subscription_service.dart`, paywall, setting
 ## What the code expects
 - RevenueCat entitlement id: `premium`.
 - One **current offering** with packages of type **Annual**, **Three Month**, **Monthly** (no weekly) (use RevenueCat's standard package types so the paywall can label them).
-- Annual product has a **7-day free trial** introductory offer; the paywall reads the trial from the store product, never hardcoded.
-- Prices come from the store (localised). Set base prices in App Store Connect (plan: annual $99.99 with a 7-day free trial, 3 months $34.99, monthly $14.99 USD; weekly is not offered).
+- Annual product has a paid introductory offer: **US$1.99 for the first month** (Apple: introductory offer "Pay up front", 1 month, $1.99; new subscribers only). No free trial. The paywall reads the offer from the store product, never hardcoded.
+- Prices come from the store (localised). Set base prices in App Store Connect (plan: annual $99.99 with $1.99 for the first month, 3 months $34.99, monthly $14.99 USD; weekly is not offered).
 - The RevenueCat **app user ID** is the anonymous install ID (stored on device), and the backend looks up the same ID via the RevenueCat REST API to decide whether a request is premium. No accounts.
 
 ## I need to do (owner), iOS
@@ -30,11 +30,11 @@ Create the Play Console subscriptions, a RevenueCat Android app and pass `REVENU
 
 ## Not verified
 - Never run against RevenueCat or the stores: only unit/widget tests with a fake service, and a successful iOS simulator build.
-- Intro-offer detection assumes a free-trial intro price of 0; check how a "pay as you go" or "pay up front" offer appears.
+- Intro offers: price 0 shows as "N days free", any other price as "$X for your first month". Check in sandbox that the Pay up front offer appears as expected.
 - Restore needs a real sandbox account to confirm.
 
 ## Test purchases on the Mac without App Store Connect (StoreKit file)
-`app/ios/ShenTarot.storekit` defines the three subscriptions locally: product ids `shentarot_annual` (US$99.99, 7-day free trial, group level 1), `shentarot_quarterly` (US$34.99, every 3 months, level 2) and `shentarot_monthly` (US$14.99, level 3). Use the same product ids when you create the products in App Store Connect.
+`app/ios/ShenTarot.storekit` defines the three subscriptions locally: product ids `shentarot_annual` (US$99.99, intro offer $1.99 for the first month, pay up front, group level 1), `shentarot_quarterly` (US$34.99, every 3 months, level 2) and `shentarot_monthly` (US$14.99, level 3). Use the same product ids when you create the products in App Store Connect.
 
 To use it in Xcode: open `app/ios/Runner.xcworkspace`, Product > Scheme > Edit Scheme > Run > Options > StoreKit Configuration > choose `ShenTarot.storekit`. Run on the simulator or your own iPhone. Xcode's Debug > StoreKit > Manage Transactions lets you approve, fail, expire or refund purchases.
 

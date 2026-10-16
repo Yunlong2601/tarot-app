@@ -61,6 +61,10 @@ class FakeSubscriptions implements SubscriptionService {
   @override
   Future<String?> currentProductId() async => currentId;
 
+  DateTime? introEnd;
+  @override
+  Future<DateTime?> introEndsAt() async => introEnd;
+
   int? monthsPaid;
   @override
   Future<int?> monthlyMonthsPaid() async => monthsPaid;
@@ -204,11 +208,11 @@ void main() {
     await tester.pumpAndSettle();
     await openPaywall(tester);
     await tester.pumpAndSettle();
-    expect(find.text('Start: 7 days for \$1.98'), findsOneWidget);
+    expect(find.text('Start for \$1.99'), findsOneWidget);
     expect(
       find.textContaining(
-        '7 days for \$1.98, then \$99.99 per year. Cancel any time at least '
-        '24 hours before the introductory period ends.',
+        '\$1.99 for your first month, then \$99.99 per year. Cancel any time '
+        'at least 24 hours before the first period ends.',
       ),
       findsOneWidget,
     );
@@ -223,7 +227,7 @@ class _PaidIntro extends FakeSubscriptions {
       title: 'Annual',
       priceString: '\$99.99',
       periodLabel: 'per year',
-      trialLabel: '7 days for \$1.98',
+      trialLabel: '\$1.99 for your first month',
       trialIsFree: false,
       price: 99.99,
     ),

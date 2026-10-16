@@ -21,7 +21,7 @@ Goal (owner): Premium only needs to cover building and running costs. All figure
 |---|---|---|
 | Monthly | US$14.99 | about US$12.74 |
 | 3 months | US$34.99 | about US$9.91 |
-| Annual | US$99.99 (7-day trial) | about US$7.08 |
+| Annual | US$99.99 a year (new subscribers first pay US$1.99 for one month) | about US$7.08 |
 
 ## Break-even
 Fixed costs are about **US$10 to US$15 a month** (Apple fee, plus US$5 Cloudflare if needed). Free users add about US$0.01 each per month.
