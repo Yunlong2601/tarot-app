@@ -43,17 +43,18 @@ class UncertainScan extends ScanDecision {
   final List<CardGuess> topGuesses;
 }
 
-/// [uprightScores] and [rotatedScores] are softmax outputs for the crop and
-/// the crop turned 180 degrees, both in [cardIds] order. Per card the better
-/// pass wins; the card is reversed if the rotated pass won.
+/// [uprightScores] and [reversedScores] are the model's probabilities that the
+/// card is upright / reversed, both in [cardIds] order (the model has 2 x 78
+/// outputs). Per card the better one wins; the card is reversed if the
+/// reversed output won.
 ScanDecision decideScan(
   List<String> cardIds,
   List<double> uprightScores,
-  List<double> rotatedScores, [
+  List<double> reversedScores, [
   ScanPolicy policy = const ScanPolicy(),
 ]) {
   if (cardIds.length != uprightScores.length ||
-      cardIds.length != rotatedScores.length) {
+      cardIds.length != reversedScores.length) {
     throw ArgumentError('score lists must match cardIds length');
   }
   if (cardIds.isEmpty) return const UncertainScan([]);
@@ -62,8 +63,8 @@ ScanDecision decideScan(
     for (var i = 0; i < cardIds.length; i++)
       CardGuess(
         cardId: cardIds[i],
-        score: math.max(uprightScores[i], rotatedScores[i]),
-        reversed: rotatedScores[i] > uprightScores[i],
+        score: math.max(uprightScores[i], reversedScores[i]),
+        reversed: reversedScores[i] > uprightScores[i],
       ),
   ]..sort((a, b) => b.score.compareTo(a.score));
 
@@ -71,7 +72,7 @@ ScanDecision decideScan(
   final best = guesses.first;
   final lead = guesses.length > 1 ? best.score - guesses[1].score : best.score;
   final i = cardIds.indexOf(best.cardId);
-  final gap = (uprightScores[i] - rotatedScores[i]).abs();
+  final gap = (uprightScores[i] - reversedScores[i]).abs();
 
   if (best.score >= policy.minScore &&
       lead >= policy.minLead &&

@@ -20,7 +20,7 @@ void main() {
       expect(g.reversed, isFalse);
     });
 
-    test('confident reversed when the rotated pass wins', () {
+    test('confident reversed when the reversed output wins', () {
       final d = decideScan(ids, _scores({2: 0.03}, 4), _scores({2: 0.92}, 4));
       final g = (d as ConfidentScan).guess;
       expect(g.cardId, 'c');
@@ -103,21 +103,8 @@ void main() {
 
     test('produces model-sized tensors in 0..255', () {
       final input = preprocessForModel(photo());
-      expect(input.upright.length, modelInputLength);
-      expect(input.rotated.length, modelInputLength);
-      expect(input.upright.every((v) => v >= 0 && v <= 255), isTrue);
-    });
-
-    test('rotated is an exact 180 degree turn of upright', () {
-      final input = preprocessForModel(photo());
-      final up = input.upright;
-      final rot = input.rotated;
-      const px = modelWidth * modelHeight;
-      for (final i in [0, 1, 777, px - 2, px - 1]) {
-        final j = px - 1 - i;
-        expect(rot.sublist(i * 3, i * 3 + 3), up.sublist(j * 3, j * 3 + 3));
-      }
-      expect(rotate180(rot), up);
+      expect(input.tensor.length, modelInputLength);
+      expect(input.tensor.every((v) => v >= 0 && v <= 255), isTrue);
     });
 
     test('garbage bytes throw FormatException', () {

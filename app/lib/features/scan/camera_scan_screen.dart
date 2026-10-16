@@ -105,7 +105,7 @@ class _CameraScanScreenState extends State<CameraScanScreen> {
       final input = await preprocessOffUi(bytes);
       final scores = await recognizer.recognize(input);
       final decision = decideScan(
-          [for (final c in deck.cards) c.id], scores.upright, scores.rotated);
+          [for (final c in deck.cards) c.id], scores.upright, scores.reversed);
       if (!mounted) return;
       await _handleDecision(decision);
     } catch (_) {

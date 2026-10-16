@@ -5,11 +5,11 @@ import 'preprocess.dart';
 
 const modelAsset = 'assets/models/tarot_classifier.tflite';
 
-/// Scores for the upright and the 180-degree-rotated crop, in cards.json order.
+/// Probability that the card is upright / reversed, each in cards.json order.
 class RecognizerScores {
-  const RecognizerScores(this.upright, this.rotated);
+  const RecognizerScores(this.upright, this.reversed);
   final List<double> upright;
-  final List<double> rotated;
+  final List<double> reversed;
 }
 
 abstract class CardRecognizer {
@@ -18,7 +18,8 @@ abstract class CardRecognizer {
 }
 
 /// Loads `assets/models/tarot_classifier.tflite`. Contract (docs/phase-c-design.md):
-/// input float32 [1,320,224,3] RGB 0..255, output softmax over [classCount].
+/// input float32 [1,320,224,3] RGB 0..255, output softmax over 2 x [classCount]
+/// (first half: card upright, second half: card reversed).
 /// Returns null when the model is missing or has the wrong shape, so the UI
 /// can fall back to the manual picker.
 ///
@@ -36,7 +37,7 @@ class TfliteRecognizer implements CardRecognizer {
       final inShape = interpreter.getInputTensor(0).shape;
       final outShape = interpreter.getOutputTensor(0).shape;
       final ok = listEquals(inShape, [1, modelHeight, modelWidth, modelChannels]) &&
-          listEquals(outShape, [1, classCount]);
+          listEquals(outShape, [1, classCount * 2]);
       if (!ok) {
         interpreter.close();
         return null;
@@ -48,15 +49,18 @@ class TfliteRecognizer implements CardRecognizer {
   }
 
   List<double> _run(Float32List input) {
-    final output = List.filled(_classCount, 0.0).reshape([1, _classCount]);
+    final output = List.filled(_classCount * 2, 0.0).reshape([1, _classCount * 2]);
     _interpreter.run(input.reshape([1, modelHeight, modelWidth, modelChannels]),
         output);
     return List<double>.from(output.first as List);
   }
 
   @override
-  Future<RecognizerScores> recognize(ModelInput input) async =>
-      RecognizerScores(_run(input.upright), _run(input.rotated));
+  Future<RecognizerScores> recognize(ModelInput input) async {
+    final all = _run(input.tensor);
+    return RecognizerScores(
+        all.sublist(0, _classCount), all.sublist(_classCount));
+  }
 
   @override
   void close() => _interpreter.close();
