@@ -16,6 +16,8 @@ Primary working copy: the owner's local Mac folder. This repo is the backup and 
 | G | Tests, store checklists, privacy and terms drafts | Docs written on branch `phase-g-release-docs` (checklists, test plan, data inventory, legal DRAFTS bundled in the app); lawyer review and device testing still to do |
 
 ## Next step
+Look back after a week (Premium) is built: 7 to 59 days after a reading, the Read tab shows "Look back at last week's reading" and the reading screen asks how it turned out (Save or Not now). Answers stay on the device (SQLite schema v2, `revisit` column, upgrade tested). No push notification for it yet (would reuse the daily reminder permission). 88 app tests pass.
+
 "Look first" is built: before an AI reading a dialog asks what you notice in the cards (optional, Skip works, Cancel backs out); it is sent as `impression` (backend already handled it). Toggle in the You tab (default on). The privacy text mentions it. Still open from the plan: clarifier card, journal 7-day revisit, structured rendering. 85 app tests pass.
 
 All 78 cards now have rich original knowledge (`app/tools/knowledge_courts.py`, `knowledge_pips.py`; run `make_knowledge.py` then `backend/scripts/gen-cards.mjs`). Owner should skim the pip/court wording; imagery notes were written from memory of the 1909 pictures and should be spot-checked against the scans. Backend 50 tests pass.

@@ -13,7 +13,7 @@ Single source for the privacy policy, Apple privacy labels and Google Data safet
 | Usage rows: date, spread, model, input/output token counts | Yes | Our D1 database | Cost control, abuse prevention | Pseudonymous (hashed ID) | Decide a limit (suggest 90 days) and add a cleanup job |
 | IP address | Seen by Cloudflare; a salted hash is used for a per-minute counter | Cloudflare KV, expires in about 2 minutes | Abuse prevention | Pseudonymous | About 2 minutes (counter); Cloudflare's own logs per its policy |
 | Purchase / subscription status | Yes | Apple / Google, RevenueCat; our server asks RevenueCat | Unlock Premium, restore | Via install ID | Per store and RevenueCat policies |
-| Reading history, journal notes | Yes | Device only (SQLite) | Feature | n/a | Until the user deletes it or uninstalls |
+| Reading history, journal notes, look-back answers | Yes | Device only (SQLite) | Feature | n/a | Until the user deletes it or uninstalls |
 | Reminder time, onboarding flag, daily count | Yes | Device only | Feature | n/a | Until uninstall |
 | Analytics | **No** (TelemetryDeck was planned but is not implemented) | n/a | n/a | n/a | If added, update this file, the policy and the store forms |
 | Ads / ad IDs / third-party trackers | No | n/a | n/a | n/a | n/a |

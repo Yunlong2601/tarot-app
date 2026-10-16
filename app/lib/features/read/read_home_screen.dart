@@ -74,6 +74,15 @@ class ReadHomeScreen extends StatelessWidget {
                                         : "Today's card: ${state.dailyCardIfDrawn!.card.name}",
                                   ),
                                 ),
+                                if (state.dueRevisit case final due?)
+                                  TextButton.icon(
+                                    onPressed: () =>
+                                        context.push('/reading/${due.id}'),
+                                    icon: const Icon(Icons.history, size: 18),
+                                    label: const Text(
+                                      'Look back at last week\'s reading',
+                                    ),
+                                  ),
                                 Text(
                                   state.isPremium
                                       ? 'Premium: unlimited readings'

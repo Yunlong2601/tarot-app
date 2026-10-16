@@ -121,6 +121,76 @@ void main() {
     });
   });
 
+  group('look back after a week', () {
+    test('revisit text is stored, and v1 databases are upgraded', () async {
+      // A database from before the look-back existed (schema v1).
+      final old = await databaseFactory.openDatabase(
+        dbPath,
+        options: OpenDatabaseOptions(
+          version: 1,
+          onCreate: (db, _) => db.execute(
+            'CREATE TABLE readings (id TEXT PRIMARY KEY, created_at INTEGER '
+            'NOT NULL, spread TEXT NOT NULL, cards TEXT NOT NULL, '
+            'interpretation TEXT NOT NULL, question TEXT, note TEXT)',
+          ),
+        ),
+      );
+      await old.close();
+      final repo = SqliteHistoryRepository(path: dbPath);
+      await repo.add(reading('a', DateTime(2026, 1, 1)));
+      await repo.setRevisit('a', '  It went fine.  ');
+      expect((await repo.load(deck)).single.revisit, 'It went fine.');
+    });
+
+    test('due only for Premium, 7 to 59 days old, once', () {
+      final now = DateTime(2026, 10, 16);
+      final s = AppState(deck: deck)..setPremium(true);
+      final r = reading('a', now.subtract(const Duration(days: 8)));
+      expect(s.revisitDue(r, now: now), isTrue);
+      expect(
+        s.revisitDue(
+          reading('b', now.subtract(const Duration(days: 3))),
+          now: now,
+        ),
+        isFalse,
+      );
+      expect(
+        s.revisitDue(
+          reading('c', now.subtract(const Duration(days: 90))),
+          now: now,
+        ),
+        isFalse,
+      );
+      expect(s.revisitDue(r.withRevisit(''), now: now), isFalse);
+      expect((AppState(deck: deck)).revisitDue(r, now: now), isFalse);
+    });
+
+    testWidgets('Read tab links to the reading; the answer is saved', (
+      tester,
+    ) async {
+      tester.view.physicalSize = const Size(1080, 5000);
+      tester.view.devicePixelRatio = 2.75;
+      addTearDown(tester.view.reset);
+      final state = AppState(deck: deck, onboarded: true)..setPremium(true);
+      state.history.add(
+        reading('a', DateTime.now().subtract(const Duration(days: 8))),
+      );
+      await tester.pumpWidget(ShenTarotApp(initialState: state));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text("Look back at last week's reading"));
+      await tester.pumpAndSettle();
+      await tester.enterText(
+        find.widgetWithText(TextField, 'Since then...'),
+        'It went fine.',
+      );
+      await tester.tap(find.text('Save'));
+      await tester.pumpAndSettle();
+      expect(state.history.single.revisit, 'It went fine.');
+      expect(find.text('It went fine.'), findsOneWidget);
+      expect(state.dueRevisit, isNull);
+    });
+  });
+
   group('AppState persistence', () {
     test('readings survive a restart and delete-all clears them', () async {
       final first = AppState(

@@ -252,6 +252,27 @@ class AppState extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Look back about a week later (Premium): saves what the user writes, or
+  /// '' to dismiss the prompt for this reading.
+  void setRevisit(String id, String text) {
+    final i = history.indexWhere((r) => r.id == id);
+    if (i < 0) return;
+    history[i] = history[i].withRevisit(text);
+    _guard(() => _repo.setRevisit(id, text));
+    notifyListeners();
+  }
+
+  /// Whether [r] is old enough (7+ days) and recent enough (under 60) to ask
+  /// "how did this turn out?", and has not been answered or dismissed.
+  bool revisitDue(Reading r, {DateTime? now}) {
+    if (!isPremium || r.revisit != null) return false;
+    final age = (now ?? DateTime.now()).difference(r.createdAt);
+    return age.inDays >= 7 && age.inDays < 60;
+  }
+
+  /// The newest reading waiting for a look-back, if any.
+  Reading? get dueRevisit => history.where(revisitDue).firstOrNull;
+
   void deleteReading(String id) {
     history.removeWhere((r) => r.id == id);
     _guard(() => _repo.delete(id));

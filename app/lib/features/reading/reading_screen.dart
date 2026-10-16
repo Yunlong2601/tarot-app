@@ -189,6 +189,97 @@ class _JournalState extends State<_Journal> {
   }
 }
 
+/// About a week later (Premium): "how did this turn out?" Shows the saved
+/// answer once written; hidden when dismissed or not due yet.
+class _Revisit extends StatefulWidget {
+  const _Revisit({required this.reading});
+  final Reading reading;
+
+  @override
+  State<_Revisit> createState() => _RevisitState();
+}
+
+class _RevisitState extends State<_Revisit> {
+  final _controller = TextEditingController();
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final state = AppScope.of(context);
+    final r = widget.reading;
+    final saved = r.revisit;
+    if (saved != null && saved.isNotEmpty) {
+      return Padding(
+        padding: const EdgeInsets.only(top: 16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Looking back',
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            const SizedBox(height: 4),
+            Text(saved),
+          ],
+        ),
+      );
+    }
+    if (!state.revisitDue(r)) return const SizedBox.shrink();
+    return Card(
+      margin: const EdgeInsets.only(top: 16),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Looking back',
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            const SizedBox(height: 4),
+            const Text(
+              'About a week has passed. How did this turn out, and did the '
+              'reading help you think it through?',
+              style: TextStyle(color: AppColors.textMuted),
+            ),
+            const SizedBox(height: 12),
+            TextField(
+              controller: _controller,
+              maxLines: 3,
+              maxLength: 1000,
+              textCapitalization: TextCapitalization.sentences,
+              decoration: const InputDecoration(hintText: 'Since then...'),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                TextButton(
+                  onPressed: () => state.setRevisit(r.id, ''),
+                  child: const Text('Not now'),
+                ),
+                const SizedBox(width: 8),
+                FilledButton(
+                  style: FilledButton.styleFrom(minimumSize: const Size(0, 44)),
+                  onPressed: () {
+                    if (_controller.text.trim().isEmpty) return;
+                    state.setRevisit(r.id, _controller.text);
+                  },
+                  child: const Text('Save'),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 class ReadingScreen extends StatelessWidget {
   const ReadingScreen({super.key, required this.readingId});
   final String readingId;
@@ -308,6 +399,7 @@ class ReadingScreen extends StatelessWidget {
           _FollowUps(reading: reading),
           const SizedBox(height: 12),
           _Journal(reading: reading),
+          _Revisit(reading: reading),
         ],
       ),
     );

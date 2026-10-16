@@ -12,6 +12,7 @@ abstract class HistoryRepository {
   Future<List<Reading>> load(Deck deck);
   Future<void> add(Reading reading);
   Future<void> setNote(String id, String? note);
+  Future<void> setRevisit(String id, String text);
   Future<void> delete(String id);
   Future<void> clear();
 }
@@ -30,6 +31,12 @@ class InMemoryHistoryRepository implements HistoryRepository {
   Future<void> setNote(String id, String? note) async {
     final r = _rows[id];
     if (r != null) _rows[id] = r.withNote(note);
+  }
+
+  @override
+  Future<void> setRevisit(String id, String text) async {
+    final r = _rows[id];
+    if (r != null) _rows[id] = r.withRevisit(text);
   }
 
   @override
@@ -52,7 +59,12 @@ class SqliteHistoryRepository implements HistoryRepository {
     final location = path ?? p.join(await getDatabasesPath(), 'shentarot.db');
     return _db = await openDatabase(
       location,
-      version: 1,
+      version: 2,
+      onUpgrade: (db, from, _) async {
+        if (from < 2) {
+          await db.execute('ALTER TABLE readings ADD COLUMN revisit TEXT');
+        }
+      },
       onCreate: (db, _) => db.execute('''
         CREATE TABLE readings (
           id TEXT PRIMARY KEY,
@@ -61,7 +73,8 @@ class SqliteHistoryRepository implements HistoryRepository {
           cards TEXT NOT NULL,
           interpretation TEXT NOT NULL,
           question TEXT,
-          note TEXT
+          note TEXT,
+          revisit TEXT
         )'''),
     );
   }
@@ -93,6 +106,7 @@ class SqliteHistoryRepository implements HistoryRepository {
           interpretation: row['interpretation']! as String,
           question: row['question'] as String?,
           note: row['note'] as String?,
+          revisit: row['revisit'] as String?,
         ),
       );
     }
@@ -110,6 +124,7 @@ class SqliteHistoryRepository implements HistoryRepository {
     'interpretation': r.interpretation,
     'question': r.question,
     'note': r.note,
+    'revisit': r.revisit,
   }, conflictAlgorithm: ConflictAlgorithm.replace);
 
   @override
@@ -122,6 +137,15 @@ class SqliteHistoryRepository implements HistoryRepository {
       whereArgs: [id],
     );
   }
+
+  @override
+  Future<void> setRevisit(String id, String text) async =>
+      (await _open()).update(
+        'readings',
+        {'revisit': text.trim()},
+        where: 'id = ?',
+        whereArgs: [id],
+      );
 
   @override
   Future<void> delete(String id) async =>

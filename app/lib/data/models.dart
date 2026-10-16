@@ -118,6 +118,7 @@ class Reading {
     required this.interpretation,
     this.question,
     this.note,
+    this.revisit,
   });
 
   final String id;
@@ -130,6 +131,10 @@ class Reading {
   /// The user's own journal note about this reading (Premium).
   final String? note;
 
+  /// What the user wrote when looking back about a week later (Premium).
+  /// '' means they dismissed the look-back; null means not asked yet.
+  final String? revisit;
+
   Reading withNote(String? note) => Reading(
     id: id,
     createdAt: createdAt,
@@ -138,5 +143,17 @@ class Reading {
     interpretation: interpretation,
     question: question,
     note: note == null || note.trim().isEmpty ? null : note.trim(),
+    revisit: revisit,
+  );
+
+  Reading withRevisit(String text) => Reading(
+    id: id,
+    createdAt: createdAt,
+    spread: spread,
+    cards: cards,
+    interpretation: interpretation,
+    question: question,
+    note: note,
+    revisit: text.trim(),
   );
 }
