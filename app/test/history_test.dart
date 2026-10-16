@@ -59,10 +59,12 @@ class FakeReminders implements ReminderService {
   TimeOfDay? scheduled;
   int cancels = 0;
 
+  bool? skippedToday;
   @override
-  Future<bool> enable(TimeOfDay time) async {
+  Future<bool> enable(TimeOfDay time, {bool skipToday = false}) async {
     if (!allow) return false;
     scheduled = time;
+    skippedToday = skipToday;
     return true;
   }
 
@@ -266,6 +268,16 @@ void main() {
   });
 
   group('reminder', () {
+    test('no reminder today once the Card of the Day is drawn', () async {
+      final fake = FakeReminders();
+      final s = AppState(deck: deck, reminders: fake);
+      await s.setReminder(true);
+      expect(fake.skippedToday, isFalse);
+      s.drawDailyCard();
+      await Future<void>.delayed(Duration.zero);
+      expect(fake.skippedToday, isTrue);
+    });
+
     test('a reminder 2 days before a paid first month ends', () async {
       final fake = FakeReminders();
       final subs = _IntroSubs(DateTime(2026, 11, 17, 10));

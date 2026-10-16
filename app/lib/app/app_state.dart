@@ -250,6 +250,7 @@ class AppState extends ChangeNotifier {
       trialUsed = prefs.getBool(_kTrial) ?? false;
       readReversed = prefs.getBool(_kReversed) ?? true;
       _upgradeShown = prefs.getInt(_kUpgradeShown) ?? 0;
+      autoReveal = prefs.getBool(_kAutoReveal) ?? false;
       final refTag = prefs.getString(_kRefTag);
       final refApple = prefs.getString(_kRefApple);
       if (refTag != null || refApple != null) {
@@ -337,6 +338,19 @@ class AppState extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Digital draws: turn each card face up as soon as it lands.
+  bool autoReveal = false;
+  static const _kAutoReveal = 'auto_reveal';
+
+  Future<void> setAutoReveal(bool value) async {
+    autoReveal = value;
+    notifyListeners();
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setBool(_kAutoReveal, value);
+    } catch (_) {}
+  }
+
   void setLookFirst(bool value) {
     lookFirst = value;
     _savePrefs();
@@ -371,8 +385,22 @@ class AppState extends ChangeNotifier {
     _dailyId = card.id;
     _dailyReversed = readReversed && r.nextDouble() < 0.25;
     _savePrefs();
+    // Today's card is drawn: no reminder today.
+    if (reminderEnabled) {
+      _guard(() async {
+        await reminders.enable(reminderTime, skipToday: true);
+      });
+    }
     if (notify) notifyListeners();
     return DrawnCard(card: card, reversed: _dailyReversed);
+  }
+
+  /// On app start: roll the two-week reminder window forward.
+  Future<void> refreshReminders() async {
+    if (!reminderEnabled) return;
+    await _guard(() async {
+      await reminders.enable(reminderTime, skipToday: dailyCardIfDrawn != null);
+    });
   }
 
   /// Re-notifies listeners (used after a draw made during a widget build).
@@ -519,7 +547,10 @@ class AppState extends ChangeNotifier {
   Future<bool> setReminder(bool on, {TimeOfDay? time}) async {
     if (time != null) reminderTime = time;
     if (on) {
-      final ok = await reminders.enable(reminderTime);
+      final ok = await reminders.enable(
+        reminderTime,
+        skipToday: dailyCardIfDrawn != null,
+      );
       reminderEnabled = ok;
     } else {
       await reminders.disable();

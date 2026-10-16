@@ -44,6 +44,7 @@ Future<void> main() async {
         : RevenueCatSubscriptionService(storeKey),
   );
   await state.loadPersisted();
+  unawaited(state.refreshReminders());
   unawaited(state.startSubscriptions());
   runApp(ShenTarotApp(initialState: state));
 }

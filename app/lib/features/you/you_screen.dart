@@ -2,6 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import 'package:in_app_review/in_app_review.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../app/app_scope.dart';
@@ -49,6 +51,40 @@ class YouScreen extends StatelessWidget {
       }
     }
 
+    Widget section(String title) => Padding(
+      padding: const EdgeInsets.fromLTRB(16, 20, 16, 4),
+      child: Text(
+        title.toUpperCase(),
+        style: const TextStyle(
+          fontSize: 12,
+          letterSpacing: 1.2,
+          color: AppColors.textMuted,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+    );
+
+    Future<void> confirmDeleteData() async {
+      final ok = await showDialog<bool>(
+        context: context,
+        builder: (c) => AlertDialog(
+          title: const Text('Delete all data?'),
+          content: const Text('This removes your reading history.'),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(c, false),
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () => Navigator.pop(c, true),
+              child: const Text('Delete'),
+            ),
+          ],
+        ),
+      );
+      if (ok == true) await state.deleteAllData();
+    }
+
     return Scaffold(
       appBar: AppBar(title: const Text('You')),
       body: ListView(
@@ -76,6 +112,11 @@ class YouScreen extends StatelessWidget {
                   )
                 : null,
           ),
+          ListTile(
+            leading: const Icon(Icons.history),
+            title: const Text('Reading History'),
+            onTap: () => context.push('/history'),
+          ),
           if (referralsEnabled)
             ListTile(
               leading: const Icon(Icons.card_giftcard),
@@ -83,12 +124,7 @@ class YouScreen extends StatelessWidget {
               subtitle: const Text('Free months for you, 50% off for them'),
               onTap: () => context.push('/invite'),
             ),
-          ListTile(
-            leading: const Icon(Icons.history),
-            title: const Text('Reading History'),
-            onTap: () => context.push('/history'),
-          ),
-          const Divider(),
+          section('Premium'),
           ListTile(
             leading: const Icon(Icons.workspace_premium),
             title: Text(state.isPremium ? 'Premium active' : 'Go Premium'),
@@ -104,51 +140,33 @@ class YouScreen extends StatelessWidget {
             title: const Text('Restore Purchases'),
             onTap: restore,
           ),
-          SwitchListTile(
-            secondary: const Icon(Icons.visibility_outlined),
-            title: const Text('Look first'),
-            subtitle: const Text(
-              'Note what you see in the cards before the reading',
-            ),
-            value: state.lookFirst,
-            onChanged: state.setLookFirst,
-          ),
-          SwitchListTile(
-            secondary: const Icon(Icons.notifications_outlined),
-            title: const Text('Daily card reminder'),
+          section('Preferences'),
+          ListTile(
+            leading: const Icon(Icons.notifications_outlined),
+            title: const Text('Reminders'),
             subtitle: Text(
               state.reminderEnabled
-                  ? 'Every day at ${state.reminderTime.format(context)}'
+                  ? 'Daily at ${state.reminderTime.format(context)}'
                   : 'Off',
             ),
-            value: state.reminderEnabled,
-            onChanged: (on) async {
-              final messenger = ScaffoldMessenger.of(context);
-              final ok = await state.setReminder(on);
-              if (!ok && on) {
-                messenger.showSnackBar(
-                  const SnackBar(
-                    content: Text(
-                      'Notifications are off for this app. Turn them on in your phone Settings.',
-                    ),
-                  ),
-                );
-              }
-            },
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => context.push('/settings/reminders'),
           ),
-          if (state.reminderEnabled)
-            ListTile(
-              leading: const Icon(Icons.schedule),
-              title: const Text('Reminder time'),
-              subtitle: Text(state.reminderTime.format(context)),
-              onTap: () async {
-                final t = await showTimePicker(
-                  context: context,
-                  initialTime: state.reminderTime,
-                );
-                if (t != null) await state.setReminder(true, time: t);
-              },
+          ListTile(
+            leading: const Icon(Icons.tune),
+            title: const Text('Reading settings'),
+            subtitle: const Text('Look first, auto-reveal, reversed cards'),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => context.push('/settings/reading'),
+          ),
+          ListTile(
+            leading: const Icon(Icons.language),
+            title: const Text('Language'),
+            subtitle: const Text('English'),
+            onTap: () => ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('More languages are coming.')),
             ),
+          ),
           if (ownKeyEnabled)
             ListTile(
               leading: const Icon(Icons.key_outlined),
@@ -160,7 +178,24 @@ class YouScreen extends StatelessWidget {
               ),
               onTap: () => context.push('/own-key'),
             ),
-          const Divider(),
+          section('Support and about'),
+          ListTile(
+            leading: const Icon(Icons.mail_outline),
+            title: const Text('Send feedback'),
+            onTap: () => launchUrl(
+              Uri.parse(
+                'mailto:shenyunlongbusiness@gmail.com?subject=ShenTarot%20feedback',
+              ),
+            ),
+          ),
+          ListTile(
+            leading: const Icon(Icons.star_outline),
+            title: const Text('Rate ShenTarot'),
+            onTap: () async {
+              final review = InAppReview.instance;
+              if (await review.isAvailable()) await review.requestReview();
+            },
+          ),
           ListTile(
             leading: const Icon(Icons.privacy_tip_outlined),
             title: const Text('Privacy Policy'),
@@ -171,30 +206,23 @@ class YouScreen extends StatelessWidget {
             title: const Text('Terms of Use'),
             onTap: () => context.push('/legal/terms'),
           ),
-          const Divider(),
+          section('Account and data'),
+          if (state.account != null) ...[
+            ListTile(
+              leading: const Icon(Icons.logout),
+              title: const Text('Sign out'),
+              onTap: state.signOut,
+            ),
+            ListTile(
+              leading: const Icon(Icons.person_remove_outlined),
+              title: const Text('Delete account'),
+              onTap: () => context.push('/account'),
+            ),
+          ],
           ListTile(
             leading: const Icon(Icons.delete_outline),
             title: const Text('Delete all my data'),
-            onTap: () async {
-              final ok = await showDialog<bool>(
-                context: context,
-                builder: (c) => AlertDialog(
-                  title: const Text('Delete all data?'),
-                  content: const Text('This removes your reading history.'),
-                  actions: [
-                    TextButton(
-                      onPressed: () => Navigator.pop(c, false),
-                      child: const Text('Cancel'),
-                    ),
-                    TextButton(
-                      onPressed: () => Navigator.pop(c, true),
-                      child: const Text('Delete'),
-                    ),
-                  ],
-                ),
-              );
-              if (ok == true) await state.deleteAllData();
-            },
+            onTap: confirmDeleteData,
           ),
           if (kDebugMode && state.isPremium)
             ListTile(
@@ -220,6 +248,19 @@ class YouScreen extends StatelessWidget {
               ),
             ),
           ],
+          FutureBuilder<PackageInfo>(
+            future: PackageInfo.fromPlatform(),
+            builder: (context, snap) => Padding(
+              padding: const EdgeInsets.all(24),
+              child: Text(
+                snap.hasData
+                    ? 'ShenTarot ${snap.data!.version} (${snap.data!.buildNumber})'
+                    : 'ShenTarot',
+                textAlign: TextAlign.center,
+                style: const TextStyle(color: AppColors.textMuted),
+              ),
+            ),
+          ),
         ],
       ),
     );

@@ -85,7 +85,11 @@ class _DrawScreenState extends State<DrawScreen> {
       _flying = null;
       if (!mounted) return;
       HapticFeedback.lightImpact();
-      setState(() => _drawn.add(card));
+      final autoReveal = AppScope.of(context).autoReveal;
+      setState(() {
+        if (autoReveal) _flipped = {..._flipped, _drawn.length};
+        _drawn.add(card);
+      });
     }
 
     final overlay = Overlay.of(context);

@@ -8,8 +8,11 @@ import 'package:timezone/timezone.dart' as tz;
 /// server. Notification permission is requested only when the user turns the
 /// reminder on.
 abstract class ReminderService {
-  /// Schedules a daily reminder. Returns false if the user denied permission.
-  Future<bool> enable(TimeOfDay time);
+  /// Schedules the daily reminder for the next two weeks (one notification a
+  /// day, refreshed when the app opens). With [skipToday], none is sent today
+  /// (the Card of the Day is already drawn). Returns false if permission was
+  /// denied.
+  Future<bool> enable(TimeOfDay time, {bool skipToday = false});
   Future<void> disable();
 
   /// One-off "look back" nudge for a reading, about a week later. Only used
@@ -31,7 +34,7 @@ int lookBackNotificationId(String readingId) =>
 class NoopReminderService implements ReminderService {
   const NoopReminderService();
   @override
-  Future<bool> enable(TimeOfDay time) async => false;
+  Future<bool> enable(TimeOfDay time, {bool skipToday = false}) async => false;
   @override
   Future<void> disable() async {}
   @override
@@ -66,8 +69,11 @@ class LocalNotificationReminderService implements ReminderService {
     _ready = true;
   }
 
+  static const _days = 14;
+  static const _firstDailyId = 100;
+
   @override
-  Future<bool> enable(TimeOfDay time) async {
+  Future<bool> enable(TimeOfDay time, {bool skipToday = false}) async {
     await _init();
     final ios = _plugin
         .resolvePlatformSpecificImplementation<
@@ -83,39 +89,49 @@ class LocalNotificationReminderService implements ReminderService {
         false;
     if (!granted) return false;
 
+    await _cancelDaily();
     final now = tz.TZDateTime.now(tz.local);
-    var at = tz.TZDateTime(
-      tz.local,
-      now.year,
-      now.month,
-      now.day,
-      time.hour,
-      time.minute,
-    );
-    if (!at.isAfter(now)) at = at.add(const Duration(days: 1));
-    await _plugin.zonedSchedule(
-      id: _id,
-      title: 'Your daily card',
-      body: 'Take a quiet moment for today\'s reading.',
-      scheduledDate: at,
-      notificationDetails: const NotificationDetails(
-        iOS: DarwinNotificationDetails(),
-        android: AndroidNotificationDetails(
-          'daily_reminder',
-          'Daily reminder',
-          channelDescription: 'A once-a-day nudge to draw your card',
+    for (var d = 0; d < _days; d++) {
+      final day = now.add(Duration(days: d));
+      final at = tz.TZDateTime(
+        tz.local,
+        day.year,
+        day.month,
+        day.day,
+        time.hour,
+        time.minute,
+      );
+      if (d == 0 && (skipToday || !at.isAfter(now))) continue;
+      await _plugin.zonedSchedule(
+        id: _firstDailyId + d,
+        title: 'Your card of the day',
+        body: 'Take a quiet moment with today\'s card.',
+        scheduledDate: at,
+        notificationDetails: const NotificationDetails(
+          iOS: DarwinNotificationDetails(),
+          android: AndroidNotificationDetails(
+            'daily_reminder',
+            'Daily reminder',
+            channelDescription: 'A once-a-day nudge to draw your card',
+          ),
         ),
-      ),
-      androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
-      matchDateTimeComponents: DateTimeComponents.time,
-    );
+        androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
+      );
+    }
     return true;
+  }
+
+  Future<void> _cancelDaily() async {
+    await _plugin.cancel(id: _id); // the old repeating reminder
+    for (var d = 0; d < _days; d++) {
+      await _plugin.cancel(id: _firstDailyId + d);
+    }
   }
 
   @override
   Future<void> disable() async {
     await _init();
-    await _plugin.cancel(id: _id);
+    await _cancelDaily();
   }
 
   @override
