@@ -3,7 +3,12 @@ export interface Env {
   KV: KVNamespace;
   JWT_SECRET: string;
   HASH_SALT: string;
-  ANTHROPIC_API_KEY: string;
+  ANTHROPIC_API_KEY?: string;
+  /** Optional second provider (fallback, or primary with LLM_PROVIDER=openai). */
+  OPENAI_API_KEY?: string;
+  OPENAI_MODEL?: string;
+  /** "anthropic" (default) or "openai". */
+  LLM_PROVIDER?: string;
   REVENUECAT_SECRET_KEY?: string;
   LLM_MODEL?: string;
   GLOBAL_DAILY_TOKEN_CAP?: string;

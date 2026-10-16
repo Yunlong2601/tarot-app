@@ -16,6 +16,8 @@ Primary working copy: the owner's local Mac folder. This repo is the backup and 
 | G | Tests, store checklists, privacy and terms drafts | Docs written on branch `phase-g-release-docs` (checklists, test plan, data inventory, legal DRAFTS bundled in the app); lawyer review and device testing still to do |
 
 ## Next step
+Backend deployed (test mode) at https://shentarot-api.shentech.workers.dev on 2026-10-16; the Anthropic key was rejected at the first test, owner is re-entering it. Since then (NOT deployed yet): OpenAI GPT-6 Luna as second provider/fallback and Premium own-key mode (unlimited readings with the user's own Anthropic/OpenAI key). See `docs/own-key-and-providers.md`.
+
 Readings are now laid out by section (`app/lib/features/reading/reading_sections.dart` parses the backend text; no backend change): a gold "In short" panel, one panel per card with its art, position and an expandable "Why this card", then "To reflect on" and "A small step". Old plain readings still show as text. Debug "Simulate scan" now produces a sample in the same layout. 93 app tests pass.
 
 Clarifier card (Premium) is built: "Draw a clarifier card" under a reading draws one card on screen or takes one the user picked from their deck (never a card already in the reading) and sends it with `/v1/followup` as `clarifier` (counts against the 30 follow-ups a day). 90 app tests, 51 backend tests pass. Left from the knowledge plan: structured card-by-card rendering, intent chips, journal mood/tags.

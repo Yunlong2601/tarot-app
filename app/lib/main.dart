@@ -12,6 +12,7 @@ import 'core/api_reading_service.dart';
 import 'core/reading_service.dart';
 import 'core/reminder_service.dart';
 import 'core/subscription_service.dart';
+import 'core/user_key_store.dart';
 import 'data/deck.dart';
 import 'data/history_repository.dart';
 
@@ -24,11 +25,13 @@ Future<void> main() async {
   const iosKey = String.fromEnvironment('REVENUECAT_IOS_KEY');
   const androidKey = String.fromEnvironment('REVENUECAT_ANDROID_KEY');
   final storeKey = Platform.isIOS ? iosKey : androidKey;
-  final state = AppState(
+  late final AppState state;
+  state = AppState(
     deck: deck,
+    userKeys: SecureUserKeyStore(),
     readingService: apiBaseUrl.isEmpty
         ? const UnconfiguredReadingService()
-        : ApiReadingService(apiBaseUrl),
+        : ApiReadingService(apiBaseUrl, userKey: () => state.activeUserKey()),
     historyRepository: SqliteHistoryRepository(),
     reminders: LocalNotificationReminderService(),
     subscriptions: storeKey.isEmpty

@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 
+import '../features/you/own_key_screen.dart';
 import '../features/cards/card_detail_screen.dart';
 import '../features/auth/signin_demo_screen.dart';
 import '../features/guide/guide_screen.dart';
@@ -66,6 +67,7 @@ GoRouter buildRouter(AppState state) {
         builder: (_, s) => AskScreen(skipPicker: s.extra == true),
       ),
       GoRoute(path: '/spreads', builder: (_, _) => const SpreadPickerScreen()),
+      GoRoute(path: '/own-key', builder: (_, _) => const OwnKeyScreen()),
       GoRoute(path: '/photo', builder: (_, _) => const ScanScreen()),
       GoRoute(
         path: '/digital',

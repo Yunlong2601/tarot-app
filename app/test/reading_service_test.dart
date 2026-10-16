@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shentarot/core/api_reading_service.dart';
 import 'package:shentarot/core/reading_service.dart';
+import 'package:shentarot/core/user_key_store.dart';
 import 'package:shentarot/data/deck.dart';
 import 'package:shentarot/data/models.dart';
 
@@ -28,6 +29,8 @@ void main() {
       seen.add({
         'path': req.uri.path,
         'auth': req.headers.value('authorization'),
+        'provider': req.headers.value('x-user-provider'),
+        'key': req.headers.value('x-user-key'),
         'body': body,
       });
       final isInstall = req.uri.path == '/v1/install';
@@ -99,6 +102,38 @@ void main() {
       'id': 'cups_ace',
       'reversed': true,
     });
+  });
+
+  test('own key goes in headers only when provided', () async {
+    final key = 'sk-ant-${'k' * 40}';
+    UserKey? own;
+    final svc = ApiReadingService(
+      'http://127.0.0.1:${server.port}',
+      userKey: () async => own,
+    );
+    await svc.interpret(spread: SpreadType.single, cards: await cards());
+    expect(seen.last['key'], isNull);
+    own = UserKey(AiProvider.anthropic, key);
+    await svc.interpret(spread: SpreadType.single, cards: await cards());
+    expect(seen.last['provider'], 'anthropic');
+    expect(seen.last['key'], key);
+    expect(jsonEncode(seen.last['body']), isNot(contains(key)));
+  });
+
+  test('a rejected own key gets its own error', () async {
+    final svc = ApiReadingService('http://127.0.0.1:${server.port}');
+    readingStatus = 400;
+    readingBody = {'error': 'user_key_rejected'};
+    await expectLater(
+      svc.interpret(spread: SpreadType.single, cards: await cards()),
+      throwsA(
+        isA<ReadingException>().having(
+          (e) => e.kind,
+          'kind',
+          ReadingErrorKind.userKey,
+        ),
+      ),
+    );
   });
 
   test('maps daily limit and premium errors', () async {

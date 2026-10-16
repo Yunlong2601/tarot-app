@@ -7,6 +7,7 @@ import '../core/install_id.dart';
 import '../core/reading_service.dart';
 import '../core/reminder_service.dart';
 import '../core/subscription_service.dart';
+import '../core/user_key_store.dart';
 import '../data/deck.dart';
 import '../data/history_repository.dart';
 import '../data/models.dart';
@@ -23,14 +24,41 @@ class AppState extends ChangeNotifier {
     this.subscriptions = const UnconfiguredSubscriptionService(),
     HistoryRepository? historyRepository,
     this.reminders = const NoopReminderService(),
+    UserKeyStore? userKeys,
     DateTime Function()? clock,
-  }) : _repo = historyRepository ?? InMemoryHistoryRepository(),
+  }) : userKeys = userKeys ?? MemoryUserKeyStore(),
+       _repo = historyRepository ?? InMemoryHistoryRepository(),
        _clock = clock ?? DateTime.now;
 
   final Deck deck;
   final ReadingService readingService;
   final SubscriptionService subscriptions;
   final ReminderService reminders;
+
+  /// The user's own AI key (Premium). Only the provider is kept in memory for
+  /// the UI; the key is read from secure storage when a request is made.
+  final UserKeyStore userKeys;
+  AiProvider? ownKeyProvider;
+
+  /// Own-key mode applies only while Premium is active.
+  bool get usesOwnKey => isPremium && ownKeyProvider != null;
+
+  /// What the reading service sends: the key, only in own-key mode.
+  Future<UserKey?> activeUserKey() async =>
+      usesOwnKey ? await userKeys.read() : null;
+
+  Future<void> setOwnKey(UserKey key) async {
+    await userKeys.save(key);
+    ownKeyProvider = key.provider;
+    notifyListeners();
+  }
+
+  Future<void> removeOwnKey() async {
+    await userKeys.clear();
+    ownKeyProvider = null;
+    notifyListeners();
+  }
+
   final HistoryRepository _repo;
   final DateTime Function() _clock;
 
@@ -105,6 +133,7 @@ class AppState extends ChangeNotifier {
 
   /// Loads saved history and settings. Failures leave the app usable.
   Future<void> loadPersisted() async {
+    ownKeyProvider = (await userKeys.read())?.provider;
     try {
       final prefs = await SharedPreferences.getInstance();
       onboarded = prefs.getBool(_kOnboarded) ?? onboarded;
@@ -281,6 +310,7 @@ class AppState extends ChangeNotifier {
 
   Future<void> deleteAllData() async {
     history.clear();
+    await removeOwnKey();
     notifyListeners();
     await _guard(_repo.clear);
   }

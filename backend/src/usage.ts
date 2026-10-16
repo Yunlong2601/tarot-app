@@ -9,7 +9,7 @@ export interface UsageStore {
   count(installHash: string, day: string, kind: UsageKind): Promise<number>;
   /** Readings of non-free spreads ever made by this install (the free trial). */
   countTrial(installHash: string): Promise<number>;
-  /** Total tokens used by everyone today. */
+  /** Total tokens used today on our own keys (user-key calls excluded). */
   tokensToday(day: string): Promise<number>;
   /** Reserve a slot before calling the model; returns a row id. */
   reserve(installHash: string, day: string, kind: UsageKind, spread: Spread, model: string): Promise<number>;
@@ -37,7 +37,7 @@ export class D1UsageStore implements UsageStore {
 
   async tokensToday(day: string): Promise<number> {
     const r = await this.db
-      .prepare("SELECT COALESCE(SUM(input_tokens + output_tokens), 0) AS n FROM usage WHERE day = ?1")
+      .prepare("SELECT COALESCE(SUM(input_tokens + output_tokens), 0) AS n FROM usage WHERE day = ?1 AND model NOT LIKE 'byok:%'")
       .bind(day).first<{ n: number }>();
     return r?.n ?? 0;
   }

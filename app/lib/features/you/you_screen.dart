@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../app/app_scope.dart';
+import '../../core/user_key_store.dart';
 import '../../app/theme.dart';
 import '../../core/subscription_service.dart';
 
@@ -130,6 +131,16 @@ class YouScreen extends StatelessWidget {
                 if (t != null) await state.setReminder(true, time: t);
               },
             ),
+          ListTile(
+            leading: const Icon(Icons.key_outlined),
+            title: const Text('Your own AI key'),
+            subtitle: Text(
+              state.usesOwnKey
+                  ? 'On: ${state.ownKeyProvider!.label}'
+                  : 'Premium: unlimited readings with your key',
+            ),
+            onTap: () => context.push('/own-key'),
+          ),
           const Divider(),
           ListTile(
             leading: const Icon(Icons.privacy_tip_outlined),

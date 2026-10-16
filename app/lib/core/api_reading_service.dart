@@ -4,14 +4,22 @@ import 'dart:io';
 import '../data/models.dart';
 import 'install_id.dart';
 import 'reading_service.dart';
+import 'user_key_store.dart';
 
 /// Talks to the Cloudflare Worker (`backend/`). Sends only the card IDs,
 /// orientation, spread and the optional question, plus an anonymous install ID.
 class ApiReadingService implements ReadingService {
-  ApiReadingService(this.baseUrl, {HttpClient Function()? clientFactory})
-    : _newClient = clientFactory ?? HttpClient.new;
+  ApiReadingService(
+    this.baseUrl, {
+    HttpClient Function()? clientFactory,
+    this.userKey,
+  }) : _newClient = clientFactory ?? HttpClient.new;
 
   final String baseUrl;
+
+  /// Premium own-key mode: the key goes in headers to our server, which passes
+  /// it to the provider for this one call and never stores or logs it.
+  final Future<UserKey?> Function()? userKey;
   final HttpClient Function() _newClient;
   String? _token;
 
@@ -86,6 +94,11 @@ class ApiReadingService implements ReadingService {
         ReadingErrorKind.dailyLimit,
         'You have used today\'s free reading.',
       ),
+      (400, 'invalid_user_key' || 'user_key_rejected') =>
+        const ReadingException(
+          ReadingErrorKind.userKey,
+          'Your AI key was not accepted. Check it in You > Your own AI key.',
+        ),
       (402, _) => const ReadingException(
         ReadingErrorKind.premiumRequired,
         'This spread is part of Premium.',
@@ -114,7 +127,14 @@ class ApiReadingService implements ReadingService {
       ..connectionTimeout = const Duration(seconds: 15);
     try {
       final headers = <String, String>{};
-      if (auth) headers['authorization'] = 'Bearer ${await _ensureToken()}';
+      if (auth) {
+        headers['authorization'] = 'Bearer ${await _ensureToken()}';
+        final own = await userKey?.call();
+        if (own != null) {
+          headers['x-user-provider'] = own.provider.wire;
+          headers['x-user-key'] = own.key;
+        }
+      }
       final req = await client.postUrl(Uri.parse('$baseUrl$path'));
       req.headers.contentType = ContentType.json;
       headers.forEach(req.headers.set);

@@ -10,6 +10,9 @@ enum ReadingErrorKind {
 
   /// The user's text suggested a crisis; the message is a fixed care message.
   crisis,
+
+  /// The user's own AI key was refused (bad shape, or rejected by the provider).
+  userKey,
 }
 
 class ReadingException implements Exception {

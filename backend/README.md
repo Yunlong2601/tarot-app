@@ -41,6 +41,7 @@ Local mode uses a real (local) D1 and KV, so the SQL and routing are exercised. 
    npx wrangler secret put HASH_SALT             # another long random string
    npx wrangler secret put ANTHROPIC_API_KEY
    npx wrangler secret put REVENUECAT_SECRET_KEY # after RevenueCat setup (Phase E doc)
+   npx wrangler secret put OPENAI_API_KEY        # optional: GPT-6 Luna fallback (see docs/own-key-and-providers.md)
    ```
    Generate random strings with `openssl rand -base64 48`.
 6. **Deploy:** testing phase (before App Attest / Play Integrity): `npm run deploy:beta` (allows installs without attestation, cap 500,000 tokens a day). Public launch: `npm run deploy` (attestation required). Note the URL (`https://shentarot-api.<your-subdomain>.workers.dev`).

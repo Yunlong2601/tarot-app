@@ -8,7 +8,7 @@ The app is for entertainment and self-reflection only.
 
 ## What we handle and why
 - **Camera.** When you scan a card, the photo is analysed on your phone to recognise the card. The photo is not saved and is not sent to us or anyone else.
-- **Your reading request.** To write a reading we send the cards (names/IDs and whether upright or reversed), the spread type and, if you typed them, your question and what you noticed in the cards ("Look first") to our server, which passes it to an AI provider (Anthropic) to generate the text. If you ask a follow-up question (Premium), we also send your follow-up and the earlier reading text from your phone so the answer fits the reading. We do not store your question or the reading on our servers. The AI provider may keep API data for a limited time under its own policy: https://www.anthropic.com/legal/privacy. Please do not put sensitive personal information in your question.
+- **Your reading request.** To write a reading we send the cards (names/IDs and whether upright or reversed), the spread type and, if you typed them, your question and what you noticed in the cards ("Look first") to our server, which passes it to an AI provider (Anthropic, or OpenAI as a backup) to generate the text. If you ask a follow-up question (Premium), we also send your follow-up and the earlier reading text from your phone so the answer fits the reading. We do not store your question or the reading on our servers. The AI provider may keep API data for a limited time under its own policy: https://www.anthropic.com/legal/privacy and https://openai.com/policies/privacy-policy. Please do not put sensitive personal information in your question.
 - **Anonymous ID.** The app creates a random ID on your phone. We store only a scrambled (hashed) version, together with the date, spread type and the amount of AI text used, to apply daily limits, prevent abuse and control costs. We do not know who you are from this.
 - **Network address.** Our hosting provider (Cloudflare) sees your IP address when the app connects. We use a scrambled version of it for a short-lived (about two minutes) request counter to prevent abuse.
 - **Purchases.** Subscriptions are handled by Apple or Google and by RevenueCat, which receives your anonymous ID and purchase status so we can unlock Premium and restore purchases. We do not receive your payment details.
@@ -19,7 +19,7 @@ The app is for entertainment and self-reflection only.
 No accounts, no advertising, no tracking across other apps or websites, no sale of data.
 
 ## Sharing and overseas transfers
-We share data only with service providers needed to run the app: Anthropic (AI), Cloudflare (hosting), RevenueCat (subscriptions), and Apple/Google (payments). These providers operate outside Singapore, so your request data is transferred overseas.
+We share data only with service providers needed to run the app: Anthropic and OpenAI (AI), Cloudflare (hosting), RevenueCat (subscriptions), and Apple/Google (payments). These providers operate outside Singapore, so your request data is transferred overseas.
 
 ## Retention
 Usage records (hashed ID, date, spread, token counts) are kept for 90 days. Everything on your device stays until you delete it.

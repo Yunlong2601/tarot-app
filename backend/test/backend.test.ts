@@ -6,6 +6,7 @@ import { createApp, type Deps } from "../src/index";
 import { buildFollowupMessage, checkOutput } from "../src/prompts";
 import { buildReadingMessage } from "../src/reading";
 import { isPremium } from "../src/revenuecat";
+import { parseOpenAI } from "../src/llm";
 import type { UsageStore } from "../src/usage";
 import { allowWithinMinute } from "../src/usage";
 import { cleanQuestion, parseFollowupRequest, parseReadingRequest } from "../src/validate";
@@ -17,11 +18,11 @@ class FakeKV {
 }
 
 class MemUsage implements UsageStore {
-  rows: { id: number; hash: string; day: string; kind: string; spread: string; i: number; o: number }[] = [];
+  rows: { id: number; hash: string; day: string; kind: string; spread: string; model: string; i: number; o: number }[] = [];
   async countTrial(h: string) { return this.rows.filter((r) => r.hash === h && r.kind === "reading" && r.spread !== "single" && r.spread !== "three").length; }
   async count(h: string, d: string, kind: string) { return this.rows.filter((r) => r.hash === h && r.day === d && r.kind === kind).length; }
-  async tokensToday(d: string) { return this.rows.filter((r) => r.day === d).reduce((s, r) => s + r.i + r.o, 0); }
-  async reserve(h: string, d: string, kind: string, spread = "single") { const id = this.rows.length + 1; this.rows.push({ id, hash: h, day: d, kind, spread, i: 0, o: 0 }); return id; }
+  async tokensToday(d: string) { return this.rows.filter((r) => r.day === d && !r.model.startsWith("byok:")).reduce((s, r) => s + r.i + r.o, 0); }
+  async reserve(h: string, d: string, kind: string, spread = "single", model = "m") { const id = this.rows.length + 1; this.rows.push({ id, hash: h, day: d, kind, spread, model, i: 0, o: 0 }); return id; }
   async finalize(id: number, i: number, o: number) { const r = this.rows.find((x) => x.id === id)!; r.i = i; r.o = o; }
   async release(id: number) { this.rows = this.rows.filter((r) => r.id !== id); }
 }
@@ -30,7 +31,7 @@ const NOW = Date.UTC(2026, 9, 16, 12, 0, 0);
 const UUID = "123e4567-e89b-42d3-a456-426614174000";
 const GOOD = "The Fool upright invites a fresh start. Stay curious and open, and let small steps lead the way today.";
 
-function setup(opts: { premium?: boolean; llm?: Deps["llm"]; allowInstall?: boolean; cap?: string } = {}) {
+function setup(opts: { premium?: boolean; llm?: Deps["llm"]; allowInstall?: boolean; cap?: string; openaiKey?: string } = {}) {
   const usage = new MemUsage();
   const kv = new FakeKV();
   let llmCalls = 0;
@@ -43,7 +44,7 @@ function setup(opts: { premium?: boolean; llm?: Deps["llm"]; allowInstall?: bool
   const env = {
     KV: kv, DB: {}, JWT_SECRET: "s".repeat(32), HASH_SALT: "salt", ANTHROPIC_API_KEY: "k",
     ALLOW_UNATTESTED_INSTALLS: opts.allowInstall === false ? "false" : "true",
-    GLOBAL_DAILY_TOKEN_CAP: opts.cap,
+    GLOBAL_DAILY_TOKEN_CAP: opts.cap, OPENAI_API_KEY: opts.openaiKey,
   } as unknown as Env;
   const app = createApp(deps);
   const call = (path: string, init?: RequestInit) => app.request(path, init, env);
@@ -225,7 +226,7 @@ describe("POST /v1/reading", () => {
 
   it("stops everything when the global token budget is spent", async () => {
     const s = setup({ cap: "100" });
-    s.usage.rows.push({ id: 99, hash: "other", day: "2026-10-16", kind: "reading", spread: "single", i: 80, o: 80 });
+    s.usage.rows.push({ id: 99, hash: "other", day: "2026-10-16", kind: "reading", spread: "single", model: "m", i: 80, o: 80 });
     expect((await post(s, single)).status).toBe(503);
     expect(s.calls()).toBe(0);
   });
@@ -367,5 +368,87 @@ describe("crisis handling and structured readings over HTTP", () => {
     const json = (await res.json()) as { reading: string; fallback: boolean };
     expect(json.fallback).toBe(true);
     expect(json.reading).not.toMatch(/thinking about you/);
+  });
+});
+
+describe("providers and own keys", () => {
+  const OWN = "sk-ant-" + "u".repeat(40);
+  const ok = { text: GOOD, inputTokens: 100, outputTokens: 50, refused: false };
+  const post = async (s: ReturnType<typeof setup>, extra: Record<string, string> = {}, body: unknown = single) =>
+    s.call("/v1/reading", { method: "POST", headers: { ...(await authHeaders(s.env)), ...extra }, body: JSON.stringify(body) });
+
+  it("falls back once to the second provider when the first fails", async () => {
+    const seen: string[] = [];
+    const s = setup({ openaiKey: "sk-ours", llm: async (_p, t) => {
+      seen.push(t.provider);
+      if (t.provider === "anthropic") throw Object.assign(new Error("down"), { status: 529 });
+      return ok;
+    } });
+    expect((await post(s)).status).toBe(200);
+    expect(seen).toEqual(["anthropic", "openai"]);
+  });
+
+  it("without a second key there is no fallback", async () => {
+    let n = 0;
+    const s = setup({ llm: async () => { n++; throw new Error("down"); } });
+    expect((await post(s)).status).toBe(502);
+    expect(n).toBe(1);
+  });
+
+  it("own key is Premium only", async () => {
+    const s = setup();
+    const r = await post(s, { "x-user-provider": "anthropic", "x-user-key": OWN });
+    expect(r.status).toBe(402);
+    expect(s.calls()).toBe(0);
+  });
+
+  it("own key: uses only the user's key, no daily cap, not counted in our token budget", async () => {
+    const used: { key: string; byok: boolean }[] = [];
+    const s = setup({ premium: true, cap: "100", llm: async (_p, t) => { used.push({ key: t.apiKey, byok: t.byok }); return ok; } });
+    const hash = await hashId(UUID, "salt");
+    while ((await s.usage.count(hash, "2026-10-16", "reading")) < 20) await s.usage.reserve(hash, "2026-10-16", "reading");
+    s.usage.rows.forEach((r) => { r.i = 100; }); // our budget of 100 is used up
+    expect((await post(s)).status).toBe(503); // our key: budget gone
+    const r = await post(s, { "x-user-provider": "anthropic", "x-user-key": OWN });
+    expect(r.status).toBe(200);
+    expect(used).toEqual([{ key: OWN, byok: true }]);
+    expect(s.usage.rows.at(-1)!.model).toBe("byok:claude-haiku-5-5");
+    expect(await s.usage.tokensToday("2026-10-16")).toBe(2000);
+  });
+
+  it("own key: bad shape is refused; a rejected key is reported and never retried on ours", async () => {
+    const s = setup({ premium: true, openaiKey: "sk-ours", llm: async (_p, t) => {
+      if (t.byok) throw Object.assign(new Error("401 invalid x-api-key " + t.apiKey), { status: 401 });
+      return ok;
+    } });
+    expect((await post(s, { "x-user-provider": "anthropic", "x-user-key": "nope" })).status).toBe(400);
+    expect((await post(s, { "x-user-provider": "gemini", "x-user-key": OWN })).status).toBe(400);
+    const logs: string[] = [];
+    const orig = console.error;
+    console.error = (...a: unknown[]) => { logs.push(a.join(" ")); };
+    try {
+      const r = await post(s, { "x-user-provider": "anthropic", "x-user-key": OWN });
+      expect(r.status).toBe(400);
+      expect(await r.json()).toEqual({ error: "user_key_rejected" });
+    } finally { console.error = orig; }
+    expect(logs.join("\n")).not.toContain(OWN);
+    expect(s.calls()).toBe(0);
+  });
+
+  it("crisis text gets the fixed care message on the own-key path too", async () => {
+    const s = setup({ premium: true });
+    const r = await post(s, { "x-user-provider": "openai", "x-user-key": "sk-" + "o".repeat(40) },
+      { ...single, question: "I want to kill myself" });
+    expect(((await r.json()) as { crisis?: boolean }).crisis).toBe(true);
+    expect(s.calls()).toBe(0);
+  });
+
+  it("parses an OpenAI Responses reply", () => {
+    const r = parseOpenAI({
+      output: [{ type: "reasoning" }, { type: "message", content: [{ type: "output_text", text: "Hello." }] }],
+      usage: { input_tokens: 10, output_tokens: 3 },
+    });
+    expect(r).toEqual({ text: "Hello.", inputTokens: 10, outputTokens: 3, refused: false });
+    expect(parseOpenAI({ output: [{ type: "message", content: [{ type: "refusal", refusal: "no" }] }] }).refused).toBe(true);
   });
 });

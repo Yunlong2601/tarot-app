@@ -1,7 +1,8 @@
 import { Hono } from "hono";
 import { hashId, signToken, verifyToken } from "./auth";
 import type { Env } from "./env";
-import { callAnthropic, type LlmFn } from "./llm";
+import { callProvider, isAuthError, type LlmFn, type LlmParams, type LlmResult, type LlmTarget } from "./llm";
+import { serverTargets, usageModel, userTarget } from "./route";
 import { CRISIS_MESSAGE, detectCrisis } from "./knowledge";
 import {
   DISCLAIMER, FOLLOWUP_MAX_TOKENS, FOLLOWUP_SYSTEM_PROMPT, buildFollowupMessage, checkOutput,
@@ -26,7 +27,7 @@ export interface Deps {
 }
 
 const defaultDeps: Deps = {
-  llm: callAnthropic,
+  llm: callProvider,
   usage: (env) => new D1UsageStore(env.DB),
   premium: (id, env, now) => isPremium(id, env.REVENUECAT_SECRET_KEY, env.KV, now),
   now: () => Date.now(),
@@ -75,6 +76,11 @@ export function createApp(deps: Deps = defaultDeps) {
       return c.json({ error: "rate_limited" }, 429);
     }
 
+    const user = userTarget(c.req.header("x-user-provider"), c.req.header("x-user-key"));
+    if (!user.ok) return c.json({ error: "invalid_user_key" }, 400);
+    const targets = user.target ? [user.target] : serverTargets(c.env);
+    if (targets.length === 0) return c.json({ error: "service_busy" }, 503);
+
     const body = await readJson(c.req.raw);
     const parsed = parseReadingRequest(body);
     if (!parsed.ok) return c.json({ error: "invalid_request", detail: parsed.error }, 400);
@@ -95,19 +101,24 @@ export function createApp(deps: Deps = defaultDeps) {
     }
     const day = utcDay(now);
     const cap = Number(c.env.GLOBAL_DAILY_TOKEN_CAP ?? DEFAULT_GLOBAL_DAILY_TOKEN_CAP);
-    if ((await usage.tokensToday(day)) >= cap) return c.json({ error: "service_busy" }, 503);
+    if (!user.target && (await usage.tokensToday(day)) >= cap) return c.json({ error: "service_busy" }, 503);
 
+    // Own-key mode is a Premium feature (bought through the store): the user's
+    // key pays the AI provider, so there is no daily reading cap, only the
+    // per-minute brakes above. Everything else (crisis check, prompt rules,
+    // output checks) is the same on both paths.
+    if (user.target && !premium) return c.json({ error: "premium_required" }, 402);
     const limit = premium ? PREMIUM_READINGS_PER_DAY : FREE_READINGS_PER_DAY;
-    if ((await usage.count(installHash, day, "reading")) >= limit) {
+    if (!user.target && (await usage.count(installHash, day, "reading")) >= limit) {
       return c.json({ error: "daily_limit", premium }, 429);
     }
 
-    const model = c.env.LLM_MODEL ?? "claude-haiku-5-5";
-    const slot = await usage.reserve(installHash, day, "reading", req.spread, model);
+    const slot = await usage.reserve(installHash, day, "reading", req.spread, usageModel(targets[0]!));
     try {
-      const result = await deps.llm(
+      const result = await callWithFallback(
+        deps.llm,
         { system: READING_SYSTEM_PROMPT, user: buildReadingMessage(req), maxTokens: readingMaxTokens(req.spread) },
-        model, c.env.ANTHROPIC_API_KEY,
+        targets,
       );
       await usage.finalize(slot, result.inputTokens, result.outputTokens);
       if (result.refused) return c.json({ error: "declined" }, 422);
@@ -134,6 +145,7 @@ export function createApp(deps: Deps = defaultDeps) {
       });
     } catch (e) {
       await usage.release(slot);
+      if (user.target && isAuthError(e)) return c.json({ error: "user_key_rejected" }, 400);
       logUpstreamError(e);
       return c.json({ error: "upstream_failed" }, 502);
     }
@@ -158,6 +170,11 @@ export function createApp(deps: Deps = defaultDeps) {
       return c.json({ error: "rate_limited" }, 429);
     }
 
+    const user = userTarget(c.req.header("x-user-provider"), c.req.header("x-user-key"));
+    if (!user.ok) return c.json({ error: "invalid_user_key" }, 400);
+    const targets = user.target ? [user.target] : serverTargets(c.env);
+    if (targets.length === 0) return c.json({ error: "service_busy" }, 503);
+
     const parsed = parseFollowupRequest(await readJson(c.req.raw, 16384));
     if (!parsed.ok) return c.json({ error: "invalid_request", detail: parsed.error }, 400);
     const req = parsed.value;
@@ -169,17 +186,17 @@ export function createApp(deps: Deps = defaultDeps) {
     const usage = deps.usage(c.env);
     const day = utcDay(now);
     const cap = Number(c.env.GLOBAL_DAILY_TOKEN_CAP ?? DEFAULT_GLOBAL_DAILY_TOKEN_CAP);
-    if ((await usage.tokensToday(day)) >= cap) return c.json({ error: "service_busy" }, 503);
-    if ((await usage.count(installHash, day, "followup")) >= PREMIUM_FOLLOWUPS_PER_DAY) {
+    if (!user.target && (await usage.tokensToday(day)) >= cap) return c.json({ error: "service_busy" }, 503);
+    if (!user.target && (await usage.count(installHash, day, "followup")) >= PREMIUM_FOLLOWUPS_PER_DAY) {
       return c.json({ error: "daily_limit", premium: true }, 429);
     }
 
-    const model = c.env.LLM_MODEL ?? "claude-haiku-5-5";
-    const slot = await usage.reserve(installHash, day, "followup", req.spread, model);
+    const slot = await usage.reserve(installHash, day, "followup", req.spread, usageModel(targets[0]!));
     try {
-      const result = await deps.llm(
+      const result = await callWithFallback(
+        deps.llm,
         { system: FOLLOWUP_SYSTEM_PROMPT, user: buildFollowupMessage(req), maxTokens: FOLLOWUP_MAX_TOKENS },
-        model, c.env.ANTHROPIC_API_KEY,
+        targets,
       );
       await usage.finalize(slot, result.inputTokens, result.outputTokens);
       if (result.refused) return c.json({ error: "declined" }, 422);
@@ -188,12 +205,30 @@ export function createApp(deps: Deps = defaultDeps) {
       return c.json({ answer: checked.text, disclaimer: DISCLAIMER });
     } catch (e) {
       await usage.release(slot);
+      if (user.target && isAuthError(e)) return c.json({ error: "user_key_rejected" }, 400);
       logUpstreamError(e);
       return c.json({ error: "upstream_failed" }, 502);
     }
   });
 
   return app;
+}
+
+/** Tries each target once, in order; the first success wins. With our keys
+ * that is the primary provider then at most one fallback; a user key has no
+ * fallback. A rejected user key is not retried elsewhere. */
+async function callWithFallback(llm: LlmFn, params: LlmParams, targets: LlmTarget[]): Promise<LlmResult> {
+  let last: unknown = new Error("no provider");
+  for (const t of targets) {
+    try {
+      return await llm(params, t);
+    } catch (e) {
+      last = e;
+      if (t.byok) break;
+      logUpstreamError(e);
+    }
+  }
+  throw last;
 }
 
 /** Logs only the error class, HTTP status and the provider's error type: never
