@@ -49,10 +49,9 @@ void main() {
   }
 
   group('card knowledge', () {
-    test('all 22 majors have rich knowledge; minors fall back', () {
-      final majors = deck.cards.where((c) => c.arcana == Arcana.major);
-      expect(majors.length, 22);
-      for (final c in majors) {
+    test('all 78 cards have rich knowledge', () {
+      expect(deck.cards.length, 78);
+      for (final c in deck.cards) {
         final k = c.knowledge;
         expect(k, isNotNull, reason: c.id);
         expect(k!.essence, isNotEmpty);
@@ -61,7 +60,6 @@ void main() {
         expect(k.uprightQuestion, endsWith('?'), reason: c.id);
         expect(k.reversedQuestion, endsWith('?'), reason: c.id);
       }
-      expect(deck.byId('cups_ace')!.knowledge, isNull);
     });
   });
 
