@@ -1,4 +1,4 @@
-// Renders the original ShenScan app icon to assets/icon/*.png.
+// Renders the original ShenTarot app icon to assets/icon/*.png.
 // Run: flutter test tool/make_icon_test.dart   (then: dart run flutter_launcher_icons)
 import 'dart:io';
 import 'dart:math' as math;

@@ -2,9 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:shenscan/app/app_state.dart';
-import 'package:shenscan/data/deck.dart';
-import 'package:shenscan/main.dart';
+import 'package:shentarot/app/app_state.dart';
+import 'package:shentarot/data/deck.dart';
+import 'package:shentarot/main.dart';
 
 void main() {
   final deck = Deck.fromJsonString(File(Deck.assetPath).readAsStringSync());
@@ -25,7 +25,7 @@ void main() {
     tester.view.devicePixelRatio = 2.75;
     addTearDown(tester.view.reset);
     await tester.pumpWidget(
-        ShenScanApp(initialState: AppState(deck: deck, onboarded: true)));
+        ShenTarotApp(initialState: AppState(deck: deck, onboarded: true)));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Settings').last);
     await tester.pumpAndSettle();

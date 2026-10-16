@@ -1,4 +1,4 @@
-# tarot-app (working name: ShenScan)
+# tarot-app (working name: ShenTarot)
 
 Tarot card scan + AI reading subscription app for iOS and Android. The user scans a physical Rider-Waite-Smith card with the phone camera, the app identifies it on device, and a backend returns an AI-written reflection. Entertainment and self-reflection only.
 

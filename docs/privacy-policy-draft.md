@@ -2,7 +2,7 @@
 
 > DRAFT. Not legal advice. Have it reviewed (PDPA; GDPR/UK GDPR if you launch there; Apple and Google requirements) before publishing. Replace the bracketed items. Host the final text at a public URL; both stores require a URL. The same text is bundled in the app at `app/assets/legal/privacy.txt`.
 
-**ShenScan** ("the app") is provided by ShenTech, Singapore. Contact: shenyunlongbusiness@gmail.com. Effective date: 16 October 2026.
+**ShenTarot** ("the app") is provided by ShenTech, Singapore. Contact: shenyunlongbusiness@gmail.com. Effective date: 16 October 2026.
 
 The app is for entertainment and self-reflection only.
 

@@ -37,19 +37,19 @@ Future<void> main() async {
   );
   await state.loadPersisted();
   unawaited(state.startSubscriptions());
-  runApp(ShenScanApp(initialState: state));
+  runApp(ShenTarotApp(initialState: state));
 }
 
-class ShenScanApp extends StatefulWidget {
-  const ShenScanApp({super.key, required this.initialState});
+class ShenTarotApp extends StatefulWidget {
+  const ShenTarotApp({super.key, required this.initialState});
 
   final AppState initialState;
 
   @override
-  State<ShenScanApp> createState() => _ShenScanAppState();
+  State<ShenTarotApp> createState() => _ShenTarotAppState();
 }
 
-class _ShenScanAppState extends State<ShenScanApp> {
+class _ShenTarotAppState extends State<ShenTarotApp> {
   late final AppState _state = widget.initialState;
   late final GoRouter _router = buildRouter(_state);
 
@@ -64,7 +64,7 @@ class _ShenScanAppState extends State<ShenScanApp> {
     return AppScope(
       state: _state,
       child: MaterialApp.router(
-        title: 'ShenScan',
+        title: 'ShenTarot',
         theme: buildTheme(),
         routerConfig: _router,
         debugShowCheckedModeBanner: false,

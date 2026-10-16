@@ -22,7 +22,7 @@ Searched the App Store, the web and tarot deck publishers on 2026-10-16. This is
 
 | Name | Clash check | Verdict |
 |---|---|---|
-| **ShenScan** | No app or deck found with this name. Nearest is "Ouija Board: The Veil". | **Top pick.** Distinct, says "scan", easy to trademark. |
+| **ShenTarot** | No app or deck found with this name. Nearest is "Ouija Board: The Veil". | **Top pick.** Distinct, says "scan", easy to trademark. |
 | **Arcana Lens** | No exact app. "Arcanas: Tarot & Moon Calendar" exists, so it is close. | Good, slight confusion risk. |
 | **Querent** | No app found. "Querent" is the tarot word for the person asking. | Nice insider name, but a generic term is weak as a trademark. |
 | **Tarot Lens** | No exact app found. | Very searchable (ASO), but descriptive and weak to protect. |

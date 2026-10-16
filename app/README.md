@@ -1,4 +1,4 @@
-# ShenScan (working name): Flutter app
+# ShenTarot (working name): Flutter app
 
 Phases A-B: navigation, mock data, and the full 78-card deck. No camera, backend or purchases yet.
 

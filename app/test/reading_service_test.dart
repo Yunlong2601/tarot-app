@@ -3,10 +3,10 @@ import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:shenscan/core/api_reading_service.dart';
-import 'package:shenscan/core/reading_service.dart';
-import 'package:shenscan/data/deck.dart';
-import 'package:shenscan/data/models.dart';
+import 'package:shentarot/core/api_reading_service.dart';
+import 'package:shentarot/core/reading_service.dart';
+import 'package:shentarot/data/deck.dart';
+import 'package:shentarot/data/models.dart';
 
 void main() {
   late HttpServer server;
