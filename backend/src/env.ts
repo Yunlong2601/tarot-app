@@ -16,6 +16,8 @@ export interface Env {
   GOOGLE_CLIENT_IDS?: string;
   /** Apple bundle id and/or Services ID, comma-separated. */
   APPLE_CLIENT_IDS?: string;
+  /** Testing only: comma-separated install/account ids treated as Premium. */
+  TESTER_INSTALL_IDS?: string;
   /** Local testing only: skips device attestation. Never set in production. */
   ALLOW_UNATTESTED_INSTALLS?: string;
 }

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../core/account_service.dart';
+import 'flags.dart';
 import '../core/install_id.dart';
 import '../core/reading_service.dart';
 import '../core/reminder_service.dart';
@@ -217,6 +218,9 @@ class AppState extends ChangeNotifier {
       _usedCount = prefs.getInt(_kUsedCount) ?? 0;
       trialUsed = prefs.getBool(_kTrial) ?? false;
       readReversed = prefs.getBool(_kReversed) ?? true;
+      if (testerMode && (prefs.getBool(_kTesterPremium) ?? false)) {
+        isPremium = true;
+      }
       final accId = prefs.getString(_kAccountId);
       final accProvider = AccountProvider.values
           .where((p) => p.wire == prefs.getString(_kAccountProvider))
@@ -333,6 +337,18 @@ class AppState extends ChangeNotifier {
 
   /// Re-notifies listeners (used after a draw made during a widget build).
   void notifyChanged() => notifyListeners();
+
+  static const _kTesterPremium = 'tester_premium';
+
+  /// Tester builds only (see `testerMode`): pretend Premium, remembered.
+  Future<void> setTesterPremium(bool on) async {
+    if (!testerMode) return;
+    setPremium(on);
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setBool(_kTesterPremium, on);
+    } catch (_) {}
+  }
 
   void completeOnboarding() {
     onboarded = true;

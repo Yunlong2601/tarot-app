@@ -35,13 +35,19 @@ export interface Deps {
 const defaultDeps: Deps = {
   llm: callProvider,
   usage: (env) => new D1UsageStore(env.DB),
-  premium: (id, env, now) => isPremium(id, env.REVENUECAT_SECRET_KEY, env.KV, now),
+  premium: async (id, env, now) =>
+    testerIds(env).includes(id) || isPremium(id, env.REVENUECAT_SECRET_KEY, env.KV, now),
   now: () => Date.now(),
   accounts: (env) => new D1AccountStore(env.DB),
   verifyIdToken: (p, t, a, kv, n) => verifyIdToken(p, t, a, kv, n),
 };
 
 const MAX_BODY_BYTES = 4096;
+
+/** Install or account ids treated as Premium for testing before store
+ * products exist (TESTER_INSTALL_IDS, comma-separated). Remove for launch. */
+export const testerIds = (env: Env): string[] =>
+  (env.TESTER_INSTALL_IDS ?? "").split(",").map((s) => s.trim()).filter(Boolean);
 
 export function createApp(deps: Deps = defaultDeps) {
   const app = new Hono<{ Bindings: Env }>();

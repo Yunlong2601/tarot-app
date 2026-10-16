@@ -5,6 +5,8 @@ import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../app/app_scope.dart';
+import '../../app/flags.dart';
+import '../../core/install_id.dart';
 import '../../core/account_service.dart';
 import '../../core/user_key_store.dart';
 import '../../app/theme.dart';
@@ -193,6 +195,24 @@ class YouScreen extends StatelessWidget {
               title: const Text('Dev: turn Premium off'),
               onTap: () => state.setPremium(false),
             ),
+          if (testerMode) ...[
+            const Divider(),
+            SwitchListTile(
+              secondary: const Icon(Icons.science_outlined),
+              title: const Text('Tester: pretend Premium'),
+              subtitle: const Text('Test builds only. Not in the store app.'),
+              value: state.isPremium,
+              onChanged: state.setTesterPremium,
+            ),
+            FutureBuilder<String>(
+              future: loadInstallId(),
+              builder: (context, snap) => ListTile(
+                leading: const Icon(Icons.fingerprint),
+                title: const Text('Tester install ID'),
+                subtitle: SelectableText(snap.data ?? '...'),
+              ),
+            ),
+          ],
         ],
       ),
     );
