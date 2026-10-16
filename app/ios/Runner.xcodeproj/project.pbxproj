@@ -474,6 +474,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				DEVELOPMENT_TEAM = SX4CW2L35K;
 				PRODUCT_BUNDLE_IDENTIFIER = com.shentech.shentarot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
@@ -658,6 +659,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				DEVELOPMENT_TEAM = SX4CW2L35K;
 				PRODUCT_BUNDLE_IDENTIFIER = com.shentech.shentarot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
@@ -680,6 +682,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				DEVELOPMENT_TEAM = SX4CW2L35K;
 				PRODUCT_BUNDLE_IDENTIFIER = com.shentech.shentarot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
