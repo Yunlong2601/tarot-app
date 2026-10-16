@@ -14,7 +14,7 @@ Rules and menu names change. Items marked (verify) must be checked against the c
 - [ ] Release build runs on a **real iPhone** (camera, notifications, purchases). Not verified yet.
 - [ ] `NSCameraUsageDescription` present ("Used to recognise the tarot card you hold up. Photos are never saved or uploaded."). Done.
 - [ ] No secrets in the app; `API_BASE_URL` and the RevenueCat **public** key passed with `--dart-define` at build time.
-- [ ] Remove the draft banner line from `app/assets/legal/*.txt` after legal review.
+- [ ] Legal texts are filled in (provider ShenTech, no lawyer review: owner decision); re-read them before each release.
 
 ## Subscriptions (guideline 3.1.2: verify)
 - [ ] Three auto-renewing subscriptions in one group (weekly, monthly, annual with 7-day free-trial introductory offer), localised names and descriptions, review screenshot for each.
