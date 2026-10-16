@@ -132,8 +132,9 @@ export function createApp(deps: Deps = defaultDeps) {
         fallback: usedFallback,
         disclaimer: DISCLAIMER,
       });
-    } catch {
+    } catch (e) {
       await usage.release(slot);
+      logUpstreamError(e);
       return c.json({ error: "upstream_failed" }, 502);
     }
   });
@@ -185,13 +186,22 @@ export function createApp(deps: Deps = defaultDeps) {
       const checked = checkOutput(result.text);
       if (!checked.ok) return c.json({ error: "bad_output" }, 502);
       return c.json({ answer: checked.text, disclaimer: DISCLAIMER });
-    } catch {
+    } catch (e) {
       await usage.release(slot);
+      logUpstreamError(e);
       return c.json({ error: "upstream_failed" }, 502);
     }
   });
 
   return app;
+}
+
+/** Logs only the error class, HTTP status and the provider's error type: never
+ * the request, the user's text or any key. */
+function logUpstreamError(e: unknown): void {
+  const err = e as { name?: string; status?: number; message?: string; error?: { error?: { type?: string } } };
+  const msg = String(err?.message ?? "").replace(/sk-[A-Za-z0-9_-]+/g, "[key]").slice(0, 200);
+  console.error("upstream_failed", err?.name ?? "unknown", err?.status ?? "-", err?.error?.error?.type ?? "-", msg);
 }
 
 async function readJson(req: Request, maxBytes = MAX_BODY_BYTES): Promise<unknown> {
