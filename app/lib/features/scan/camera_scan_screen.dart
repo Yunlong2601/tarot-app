@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import '../../app/app_scope.dart';
 import '../../app/theme.dart';
 import '../../data/models.dart';
+import 'orientation_dialog.dart';
 import 'recognition/preprocess.dart';
 import 'recognition/recognizer.dart';
 import 'recognition/scan_logic.dart';
@@ -205,20 +206,7 @@ class _CameraScanScreenState extends State<CameraScanScreen> {
   Future<void> _pickManually() async {
     final id = await context.push<String>('/pick');
     if (id == null || !mounted) return;
-    final reversed = await showDialog<bool>(
-      context: context,
-      builder: (ctx) => SimpleDialog(
-        title: const Text('Which way up?'),
-        children: [
-          SimpleDialogOption(
-              onPressed: () => Navigator.pop(ctx, false),
-              child: const Text('Upright')),
-          SimpleDialogOption(
-              onPressed: () => Navigator.pop(ctx, true),
-              child: const Text('Reversed')),
-        ],
-      ),
-    );
+    final reversed = await askOrientation(context);
     if (reversed == null) return;
     _accept(id, reversed);
   }

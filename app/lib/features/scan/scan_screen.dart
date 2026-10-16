@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../app/app_scope.dart';
+import '../../app/app_state.dart';
 import '../../app/theme.dart';
+import '../../core/reading_service.dart';
 import '../../data/mock_data.dart';
 import '../../data/models.dart';
+import 'orientation_dialog.dart';
 
 /// Starts a reading by scanning with the camera (Phase C), picking manually,
 /// or - in debug builds - simulating a scan.
@@ -26,24 +29,65 @@ class _ScanScreenState extends State<ScanScreen> {
     super.dispose();
   }
 
-  void _startReading(List<DrawnCard> cards) {
+  /// [simulated] readings (debug builds only) skip the backend and use the
+  /// built-in sample text.
+  Future<void> _startReading(List<DrawnCard> cards,
+      {bool simulated = false}) async {
     final state = AppScope.of(context);
     if (!state.canStart(_spread)) {
       context.push('/paywall');
       return;
     }
-    final id = 'r${DateTime.now().microsecondsSinceEpoch}';
     final q = _question.text.trim();
+    var text = mockInterpretation;
+    if (!simulated) {
+      final result = await _interpret(state, cards, q);
+      if (result == null || !mounted) return;
+      text = result.text;
+    }
+    final id = 'r${DateTime.now().microsecondsSinceEpoch}';
     state.addReading(Reading(
       id: id,
       createdAt: DateTime.now(),
       spread: _spread,
       cards: cards,
-      interpretation: mockInterpretation,
+      interpretation: text,
       question: q.isEmpty ? null : q,
     ));
     context.push('/reading/$id');
   }
+
+  Future<ReadingResult?> _interpret(
+      AppState state, List<DrawnCard> cards, String question) async {
+    final nav = Navigator.of(context, rootNavigator: true);
+    showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (_) => const Center(child: CircularProgressIndicator()),
+    );
+    ReadingException? failure;
+    ReadingResult? result;
+    try {
+      result = await state.readingService.interpret(
+          spread: _spread, cards: cards, question: question);
+    } on ReadingException catch (e) {
+      failure = e;
+    } finally {
+      nav.pop(); // close the spinner
+    }
+    if (failure != null && mounted) {
+      if (failure.kind == ReadingErrorKind.premiumRequired ||
+          failure.kind == ReadingErrorKind.dailyLimit) {
+        context.push('/paywall');
+      } else {
+        _toast(failure.message);
+      }
+    }
+    return result;
+  }
+
+  void _toast(String message) => ScaffoldMessenger.of(context)
+      .showSnackBar(SnackBar(content: Text(message)));
 
   /// Phase B stand-in for the camera: a random, duplicate-free draw.
   List<TarotCard> _mockDraw() {
@@ -68,12 +112,20 @@ class _ScanScreenState extends State<ScanScreen> {
   }
 
   Future<void> _pickManually() async {
-    final id = await context.push<String>('/pick');
-    if (id == null || !mounted) return;
-    final card = AppScope.of(context).deck.byId(id)!;
-    final rest =
-        _mockDraw().where((c) => c.id != id).take(_spread.cardCount - 1);
-    _startReading(_asDrawn([card, ...rest]));
+    final picked = <DrawnCard>[];
+    final deck = AppScope.of(context).deck;
+    while (picked.length < _spread.cardCount) {
+      final id = await context.push<String>('/pick');
+      if (id == null || !mounted) return;
+      if (picked.any((c) => c.card.id == id)) {
+        _toast('That card is already in this reading.');
+        continue;
+      }
+      final reversed = await askOrientation(context);
+      if (reversed == null || !mounted) return;
+      picked.add(DrawnCard(card: deck.byId(id)!, reversed: reversed));
+    }
+    _startReading(picked);
   }
 
   @override
@@ -136,7 +188,7 @@ class _ScanScreenState extends State<ScanScreen> {
           if (kDebugMode) ...[
             const SizedBox(height: 8),
             OutlinedButton(
-              onPressed: () => _startReading(_asDrawn(_mockDraw())),
+              onPressed: () => _startReading(_asDrawn(_mockDraw()), simulated: true),
               child: const Text('Simulate scan'),
             ),
           ],

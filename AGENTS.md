@@ -15,7 +15,7 @@ Flutter app (iOS + Android). The user scans a physical Rider-Waite-Smith tarot c
 ## Layout
 ```
 app/        Flutter app (lib/app, lib/data, lib/features/*, assets/cards, tools/, test/)
-backend/    Cloudflare Worker (Phase D, not started)
+backend/    Cloudflare Worker (Phase D, see backend/README.md)
 ml/         Training pipeline for the card classifier (Phase C)
 docs/       step1-plan.md and later docs (privacy, terms drafts, store checklists in Phase G)
 ```

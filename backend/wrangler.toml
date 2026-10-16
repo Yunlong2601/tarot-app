@@ -1,0 +1,22 @@
+# No secrets here. Set secrets with `wrangler secret put <NAME>`:
+#   JWT_SECRET, HASH_SALT, ANTHROPIC_API_KEY, REVENUECAT_SECRET_KEY
+# Local development: copy .dev.vars.example to .dev.vars (git-ignored).
+name = "veilscan-api"
+main = "src/index.ts"
+compatibility_date = "2026-10-01"
+
+[vars]
+LLM_MODEL = "claude-haiku-5-5"
+GLOBAL_DAILY_TOKEN_CAP = "2000000"
+
+# Create with `wrangler d1 create veilscan` and `wrangler kv namespace create KV`,
+# then paste the ids below.
+[[d1_databases]]
+binding = "DB"
+database_name = "veilscan"
+database_id = "REPLACE_AFTER_wrangler_d1_create"
+migrations_dir = "migrations"
+
+[[kv_namespaces]]
+binding = "KV"
+id = "REPLACE_AFTER_wrangler_kv_namespace_create"

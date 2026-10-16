@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 
+import '../core/reading_service.dart';
 import '../data/deck.dart';
 import '../data/mock_data.dart';
 import '../data/models.dart';
@@ -7,10 +8,14 @@ import '../data/models.dart';
 /// Phase A mock app state. Replaced by SQLite repositories (Phase F) and
 /// RevenueCat entitlements (Phase E).
 class AppState extends ChangeNotifier {
-  AppState({required this.deck, this.onboarded = false})
-      : history = buildMockHistory(deck);
+  AppState({
+    required this.deck,
+    this.onboarded = false,
+    this.readingService = const UnconfiguredReadingService(),
+  }) : history = buildMockHistory(deck);
 
   final Deck deck;
+  final ReadingService readingService;
 
   bool onboarded;
   bool isPremium = false;

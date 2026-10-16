@@ -5,12 +5,23 @@ import 'app/app_scope.dart';
 import 'app/app_state.dart';
 import 'app/router.dart';
 import 'app/theme.dart';
+import 'core/api_reading_service.dart';
+import 'core/reading_service.dart';
 import 'data/deck.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final deck = await Deck.load();
-  runApp(VeilscanApp(initialState: AppState(deck: deck)));
+  // Set at build time: flutter run --dart-define=API_BASE_URL=https://...
+  const apiBaseUrl = String.fromEnvironment('API_BASE_URL');
+  runApp(VeilscanApp(
+    initialState: AppState(
+      deck: deck,
+      readingService: apiBaseUrl.isEmpty
+          ? const UnconfiguredReadingService()
+          : ApiReadingService(apiBaseUrl),
+    ),
+  ));
 }
 
 class VeilscanApp extends StatefulWidget {
