@@ -31,9 +31,10 @@ App record **ShenTarot: AI Lens** (Apple ID 6823779463, bundle `com.shentech.she
 **Code still to build**
 1. App Attest (iOS) and Play Integrity (Android) in `POST /v1/install`; per-IP new-install limits in D1. Production must never run `ALLOW_UNATTESTED_INSTALLS`.
 2. Token-cap protection: a reserve for Premium and older installs, an 80% alert, Cloudflare rate limiting / Turnstile; raise `GLOBAL_DAILY_TOKEN_CAP` for real traffic.
-3. App fallback when the credit server does not answer while `CREDITS` is on (today free users would be blocked from reading).
-4. Refund handling (Qonversion `subscription_refunded` / `in_app_refunded` webhook events) to remove unused credits; deletion path for people who never signed in.
-5. Privacy policy text (draft, in-app `privacy.txt`, `site/privacy.html`) and the Play data-safety CSVs do not yet mention credits, referrals, creator posts or screenshots, purchase history.
+3. ~~App fallback when the credit server does not answer~~ Done 2026-10-17 (`ac2f762`): the reading starts and the server decides.
+4. Refund handling: credit-pack refunds done 2026-10-17 (`in_app_refunded` webhook, migration 0008, `0232765`). Still open: subscription refunds (`subscription_refunded`) removing monthly credits, and a deletion path for people who never signed in.
+5. ~~Privacy text for credits, referrals, creator screenshots and Qonversion device data~~ Done 2026-10-17 in `privacy.txt`, `site/privacy.html`, `docs/privacy-policy-draft.md` and `store/play/data_safety_launch_wallet.csv`; lawyer review still to do.
+5b. Reinstall without sign-in loses credits: the RevenueCat `TRANSFER` move was dropped with the Qonversion switch, so credits now follow sign-in only. Decide whether to rebuild it on Qonversion.
 6. Look-back reminder notification, topic chips, Apple subscription extensions for referrers, cosmetic tier rewards (art not made), creator review page (curl only).
 7. Card scan model: baseline only, never validated on real deck photos.
 
@@ -44,7 +45,7 @@ App record **ShenTarot: AI Lens** (Apple ID 6823779463, bundle `com.shentech.she
 11. Build the apps with `--dart-define=CREDITS=true --dart-define=REFERRALS=true --dart-define=CREATOR=true` only after step 10.
 
 **Testing and review**
-12. Nothing has run on a real phone: camera scan, notifications, sandbox purchases, restore and credit transfer after reinstall, sign-in. Real wrangler run of migrations 0004 to 0007 (tests use node:sqlite).
+12. Nothing has run on a real phone: camera scan, notifications, sandbox purchases, restore and credit transfer after reinstall, sign-in. Real wrangler run of migrations 0005 to 0008 (tests use node:sqlite).
 13. VoiceOver check, App Review notes and test instructions, store screenshots for iOS, age rating, export compliance, lawyer review (no budget), verify crisis hotline numbers, IPOS/store name search, Singapore tax/PDPA items.
 
 ## Launch readiness (Android first; shared code for iOS) — 2026-10-17
