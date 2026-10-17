@@ -4,7 +4,7 @@ Read 2026-10-17 from Qonversion's own pages. They change: re-check before publis
 
 ## Cost
 - Pro plan: free while monthly tracked revenue (MTR) is US$7,000 or less, all features included (analytics, A/B experiments, paywall builder, webhooks, integrations). Above US$7,000 it is **0.8% of all tracked revenue**, not just the part above (US$64 at US$8,000). Source: https://www.qonversion.io/pricing
-- For this app that is US$0 until roughly 2,500 annual subscribers' worth of revenue a month; it does not change break-even (`docs/unit-economics.md`).
+- For this app that is US$0 until about 2,100 annual subscribers (US$39.99 a year is about US$3.33 a month each, before store fees); it does not change break-even (`docs/unit-economics.md`).
 
 ## Data the SDK sends to Qonversion
 | Source | What it says |
