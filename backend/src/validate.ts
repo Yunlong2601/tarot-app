@@ -1,4 +1,5 @@
 import { CARDS } from "./cards";
+import { parseLang } from "./language";
 import { isSpread, spreadSize, type Spread } from "./spreads";
 
 export type { Spread };
@@ -11,6 +12,8 @@ export interface ReadingRequest {
   question: string | null;
   /** What the user noticed in the cards before the reading (optional). */
   impression?: string | null;
+  /** App language code (see language.ts); defaults to English. */
+  lang?: string;
 }
 
 export type Parsed<T> = { ok: true; value: T } | { ok: false; error: string };
@@ -63,7 +66,7 @@ export function parseReadingRequest(body: unknown): Parsed<ReadingRequest> {
   if (!q.ok) return q;
   const imp = parseText(b.impression, MAX_QUESTION_LENGTH, "impression");
   if (!imp.ok) return imp;
-  return { ok: true, value: { ...sc.value, question: q.value, impression: imp.value } };
+  return { ok: true, value: { ...sc.value, question: q.value, impression: imp.value, lang: parseLang(b.lang) } };
 }
 
 export const MAX_FOLLOWUP_LENGTH = 300;
@@ -99,7 +102,7 @@ export function parseFollowupRequest(body: unknown): Parsed<FollowupRequest> {
     if (sc.value.cards.some((c) => c.id === id)) return fail("clarifier is already in the spread");
     clarifier = { id, reversed };
   }
-  return { ok: true, value: { ...sc.value, question: q.value, reading: r.value, followup: f.value, clarifier } };
+  return { ok: true, value: { ...sc.value, question: q.value, reading: r.value, followup: f.value, clarifier, lang: parseLang(b.lang) } };
 }
 
 function fail(error: string): { ok: false; error: string } {

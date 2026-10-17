@@ -50,6 +50,7 @@ class ApiReadingService
       if (question != null && question.trim().isNotEmpty) 'question': question,
       if (impression != null && impression.trim().isNotEmpty)
         'impression': impression.trim(),
+      'lang': I18n.code,
     };
     return _send('/v1/reading', body, 'reading');
   }
@@ -73,6 +74,7 @@ class ApiReadingService
       'followup': followUp,
       if (clarifier != null)
         'clarifier': {'id': clarifier.card.id, 'reversed': clarifier.reversed},
+      'lang': I18n.code,
     }, 'answer');
   }
 
@@ -224,6 +226,12 @@ class ApiReadingService
       final j = res.json;
       if (j['crisis'] == true) {
         throw ReadingException(ReadingErrorKind.crisis, j['message'] as String);
+      }
+      if (j['off_topic'] == true) {
+        throw ReadingException(
+          ReadingErrorKind.offTopic,
+          j['message'] as String,
+        );
       }
       return ReadingResult(
         text: j[textKey] as String,

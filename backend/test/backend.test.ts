@@ -1217,3 +1217,52 @@ describe("secrets and tester switches", () => {
 
 
 
+
+describe("reading language and quality checks", () => {
+  it("picks the reply language from the question, else the app setting", async () => {
+    const { replyLanguage, dominantScript } = await import("../src/language");
+    expect(replyLanguage("en", "我该如何面对这份工作？").script).toBe("cjk");
+    expect(replyLanguage("zh_Hans", null).name).toBe("Simplified Chinese");
+    expect(replyLanguage("ja", "仕事").name).toBe("Japanese");
+    expect(replyLanguage("es", "¿Qué necesito entender?").name).toBe("Spanish");
+    expect(dominantScript("Hello there")).toBe("latin");
+    expect(dominantScript("👍👍")).toBe("none");
+  });
+
+  it("flags leaks and human claims but not the word AI", async () => {
+    const { leaksOrClaimsHuman } = await import("../src/reading");
+    expect(leaksOrClaimsHuman("I'm the world's best tarot AI reader.")).toBe(false);
+    expect(leaksOrClaimsHuman("As Claude, I think")).toBe(true);
+    expect(leaksOrClaimsHuman("I am a real human reader")).toBe(true);
+    expect(leaksOrClaimsHuman("我是真人")).toBe(true);
+  });
+
+  it("returns the redirect for off-topic questions and charges nothing", async () => {
+    const off = JSON.stringify({ cards: [], overview: "", reflection_question: "", small_step: "", declined_topic: null, crisis: false, off_topic: true, redirect: "I'm the world's best tarot AI reader. Shall we look at what's on your mind?" });
+    const s = setup({ llm: async (p: { user: string }) => ({ text: p.user.includes("what model") ? off : GOOD, inputTokens: 100, outputTokens: 20, refused: false }) } as never);
+    const h = await authHeaders(s.env);
+    const res = await s.call("/v1/reading", { method: "POST", headers: h, body: JSON.stringify({ ...single, question: "what model are you" }) });
+    expect(res.status).toBe(200);
+    const j = (await res.json()) as { off_topic: boolean; message: string };
+    expect(j.off_topic).toBe(true);
+    expect(j.message).toContain("tarot AI reader");
+    // No reading was counted: both of today's free readings are still there.
+    for (let i = 0; i < 2; i++) {
+      const again = await s.call("/v1/reading", { method: "POST", headers: h, body: JSON.stringify(single) });
+      expect(again.status).toBe(200);
+    }
+    const third = await s.call("/v1/reading", { method: "POST", headers: h, body: JSON.stringify(single) });
+    expect(third.status).toBe(429);
+  });
+
+  it("retries once when the reply is in the wrong language, then falls back without charging", async () => {
+    let calls = 0;
+    const s = setup({ llm: async () => { calls++; return { text: GOOD, inputTokens: 10, outputTokens: 10, refused: false }; } });
+    const h = await authHeaders(s.env);
+    const res = await s.call("/v1/reading", { method: "POST", headers: h, body: JSON.stringify({ ...single, question: "我这周应该关注什么？", lang: "zh_Hans" }) });
+    expect(res.status).toBe(200);
+    const j = (await res.json()) as { fallback: boolean };
+    expect(calls).toBe(2);
+    expect(j.fallback).toBe(true);
+  });
+});

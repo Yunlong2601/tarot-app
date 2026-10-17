@@ -5,12 +5,13 @@ import { callProvider, isAuthError, type LlmFn, type LlmParams, type LlmResult, 
 import { serverTargets, usageModel, userTarget } from "./route";
 import { CRISIS_MESSAGE, detectCrisis } from "./knowledge";
 import {
-  DISCLAIMER, FOLLOWUP_MAX_TOKENS, FOLLOWUP_SYSTEM_PROMPT, buildFollowupMessage, checkOutput,
+  DISCLAIMER, FOLLOWUP_MAX_TOKENS, FOLLOWUP_PROMPT_VERSION, FOLLOWUP_SYSTEM_PROMPT, buildFollowupMessage, checkOutput,
 } from "./prompts";
 import {
-  readingMaxTokens, READING_SYSTEM_PROMPT, buildReadingMessage, fallbackReading, hitsBannedClaim,
-  parseModelReply, renderReading,
+  readingMaxTokens, READING_PROMPT_VERSION, READING_SYSTEM_PROMPT, buildReadingMessage, fallbackReading,
+  hitsBannedClaim, leaksOrClaimsHuman, parseModelReply, parseOffTopic, readingProblem, renderReading,
 } from "./reading";
+import { dominantScript, replyLanguage } from "./language";
 import { isPremium, premiumPlan } from "./revenuecat";
 import { D1CreditStore, DAILY_BANK_DAYS, MONTHLY_BANK_MONTHS, WELCOME_CREDITS, creditsInProduct, type CreditStore } from "./credits";
 import {
@@ -285,39 +286,72 @@ export function createApp(deps: Deps = defaultDeps) {
     }
 
     const slot = await usage.reserve(who.usageKey, day, "reading", req.spread, usageModel(targets[0]!));
+    /** Not the user's fault: give back the reading and the credit. */
+    const noCharge = async () => {
+      await usage.release(slot);
+      if (creditLot !== null) await deps.credits(c.env).refund(creditLot);
+    };
     try {
-      const result = await callWithFallback(
-        deps.llm,
-        { system: READING_SYSTEM_PROMPT, user: buildReadingMessage(req), maxTokens: readingMaxTokens(req.spread) },
-        targets,
-      );
-      await usage.finalize(slot, result.inputTokens, result.outputTokens);
-      if (result.refused) return c.json({ error: "declined" }, 422);
-      // Structured JSON is the normal case. If the model ignored the format,
-      // accept a clean plain-text reply; anything else (or any banned claim)
-      // falls back to a reading built from stored card text, never an error.
-      const structured = parseModelReply(result.text, req);
-      if (structured?.crisis) return c.json({ crisis: true, message: CRISIS_MESSAGE });
-      let text: string | null = structured ? renderReading(structured) : null;
-      if (text === null) {
-        const plain = checkOutput(result.text);
-        text = plain.ok ? plain.text : null;
+      const params = { system: READING_SYSTEM_PROMPT, user: buildReadingMessage(req), maxTokens: readingMaxTokens(req.spread) };
+      let inTok = 0;
+      let outTok = 0;
+      let structured: ReturnType<typeof parseModelReply> = null;
+      let plain: string | null = null;
+      let problem = "";
+      // One retry when the reply fails a check (format, language, leaks).
+      for (let attempt = 0; attempt < 2; attempt++) {
+        const result = await callWithFallback(deps.llm, params, targets);
+        inTok += result.inputTokens;
+        outTok += result.outputTokens;
+        if (result.refused) {
+          await usage.finalize(slot, inTok, outTok);
+          return c.json({ error: "declined" }, 422);
+        }
+        const redirect = parseOffTopic(result.text);
+        if (redirect !== null) {
+          console.log(JSON.stringify({ event: "off_topic", prompt: READING_PROMPT_VERSION, in: inTok, out: outTok }));
+          await noCharge();
+          return c.json({ off_topic: true, message: redirect });
+        }
+        structured = parseModelReply(result.text, req);
+        if (structured?.crisis) {
+          await usage.finalize(slot, inTok, outTok);
+          return c.json({ crisis: true, message: CRISIS_MESSAGE });
+        }
+        if (structured) {
+          const p = readingProblem(structured, req);
+          if (p === null && !hitsBannedClaim(renderReading(structured))) break;
+          problem = p ?? "banned_claim";
+          structured = null;
+        } else {
+          // The model ignored the JSON format: a clean plain-text reply in the
+          // right language is still acceptable.
+          const out = checkOutput(result.text);
+          if (out.ok && !hitsBannedClaim(out.text) && !leaksOrClaimsHuman(out.text) &&
+              dominantScript(out.text) === replyLanguage(req.lang ?? "en", req.question).script) {
+            plain = out.text;
+            break;
+          }
+          problem = "format";
+        }
+        console.log(JSON.stringify({ event: "reading_check_failed", attempt, problem, prompt: READING_PROMPT_VERSION }));
       }
-      let usedFallback = false;
-      if (text === null || hitsBannedClaim(text)) {
-        text = fallbackReading(req);
-        usedFallback = true;
+      if (!structured && plain === null) {
+        // Both tries failed: a reading from stored card text, and no charge.
+        await noCharge();
+        await rewardReferral(who, c.env, now);
+        return c.json({ reading: fallbackReading(req), structured: null, fallback: true, disclaimer: DISCLAIMER });
       }
+      await usage.finalize(slot, inTok, outTok);
       await rewardReferral(who, c.env, now);
       return c.json({
-        reading: text,
-        structured: usedFallback ? null : structured,
-        fallback: usedFallback,
+        reading: structured ? renderReading(structured) : plain,
+        structured,
+        fallback: false,
         disclaimer: DISCLAIMER,
       });
     } catch (e) {
-      await usage.release(slot);
-      if (creditLot !== null) await deps.credits(c.env).refund(creditLot);
+      await noCharge();
       if (user.target && isAuthError(e)) return c.json({ error: "user_key_rejected" }, 400);
       logUpstreamError(e);
       return c.json({ error: "upstream_failed" }, 502);
@@ -379,20 +413,39 @@ export function createApp(deps: Deps = defaultDeps) {
     }
 
     const slot = await usage.reserve(who.usageKey, day, "followup", req.spread, usageModel(targets[0]!));
-    try {
-      const result = await callWithFallback(
-        deps.llm,
-        { system: FOLLOWUP_SYSTEM_PROMPT, user: buildFollowupMessage(req), maxTokens: FOLLOWUP_MAX_TOKENS },
-        targets,
-      );
-      await usage.finalize(slot, result.inputTokens, result.outputTokens);
-      if (result.refused) return c.json({ error: "declined" }, 422);
-      const checked = checkOutput(result.text);
-      if (!checked.ok) return c.json({ error: "bad_output" }, 502);
-      return c.json({ answer: checked.text, disclaimer: DISCLAIMER });
-    } catch (e) {
+    const noCharge = async () => {
       await usage.release(slot);
       if (followupLot !== null) await deps.credits(c.env).refund(followupLot);
+    };
+    try {
+      const want = replyLanguage(req.lang ?? "en", req.followup).script;
+      let inTok = 0;
+      let outTok = 0;
+      for (let attempt = 0; attempt < 2; attempt++) {
+        const result = await callWithFallback(
+          deps.llm,
+          { system: FOLLOWUP_SYSTEM_PROMPT, user: buildFollowupMessage(req), maxTokens: FOLLOWUP_MAX_TOKENS },
+          targets,
+        );
+        inTok += result.inputTokens;
+        outTok += result.outputTokens;
+        if (result.refused) {
+          await usage.finalize(slot, inTok, outTok);
+          return c.json({ error: "declined" }, 422);
+        }
+        const checked = checkOutput(result.text);
+        const script = checked.ok ? dominantScript(checked.text) : "none";
+        const langOk = script === want || (want === "kana" && script === "cjk");
+        if (checked.ok && langOk && !leaksOrClaimsHuman(checked.text) && !hitsBannedClaim(checked.text)) {
+          await usage.finalize(slot, inTok, outTok);
+          return c.json({ answer: checked.text, disclaimer: DISCLAIMER });
+        }
+        console.log(JSON.stringify({ event: "followup_check_failed", attempt, prompt: FOLLOWUP_PROMPT_VERSION }));
+      }
+      await noCharge();
+      return c.json({ error: "bad_output" }, 502);
+    } catch (e) {
+      await noCharge();
       if (user.target && isAuthError(e)) return c.json({ error: "user_key_rejected" }, 400);
       logUpstreamError(e);
       return c.json({ error: "upstream_failed" }, 502);

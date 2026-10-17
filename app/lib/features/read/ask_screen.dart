@@ -5,6 +5,7 @@ import '../../app/app_scope.dart';
 import '../../app/theme.dart';
 import 'question_nudge.dart';
 import '../../app/i18n.dart';
+import '../../app/motion.dart';
 
 /// Step 1 of a reading: the question. Optional, but a good question makes a
 /// better reading. If [skipPicker] is set the spread was already chosen in the
@@ -52,7 +53,33 @@ class _AskScreenState extends State<AskScreen> {
     super.dispose();
   }
 
-  void _next() {
+  Future<void> _next() async {
+    if (looksOffTopic(_controller.text)) {
+      final ask = await showAppDialog<bool>(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: Text(tr('Let\'s ask the cards about you')),
+          content: Text(
+            tr(
+              'This looks like a question about the app or something outside your life. The cards read best on your own situation, for example "What can I do to feel more settled at work?"',
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(ctx, true),
+              child: Text(tr('Ask anyway')),
+            ),
+            FilledButton(
+              style: FilledButton.styleFrom(minimumSize: const Size(0, 44)),
+              onPressed: () => Navigator.pop(ctx, false),
+              child: Text(tr('Edit my question')),
+            ),
+          ],
+        ),
+      );
+      if (ask != true || !mounted) return;
+    }
+    if (!mounted) return;
     final state = AppScope.of(context);
     state.setDraftQuestion(_controller.text);
     if (widget.skipPicker) {

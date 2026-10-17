@@ -10,6 +10,7 @@ import '../../data/mock_data.dart';
 import '../../data/models.dart';
 import '../../app/motion.dart';
 import '../../app/i18n.dart';
+import '../../app/theme.dart';
 
 /// Shared by photo and digital readings: checks the free/Premium rule, asks the
 /// backend for the interpretation (with a spinner), saves the reading and opens
@@ -94,7 +95,9 @@ Future<ReadingResult?> _interpret(
     nav.pop(); // close the spinner
   }
   if (failure != null && context.mounted) {
-    if (failure.kind == ReadingErrorKind.crisis) {
+    if (failure.kind == ReadingErrorKind.offTopic) {
+      await showOffTopic(context, failure.message);
+    } else if (failure.kind == ReadingErrorKind.crisis) {
       await showAppDialog<void>(
         context: context,
         builder: (ctx) => AlertDialog(
@@ -114,9 +117,7 @@ Future<ReadingResult?> _interpret(
         SnackBar(
           content: Text(
             tr(
-              tr(
-                'You have used today\'s readings for your plan. Use a credit, or come back after the daily reset (00:00 UTC).',
-              ),
+              'You have used today\'s readings for your plan. Use a credit, or come back after the daily reset (00:00 UTC).',
             ),
           ),
           duration: Duration(seconds: 8),
@@ -260,4 +261,47 @@ class _WaitingState extends State<_Waiting> {
       ),
     );
   }
+}
+
+/// The reader's friendly redirect for a question that is not about the user's
+/// life. Nothing was charged. Offers example questions to try instead.
+Future<void> showOffTopic(BuildContext context, String message) {
+  final examples = [
+    tr('What do I need to understand about my work right now?'),
+    tr('How can I take care of myself this week?'),
+    tr('What is helping and what is in the way in my relationship?'),
+  ];
+  return showAppDialog<void>(
+    context: context,
+    builder: (ctx) => AlertDialog(
+      icon: const Icon(Icons.auto_awesome, color: AppColors.gold),
+      title: Text(tr('Let\'s ask the cards about you')),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(message),
+          const SizedBox(height: 12),
+          Text(
+            tr('Questions that work well:'),
+            style: const TextStyle(color: AppColors.textMuted),
+          ),
+          const SizedBox(height: 4),
+          for (final e in examples)
+            Padding(
+              padding: const EdgeInsets.only(top: 4),
+              child: Text('· $e'),
+            ),
+          const SizedBox(height: 12),
+          Text(
+            tr('No reading or credit was used.'),
+            style: const TextStyle(fontSize: 13, color: AppColors.textMuted),
+          ),
+        ],
+      ),
+      actions: [
+        TextButton(onPressed: () => Navigator.pop(ctx), child: Text(tr('OK'))),
+      ],
+    ),
+  );
 }

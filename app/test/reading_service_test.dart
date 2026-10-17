@@ -67,6 +67,7 @@ void main() {
           {'id': 'major_00_fool', 'reversed': true},
         ],
         'question': 'Hello?',
+        'lang': 'en',
       });
     },
   );
