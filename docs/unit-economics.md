@@ -15,7 +15,7 @@ Goal (owner): Premium only needs to cover building and running costs. All figure
 ## What a user costs per month (AI only)
 - Free user, 1 reading a day, every day: 30 x US$0.0003 = **about US$0.01**; worst case US$0.045.
 - Premium has a visible daily allowance of readings and follow-ups together: annual 50, 3 months 40, monthly 30. Typical subscriber, 2 readings a day: about US$0.02 a month. Heavy, 10 a day: about US$0.10. Annual at the cap every day: about US$0.45 typical, up to US$4.50 worst case (ceiling of 5,000 output tokens per reading).
-- Free users get 1 reading plus 1 login credit a day, so up to 2 readings (more on a day they spend banked credits): about US$0.02 a month typical.
+- Free users get 2 credits a day (unused ones roll over, bank up to 20, spend at most 4 a day): about US$0.02 a month typical, at most about US$0.04 with 120 credits used. Premium users get 30 to 50 credits a day; spend limit 2 days' worth, so annual is at most 100 credits (about US$0.03 typical, US$0.30 at worst, per day).
 
 ## Revenue per subscriber per month, after the 15% store fee
 | Plan | Price | Net per month |

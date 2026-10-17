@@ -60,7 +60,10 @@ class AppState extends ChangeNotifier {
   final CreditBackend creditApi;
   int credits = 0;
 
-  /// Today's login credit (once a day for everyone), then the balance.
+  /// New credits that arrive every day for this user, as the server reports it.
+  int dailyCredits = 0;
+
+  /// Today's daily credits (once a day for everyone), then the balance.
   Future<void> claimDailyCredit() async {
     if (!creditsEnabled) return;
     try {
@@ -72,14 +75,32 @@ class AppState extends ChangeNotifier {
   Future<void> refreshCredits() async {
     if (!creditsEnabled) return;
     try {
-      credits = await creditApi.balance();
+      final status = await creditApi.status();
+      credits = status.balance;
+      dailyCredits = status.dailyAmount;
       notifyListeners();
     } catch (_) {}
   }
 
-  /// Free users with credits can read past the daily free reading, and ask
-  /// follow-ups. The server checks and spends the credit.
+  /// One credit pays for a reading or a follow-up. The server checks and spends it.
   bool get hasCredits => creditsEnabled && credits > 0;
+
+  /// The one-line status under the reading buttons.
+  String get creditLine {
+    if (!creditsEnabled) {
+      if (isPremium) return 'Premium: up to 30 to 50 readings a day';
+      return canReadForFree
+          ? '1 free reading left today'
+          : 'Free reading used. Come back tomorrow or go Premium.';
+    }
+    final perDay = dailyCredits > 0 ? dailyCredits : (isPremium ? 30 : 2);
+    if (credits > 0) {
+      return '$credits credits · +$perDay every day, unused credits roll over';
+    }
+    return isPremium
+        ? 'No credits left. $perDay new credits arrive tomorrow.'
+        : 'No credits left. $perDay new credits arrive tomorrow, or go Premium.';
+  }
 
   /// The friend's offer unlocked by a code typed on this phone, if any.
   ReferralOffer? referralOffer;
@@ -258,6 +279,7 @@ class AppState extends ChangeNotifier {
   /// Premium users get a daily allowance by plan (30 to 50); free users get one reading a day plus credits.
   bool canStart(SpreadType spread) {
     if (isPremium) return true;
+    if (creditsEnabled) return credits > 0 && (spread.isFree || !trialUsed);
     if (!canReadForFree) return hasCredits;
     return spread.isFree || !trialUsed;
   }

@@ -62,10 +62,12 @@ export class D1UsageStore implements UsageStore {
   }
 }
 
+/** Free daily credits once the credit wallet is on; before that, 1 free reading a day. */
+export const FREE_DAILY_CREDITS = 2;
 export const FREE_READINGS_PER_DAY = 1;
 // Premium unlocks every feature; AI readings and follow-ups share one daily
 // allowance that depends on the plan (stated openly in the app and the Terms).
-// Credits (daily login credit, Starter Pack) can go past it.
+// Once the credit wallet is on these are the daily credits (see index.ts charge()).
 export const PLAN_DAILY_ALLOWANCE = { annual: 50, quarterly: 40, monthly: 30 } as const;
 export type PremiumPlan = keyof typeof PLAN_DAILY_ALLOWANCE;
 /** Testers and unrecognised paid products: the highest allowance. */

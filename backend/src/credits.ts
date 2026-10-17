@@ -1,15 +1,19 @@
 /** Reading credits (off unless CREDITS_ENABLED=true). 1 credit = one extra AI
  * reading or follow-up / clarifier beyond the daily allowance. Credits never expire. A credit is refunded if the reading fails. */
 
-/** Everyone gets this many credits the first time they open the app each UTC
- * day, unless they already hold LOGIN_CREDIT_BANK_CAP or more. */
-export const DAILY_LOGIN_CREDITS = 1;
-export const LOGIN_CREDIT_BANK_CAP = 3;
+/** Daily credits: the first time a user opens the app on a UTC day they
+ * receive their plan's daily amount (free 2, Premium monthly 30, 3 months 40,
+ * annual 50, see usage.ts). Unused credits roll over and never expire. New
+ * daily credits stop arriving while the user already holds DAILY_BANK_DAYS
+ * days' worth of them (bought credits do not count toward that cap), and a user
+ * can spend at most DAILY_SPEND_DAYS days' worth in one day. */
+export const DAILY_BANK_DAYS = 10;
+export const DAILY_SPEND_DAYS = 2;
 
 export interface CreditStore {
-  /** Daily login credit: true if one was added now (once per day per owner;
-   * bankCap limits how many login credits can be held at once). */
-  claimDaily(key: string, day: string, bankCap: number): Promise<boolean>;
+  /** Today's daily credits: adds up to `amount` (once per UTC day per owner),
+   * never taking the daily-sourced credits held above `bankCap`. Returns how many were added. */
+  claimDaily(key: string, day: string, amount: number, bankCap: number): Promise<number>;
   balance(key: string): Promise<number>;
   /** Adds credits for a store purchase; false if this transaction was seen. */
   add(key: string, amount: number, txn: string): Promise<boolean>;
@@ -27,7 +31,7 @@ export function creditsInProduct(productId: string): number | null {
   return m ? Number(m[1]) : null;
 }
 
-/** Each grant (purchase, login credit) is a lot. Credits never expire; the
+/** Each grant (purchase, daily credits) is a lot. Credits never expire; the
  * oldest lot is spent first and a refund goes back to the lot it came from. */
 export class D1CreditStore implements CreditStore {
   constructor(private db: D1Database, private nowMs: () => number = () => Date.now()) {}
@@ -48,18 +52,18 @@ export class D1CreditStore implements CreditStore {
     await this.lot(key, amount, "purchase");
     return true;
   }
-  async claimDaily(key: string, day: string, bankCap: number) {
-    // The bank cap counts login credits only; bought credits never block them.
-    const held = await this.db.prepare("SELECT COALESCE(SUM(remaining), 0) AS n FROM credit_lots WHERE owner_key = ?1 AND source = 'login'")
+  async claimDaily(key: string, day: string, amount: number, bankCap: number) {
+    const held = await this.db.prepare("SELECT COALESCE(SUM(remaining), 0) AS n FROM credit_lots WHERE owner_key = ?1 AND source = 'daily'")
       .bind(key).first<{ n: number }>();
-    if ((held?.n ?? 0) >= bankCap) return false;
+    const grant = Math.min(amount, bankCap - (held?.n ?? 0));
+    if (grant <= 0) return 0;
     await this.db.prepare("INSERT OR IGNORE INTO credits (owner_key, balance, updated_at) VALUES (?1, 0, ?2)").bind(key, this.iso()).run();
     const r = await this.db.prepare(
       "UPDATE credits SET last_login_day = ?2, updated_at = ?3 WHERE owner_key = ?1 AND (last_login_day IS NULL OR last_login_day <> ?2)",
     ).bind(key, day, this.iso()).run();
-    if ((r.meta.changes ?? 0) === 0) return false;
-    await this.lot(key, 1, "login");
-    return true;
+    if ((r.meta.changes ?? 0) === 0) return 0;
+    await this.lot(key, grant, "daily");
+    return grant;
   }
   async move(fromKey: string, toKey: string) {
     if (fromKey === toKey) return 0;

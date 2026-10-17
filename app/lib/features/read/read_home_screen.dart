@@ -85,13 +85,7 @@ class ReadHomeScreen extends StatelessWidget {
                                     ),
                                   ),
                                 Text(
-                                  state.isPremium
-                                      ? 'Premium: up to 30 to 50 readings a day'
-                                      : state.canReadForFree
-                                      ? '1 free reading left today'
-                                      : state.hasCredits
-                                      ? 'Free reading used · ${state.credits} credits left'
-                                      : 'Free reading used. Come back tomorrow or go Premium.',
+                                  state.creditLine,
                                   style: const TextStyle(
                                     color: AppColors.textMuted,
                                     fontSize: 12,

@@ -3,10 +3,11 @@
 Built 2026-10-17, **switched off** (app flag `CREDITS`, server `CREDITS_ENABLED`). Server migration `0004_credits.sql` is NOT applied to the live database yet.
 
 ## How it works (ShenTarot's version)
-- 1 credit = one AI reading or one follow-up / clarifier beyond the daily allowance; the same credit works for both. Everyone, free and Premium, gets 1 login credit the first time they open the app each UTC day (`POST /v1/credits/daily`), banked up to 3 (no new one while 3 login credits are held; bought credits do not count toward the 3).
-- Daily allowance (readings and follow-ups together): free 1 reading; Premium by plan: annual 50, 3 months 40, monthly 30 (`PLAN_DAILY_ALLOWANCE` in `backend/src/usage.ts`). Past it, a credit pays. Migration `0005_daily_login_credit.sql` (not applied yet) adds the credit lots table.
+- **One wallet.** 1 credit = one AI reading or one follow-up / clarifier (same credit for both). The first time a user uses the app on a UTC day (`POST /v1/credits/daily`, or automatically on their first reading) they receive their daily credits: free 2, Premium annual 50, 3 months 40, monthly 30 (`FREE_DAILY_CREDITS`, `PLAN_DAILY_ALLOWANCE` in `backend/src/usage.ts`). No credits accrue on days the app is not used.
+- **Rollover.** Unused credits stay and never expire. Daily credits stop arriving while the user holds 10 days' worth of daily-sourced credits (`DAILY_BANK_DAYS`); bought, referral and creator credits are outside that cap. At most 2 days' worth can be spent in one day (`DAILY_SPEND_DAYS`), which bounds cost spikes. Someone who cancels Premium keeps what they banked but receives the free amount from then on.
+- Migration `0005_daily_login_credit.sql` (not applied yet) adds the credit lots table. With the wallet switched off, free gets 1 reading a day and Premium the plain per-day allowance shared by readings and follow-ups.
 - The server holds the balance (per account, or per install without one), so it can't be edited on the phone. Each store purchase is added once, even if the store retries.
-- A credit is given back automatically if the reading fails. Credits never expire. The oldest credit is spent first, and a failed reading refunds the credit to the lot it came from.
+- A credit is given back automatically if the reading fails. The oldest credit is spent first, and a failed reading refunds the credit to the lot it came from.
 - The paywall shows the Starter Pack under the memberships: "Not ready to subscribe? Starter Pack: 5 reading credits for $X, one time."
 - Without an account, credits belong to this phone and are lost if the app is deleted (same as referral months); signing in keeps them. Say this in the small print once accounts are on.
 

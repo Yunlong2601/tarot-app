@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:shentarot/app/flags.dart';
 import 'package:shentarot/app/app_state.dart';
 import 'package:shentarot/data/deck.dart';
 import 'package:shentarot/data/models.dart';
@@ -88,6 +89,35 @@ void main() {
     cards: [DrawnCard(card: deck.cards.first, reversed: false)],
     interpretation: 'x',
   );
+
+  group('AppState credit wallet', () {
+    tearDown(() => creditsEnabled = false);
+
+    test('the status line shows credits, the daily amount and rollover', () {
+      creditsEnabled = true;
+      final s = AppState(deck: deck)
+        ..credits = 7
+        ..dailyCredits = 2;
+      expect(s.creditLine, '7 credits · +2 every day, unused credits roll over');
+      s.credits = 0;
+      expect(s.creditLine, contains('No credits left'));
+      expect(s.creditLine, contains('go Premium'));
+      s.setPremium(true);
+      s.dailyCredits = 50;
+      expect(s.creditLine, 'No credits left. 50 new credits arrive tomorrow.');
+    });
+
+    test('a free user can start a reading only while they hold credits', () {
+      creditsEnabled = true;
+      final s = AppState(deck: deck);
+      expect(s.canStart(SpreadType.single), isFalse);
+      s.credits = 1;
+      expect(s.canStart(SpreadType.single), isTrue);
+      expect(s.canStart(SpreadType.horseshoe), isTrue); // the one trial
+      s.trialUsed = true;
+      expect(s.canStart(SpreadType.horseshoe), isFalse); // Premium spread
+    });
+  });
 
   group('AppState free-tier rules', () {
     test('spreads of up to 3 cards are free; longer ones use the one trial', () {

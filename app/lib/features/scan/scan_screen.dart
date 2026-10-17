@@ -134,11 +134,7 @@ class _ScanScreenState extends State<ScanScreen> {
           ),
           const SizedBox(height: 12),
           Text(
-            state.isPremium
-                ? 'Premium: up to 30 to 50 readings a day'
-                : state.canReadForFree
-                ? '1 free reading left today'
-                : 'Free reading used. Come back tomorrow or go Premium.',
+            state.creditLine,
             textAlign: TextAlign.center,
             style: const TextStyle(color: AppColors.textMuted),
           ),

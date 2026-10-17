@@ -2,7 +2,7 @@
 import { DatabaseSync } from "node:sqlite";
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { D1CreditStore, LOGIN_CREDIT_BANK_CAP } from "../src/credits";
+import { D1CreditStore } from "../src/credits";
 
 /** Minimal D1 look-alike over node:sqlite so the real SQL runs in tests. */
 function fakeD1(db: DatabaseSync): D1Database {
@@ -41,22 +41,26 @@ describe("D1CreditStore (real SQL)", () => {
     expect(await s.spend("u")).toBeNull();
   });
 
-  it("one login credit a day, banked up to 3; bought credits never block it", async () => {
+  it("daily credits arrive once a day, roll over, stop at the bank cap, and bought credits do not count toward it", async () => {
     const now = { t: T0 };
     const s = setup(now);
-    await s.add("u", 5, "pack");
-    expect(await s.claimDaily("u", "2026-10-25", LOGIN_CREDIT_BANK_CAP)).toBe(true);
-    expect(await s.claimDaily("u", "2026-10-25", LOGIN_CREDIT_BANK_CAP)).toBe(false); // same day
-    expect(await s.claimDaily("u", "2026-10-26", LOGIN_CREDIT_BANK_CAP)).toBe(true);
-    expect(await s.claimDaily("u", "2026-10-27", LOGIN_CREDIT_BANK_CAP)).toBe(true);
-    expect(await s.claimDaily("u", "2026-10-28", LOGIN_CREDIT_BANK_CAP)).toBe(false); // 3 login credits held
-    expect(await s.balance("u")).toBe(8);
+    await s.add("u", 100, "pack");
+    expect(await s.claimDaily("u", "2026-10-25", 5, 12)).toBe(5);
+    expect(await s.claimDaily("u", "2026-10-25", 5, 12)).toBe(0); // same day
+    expect(await s.claimDaily("u", "2026-10-26", 5, 12)).toBe(5); // rolled over: 10 held
+    expect(await s.claimDaily("u", "2026-10-27", 5, 12)).toBe(2); // only room for 2
+    expect(await s.claimDaily("u", "2026-10-28", 5, 12)).toBe(0); // at the cap
+    expect(await s.balance("u")).toBe(112);
+    // spending daily credits makes room again
+    for (let i = 0; i < 5; i++) await s.spend("u");
+    now.t += DAY;
+    expect(await s.claimDaily("u", "2026-10-29", 5, 12)).toBe(0); // oldest lot spent was the bought one
   });
 
   it("move() hands every credit to the new owner", async () => {
     const s = setup({ t: T0 });
     await s.add("old", 3, "p1");
-    await s.claimDaily("old", "2026-10-25", LOGIN_CREDIT_BANK_CAP);
+    await s.claimDaily("old", "2026-10-25", 1, 10);
     expect(await s.move("old", "new")).toBe(4);
     expect(await s.balance("old")).toBe(0);
     expect(await s.balance("new")).toBe(4);

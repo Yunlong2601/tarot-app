@@ -12,7 +12,7 @@ import {
   parseModelReply, renderReading,
 } from "./reading";
 import { isPremium, premiumPlan } from "./revenuecat";
-import { D1CreditStore, DAILY_LOGIN_CREDITS, LOGIN_CREDIT_BANK_CAP, creditsInProduct, type CreditStore } from "./credits";
+import { D1CreditStore, DAILY_BANK_DAYS, DAILY_SPEND_DAYS, creditsInProduct, type CreditStore } from "./credits";
 import {
   CREDIT_DELAY_DAYS, D1ReferralStore, MAX_CREDITS_PER_YEAR, PLAY_REFERRAL_OFFER_TAG, grantFreeMonth,
   hasStoreSubscription, newCode, normaliseCode, type ReferralStore,
@@ -22,7 +22,7 @@ import {
 } from "./accounts";
 import {
   BURST_PER_MINUTE, D1UsageStore, DEFAULT_GLOBAL_DAILY_TOKEN_CAP, FREE_READINGS_PER_DAY,
-  DEFAULT_PREMIUM_ALLOWANCE, IP_PER_MINUTE, PLAN_DAILY_ALLOWANCE, allowWithinMinute, utcDay, type UsageStore,
+  DEFAULT_PREMIUM_ALLOWANCE, FREE_DAILY_CREDITS, IP_PER_MINUTE, PLAN_DAILY_ALLOWANCE, allowWithinMinute, utcDay, type UsageStore,
 } from "./usage";
 import { isFreeSpread } from "./spreads";
 import { isUuid, parseFollowupRequest, parseReadingRequest } from "./validate";
@@ -68,19 +68,29 @@ export const testerIds = (env: Env): string[] =>
 export function createApp(deps: Deps = defaultDeps) {
   const app = new Hono<{ Bindings: Env }>();
 
-  /** One credit buys a reading or a follow-up. The daily credits (free: 1;
-   * Premium by plan: annual 50, 3 months 40, monthly 30) refill at 00:00 UTC
-   * and come first; then bonus credits (login, Starter Pack, referral) are
-   * spent. Returns the bonus lot used, or null when a daily credit paid. */
+  /** One credit buys a reading or a follow-up. Everyone receives daily credits
+   * (free 2; Premium annual 50, 3 months 40, monthly 30) the first time they use
+   * the app each UTC day; unused credits roll over and never expire, up to a
+   * bank of 10 days' worth of daily credits, and at most 2 days' worth can be
+   * spent in a day. Before the credit wallet is switched on (CREDITS_ENABLED),
+   * the same numbers act as a plain per-day allowance (free 1). */
   type Charge = { ok: true; lot: number | null } | { ok: false; limit: number };
-  const dailyLimit = async (who: { appUserId: string }, env: Env, premium: boolean, now: number) =>
-    premium ? await (deps.premiumAllowance?.(who.appUserId, env, now) ?? DEFAULT_PREMIUM_ALLOWANCE) : FREE_READINGS_PER_DAY;
+  const dailyAmount = async (who: { appUserId: string }, env: Env, premium: boolean, now: number) =>
+    premium
+      ? await (deps.premiumAllowance?.(who.appUserId, env, now) ?? DEFAULT_PREMIUM_ALLOWANCE)
+      : env.CREDITS_ENABLED === "true" ? FREE_DAILY_CREDITS : FREE_READINGS_PER_DAY;
+  const spentToday = async (usage: UsageStore, key: string, day: string) =>
+    (await usage.count(key, day, "reading")) + (await usage.count(key, day, "followup"));
   const charge = async (who: { appUserId: string; usageKey: string }, env: Env, premium: boolean, usage: UsageStore, day: string, now: number): Promise<Charge> => {
-    const limit = await dailyLimit(who, env, premium, now);
-    const used = (await usage.count(who.usageKey, day, "reading")) + (await usage.count(who.usageKey, day, "followup"));
-    if (used < limit) return { ok: true, lot: null };
-    const lot = env.CREDITS_ENABLED === "true" ? await deps.credits(env).spend(who.usageKey) : null;
-    return lot === null ? { ok: false, limit } : { ok: true, lot };
+    const amount = await dailyAmount(who, env, premium, now);
+    const used = await spentToday(usage, who.usageKey, day);
+    if (env.CREDITS_ENABLED !== "true") return used < amount ? { ok: true, lot: null } : { ok: false, limit: amount };
+    const spendLimit = amount * DAILY_SPEND_DAYS;
+    if (used >= spendLimit) return { ok: false, limit: spendLimit };
+    const store = deps.credits(env);
+    await store.claimDaily(who.usageKey, day, amount, amount * DAILY_BANK_DAYS);
+    const lot = await store.spend(who.usageKey);
+    return lot === null ? { ok: false, limit: amount } : { ok: true, lot };
   };
 
   app.get("/health", (c) => c.json({ ok: true }));
@@ -339,27 +349,26 @@ export function createApp(deps: Deps = defaultDeps) {
     const who = await identity(c.env, installId);
     const now = deps.now();
     const premium = await deps.premium(who.appUserId, c.env, now);
-    const limit = await dailyLimit(who, c.env, premium, now);
-    const usage = deps.usage(c.env);
-    const day = utcDay(now);
-    const used = (await usage.count(who.usageKey, day, "reading")) + (await usage.count(who.usageKey, day, "followup"));
-    // balance = bonus credits (never expire); daily = credits that refill at 00:00 UTC
+    const amount = await dailyAmount(who, c.env, premium, now);
+    const used = await spentToday(deps.usage(c.env), who.usageKey, utcDay(now));
     return c.json({
       balance: await deps.credits(c.env).balance(who.usageKey),
-      daily: { limit, used: Math.min(used, limit), left: Math.max(limit - used, 0), premium },
+      daily: { amount, spendLimit: amount * DAILY_SPEND_DAYS, spentToday: used, premium },
     });
   });
 
-  // Daily login credit for everyone: +1 the first time the app opens each UTC
-  // day, unless the balance is already at the bank cap.
+  // Today's daily credits (also granted automatically on the first reading).
   app.post("/v1/credits/daily", async (c) => {
     if (c.env.CREDITS_ENABLED !== "true") return c.json({ error: "credits_off" }, 404);
-    const installId = await installFrom(c.req.header("authorization"), c.env, deps.now());
+    const now = deps.now();
+    const installId = await installFrom(c.req.header("authorization"), c.env, now);
     if (!installId) return c.json({ error: "unauthorized" }, 401);
     const who = await identity(c.env, installId);
+    const premium = await deps.premium(who.appUserId, c.env, now);
+    const amount = await dailyAmount(who, c.env, premium, now);
     const store = deps.credits(c.env);
-    const granted = await store.claimDaily(who.usageKey, utcDay(deps.now()), LOGIN_CREDIT_BANK_CAP);
-    return c.json({ granted: granted ? DAILY_LOGIN_CREDITS : 0, balance: await store.balance(who.usageKey), bankCap: LOGIN_CREDIT_BANK_CAP });
+    const granted = await store.claimDaily(who.usageKey, utcDay(now), amount, amount * DAILY_BANK_DAYS);
+    return c.json({ granted, balance: await store.balance(who.usageKey), dailyAmount: amount, bankCap: amount * DAILY_BANK_DAYS });
   });
 
   // ---- Refer and earn (off unless REFERRALS_ENABLED=true) ----

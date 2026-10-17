@@ -100,9 +100,14 @@ class ApiReadingService
   }
 
   @override
-  Future<int> balance() async {
+  Future<CreditStatus> status() async {
     final res = await _post('/v1/credits/me', const {}, auth: true);
-    return res.status == 200 ? (res.json['balance'] as num?)?.toInt() ?? 0 : 0;
+    if (res.status != 200) return const CreditStatus(balance: 0, dailyAmount: 0);
+    final daily = res.json['daily'];
+    return CreditStatus(
+      balance: (res.json['balance'] as num?)?.toInt() ?? 0,
+      dailyAmount: daily is Map ? (daily['amount'] as num?)?.toInt() ?? 0 : 0,
+    );
   }
 
   @override
