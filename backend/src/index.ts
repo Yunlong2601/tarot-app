@@ -50,6 +50,8 @@ export interface Deps {
   /** One free month of Premium (RevenueCat promotional entitlement). */
   grantMonth: (appUserId: string, env: Env) => Promise<boolean>;
   verifyIdToken: (provider: AccountProvider, token: string, audiences: string[], kv: KVNamespace, nowSeconds: number) => Promise<string | null>;
+  /** Sends an owner alert (ALERT_WEBHOOK_URL). Optional so tests can capture it. */
+  alert?: (message: string, env: Env) => Promise<void>;
 }
 
 const defaultDeps: Deps = {
@@ -73,6 +75,51 @@ const defaultDeps: Deps = {
 };
 
 const MAX_BODY_BYTES = 4096;
+
+/** New install ids allowed per IP per UTC day while installs are unattested.
+ * Generous on purpose: shared networks are not treated as abuse. */
+export const NEW_INSTALLS_PER_IP_PER_DAY = 30;
+/** Share of GLOBAL_DAILY_TOKEN_CAP at which the owner is alerted (once a day). */
+export const TOKEN_ALERT_SHARE = 0.8;
+
+/** KV, not atomic: a brake on scripted install farming, not an exact count. */
+export async function allowNewInstall(env: Env, installId: string, ip: string, nowMs: number): Promise<boolean> {
+  const seenKey = `seen:${await hashId(installId, env.HASH_SALT)}`;
+  if (await env.KV.get(seenKey)) return true;
+  const dayKey = `ip-new:${await hashId(ip, env.HASH_SALT)}:${utcDay(nowMs)}`;
+  const n = Number((await env.KV.get(dayKey)) ?? "0");
+  if (n >= NEW_INSTALLS_PER_IP_PER_DAY) return false;
+  await env.KV.put(dayKey, String(n + 1), { expirationTtl: 2 * 86_400 });
+  await env.KV.put(seenKey, "1", { expirationTtl: 30 * 86_400 });
+  return true;
+}
+
+/** Posts a plain-text message to ALERT_WEBHOOK_URL (e.g. a Discord/Slack/ntfy
+ * webhook the owner chose). Without it, the warning is only in the Worker logs. */
+async function postAlert(message: string, env: Env): Promise<void> {
+  console.warn(`ALERT: ${message}`);
+  if (!env.ALERT_WEBHOOK_URL) return;
+  try {
+    await fetch(env.ALERT_WEBHOOK_URL, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ text: message, content: message }),
+    });
+  } catch {
+    // An alert failure must never break a reading.
+  }
+}
+
+/** Alerts once per UTC day when server-paid tokens reach TOKEN_ALERT_SHARE of the cap. */
+export async function alertTokenUsage(
+  env: Env, used: number, cap: number, day: string, send: (m: string, e: Env) => Promise<void> = postAlert,
+): Promise<void> {
+  if (used < cap * TOKEN_ALERT_SHARE) return;
+  const key = `alert:tokens:${day}`;
+  if (await env.KV.get(key)) return;
+  await env.KV.put(key, "1", { expirationTtl: 2 * 86_400 });
+  await send(`ShenTarot used ${used} of ${cap} AI tokens today (${day}). At the cap, readings pause until 00:00 UTC.`, env);
+}
 
 /** Install or account ids treated as Premium for testing before store
  * products exist (TESTER_INSTALL_IDS, comma-separated). Only honoured on beta
@@ -167,6 +214,11 @@ export function createApp(deps: Deps = defaultDeps) {
       return c.json({ error: "attestation_not_configured" }, 501);
     }
     const installId = (body as { installId: string }).installId;
+    // Until App Attest / Play Integrity exist: at most NEW_INSTALLS_PER_IP_PER_DAY
+    // new install ids per IP per UTC day. Known installs (token refresh) pass.
+    if (!(await allowNewInstall(c.env, installId, ip, deps.now()))) {
+      return c.json({ error: "rate_limited" }, 429);
+    }
     const token = await signToken(installId, c.env.JWT_SECRET, Math.floor(deps.now() / 1000));
     return c.json({ token });
   });
@@ -213,7 +265,11 @@ export function createApp(deps: Deps = defaultDeps) {
     }
     const day = utcDay(now);
     const cap = Number(c.env.GLOBAL_DAILY_TOKEN_CAP ?? DEFAULT_GLOBAL_DAILY_TOKEN_CAP);
-    if (!user.target && (await usage.tokensToday(day)) >= cap) return c.json({ error: "service_busy" }, 503);
+    if (!user.target) {
+      const used = await usage.tokensToday(day);
+      if (used >= cap) return c.json({ error: "service_busy" }, 503);
+      await alertTokenUsage(c.env, used, cap, day, deps.alert);
+    }
 
     // Own-key mode is a Premium feature (bought through the store): the user's
     // key pays the AI provider, so there is no daily reading cap, only the
@@ -306,7 +362,11 @@ export function createApp(deps: Deps = defaultDeps) {
     const usage = deps.usage(c.env);
     const day = utcDay(now);
     const cap = Number(c.env.GLOBAL_DAILY_TOKEN_CAP ?? DEFAULT_GLOBAL_DAILY_TOKEN_CAP);
-    if (!user.target && (await usage.tokensToday(day)) >= cap) return c.json({ error: "service_busy" }, 503);
+    if (!user.target) {
+      const used = await usage.tokensToday(day);
+      if (used >= cap) return c.json({ error: "service_busy" }, 503);
+      await alertTokenUsage(c.env, used, cap, day, deps.alert);
+    }
     // One credit per follow-up, same as a reading: daily credits, then bonus credits.
     if (!user.target) {
       const paid = await charge(who, c.env, premium, usage, day, now);

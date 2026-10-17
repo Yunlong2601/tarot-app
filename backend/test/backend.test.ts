@@ -14,7 +14,7 @@ import type { Referral, ReferralStore } from "../src/referrals";
 import { creditsInProduct, type CreditStore } from "../src/credits";
 import type { CreatorPost, CreatorStore, ShotStorage } from "../src/creator";
 import { parsePostUrl } from "../src/creator";
-import { grantReferralCredits, purgeScreenshots, testerIds } from "../src/index";
+import { NEW_INSTALLS_PER_IP_PER_DAY, alertTokenUsage, allowNewInstall, grantReferralCredits, purgeScreenshots, testerIds } from "../src/index";
 import { allowWithinMinute } from "../src/usage";
 import { cleanQuestion, parseFollowupRequest, parseReadingRequest, type Spread } from "../src/validate";
 import { isFreeSpread } from "../src/spreads";
@@ -304,6 +304,36 @@ describe("POST /v1/install", () => {
     expect(((await ok.json()) as { token: string }).token.split(".")).toHaveLength(3);
     const bad = await s.call("/v1/install", { method: "POST", body: JSON.stringify({ installId: "x" }) });
     expect(bad.status).toBe(400);
+  });
+});
+
+describe("unattested install limits", () => {
+  const id = (n: number) => `00000000-0000-4000-8000-${String(n).padStart(12, "0")}`;
+  const install = (s: ReturnType<typeof setup>, installId: string, ip = "1.2.3.4") =>
+    s.call("/v1/install", { method: "POST", headers: { "cf-connecting-ip": ip }, body: JSON.stringify({ installId }) });
+
+  it("allows 30 new installs per IP per day, then refuses new ones but not known ones", async () => {
+    const s = setup();
+
+    for (let i = 0; i < NEW_INSTALLS_PER_IP_PER_DAY; i++) {
+      expect(await allowNewInstall(s.env, id(i), "1.2.3.4", NOW)).toBe(true);
+    }
+    expect((await install(s, id(999))).status).toBe(429);
+    expect((await install(s, id(0))).status).toBe(200);
+    expect((await install(s, id(999), "5.6.7.8")).status).toBe(200);
+  });
+
+  it("alerts once a day at 80% of the token cap", async () => {
+    const env = { KV: new FakeKV(), HASH_SALT: "salt" } as unknown as Env;
+    const sent: string[] = [];
+    const send = async (m: string) => { sent.push(m); };
+    await alertTokenUsage(env, 790, 1000, "2026-10-17", send);
+    expect(sent).toHaveLength(0);
+    await alertTokenUsage(env, 800, 1000, "2026-10-17", send);
+    await alertTokenUsage(env, 950, 1000, "2026-10-17", send);
+    expect(sent).toHaveLength(1);
+    await alertTokenUsage(env, 800, 1000, "2026-10-18", send);
+    expect(sent).toHaveLength(2);
   });
 });
 

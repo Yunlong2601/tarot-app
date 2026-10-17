@@ -9,6 +9,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "audit": "npm audit --omit=dev",
+    "deploy:launch": "bash ../scripts/release-check.sh && wrangler deploy --var ALLOW_UNATTESTED_INSTALLS:true",
     "deploy:beta": "wrangler deploy --var ALLOW_UNATTESTED_INSTALLS:true --var GLOBAL_DAILY_TOKEN_CAP:500000 --var REFERRALS_ENABLED:true --var CREDITS_ENABLED:true"
   },
   "dependencies": {
