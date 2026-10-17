@@ -1,11 +1,9 @@
 # Manual test plan (real device)
 
-> **Provider change (2026-10-17):** subscriptions move from RevenueCat to **Qonversion** (owner decision; the app and backend code migration is in progress). RevenueCat steps, keys and webhooks below are on hold: do not create a RevenueCat project. This doc is rewritten for Qonversion once the code lands.
-
 Automated tests cover logic and screens with fakes (`cd app && flutter test`, `cd backend && npm test`). Nothing below has been run on a device yet. Record results and bugs in `PROGRESS.md`.
 
 ## Setup
-Build with real values: `flutter run --release --dart-define=API_BASE_URL=... --dart-define=REVENUECAT_IOS_KEY=...` on a real iPhone, signed in to a **sandbox** Apple ID for purchases. Use a physical RWS deck (and a non-RWS deck to test the fallback).
+Build with real values: `flutter run --release --dart-define=API_BASE_URL=... --dart-define=QONVERSION_PROJECT_KEY=...` on a real iPhone, signed in to a **sandbox** Apple ID for purchases. Use a physical RWS deck (and a non-RWS deck to test the fallback).
 
 ## Scan (Read tab > Photo reading)
 - [ ] First scan asks for camera permission with the rationale text. Deny: the screen explains and offers the manual picker. Allow in Settings: works.

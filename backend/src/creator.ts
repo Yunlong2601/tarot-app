@@ -3,7 +3,7 @@
  * the post link plus a screenshot. Every attempt gets CREATOR_CREDITS credits at
  * once, limited to CREATOR_MAX_PER_DAY a day and CREATOR_MAX_PER_MONTH a month. A
  * post that reaches LIKES_FOR_MONTH likes, checked by the owner through the admin
- * endpoints, earns 1 free month of Premium (RevenueCat promotional entitlement),
+ * endpoints, earns 1 free month of Premium (Qonversion manual entitlement),
  * at most once per MONTH_COOLDOWN_DAYS and MONTHS_PER_YEAR a year. Screenshots are
  * kept in R2 for SCREENSHOT_KEEP_DAYS and then deleted. */
 

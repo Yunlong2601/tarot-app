@@ -14,8 +14,8 @@ Read 2026-10-17 from Qonversion's own pages. They change: re-check before publis
 | Privacy policy, updated 2026-07-21 (https://qonversion.io/privacy-policy) | Also lists IP address, device push token, Advertiser ID, Apple receipt / Google purchase token, transactions, device type, OS version, carrier, country, locale, time zone, last app use, plus any user properties the app sends. Stored in Google Cloud and DigitalOcean data centres in London, UK. Acts as a service provider; deletion on the developer's instruction (EU: compliance@qonversion.io). No retention period stated. |
 
 ## What this changes for us
-- Privacy policy draft, data inventory and Play data safety draft now name Qonversion and the extra device data.
+- The code now uses Qonversion (commit ba21877). Privacy policy draft, data inventory and Play data safety draft list the extra device data.
 - App Store Connect App Privacy answers are already published with the RevenueCat-era set. With Qonversion they likely need **Other Data** (device info) and a check of **Identifiers > Device ID**, for Analytics and App Functionality. Owner updates them before submitting a Qonversion build.
 - Advertising ID: we never ask for IDFA (no tracking prompt), so iOS sends none. On Android, check the merged manifest of the migrated build for `com.google.android.gms.permission.AD_ID`; remove it or declare it.
 - Do not turn on Qonversion integrations (ad networks, analytics tools) without updating these docs: they become "sharing".
-- In-app `app/assets/legal/privacy.txt` and `site/privacy.html` still say RevenueCat; update them together with the code swap.
+- In-app `app/assets/legal/privacy.txt` and `site/privacy.html` name Qonversion but not the extra device data yet; copy the Purchases paragraph from `docs/privacy-policy-draft.md` (code-owner change).

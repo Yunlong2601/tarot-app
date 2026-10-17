@@ -73,21 +73,21 @@
       }
     },
     {
-      "identity" : "purchases-hybrid-common",
+      "identity" : "qonversion-ios-sdk",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/RevenueCat/purchases-hybrid-common.git",
+      "location" : "https://github.com/qonversion/qonversion-ios-sdk.git",
       "state" : {
-        "revision" : "a3d5cc0cfd80d75f4e2eebb3012deb05c13a77f4",
-        "version" : "19.12.0"
+        "revision" : "6355d5b5f628e13ed7a1f469dafa630a785dff7c",
+        "version" : "6.18.0"
       }
     },
     {
-      "identity" : "purchases-ios-spm",
+      "identity" : "sandwich-sdk",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/RevenueCat/purchases-ios-spm",
+      "location" : "https://github.com/qonversion/sandwich-sdk.git",
       "state" : {
-        "revision" : "95ad250230efa7fc3e811c158ed264832aed2e79",
-        "version" : "5.95.0"
+        "revision" : "b3bc5d7c76b05d453cd054315ecea6a7cccc2cec",
+        "version" : "7.14.0"
       }
     }
   ],

@@ -1,7 +1,5 @@
 # Google Play release checklist
 
-> **Provider change (2026-10-17):** subscriptions move from RevenueCat to **Qonversion** (owner decision; the app and backend code migration is in progress). RevenueCat steps, keys and webhooks below are on hold: do not create a RevenueCat project. This doc is rewritten for Qonversion once the code lands.
-
 Start with `docs/play-release-guide.md` (what is done, what only the owner can do, console order) and `docs/play-data-safety.md`. This file is the shorter checklist.
 
 Verify every item in Play Console Help and the Policy Center (Subscriptions, Data safety, Families, User Data, Payments) before relying on it. iOS is being done first; this starts after.
@@ -22,7 +20,7 @@ Verify every item in Play Console Help and the Policy Center (Subscriptions, Dat
 - [ ] Adaptive icon and feature graphic (original art).
 
 ## Subscriptions
-- [ ] Create the three subscriptions (base plans monthly US$6.99, 3 months US$14.99, annual US$39.99 with a US$1.99 first-month offer; no weekly, no free trial) in Play Console and link them in RevenueCat; use the Android public key (`REVENUECAT_ANDROID_KEY`).
+- [ ] Create the three subscriptions (base plans monthly US$6.99, 3 months US$14.99, annual US$39.99 with a US$1.99 first-month offer; no weekly, no free trial) in Play Console and link them in Qonversion; the app uses the one Qonversion project key (`QONVERSION_PROJECT_KEY`).
 - [ ] Billing fees: the plan assumes about 15% total; the fee schedule changed in 2026, so re-check support.google.com/googleplay/android-developer (service fees).
 - [ ] Cancel/manage link works (Settings > Manage subscription opens the Play subscriptions page).
 - [ ] License testers added; test purchase, trial, restore, cancel.

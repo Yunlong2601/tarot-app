@@ -1,10 +1,8 @@
 # Privacy Policy
 
-> **Provider change (2026-10-17):** subscriptions move from RevenueCat to **Qonversion** (owner decision; the app and backend code migration is in progress). Text below now names Qonversion, based on Qonversion's own docs (App Store privacy and Play data safety pages, privacy policy updated 2026-07-21; summary in `docs/qonversion-notes.md`). It collects more than RevenueCat did here: device type, OS, make/model, country, locale, time zone and IP address. Still a draft: re-check against the migrated build before publishing.
-
 > DRAFT. Not legal advice. Have it reviewed (PDPA; GDPR/UK GDPR if you launch there; Apple and Google requirements) before publishing. Replace the bracketed items. Host the final text at a public URL; both stores require a URL. The same text is bundled in the app at `app/assets/legal/privacy.txt`.
 
-**ShenTarot** ("the app") is provided by ShenTech, Singapore. Contact: shenyunlongbusiness@gmail.com. Effective date: 16 October 2026.
+**ShenTarot** ("the app") is provided by ShenTech, Singapore. Contact: shenyunlongbusiness@gmail.com. Effective date: 17 October 2026.
 
 The app is for entertainment and self-reflection only.
 

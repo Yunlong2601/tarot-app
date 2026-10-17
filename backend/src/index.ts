@@ -11,12 +11,11 @@ import {
   readingMaxTokens, READING_SYSTEM_PROMPT, buildReadingMessage, fallbackReading, hitsBannedClaim,
   parseModelReply, renderReading,
 } from "./reading";
-import { isPremium, premiumPlan } from "./revenuecat";
+import { grantFreeMonth, hasStoreSubscription, isPremium, premiumPlan } from "./qonversion";
 import { D1CreditStore, DAILY_BANK_DAYS, MONTHLY_BANK_MONTHS, WELCOME_CREDITS, creditsInProduct, type CreditStore } from "./credits";
 import {
   CREDIT_DELAY_DAYS, D1ReferralStore, MAX_CREDITS_PER_YEAR, PLAY_REFERRAL_OFFER_TAG, REFERRAL_CREDITS,
-  REFERRAL_CREDIT_FRIENDS_PER_YEAR, grantFreeMonth,
-  hasStoreSubscription, newCode, normaliseCode, type ReferralStore,
+  REFERRAL_CREDIT_FRIENDS_PER_YEAR, newCode, normaliseCode, type ReferralStore,
 } from "./referrals";
 import {
   D1AccountStore, audiencesFrom, isAccountProvider, verifyIdToken, type AccountProvider, type AccountStore,
@@ -36,7 +35,7 @@ import { isUuid, parseFollowupRequest, parseReadingRequest } from "./validate";
 export interface Deps {
   llm: LlmFn;
   usage: (env: Env) => UsageStore;
-  /** `appUserId` is the RevenueCat app user id: the account id when signed in, else the install id. */
+  /** `appUserId` is the Qonversion identity (set with identify()): the account id when signed in, else the install id. */
   premium: (appUserId: string, env: Env, nowMs: number) => Promise<boolean>;
   /** Monthly credits for a Premium user, by plan. */
   premiumMonthly?: (appUserId: string, env: Env, nowMs: number) => Promise<number>;
@@ -47,7 +46,7 @@ export interface Deps {
   creator: (env: Env) => CreatorStore;
   /** Screenshot storage, or null when R2 is not bound. */
   shots: (env: Env) => ShotStorage | null;
-  /** One free month of Premium (RevenueCat promotional entitlement). */
+  /** One free month of Premium (Qonversion manual entitlement). */
   grantMonth: (appUserId: string, env: Env) => Promise<boolean>;
   verifyIdToken: (provider: AccountProvider, token: string, audiences: string[], kv: KVNamespace, nowSeconds: number) => Promise<string | null>;
 }
@@ -56,10 +55,10 @@ const defaultDeps: Deps = {
   llm: callProvider,
   usage: (env) => new D1UsageStore(env.DB),
   premium: async (id, env, now) =>
-    testerIds(env).includes(id) || isPremium(id, env.REVENUECAT_SECRET_KEY, env.KV, now),
+    testerIds(env).includes(id) || isPremium(id, env.QONVERSION_SECRET_KEY, env.KV, now),
   premiumMonthly: async (id, env, now) => {
     if (testerIds(env).includes(id)) return DEFAULT_PREMIUM_CREDITS;
-    const plan = await premiumPlan(id, env.REVENUECAT_SECRET_KEY, env.KV, now);
+    const plan = await premiumPlan(id, env.QONVERSION_SECRET_KEY, env.KV, now);
     return plan && plan !== "other" ? PLAN_MONTHLY_CREDITS[plan] : DEFAULT_PREMIUM_CREDITS;
   },
   now: () => Date.now(),
@@ -68,7 +67,7 @@ const defaultDeps: Deps = {
   credits: (env) => new D1CreditStore(env.DB),
   creator: (env) => new D1CreatorStore(env.DB),
   shots: (env) => (env.SHOTS ? new R2ShotStorage(env.SHOTS) : null),
-  grantMonth: async (appUserId, env) => (env.REVENUECAT_SECRET_KEY ? grantFreeMonth(appUserId, env.REVENUECAT_SECRET_KEY) : false),
+  grantMonth: async (appUserId, env) => (env.QONVERSION_SECRET_KEY ? grantFreeMonth(appUserId, env.QONVERSION_SECRET_KEY) : false),
   verifyIdToken: (p, t, a, kv, n) => verifyIdToken(p, t, a, kv, n),
 };
 
@@ -606,52 +605,37 @@ export function createApp(deps: Deps = defaultDeps) {
     return c.json({ appleOfferCode: appleCode });
   });
 
-  // RevenueCat webhook: a referred friend's first paid purchase qualifies the
-  // referral. Trials and promotional grants do not count.
-  app.post("/v1/webhooks/revenuecat", async (c) => {
-    const secret = c.env.REVENUECAT_WEBHOOK_AUTH;
-    if (!secret || !safeEqual(c.req.header("authorization") ?? "", secret)) return c.json({ error: "unauthorized" }, 401);
-    const body = (await readJson(c.req.raw, 65536)) as { event?: Record<string, unknown> } | null;
-    const e = body?.event;
-    if (!e) return c.json({ error: "invalid_request" }, 400);
-    const type = String(e.type ?? "");
-    const keyFor = async (appUser: string) => (await deps.accounts(c.env).isAccount(appUser))
-      ? hashId(`acct:${appUser}`, c.env.HASH_SALT)
-      : hashId(appUser, c.env.HASH_SALT);
-    // A Premium user reinstalled and restored: RevenueCat moves the subscription
-    // to the new app user id, and their credits follow it. Free users (no active
-    // subscription on the new id) do not keep credits from a deleted install.
-    if (type === "TRANSFER" && c.env.CREDITS_ENABLED === "true") {
-      const ours = (v: unknown) => (Array.isArray(v) ? v.map(String).filter((id: string) => id !== "" && !id.startsWith("$RC")) : []);
-      const from = ours(e.transferred_from);
-      const to = ours(e.transferred_to);
-      let moved = 0;
-      for (const dest of to) {
-        await c.env.KV.delete(`premium:${dest}`); // do not trust a cached "not premium" from before the restore
-        if (!(await deps.premium(dest, c.env, deps.now()))) continue;
-        for (const src of from) moved += await deps.credits(c.env).move(await keyFor(src), await keyFor(dest));
-      }
-      return c.json({ ok: true, moved });
-    }
+  // Qonversion webhook: a referred friend's first paid purchase qualifies the
+  // referral; credit packs add credits. Trials and manual grants do not count.
+  // Qonversion sends `Authorization: Basic <token>` with the token set in its
+  // dashboard; each event carries our id (set with identify()) as identity_id.
+  app.post("/v1/webhooks/qonversion", async (c) => {
+    const secret = c.env.QONVERSION_WEBHOOK_AUTH;
+    if (!secret || !safeEqual(c.req.header("authorization") ?? "", `Basic ${secret}`)) return c.json({ error: "unauthorized" }, 401);
+    const e = (await readJson(c.req.raw, 65536)) as Record<string, unknown> | null;
+    if (!e || typeof e.event_name !== "string") return c.json({ error: "invalid_request" }, 400);
+    const type = e.event_name;
+    const txnObj = (e.transaction ?? {}) as Record<string, unknown>;
+    const txn = String(txnObj.transaction_id ?? "");
+    const appUser = String(e.identity_id || e.custom_user_id || "");
+    const keyFor = async (id: string) => (await deps.accounts(c.env).isAccount(id))
+      ? hashId(`acct:${id}`, c.env.HASH_SALT)
+      : hashId(id, c.env.HASH_SALT);
     // Credit packs (consumables).
-    if (type === "NON_RENEWING_PURCHASE" && c.env.CREDITS_ENABLED === "true") {
+    if (type === "in_app_purchase" && c.env.CREDITS_ENABLED === "true") {
       const amount = creditsInProduct(String(e.product_id ?? ""));
-      const txn = String(e.transaction_id ?? "");
-      const appUser = String(e.app_user_id ?? "");
       if (!amount || !txn || !appUser) return c.json({ ok: true, ignored: true });
       const added = await deps.credits(c.env).add(await keyFor(appUser), amount, txn);
       return c.json({ ok: true, credited: added ? amount : 0 });
     }
     if (!referralsOn(c.env)) return c.json({ ok: true });
-    const price = Number(e.price ?? 0);
-    const txn = String(e.transaction_id ?? "");
-    const appUser = String(e.app_user_id ?? "");
-    const store = String(e.store ?? "");
-    if (!["INITIAL_PURCHASE", "RENEWAL"].includes(type) || !(price > 0) || !txn || !appUser || store === "PROMOTIONAL") {
+    const price = Number(((e.price ?? {}) as Record<string, unknown>).value ?? 0);
+    if (!["subscription_started", "subscription_renewed", "trial_converted"].includes(type) || !(price > 0) || !txn || !appUser) {
       return c.json({ ok: true, ignored: true });
     }
     const key = await keyFor(appUser);
-    const paid = await deps.referrals(c.env).markPaid(key, txn, new Date(Number(e.event_timestamp_ms ?? deps.now())).toISOString());
+    const at = Number(e.time ?? 0) > 0 ? Number(e.time) * 1000 : deps.now();
+    const paid = await deps.referrals(c.env).markPaid(key, txn, new Date(at).toISOString());
     return c.json({ ok: true, qualified: paid });
   });
 
@@ -666,10 +650,10 @@ export async function grantReferralCredits(env: Env, deps: Pick<Deps, "referrals
   grant?: (appUserId: string) => Promise<boolean>;
   subscribed?: (appUserId: string) => Promise<boolean>;
 }): Promise<number> {
-  if (env.REFERRALS_ENABLED !== "true" || !env.REVENUECAT_SECRET_KEY) return 0;
-  const key = env.REVENUECAT_SECRET_KEY;
+  if (env.REFERRALS_ENABLED !== "true" || !env.QONVERSION_SECRET_KEY) return 0;
+  const key = env.QONVERSION_SECRET_KEY;
   const now = deps.now();
-  const grant = deps.grant ?? ((u: string) => grantFreeMonth(u, key));
+  const grant = deps.grant ?? ((u: string) => grantFreeMonth(u, key, now));
   const subscribed = deps.subscribed ?? ((u: string) => hasStoreSubscription(u, key, now));
   const store = deps.referrals(env);
   const due = await store.dueForCredit(new Date(now - CREDIT_DELAY_DAYS * 86_400_000).toISOString());
