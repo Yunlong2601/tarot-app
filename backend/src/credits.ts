@@ -1,19 +1,21 @@
 /** Reading credits (off unless CREDITS_ENABLED=true). 1 credit = one extra AI
  * reading or follow-up / clarifier beyond the daily allowance. Credits never expire. A credit is refunded if the reading fails. */
 
-/** Daily credits: the first time a user opens the app on a UTC day they
- * receive their plan's daily amount (free 2, Premium monthly 30, 3 months 40,
- * annual 50, see usage.ts). Unused credits roll over and never expire. New
- * daily credits stop arriving while the user already holds DAILY_BANK_DAYS
- * days' worth of them (bought credits do not count toward that cap), and a user
- * can spend at most DAILY_SPEND_DAYS days' worth in one day. */
+/** Credit wallet. Everyone receives FREE_DAILY_CREDITS the first time they use
+ * the app on a UTC day; Premium also receives their plan's monthly credits the
+ * first time they use it in a UTC calendar month (usage.ts). Unused credits
+ * roll over and never expire. Daily credits stop arriving while 10 days' worth
+ * are held, monthly credits while 2 months' worth are held; bought, referral
+ * and creator credits are outside both caps. */
 export const DAILY_BANK_DAYS = 10;
-export const DAILY_SPEND_DAYS = 2;
+export const MONTHLY_BANK_MONTHS = 2;
 
 export interface CreditStore {
   /** Today's daily credits: adds up to `amount` (once per UTC day per owner),
    * never taking the daily-sourced credits held above `bankCap`. Returns how many were added. */
   claimDaily(key: string, day: string, amount: number, bankCap: number): Promise<number>;
+  /** This month's credits for a Premium user (`month` is "YYYY-MM"), same rules with monthly-sourced credits. */
+  claimMonthly(key: string, month: string, amount: number, bankCap: number): Promise<number>;
   balance(key: string): Promise<number>;
   /** Adds credits for a store purchase; false if this transaction was seen. */
   add(key: string, amount: number, txn: string): Promise<boolean>;
@@ -52,18 +54,25 @@ export class D1CreditStore implements CreditStore {
     await this.lot(key, amount, "purchase");
     return true;
   }
-  async claimDaily(key: string, day: string, amount: number, bankCap: number) {
-    const held = await this.db.prepare("SELECT COALESCE(SUM(remaining), 0) AS n FROM credit_lots WHERE owner_key = ?1 AND source = 'daily'")
-      .bind(key).first<{ n: number }>();
+  private async claim(key: string, period: string, amount: number, bankCap: number, source: "daily" | "monthly") {
+    const column = source === "daily" ? "last_login_day" : "last_month";
+    const held = await this.db.prepare("SELECT COALESCE(SUM(remaining), 0) AS n FROM credit_lots WHERE owner_key = ?1 AND source = ?2")
+      .bind(key, source).first<{ n: number }>();
     const grant = Math.min(amount, bankCap - (held?.n ?? 0));
     if (grant <= 0) return 0;
     await this.db.prepare("INSERT OR IGNORE INTO credits (owner_key, balance, updated_at) VALUES (?1, 0, ?2)").bind(key, this.iso()).run();
     const r = await this.db.prepare(
-      "UPDATE credits SET last_login_day = ?2, updated_at = ?3 WHERE owner_key = ?1 AND (last_login_day IS NULL OR last_login_day <> ?2)",
-    ).bind(key, day, this.iso()).run();
+      `UPDATE credits SET ${column} = ?2, updated_at = ?3 WHERE owner_key = ?1 AND (${column} IS NULL OR ${column} <> ?2)`,
+    ).bind(key, period, this.iso()).run();
     if ((r.meta.changes ?? 0) === 0) return 0;
-    await this.lot(key, grant, "daily");
+    await this.lot(key, grant, source);
     return grant;
+  }
+  claimDaily(key: string, day: string, amount: number, bankCap: number) {
+    return this.claim(key, day, amount, bankCap, "daily");
+  }
+  claimMonthly(key: string, month: string, amount: number, bankCap: number) {
+    return this.claim(key, month, amount, bankCap, "monthly");
   }
   async move(fromKey: string, toKey: string) {
     if (fromKey === toKey) return 0;

@@ -66,4 +66,14 @@ describe("D1CreditStore (real SQL)", () => {
     expect(await s.balance("new")).toBe(4);
     expect(await s.spend("new")).not.toBeNull();
   });
+
+  it("monthly credits arrive once per month, roll over, and stop at the 2-month bank", async () => {
+    const s = setup({ t: T0 });
+    expect(await s.claimMonthly("u", "2026-10", 90, 180)).toBe(90);
+    expect(await s.claimMonthly("u", "2026-10", 90, 180)).toBe(0); // same month
+    expect(await s.claimMonthly("u", "2026-11", 90, 180)).toBe(90);
+    expect(await s.claimMonthly("u", "2026-12", 90, 180)).toBe(0); // 180 banked
+    expect(await s.claimDaily("u", "2026-10-25", 2, 20)).toBe(2); // independent of the monthly grant
+    expect(await s.balance("u")).toBe(182);
+  });
 });

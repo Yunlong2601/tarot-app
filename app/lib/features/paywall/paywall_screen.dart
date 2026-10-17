@@ -157,7 +157,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
           const SizedBox(height: 16),
           for (final f in const [
             'The 5, 7 and 10-card spreads, including the Celtic Cross',
-            '30 to 50 new credits every day by plan (free: 2), and unused credits roll over',
+            '90 to 150 new credits every month by plan (free: 2 a day), and unused credits roll over',
             'Follow-up questions on your readings',
             'A clarifier card to shed light on a reading',
             'A look back a week later, with a reminder',
@@ -421,7 +421,7 @@ class _StarterPackCard extends StatelessWidget {
           Text(
             'Starter Pack: 5 reading credits for $_price, one '
             'time. Use them for extra readings or follow-up questions. '
-            'Credits never expire and one credit pays for a reading or a follow-up. Everyone also gets new credits every day. '
+            'Credits never expire and one credit pays for a reading or a follow-up. Free users get new credits every day, Premium gets them every month. '
             'Premium members keep their credits if they reinstall and restore purchases.',
           ),
           const SizedBox(height: 8),

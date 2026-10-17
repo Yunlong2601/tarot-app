@@ -12,7 +12,7 @@ import {
   parseModelReply, renderReading,
 } from "./reading";
 import { isPremium, premiumPlan } from "./revenuecat";
-import { D1CreditStore, DAILY_BANK_DAYS, DAILY_SPEND_DAYS, creditsInProduct, type CreditStore } from "./credits";
+import { D1CreditStore, DAILY_BANK_DAYS, MONTHLY_BANK_MONTHS, creditsInProduct, type CreditStore } from "./credits";
 import {
   CREDIT_DELAY_DAYS, D1ReferralStore, MAX_CREDITS_PER_YEAR, PLAY_REFERRAL_OFFER_TAG, grantFreeMonth,
   hasStoreSubscription, newCode, normaliseCode, type ReferralStore,
@@ -22,7 +22,7 @@ import {
 } from "./accounts";
 import {
   BURST_PER_MINUTE, D1UsageStore, DEFAULT_GLOBAL_DAILY_TOKEN_CAP, FREE_READINGS_PER_DAY,
-  DEFAULT_PREMIUM_ALLOWANCE, FREE_DAILY_CREDITS, IP_PER_MINUTE, PLAN_DAILY_ALLOWANCE, allowWithinMinute, utcDay, type UsageStore,
+  DAILY_SPEND_GUARD, DEFAULT_PREMIUM_CREDITS, FREE_DAILY_CREDITS, IP_PER_MINUTE, PLAN_MONTHLY_CREDITS, allowWithinMinute, utcDay, type UsageStore,
 } from "./usage";
 import { isFreeSpread } from "./spreads";
 import { isUuid, parseFollowupRequest, parseReadingRequest } from "./validate";
@@ -32,8 +32,8 @@ export interface Deps {
   usage: (env: Env) => UsageStore;
   /** `appUserId` is the RevenueCat app user id: the account id when signed in, else the install id. */
   premium: (appUserId: string, env: Env, nowMs: number) => Promise<boolean>;
-  /** Daily AI allowance (readings + follow-ups) for a Premium user, by plan. */
-  premiumAllowance?: (appUserId: string, env: Env, nowMs: number) => Promise<number>;
+  /** Monthly credits for a Premium user, by plan. */
+  premiumMonthly?: (appUserId: string, env: Env, nowMs: number) => Promise<number>;
   now: () => number;
   accounts: (env: Env) => AccountStore;
   referrals: (env: Env) => ReferralStore;
@@ -46,10 +46,10 @@ const defaultDeps: Deps = {
   usage: (env) => new D1UsageStore(env.DB),
   premium: async (id, env, now) =>
     testerIds(env).includes(id) || isPremium(id, env.REVENUECAT_SECRET_KEY, env.KV, now),
-  premiumAllowance: async (id, env, now) => {
-    if (testerIds(env).includes(id)) return DEFAULT_PREMIUM_ALLOWANCE;
+  premiumMonthly: async (id, env, now) => {
+    if (testerIds(env).includes(id)) return DEFAULT_PREMIUM_CREDITS;
     const plan = await premiumPlan(id, env.REVENUECAT_SECRET_KEY, env.KV, now);
-    return plan && plan !== "other" ? PLAN_DAILY_ALLOWANCE[plan] : DEFAULT_PREMIUM_ALLOWANCE;
+    return plan && plan !== "other" ? PLAN_MONTHLY_CREDITS[plan] : DEFAULT_PREMIUM_CREDITS;
   },
   now: () => Date.now(),
   accounts: (env) => new D1AccountStore(env.DB),
@@ -68,29 +68,37 @@ export const testerIds = (env: Env): string[] =>
 export function createApp(deps: Deps = defaultDeps) {
   const app = new Hono<{ Bindings: Env }>();
 
-  /** One credit buys a reading or a follow-up. Everyone receives daily credits
-   * (free 2; Premium annual 50, 3 months 40, monthly 30) the first time they use
-   * the app each UTC day; unused credits roll over and never expire, up to a
-   * bank of 10 days' worth of daily credits, and at most 2 days' worth can be
-   * spent in a day. Before the credit wallet is switched on (CREDITS_ENABLED),
-   * the same numbers act as a plain per-day allowance (free 1). */
+  /** One credit buys a reading or a follow-up. Everyone receives 2 credits the
+   * first time they use the app each UTC day; Premium also receives monthly
+   * credits by plan (annual 150, 3 months 120, monthly 90) the first time in each
+   * UTC month. Unused credits roll over and never expire, with a bank of 10
+   * days' worth of daily and 2 months' worth of monthly credits. No one can spend
+   * more than 50 credits a day. Before the wallet is switched on
+   * (CREDITS_ENABLED), free gets 1 reading a day and Premium up to 50. */
   type Charge = { ok: true; lot: number | null } | { ok: false; limit: number };
-  const dailyAmount = async (who: { appUserId: string }, env: Env, premium: boolean, now: number) =>
-    premium
-      ? await (deps.premiumAllowance?.(who.appUserId, env, now) ?? DEFAULT_PREMIUM_ALLOWANCE)
-      : env.CREDITS_ENABLED === "true" ? FREE_DAILY_CREDITS : FREE_READINGS_PER_DAY;
+  const walletOn = (env: Env) => env.CREDITS_ENABLED === "true";
+  const monthlyFor = async (who: { appUserId: string }, env: Env, premium: boolean, now: number) =>
+    premium ? await (deps.premiumMonthly?.(who.appUserId, env, now) ?? DEFAULT_PREMIUM_CREDITS) : 0;
   const spentToday = async (usage: UsageStore, key: string, day: string) =>
     (await usage.count(key, day, "reading")) + (await usage.count(key, day, "followup"));
-  const charge = async (who: { appUserId: string; usageKey: string }, env: Env, premium: boolean, usage: UsageStore, day: string, now: number): Promise<Charge> => {
-    const amount = await dailyAmount(who, env, premium, now);
-    const used = await spentToday(usage, who.usageKey, day);
-    if (env.CREDITS_ENABLED !== "true") return used < amount ? { ok: true, lot: null } : { ok: false, limit: amount };
-    const spendLimit = amount * DAILY_SPEND_DAYS;
-    if (used >= spendLimit) return { ok: false, limit: spendLimit };
+  /** Grants today's daily credits and, for Premium, this month's; returns how many were added. */
+  const grantCredits = async (who: { appUserId: string; usageKey: string }, env: Env, premium: boolean, day: string, now: number) => {
     const store = deps.credits(env);
-    await store.claimDaily(who.usageKey, day, amount, amount * DAILY_BANK_DAYS);
-    const lot = await store.spend(who.usageKey);
-    return lot === null ? { ok: false, limit: amount } : { ok: true, lot };
+    let granted = await store.claimDaily(who.usageKey, day, FREE_DAILY_CREDITS, FREE_DAILY_CREDITS * DAILY_BANK_DAYS);
+    const monthly = await monthlyFor(who, env, premium, now);
+    if (monthly > 0) granted += await store.claimMonthly(who.usageKey, day.slice(0, 7), monthly, monthly * MONTHLY_BANK_MONTHS);
+    return granted;
+  };
+  const charge = async (who: { appUserId: string; usageKey: string }, env: Env, premium: boolean, usage: UsageStore, day: string, now: number): Promise<Charge> => {
+    const used = await spentToday(usage, who.usageKey, day);
+    if (!walletOn(env)) {
+      const limit = premium ? DAILY_SPEND_GUARD : FREE_READINGS_PER_DAY;
+      return used < limit ? { ok: true, lot: null } : { ok: false, limit };
+    }
+    if (used >= DAILY_SPEND_GUARD) return { ok: false, limit: DAILY_SPEND_GUARD };
+    await grantCredits(who, env, premium, day, now);
+    const lot = await deps.credits(env).spend(who.usageKey);
+    return lot === null ? { ok: false, limit: DAILY_SPEND_GUARD } : { ok: true, lot };
   };
 
   app.get("/health", (c) => c.json({ ok: true }));
@@ -349,11 +357,10 @@ export function createApp(deps: Deps = defaultDeps) {
     const who = await identity(c.env, installId);
     const now = deps.now();
     const premium = await deps.premium(who.appUserId, c.env, now);
-    const amount = await dailyAmount(who, c.env, premium, now);
     const used = await spentToday(deps.usage(c.env), who.usageKey, utcDay(now));
     return c.json({
       balance: await deps.credits(c.env).balance(who.usageKey),
-      daily: { amount, spendLimit: amount * DAILY_SPEND_DAYS, spentToday: used, premium },
+      daily: { amount: FREE_DAILY_CREDITS, monthlyAmount: await monthlyFor(who, c.env, premium, now), spendGuard: DAILY_SPEND_GUARD, spentToday: used, premium },
     });
   });
 
@@ -365,10 +372,13 @@ export function createApp(deps: Deps = defaultDeps) {
     if (!installId) return c.json({ error: "unauthorized" }, 401);
     const who = await identity(c.env, installId);
     const premium = await deps.premium(who.appUserId, c.env, now);
-    const amount = await dailyAmount(who, c.env, premium, now);
-    const store = deps.credits(c.env);
-    const granted = await store.claimDaily(who.usageKey, utcDay(now), amount, amount * DAILY_BANK_DAYS);
-    return c.json({ granted, balance: await store.balance(who.usageKey), dailyAmount: amount, bankCap: amount * DAILY_BANK_DAYS });
+    const granted = await grantCredits(who, c.env, premium, utcDay(now), now);
+    return c.json({
+      granted,
+      balance: await deps.credits(c.env).balance(who.usageKey),
+      dailyAmount: FREE_DAILY_CREDITS,
+      monthlyAmount: await monthlyFor(who, c.env, premium, now),
+    });
   });
 
   // ---- Refer and earn (off unless REFERRALS_ENABLED=true) ----

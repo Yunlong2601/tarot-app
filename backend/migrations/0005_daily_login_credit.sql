@@ -1,6 +1,8 @@
--- Daily login credit. Credits are stored as lots (never expire); the old
--- credits.balance column is no longer used.
+-- Credit wallet. Credits are stored as lots (never expire); the old
+-- credits.balance column is no longer used. last_login_day / last_month record
+-- the last UTC day / month in which the daily / monthly credits were granted.
 ALTER TABLE credits ADD COLUMN last_login_day TEXT;
+ALTER TABLE credits ADD COLUMN last_month TEXT;
 CREATE TABLE credit_lots (
   id         INTEGER PRIMARY KEY AUTOINCREMENT,
   owner_key  TEXT NOT NULL,

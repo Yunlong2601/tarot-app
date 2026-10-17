@@ -57,23 +57,27 @@ class MemReferrals implements ReferralStore {
 class MemCredits implements CreditStore {
   bal = new Map<string, number>();
   daily = new Map<string, number>(); // daily-sourced credits held
+  monthly = new Map<string, number>(); // monthly-sourced credits held
   txns = new Set<string>();
   days = new Map<string, string>();
-  async claimDaily(k: string, day: string, amount: number, cap: number) {
-    if (this.days.get(k) === day) return 0;
-    const grant = Math.min(amount, cap - (this.daily.get(k) ?? 0));
-    if (grant <= 0) return 0;
-    this.days.set(k, day);
-    this.daily.set(k, (this.daily.get(k) ?? 0) + grant);
-    this.bal.set(k, (this.bal.get(k) ?? 0) + grant);
-    return grant;
+  months = new Map<string, string>();
+  private grant(k: string, period: string, amount: number, cap: number, last: Map<string, string>, held: Map<string, number>) {
+    if (last.get(k) === period) return 0;
+    const g = Math.min(amount, cap - (held.get(k) ?? 0));
+    if (g <= 0) return 0;
+    last.set(k, period);
+    held.set(k, (held.get(k) ?? 0) + g);
+    this.bal.set(k, (this.bal.get(k) ?? 0) + g);
+    return g;
   }
+  async claimDaily(k: string, day: string, amount: number, cap: number) { return this.grant(k, day, amount, cap, this.days, this.daily); }
+  async claimMonthly(k: string, month: string, amount: number, cap: number) { return this.grant(k, month, amount, cap, this.months, this.monthly); }
   async balance(k: string) { return this.bal.get(k) ?? 0; }
   async add(k: string, n: number, txn: string) { if (this.txns.has(txn)) return false; this.txns.add(txn); this.bal.set(k, (this.bal.get(k) ?? 0) + n); return true; }
   async move(f: string, t: string) { const n = this.bal.get(f) ?? 0; if (f === t) return 0; this.bal.set(f, 0); this.bal.set(t, (this.bal.get(t) ?? 0) + n); return n; }
   owners = new Map<number, string>();
   private n = 0;
-  async spend(k: string) { const b = this.bal.get(k) ?? 0; if (b <= 0) return null; this.bal.set(k, b - 1); if ((this.daily.get(k) ?? 0) > 0) this.daily.set(k, this.daily.get(k)! - 1); this.owners.set(++this.n, k); return this.n; }
+  async spend(k: string) { const b = this.bal.get(k) ?? 0; if (b <= 0) return null; this.bal.set(k, b - 1); if ((this.daily.get(k) ?? 0) > 0) this.daily.set(k, this.daily.get(k)! - 1); else if ((this.monthly.get(k) ?? 0) > 0) this.monthly.set(k, this.monthly.get(k)! - 1); this.owners.set(++this.n, k); return this.n; }
   async refund(id: number) { const k = this.owners.get(id)!; this.bal.set(k, (this.bal.get(k) ?? 0) + 1); }
 }
 
@@ -706,9 +710,9 @@ describe("reading credits", () => {
     expect(await (await hook(s, buy)).json()).toMatchObject({ credited: 5 });
     expect(await (await hook(s, buy)).json()).toMatchObject({ credited: 0 }); // retry, not twice
     const me = async () => (await s.call("/v1/credits/me", { method: "POST", headers: await authHeaders(s.env) })).json();
-    expect(await me()).toEqual({ balance: 5, daily: { amount: 2, spendLimit: 4, spentToday: 0, premium: false } });
+    expect(await me()).toEqual({ balance: 5, daily: { amount: 2, monthlyAmount: 0, spendGuard: 50, spentToday: 0, premium: false } });
     expect((await read(s)).status).toBe(200); // grants 2, spends 1
-    expect(await me()).toEqual({ balance: 6, daily: { amount: 2, spendLimit: 4, spentToday: 1, premium: false } });
+    expect(await me()).toEqual({ balance: 6, daily: { amount: 2, monthlyAmount: 0, spendGuard: 50, spentToday: 1, premium: false } });
   });
 
   it("a failed reading gives the credit back; with no credits left the answer is the daily limit", async () => {
@@ -740,7 +744,7 @@ describe("reading credits", () => {
   });
 });
 
-describe("daily credits, rollover, bank cap and spend limit", () => {
+describe("daily and monthly credits, rollover, bank caps and the daily guard", () => {
   const hash = () => hashId(UUID, "salt");
   const body = JSON.stringify({ spread: "single", cards: [{ id: "major_00_fool", reversed: false }], reading: "The Fool.", followup: "More?" });
   const readBody = JSON.stringify(single);
@@ -755,58 +759,64 @@ describe("daily credits, rollover, bank cap and spend limit", () => {
 
   it("free users get 2 daily credits once a day; unused credits roll over", async () => {
     const s = setup({ credits: true });
-    expect(await daily(s)).toEqual({ granted: 2, balance: 2, dailyAmount: 2, bankCap: 20 });
+    expect(await daily(s)).toEqual({ granted: 2, balance: 2, dailyAmount: 2, monthlyAmount: 0 });
     expect(await daily(s)).toMatchObject({ granted: 0, balance: 2 }); // same day
     s.deps.now = () => NOW + DAY;
     expect(await daily(s)).toMatchObject({ granted: 2, balance: 4 }); // yesterday's 2 rolled over
   });
 
-  it("the bank holds at most 10 days of daily credits; new ones stop arriving", async () => {
+  it("daily credits stop at 10 days' worth; bought credits above the cap still work", async () => {
     const s = setup({ credits: true });
     const h = await hash();
     s.credits.daily.set(h, 19); s.credits.bal.set(h, 19);
     expect(await daily(s)).toMatchObject({ granted: 1, balance: 20 });
     s.deps.now = () => NOW + DAY;
     expect(await daily(s)).toMatchObject({ granted: 0, balance: 20 });
-    s.credits.bal.set(h, 26); // bought credits above the cap are fine
+    s.credits.bal.set(h, 26);
     expect((await go(s, "/v1/reading", readBody)).status).toBe(200);
   });
 
-  it("at most 2 days' worth can be spent in one day, however big the balance", async () => {
+  it("Premium also gets monthly credits by plan, once per calendar month, with a 2-month bank", async () => {
+    for (const [plan, amount] of [["annual", 150], ["quarterly", 120], ["monthly", 90]] as const) {
+      const s = setup({ premium: true, credits: true });
+      s.deps.premiumMonthly = async () => amount;
+      expect(await daily(s), plan).toEqual({ granted: 2 + amount, balance: 2 + amount, dailyAmount: 2, monthlyAmount: amount });
+      expect(await daily(s), plan).toMatchObject({ granted: 0 }); // same day and month
+      s.deps.now = () => NOW + DAY; // 17 Oct: same month, new day
+      expect(await daily(s), plan).toMatchObject({ granted: 2 });
+      s.deps.now = () => Date.parse("2026-11-02T12:00:00Z"); // next month
+      expect(await daily(s), plan).toMatchObject({ granted: 2 + amount });
+      s.deps.now = () => Date.parse("2026-12-02T12:00:00Z"); // 2 months already banked: no more monthly credits
+      expect(await daily(s), plan).toMatchObject({ granted: 2 });
+      expect((await s.credits.balance(await hash())), plan).toBe(2 + amount + 2 + 2 + amount + 2);
+    }
+  });
+
+  it("a free user never receives monthly credits", async () => {
+    const s = setup({ credits: true });
+    s.deps.premiumMonthly = async () => 150; // would apply if they were Premium
+    expect(await daily(s)).toMatchObject({ granted: 2, monthlyAmount: 0 });
+  });
+
+  it("nobody can spend more than 50 credits in a day, however big the balance", async () => {
     const s = setup({ credits: true });
     const h = await hash();
-    s.credits.bal.set(h, 100);
-    for (let i = 0; i < 4; i++) { s.usage.rows.length; expect((await go(s, "/v1/reading", readBody)).status, `reading ${i + 1}`).toBe(200); }
+    s.credits.bal.set(h, 500);
+    while ((await s.usage.count(h, "2026-10-16", "reading")) < 49) await s.usage.reserve(h, "2026-10-16", "reading");
+    expect((await go(s, "/v1/reading", readBody)).status).toBe(200); // the 50th
     expect((await go(s, "/v1/reading", readBody)).status).toBe(429);
-    expect((await go(s, "/v1/followup", body)).status).toBe(402); // free: the paywall
+    expect((await go(s, "/v1/followup", body)).status).toBe(402); // free: paywall
     s.deps.now = () => NOW + DAY;
     expect((await go(s, "/v1/reading", readBody)).status).toBe(200); // a new day
   });
 
-  it("Premium daily credits follow the plan: annual 50, 3 months 40, monthly 30", async () => {
-    for (const [plan, amount] of [["annual", 50], ["quarterly", 40], ["monthly", 30]] as const) {
-      const s = setup({ premium: true, credits: true });
-      s.deps.premiumAllowance = async () => amount;
-      expect(await daily(s), plan).toEqual({ granted: amount, balance: amount, dailyAmount: amount, bankCap: amount * 10 });
-      const h = await hash();
-      expect((await go(s, "/v1/reading", readBody)).status, plan).toBe(200);
-      expect(await s.credits.balance(h), plan).toBe(amount - 1);
-      const used = 2 * amount;
-      while ((await s.usage.count(h, "2026-10-16", "reading")) < used) await s.usage.reserve(h, "2026-10-16", "reading");
-      expect((await go(s, "/v1/followup", body)).status, plan).toBe(429); // spend limit
-    }
-  });
-
-  it("without the wallet, Premium keeps the plain daily allowance shared by readings and follow-ups", async () => {
-    for (const [allowance, label] of [[50, "annual"], [40, "quarterly"], [30, "monthly"]] as const) {
-      const s = setup({ premium: true });
-      s.deps.premiumAllowance = async () => allowance;
-      const h = await hash();
-      while ((await s.usage.count(h, "2026-10-16", "reading")) < allowance - 1) await s.usage.reserve(h, "2026-10-16", "reading");
-      expect((await go(s, "/v1/followup", body)).status, label).toBe(200);
-      expect((await go(s, "/v1/reading", readBody)).status, label).toBe(429);
-      expect((await go(s, "/v1/followup", body)).status, label).toBe(429);
-    }
+  it("without the wallet, Premium has a plain limit of 50 a day shared by readings and follow-ups", async () => {
+    const s = setup({ premium: true });
+    const h = await hash();
+    while ((await s.usage.count(h, "2026-10-16", "reading")) < 49) await s.usage.reserve(h, "2026-10-16", "reading");
+    expect((await go(s, "/v1/followup", body)).status).toBe(200);
+    expect((await go(s, "/v1/reading", readBody)).status).toBe(429);
+    expect((await go(s, "/v1/followup", body)).status).toBe(429);
   });
 });
 

@@ -98,13 +98,19 @@ void main() {
       final s = AppState(deck: deck)
         ..credits = 7
         ..dailyCredits = 2;
-      expect(s.creditLine, '7 credits · +2 every day, unused credits roll over');
+      expect(s.creditLine, '7 credits · 2 new credits every day, unused credits roll over');
       s.credits = 0;
       expect(s.creditLine, contains('No credits left'));
       expect(s.creditLine, contains('go Premium'));
       s.setPremium(true);
-      s.dailyCredits = 50;
-      expect(s.creditLine, 'No credits left. 50 new credits arrive tomorrow.');
+      s.dailyCredits = 2;
+      s.monthlyCredits = 150;
+      expect(s.creditLine, 'No credits left. 2 new credits arrive tomorrow.');
+      s.credits = 120;
+      expect(
+        s.creditLine,
+        '120 credits · 150 new credits every month, and 2 a day, unused credits roll over',
+      );
     });
 
     test('a free user can start a reading only while they hold credits', () {

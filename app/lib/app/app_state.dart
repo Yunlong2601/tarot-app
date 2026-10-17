@@ -63,6 +63,9 @@ class AppState extends ChangeNotifier {
   /// New credits that arrive every day for this user, as the server reports it.
   int dailyCredits = 0;
 
+  /// New credits that arrive every month for Premium (0 for free users).
+  int monthlyCredits = 0;
+
   /// Today's daily credits (once a day for everyone), then the balance.
   Future<void> claimDailyCredit() async {
     if (!creditsEnabled) return;
@@ -78,6 +81,7 @@ class AppState extends ChangeNotifier {
       final status = await creditApi.status();
       credits = status.balance;
       dailyCredits = status.dailyAmount;
+      monthlyCredits = status.monthlyAmount;
       notifyListeners();
     } catch (_) {}
   }
@@ -88,14 +92,18 @@ class AppState extends ChangeNotifier {
   /// The one-line status under the reading buttons.
   String get creditLine {
     if (!creditsEnabled) {
-      if (isPremium) return 'Premium: up to 30 to 50 readings a day';
+      if (isPremium) return 'Premium: up to 50 readings a day';
       return canReadForFree
           ? '1 free reading left today'
           : 'Free reading used. Come back tomorrow or go Premium.';
     }
-    final perDay = dailyCredits > 0 ? dailyCredits : (isPremium ? 30 : 2);
+    final perDay = dailyCredits > 0 ? dailyCredits : 2;
+    final perMonth = monthlyCredits > 0 ? monthlyCredits : 90;
+    final plan = isPremium
+        ? '$perMonth new credits every month, and $perDay a day'
+        : '$perDay new credits every day';
     if (credits > 0) {
-      return '$credits credits · +$perDay every day, unused credits roll over';
+      return '$credits credits · $plan, unused credits roll over';
     }
     return isPremium
         ? 'No credits left. $perDay new credits arrive tomorrow.'

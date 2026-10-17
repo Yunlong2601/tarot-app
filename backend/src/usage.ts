@@ -65,13 +65,15 @@ export class D1UsageStore implements UsageStore {
 /** Free daily credits once the credit wallet is on; before that, 1 free reading a day. */
 export const FREE_DAILY_CREDITS = 2;
 export const FREE_READINGS_PER_DAY = 1;
-// Premium unlocks every feature; AI readings and follow-ups share one daily
-// allowance that depends on the plan (stated openly in the app and the Terms).
-// Once the credit wallet is on these are the daily credits (see index.ts charge()).
-export const PLAN_DAILY_ALLOWANCE = { annual: 50, quarterly: 40, monthly: 30 } as const;
-export type PremiumPlan = keyof typeof PLAN_DAILY_ALLOWANCE;
-/** Testers and unrecognised paid products: the highest allowance. */
-export const DEFAULT_PREMIUM_ALLOWANCE = PLAN_DAILY_ALLOWANCE.annual;
+// Premium also receives monthly credits by plan (on top of the free daily
+// credits). One credit buys a reading or a follow-up.
+export const PLAN_MONTHLY_CREDITS = { annual: 150, quarterly: 120, monthly: 90 } as const;
+export type PremiumPlan = keyof typeof PLAN_MONTHLY_CREDITS;
+/** Testers and unrecognised paid products: the highest amount. */
+export const DEFAULT_PREMIUM_CREDITS = PLAN_MONTHLY_CREDITS.annual;
+/** Most credits one user can spend in a UTC day (anti-bot, bounds cost spikes).
+ * With the wallet off, this is Premium's plain per-day limit. */
+export const DAILY_SPEND_GUARD = 50;
 export const BURST_PER_MINUTE = 10;
 export const IP_PER_MINUTE = 30;
 export const DEFAULT_GLOBAL_DAILY_TOKEN_CAP = 2_000_000;

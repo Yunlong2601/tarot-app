@@ -107,6 +107,9 @@ class ApiReadingService
     return CreditStatus(
       balance: (res.json['balance'] as num?)?.toInt() ?? 0,
       dailyAmount: daily is Map ? (daily['amount'] as num?)?.toInt() ?? 0 : 0,
+      monthlyAmount: daily is Map
+          ? (daily['monthlyAmount'] as num?)?.toInt() ?? 0
+          : 0,
     );
   }
 
