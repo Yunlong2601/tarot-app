@@ -16,9 +16,9 @@ Subscription service: **Qonversion** (owner decision 2026-10-17, replacing Reven
 ## I need to do (owner), iOS
 1. Apple Developer Program membership and the **In-App Purchase** capability on the Runner target (bundle id `com.shentech.shentarot`).
 2. App Store Connect subscriptions: **done** (group "Premium", three products, prices, intro offer; see `docs/app-store-submission-guide.md` section 2b). Accept the Paid Applications agreement and fill tax/banking.
-3. Create a Qonversion account and project at dash.qonversion.io. Add the **iOS app**: bundle id, the App Store Connect **In-App Purchase key** (.p8, key id, issuer id) and the app-specific shared secret if it asks, and turn on **Apple server notifications** (App Store Server Notifications V2, URL from Qonversion, set in App Store Connect > App Information).
-4. Products: create `shentarot_annual`, `shentarot_quarterly` and `shentarot_monthly` (Qonversion id = Apple product id). Entitlement: create `premium` and attach all three.
-5. Copy the **Project Key** (it ships in the app) and create a **Secret Key** (`sk_…`, server only) under Settings > Developer > Keys.
+3. Qonversion account and project "ShenTarot": **created 2026-10-17**. Still to do in Settings > App Store: the **shared secret** (required for purchase validation; App Store Connect > App Information > App-Specific Shared Secret), then bundle id, the App Store Connect **In-App Purchase key** (.p8, key id, issuer id) and the app-specific shared secret if it asks, and turn on **Apple server notifications** (App Store Server Notifications V2, URL from Qonversion, set in App Store Connect > App Information).
+4. **Done 2026-10-17** (project "ShenTarot"): entitlement `premium`; products `shentarot_annual` (Subscription With Promo Period, Annual), `shentarot_quarterly` (Regular Subscription, 3-month) and `shentarot_monthly` (Regular Subscription, Month), each with the same App Store product id and linked to `premium`. Google Play ids still empty.
+5. Settings > Developer > Keys: the **Project Key** (it ships in the app) and a Secret Key named "Default" (`sk_…`, server only) already exist. Copy the secret yourself into the Worker (step 6); it is never shown to me.
 6. Backend: `npx wrangler secret put QONVERSION_SECRET_KEY`.
 7. Run the app with the key:
    ```bash
