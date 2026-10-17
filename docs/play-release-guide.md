@@ -40,6 +40,7 @@ The signed release build (R8 shrinking on) was installed on an Android 35 emulat
 Drive it yourself: `~/development/android-sdk/emulator/emulator -avd shentarot_pixel` then `adb install -r app/build/app/outputs/flutter-apk/app-release.apk`.
 
 ## What only you can do
+0. Before any store build or production deploy, run `bash scripts/release-check.sh` from the repo root (it also runs before `npm run deploy`). It fails if a beta-only switch (`ALLOW_UNATTESTED_INSTALLS`, `TESTER_INSTALL_IDS`) is in the production config, or if tester mode is not forced off in release builds.
 1. **Play Console identity checks** for your account (individual vs organisation; verify what is required for a Singapore individual).
 2. **Closed-testing requirement for new personal accounts**: Google has required a minimum number of testers opted in for a minimum number of days before you can apply for production. Check the current numbers (it has been 12 testers for 14 days) in Play Console Help; recruit testers now (classmates, friends with Android phones).
 3. **Backend**: done and live (test mode, installs allowed without attestation, cap 500,000 tokens a day). Play Integrity is not implemented yet; it can be added once the app exists in Play Console (it needs the app's Google Cloud project link). Keep test mode only for the closed test.

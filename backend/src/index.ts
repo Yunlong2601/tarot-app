@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { hashId, signToken, verifyToken } from "./auth";
+import { hashId, safeEqual, signToken, verifyToken } from "./auth";
 import type { Env } from "./env";
 import { callProvider, isAuthError, type LlmFn, type LlmParams, type LlmResult, type LlmTarget } from "./llm";
 import { serverTargets, usageModel, userTarget } from "./route";
@@ -28,7 +28,7 @@ import {
 import {
   CREATOR_CREDITS, CREATOR_MAX_PER_DAY, CREATOR_MAX_PER_MONTH, D1CreatorStore, LIKES_FOR_MONTH, MONTH_COOLDOWN_DAYS,
   MONTHS_PER_YEAR, R2ShotStorage, SCREENSHOT_KEEP_DAYS, SCREENSHOT_MAX_BYTES, SUBMIT_MAX_BODY_CHARS, decodeBase64,
-  parsePostUrl, safeEqual, sniffImage, type CreatorStore, type ShotStorage,
+  parsePostUrl, sniffImage, type CreatorStore, type ShotStorage,
 } from "./creator";
 import { isFreeSpread } from "./spreads";
 import { isUuid, parseFollowupRequest, parseReadingRequest } from "./validate";
@@ -75,9 +75,14 @@ const defaultDeps: Deps = {
 const MAX_BODY_BYTES = 4096;
 
 /** Install or account ids treated as Premium for testing before store
- * products exist (TESTER_INSTALL_IDS, comma-separated). Remove for launch. */
+ * products exist (TESTER_INSTALL_IDS, comma-separated). Only honoured on beta
+ * deployments (ALLOW_UNATTESTED_INSTALLS=true), so a production Worker, which
+ * must run with attestation, can never grant Premium this way even if the
+ * variable is left set. `scripts/release-check.sh` also refuses to deploy with it. */
 export const testerIds = (env: Env): string[] =>
-  (env.TESTER_INSTALL_IDS ?? "").split(",").map((s) => s.trim()).filter(Boolean);
+  env.ALLOW_UNATTESTED_INSTALLS === "true"
+    ? (env.TESTER_INSTALL_IDS ?? "").split(",").map((s) => s.trim()).filter(Boolean)
+    : [];
 
 export function createApp(deps: Deps = defaultDeps) {
   const app = new Hono<{ Bindings: Env }>();
@@ -379,7 +384,17 @@ export function createApp(deps: Deps = defaultDeps) {
     if (!installId) return c.json({ error: "unauthorized" }, 401);
     const who = await identity(c.env, installId);
     if (!who.accountId) return c.json({ error: "not_signed_in" }, 400);
-    await deps.accounts(c.env).delete(who.accountId, who.usageKey);
+    // Everything held for the account and for every install signed in to it:
+    // credits, referral records, creator posts and their screenshots, usage.
+    const accounts = deps.accounts(c.env);
+    const keys = [...new Set([who.usageKey, ...(await accounts.installsOf(who.accountId))])];
+    const shots = deps.shots(c.env);
+    for (const key of keys) {
+      for (const shot of await deps.creator(c.env).deleteAllFor(key)) await shots?.delete(shot);
+      await deps.credits(c.env).deleteAll(key);
+      await deps.referrals(c.env).deleteAll(key);
+    }
+    await accounts.delete(who.accountId, who.usageKey);
     await c.env.KV.delete(`premium:${who.accountId}`);
     return c.json({ deleted: true });
   });
@@ -595,7 +610,7 @@ export function createApp(deps: Deps = defaultDeps) {
   // referral. Trials and promotional grants do not count.
   app.post("/v1/webhooks/revenuecat", async (c) => {
     const secret = c.env.REVENUECAT_WEBHOOK_AUTH;
-    if (!secret || c.req.header("authorization") !== secret) return c.json({ error: "unauthorized" }, 401);
+    if (!secret || !safeEqual(c.req.header("authorization") ?? "", secret)) return c.json({ error: "unauthorized" }, 401);
     const body = (await readJson(c.req.raw, 65536)) as { event?: Record<string, unknown> } | null;
     const e = body?.event;
     if (!e) return c.json({ error: "invalid_request" }, 400);

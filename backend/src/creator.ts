@@ -59,14 +59,6 @@ export function decodeBase64(s: unknown): Uint8Array | null {
   } catch { return null; }
 }
 
-/** Compares two strings in time that does not depend on where they differ. */
-export function safeEqual(a: string, b: string): boolean {
-  if (a.length !== b.length) return false;
-  let d = 0;
-  for (let i = 0; i < a.length; i++) d |= a.charCodeAt(i) ^ b.charCodeAt(i);
-  return d === 0;
-}
-
 export interface CreatorPost {
   id: number; ownerKey: string; appUser: string; platform: string; url: string;
   screenshotKey: string | null; createdAt: string; status: "pending" | "verified" | "rejected";
@@ -87,6 +79,8 @@ export interface CreatorStore {
   monthsGrantedSince(ownerKey: string, sinceIso: string): Promise<number>;
   staleScreenshots(beforeIso: string, limit: number): Promise<{ id: number; key: string }[]>;
   clearScreenshot(id: number): Promise<void>;
+  /** Deletes every post of this owner (for account deletion); returns the screenshot keys to delete from storage. */
+  deleteAllFor(ownerKey: string): Promise<string[]>;
 }
 
 /** Where screenshots are kept (R2 in production). */
@@ -159,6 +153,11 @@ export class D1CreatorStore implements CreatorStore {
   async staleScreenshots(before: string, limit: number) {
     const r = await this.db.prepare("SELECT id, screenshot_key FROM creator_posts WHERE screenshot_key IS NOT NULL AND created_at < ?1 LIMIT ?2").bind(before, limit).all<{ id: number; screenshot_key: string }>();
     return (r.results ?? []).map((x) => ({ id: x.id, key: x.screenshot_key }));
+  }
+  async deleteAllFor(k: string) {
+    const r = await this.db.prepare("SELECT screenshot_key FROM creator_posts WHERE owner_key = ?1 AND screenshot_key IS NOT NULL").bind(k).all<{ screenshot_key: string }>();
+    await this.db.prepare("DELETE FROM creator_posts WHERE owner_key = ?1").bind(k).run();
+    return (r.results ?? []).map((x) => x.screenshot_key);
   }
   async clearScreenshot(id: number) {
     await this.db.prepare("UPDATE creator_posts SET screenshot_key = NULL WHERE id = ?1").bind(id).run();

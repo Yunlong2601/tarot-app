@@ -1,11 +1,15 @@
 /// Build-time switches. Not const so tests can flip them.
 library;
 
-/// Tester builds only (`--dart-define=TESTER_MODE=true`), never for the
+import 'package:flutter/foundation.dart';
+
+/// Debug/profile tester builds only (`--dart-define=TESTER_MODE=true`), never for the
 /// stores: shows a "pretend Premium" switch and the install ID in the You tab,
 /// so Premium screens can be tried before subscriptions exist. The server only
 /// honours it for install IDs listed in its TESTER_INSTALL_IDS setting.
-bool testerMode = const bool.fromEnvironment('TESTER_MODE');
+/// Debug and profile builds only: `kReleaseMode` forces it off, so a store build
+/// can never show the "pretend Premium" switch even if the flag is passed.
+bool testerMode = !kReleaseMode && const bool.fromEnvironment('TESTER_MODE');
 
 /// Refer and earn (`--dart-define=REFERRALS=true`). Off until the store offers
 /// (App Store offer codes, Play "referral-50" offer) and server keys exist.

@@ -52,6 +52,8 @@ export interface ReferralStore {
   /** Friends this referrer was rewarded for (credits earned = this x REFERRAL_CREDITS). */
   rewardedFriends(referrerKey: string): Promise<number>;
   takeAppleCode(friendKey: string, at: string): Promise<string | null>;
+  /** Deletes this owner's code and every referral they are part of, as friend or referrer (account deletion). */
+  deleteAll(ownerKey: string): Promise<void>;
 }
 
 export class D1ReferralStore implements ReferralStore {
@@ -125,6 +127,15 @@ export class D1ReferralStore implements ReferralStore {
   async rewardedFriends(k: string) {
     return (await this.db.prepare("SELECT COUNT(*) AS n FROM referrals WHERE referrer_key = ?1 AND referrer_rewarded = 1")
       .bind(k).first<{ n: number }>())?.n ?? 0;
+  }
+
+  async deleteAll(k: string) {
+    await this.db.batch([
+      this.db.prepare("DELETE FROM referral_codes WHERE owner_key = ?1").bind(k),
+      this.db.prepare("DELETE FROM referrals WHERE friend_key = ?1 OR referrer_key = ?1").bind(k),
+      // keep an issued one-time code consumed, but unlink it from the person
+      this.db.prepare("UPDATE apple_offer_codes SET assigned_to = 'deleted' WHERE assigned_to = ?1").bind(k),
+    ]);
   }
 
   async takeAppleCode(friendKey: string, at: string) {

@@ -83,6 +83,8 @@ export interface AccountStore {
   findOrCreate(provider: AccountProvider, subjectHash: string): Promise<string>;
   link(installHash: string, accountId: string): Promise<void>;
   unlink(installHash: string): Promise<void>;
+  /** Install hashes linked to this account. */
+  installsOf(accountId: string): Promise<string[]>;
   /** Deletes the account, every install link and its usage rows. */
   delete(accountId: string, usageKey: string): Promise<void>;
 }
@@ -117,12 +119,19 @@ export class D1AccountStore implements AccountStore {
     ).bind(installHash, accountId, new Date().toISOString()).run();
   }
 
+  async installsOf(accountId: string): Promise<string[]> {
+    const r = await this.db.prepare("SELECT install_hash FROM account_installs WHERE account_id = ?1").bind(accountId).all<{ install_hash: string }>();
+    return (r.results ?? []).map((x) => x.install_hash);
+  }
+
   async unlink(installHash: string): Promise<void> {
     await this.db.prepare("DELETE FROM account_installs WHERE install_hash = ?1").bind(installHash).run();
   }
 
   async delete(accountId: string, usageKey: string): Promise<void> {
     await this.db.batch([
+      // usage rows of every install that was signed in to this account
+      this.db.prepare("DELETE FROM usage WHERE install_hash IN (SELECT install_hash FROM account_installs WHERE account_id = ?1)").bind(accountId),
       this.db.prepare("DELETE FROM account_installs WHERE account_id = ?1").bind(accountId),
       this.db.prepare("DELETE FROM usage WHERE install_hash = ?1").bind(usageKey),
       this.db.prepare("DELETE FROM accounts WHERE id = ?1").bind(accountId),

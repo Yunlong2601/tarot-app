@@ -6,6 +6,7 @@ import { createApp, type Deps } from "../src/index";
 import { buildFollowupMessage, checkOutput } from "../src/prompts";
 import { buildReadingMessage } from "../src/reading";
 import { isPremium } from "../src/revenuecat";
+import { safeEqual } from "../src/auth";
 import { parseOpenAI } from "../src/llm";
 import type { UsageStore } from "../src/usage";
 import { verifyIdToken, type AccountStore } from "../src/accounts";
@@ -13,7 +14,7 @@ import type { Referral, ReferralStore } from "../src/referrals";
 import { creditsInProduct, type CreditStore } from "../src/credits";
 import type { CreatorPost, CreatorStore, ShotStorage } from "../src/creator";
 import { parsePostUrl } from "../src/creator";
-import { grantReferralCredits, purgeScreenshots } from "../src/index";
+import { grantReferralCredits, purgeScreenshots, testerIds } from "../src/index";
 import { allowWithinMinute } from "../src/usage";
 import { cleanQuestion, parseFollowupRequest, parseReadingRequest, type Spread } from "../src/validate";
 import { isFreeSpread } from "../src/spreads";
@@ -60,6 +61,10 @@ class MemReferrals implements ReferralStore {
     return { referrerKey: r.referrerKey, rewardReferrer: rewarded };
   }
   async rewardedFriends(k: string) { return [...this.paidOut].filter(([f, v]) => this.refs.get(f)?.referrerKey === k && v.rewarded).length; }
+  async deleteAll(k: string) {
+    for (const [code, v] of [...this.codes]) if (v.owner === k) this.codes.delete(code);
+    for (const [f, r] of [...this.refs]) if (f === k || r.referrerKey === k) { this.refs.delete(f); this.paidOut.delete(f); }
+  }
   async takeAppleCode(f: string) {
     const mine = this.apple.find((a) => a.to === f); if (mine) return mine.code;
     const free = this.apple.find((a) => !a.to); if (!free) return null; free.to = f; return free.code;
@@ -85,6 +90,7 @@ class MemCredits implements CreditStore {
   async claimDaily(k: string, day: string, amount: number, cap: number) { return this.grant(k, day, amount, cap, this.days, this.daily); }
   async claimMonthly(k: string, month: string, amount: number, cap: number) { return this.grant(k, month, amount, cap, this.months, this.monthly); }
   async balance(k: string) { return this.bal.get(k) ?? 0; }
+  async deleteAll(k: string) { for (const m of [this.bal, this.daily, this.monthly, this.days, this.months] as Map<string, unknown>[]) m.delete(k); }
   skipWelcome = false;
   async add(k: string, n: number, txn: string, source?: string) { if ((source === "welcome" && this.skipWelcome) || this.txns.has(txn)) return false; this.txns.add(txn); this.bal.set(k, (this.bal.get(k) ?? 0) + n); return true; }
   async move(f: string, t: string) { const n = this.bal.get(f) ?? 0; if (f === t) return 0; this.bal.set(f, 0); this.bal.set(t, (this.bal.get(t) ?? 0) + n); return n; }
@@ -113,6 +119,7 @@ class MemCreator implements CreatorStore {
   async monthsGrantedSince(k: string, since: string) { return this.posts.filter((p) => p.ownerKey === k && p.monthGrantedAt && p.monthGrantedAt >= since).length; }
   async staleScreenshots(before: string, limit: number) { return this.posts.filter((p) => p.screenshotKey && p.createdAt < before).slice(0, limit).map((p) => ({ id: p.id, key: p.screenshotKey! })); }
   async clearScreenshot(id: number) { this.posts.find((x) => x.id === id)!.screenshotKey = null; }
+  async deleteAllFor(k: string) { const keys = this.posts.filter((p) => p.ownerKey === k && p.screenshotKey).map((p) => p.screenshotKey!); this.posts = this.posts.filter((p) => p.ownerKey !== k); return keys; }
 }
 
 class MemShots implements ShotStorage {
@@ -133,6 +140,7 @@ class MemAccounts implements AccountStore {
   }
   async link(h: string, id: string) { this.links.set(h, id); }
   async unlink(h: string) { this.links.delete(h); }
+  async installsOf(id: string) { return [...this.links].filter(([, a]) => a === id).map(([h]) => h); }
   deletedUsageKeys: string[] = [];
   async delete(id: string, usageKey: string) {
     for (const [h, a] of this.links) if (a === id) this.links.delete(h);
@@ -1080,6 +1088,80 @@ describe("creator program", () => {
     expect(await purgeScreenshots(s.env, { creator: () => s.creator, shots: () => s.shots, now: () => NOW + 31 * DAY })).toBe(0);
   });
 });
+describe("account deletion covers everything held for the account", () => {
+  it("removes credits, referral records, creator posts and screenshots for the account and its installs", async () => {
+    const s = setup({ credits: true, referrals: true, creator: true, google: "web-client" });
+    const install = await hashId(UUID, "salt");
+    const headers = await authHeaders(s.env);
+    const signin = await s.call("/v1/account/signin", { method: "POST", headers, body: JSON.stringify({ provider: "google", idToken: "good:777" }) });
+    const { accountId } = (await signin.json()) as { accountId: string };
+    const acct = await hashId(`acct:${accountId}`, "salt");
+    s.credits.bal.set(install, 4); // credits left on the linked install
+    // a referral code, a friend row where the account is the referrer, and one where it is the friend
+    const me = (await (await s.call("/v1/referral/me", { method: "POST", headers })).json()) as { code: string };
+    expect(me.code).toBeTruthy();
+    s.referrals.refs.set("friend-x", { friendKey: "friend-x", referrerKey: acct, code: me.code, platform: "ios", redeemedAt: "2026-10-16", paidTxn: null, paidAt: null, creditedAt: null });
+    s.referrals.refs.set(acct, { friendKey: acct, referrerKey: "someone", code: "ZZZZZZZZ", platform: "ios", redeemedAt: "2026-10-16", paidTxn: null, paidAt: null, creditedAt: null });
+    // a creator post with a screenshot (this also earns 10 credits on the account)
+    const JPEG = btoa(String.fromCharCode(0xff, 0xd8, 0xff, 0xe0, 1, 2, 3, 4, 5));
+    const sub = await s.call("/v1/creator/submit", { method: "POST", headers, body: JSON.stringify({ url: "https://tiktok.com/@a/video/1", screenshot: JPEG }) });
+    expect(sub.status).toBe(200);
+    expect(s.shots.files.size).toBe(1);
+    expect(await s.credits.balance(acct)).toBe(10);
+    // another person's data must survive
+    s.credits.bal.set("other", 9);
+    await s.creator.create({ ownerKey: "other", appUser: "o", platform: "x", url: "https://x.com/o/status/1", urlHash: "ho", screenshotKey: "shots/other.jpg", createdAt: "2026-10-16" });
+    s.shots.files.set("shots/other.jpg", { bytes: new Uint8Array([1]), mime: "image/jpeg" });
+
+    const del = await s.call("/v1/account/delete", { method: "POST", headers });
+    expect(await del.json()).toEqual({ deleted: true });
+
+    expect(await s.credits.balance(acct)).toBe(0);
+    expect(await s.credits.balance(install)).toBe(0);
+    expect(s.creator.posts.filter((p) => p.ownerKey === acct)).toEqual([]);
+    expect([...s.shots.files.keys()]).toEqual(["shots/other.jpg"]); // only the other person's screenshot is left
+    expect(await s.referrals.codeFor(acct)).toBeNull();
+    expect(s.referrals.refs.has("friend-x")).toBe(false);
+    expect(s.referrals.refs.has(acct)).toBe(false);
+    expect(s.accounts.links.size).toBe(0);
+    expect(await s.credits.balance("other")).toBe(9);
+    expect(s.creator.posts.length).toBe(1);
+  });
+
+  it("a signed-out install cannot delete an account", async () => {
+    const s = setup({ credits: true });
+    expect((await s.call("/v1/account/delete", { method: "POST", headers: await authHeaders(s.env) })).status).toBe(400);
+  });
+});
+
+describe("secrets and tester switches", () => {
+  const hookWith = (s: ReturnType<typeof setup>, auth?: string) =>
+    s.call("/v1/webhooks/revenuecat", { method: "POST", headers: auth === undefined ? {} : { authorization: auth }, body: JSON.stringify({ event: { type: "TEST" } }) });
+
+  it("the RevenueCat webhook needs the exact secret (any other value, length or missing header is refused)", async () => {
+    const s = setup();
+    expect((await hookWith(s)).status).toBe(401);
+    expect((await hookWith(s, "hook-secreT")).status).toBe(401); // same length, one character off
+    expect((await hookWith(s, "hook-secret-and-more")).status).toBe(401);
+    expect((await hookWith(s, "hook")).status).toBe(401);
+    expect((await hookWith(s, "hook-secret")).status).toBe(200);
+  });
+
+  it("safeEqual compares whole strings", () => {
+    expect(safeEqual("abc", "abc")).toBe(true);
+    expect(safeEqual("abc", "abd")).toBe(false);
+    expect(safeEqual("abc", "ab")).toBe(false);
+    expect(safeEqual("", "")).toBe(true);
+  });
+
+  it("tester ids only count on beta deployments (unattested installs allowed)", () => {
+    const base = { TESTER_INSTALL_IDS: "a, b ,,c" } as unknown as Env;
+    expect(testerIds({ ...base, ALLOW_UNATTESTED_INSTALLS: "true" } as Env)).toEqual(["a", "b", "c"]);
+    expect(testerIds({ ...base } as Env)).toEqual([]); // production: ignored even if set
+    expect(testerIds({ ...base, ALLOW_UNATTESTED_INSTALLS: "false" } as Env)).toEqual([]);
+  });
+});
+
 
 
 

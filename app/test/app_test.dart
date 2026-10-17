@@ -90,6 +90,10 @@ void main() {
     interpretation: 'x',
   );
 
+  test('tester mode is off unless the build asks for it (and never in release builds)', () {
+    expect(testerMode, isFalse);
+  });
+
   group('AppState credit wallet', () {
     tearDown(() => creditsEnabled = false);
 

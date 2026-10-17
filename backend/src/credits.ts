@@ -25,6 +25,8 @@ export interface CreditStore {
   move(fromKey: string, toKey: string): Promise<number>;
   /** Takes one credit if there is one; returns the lot it came from. */
   spend(key: string): Promise<number | null>;
+  /** Deletes everything held for this owner (account deletion). */
+  deleteAll(key: string): Promise<void>;
   /** Gives a spent credit back to the lot it came from. */
   refund(lotId: number): Promise<void>;
 }
@@ -92,6 +94,13 @@ export class D1CreditStore implements CreditStore {
       if ((r.meta.changes ?? 0) > 0) return lot.id;
     }
     return null;
+  }
+  async deleteAll(key: string) {
+    await this.db.batch([
+      this.db.prepare("DELETE FROM credit_lots WHERE owner_key = ?1").bind(key),
+      this.db.prepare("DELETE FROM credit_grants WHERE owner_key = ?1").bind(key),
+      this.db.prepare("DELETE FROM credits WHERE owner_key = ?1").bind(key),
+    ]);
   }
   async refund(lotId: number) {
     await this.db.prepare("UPDATE credit_lots SET remaining = remaining + 1 WHERE id = ?1").bind(lotId).run();

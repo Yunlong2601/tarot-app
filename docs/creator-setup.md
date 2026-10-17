@@ -27,5 +27,5 @@ curl -s -X POST -H "Authorization: Bearer $TOKEN" -d '{"note": "likes not real"}
 Open the post link yourself and count the likes on the live post; the screenshot is only supporting evidence. `verify` needs at least 50 likes, refuses inside the 60-day cooldown or after 6 months in a year, and does nothing if RevenueCat does not confirm the grant.
 
 ## Known limits (see also docs/security-and-abuse.md)
-- Credits are paid before anyone checks the post, so a fake post still earns 10 credits (about US$0.03 worst case). The daily and monthly limits cap one install at 80 credits a month, but fresh installs get fresh limits until App Attest / Play Integrity exists.
+- Credits are paid before anyone checks the post, so a fake post still earns 10 credits (about US$0.03 worst case). The owner accepts this (2026-10-17). The daily and monthly limits cap one install at 80 credits a month, but fresh installs get fresh limits until App Attest / Play Integrity exists.
 - Review is manual (curl). A small review page can come later.
