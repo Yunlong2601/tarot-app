@@ -90,12 +90,14 @@ void main() {
   );
 
   group('AppState free-tier rules', () {
-    test('every spread is free within the daily reading', () {
+    test('spreads of up to 3 cards are free; longer ones use the one trial', () {
       final s = AppState(deck: deck);
       for (final t in SpreadType.values) {
         expect(s.canStart(t), isTrue, reason: t.name);
-        expect(s.usesTrial(t), isFalse);
+        expect(s.usesTrial(t), t.cardCount > 3, reason: t.name);
       }
+      expect(SpreadType.values.where((t) => !t.isFree).map((t) => t.cardCount),
+          everyElement(greaterThan(3)));
     });
 
     test('free reading is consumed after one reading', () {
@@ -106,14 +108,17 @@ void main() {
     });
 
     test(
-      'a long spread uses the daily reading, and is free again tomorrow',
+      'a long spread uses the trial and the daily reading; tomorrow only free spreads open',
       () {
         var now = DateTime(2026, 10, 16);
         final s = AppState(deck: deck, clock: () => now);
         s.addReading(sample('a', spread: SpreadType.horseshoe));
-        expect(s.canStart(SpreadType.horseshoe), isFalse);
+        expect(s.trialUsed, isTrue);
+        expect(s.canStart(SpreadType.single), isFalse);
         now = DateTime(2026, 10, 17); // a new day: daily limit reset
-        expect(s.canStart(SpreadType.horseshoe), isTrue);
+        expect(s.canStart(SpreadType.threeCard), isTrue);
+        expect(s.canStart(SpreadType.horseshoe), isFalse); // Premium now
+        expect(s.usesTrial(SpreadType.horseshoe), isFalse);
       },
     );
 

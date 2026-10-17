@@ -155,7 +155,7 @@ void main() {
     await t.pumpAndSettle();
     expect(find.text('Healing & Reconnection'), findsOneWidget);
     expect(find.text('Recommended'), findsOneWidget);
-    expect(find.text('Start reading'), findsOneWidget);
+    expect(find.text('Start free reading'), findsOneWidget); // a 7-card spread: the one free trial
   });
 
   testWidgets('library: mode toggle switches between scan and digital', (

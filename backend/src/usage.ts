@@ -1,3 +1,4 @@
+import { SPREAD_IDS, isFreeSpread } from "./spreads";
 import type { Spread } from "./validate";
 
 /** Per-install daily usage and the global token budget. D1 in production,
@@ -29,9 +30,11 @@ export class D1UsageStore implements UsageStore {
   }
 
   async countTrial(installHash: string): Promise<number> {
+    const premiumSpreads = SPREAD_IDS.filter((s) => !isFreeSpread(s));
+    const marks = premiumSpreads.map((_, i) => `?${i + 2}`).join(", ");
     const r = await this.db
-      .prepare("SELECT COUNT(*) AS n FROM usage WHERE install_hash = ?1 AND kind = 'reading' AND spread NOT IN ('single', 'three')")
-      .bind(installHash).first<{ n: number }>();
+      .prepare(`SELECT COUNT(*) AS n FROM usage WHERE install_hash = ?1 AND kind = 'reading' AND spread IN (${marks})`)
+      .bind(installHash, ...premiumSpreads).first<{ n: number }>();
     return r?.n ?? 0;
   }
 

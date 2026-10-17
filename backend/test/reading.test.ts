@@ -163,8 +163,11 @@ describe("spread catalog", () => {
       }
     }
   });
-  it("every spread is free within the daily limit", () => {
-    expect(SPREAD_IDS.filter(isFreeSpread)).toEqual(SPREAD_IDS);
+  it("spreads of 1 to 3 cards are free; 5, 7 and 10-card spreads are Premium", () => {
+    for (const id of SPREAD_IDS) expect(isFreeSpread(id), id).toBe(spreadSize(id) <= 3);
+    expect(SPREAD_IDS.filter((id) => !isFreeSpread(id)).sort()).toEqual(
+      ["career_strengths", "celtic", "five_cross", "horseshoe", "love_ready", "love_reconnect"],
+    );
   });
   it("the prompt names the spread and its purpose", () => {
     const m = buildReadingMessage({

@@ -13,7 +13,8 @@ import type { Referral, ReferralStore } from "../src/referrals";
 import type { CreditStore } from "../src/credits";
 import { grantReferralCredits } from "../src/index";
 import { allowWithinMinute } from "../src/usage";
-import { cleanQuestion, parseFollowupRequest, parseReadingRequest } from "../src/validate";
+import { cleanQuestion, parseFollowupRequest, parseReadingRequest, type Spread } from "../src/validate";
+import { isFreeSpread } from "../src/spreads";
 
 class FakeKV {
   m = new Map<string, string>();
@@ -89,7 +90,7 @@ class MemAccounts implements AccountStore {
 
 class MemUsage implements UsageStore {
   rows: { id: number; hash: string; day: string; kind: string; spread: string; model: string; i: number; o: number }[] = [];
-  async countTrial(h: string) { return this.rows.filter((r) => r.hash === h && r.kind === "reading" && r.spread !== "single" && r.spread !== "three").length; }
+  async countTrial(h: string) { return this.rows.filter((r) => r.hash === h && r.kind === "reading" && !isFreeSpread(r.spread as Spread)).length; }
   async count(h: string, d: string, kind: string) { return this.rows.filter((r) => r.hash === h && r.day === d && r.kind === kind).length; }
   async tokensToday(d: string) { return this.rows.filter((r) => r.day === d && !r.model.startsWith("byok:")).reduce((s, r) => s + r.i + r.o, 0); }
   async reserve(h: string, d: string, kind: string, spread = "single", model = "m") { const id = this.rows.length + 1; this.rows.push({ id, hash: h, day: d, kind, spread, model, i: 0, o: 0 }); return id; }
@@ -265,14 +266,30 @@ describe("POST /v1/reading", () => {
     expect(s.calls()).toBe(1);
   });
 
-  it("free users can use any spread, one reading a day", async () => {
+  it("free users get 1 trial reading on a 5/7/10-card spread, then Premium is required", async () => {
     const fiveCross = { spread: "five_cross", cards: ["major_00_fool", "major_01_magician", "major_02_high_priestess", "major_03_empress", "major_04_emperor"].map((id) => ({ id, reversed: false })) };
     const free = setup();
-    expect((await post(free, fiveCross)).status).toBe(200);
+    expect((await post(free, fiveCross)).status).toBe(200); // the one trial reading
     free.kv.m.clear();
     expect((await post(free, single)).status).toBe(429); // daily limit
     free.usage.rows.forEach((r) => (r.day = "2000-01-01")); // next day
-    expect((await post(free, fiveCross)).status).toBe(200); // no trial limit any more
+    const again = await post(free, fiveCross);
+    expect(again.status).toBe(402); // trial used: Premium only
+    expect(await again.json()).toEqual({ error: "premium_required" });
+    free.kv.m.clear();
+    expect((await post(free, three)).status).toBe(200); // 3-card spreads stay free
+    const premium = setup({ premium: true });
+    expect((await post(premium, fiveCross)).status).toBe(200);
+    premium.kv.m.clear();
+    expect((await post(premium, fiveCross)).status).toBe(200);
+  });
+
+  it("a free 3-card spread does not use up the Premium-spread trial", async () => {
+    const free = setup();
+    const h = await hashId(UUID, "salt");
+    free.usage.rows.length = 0;
+    expect((await post(free, three)).status).toBe(200);
+    expect(await free.usage.countTrial(h)).toBe(0);
   });
 
   it("the three-card Past, Present, Future spread is free for everyone", async () => {

@@ -156,6 +156,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
           ),
           const SizedBox(height: 16),
           for (final f in const [
+            'The 5, 7 and 10-card spreads, including the Celtic Cross',
             'Up to 30 to 50 AI readings a day, by plan (free: 1 a day)',
             'Follow-up questions on your readings',
             'A clarifier card to shed light on a reading',

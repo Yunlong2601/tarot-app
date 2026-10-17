@@ -97,8 +97,8 @@ export const SPREAD_IDS = Object.keys(SPREADS) as Spread[];
 export const spreadSize = (s: Spread): number => SPREADS[s].positions.length;
 export const isSpread = (v: unknown): v is Spread => typeof v === "string" && Object.hasOwn(SPREADS, v);
 
-/** Free for everyone within the daily reading limit. Others need Premium or the one-time trial. */
-export const FREE_SPREADS: readonly Spread[] = ["single", "three"];
-/** Every spread is free within the daily limit (owner decision 2026-10-17).
- * FREE_SPREADS is kept so a spread can be made Premium again in one place. */
-export const isFreeSpread = (_s: Spread): boolean => true;
+/** Spreads of up to 3 cards are free within the daily limit; the 5, 7 and
+ * 10-card spreads are Premium, with one free trial reading per install
+ * (owner decision 2026-10-17). This is the one place to change that. */
+export const FREE_SPREAD_MAX_CARDS = 3;
+export const isFreeSpread = (s: Spread): boolean => spreadSize(s) <= FREE_SPREAD_MAX_CARDS;
