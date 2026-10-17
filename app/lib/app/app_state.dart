@@ -80,19 +80,29 @@ class AppState extends ChangeNotifier {
     await refreshCredits();
   }
 
+  /// Whether the server answered the last balance check. If it did not (no
+  /// signal, server down), the app lets the reading start and the server
+  /// decides, instead of blocking free users on a stale zero.
+  bool creditsKnown = false;
+
   Future<void> refreshCredits() async {
     if (!creditsEnabled) return;
     try {
       final status = await creditApi.status();
+      creditsKnown = true;
       credits = status.balance;
       dailyCredits = status.dailyAmount;
       monthlyCredits = status.monthlyAmount;
       notifyListeners();
-    } catch (_) {}
+    } catch (_) {
+      creditsKnown = false;
+      notifyListeners();
+    }
   }
 
-  /// One credit pays for a reading or a follow-up. The server checks and spends it.
-  bool get hasCredits => creditsEnabled && credits > 0;
+  /// One credit pays for a reading or a follow-up. The server checks and
+  /// spends it; with no answer yet, assume there may be credits.
+  bool get hasCredits => creditsEnabled && (credits > 0 || !creditsKnown);
 
   /// The one-line status under the reading buttons.
   String get creditLine {
@@ -293,7 +303,9 @@ class AppState extends ChangeNotifier {
   /// Premium users get a daily allowance by plan (30 to 50); free users get two readings a day plus credits.
   bool canStart(SpreadType spread) {
     if (isPremium) return true;
-    if (creditsEnabled) return credits > 0 && (spread.isFree || !trialUsed);
+    if (creditsEnabled) {
+      return (credits > 0 || !creditsKnown) && (spread.isFree || !trialUsed);
+    }
     if (!canReadForFree) return hasCredits;
     return spread.isFree || !trialUsed;
   }
