@@ -20,6 +20,12 @@ export interface Env {
   CREDITS_ENABLED?: string;
   /** "true" turns on refer-and-earn (needs store offers set up first). */
   REFERRALS_ENABLED?: string;
+  /** "true" turns on the creator program (needs CREDITS_ENABLED and an R2 bucket bound as SHOTS). */
+  CREATOR_ENABLED?: string;
+  /** Secret for the owner-only admin endpoints (at least 24 characters). */
+  ADMIN_TOKEN?: string;
+  /** R2 bucket for creator screenshots (deleted after 30 days). */
+  SHOTS?: R2Bucket;
   /** Shared secret RevenueCat sends in the webhook Authorization header. */
   REVENUECAT_WEBHOOK_AUTH?: string;
   /** Testing only: comma-separated install/account ids treated as Premium. */

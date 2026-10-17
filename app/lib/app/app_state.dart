@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../core/account_service.dart';
 import '../core/credit_service.dart';
+import '../core/creator_service.dart';
 import '../core/referral_service.dart';
 import 'flags.dart';
 import '../core/install_id.dart';
@@ -32,6 +33,7 @@ class AppState extends ChangeNotifier {
     this.accountApi = const UnconfiguredAccountBackend(),
     this.referralApi = const UnconfiguredReferralBackend(),
     this.creditApi = const UnconfiguredCreditBackend(),
+    this.creatorApi = const UnconfiguredCreatorBackend(),
     SignInProvider? signIn,
     List<AccountProvider>? accountProviders,
     DateTime Function()? clock,
@@ -58,6 +60,9 @@ class AppState extends ChangeNotifier {
 
   /// Reading credits (behind `creditsEnabled`); the server holds the balance.
   final CreditBackend creditApi;
+
+  /// Creator program (behind `creatorEnabled`).
+  final CreatorBackend creatorApi;
   int credits = 0;
 
   /// New credits that arrive every day for this user, as the server reports it.

@@ -11,6 +11,11 @@ bool testerMode = const bool.fromEnvironment('TESTER_MODE');
 /// (App Store offer codes, Play "referral-50" offer) and server keys exist.
 bool referralsEnabled = const bool.fromEnvironment('REFERRALS');
 
+/// Creator program (`--dart-define=CREATOR=true`): post with #shentarot, submit
+/// the link and a screenshot for credits, 50 likes for a free month. Needs the
+/// server's CREATOR_ENABLED, CREDITS_ENABLED and an R2 bucket.
+bool creatorEnabled = const bool.fromEnvironment('CREATOR');
+
 /// Reading credits and credit packs (`--dart-define=CREDITS=true`). Off
 /// until the consumable product exists in both stores and RevenueCat.
 bool creditsEnabled = const bool.fromEnvironment('CREDITS');

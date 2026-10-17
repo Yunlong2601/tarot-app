@@ -52,7 +52,9 @@ class _PaywallScreenState extends State<PaywallScreen> {
           plans = [friend, ...plans.where((p) => p.title != 'Annual')];
         }
       }
-      final packs = creditsEnabled ? await service.creditPacks() : const <PlanOption>[];
+      final packs = creditsEnabled
+          ? await service.creditPacks()
+          : const <PlanOption>[];
       if (!mounted) return;
       setState(() {
         _packs = packs;
@@ -425,7 +427,10 @@ class _CreditPacksCard extends StatelessWidget {
           if (packs.isEmpty)
             const Align(
               alignment: Alignment.centerRight,
-              child: OutlinedButton(onPressed: null, child: Text('Coming soon')),
+              child: OutlinedButton(
+                onPressed: null,
+                child: Text('Coming soon'),
+              ),
             )
           else
             Wrap(

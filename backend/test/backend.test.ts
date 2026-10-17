@@ -11,7 +11,9 @@ import type { UsageStore } from "../src/usage";
 import { verifyIdToken, type AccountStore } from "../src/accounts";
 import type { Referral, ReferralStore } from "../src/referrals";
 import { creditsInProduct, type CreditStore } from "../src/credits";
-import { grantReferralCredits } from "../src/index";
+import type { CreatorPost, CreatorStore, ShotStorage } from "../src/creator";
+import { parsePostUrl } from "../src/creator";
+import { grantReferralCredits, purgeScreenshots } from "../src/index";
 import { allowWithinMinute } from "../src/usage";
 import { cleanQuestion, parseFollowupRequest, parseReadingRequest, type Spread } from "../src/validate";
 import { isFreeSpread } from "../src/spreads";
@@ -92,6 +94,34 @@ class MemCredits implements CreditStore {
   async refund(id: number) { const k = this.owners.get(id)!; this.bal.set(k, (this.bal.get(k) ?? 0) + 1); }
 }
 
+class MemCreator implements CreatorStore {
+  posts: (CreatorPost & { urlHash: string })[] = [];
+  async create(p: { ownerKey: string; appUser: string; platform: string; url: string; urlHash: string; screenshotKey: string; createdAt: string }) {
+    if (this.posts.some((x) => x.urlHash === p.urlHash)) return null;
+    const id = this.posts.length + 1;
+    this.posts.push({ id, ownerKey: p.ownerKey, appUser: p.appUser, platform: p.platform, url: p.url, urlHash: p.urlHash, screenshotKey: p.screenshotKey, createdAt: p.createdAt, status: "pending", likes: null, monthGrantedAt: null, note: null });
+    return id;
+  }
+  async countSince(k: string, since: string) { return this.posts.filter((p) => p.ownerKey === k && p.createdAt >= since).length; }
+  async mine(k: string, limit: number) { return this.posts.filter((p) => p.ownerKey === k).reverse().slice(0, limit); }
+  async get(id: number) { return this.posts.find((p) => p.id === id) ?? null; }
+  async pending(limit: number) { return this.posts.filter((p) => p.status === "pending").slice(0, limit); }
+  async verify(id: number, likes: number) { const p = this.posts.find((x) => x.id === id); if (!p || p.status !== "pending") return false; p.status = "verified"; p.likes = likes; return true; }
+  async reject(id: number, note: string) { const p = this.posts.find((x) => x.id === id); if (!p || p.status !== "pending") return false; p.status = "rejected"; p.note = note; return true; }
+  async markMonthGranted(id: number, at: string) { this.posts.find((x) => x.id === id)!.monthGrantedAt = at; }
+  async lastMonthAt(k: string) { return this.posts.filter((p) => p.ownerKey === k && p.monthGrantedAt).map((p) => p.monthGrantedAt!).sort().at(-1) ?? null; }
+  async monthsGrantedSince(k: string, since: string) { return this.posts.filter((p) => p.ownerKey === k && p.monthGrantedAt && p.monthGrantedAt >= since).length; }
+  async staleScreenshots(before: string, limit: number) { return this.posts.filter((p) => p.screenshotKey && p.createdAt < before).slice(0, limit).map((p) => ({ id: p.id, key: p.screenshotKey! })); }
+  async clearScreenshot(id: number) { this.posts.find((x) => x.id === id)!.screenshotKey = null; }
+}
+
+class MemShots implements ShotStorage {
+  files = new Map<string, { bytes: Uint8Array; mime: string }>();
+  async put(key: string, bytes: Uint8Array, mime: string) { this.files.set(key, { bytes, mime }); }
+  async get(key: string) { return this.files.get(key) ?? null; }
+  async delete(key: string) { this.files.delete(key); }
+}
+
 class MemAccounts implements AccountStore {
   accounts = new Map<string, string>(); // subjectHash -> id
   links = new Map<string, string>(); // installHash -> accountId
@@ -125,9 +155,12 @@ const NOW = Date.UTC(2026, 9, 16, 12, 0, 0);
 const UUID = "123e4567-e89b-42d3-a456-426614174000";
 const GOOD = "The Fool upright invites a fresh start. Stay curious and open, and let small steps lead the way today.";
 
-function setup(opts: { premium?: boolean | ((id: string) => boolean); llm?: Deps["llm"]; allowInstall?: boolean; cap?: string; openaiKey?: string; google?: string; referrals?: boolean; credits?: boolean; welcome?: boolean } = {}) {
+function setup(opts: { premium?: boolean | ((id: string) => boolean); llm?: Deps["llm"]; allowInstall?: boolean; cap?: string; openaiKey?: string; google?: string; referrals?: boolean; credits?: boolean; welcome?: boolean; creator?: boolean } = {}) {
   const accounts = new MemAccounts();
   const referrals = new MemReferrals();
+  const creator = new MemCreator();
+  const shots = new MemShots();
+  const granted: string[] = [];
   const credits = new MemCredits();
   credits.skipWelcome = !opts.welcome; // most tests are about the daily/monthly credits, not the one-off gift
   const usage = new MemUsage();
@@ -141,16 +174,19 @@ function setup(opts: { premium?: boolean | ((id: string) => boolean); llm?: Deps
     accounts: () => accounts,
     referrals: () => referrals,
     credits: () => credits,
+    creator: () => creator,
+    shots: () => shots,
+    grantMonth: async (u) => { granted.push(u); return true; },
     verifyIdToken: async (_p, token) => (token.startsWith("good:") ? token.slice(5) : null),
   };
   const env = {
     KV: kv, DB: {}, JWT_SECRET: "s".repeat(32), HASH_SALT: "salt", ANTHROPIC_API_KEY: "k",
     ALLOW_UNATTESTED_INSTALLS: opts.allowInstall === false ? "false" : "true",
-    GLOBAL_DAILY_TOKEN_CAP: opts.cap, OPENAI_API_KEY: opts.openaiKey, GOOGLE_CLIENT_IDS: opts.google, REFERRALS_ENABLED: opts.referrals ? "true" : undefined, CREDITS_ENABLED: opts.credits ? "true" : undefined, REVENUECAT_WEBHOOK_AUTH: "hook-secret", REVENUECAT_SECRET_KEY: "rc",
+    GLOBAL_DAILY_TOKEN_CAP: opts.cap, OPENAI_API_KEY: opts.openaiKey, GOOGLE_CLIENT_IDS: opts.google, REFERRALS_ENABLED: opts.referrals ? "true" : undefined, CREDITS_ENABLED: opts.credits ? "true" : undefined, CREATOR_ENABLED: opts.creator ? "true" : undefined, ADMIN_TOKEN: "admin-token-0123456789-abcdefghij", REVENUECAT_WEBHOOK_AUTH: "hook-secret", REVENUECAT_SECRET_KEY: "rc",
   } as unknown as Env;
   const app = createApp(deps);
   const call = (path: string, init?: RequestInit) => app.request(path, init, env);
-  return { app, call, usage, kv, env, accounts, referrals, credits, deps, calls: () => llmCalls };
+  return { app, call, usage, kv, env, accounts, referrals, credits, creator, shots, granted, deps, calls: () => llmCalls };
 }
 
 async function authHeaders(env: Env, atMs: number = NOW) {
@@ -908,5 +944,142 @@ describe("referral credits", () => {
     expect(await s.credits.balance(await hashId(`acct:${accountId}`, "salt"))).toBe(7);
   });
 });
+describe("creator program", () => {
+  const JPEG = btoa(String.fromCharCode(0xff, 0xd8, 0xff, 0xe0, 1, 2, 3, 4, 5));
+  const PNG = btoa(String.fromCharCode(0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a, 1));
+  const ADMIN = { authorization: "Bearer admin-token-0123456789-abcdefghij", "content-type": "application/json" };
+  const DAY = 86_400_000;
+  const submit = async (s: ReturnType<typeof setup>, url: string, screenshot: string = JPEG) =>
+    s.call("/v1/creator/submit", { method: "POST", headers: await authHeaders(s.env, s.deps.now()), body: JSON.stringify({ url, screenshot }) });
+  const admin = (s: ReturnType<typeof setup>, path: string, body?: unknown, method = "POST") =>
+    s.call(path, { method, headers: ADMIN, body: body === undefined ? undefined : JSON.stringify(body) });
+  const mine = async (s: ReturnType<typeof setup>) =>
+    (await s.call("/v1/creator/mine", { method: "POST", headers: await authHeaders(s.env, s.deps.now()) })).json();
+
+  it("is off by default, and needs credits on too", async () => {
+    expect((await submit(setup(), "https://www.tiktok.com/@a/video/1")).status).toBe(404);
+    expect((await submit(setup({ creator: true }), "https://www.tiktok.com/@a/video/1")).status).toBe(404);
+  });
+
+  it("accepts links only from known platforms, normalised so one post counts once", () => {
+    expect(parsePostUrl("https://www.tiktok.com/@a/video/123?utm_source=x#top")).toEqual({ url: "https://tiktok.com/@a/video/123", platform: "tiktok" });
+    expect(parsePostUrl("https://m.instagram.com/reel/abc/")).toEqual({ url: "https://instagram.com/reel/abc", platform: "instagram" });
+    expect(parsePostUrl("https://youtu.be/xyz")?.platform).toBe("youtube");
+    expect(parsePostUrl("http://tiktok.com/@a/video/1")).toBeNull(); // not https
+    expect(parsePostUrl("https://evil.example/tiktok.com/x")).toBeNull();
+    expect(parsePostUrl("https://tiktok.com/")).toBeNull(); // no post
+    expect(parsePostUrl("nonsense")).toBeNull();
+    expect(parsePostUrl(42)).toBeNull();
+  });
+
+  it("every attempt gets 10 credits and its screenshot is stored", async () => {
+    const s = setup({ credits: true, creator: true });
+    const res = await submit(s, "https://www.tiktok.com/@a/video/1");
+    expect(res.status).toBe(200);
+    expect(await res.json()).toEqual({ id: 1, credits: 10, status: "pending" });
+    expect(await s.credits.balance(await hashId(UUID, "salt"))).toBe(10);
+    expect(s.shots.files.size).toBe(1);
+    expect([...s.shots.files.keys()][0]).toMatch(/^shots\/.+\.jpg$/);
+    expect(await mine(s)).toMatchObject({ posts: [{ id: 1, platform: "tiktok", status: "pending", likes: null, monthGranted: false }], rules: { creditsPerPost: 10, likesForMonth: 50, maxPerDay: 1, maxPerMonth: 8 } });
+  });
+
+  it("rejects bad links and screenshots, and a duplicate link (and removes the extra file)", async () => {
+    const s = setup({ credits: true, creator: true });
+    expect((await submit(s, "https://example.com/post")).status).toBe(400);
+    expect((await submit(s, "https://tiktok.com/@a/video/1", btoa("not an image at all"))).status).toBe(400);
+    expect((await submit(s, "https://tiktok.com/@a/video/1", "@@@")).status).toBe(400);
+    const big = btoa(String.fromCharCode(0xff, 0xd8, 0xff) + "a".repeat(1_000_001));
+    expect((await submit(s, "https://tiktok.com/@a/video/1", big)).status).toBe(400);
+    expect((await submit(s, "https://tiktok.com/@a/video/1", PNG)).status).toBe(200);
+    s.deps.now = () => NOW + DAY;
+    expect((await submit(s, "https://www.tiktok.com/@a/video/1?utm=1")).status).toBe(409); // same post
+    expect(s.shots.files.size).toBe(1);
+    expect(await s.credits.balance(await hashId(UUID, "salt"))).toBe(10); // only the first attempt paid
+  });
+
+  it("allows one rewarded attempt a day and 8 a month", async () => {
+    const s = setup({ credits: true, creator: true });
+    expect((await submit(s, "https://tiktok.com/@a/video/1")).status).toBe(200);
+    expect((await (await submit(s, "https://tiktok.com/@a/video/2")).json())).toEqual({ error: "daily_limit" });
+    for (let d = 1; d < 8; d++) {
+      s.deps.now = () => NOW + d * DAY; // 16 Oct + d: still October, up to 8 posts
+      expect((await submit(s, `https://tiktok.com/@a/video/${d + 10}`)).status, `day ${d}`).toBe(200);
+    }
+    s.deps.now = () => NOW + 8 * DAY;
+    expect((await (await submit(s, "https://tiktok.com/@a/video/99")).json())).toEqual({ error: "monthly_limit" });
+    s.deps.now = () => Date.parse("2026-11-02T12:00:00Z");
+    expect((await submit(s, "https://tiktok.com/@a/video/100")).status).toBe(200); // a new month
+  });
+
+  it("admin endpoints need the owner token", async () => {
+    const s = setup({ credits: true, creator: true });
+    expect((await s.call("/v1/admin/creator/pending")).status).toBe(401);
+    expect((await s.call("/v1/admin/creator/pending", { headers: { authorization: "Bearer wrong" } })).status).toBe(401);
+    expect((await admin(s, "/v1/admin/creator/pending", undefined, "GET")).status).toBe(200);
+    const noToken = setup({ credits: true, creator: true });
+    (noToken.env as { ADMIN_TOKEN?: string }).ADMIN_TOKEN = "short";
+    expect((await noToken.call("/v1/admin/creator/pending", { headers: { authorization: "Bearer short" } })).status).toBe(401);
+  });
+
+  it("the owner sees pending posts and screenshots, verifies 50 likes and grants one free month", async () => {
+    const s = setup({ credits: true, creator: true });
+    await submit(s, "https://tiktok.com/@a/video/1");
+    const list = (await (await admin(s, "/v1/admin/creator/pending", undefined, "GET")).json()) as { posts: { id: number; url: string; hasScreenshot: boolean }[] };
+    expect(list.posts).toMatchObject([{ id: 1, url: "https://tiktok.com/@a/video/1", hasScreenshot: true }]);
+    const img = await admin(s, "/v1/admin/creator/1/screenshot", undefined, "GET");
+    expect(img.headers.get("content-type")).toBe("image/jpeg");
+    expect((await admin(s, "/v1/admin/creator/1/verify", { likes: 49 })).status).toBe(400); // not enough likes
+    expect(s.granted).toEqual([]);
+    const ok = await admin(s, "/v1/admin/creator/1/verify", { likes: 52 });
+    expect(await ok.json()).toEqual({ id: 1, status: "verified", monthGranted: true });
+    expect(s.granted).toEqual([UUID]); // the RevenueCat app user
+    expect((await admin(s, "/v1/admin/creator/1/verify", { likes: 60 })).status).toBe(409); // already reviewed
+    expect(await mine(s)).toMatchObject({ posts: [{ status: "verified", likes: 52, monthGranted: true }] });
+  });
+
+  it("a free month needs 60 days between grants and at most 6 a year; a failed grant changes nothing", async () => {
+    const s = setup({ credits: true, creator: true });
+    const post = async (n: number, at: number) => { s.deps.now = () => at; await submit(s, `https://tiktok.com/@a/video/${n}`); };
+    await post(1, NOW);
+    await post(2, NOW + DAY);
+    s.deps.grantMonth = async () => false;
+    expect((await admin(s, "/v1/admin/creator/1/verify", { likes: 70 })).status).toBe(502);
+    expect((await s.creator.get(1))?.status).toBe("pending");
+    s.deps.grantMonth = async (u) => { s.granted.push(u); return true; };
+    expect((await admin(s, "/v1/admin/creator/1/verify", { likes: 70 })).status).toBe(200);
+    expect(await (await admin(s, "/v1/admin/creator/2/verify", { likes: 70 })).json()).toMatchObject({ error: "cooldown" });
+    s.deps.now = () => NOW + 61 * DAY;
+    expect((await admin(s, "/v1/admin/creator/2/verify", { likes: 70 })).status).toBe(200);
+    // six in the last year already: the seventh is refused even after the cooldown
+    const k = await hashId(UUID, "salt");
+    for (let i = 0; i < 4; i++) { const id = (await s.creator.create({ ownerKey: k, appUser: UUID, platform: "x", url: `u${i}`, urlHash: `h${i}`, screenshotKey: "k", createdAt: "2026-10-01" }))!; await s.creator.markMonthGranted(id, new Date(NOW + 61 * DAY - (i + 1) * 61 * DAY / 2).toISOString()); }
+    await post(3, NOW + 130 * DAY);
+    s.deps.now = () => NOW + 130 * DAY;
+    expect(await (await admin(s, `/v1/admin/creator/${s.creator.posts.length}/verify`, { likes: 90 })).json()).toMatchObject({ error: expect.stringMatching(/cooldown|yearly_cap/) });
+  });
+
+  it("the owner can reject a post", async () => {
+    const s = setup({ credits: true, creator: true });
+    await submit(s, "https://tiktok.com/@a/video/1");
+    expect((await admin(s, "/v1/admin/creator/1/reject", { note: "likes not real" })).status).toBe(200);
+    expect(await mine(s)).toMatchObject({ posts: [{ status: "rejected" }] });
+    expect((await admin(s, "/v1/admin/creator/1/reject", {})).status).toBe(404); // already reviewed
+  });
+
+  it("screenshots are deleted after 30 days; the post stays", async () => {
+    const s = setup({ credits: true, creator: true });
+    await submit(s, "https://tiktok.com/@a/video/1");
+    s.deps.now = () => NOW + 29 * DAY;
+    await submit(s, "https://tiktok.com/@a/video/2");
+    expect(s.shots.files.size).toBe(2);
+    const removed = await purgeScreenshots(s.env, { creator: () => s.creator, shots: () => s.shots, now: () => NOW + 31 * DAY });
+    expect(removed).toBe(1); // only the first is over 30 days old
+    expect(s.shots.files.size).toBe(1);
+    expect((await s.creator.get(1))?.screenshotKey).toBeNull();
+    expect((await s.creator.get(2))?.screenshotKey).not.toBeNull();
+    expect(await purgeScreenshots(s.env, { creator: () => s.creator, shots: () => s.shots, now: () => NOW + 31 * DAY })).toBe(0);
+  });
+});
+
 
 

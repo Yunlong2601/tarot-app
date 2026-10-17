@@ -1,10 +1,12 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:typed_data';
 
 import '../data/models.dart';
 import 'install_id.dart';
 import 'account_service.dart';
 import 'credit_service.dart';
+import 'creator_service.dart';
 import 'referral_service.dart';
 import 'reading_service.dart';
 import 'user_key_store.dart';
@@ -12,7 +14,12 @@ import 'user_key_store.dart';
 /// Talks to the Cloudflare Worker (`backend/`). Sends only the card IDs,
 /// orientation, spread and the optional question, plus an anonymous install ID.
 class ApiReadingService
-    implements ReadingService, AccountBackend, ReferralBackend, CreditBackend {
+    implements
+        ReadingService,
+        AccountBackend,
+        ReferralBackend,
+        CreditBackend,
+        CreatorBackend {
   ApiReadingService(
     this.baseUrl, {
     HttpClient Function()? clientFactory,
@@ -102,7 +109,9 @@ class ApiReadingService
   @override
   Future<CreditStatus> status() async {
     final res = await _post('/v1/credits/me', const {}, auth: true);
-    if (res.status != 200) return const CreditStatus(balance: 0, dailyAmount: 0);
+    if (res.status != 200) {
+      return const CreditStatus(balance: 0, dailyAmount: 0);
+    }
     final daily = res.json['daily'];
     return CreditStatus(
       balance: (res.json['balance'] as num?)?.toInt() ?? 0,
@@ -117,6 +126,45 @@ class ApiReadingService
   Future<int> claimDaily() async {
     final res = await _post('/v1/credits/daily', const {}, auth: true);
     return res.status == 200 ? (res.json['granted'] as num?)?.toInt() ?? 0 : 0;
+  }
+
+  @override
+  Future<CreatorOverview> mine() async {
+    final res = await _post('/v1/creator/mine', const {}, auth: true);
+    if (res.status != 200) return const CreatorOverview();
+    return CreatorOverview(
+      posts: [
+        for (final p in (res.json['posts'] as List? ?? const []))
+          CreatorPost.fromJson(p as Map<String, dynamic>),
+      ],
+      rules: res.json['rules'] is Map<String, dynamic>
+          ? CreatorRules.fromJson(res.json['rules'] as Map<String, dynamic>)
+          : const CreatorRules(),
+    );
+  }
+
+  @override
+  Future<int> submit({
+    required String url,
+    required Uint8List screenshot,
+  }) async {
+    final res = await _post('/v1/creator/submit', {
+      'url': url,
+      'screenshot': base64Encode(screenshot),
+    }, auth: true);
+    if (res.status == 200) return (res.json['credits'] as num?)?.toInt() ?? 0;
+    throw CreatorException(switch (res.json['error']) {
+      'invalid_link' =>
+        'That is not a link to a post on TikTok, Instagram, YouTube, '
+            'Xiaohongshu, Reddit, X, Facebook or Threads.',
+      'invalid_screenshot' =>
+        'The screenshot could not be used. Choose a PNG or JPEG under 1 MB.',
+      'duplicate_link' => 'You already sent this post.',
+      'daily_limit' => 'One post a day earns credits. Come back tomorrow.',
+      'monthly_limit' => 'You have reached this month\'s limit of posts.',
+      'rate_limited' => 'Too many tries. Wait a minute and try again.',
+      _ => 'The creator program is not available right now.',
+    });
   }
 
   @override

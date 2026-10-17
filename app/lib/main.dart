@@ -10,6 +10,7 @@ import 'app/router.dart';
 import 'app/theme.dart';
 import 'core/account_service.dart';
 import 'core/credit_service.dart';
+import 'core/creator_service.dart';
 import 'core/referral_service.dart';
 import 'core/api_reading_service.dart';
 import 'core/reading_service.dart';
@@ -38,6 +39,7 @@ Future<void> main() async {
     accountApi: api ?? const UnconfiguredAccountBackend(),
     referralApi: api ?? const UnconfiguredReferralBackend(),
     creditApi: api ?? const UnconfiguredCreditBackend(),
+    creatorApi: api ?? const UnconfiguredCreatorBackend(),
     readingService: api ?? const UnconfiguredReadingService(),
     historyRepository: SqliteHistoryRepository(),
     reminders: LocalNotificationReminderService(),

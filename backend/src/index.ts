@@ -25,6 +25,11 @@ import {
   BURST_PER_MINUTE, D1UsageStore, DEFAULT_GLOBAL_DAILY_TOKEN_CAP, FREE_READINGS_PER_DAY,
   DAILY_SPEND_GUARD, DEFAULT_PREMIUM_CREDITS, FREE_DAILY_CREDITS, IP_PER_MINUTE, PLAN_MONTHLY_CREDITS, allowWithinMinute, utcDay, type UsageStore,
 } from "./usage";
+import {
+  CREATOR_CREDITS, CREATOR_MAX_PER_DAY, CREATOR_MAX_PER_MONTH, D1CreatorStore, LIKES_FOR_MONTH, MONTH_COOLDOWN_DAYS,
+  MONTHS_PER_YEAR, R2ShotStorage, SCREENSHOT_KEEP_DAYS, SCREENSHOT_MAX_BYTES, SUBMIT_MAX_BODY_CHARS, decodeBase64,
+  parsePostUrl, safeEqual, sniffImage, type CreatorStore, type ShotStorage,
+} from "./creator";
 import { isFreeSpread } from "./spreads";
 import { isUuid, parseFollowupRequest, parseReadingRequest } from "./validate";
 
@@ -39,6 +44,11 @@ export interface Deps {
   accounts: (env: Env) => AccountStore;
   referrals: (env: Env) => ReferralStore;
   credits: (env: Env) => CreditStore;
+  creator: (env: Env) => CreatorStore;
+  /** Screenshot storage, or null when R2 is not bound. */
+  shots: (env: Env) => ShotStorage | null;
+  /** One free month of Premium (RevenueCat promotional entitlement). */
+  grantMonth: (appUserId: string, env: Env) => Promise<boolean>;
   verifyIdToken: (provider: AccountProvider, token: string, audiences: string[], kv: KVNamespace, nowSeconds: number) => Promise<string | null>;
 }
 
@@ -56,6 +66,9 @@ const defaultDeps: Deps = {
   accounts: (env) => new D1AccountStore(env.DB),
   referrals: (env) => new D1ReferralStore(env.DB),
   credits: (env) => new D1CreditStore(env.DB),
+  creator: (env) => new D1CreatorStore(env.DB),
+  shots: (env) => (env.SHOTS ? new R2ShotStorage(env.SHOTS) : null),
+  grantMonth: async (appUserId, env) => (env.REVENUECAT_SECRET_KEY ? grantFreeMonth(appUserId, env.REVENUECAT_SECRET_KEY) : false),
   verifyIdToken: (p, t, a, kv, n) => verifyIdToken(p, t, a, kv, n),
 };
 
@@ -402,6 +415,118 @@ export function createApp(deps: Deps = defaultDeps) {
     });
   });
 
+  // ---- Creator program (off unless CREATOR_ENABLED=true and CREDITS_ENABLED=true) ----
+  const creatorOn = (env: Env) => env.CREATOR_ENABLED === "true" && env.CREDITS_ENABLED === "true";
+
+  app.post("/v1/creator/submit", async (c) => {
+    if (!creatorOn(c.env)) return c.json({ error: "creator_off" }, 404);
+    const now = deps.now();
+    const installId = await installFrom(c.req.header("authorization"), c.env, now);
+    if (!installId) return c.json({ error: "unauthorized" }, 401);
+    const ip = c.req.header("cf-connecting-ip") ?? "unknown";
+    if (!(await allowWithinMinute(c.env.KV, `creator:${await hashId(ip, c.env.HASH_SALT)}`, 10, now))) {
+      return c.json({ error: "rate_limited" }, 429);
+    }
+    const shots = deps.shots(c.env);
+    if (!shots) return c.json({ error: "creator_off" }, 503);
+    const body = (await readJson(c.req.raw, SUBMIT_MAX_BODY_CHARS + 2000)) as { url?: unknown; screenshot?: unknown } | null;
+    const link = parsePostUrl(body?.url);
+    if (!link) return c.json({ error: "invalid_link" }, 400);
+    const bytes = decodeBase64(body?.screenshot);
+    const type = bytes ? sniffImage(bytes) : null;
+    if (!bytes || !type || bytes.length > SCREENSHOT_MAX_BYTES) return c.json({ error: "invalid_screenshot" }, 400);
+
+    const who = await identity(c.env, installId);
+    const store = deps.creator(c.env);
+    const iso = new Date(now).toISOString();
+    const startOfDay = `${utcDay(now)}T00:00:00.000Z`;
+    const startOfMonth = `${utcDay(now).slice(0, 7)}-01T00:00:00.000Z`;
+    if ((await store.countSince(who.usageKey, startOfDay)) >= CREATOR_MAX_PER_DAY) return c.json({ error: "daily_limit" }, 429);
+    if ((await store.countSince(who.usageKey, startOfMonth)) >= CREATOR_MAX_PER_MONTH) return c.json({ error: "monthly_limit" }, 429);
+
+    const key = `shots/${crypto.randomUUID()}.${type.ext}`;
+    await shots.put(key, bytes, type.mime);
+    const id = await store.create({
+      ownerKey: who.usageKey, appUser: who.appUserId, platform: link.platform, url: link.url,
+      urlHash: await hashId(link.url, c.env.HASH_SALT), screenshotKey: key, createdAt: iso,
+    });
+    if (id === null) {
+      await shots.delete(key);
+      return c.json({ error: "duplicate_link" }, 409);
+    }
+    // Every attempt gets credits at once; the free month needs the owner's check.
+    await deps.credits(c.env).add(who.usageKey, CREATOR_CREDITS, `creator:${id}`, "creator");
+    return c.json({ id, credits: CREATOR_CREDITS, status: "pending" });
+  });
+
+  app.post("/v1/creator/mine", async (c) => {
+    if (!creatorOn(c.env)) return c.json({ error: "creator_off" }, 404);
+    const installId = await installFrom(c.req.header("authorization"), c.env, deps.now());
+    if (!installId) return c.json({ error: "unauthorized" }, 401);
+    const who = await identity(c.env, installId);
+    const posts = (await deps.creator(c.env).mine(who.usageKey, 20)).map((p) => ({
+      id: p.id, platform: p.platform, date: p.createdAt.slice(0, 10), status: p.status, likes: p.likes,
+      monthGranted: p.monthGrantedAt !== null,
+    }));
+    return c.json({
+      posts,
+      rules: { creditsPerPost: CREATOR_CREDITS, likesForMonth: LIKES_FOR_MONTH, maxPerDay: CREATOR_MAX_PER_DAY, maxPerMonth: CREATOR_MAX_PER_MONTH },
+    });
+  });
+
+  // Owner-only review: list pending posts, look at the screenshot, verify the likes.
+  const adminOk = (c: { req: { header: (n: string) => string | undefined }; env: Env }) => {
+    const token = c.env.ADMIN_TOKEN;
+    if (!creatorOn(c.env) || !token || token.length < 24) return false;
+    return safeEqual(c.req.header("authorization") ?? "", `Bearer ${token}`);
+  };
+
+  app.get("/v1/admin/creator/pending", async (c) => {
+    if (!adminOk(c)) return c.json({ error: "unauthorized" }, 401);
+    const posts = await deps.creator(c.env).pending(50);
+    return c.json({ posts: posts.map((p) => ({ id: p.id, platform: p.platform, url: p.url, date: p.createdAt, hasScreenshot: p.screenshotKey !== null })) });
+  });
+
+  app.get("/v1/admin/creator/:id/screenshot", async (c) => {
+    if (!adminOk(c)) return c.json({ error: "unauthorized" }, 401);
+    const post = await deps.creator(c.env).get(Number(c.req.param("id")));
+    const shots = deps.shots(c.env);
+    const shot = post?.screenshotKey && shots ? await shots.get(post.screenshotKey) : null;
+    if (!shot) return c.json({ error: "not_found" }, 404);
+    return new Response(shot.bytes, { headers: { "content-type": shot.mime, "cache-control": "no-store" } });
+  });
+
+  app.post("/v1/admin/creator/:id/verify", async (c) => {
+    if (!adminOk(c)) return c.json({ error: "unauthorized" }, 401);
+    const now = deps.now();
+    const body = (await readJson(c.req.raw)) as { likes?: unknown } | null;
+    const likes = Number(body?.likes);
+    if (!Number.isInteger(likes) || likes < 0) return c.json({ error: "invalid_request" }, 400);
+    if (likes < LIKES_FOR_MONTH) return c.json({ error: "not_enough_likes", needed: LIKES_FOR_MONTH }, 400);
+    const store = deps.creator(c.env);
+    const post = await store.get(Number(c.req.param("id")));
+    if (!post) return c.json({ error: "not_found" }, 404);
+    if (post.status !== "pending") return c.json({ error: "already_reviewed" }, 409);
+    const last = await store.lastMonthAt(post.ownerKey);
+    if (last && now - Date.parse(last) < MONTH_COOLDOWN_DAYS * 86_400_000) return c.json({ error: "cooldown", since: last }, 409);
+    if ((await store.monthsGrantedSince(post.ownerKey, new Date(now - 365 * 86_400_000).toISOString())) >= MONTHS_PER_YEAR) {
+      return c.json({ error: "yearly_cap" }, 409);
+    }
+    if (!(await deps.grantMonth(post.appUser, c.env))) return c.json({ error: "grant_failed" }, 502);
+    const iso = new Date(now).toISOString();
+    await store.verify(post.id, likes, iso);
+    await store.markMonthGranted(post.id, iso);
+    return c.json({ id: post.id, status: "verified", monthGranted: true });
+  });
+
+  app.post("/v1/admin/creator/:id/reject", async (c) => {
+    if (!adminOk(c)) return c.json({ error: "unauthorized" }, 401);
+    const body = (await readJson(c.req.raw)) as { note?: unknown } | null;
+    const note = typeof body?.note === "string" ? body.note.slice(0, 300) : "";
+    const ok = await deps.creator(c.env).reject(Number(c.req.param("id")), note, new Date(deps.now()).toISOString());
+    return ok ? c.json({ status: "rejected" }) : c.json({ error: "not_found_or_reviewed" }, 404);
+  });
+
   // ---- Refer and earn (off unless REFERRALS_ENABLED=true) ----
   const referralsOn = (env: Env) => env.REFERRALS_ENABLED === "true";
 
@@ -582,10 +707,24 @@ async function readJson(req: Request, maxBytes = MAX_BODY_BYTES): Promise<unknow
   }
 }
 
+/** Deletes creator screenshots older than 30 days (the post link and status stay). */
+export async function purgeScreenshots(env: Env, deps: Pick<Deps, "creator" | "shots"> & { now: () => number }): Promise<number> {
+  const shots = deps.shots(env);
+  if (!shots) return 0;
+  const store = deps.creator(env);
+  const stale = await store.staleScreenshots(new Date(deps.now() - SCREENSHOT_KEEP_DAYS * 86_400_000).toISOString(), 200);
+  for (const s of stale) {
+    await shots.delete(s.key);
+    await store.clearScreenshot(s.id);
+  }
+  return stale.length;
+}
+
 const worker = createApp();
 export default {
   fetch: worker.fetch,
   async scheduled(_event: ScheduledEvent, env: Env, ctx: ExecutionContext) {
     ctx.waitUntil(grantReferralCredits(env, { referrals: (e) => new D1ReferralStore(e.DB), now: () => Date.now() }));
+    ctx.waitUntil(purgeScreenshots(env, defaultDeps));
   },
 };

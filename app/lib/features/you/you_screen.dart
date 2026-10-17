@@ -64,18 +64,27 @@ class YouScreen extends StatelessWidget {
               subtitle: const Text('Free months for you, 50% off for them'),
               onTap: () => context.push('/invite'),
             ),
+          if (creatorEnabled && creditsEnabled)
+            ListTile(
+              leading: const Icon(Icons.video_library_outlined),
+              title: const Text('Creator program'),
+              subtitle: const Text(
+                'Post with #shentarot: free credits, 50 likes for a free month',
+              ),
+              onTap: () => context.push('/creator'),
+            ),
           section('Premium'),
           ListTile(
             leading: const Icon(Icons.workspace_premium),
             title: Text(state.isPremium ? 'Premium active' : 'Go Premium'),
             onTap: state.isPremium ? null : () => context.push('/paywall'),
           ),
-          if (creditsEnabled && !state.isPremium)
+          if (creditsEnabled)
             ListTile(
               leading: const Icon(Icons.toll_outlined),
-              title: Text('Reading credits: ${state.credits}'),
-              subtitle: const Text('Extra readings and follow-ups'),
-              onTap: () => context.push('/paywall'),
+              title: Text('Credits: ${state.credits}'),
+              subtitle: const Text('One credit = a reading or a follow-up'),
+              onTap: state.isPremium ? null : () => context.push('/paywall'),
             ),
           section('More'),
           ListTile(
