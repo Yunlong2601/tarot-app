@@ -273,7 +273,7 @@ void main() {
   test('credits let a free user read past the daily reading', () {
     creditsEnabled = true;
     addTearDown(() => creditsEnabled = false);
-    final s = AppState(deck: deck);
+    final s = AppState(deck: deck)..creditsKnown = true;
     s.addReading(
       Reading(
         id: 'a',

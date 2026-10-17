@@ -92,7 +92,9 @@ class MemCredits implements CreditStore {
   async balance(k: string) { return this.bal.get(k) ?? 0; }
   async deleteAll(k: string) { for (const m of [this.bal, this.daily, this.monthly, this.days, this.months] as Map<string, unknown>[]) m.delete(k); }
   skipWelcome = false;
-  async add(k: string, n: number, txn: string, source?: string) { if ((source === "welcome" && this.skipWelcome) || this.txns.has(txn)) return false; this.txns.add(txn); this.bal.set(k, (this.bal.get(k) ?? 0) + n); return true; }
+  byTxn = new Map<string, { k: string; left: number }>();
+  async add(k: string, n: number, txn: string, source?: string) { if ((source === "welcome" && this.skipWelcome) || this.txns.has(txn)) return false; this.txns.add(txn); this.bal.set(k, (this.bal.get(k) ?? 0) + n); this.byTxn.set(txn, { k, left: n }); return true; }
+  async revoke(txn: string) { const g = this.byTxn.get(txn); if (!g) return 0; const n = Math.min(g.left, this.bal.get(g.k) ?? 0); this.bal.set(g.k, (this.bal.get(g.k) ?? 0) - n); g.left = 0; return n; }
   async move(f: string, t: string) { const n = this.bal.get(f) ?? 0; if (f === t) return 0; this.bal.set(f, 0); this.bal.set(t, (this.bal.get(t) ?? 0) + n); return n; }
   owners = new Map<number, string>();
   private n = 0;
@@ -344,17 +346,20 @@ describe("POST /v1/reading", () => {
     expect(s.usage.rows[0]).toMatchObject({ i: 1000, o: 500 });
   });
 
-  it("free users get one reading a day", async () => {
+  it("free users get two readings a day", async () => {
     const s = setup();
     expect((await post(s, single)).status).toBe(200);
+    expect((await post(s, single)).status).toBe(200);
     expect((await post(s, single)).status).toBe(429);
-    expect(s.calls()).toBe(1);
+    expect(s.calls()).toBe(2);
   });
 
   it("free users get 1 trial reading on a 5/7/10-card spread, then Premium is required", async () => {
     const fiveCross = { spread: "five_cross", cards: ["major_00_fool", "major_01_magician", "major_02_high_priestess", "major_03_empress", "major_04_emperor"].map((id) => ({ id, reversed: false })) };
     const free = setup();
     expect((await post(free, fiveCross)).status).toBe(200); // the one trial reading
+    free.kv.m.clear();
+    expect((await post(free, single)).status).toBe(200); // second free reading today
     free.kv.m.clear();
     expect((await post(free, single)).status).toBe(429); // daily limit
     free.usage.rows.forEach((r) => (r.day = "2000-01-01")); // next day
@@ -472,13 +477,15 @@ describe("follow-up questions", () => {
     expect(buildFollowupMessage(parseFollowupRequest(base).ok ? (parseFollowupRequest(base) as any).value : null)).not.toContain("<clarifier>");
   });
 
-  it("requires a token; a free user's one daily credit pays for a follow-up, then they need a bonus credit", async () => {
+  it("requires a token; a free user's two daily uses pay for follow-ups, then they need a bonus credit", async () => {
     const s = setup();
     expect((await s.call("/v1/followup", { method: "POST", body: JSON.stringify(base) })).status).toBe(401);
-    expect((await post(s, base)).status).toBe(200); // the daily credit
+    expect((await post(s, base)).status).toBe(200); // daily use 1
     s.kv.m.clear();
-    expect((await post(s, base)).status).toBe(402); // no daily credit left, no bonus credits
-    expect(s.calls()).toBe(1);
+    expect((await post(s, base)).status).toBe(200); // daily use 2
+    s.kv.m.clear();
+    expect((await post(s, base)).status).toBe(402); // none left, no bonus credits
+    expect(s.calls()).toBe(2);
   });
 
   it("premium gets an answer with the disclaimer; usage is logged as followup", async () => {
@@ -779,6 +786,19 @@ describe("reading credits", () => {
   const read = async (s: ReturnType<typeof setup>) =>
     s.call("/v1/reading", { method: "POST", headers: await authHeaders(s.env), body: JSON.stringify(single) });
 
+  it("a refunded credit pack takes back its unused credits", async () => {
+    const s = setup({ credits: true });
+    const hook = (event: Record<string, unknown>) =>
+      s.call("/v1/webhooks/qonversion", { method: "POST", headers: { authorization: `Basic ${s.env.QONVERSION_WEBHOOK_AUTH}` }, body: JSON.stringify(event) });
+    const buy = { event_name: "in_app_purchase", product_id: "shentarot_credits_10", transaction: { transaction_id: "r1" }, custom_user_id: UUID };
+    expect((await hook(buy)).status).toBe(200);
+    const hash = await hashId(UUID, "salt");
+    const before = await s.credits.balance(hash);
+    const res = await hook({ event_name: "in_app_refunded", transaction: { transaction_id: "r1" }, custom_user_id: UUID });
+    expect(await res.json()).toEqual({ ok: true, revoked: 10 });
+    expect(await s.credits.balance(hash)).toBe(before - 10);
+  });
+
   it("a Starter Pack adds credits once; the first reading grants the day's 2 free credits and spends 1", async () => {
     const s = setup({ credits: true });
     const buy = { event_name: "in_app_purchase", product_id: "shentarot_credits_5", transaction: { transaction_id: "c1" }, identity_id: UUID };
@@ -803,11 +823,12 @@ describe("reading credits", () => {
     expect((await read(s)).status).toBe(429); // today's credits are already granted and spent
   });
 
-  it("a credit pays for a follow-up just like a reading; off by default (1 free a day)", async () => {
+  it("a credit pays for a follow-up just like a reading; off by default (2 free a day)", async () => {
     const off = setup();
     const body = JSON.stringify({ spread: "single", cards: [{ id: "major_00_fool", reversed: false }], reading: "The Fool.", followup: "More?" });
     const ask = async (s: ReturnType<typeof setup>) => { s.kv.m.clear(); return s.call("/v1/followup", { method: "POST", headers: await authHeaders(s.env), body }); };
-    expect((await ask(off)).status).toBe(200); // the one free daily use
+    expect((await ask(off)).status).toBe(200); // free daily use 1
+    expect((await ask(off)).status).toBe(200); // free daily use 2
     expect((await ask(off)).status).toBe(402); // credits are off: nothing else to spend
     const s = setup({ credits: true });
     const hash = await hashId(UUID, "salt");

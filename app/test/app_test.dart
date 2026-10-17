@@ -100,6 +100,7 @@ void main() {
     test('the status line shows credits, the daily amount and rollover', () {
       creditsEnabled = true;
       final s = AppState(deck: deck)
+        ..creditsKnown = true
         ..credits = 7
         ..dailyCredits = 2;
       expect(
@@ -122,13 +123,22 @@ void main() {
 
     test('a free user can start a reading only while they hold credits', () {
       creditsEnabled = true;
-      final s = AppState(deck: deck);
+      final s = AppState(deck: deck)..creditsKnown = true;
       expect(s.canStart(SpreadType.single), isFalse);
       s.credits = 1;
       expect(s.canStart(SpreadType.single), isTrue);
       expect(s.canStart(SpreadType.horseshoe), isTrue); // the one trial
       s.trialUsed = true;
       expect(s.canStart(SpreadType.horseshoe), isFalse); // Premium spread
+    });
+
+    test('if the credit server has not answered, the reading may start', () {
+      creditsEnabled = true;
+      final s = AppState(deck: deck); // no balance check has succeeded
+      expect(s.canStart(SpreadType.single), isTrue);
+      expect(s.hasCredits, isTrue);
+      s.creditsKnown = true; // server said 0
+      expect(s.canStart(SpreadType.single), isFalse);
     });
   });
 
@@ -148,9 +158,11 @@ void main() {
       },
     );
 
-    test('free reading is consumed after one reading', () {
+    test('two free readings a day', () {
       final s = AppState(deck: deck);
       s.addReading(sample('a'));
+      expect(s.canStart(SpreadType.single), isTrue);
+      s.addReading(sample('b'));
       expect(s.canStart(SpreadType.single), isFalse);
       expect(s.canStart(SpreadType.threeCard), isFalse);
     });
@@ -160,6 +172,7 @@ void main() {
       final s = AppState(deck: deck, clock: () => now);
       s.addReading(sample('a', spread: SpreadType.horseshoe));
       expect(s.trialUsed, isTrue);
+      s.addReading(sample('b'));
       expect(s.canStart(SpreadType.single), isFalse);
       now = DateTime(2026, 10, 17); // a new day: daily limit reset
       expect(s.canStart(SpreadType.threeCard), isTrue);

@@ -29,6 +29,9 @@ export interface CreditStore {
   deleteAll(key: string): Promise<void>;
   /** Gives a spent credit back to the lot it came from. */
   refund(lotId: number): Promise<void>;
+  /** A store refunded this purchase: removes its credits that are still
+   * unused. Returns how many were removed (spent ones are not taken back). */
+  revoke(txn: string): Promise<number>;
 }
 
 /** Credits in a consumable product id, e.g. "shentarot_credits_25" -> 25. */
@@ -42,9 +45,9 @@ export function creditsInProduct(productId: string): number | null {
 export class D1CreditStore implements CreditStore {
   constructor(private db: D1Database, private nowMs: () => number = () => Date.now()) {}
   private iso() { return new Date(this.nowMs()).toISOString(); }
-  private async lot(key: string, amount: number, source: string) {
-    await this.db.prepare("INSERT INTO credit_lots (owner_key, remaining, created_at, source) VALUES (?1, ?2, ?3, ?4)")
-      .bind(key, amount, this.iso(), source).run();
+  private async lot(key: string, amount: number, source: string, txn: string | null = null) {
+    await this.db.prepare("INSERT INTO credit_lots (owner_key, remaining, created_at, source, txn) VALUES (?1, ?2, ?3, ?4, ?5)")
+      .bind(key, amount, this.iso(), source, txn).run();
   }
   async balance(key: string) {
     const r = await this.db.prepare("SELECT COALESCE(SUM(remaining), 0) AS n FROM credit_lots WHERE owner_key = ?1")
@@ -55,7 +58,7 @@ export class D1CreditStore implements CreditStore {
     const ins = await this.db.prepare("INSERT OR IGNORE INTO credit_grants (txn, owner_key, amount, created_at) VALUES (?1, ?2, ?3, ?4)")
       .bind(txn, key, amount, this.iso()).run();
     if ((ins.meta.changes ?? 0) === 0) return false;
-    await this.lot(key, amount, source);
+    await this.lot(key, amount, source, txn);
     return true;
   }
   private async claim(key: string, period: string, amount: number, bankCap: number, source: "daily" | "monthly") {
@@ -104,5 +107,10 @@ export class D1CreditStore implements CreditStore {
   }
   async refund(lotId: number) {
     await this.db.prepare("UPDATE credit_lots SET remaining = remaining + 1 WHERE id = ?1").bind(lotId).run();
+  }
+  async revoke(txn: string) {
+    const r = await this.db.prepare("SELECT COALESCE(SUM(remaining), 0) AS n FROM credit_lots WHERE txn = ?1").bind(txn).first<{ n: number }>();
+    await this.db.prepare("UPDATE credit_lots SET remaining = 0 WHERE txn = ?1").bind(txn).run();
+    return r?.n ?? 0;
   }
 }

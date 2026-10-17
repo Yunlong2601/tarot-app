@@ -34,3 +34,6 @@ Then change (or re-import `store/play/data_safety_with_accounts.csv`, which has 
 - Personal info > **User IDs**: collected (not shared), optional, purposes App functionality and Account management, not ephemeral. This is our random account id; we store no name or email.
 - Email address: **not** collected (the Google/Apple token may contain one; the server never stores or logs it).
 - Also publish the updated `site/privacy.html` and `site/terms.html` to the legal site at the same time.
+
+## Launch with the credit wallet on (no sign-in yet)
+Import `store/play/data_safety_launch_wallet.csv`. On top of `data_safety_now_no_accounts.csv` it adds **Photos** (the creator-program screenshot): collected, not shared, optional, not ephemeral, for App functionality and Fraud prevention; deleted after 30 days. Post links, invite codes and credit records fall under the already-declared Other user-generated content, App activity and Purchase history. Qonversion's device data (model, OS, country, language, time zone, IP) is processed by a service provider; check whether Play's current definitions need "Device or other IDs" purposes to include Analytics (subscription statistics).
