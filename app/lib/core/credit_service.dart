@@ -38,5 +38,18 @@ class UnconfiguredCreditBackend implements CreditBackend {
   Future<int> claimDaily() async => 0;
 }
 
-/// Store product id of the Starter Pack (5 credits, consumable).
-const starterPackProductId = 'shentarot_credits_5';
+/// Consumable credit packs (small impulse purchases). Priced per credit well
+/// above Premium's monthly credits on purpose: Premium is the better deal, so
+/// the packs nudge heavier users toward a subscription. The number in the id
+/// is the credit count (the server reads it the same way).
+const creditPackProductIds = [
+  'shentarot_credits_10',
+  'shentarot_credits_25',
+  'shentarot_credits_40',
+];
+
+/// Credits in a pack product id, e.g. 'shentarot_credits_25' -> 25.
+int creditsInPack(String productId) {
+  final m = RegExp(r'credits_(\d{1,3})').firstMatch(productId);
+  return m == null ? 0 : int.parse(m.group(1)!);
+}

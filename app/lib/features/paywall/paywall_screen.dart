@@ -24,7 +24,7 @@ class PaywallScreen extends StatefulWidget {
 
 class _PaywallScreenState extends State<PaywallScreen> {
   List<PlanOption>? _plans;
-  PlanOption? _pack;
+  List<PlanOption> _packs = const [];
   String? _loadError;
   String? _selected;
   bool _busy = false;
@@ -52,10 +52,10 @@ class _PaywallScreenState extends State<PaywallScreen> {
           plans = [friend, ...plans.where((p) => p.title != 'Annual')];
         }
       }
-      final pack = creditsEnabled ? await service.starterPack() : null;
+      final packs = creditsEnabled ? await service.creditPacks() : const <PlanOption>[];
       if (!mounted) return;
       setState(() {
-        _pack = pack;
+        _packs = packs;
         _plans = plans;
         _selected = plans.isEmpty ? null : plans.first.id;
       });
@@ -229,11 +229,9 @@ class _PaywallScreenState extends State<PaywallScreen> {
                 ],
               ),
             ),
-          if (_pack case final pack?)
-            _StarterPackCard(pack: pack, busy: _busy, onBuy: _buyPack)
-          else if (creditsEnabled && plans != null)
-            // Preview until the store product exists: shown, not buyable.
-            const _StarterPackCard(pack: null, busy: true, onBuy: _noop),
+          if (creditsEnabled && plans != null)
+            // With no store products yet the card is a preview: shown, not buyable.
+            _CreditPacksCard(packs: _packs, busy: _busy, onBuy: _buyPack),
           const SizedBox(height: 8),
           FilledButton(
             onPressed: (plan == null || _busy) ? null : () => _buy(plan),
@@ -388,22 +386,19 @@ class _AppleFriendOffer extends StatelessWidget {
   );
 }
 
-/// A one-time pack of reading credits for people not ready to subscribe.
-void _noop(PlanOption? _) {}
-
-class _StarterPackCard extends StatelessWidget {
-  const _StarterPackCard({
-    required this.pack,
+/// One-time credit packs for people not ready to subscribe. They cost more
+/// per credit than Premium's monthly credits on purpose, and the card says so.
+class _CreditPacksCard extends StatelessWidget {
+  const _CreditPacksCard({
+    required this.packs,
     required this.busy,
     required this.onBuy,
   });
 
-  /// Null while the store product does not exist yet (preview).
-  final PlanOption? pack;
+  /// Empty while the store products do not exist yet (preview).
+  final List<PlanOption> packs;
   final bool busy;
   final void Function(PlanOption) onBuy;
-
-  String get _price => pack?.priceString ?? 'a small one-time price';
 
   @override
   Widget build(BuildContext context) => Card(
@@ -418,22 +413,33 @@ class _StarterPackCard extends StatelessWidget {
             style: Theme.of(context).textTheme.titleMedium,
           ),
           const SizedBox(height: 4),
-          Text(
-            'Starter Pack: 5 reading credits for $_price, one '
-            'time. Use them for extra readings or follow-up questions. '
-            'Credits never expire and one credit pays for a reading or a follow-up. Free users get new credits every day, Premium gets them every month. '
-            'Premium members keep their credits if they reinstall and restore purchases.',
+          const Text(
+            'Buy a few credits once. One credit pays for a reading or a '
+            'follow-up, and credits never expire. Premium costs less per '
+            'credit and also includes 90 to 150 new credits every month and '
+            'the 5, 7 and 10-card spreads. Free users get 2 new credits a day. '
+            'Premium members keep their credits if they reinstall and restore '
+            'purchases.',
           ),
           const SizedBox(height: 8),
-          Align(
-            alignment: Alignment.centerRight,
-            child: OutlinedButton(
-              onPressed: busy || pack == null ? null : () => onBuy(pack!),
-              child: Text(
-                pack == null ? 'Coming soon' : 'Buy for ${pack!.priceString}',
-              ),
+          if (packs.isEmpty)
+            const Align(
+              alignment: Alignment.centerRight,
+              child: OutlinedButton(onPressed: null, child: Text('Coming soon')),
+            )
+          else
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              alignment: WrapAlignment.end,
+              children: [
+                for (final pack in packs)
+                  OutlinedButton(
+                    onPressed: busy ? null : () => onBuy(pack),
+                    child: Text('${pack.title} · ${pack.priceString}'),
+                  ),
+              ],
             ),
-          ),
         ],
       ),
     ),

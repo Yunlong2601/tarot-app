@@ -10,7 +10,7 @@ import { parseOpenAI } from "../src/llm";
 import type { UsageStore } from "../src/usage";
 import { verifyIdToken, type AccountStore } from "../src/accounts";
 import type { Referral, ReferralStore } from "../src/referrals";
-import type { CreditStore } from "../src/credits";
+import { creditsInProduct, type CreditStore } from "../src/credits";
 import { grantReferralCredits } from "../src/index";
 import { allowWithinMinute } from "../src/usage";
 import { cleanQuestion, parseFollowupRequest, parseReadingRequest, type Spread } from "../src/validate";
@@ -838,6 +838,13 @@ describe("daily and monthly credits, rollover, bank caps and the daily guard", (
     expect(await daily()).toMatchObject({ granted: 0, balance: 12 });
     s.deps.now = () => NOW + 86_400_000;
     expect(await (await s.call("/v1/credits/daily", { method: "POST", headers: await authHeaders(s.env, s.deps.now()) })).json()).toMatchObject({ granted: 2, balance: 14 });
+  });
+});
+
+describe("credit pack products", () => {
+  it("reads the credit count from the product id", () => {
+    expect(["shentarot_credits_10", "shentarot_credits_25", "shentarot_credits_40"].map(creditsInProduct)).toEqual([10, 25, 40]);
+    expect(creditsInProduct("shentarot_annual")).toBeNull();
   });
 });
 

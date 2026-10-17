@@ -493,7 +493,7 @@ export function createApp(deps: Deps = defaultDeps) {
       }
       return c.json({ ok: true, moved });
     }
-    // Starter Pack and other credit packs (consumables).
+    // Credit packs (consumables).
     if (type === "NON_RENEWING_PURCHASE" && c.env.CREDITS_ENABLED === "true") {
       const amount = creditsInProduct(String(e.product_id ?? ""));
       const txn = String(e.transaction_id ?? "");

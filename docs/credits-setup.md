@@ -1,4 +1,4 @@
-# Reading credits and the Starter Pack: status and owner setup
+# Reading credits and credit packs: status and owner setup
 
 Built 2026-10-17, **switched off** (app flag `CREDITS`, server `CREDITS_ENABLED`). Server migration `0004_credits.sql` is NOT applied to the live database yet.
 
@@ -11,12 +11,12 @@ Built 2026-10-17, **switched off** (app flag `CREDITS`, server `CREDITS_ENABLED`
 - Migration `0005_daily_login_credit.sql` (not applied yet) adds the credit lots table and the grant-period columns. With the wallet switched off, free gets 1 reading a day and Premium up to 50 a day, shared by readings and follow-ups.
 - The server holds the balance (per account, or per install without one), so it can't be edited on the phone. Each store purchase is added once, even if the store retries.
 - A credit is given back automatically if the reading fails. The oldest credit is spent first, and a failed reading refunds the credit to the lot it came from.
-- The paywall shows the Starter Pack under the memberships: "Not ready to subscribe? Starter Pack: 5 reading credits for $X, one time."
+- The paywall shows credit packs under the memberships ("Not ready to subscribe?"). Packs are priced per credit well above Premium's monthly credits on purpose (owner decision 2026-10-17), so Premium is the better deal and the packs nudge heavier users toward it: 10 credits US$1.99 (US$0.20 each), 25 credits US$3.99 (US$0.16), 40 credits US$5.99 (US$0.15), against about US$0.078 per monthly-plan credit (US$6.99 for 90) and less on the longer plans. The biggest pack costs less than the monthly plan in total, so the plan is the natural next step.
 - Without an account, credits belong to this phone and are lost if the app is deleted (same as referral months); signing in keeps them. Say this in the small print once accounts are on.
 
 ## Owner setup
-1. App Store Connect: In-App Purchases > + > **Consumable**, product id `shentarot_credits_5`, name "Starter Pack (5 readings)", price about US$2.99.
-2. Play Console: Monetize > In-app products > Create product `shentarot_credits_5`, same name and price, Active.
+1. App Store Connect: In-App Purchases > + > **Consumable**, three products: `shentarot_credits_10` ("10 credits", US$1.99), `shentarot_credits_25` ("25 credits", US$3.99), `shentarot_credits_40` ("40 credits", US$5.99). The number in the product id is the credit count the server adds.
+2. Play Console: Monetize > In-app products > create the same three product ids, names and prices, Active.
 3. RevenueCat: import the product (no entitlement needed). Webhook set up as in `docs/referral-setup.md` step 4 (same URL and secret).
 4. Tell me to switch on: I apply migration 0004, set `CREDITS_ENABLED=true`, deploy, and build with `--dart-define=CREDITS=true`.
 5. Store forms: Play Data safety already declares Purchase history; Apple's privacy label already covers purchases. Re-check both after switching on.

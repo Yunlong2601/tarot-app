@@ -72,9 +72,9 @@ class _Plans implements SubscriptionService {
   @override
   Future<void> redeemOfferCode() async => redeemSheets++;
 
-  PlanOption? pack;
+  List<PlanOption> packs = const [];
   @override
-  Future<PlanOption?> starterPack() async => pack;
+  Future<List<PlanOption>> creditPacks() async => packs;
 
   int? monthsPaid;
   @override

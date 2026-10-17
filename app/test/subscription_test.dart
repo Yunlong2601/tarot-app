@@ -75,9 +75,9 @@ class FakeSubscriptions implements SubscriptionService {
   @override
   Future<void> redeemOfferCode() async => redeemSheets++;
 
-  PlanOption? pack;
+  List<PlanOption> packs = const [];
   @override
-  Future<PlanOption?> starterPack() async => pack;
+  Future<List<PlanOption>> creditPacks() async => packs;
 
   int? monthsPaid;
   @override
@@ -232,19 +232,27 @@ void main() {
     );
   });
 
-  testWidgets('Starter Pack on the paywall when credits are on', (
+  testWidgets('credit packs on the paywall when credits are on', (
     tester,
   ) async {
     tall(tester);
     creditsEnabled = true;
     addTearDown(() => creditsEnabled = false);
     final subs = FakeSubscriptions()
-      ..pack = const PlanOption(
-        id: 'starter-pack',
-        title: 'Starter Pack',
-        priceString: '\$2.99',
-        periodLabel: 'one time',
-      );
+      ..packs = const [
+        PlanOption(
+          id: 'pack-10',
+          title: '10 credits',
+          priceString: '\$1.99',
+          periodLabel: 'one time',
+        ),
+        PlanOption(
+          id: 'pack-40',
+          title: '40 credits',
+          priceString: '\$5.99',
+          periodLabel: 'one time',
+        ),
+      ];
     await tester.pumpWidget(
       ShenTarotApp(
         initialState: AppState(
@@ -258,7 +266,8 @@ void main() {
     await openPaywall(tester);
     await tester.pumpAndSettle();
     expect(find.text('Not ready to subscribe?'), findsOneWidget);
-    expect(find.text('Buy for \$2.99'), findsOneWidget);
+    expect(find.text('10 credits · \$1.99'), findsOneWidget);
+    expect(find.text('40 credits · \$5.99'), findsOneWidget);
   });
 
   test('credits let a free user read past the daily reading', () {

@@ -97,8 +97,8 @@ abstract class SubscriptionService {
   /// iOS: Apple's sheet to redeem an offer code.
   Future<void> redeemOfferCode();
 
-  /// The Starter Pack (consumable credits) with its store price, or null.
-  Future<PlanOption?> starterPack();
+  /// Credit packs (consumables), smallest first; empty until the products exist.
+  Future<List<PlanOption>> creditPacks();
 
   /// Moves an active monthly subscriber to [plan] (the store handles the
   /// change; on Google Play the old product is replaced).
@@ -157,7 +157,7 @@ class UnconfiguredSubscriptionService implements SubscriptionService {
   Future<void> redeemOfferCode() => throw const SubscriptionException(_msg);
 
   @override
-  Future<PlanOption?> starterPack() async => null;
+  Future<List<PlanOption>> creditPacks() async => const [];
 
   @override
   Future<bool> switchTo(PlanOption plan) =>
@@ -238,22 +238,30 @@ class RevenueCatSubscriptionService implements SubscriptionService {
   }
 
   @override
-  Future<PlanOption?> starterPack() async {
-    if (!_started) return null;
-    final products = await Purchases.getProducts(const [
-      starterPackProductId,
-    ], productCategory: ProductCategory.nonSubscription);
-    final p = products.firstOrNull;
-    if (p == null) return null;
-    return PlanOption(
-      id: 'starter-pack',
-      title: 'Starter Pack',
-      priceString: p.priceString,
-      periodLabel: 'one time',
-      handle: p,
-      price: p.price,
-      productId: p.identifier,
+  Future<List<PlanOption>> creditPacks() async {
+    if (!_started) return const [];
+    final products = await Purchases.getProducts(
+      creditPackProductIds,
+      productCategory: ProductCategory.nonSubscription,
     );
+    final packs = [
+      for (final p in products)
+        PlanOption(
+          id: 'pack-${creditsInPack(p.identifier)}',
+          title: '${creditsInPack(p.identifier)} credits',
+          priceString: p.priceString,
+          periodLabel: 'one time',
+          handle: p,
+          price: p.price,
+          productId: p.identifier,
+        ),
+    ];
+    packs.sort(
+      (a, b) =>
+          creditsInPack(a.productId ?? '')
+              .compareTo(creditsInPack(b.productId ?? '')),
+    );
+    return packs;
   }
 
   @override

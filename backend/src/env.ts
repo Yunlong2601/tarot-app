@@ -16,7 +16,7 @@ export interface Env {
   GOOGLE_CLIENT_IDS?: string;
   /** Apple bundle id and/or Services ID, comma-separated. */
   APPLE_CLIENT_IDS?: string;
-  /** "true" turns on reading credits (Starter Pack). */
+  /** "true" turns on reading credits (credit packs). */
   CREDITS_ENABLED?: string;
   /** "true" turns on refer-and-earn (needs store offers set up first). */
   REFERRALS_ENABLED?: string;

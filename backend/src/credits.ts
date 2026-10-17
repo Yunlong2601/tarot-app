@@ -29,7 +29,7 @@ export interface CreditStore {
   refund(lotId: number): Promise<void>;
 }
 
-/** Credits in a consumable product id, e.g. "shentarot_credits_5" -> 5. */
+/** Credits in a consumable product id, e.g. "shentarot_credits_25" -> 25. */
 export function creditsInProduct(productId: string): number | null {
   const m = /credits_(\d{1,3})(?::|$)/.exec(productId);
   return m ? Number(m[1]) : null;
