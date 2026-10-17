@@ -44,7 +44,7 @@ App record **ShenTarot: AI Lens** (Apple ID 6823779463, bundle `com.shentech.she
 11. Build the apps with `--dart-define=CREDITS=true --dart-define=REFERRALS=true --dart-define=CREATOR=true` only after step 10.
 
 **Testing and review**
-12. Nothing has run on a real phone: camera scan, notifications, sandbox purchases, restore and credit transfer after reinstall, sign-in. Real wrangler run of migrations 0004 to 0007 (tests use node:sqlite).
+12. Nothing has run on a real phone: camera scan, notifications, sandbox purchases, restore and credit transfer after reinstall, sign-in. Real wrangler run of migrations 0005 to 0008 (tests use node:sqlite).
 13. VoiceOver check, App Review notes and test instructions, store screenshots for iOS, age rating, export compliance, lawyer review (no budget), verify crisis hotline numbers, IPOS/store name search, Singapore tax/PDPA items.
 
 ## Launch readiness (Android first; shared code for iOS) — 2026-10-17
