@@ -1,5 +1,7 @@
 # Creator program: how it works and owner setup
 
+> **Provider change (2026-10-17):** subscriptions move from RevenueCat to **Qonversion** (owner decision; the app and backend code migration is in progress). RevenueCat steps, keys and webhooks below are on hold: do not create a RevenueCat project. This doc is rewritten for Qonversion once the code lands.
+
 Built 2026-10-17, **switched off** (server `CREATOR_ENABLED`, which also needs `CREDITS_ENABLED`; app flag `CREATOR`). Migration `0007_creator.sql` is NOT applied to the live database yet. Rules are constants in `backend/src/creator.ts`.
 
 ## What users do

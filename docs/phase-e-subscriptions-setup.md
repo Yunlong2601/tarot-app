@@ -1,5 +1,7 @@
 # Phase E: subscriptions setup (iOS first)
 
+> **Provider change (2026-10-17):** subscriptions move from RevenueCat to **Qonversion** (owner decision; the app and backend code migration is in progress). RevenueCat steps, keys and webhooks below are on hold: do not create a RevenueCat project. This doc is rewritten for Qonversion once the code lands.
+
 The app code is done (`app/lib/core/subscription_service.dart`, paywall, settings). It sells nothing until you create the products and keys below. Store rules and menu names change: verify each step in the current Apple, Google and RevenueCat docs.
 
 ## What the code expects
@@ -12,7 +14,7 @@ The app code is done (`app/lib/core/subscription_service.dart`, paywall, setting
 
 ## I need to do (owner), iOS
 1. Apple Developer Program membership; real **bundle ID** (replace `com.shentech.shentarot` in Xcode; Runner target > Signing & Capabilities; also the RunnerTests ids).
-2. In App Store Connect create the app, a **subscription group**, and three auto-renewing subscriptions (annual at level 1, 3 months at level 2, monthly at level 3; annual with a 7-day free-trial introductory offer). Accept the Paid Applications agreement and fill tax/banking.
+2. In App Store Connect create the app, a **subscription group**, and three auto-renewing subscriptions (annual at level 1, 3 months at level 2, monthly at level 3; annual with the US$1.99 first-month introductory offer, pay up front; no free trial). Accept the Paid Applications agreement and fill tax/banking.
 3. In Xcode add the **In-App Purchase** capability to the Runner target.
 4. Create a RevenueCat project and an **iOS app**, add the **App Store Connect API key / In-App Purchase key** RevenueCat asks for, import the three products, create entitlement `premium` attached to all three, create an offering marked **current** with Annual, Three Month and Monthly packages (no weekly).
 5. Copy the iOS **public SDK key** (starts with `appl_`) and a **secret API key** (v1 REST, for the backend).
@@ -24,7 +26,7 @@ The app code is done (`app/lib/core/subscription_service.dart`, paywall, setting
                --dart-define=REVENUECAT_IOS_KEY=appl_xxx
    ```
    Keys passed with `--dart-define` are baked into the build. The RevenueCat public SDK key is designed to ship in the app; **never** put the secret key or any LLM key in the app.
-8. Test with a **sandbox tester** (App Store Connect > Users and Access > Sandbox). Check: purchase, trial, restore on a second install, and cancel via Settings > Manage subscription.
+8. Test with a **sandbox tester** (App Store Connect > Users and Access > Sandbox). Check: purchase, the US$1.99 first-month offer, restore on a second install, and cancel via Settings > Manage subscription.
 
 ## Android (later)
 Create the Play Console subscriptions, a RevenueCat Android app and pass `REVENUECAT_ANDROID_KEY`. Same entitlement and offering.

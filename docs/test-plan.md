@@ -1,5 +1,7 @@
 # Manual test plan (real device)
 
+> **Provider change (2026-10-17):** subscriptions move from RevenueCat to **Qonversion** (owner decision; the app and backend code migration is in progress). RevenueCat steps, keys and webhooks below are on hold: do not create a RevenueCat project. This doc is rewritten for Qonversion once the code lands.
+
 Automated tests cover logic and screens with fakes (`cd app && flutter test`, `cd backend && npm test`). Nothing below has been run on a device yet. Record results and bugs in `PROGRESS.md`.
 
 ## Setup

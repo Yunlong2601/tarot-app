@@ -279,7 +279,7 @@ Learn tarot as you go
 
 Free and Premium
 - Free: one reading every day (one card or Past, Present, Future), plus a trial reading of a longer spread.
-- Premium: 14 spreads including the Celtic Cross and Horseshoe, unlimited readings, follow-up questions, a clarifier card, and a journal for your own notes.
+- Premium: all 14 spreads including the Celtic Cross and Horseshoe, 50 readings a day, follow-up questions, a clarifier card, and a journal for your own notes.
 
 Private by design
 - No account needed.

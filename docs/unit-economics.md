@@ -8,7 +8,7 @@ Goal (owner): Premium only needs to cover building and running costs. All figure
 | Apple Developer Program | S$148 a year (about US$110, about US$9.20 a month) | Owner's membership page |
 | Google Play developer account | US$25 once | Check Play Console |
 | Cloudflare Workers + D1 + KV | US$0 on the free plan at low volume; US$5 a month if the free request limit is exceeded | Verify current Cloudflare limits |
-| RevenueCat | US$0 below its free revenue tier | Verify current pricing |
+| Qonversion (replacing RevenueCat, 2026-10-17) | Not checked yet | Verify Qonversion's current free tier and fees |
 | AI per reading (Claude Haiku 5.5) | about US$0.0003 typical, US$0.0015 worst case with a retry | `ai-api-cost-research.md` in the project library |
 | Store fee on subscriptions | 15% (Apple Small Business Program, Google Play subscriptions) | Verify enrollment and current rates |
 

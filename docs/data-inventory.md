@@ -1,5 +1,7 @@
 # Data inventory (what the app and backend handle)
 
+> **Provider change (2026-10-17):** subscriptions move from RevenueCat to **Qonversion** (owner decision; the app and backend code migration is in progress). This is a disclosure doc: every RevenueCat mention below must name Qonversion before it is published, after checking what data Qonversion's SDK and servers receive (not checked yet; may differ from RevenueCat). Not changed yet on purpose.
+
 Single source for the privacy policy, Apple privacy labels and Google Data safety form. Update this first whenever data handling changes. Last checked against the code: 2026-10-16 (phase-f branch).
 
 | Data | Collected? | Where it goes | Why | Linked to a person? | Retention |

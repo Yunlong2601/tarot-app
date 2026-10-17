@@ -1,5 +1,7 @@
 # Google Play release guide (ShenTarot)
 
+> **Provider change (2026-10-17):** subscriptions move from RevenueCat to **Qonversion** (owner decision; the app and backend code migration is in progress). RevenueCat steps, keys and webhooks below are on hold: do not create a RevenueCat project. This doc is rewritten for Qonversion once the code lands.
+
 Developer account owner: yunlong2601@gmail.com (private; do not publish). Store policies and console menus change: verify each item against Play Console Help and the Policy Center before relying on it. Nothing here has been done in Play Console yet.
 
 ## Already done in the repo

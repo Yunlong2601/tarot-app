@@ -1,5 +1,7 @@
 # Security and abuse: how people may exploit ShenTarot, and what to do (draft, 2026-10-17)
 
+> **Provider change (2026-10-17):** subscriptions move from RevenueCat to **Qonversion** (owner decision; the app and backend code migration is in progress). RevenueCat steps, keys and webhooks below are on hold: do not create a RevenueCat project. This doc is rewritten for Qonversion once the code lands.
+
 Method: for each feature that gives away value (credits, free months, AI calls), ask who gains, how cheaply they can repeat it, and what it costs us. Checked against the code on branch `google-play-prep`. "Not built" means a gap, not a claim about stores or devices that were not tested.
 
 ## Where value leaks

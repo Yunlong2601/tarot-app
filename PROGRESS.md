@@ -11,9 +11,12 @@ Primary working copy: the owner's local Mac folder. This repo is the backup and 
 | B | 78-card data, card list/search/detail | Done; card art added on branch `phase-g-card-art` |
 | C | Camera scan, on-device recognition, manual fallback | Code built; a BASELINE model (public-domain art + synthetic augmentation only) is in `app/assets/models/`; NOT run on a device; not validated on real photos (see `ml/README.md`) |
 | D | Cloudflare Worker proxy + AI reading | Code built on branch `phase-d-backend` (on top of `phase-c-scan`); backend + app tests pass; verified locally with wrangler dev (real local D1/KV, `backend/scripts/smoke.sh` passes); NOT deployed, never called the real API; device attestation not implemented: DECISION (owner, 2026-10-16): implement App Attest + Play Integrity before the public launch; waits for Apple Team ID and final bundle ID |
-| E | RevenueCat subscriptions + real paywall | Code built on branch `phase-e-subscriptions`; fake-service tests pass; NOT run against RevenueCat or a store (`docs/phase-e-subscriptions-setup.md`) |
+| E | Subscriptions (RevenueCat code; moving to Qonversion) + real paywall | Code built on branch `phase-e-subscriptions`; fake-service tests pass; NOT run against RevenueCat or a store (`docs/phase-e-subscriptions-setup.md`) |
 | F | SQLite history/journal, notifications, accessibility, polish | Code built on branch `phase-f-history`; 47 tests pass; iOS simulator build OK; notifications and SQLite NOT tried on a device; accessibility audit and follow-ups not done |
 | G | Tests, store checklists, privacy and terms drafts | Docs written on branch `phase-g-release-docs` (checklists, test plan, data inventory, legal DRAFTS bundled in the app); lawyer review and device testing still to do |
+
+## Subscription provider: Qonversion (owner decision, 2026-10-17)
+RevenueCat is being replaced by **Qonversion**. The app and backend code swap is in progress on the Mac; until it lands, code, keys (`REVENUECAT_*`) and setup docs still say RevenueCat. Every RevenueCat step in the to-do lists below is on hold: do not create a RevenueCat project. Docs that need a Qonversion rewrite carry a dated note at the top. App Store Connect subscriptions are complete apart from the review screenshots.
 
 ## 2026-10-17 session: pricing, credits, growth, security (all on `google-play-prep`, flags OFF, nothing deployed)
 - **Prices** (owner): annual US$39.99 (US$1.99 first month), 3 months US$14.99, monthly US$6.99; no weekly, no free trial. `docs/unit-economics.md`, `docs/growth-and-monetisation-framework.md`, `docs/promotions-plan.md`.

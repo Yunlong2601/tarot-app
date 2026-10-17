@@ -1,5 +1,7 @@
 # Play "Data safety" answers (draft)
 
+> **Provider change (2026-10-17):** subscriptions move from RevenueCat to **Qonversion** (owner decision; the app and backend code migration is in progress). This is a disclosure doc: every RevenueCat mention below must name Qonversion before it is published, after checking what data Qonversion's SDK and servers receive (not checked yet; may differ from RevenueCat). Not changed yet on purpose.
+
 Source of truth: `docs/data-inventory.md`. Google's definitions and the form wording change: read each question in Play Console and verify. "Collected" means data leaves the device. Google lets you treat data that is only processed in memory and not retained ("ephemeral processing") differently; confirm how it applies before choosing. Service providers who process data on your behalf are generally not "sharing" (verify), but declare them honestly.
 
 ## Does the app collect or share any of the required user data types? Yes.

@@ -1,5 +1,7 @@
 # Backend (Cloudflare Worker)
 
+> **Provider change (2026-10-17):** subscriptions move from RevenueCat to **Qonversion** (owner decision; the app and backend code migration is in progress). RevenueCat steps, keys and webhooks below are on hold: do not create a RevenueCat project. This doc is rewritten for Qonversion once the code lands.
+
 TypeScript + Hono. Proxies AI readings so the app never holds an LLM key.
 
 ## Endpoints

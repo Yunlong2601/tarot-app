@@ -1,5 +1,7 @@
 # Refer and earn: status and owner setup
 
+> **Provider change (2026-10-17):** subscriptions move from RevenueCat to **Qonversion** (owner decision; the app and backend code migration is in progress). RevenueCat steps, keys and webhooks below are on hold: do not create a RevenueCat project. This doc is rewritten for Qonversion once the code lands.
+
 Built 2026-10-17, **switched off** (app flag `REFERRALS`, server `REFERRALS_ENABLED`). Design: `market-research/referral-program.md` (project library).
 
 ## Built
