@@ -12,9 +12,10 @@ import {
   parseModelReply, renderReading,
 } from "./reading";
 import { isPremium, premiumPlan } from "./revenuecat";
-import { D1CreditStore, DAILY_BANK_DAYS, MONTHLY_BANK_MONTHS, creditsInProduct, type CreditStore } from "./credits";
+import { D1CreditStore, DAILY_BANK_DAYS, MONTHLY_BANK_MONTHS, WELCOME_CREDITS, creditsInProduct, type CreditStore } from "./credits";
 import {
-  CREDIT_DELAY_DAYS, D1ReferralStore, MAX_CREDITS_PER_YEAR, PLAY_REFERRAL_OFFER_TAG, grantFreeMonth,
+  CREDIT_DELAY_DAYS, D1ReferralStore, MAX_CREDITS_PER_YEAR, PLAY_REFERRAL_OFFER_TAG, REFERRAL_CREDITS,
+  REFERRAL_CREDIT_FRIENDS_PER_YEAR, grantFreeMonth,
   hasStoreSubscription, newCode, normaliseCode, type ReferralStore,
 } from "./referrals";
 import {
@@ -84,10 +85,24 @@ export function createApp(deps: Deps = defaultDeps) {
   /** Grants today's daily credits and, for Premium, this month's; returns how many were added. */
   const grantCredits = async (who: { appUserId: string; usageKey: string }, env: Env, premium: boolean, day: string, now: number) => {
     const store = deps.credits(env);
-    let granted = await store.claimDaily(who.usageKey, day, FREE_DAILY_CREDITS, FREE_DAILY_CREDITS * DAILY_BANK_DAYS);
+    // One-time welcome gift per owner (the txn id makes it idempotent).
+    let granted = (await store.add(who.usageKey, WELCOME_CREDITS, `welcome:${who.usageKey}`, "welcome")) ? WELCOME_CREDITS : 0;
+    granted += await store.claimDaily(who.usageKey, day, FREE_DAILY_CREDITS, FREE_DAILY_CREDITS * DAILY_BANK_DAYS);
     const monthly = await monthlyFor(who, env, premium, now);
     if (monthly > 0) granted += await store.claimMonthly(who.usageKey, day.slice(0, 7), monthly, monthly * MONTHLY_BANK_MONTHS);
     return granted;
+  };
+  /** The friend finished their first reading: both sides get credits, once. */
+  const rewardReferral = async (who: { usageKey: string }, env: Env, now: number) => {
+    if (!walletOn(env) || env.REFERRALS_ENABLED !== "true") return;
+    const refs = deps.referrals(env);
+    const iso = new Date(now).toISOString();
+    const since = new Date(now - 365 * 86_400_000).toISOString();
+    const won = await refs.claimReadingReward(who.usageKey, iso, since, REFERRAL_CREDIT_FRIENDS_PER_YEAR);
+    if (!won) return;
+    const store = deps.credits(env);
+    await store.add(who.usageKey, REFERRAL_CREDITS, `ref-friend:${who.usageKey}`, "referral");
+    if (won.rewardReferrer) await store.add(won.referrerKey, REFERRAL_CREDITS, `ref-referrer:${who.usageKey}`, "referral");
   };
   const charge = async (who: { appUserId: string; usageKey: string }, env: Env, premium: boolean, usage: UsageStore, day: string, now: number): Promise<Charge> => {
     const used = await spentToday(usage, who.usageKey, day);
@@ -219,6 +234,7 @@ export function createApp(deps: Deps = defaultDeps) {
         text = fallbackReading(req);
         usedFallback = true;
       }
+      await rewardReferral(who, c.env, now);
       return c.json({
         reading: text,
         structured: usedFallback ? null : structured,
@@ -327,7 +343,12 @@ export function createApp(deps: Deps = defaultDeps) {
     if (!subject) return c.json({ error: "invalid_token" }, 401);
     const store = deps.accounts(c.env);
     const accountId = await store.findOrCreate(provider, await hashId(`${provider}:${subject}`, c.env.HASH_SALT));
-    await store.link(await hashId(installId, c.env.HASH_SALT), accountId);
+    const installHash = await hashId(installId, c.env.HASH_SALT);
+    await store.link(installHash, accountId);
+    // Signing in keeps the credits earned on this install.
+    if (c.env.CREDITS_ENABLED === "true") {
+      await deps.credits(c.env).move(installHash, await hashId(`acct:${accountId}`, c.env.HASH_SALT));
+    }
     return c.json({ accountId, provider });
   });
 
@@ -408,6 +429,8 @@ export function createApp(deps: Deps = defaultDeps) {
     return c.json({
       code, friendsJoined: s.redeemed, friendsPaid: s.paid, monthsEarned: s.credited,
       monthsPending: s.paid - s.credited, maxPerYear: MAX_CREDITS_PER_YEAR, friends,
+      creditsEarned: (await store.rewardedFriends(who.usageKey)) * REFERRAL_CREDITS,
+      creditsPerFriend: REFERRAL_CREDITS, maxFriendsPerYear: REFERRAL_CREDIT_FRIENDS_PER_YEAR,
     });
   });
 

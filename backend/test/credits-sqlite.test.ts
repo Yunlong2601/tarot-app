@@ -76,4 +76,13 @@ describe("D1CreditStore (real SQL)", () => {
     expect(await s.claimDaily("u", "2026-10-25", 2, 20)).toBe(2); // independent of the monthly grant
     expect(await s.balance("u")).toBe(182);
   });
+
+  it("add() with a source is idempotent per txn and counts toward the balance", async () => {
+    const s = setup({ t: T0 });
+    expect(await s.add("u", 10, "welcome:u", "welcome")).toBe(true);
+    expect(await s.add("u", 10, "welcome:u", "welcome")).toBe(false);
+    expect(await s.balance("u")).toBe(10);
+    expect(await s.claimDaily("u", "2026-10-25", 2, 20)).toBe(2); // welcome is outside the daily bank
+    expect(await s.balance("u")).toBe(12);
+  });
 });

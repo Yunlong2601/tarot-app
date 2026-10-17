@@ -9,6 +9,8 @@ class ReferralInfo {
     required this.monthsPending,
     required this.maxPerYear,
     required this.friends,
+    this.creditsEarned = 0,
+    this.creditsPerFriend = 10,
   });
 
   factory ReferralInfo.fromJson(Map<String, dynamic> j) => ReferralInfo(
@@ -18,6 +20,8 @@ class ReferralInfo {
     monthsEarned: (j['monthsEarned'] as num?)?.toInt() ?? 0,
     monthsPending: (j['monthsPending'] as num?)?.toInt() ?? 0,
     maxPerYear: (j['maxPerYear'] as num?)?.toInt() ?? 6,
+    creditsEarned: (j['creditsEarned'] as num?)?.toInt() ?? 0,
+    creditsPerFriend: (j['creditsPerFriend'] as num?)?.toInt() ?? 10,
     friends: [
       for (final f in (j['friends'] as List? ?? const []))
         (joined: (f as Map)['joined'] as String, status: f['status'] as String),
@@ -30,6 +34,10 @@ class ReferralInfo {
   final int monthsEarned;
   final int monthsPending;
   final int maxPerYear;
+
+  /// Credits earned from friends who finished a first reading (10 each, up to 20 friends a year).
+  final int creditsEarned;
+  final int creditsPerFriend;
 
   /// Anonymous: the date a friend joined and "joined" / "pending" / "credited".
   final List<({String joined, String status})> friends;

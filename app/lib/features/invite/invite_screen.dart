@@ -117,17 +117,24 @@ class _InviteScreenState extends State<InviteScreen> {
                 ShareParams(
                   text:
                       'Try ShenTarot, the tarot card scanner and reader. Use my '
-                      'code ${info.code} when you subscribe to get 50% off '
-                      'your first year.',
+                      'code ${info.code} and we both get ${info.creditsPerFriend} '
+                      'free credits after your first reading.',
                 ),
               ),
             ),
             const SizedBox(height: 20),
-            Text('Your free months', style: t.titleMedium),
+            Text('Your free credits and months', style: t.titleMedium),
             const SizedBox(height: 6),
             Text(
               '${info.monthsEarned} earned · ${info.monthsPending} pending · '
               '${info.friendsJoined} friends joined',
+            ),
+            const SizedBox(height: 4),
+            Text(
+              '${info.creditsEarned} credits earned: you and your friend each '
+              'get ${info.creditsPerFriend} credits when they finish their '
+              'first reading (up to 20 friends a year).',
+              style: muted,
             ),
             const SizedBox(height: 4),
             const Text(
@@ -197,8 +204,10 @@ class _InviteScreenState extends State<InviteScreen> {
           ],
           const SizedBox(height: 24),
           const Text(
-            'Small print: your friend gets 50% off their first year of the '
-            'annual plan when they subscribe; nothing is given for installing. '
+            'Small print: you and your friend each get 10 credits when your '
+            'friend finishes their first reading (you for up to 20 friends a '
+            'year). Your friend also gets 50% off their first year of the '
+            'annual plan if they subscribe; nothing is given for installing. '
             'You get 1 free month of Premium for each friend who pays, added '
             '14 days after their payment, up to 6 a year. If you already '
             'subscribe in the store, earned months are kept until your '

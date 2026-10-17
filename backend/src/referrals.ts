@@ -1,4 +1,6 @@
 /** Refer and earn (off unless REFERRALS_ENABLED=true).
+ * Both sides: 10 credits each when the friend finishes a first reading (needs
+ * CREDITS_ENABLED too); the referrer is rewarded for at most 20 friends a year.
  * Friend: 50% off the first year of annual, only when subscribing (Apple
  * one-time offer code / Play developer-determined offer "referral-50").
  * Referrer: 1 free month per friend who pays, 14 days after the payment, at
@@ -6,6 +8,10 @@
 
 export const CREDIT_DELAY_DAYS = 14;
 export const MAX_CREDITS_PER_YEAR = 6;
+/** Credits each side gets when the friend finishes a first reading, and the
+ * most friends a referrer is rewarded for in a year (the friend is always rewarded). */
+export const REFERRAL_CREDITS = 10;
+export const REFERRAL_CREDIT_FRIENDS_PER_YEAR = 20;
 export const PLAY_REFERRAL_OFFER_TAG = "referral-50";
 const ALPHABET = "ABCDEFGHJKMNPQRSTUVWXYZ23456789"; // no 0/O, 1/I/L
 
@@ -39,6 +45,12 @@ export interface ReferralStore {
   stats(referrerKey: string): Promise<{ redeemed: number; paid: number; credited: number }>;
   /** Anonymous list of this referrer's friends: dates and status only. */
   friendsOf(referrerKey: string): Promise<{ joinedAt: string; paidAt: string | null; creditedAt: string | null }[]>;
+  /** The friend finished a first reading: marks it once. Returns the referrer and
+   * whether the referrer is still under the yearly cap (and so is rewarded); null if
+   * there is no referral or it already paid out. */
+  claimReadingReward(friendKey: string, atIso: string, sinceIso: string, maxPerYear: number): Promise<{ referrerKey: string; rewardReferrer: boolean } | null>;
+  /** Friends this referrer was rewarded for (credits earned = this x REFERRAL_CREDITS). */
+  rewardedFriends(referrerKey: string): Promise<number>;
   takeAppleCode(friendKey: string, at: string): Promise<string | null>;
 }
 
@@ -96,6 +108,23 @@ export class D1ReferralStore implements ReferralStore {
       "SELECT redeemed_at, paid_at, credited_at FROM referrals WHERE referrer_key = ?1 ORDER BY redeemed_at DESC LIMIT 50",
     ).bind(k).all<{ redeemed_at: string; paid_at: string | null; credited_at: string | null }>();
     return (r.results ?? []).map((x) => ({ joinedAt: x.redeemed_at, paidAt: x.paid_at, creditedAt: x.credited_at }));
+  }
+
+  async claimReadingReward(friendKey: string, atIso: string, sinceIso: string, maxPerYear: number) {
+    const upd = await this.db.prepare(
+      "UPDATE referrals SET reading_credited_at = ?2, referrer_rewarded = " +
+      "CASE WHEN (SELECT COUNT(*) FROM referrals r2 WHERE r2.referrer_key = referrals.referrer_key " +
+      "AND r2.referrer_rewarded = 1 AND r2.reading_credited_at >= ?3) < ?4 THEN 1 ELSE 0 END " +
+      "WHERE friend_key = ?1 AND reading_credited_at IS NULL",
+    ).bind(friendKey, atIso, sinceIso, maxPerYear).run();
+    if ((upd.meta.changes ?? 0) === 0) return null;
+    const row = await this.db.prepare("SELECT referrer_key, referrer_rewarded FROM referrals WHERE friend_key = ?1")
+      .bind(friendKey).first<{ referrer_key: string; referrer_rewarded: number }>();
+    return row ? { referrerKey: row.referrer_key, rewardReferrer: row.referrer_rewarded === 1 } : null;
+  }
+  async rewardedFriends(k: string) {
+    return (await this.db.prepare("SELECT COUNT(*) AS n FROM referrals WHERE referrer_key = ?1 AND referrer_rewarded = 1")
+      .bind(k).first<{ n: number }>())?.n ?? 0;
   }
 
   async takeAppleCode(friendKey: string, at: string) {

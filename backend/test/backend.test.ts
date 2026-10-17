@@ -48,6 +48,16 @@ class MemReferrals implements ReferralStore {
   async friendsOf(k: string) {
     return [...this.refs.values()].filter((r) => r.referrerKey === k).map((r) => ({ joinedAt: r.redeemedAt, paidAt: r.paidAt, creditedAt: r.creditedAt }));
   }
+  paidOut = new Map<string, { at: string; rewarded: boolean }>();
+  async claimReadingReward(f: string, at: string, since: string, max: number) {
+    const r = this.refs.get(f);
+    if (!r || this.paidOut.has(f)) return null;
+    const n = [...this.paidOut].filter(([k, v]) => this.refs.get(k)?.referrerKey === r.referrerKey && v.rewarded && v.at >= since).length;
+    const rewarded = n < max;
+    this.paidOut.set(f, { at, rewarded });
+    return { referrerKey: r.referrerKey, rewardReferrer: rewarded };
+  }
+  async rewardedFriends(k: string) { return [...this.paidOut].filter(([f, v]) => this.refs.get(f)?.referrerKey === k && v.rewarded).length; }
   async takeAppleCode(f: string) {
     const mine = this.apple.find((a) => a.to === f); if (mine) return mine.code;
     const free = this.apple.find((a) => !a.to); if (!free) return null; free.to = f; return free.code;
@@ -73,7 +83,8 @@ class MemCredits implements CreditStore {
   async claimDaily(k: string, day: string, amount: number, cap: number) { return this.grant(k, day, amount, cap, this.days, this.daily); }
   async claimMonthly(k: string, month: string, amount: number, cap: number) { return this.grant(k, month, amount, cap, this.months, this.monthly); }
   async balance(k: string) { return this.bal.get(k) ?? 0; }
-  async add(k: string, n: number, txn: string) { if (this.txns.has(txn)) return false; this.txns.add(txn); this.bal.set(k, (this.bal.get(k) ?? 0) + n); return true; }
+  skipWelcome = false;
+  async add(k: string, n: number, txn: string, source?: string) { if ((source === "welcome" && this.skipWelcome) || this.txns.has(txn)) return false; this.txns.add(txn); this.bal.set(k, (this.bal.get(k) ?? 0) + n); return true; }
   async move(f: string, t: string) { const n = this.bal.get(f) ?? 0; if (f === t) return 0; this.bal.set(f, 0); this.bal.set(t, (this.bal.get(t) ?? 0) + n); return n; }
   owners = new Map<number, string>();
   private n = 0;
@@ -114,10 +125,11 @@ const NOW = Date.UTC(2026, 9, 16, 12, 0, 0);
 const UUID = "123e4567-e89b-42d3-a456-426614174000";
 const GOOD = "The Fool upright invites a fresh start. Stay curious and open, and let small steps lead the way today.";
 
-function setup(opts: { premium?: boolean | ((id: string) => boolean); llm?: Deps["llm"]; allowInstall?: boolean; cap?: string; openaiKey?: string; google?: string; referrals?: boolean; credits?: boolean } = {}) {
+function setup(opts: { premium?: boolean | ((id: string) => boolean); llm?: Deps["llm"]; allowInstall?: boolean; cap?: string; openaiKey?: string; google?: string; referrals?: boolean; credits?: boolean; welcome?: boolean } = {}) {
   const accounts = new MemAccounts();
   const referrals = new MemReferrals();
   const credits = new MemCredits();
+  credits.skipWelcome = !opts.welcome; // most tests are about the daily/monthly credits, not the one-off gift
   const usage = new MemUsage();
   const kv = new FakeKV();
   let llmCalls = 0;
@@ -818,5 +830,76 @@ describe("daily and monthly credits, rollover, bank caps and the daily guard", (
     expect((await go(s, "/v1/reading", readBody)).status).toBe(429);
     expect((await go(s, "/v1/followup", body)).status).toBe(429);
   });
+
+  it("welcome gift: 10 credits once, on top of the first day's 2", async () => {
+    const s = setup({ credits: true, welcome: true });
+    const daily = async () => (await s.call("/v1/credits/daily", { method: "POST", headers: await authHeaders(s.env) })).json();
+    expect(await daily()).toMatchObject({ granted: 12, balance: 12 });
+    expect(await daily()).toMatchObject({ granted: 0, balance: 12 });
+    s.deps.now = () => NOW + 86_400_000;
+    expect(await (await s.call("/v1/credits/daily", { method: "POST", headers: await authHeaders(s.env, s.deps.now()) })).json()).toMatchObject({ granted: 2, balance: 14 });
+  });
 });
+
+describe("referral credits", () => {
+  const FRIEND = "223e4567-e89b-42d3-a456-426614174999";
+  const REFERRER = UUID;
+  const as = async (s: ReturnType<typeof setup>, path: string, id: string, body?: unknown) =>
+    s.call(path, { method: "POST", headers: await authHeaders2(s.env, id), body: body ? JSON.stringify(body) : undefined });
+  const authHeaders2 = async (env: Env, id: string) => ({ authorization: `Bearer ${await signToken(id, env.JWT_SECRET, Math.floor(NOW / 1000))}`, "content-type": "application/json" });
+  const link = async (s: ReturnType<typeof setup>, friend: string) => {
+    const me = (await (await as(s, "/v1/referral/me", REFERRER)).json()) as { code: string };
+    await as(s, "/v1/referral/redeem", friend, { code: me.code, platform: "android" });
+  };
+
+  it("both sides get 10 credits when the friend finishes a first reading, once", async () => {
+    const s = setup({ credits: true, referrals: true, welcome: true });
+    await link(s, FRIEND);
+    const friendKey = await hashId(FRIEND, "salt");
+    const referrerKey = await hashId(REFERRER, "salt");
+    expect((await as(s, "/v1/reading", FRIEND, single)).status).toBe(200);
+    // friend: welcome 10 + daily 2 - 1 reading + 10 referral; referrer: 10
+    expect(await s.credits.balance(friendKey)).toBe(10 + 2 - 1 + 10);
+    expect(await s.credits.balance(referrerKey)).toBe(10);
+    s.kv.m.clear();
+    expect((await as(s, "/v1/reading", FRIEND, single)).status).toBe(200);
+    expect(await s.credits.balance(referrerKey)).toBe(10); // not again
+    const me = await (await as(s, "/v1/referral/me", REFERRER)).json();
+    expect(me).toMatchObject({ creditsEarned: 10, creditsPerFriend: 10, maxFriendsPerYear: 20 });
+  });
+
+  it("no reward without a referral, with referrals off, or with credits off", async () => {
+    const plain = setup({ credits: true, referrals: true, welcome: true });
+    expect((await as(plain, "/v1/reading", FRIEND, single)).status).toBe(200);
+    expect(await plain.credits.balance(await hashId(FRIEND, "salt"))).toBe(10 + 2 - 1); // welcome + daily only
+    const off = setup({ credits: true, welcome: true });
+    expect((await as(off, "/v1/reading", FRIEND, single)).status).toBe(200);
+    expect(await off.credits.balance(await hashId(FRIEND, "salt"))).toBe(10 + 2 - 1);
+  });
+
+  it("the referrer is rewarded for at most 20 friends a year; the friend always gets theirs", async () => {
+    const s = setup({ credits: true, referrals: true, welcome: true });
+    await link(s, FRIEND);
+    const referrerKey = await hashId(REFERRER, "salt");
+    // 20 earlier rewarded friends in the last year
+    for (let i = 0; i < 20; i++) {
+      s.referrals.refs.set(`f${i}`, { friendKey: `f${i}`, referrerKey, code: "X", platform: "android", redeemedAt: "2026-10-01", paidTxn: null, paidAt: null, creditedAt: null });
+      s.referrals.paidOut.set(`f${i}`, { at: new Date(NOW - 86_400_000).toISOString(), rewarded: true });
+    }
+    expect((await as(s, "/v1/reading", FRIEND, single)).status).toBe(200);
+    expect(await s.credits.balance(referrerKey)).toBe(0); // capped
+    expect(await s.credits.balance(await hashId(FRIEND, "salt"))).toBe(10 + 2 - 1 + 10); // friend still rewarded
+  });
+
+  it("signing in moves the credits earned on this install to the account", async () => {
+    const s = setup({ credits: true, google: "web-client" });
+    const install = await hashId(UUID, "salt");
+    s.credits.bal.set(install, 7);
+    const res = await s.call("/v1/account/signin", { method: "POST", headers: await authHeaders(s.env), body: JSON.stringify({ provider: "google", idToken: "good:123" }) });
+    const { accountId } = (await res.json()) as { accountId: string };
+    expect(await s.credits.balance(install)).toBe(0);
+    expect(await s.credits.balance(await hashId(`acct:${accountId}`, "salt"))).toBe(7);
+  });
+});
+
 

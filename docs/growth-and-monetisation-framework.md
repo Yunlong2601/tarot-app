@@ -32,8 +32,8 @@ So the target is **0.6% to 1% of monthly users paying about US$3.50 net a month*
 
 ## 3. Proposed refinements to the model
 
-1. **Welcome gift:** 10 credits on the first day, then 2 a day. (Cost about US$0.003 typical.)
-2. **Earn credits:** free ways to earn that also bring downloads: invite a friend (friend and referrer each get 10 credits once the friend finishes a reading), a daily share (a branded reading card shared outside the app, +1 credit, once a day), creators (below). Keep rewards for sharing outside the app and verify Apple and Google rules before launch.
+1. **Welcome gift (built 2026-10-17):** 10 credits on the first day, then 2 a day. (Cost about US$0.003 typical.)
+2. **Earn credits:** free ways to earn that also bring downloads: invite a friend (built 2026-10-17: friend and referrer each get 10 credits once the friend finishes a reading, referrer up to 20 friends a year), a daily share (a branded reading card shared outside the app, +1 credit, once a day), creators (below). Keep rewards for sharing outside the app and verify Apple and Google rules before launch.
 3. **Cost by value:** a one-card reading is 1 credit, a 3-card 2, a 5-card 3, a 7-card 4, a 10-card 5, a follow-up 1. This is fairer (a 10-card reading costs about 3 times a 1-card one in AI), and makes credits scarce enough that people buy packs. (Needs owner decision; today everything is 1 credit.)
 4. **Impulse packs (mental accounting):** 30 credits US$1.99, 100 credits US$4.99 (highlight), 300 credits US$9.99. Replace the 5-credit Starter Pack, which is worth less than three days of free credits.
 5. **Subscription as the convenience tier:** keep US$6.99 / US$14.99 / US$39.99 with the monthly credits (90 / 120 / 150), the 5, 7 and 10-card spreads, look-back and journal. Pitch it as "stop counting" rather than "more credits".

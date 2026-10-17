@@ -9,6 +9,8 @@
  * and creator credits are outside both caps. */
 export const DAILY_BANK_DAYS = 10;
 export const MONTHLY_BANK_MONTHS = 2;
+/** A one-time gift on the first day (outside the caps). */
+export const WELCOME_CREDITS = 10;
 
 export interface CreditStore {
   /** Today's daily credits: adds up to `amount` (once per UTC day per owner),
@@ -17,8 +19,8 @@ export interface CreditStore {
   /** This month's credits for a Premium user (`month` is "YYYY-MM"), same rules with monthly-sourced credits. */
   claimMonthly(key: string, month: string, amount: number, bankCap: number): Promise<number>;
   balance(key: string): Promise<number>;
-  /** Adds credits for a store purchase; false if this transaction was seen. */
-  add(key: string, amount: number, txn: string): Promise<boolean>;
+  /** Adds credits once per `txn` (a store purchase, the welcome gift, a referral reward); false if this txn was seen. */
+  add(key: string, amount: number, txn: string, source?: string): Promise<boolean>;
   /** Moves every credit from one owner to another (a Premium user restoring on a new install). */
   move(fromKey: string, toKey: string): Promise<number>;
   /** Takes one credit if there is one; returns the lot it came from. */
@@ -47,11 +49,11 @@ export class D1CreditStore implements CreditStore {
       .bind(key).first<{ n: number }>();
     return r?.n ?? 0;
   }
-  async add(key: string, amount: number, txn: string) {
+  async add(key: string, amount: number, txn: string, source = "purchase") {
     const ins = await this.db.prepare("INSERT OR IGNORE INTO credit_grants (txn, owner_key, amount, created_at) VALUES (?1, ?2, ?3, ?4)")
       .bind(txn, key, amount, this.iso()).run();
     if ((ins.meta.changes ?? 0) === 0) return false;
-    await this.lot(key, amount, "purchase");
+    await this.lot(key, amount, source);
     return true;
   }
   private async claim(key: string, period: string, amount: number, bankCap: number, source: "daily" | "monthly") {
