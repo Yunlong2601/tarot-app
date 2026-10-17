@@ -10,14 +10,14 @@ Rules and menu names change. Items marked (verify) must be checked against the c
 ## Project
 - [ ] Real **bundle ID** (replace `com.shentech.shentarot` everywhere, including RunnerTests) and a final **app name** (check trademarks and App Store name availability; do not use "Rider-Waite" in the name, icon or keywords).
 - [x] **App icon** (1024x1024, no transparency, original art) and launch screen: done (see PROGRESS.md). Check how they look on a device.
-- [ ] Version/build numbers set; signing set to your team; **In-App Purchase** capability added.
+- [x] Version 1.0.0 (build 1), iPhone only, portrait only, privacy manifest, purpose strings (camera, photo library, microphone), export-compliance key: done 2026-10-17; a release build compiles without signing. [ ] Signing with your paid team and the **In-App Purchase** capability: yours (guide step 3).
 - [ ] Release build runs on a **real iPhone** (camera, notifications, purchases). Not verified yet.
-- [ ] `NSCameraUsageDescription` present ("Used to recognise the tarot card you hold up. Photos are never saved or uploaded."). Done.
+- [x] `NSCameraUsageDescription` present ("Used to recognise the tarot card you hold up. Photos are never saved or uploaded."). Done.
 - [ ] No secrets in the app; `API_BASE_URL` and the RevenueCat **public** key passed with `--dart-define` at build time.
 - [ ] Legal texts are filled in (provider ShenTech, no lawyer review: owner decision); re-read them before each release.
 
 ## Subscriptions (guideline 3.1.2: verify)
-- [ ] Three auto-renewing subscriptions in one group (weekly, monthly, annual with 7-day free-trial introductory offer), localised names and descriptions, review screenshot for each.
+- [ ] Three auto-renewing subscriptions in one group (annual US$39.99 with a US$1.99 first-month introductory offer, 3 months US$14.99, monthly US$6.99; no weekly, no free trial), localised names and descriptions, review screenshot for each. Step by step: `docs/app-store-submission-guide.md`.
 - [ ] Paywall shows price, billing period, trial length and auto-renew terms next to the buy button, with **Privacy Policy** and **Terms of Use** links and **Restore Purchases**. Implemented; confirm on a device.
 - [ ] Settings has **Manage subscription**. Implemented.
 - [ ] Privacy Policy URL and (if not using Apple's standard EULA) Terms URL entered in App Store Connect and in the app metadata.

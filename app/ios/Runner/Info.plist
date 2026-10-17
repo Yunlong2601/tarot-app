@@ -6,6 +6,10 @@
 	<false/>
 	<key>NSCameraUsageDescription</key>
 	<string>Used to recognise the tarot card you hold up. Photos are never saved or uploaded.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Only used if you choose a screenshot to send us (Creator program). ShenTarot does not read your photos otherwise.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>ShenTarot never records audio. This is listed only because the camera library can; it is never switched on.</string>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>
@@ -60,15 +64,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UISupportedInterfaceOrientations~ipad</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 </dict>
 </plist>

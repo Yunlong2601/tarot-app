@@ -157,9 +157,12 @@ class _PaywallScreenState extends State<PaywallScreen> {
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 16),
-          for (final f in const [
+          for (final f in [
             'The 5, 7 and 10-card spreads, including the Celtic Cross',
-            '90 to 150 new credits every month by plan (free: 2 a day), and unused credits roll over',
+            if (creditsEnabled)
+              '90 to 150 new credits every month by plan (free: 2 a day), and unused credits roll over'
+            else
+              'Up to 50 AI readings a day (free: 1 a day)',
             'Follow-up questions on your readings',
             'A clarifier card to shed light on a reading',
             'A look back a week later, with a reminder',
