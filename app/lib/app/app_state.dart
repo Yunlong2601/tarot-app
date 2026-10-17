@@ -97,7 +97,7 @@ class AppState extends ChangeNotifier {
   /// The one-line status under the reading buttons.
   String get creditLine {
     if (!creditsEnabled) {
-      if (isPremium) return 'Premium: up to 50 readings a day';
+      if (isPremium) return 'Premium: 50 readings a day';
       return canReadForFree
           ? '1 free reading left today'
           : 'Free reading used. Come back tomorrow or go Premium.';

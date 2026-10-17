@@ -205,10 +205,7 @@ class _PremiumCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 2),
                   Text(
-                    premium
-                        ? 'Unlimited readings, follow-ups and the clarifier card.'
-                        : 'Unlimited readings, follow-up questions, the '
-                              'clarifier card and a look back a week later.',
+                    premium ? 'All spreads, follow-ups, 50 readings a day.' : 'All spreads, follow-ups, 50 readings a day, plus the clarifier card and a look back.',
                     style: const TextStyle(color: AppColors.textMuted),
                   ),
                 ],

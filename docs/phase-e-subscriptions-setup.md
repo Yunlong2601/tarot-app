@@ -6,6 +6,7 @@ The app code is done (`app/lib/core/subscription_service.dart`, paywall, setting
 - RevenueCat entitlement id: `premium`.
 - One **current offering** with packages of type **Annual**, **Three Month**, **Monthly** (no weekly) (use RevenueCat's standard package types so the paywall can label them).
 - Annual product has a paid introductory offer: **US$1.99 for the first month** (Apple: introductory offer "Pay up front", 1 month, $1.99; new subscribers only). No free trial. The paywall reads the offer from the store product, never hardcoded.
+- Plan description in both stores (all three plans): "All spreads, follow-ups, 50 readings a day".
 - Prices come from the store (localised). Set base prices in App Store Connect (plan: annual $39.99 with $1.99 for the first month, 3 months $14.99, monthly $6.99 USD; weekly is not offered).
 - The RevenueCat **app user ID** is the anonymous install ID (stored on device), and the backend looks up the same ID via the RevenueCat REST API to decide whether a request is premium. No accounts.
 
