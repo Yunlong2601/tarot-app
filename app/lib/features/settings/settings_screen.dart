@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:in_app_review/in_app_review.dart';
@@ -12,6 +13,9 @@ import '../../core/install_id.dart';
 import '../../core/user_key_store.dart';
 import '../../app/theme.dart';
 import '../../core/subscription_service.dart';
+
+const _feedbackEmail = 'shenyunlongbusiness@gmail.com';
+const _appStoreId = '6823779463';
 
 /// All settings in one place, so the You tab stays light.
 class SettingsScreen extends StatelessWidget {
@@ -119,14 +123,6 @@ class SettingsScreen extends StatelessWidget {
             trailing: const Icon(Icons.chevron_right),
             onTap: () => context.push('/settings/reading'),
           ),
-          ListTile(
-            leading: const Icon(Icons.language),
-            title: const Text('Language'),
-            subtitle: const Text('English'),
-            onTap: () => ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('More languages are coming.')),
-            ),
-          ),
           if (ownKeyEnabled)
             ListTile(
               leading: const Icon(Icons.key_outlined),
@@ -142,19 +138,33 @@ class SettingsScreen extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.mail_outline),
             title: const Text('Send feedback'),
-            onTap: () => launchUrl(
-              Uri.parse(
-                'mailto:shenyunlongbusiness@gmail.com?subject=ShenTarot%20feedback',
-              ),
-            ),
+            subtitle: const Text(_feedbackEmail),
+            onTap: () async {
+              final messenger = ScaffoldMessenger.of(context);
+              final opened = await launchUrl(
+                Uri.parse(
+                  'mailto:$_feedbackEmail?subject=ShenTarot%20feedback',
+                ),
+              ).catchError((_) => false);
+              if (!opened) {
+                await Clipboard.setData(
+                  const ClipboardData(text: _feedbackEmail),
+                );
+                messenger.showSnackBar(
+                  const SnackBar(
+                    content: Text('No mail app found. Email address copied.'),
+                  ),
+                );
+              }
+            },
           ),
           ListTile(
             leading: const Icon(Icons.star_outline),
             title: const Text('Rate ShenTarot'),
-            onTap: () async {
-              final review = InAppReview.instance;
-              if (await review.isAvailable()) await review.requestReview();
-            },
+            // The App Store page always opens; the in-app prompt is often
+            // suppressed by iOS (and never shows in TestFlight).
+            onTap: () =>
+                InAppReview.instance.openStoreListing(appStoreId: _appStoreId),
           ),
           ListTile(
             leading: const Icon(Icons.privacy_tip_outlined),

@@ -51,6 +51,34 @@ class _SpreadPickerScreenState extends State<SpreadPickerScreen> {
               ),
             ),
           ),
+          // Every spread by name, so none is hidden behind a swipe.
+          SizedBox(
+            height: 48,
+            child: ListView.separated(
+              scrollDirection: Axis.horizontal,
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              itemCount: _spreads.length,
+              separatorBuilder: (_, _) => const SizedBox(width: 8),
+              itemBuilder: (context, i) {
+                final t = _spreads[i];
+                final lock = !state.isPremium && !t.isFree;
+                return ChoiceChip(
+                  label: Text('${t.label} · ${t.cardCount}'),
+                  avatar: lock
+                      ? const Icon(Icons.lock_outline, size: 16)
+                      : null,
+                  selected: i == _index,
+                  showCheckmark: false,
+                  onSelected: (_) => _page.animateToPage(
+                    i,
+                    duration: const Duration(milliseconds: 280),
+                    curve: Curves.easeOut,
+                  ),
+                );
+              },
+            ),
+          ),
+          const SizedBox(height: 8),
           Expanded(
             child: PageView.builder(
               controller: _page,
@@ -64,69 +92,74 @@ class _SpreadPickerScreenState extends State<SpreadPickerScreen> {
                     horizontal: 6,
                     vertical: 4,
                   ),
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(24),
-                      side: BorderSide(
-                        color: i == _index
-                            ? AppColors.gold
-                            : Colors.transparent,
-                        width: 1.5,
+                  child: Align(
+                    alignment: Alignment.topCenter,
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(24),
+                        side: BorderSide(
+                          color: i == _index
+                              ? AppColors.gold
+                              : Colors.transparent,
+                          width: 1.5,
+                        ),
                       ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(20),
-                      child: SingleChildScrollView(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            if (recommended) ...[
-                              const Chip(label: Text('Recommended')),
+                      child: Padding(
+                        padding: const EdgeInsets.all(20),
+                        child: SingleChildScrollView(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              if (recommended) ...[
+                                const Chip(label: Text('Recommended')),
+                                const SizedBox(height: 8),
+                              ],
+                              Text(
+                                t.label,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headlineSmall,
+                              ),
+                              const SizedBox(height: 4),
+                              Text(
+                                '${t.cardCount} card${t.cardCount == 1 ? '' : 's'}',
+                                style: const TextStyle(
+                                  color: AppColors.textMuted,
+                                ),
+                              ),
                               const SizedBox(height: 8),
-                            ],
-                            Text(
-                              t.label,
-                              style: Theme.of(context).textTheme.headlineSmall,
-                            ),
-                            const SizedBox(height: 4),
-                            Text(
-                              '${t.cardCount} card${t.cardCount == 1 ? '' : 's'}',
-                              style: const TextStyle(
-                                color: AppColors.textMuted,
+                              Text(
+                                t.def.blurb,
+                                style: const TextStyle(
+                                  color: AppColors.textMuted,
+                                ),
                               ),
-                            ),
-                            const SizedBox(height: 8),
-                            Text(
-                              t.def.blurb,
-                              style: const TextStyle(
-                                color: AppColors.textMuted,
+                              const SizedBox(height: 16),
+                              Center(
+                                child: SizedBox(
+                                  width: 250,
+                                  child: SpreadLayoutView(type: t),
+                                ),
                               ),
-                            ),
-                            const SizedBox(height: 16),
-                            Center(
-                              child: SizedBox(
-                                width: 250,
-                                child: SpreadLayoutView(type: t),
-                              ),
-                            ),
-                            const SizedBox(height: 12),
-                            if (state.usesTrial(t))
-                              const Row(
-                                children: [
-                                  Icon(
-                                    Icons.card_giftcard,
-                                    size: 18,
-                                    color: AppColors.gold,
-                                  ),
-                                  SizedBox(width: 8),
-                                  Expanded(
-                                    child: Text(
-                                      'Uses your one-time free premium reading',
+                              const SizedBox(height: 12),
+                              if (state.usesTrial(t))
+                                const Row(
+                                  children: [
+                                    Icon(
+                                      Icons.card_giftcard,
+                                      size: 18,
+                                      color: AppColors.gold,
                                     ),
-                                  ),
-                                ],
-                              ),
-                          ],
+                                    SizedBox(width: 8),
+                                    Expanded(
+                                      child: Text(
+                                        'Uses your one-time free premium reading',
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -136,7 +169,32 @@ class _SpreadPickerScreenState extends State<SpreadPickerScreen> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(24),
+            padding: const EdgeInsets.only(top: 12),
+            child: Semantics(
+              label: 'Spread ${_index + 1} of ${_spreads.length}',
+              excludeSemantics: true,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  for (var i = 0; i < _spreads.length; i++)
+                    AnimatedContainer(
+                      duration: const Duration(milliseconds: 200),
+                      margin: const EdgeInsets.symmetric(horizontal: 3),
+                      width: i == _index ? 18 : 6,
+                      height: 6,
+                      decoration: BoxDecoration(
+                        color: i == _index
+                            ? AppColors.gold
+                            : AppColors.textMuted.withValues(alpha: 0.4),
+                        borderRadius: BorderRadius.circular(3),
+                      ),
+                    ),
+                ],
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(24, 12, 24, 24),
             child: FilledButton(
               onPressed: () {
                 if (!state.canStart(chosen) || locked) {

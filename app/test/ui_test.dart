@@ -216,12 +216,36 @@ void main() {
     await start(t, AppState(deck: deck, onboarded: true));
     await t.tap(find.text('Guide').last);
     await t.pumpAndSettle();
-    expect(find.text('How to use ShenTarot'), findsOneWidget);
+    expect(find.text('Start a reading'), findsOneWidget);
+    expect(find.text('How ShenTarot works'), findsOneWidget);
     expect(find.text('Scan a card'), findsOneWidget);
     expect(find.text('Draw today\'s card'), findsOneWidget);
+    // A how-to tile opens its details with a shortcut to try it.
+    await t.tap(find.text('Scan a card'));
+    await t.pumpAndSettle();
+    expect(find.text('Start a photo reading'), findsOneWidget);
+    Navigator.of(t.element(find.text('Start a photo reading'))).pop();
+    await t.pumpAndSettle();
     await t.scrollUntilVisible(find.text('Myths and worries'), 400);
-    expect(find.text('Learn tarot in 12 short lessons'), findsOneWidget);
+    expect(find.text('Learn tarot'), findsOneWidget);
+    expect(find.textContaining('0 of 12 done'), findsOneWidget);
     expect(find.text('Myths and worries'), findsOneWidget);
+  });
+
+  testWidgets('guide lessons open and can be marked done', (t) async {
+    await start(t, AppState(deck: deck, onboarded: true));
+    await t.tap(find.text('Guide').last);
+    await t.pumpAndSettle();
+    await t.scrollUntilVisible(find.text('What tarot is (and is not)'), 400);
+    await t.tap(find.text('What tarot is (and is not)'));
+    await t.pumpAndSettle();
+    expect(find.textContaining('TRY IT'), findsOneWidget);
+    await t.tap(find.text('Mark as done'));
+    await t.pumpAndSettle();
+    expect(find.text('Done'), findsOneWidget);
+    Navigator.of(t.element(find.text('Done'))).pop();
+    await t.pumpAndSettle();
+    expect(find.textContaining('1 of 12 done'), findsOneWidget);
   });
 
   testWidgets('guide shows today\'s card and your journey', (t) async {
