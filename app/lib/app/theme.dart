@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart' show CupertinoPageTransitionsBuilder;
 import 'package:flutter/material.dart';
 
 /// Black and gold. Neutral blacks and charcoals with a warm gold accent.
@@ -128,6 +129,54 @@ ThemeData buildTheme() {
             ? AppColors.goldTint
             : const Color(0xFF2A2822),
       ),
+    ),
+    dialogTheme: DialogThemeData(
+      backgroundColor: AppColors.surfaceHigh,
+      surfaceTintColor: Colors.transparent,
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(28),
+        side: BorderSide(color: AppColors.gold.withValues(alpha: 0.35)),
+      ),
+      titleTextStyle: const TextStyle(
+        fontSize: 22,
+        fontWeight: FontWeight.w500,
+        color: AppColors.goldLight,
+      ),
+      contentTextStyle: const TextStyle(
+        fontSize: 16,
+        height: 1.4,
+        color: Color(0xFFE6E2D8),
+      ),
+    ),
+    snackBarTheme: SnackBarThemeData(
+      behavior: SnackBarBehavior.floating,
+      backgroundColor: AppColors.surfaceHigh,
+      elevation: 0,
+      insetPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(color: AppColors.gold.withValues(alpha: 0.35)),
+      ),
+      contentTextStyle: const TextStyle(fontSize: 15, color: Colors.white),
+      actionTextColor: AppColors.gold,
+      showCloseIcon: false,
+    ),
+    bottomSheetTheme: const BottomSheetThemeData(
+      backgroundColor: AppColors.surface,
+      surfaceTintColor: Colors.transparent,
+      showDragHandle: true,
+      dragHandleColor: Color(0xFF4A463C),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
+      ),
+    ),
+    pageTransitionsTheme: const PageTransitionsTheme(
+      builders: {
+        // iOS keeps the native slide and swipe-back gesture.
+        TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+        TargetPlatform.android: FadeForwardsPageTransitionsBuilder(),
+      },
     ),
     dividerTheme: const DividerThemeData(color: Color(0xFF242320)),
     inputDecorationTheme: InputDecorationTheme(

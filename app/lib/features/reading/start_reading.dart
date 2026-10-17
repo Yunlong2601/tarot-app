@@ -8,6 +8,7 @@ import '../../app/app_state.dart';
 import '../../core/reading_service.dart';
 import '../../data/mock_data.dart';
 import '../../data/models.dart';
+import '../../app/motion.dart';
 
 /// Shared by photo and digital readings: checks the free/Premium rule, asks the
 /// backend for the interpretation (with a spinner), saves the reading and opens
@@ -72,7 +73,7 @@ Future<ReadingResult?> _interpret(
   String impression,
 ) async {
   final nav = Navigator.of(context, rootNavigator: true);
-  showDialog<void>(
+  showAppDialog<void>(
     context: context,
     barrierDismissible: false,
     builder: (_) => const _Waiting(),
@@ -93,7 +94,7 @@ Future<ReadingResult?> _interpret(
   }
   if (failure != null && context.mounted) {
     if (failure.kind == ReadingErrorKind.crisis) {
-      await showDialog<void>(
+      await showAppDialog<void>(
         context: context,
         builder: (ctx) => AlertDialog(
           title: const Text('You are not alone'),
@@ -153,7 +154,7 @@ Future<String?> _lookFirst(BuildContext context, List<DrawnCard> cards) {
       .map((c) => '${c.card.name}${c.reversed ? ' (reversed)' : ''}')
       .join(', ');
   final controller = TextEditingController();
-  return showDialog<String>(
+  return showAppDialog<String>(
     context: context,
     builder: (ctx) => AlertDialog(
       title: const Text('Look first'),

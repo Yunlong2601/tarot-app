@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import '../../app/app_scope.dart';
 import '../../app/theme.dart';
 import '../../core/account_service.dart';
+import '../../app/motion.dart';
 
 /// Optional account: sign in with Google or Apple so Premium follows you to
 /// another phone. Sign out and Delete account live here too.
@@ -39,7 +40,7 @@ class _AccountScreenState extends State<AccountScreen> {
 
   Future<void> _delete() async {
     final store = Platform.isIOS ? 'the App Store' : 'Google Play';
-    final ok = await showDialog<bool>(
+    final ok = await showAppDialog<bool>(
       context: context,
       builder: (c) => AlertDialog(
         title: const Text('Delete your account?'),

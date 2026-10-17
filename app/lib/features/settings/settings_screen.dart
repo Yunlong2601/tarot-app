@@ -13,6 +13,7 @@ import '../../core/install_id.dart';
 import '../../core/user_key_store.dart';
 import '../../app/theme.dart';
 import '../../core/subscription_service.dart';
+import '../../app/motion.dart';
 
 const _feedbackEmail = 'shenyunlongbusiness@gmail.com';
 const _appStoreId = '6823779463';
@@ -69,7 +70,7 @@ class SettingsScreen extends StatelessWidget {
     );
 
     Future<void> confirmDeleteData() async {
-      final ok = await showDialog<bool>(
+      final ok = await showAppDialog<bool>(
         context: context,
         builder: (c) => AlertDialog(
           title: const Text('Delete all data?'),

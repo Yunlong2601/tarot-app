@@ -26,6 +26,7 @@ import '../features/scan/scan_screen.dart';
 import '../features/settings/legal_screen.dart';
 import '../features/you/you_screen.dart';
 import 'app_state.dart';
+import 'motion.dart';
 
 GoRouter buildRouter(AppState state) {
   return GoRouter(
@@ -75,7 +76,10 @@ GoRouter buildRouter(AppState state) {
       GoRoute(path: '/own-key', builder: (_, _) => const OwnKeyScreen()),
       GoRoute(path: '/photo', builder: (_, _) => const ScanScreen()),
       GoRoute(path: '/digital', builder: (_, _) => const DrawScreen()),
-      GoRoute(path: '/daily', builder: (_, _) => const DailyCardScreen()),
+      GoRoute(
+        path: '/daily',
+        pageBuilder: (_, s) => modalPage(s, const DailyCardScreen()),
+      ),
       GoRoute(path: '/history', builder: (_, _) => const HistoryScreen()),
       GoRoute(path: '/account', builder: (_, _) => const AccountScreen()),
       GoRoute(path: '/invite', builder: (_, _) => const InviteScreen()),
@@ -102,14 +106,17 @@ GoRouter buildRouter(AppState state) {
         path: '/reading/:id',
         builder: (_, s) => ReadingScreen(readingId: s.pathParameters['id']!),
       ),
-      GoRoute(path: '/paywall', builder: (_, _) => const PaywallScreen()),
+      GoRoute(
+        path: '/paywall',
+        pageBuilder: (_, s) => modalPage(s, const PaywallScreen()),
+      ),
       GoRoute(
         path: '/welcome-premium',
-        builder: (_, s) {
+        pageBuilder: (_, s) {
           final e = s.extra as ({String? plan, bool restored})?;
-          return WelcomePremiumScreen(
-            plan: e?.plan,
-            restored: e?.restored ?? false,
+          return modalPage(
+            s,
+            WelcomePremiumScreen(plan: e?.plan, restored: e?.restored ?? false),
           );
         },
       ),

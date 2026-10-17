@@ -13,6 +13,8 @@ import 'report_reading.dart';
 
 import 'dart:math';
 
+import '../../app/motion.dart';
+
 class _AskDialog extends StatefulWidget {
   const _AskDialog();
 
@@ -72,7 +74,7 @@ class _FollowUpsState extends State<_FollowUps> {
       'I drew a clarifier card. What does it add to this reading?';
 
   Future<void> _ask() async {
-    final text = await showDialog<String>(
+    final text = await showAppDialog<String>(
       context: context,
       builder: (_) => const _AskDialog(),
     );
@@ -397,7 +399,7 @@ class ReadingScreen extends StatelessWidget {
             tooltip: 'Delete reading',
             icon: const Icon(Icons.delete_outline),
             onPressed: () async {
-              final ok = await showDialog<bool>(
+              final ok = await showAppDialog<bool>(
                 context: context,
                 builder: (c) => AlertDialog(
                   title: const Text('Delete this reading?'),
