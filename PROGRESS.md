@@ -1,6 +1,6 @@
 # PROGRESS
 
-Last updated: 2026-10-16. Update this file at the end of every phase.
+Last updated: 2026-10-17. Update this file at the end of every phase.
 
 Primary working copy: the owner's local Mac folder. This repo is the backup and hand-off point.
 
@@ -14,6 +14,33 @@ Primary working copy: the owner's local Mac folder. This repo is the backup and 
 | E | RevenueCat subscriptions + real paywall | Code built on branch `phase-e-subscriptions`; fake-service tests pass; NOT run against RevenueCat or a store (`docs/phase-e-subscriptions-setup.md`) |
 | F | SQLite history/journal, notifications, accessibility, polish | Code built on branch `phase-f-history`; 47 tests pass; iOS simulator build OK; notifications and SQLite NOT tried on a device; accessibility audit and follow-ups not done |
 | G | Tests, store checklists, privacy and terms drafts | Docs written on branch `phase-g-release-docs` (checklists, test plan, data inventory, legal DRAFTS bundled in the app); lawyer review and device testing still to do |
+
+## 2026-10-17 session: pricing, credits, growth, security (all on `google-play-prep`, flags OFF, nothing deployed)
+- **Prices** (owner): annual US$39.99 (US$1.99 first month), 3 months US$14.99, monthly US$6.99; no weekly, no free trial. `docs/unit-economics.md`, `docs/growth-and-monetisation-framework.md`, `docs/promotions-plan.md`.
+- **Credit wallet** (`docs/credits-setup.md`): 1 credit = a reading or a follow-up. Everyone gets 2 a day; Premium also gets monthly credits (annual 150, 3 months 120, monthly 90). Roll over, never expire; banks 10 days daily / 2 months monthly; max 50 spent a day. Welcome gift 10. Credit packs 10/25/40 for US$1.99/3.99/5.99 (priced above the monthly plan per credit on purpose). Premium keeps credits across reinstall via RevenueCat TRANSFER; signing in moves install credits to the account. Spreads of 1 to 3 cards are free; 5, 7, 10-card spreads are Premium after one trial reading.
+- **Referral credits**: both sides 10 credits after the friend's first reading (referrer up to 20 friends a year). **Creator program** (`docs/creator-setup.md`): #shentarot post link + screenshot = 10 credits (1 a day, 8 a month); 50 likes, checked by the owner, = 1 free month (60-day cooldown, 6 a year); screenshots in R2, deleted after 30 days.
+- **Security** (`docs/security-and-abuse.md`): account delete removes credits, referrals, creator posts and screenshots; webhook secret compared in constant time; tester ids only on beta; tester mode off in release builds; `scripts/release-check.sh` runs before production deploys. Owner decisions: shared networks, many devices and creator credits are not treated as abuse.
+- Tests: 106 backend (incl. real SQL on node:sqlite) and 132 app tests pass. Migrations `0004` to `0007` have NOT been applied to the live database; the live Worker is still the old code.
+
+## NOT yet implemented for live publishing (2026-10-17)
+**Code still to build**
+1. App Attest (iOS) and Play Integrity (Android) in `POST /v1/install`; per-IP new-install limits in D1. Production must never run `ALLOW_UNATTESTED_INSTALLS`.
+2. Token-cap protection: a reserve for Premium and older installs, an 80% alert, Cloudflare rate limiting / Turnstile; raise `GLOBAL_DAILY_TOKEN_CAP` for real traffic.
+3. App fallback when the credit server does not answer while `CREDITS` is on (today free users would be blocked from reading).
+4. Refund handling (RevenueCat cancellation events) to remove unused credits; deletion path for people who never signed in.
+5. Privacy policy text (draft, in-app `privacy.txt`, `site/privacy.html`) and the Play data-safety CSVs do not yet mention credits, referrals, creator posts or screenshots, purchase history.
+6. Look-back reminder notification, topic chips, Apple subscription extensions for referrers, cosmetic tier rewards (art not made), creator review page (curl only).
+7. Card scan model: baseline only, never validated on real deck photos.
+
+**Deploy and accounts (owner)**
+8. Apple Developer enrollment must be Active; App Store Connect app record and real bundle id; Play Console developer verification and closed-testing rule.
+9. Create in both stores: 3 subscriptions, the US$1.99 intro offer, offer codes (friend US$19.99, launch, creator, win-back) and the 3 credit packs; RevenueCat project, `premium` entitlement, current offering, webhook (INITIAL_PURCHASE, RENEWAL, NON_RENEWING_PURCHASE, TRANSFER) with `REVENUECAT_WEBHOOK_AUTH`.
+10. Deploy the new Worker code; apply migrations 0002 to 0007 to remote D1; create the private R2 bucket; set secrets (`REVENUECAT_SECRET_KEY`, `ADMIN_TOKEN`, webhook secret); turn on `CREDITS_ENABLED`, `REFERRALS_ENABLED`, `CREATOR_ENABLED`; delete `TESTER_INSTALL_IDS`; use `npm run deploy` (runs the release check), not `deploy:beta`.
+11. Build the apps with `--dart-define=CREDITS=true --dart-define=REFERRALS=true --dart-define=CREATOR=true` only after step 10.
+
+**Testing and review**
+12. Nothing has run on a real phone: camera scan, notifications, sandbox purchases, restore and credit transfer after reinstall, sign-in. Real wrangler run of migrations 0004 to 0007 (tests use node:sqlite).
+13. VoiceOver check, App Review notes and test instructions, store screenshots for iOS, age rating, export compliance, lawyer review (no budget), verify crisis hotline numbers, IPOS/store name search, Singapore tax/PDPA items.
 
 ## Launch readiness (Android first; shared code for iOS) — 2026-10-17
 
