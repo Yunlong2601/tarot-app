@@ -30,8 +30,8 @@
           },
           "localizations": [
             {
-              "description": "Everything in Premium, best value",
-              "displayName": "Annual",
+              "description": "All spreads, follow-ups, 50 readings a day",
+              "displayName": "Premium Annual",
               "locale": "en_US"
             }
           ],
@@ -52,8 +52,8 @@
           "introductoryOffer": null,
           "localizations": [
             {
-              "description": "ShenTarot Premium, billed every 3 months",
-              "displayName": "3 Months",
+              "description": "All spreads, follow-ups, 50 readings a day",
+              "displayName": "Premium 3 Months",
               "locale": "en_US"
             }
           ],
@@ -74,8 +74,8 @@
           "introductoryOffer": null,
           "localizations": [
             {
-              "description": "Everything in Premium, billed monthly",
-              "displayName": "Monthly",
+              "description": "All spreads, follow-ups, 50 readings a day",
+              "displayName": "Premium Monthly",
               "locale": "en_US"
             }
           ],
