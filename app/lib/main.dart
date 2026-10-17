@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -25,10 +24,9 @@ Future<void> main() async {
   final deck = await Deck.load();
   // Set at build time: flutter run --dart-define=API_BASE_URL=https://...
   const apiBaseUrl = String.fromEnvironment('API_BASE_URL');
-  // RevenueCat public SDK keys (one per platform), also via --dart-define.
-  const iosKey = String.fromEnvironment('REVENUECAT_IOS_KEY');
-  const androidKey = String.fromEnvironment('REVENUECAT_ANDROID_KEY');
-  final storeKey = Platform.isIOS ? iosKey : androidKey;
+  // Qonversion project key (one for iOS and Android, safe to ship in the
+  // app; never the sk_ secret key), also via --dart-define.
+  const storeKey = String.fromEnvironment('QONVERSION_PROJECT_KEY');
   late final AppState state;
   final api = apiBaseUrl.isEmpty
       ? null
@@ -45,7 +43,7 @@ Future<void> main() async {
     reminders: LocalNotificationReminderService(),
     subscriptions: storeKey.isEmpty
         ? const UnconfiguredSubscriptionService()
-        : RevenueCatSubscriptionService(storeKey),
+        : QonversionSubscriptionService(storeKey),
   );
   await state.loadPersisted();
   unawaited(state.refreshReminders());

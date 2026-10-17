@@ -21,5 +21,5 @@ bool referralsEnabled = const bool.fromEnvironment('REFERRALS');
 bool creatorEnabled = const bool.fromEnvironment('CREATOR');
 
 /// Reading credits and credit packs (`--dart-define=CREDITS=true`). Off
-/// until the consumable product exists in both stores and RevenueCat.
+/// until the consumable product exists in both stores and Qonversion.
 bool creditsEnabled = const bool.fromEnvironment('CREDITS');

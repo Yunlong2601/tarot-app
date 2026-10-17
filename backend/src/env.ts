@@ -9,7 +9,8 @@ export interface Env {
   OPENAI_MODEL?: string;
   /** "anthropic" (default) or "openai". */
   LLM_PROVIDER?: string;
-  REVENUECAT_SECRET_KEY?: string;
+  /** Qonversion Secret Key (sk_…), server only: premium checks and free-month grants. */
+  QONVERSION_SECRET_KEY?: string;
   LLM_MODEL?: string;
   GLOBAL_DAILY_TOKEN_CAP?: string;
   /** Comma-separated OAuth client ids accepted as the ID-token audience. Unset = accounts off. */
@@ -26,8 +27,8 @@ export interface Env {
   ADMIN_TOKEN?: string;
   /** R2 bucket for creator screenshots (deleted after 30 days). */
   SHOTS?: R2Bucket;
-  /** Shared secret RevenueCat sends in the webhook Authorization header. */
-  REVENUECAT_WEBHOOK_AUTH?: string;
+  /** Token Qonversion sends in the webhook header (`Authorization: Basic <token>`). */
+  QONVERSION_WEBHOOK_AUTH?: string;
   /** Testing only: comma-separated install/account ids treated as Premium. */
   TESTER_INSTALL_IDS?: string;
   /** Local testing only: skips device attestation. Never set in production. */

@@ -2,6 +2,7 @@
 JWT_SECRET=change-me-to-a-long-random-string
 HASH_SALT=change-me-too
 ANTHROPIC_API_KEY=
-REVENUECAT_SECRET_KEY=
+QONVERSION_SECRET_KEY=
+QONVERSION_WEBHOOK_AUTH=
 # Local testing only. NEVER set this in production: it skips device attestation.
 ALLOW_UNATTESTED_INSTALLS=true

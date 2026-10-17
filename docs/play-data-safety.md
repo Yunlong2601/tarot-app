@@ -8,8 +8,8 @@ Source of truth: `docs/data-inventory.md`. Google's definitions and the form wor
 |---|---|---|---|---|---|
 | Other user-generated content (the optional question text, the follow-up question and the earlier reading text sent for a follow-up) | Yes | Processed by Anthropic (or OpenAI as backup) on our behalf; not sold | Yes (a question is optional; a reading works without one) | App functionality | Not stored by us. Anthropic's retention applies (check their current policy). |
 | Other user-generated content? The user's own AI API key (Premium, optional) | Decide with care: it passes through our server per request but is never stored. Google's "ephemeral processing" may apply; verify the current definition before answering | Sent to the provider the user picked (Anthropic or OpenAI) on the user's instruction | Yes | App functionality | Stays in Keychain/Keystore on the phone; never logged. |
-| Device or other IDs (an app-generated random install ID, stored hashed on our server) | Yes | Shared with RevenueCat (subscriptions) as the app user ID | No | App functionality, fraud prevention and security | No advertising ID. |
-| Purchase history (subscription status) | Yes (RevenueCat / Google Play) | RevenueCat | No | App functionality | We never see payment card details. |
+| Device or other IDs (an app-generated random install ID, stored hashed on our server) | Yes | Shared with Qonversion (subscriptions) as the app user ID | No | App functionality, fraud prevention and security | No advertising ID. |
+| Purchase history (subscription status) | Yes (Qonversion / Google Play) | Qonversion | No | App functionality | We never see payment card details. |
 | App activity > Other actions (daily request counts and token usage tied to the hashed ID) | Yes | No | No | App functionality, fraud prevention | Keep for the period stated in the privacy policy (90 days). |
 | Approximate/precise location, contacts, photos, files, audio, health, financial info, personal info (name, email), web history, crash logs/diagnostics | **No** | | | | The camera image is processed on the device and is never saved or sent. |
 

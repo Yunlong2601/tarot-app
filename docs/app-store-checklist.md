@@ -13,7 +13,7 @@ Rules and menu names change. Items marked (verify) must be checked against the c
 - [x] Version 1.0.0 (build 1), iPhone only, portrait only, privacy manifest, purpose strings (camera, photo library, microphone), export-compliance key: done 2026-10-17; a release build compiles without signing. [ ] Signing with your paid team and the **In-App Purchase** capability: yours (guide step 3).
 - [ ] Release build runs on a **real iPhone** (camera, notifications, purchases). Not verified yet.
 - [x] `NSCameraUsageDescription` present ("Used to recognise the tarot card you hold up. Photos are never saved or uploaded."). Done.
-- [ ] No secrets in the app; `API_BASE_URL` and the RevenueCat **public** key passed with `--dart-define` at build time.
+- [ ] No secrets in the app; `API_BASE_URL` and the Qonversion **public** key passed with `--dart-define` at build time.
 - [ ] Legal texts are filled in (provider ShenTech, no lawyer review: owner decision); re-read them before each release.
 
 ## Subscriptions (guideline 3.1.2: verify)
@@ -25,7 +25,7 @@ Rules and menu names change. Items marked (verify) must be checked against the c
 
 ## Privacy
 - [ ] App Privacy ("nutrition label") answers match `docs/data-inventory.md`. Proposed mapping (verify against Apple's current definitions):
-  - Data **collected**: Purchases (via the store/RevenueCat), Identifiers (app-generated anonymous ID), User Content (optional question text, sent to generate the reading), Usage/Diagnostics only if you add analytics.
+  - Data **collected**: Purchases (via the store/Qonversion), Identifiers (app-generated anonymous ID), User Content (optional question text, sent to generate the reading), Usage/Diagnostics only if you add analytics.
   - Tracking: **No**. No ads, no cross-app tracking, so no App Tracking Transparency prompt.
   - Camera: processed on device only, not collected.
 - [ ] Age rating questionnaire answered honestly (astrology/fortune-telling content, AI-generated text; verify the current questions).

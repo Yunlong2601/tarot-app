@@ -1,42 +1,47 @@
 # Phase E: subscriptions setup (iOS first)
 
-The app code is done (`app/lib/core/subscription_service.dart`, paywall, settings). It sells nothing until you create the products and keys below. Store rules and menu names change: verify each step in the current Apple, Google and RevenueCat docs.
+The app code is done (`app/lib/core/subscription_service.dart`, paywall, settings). It sells nothing until you create the products and keys below. Store rules and menu names change: verify each step in the current Apple, Google and Qonversion docs.
+
+Subscription service: **Qonversion** (owner decision 2026-10-17, replacing RevenueCat before launch, with no subscribers to migrate). Pricing read on qonversion.io/pricing that day: free up to US$7,000 monthly tracked revenue, then 0.8% of all tracked revenue, with every feature (webhooks included).
 
 ## What the code expects
-- RevenueCat entitlement id: `premium`.
-- One **current offering** with packages of type **Annual**, **Three Month**, **Monthly** (no weekly) (use RevenueCat's standard package types so the paywall can label them).
+- Qonversion entitlement id: `premium`, attached to all three products.
+- Qonversion products with exactly these ids, each linked to the App Store / Google Play product of the same id: `shentarot_annual`, `shentarot_quarterly`, `shentarot_monthly` (no weekly). The app reads them with `products()`, not offerings, and labels them by id. Credit packs (v1.1) use the ids in `app/lib/core/credit_service.dart`.
 - Annual product has a paid introductory offer: **US$1.99 for the first month** (Apple: introductory offer "Pay up front", 1 month, $1.99; new subscribers only). No free trial. The paywall reads the offer from the store product, never hardcoded.
 - Plan description in both stores (all three plans): "All spreads, follow-ups, 50 readings a day".
-- Prices come from the store (localised). Set base prices in App Store Connect (plan: annual $39.99 with $1.99 for the first month, 3 months $14.99, monthly $6.99 USD; weekly is not offered).
-- The RevenueCat **app user ID** is the anonymous install ID (stored on device), and the backend looks up the same ID via the RevenueCat REST API to decide whether a request is premium. No accounts.
+- Prices come from the store (localised). Base prices in App Store Connect: annual $39.99 with $1.99 for the first month, 3 months $14.99, monthly $6.99 USD; weekly is not offered.
+- The app calls `identify(id)` with the anonymous install ID (or the account ID when signed in). The backend asks the Qonversion REST API v4 for the user behind that identity (`GET /v4/identities/{id}`, then `GET /v4/users/{user_id}/entitlements`) to decide whether a request is premium. It fails closed.
+- Free months (referral and creator rewards, v1.1) are manual grants: `POST /v4/users/{user_id}/entitlements` with `premium` for 30 days.
 
 ## I need to do (owner), iOS
-1. Apple Developer Program membership; real **bundle ID** (replace `com.shentech.shentarot` in Xcode; Runner target > Signing & Capabilities; also the RunnerTests ids).
-2. In App Store Connect create the app, a **subscription group**, and three auto-renewing subscriptions (annual at level 1, 3 months at level 2, monthly at level 3; annual with a 7-day free-trial introductory offer). Accept the Paid Applications agreement and fill tax/banking.
-3. In Xcode add the **In-App Purchase** capability to the Runner target.
-4. Create a RevenueCat project and an **iOS app**, add the **App Store Connect API key / In-App Purchase key** RevenueCat asks for, import the three products, create entitlement `premium` attached to all three, create an offering marked **current** with Annual, Three Month and Monthly packages (no weekly).
-5. Copy the iOS **public SDK key** (starts with `appl_`) and a **secret API key** (v1 REST, for the backend).
-6. Backend: `npx wrangler secret put REVENUECAT_SECRET_KEY`.
-7. Run the app with the keys:
+1. Apple Developer Program membership and the **In-App Purchase** capability on the Runner target (bundle id `com.shentech.shentarot`).
+2. App Store Connect subscriptions: **done** (group "Premium", three products, prices, intro offer; see `docs/app-store-submission-guide.md` section 2b). Accept the Paid Applications agreement and fill tax/banking.
+3. Create a Qonversion account and project at dash.qonversion.io. Add the **iOS app**: bundle id, the App Store Connect **In-App Purchase key** (.p8, key id, issuer id) and the app-specific shared secret if it asks, and turn on **Apple server notifications** (App Store Server Notifications V2, URL from Qonversion, set in App Store Connect > App Information).
+4. Products: create `shentarot_annual`, `shentarot_quarterly` and `shentarot_monthly` (Qonversion id = Apple product id). Entitlement: create `premium` and attach all three.
+5. Copy the **Project Key** (it ships in the app) and create a **Secret Key** (`sk_…`, server only) under Settings > Developer > Keys.
+6. Backend: `npx wrangler secret put QONVERSION_SECRET_KEY`.
+7. Run the app with the key:
    ```bash
    cd app
    flutter run --dart-define=API_BASE_URL=https://<your-worker> \
-               --dart-define=REVENUECAT_IOS_KEY=appl_xxx
+               --dart-define=QONVERSION_PROJECT_KEY=xxx
    ```
-   Keys passed with `--dart-define` are baked into the build. The RevenueCat public SDK key is designed to ship in the app; **never** put the secret key or any LLM key in the app.
-8. Test with a **sandbox tester** (App Store Connect > Users and Access > Sandbox). Check: purchase, trial, restore on a second install, and cancel via Settings > Manage subscription.
+   Keys passed with `--dart-define` are baked into the build. The Qonversion Project Key is designed to ship in the app; **never** put the `sk_` secret key or any LLM key in the app.
+8. Test with a **sandbox tester** (App Store Connect > Users and Access > Sandbox). Check: purchase, the $1.99 first month, restore on a second install, and cancel via Settings > Manage subscription.
 
 ## Android (later)
-Create the Play Console subscriptions, a RevenueCat Android app and pass `REVENUECAT_ANDROID_KEY`. Same entitlement and offering.
+Add the Android app to the same Qonversion project (Play service-account credentials, real-time developer notifications) and link the same three product ids to the Play products. The same Project Key works for both platforms.
 
 ## Not verified
-- Never run against RevenueCat or the stores: only unit/widget tests with a fake service, and a successful iOS simulator build.
-- Intro offers: price 0 shows as "N days free", any other price as "$X for your first month". Check in sandbox that the Pay up front offer appears as expected.
-- Restore needs a real sandbox account to confirm.
+- Never run against Qonversion or the stores: only unit/widget tests with a fake service, backend tests with a fake Qonversion API, and an iOS simulator build.
+- Intro offers: a free trial shows as "N days free", a paid offer as "$X for your first month". Check in sandbox that the Pay up front offer appears as expected (Qonversion reads it from StoreKit).
+- "Your first month ends on …" on the You tab is worked out from the entitlement (no renewals yet and a period far shorter than a year). Confirm in sandbox.
+- Manage subscription opens the store's subscriptions page (Qonversion has no per-user management URL).
+- Webhook payloads follow Qonversion's docs (documentation.qonversion.io/docs/webhooks, read 2026-10-17); only needed for v1.1 credits, referral and creator.
 
 ## Test purchases on the Mac without App Store Connect (StoreKit file)
-`app/ios/ShenTarot.storekit` defines the three subscriptions locally: product ids `shentarot_annual` (US$39.99, intro offer $1.99 for the first month, pay up front, group level 1), `shentarot_quarterly` (US$14.99, every 3 months, level 2) and `shentarot_monthly` (US$6.99, level 3). Use the same product ids when you create the products in App Store Connect.
+`app/ios/ShenTarot.storekit` defines the three subscriptions locally: product ids `shentarot_annual` (US$39.99, intro offer $1.99 for the first month, pay up front, group level 1), `shentarot_quarterly` (US$14.99, every 3 months, level 2) and `shentarot_monthly` (US$6.99, level 3), with the store names and description.
 
 To use it in Xcode: open `app/ios/Runner.xcworkspace`, Product > Scheme > Edit Scheme > Run > Options > StoreKit Configuration > choose `ShenTarot.storekit`. Run on the simulator or your own iPhone. Xcode's Debug > StoreKit > Manage Transactions lets you approve, fail, expire or refund purchases.
 
-Limits (not verified): the app reads plans through RevenueCat, so you still need a RevenueCat project whose products use these ids and an offering marked current; RevenueCat then loads prices from the local StoreKit file in this test mode (confirm in RevenueCat's StoreKit testing guide). Prices in the file are placeholders; real prices are set in App Store Connect.
+Limits (not verified): the app still needs a Qonversion project key whose products use these ids; Qonversion then loads prices from the local StoreKit file in this test mode, and purchases validated against Xcode's test store may not reach Qonversion's servers (check Qonversion's StoreKit testing guide). Prices in the file are placeholders; real prices are set in App Store Connect.

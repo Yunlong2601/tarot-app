@@ -20,7 +20,7 @@ Verify every item in Play Console Help and the Policy Center (Subscriptions, Dat
 - [ ] Adaptive icon and feature graphic (original art).
 
 ## Subscriptions
-- [ ] Create the three subscriptions (base plans monthly US$6.99, 3 months US$14.99, annual US$39.99 with a US$1.99 first-month offer; no weekly, no free trial) in Play Console and link them in RevenueCat; use the Android public key (`REVENUECAT_ANDROID_KEY`).
+- [ ] Create the three subscriptions (base plans monthly US$6.99, 3 months US$14.99, annual US$39.99 with a US$1.99 first-month offer; no weekly, no free trial) in Play Console and link them in Qonversion; the app uses the one Qonversion project key (`QONVERSION_PROJECT_KEY`).
 - [ ] Billing fees: the plan assumes about 15% total; the fee schedule changed in 2026, so re-check support.google.com/googleplay/android-developer (service fees).
 - [ ] Cancel/manage link works (Settings > Manage subscription opens the Play subscriptions page).
 - [ ] License testers added; test purchase, trial, restore, cancel.
