@@ -133,16 +133,16 @@ Google Play prep (branch `google-play-prep`): app id `com.shentech.shentarot`, u
 - `flutter doctor`: CocoaPods missing (needed for iOS builds because `tflite_flutter` has no Swift Package Manager support; the macOS system Ruby 2.6 could not install it, so use Homebrew or a newer Ruby), and no Android SDK.
 
 ## I need to do (owner)
-- Run the tests and `flutter run` on the Mac and report problems (nothing has run on a real device yet).
+- Test on real iPhone and Android phones and report problems (the scan model and paywall have never run on a real device).
 - Card art: open the Commons pages in `app/assets/cards/art/CREDITS.md` and confirm each is the original 1909/1910 Pamela Colman Smith scan, not a 1971+ recolour.
 - Skim `app/assets/cards/cards.json` meanings (original wording) before release.
-- Pick the final app name; check trademarks and store names (top pick: ShenTarot).
-- Create Anthropic API account with a monthly spend limit; Cloudflare and RevenueCat accounts; join Apple Small Business Program.
+- Search IPOS and the stores for "ShenTarot" (name is chosen: ShenTarot: AI Lens; a web search found nothing, but that is not a registry check).
+- Apple Business agreements (bank, tax) and subscription review screenshots; RevenueCat project and keys; Play closed test; join Apple Small Business Program. (Apple subscriptions are already created, see line 26.)
 - Check the Google Play new-personal-account testing rule (testers/days) and the school's rules on commercial work.
 - Buy 2-3 physical RWS-style decks and photograph them for training (see the ML section of `docs/phase-c-design.md`).
 - Lawyer review: image licensing, trademark wording, privacy policy, terms.
 
 ## Known issues / not verified
-- Nothing has been built or run on iOS or Android; only `flutter analyze` and 17 tests (in a Linux sandbox, all passing).
+- Not verified on real devices: camera scan (baseline model, never validated on real photos), paywall against RevenueCat, push notifications. Credits, referral and creator code exist but are not deployed; migrations 0004-0007 are not applied to the live backend. Re-run `flutter analyze` and `flutter test` on the Mac and record the current test count here.
 - Card art: 78 Commons scans (all report licence "Public domain", dated 1910, 1909 Pamela Colman Smith deck) are in the repo; I spot-checked 3 by eye. Owner must still open the Commons file pages (listed in `app/assets/cards/art/CREDITS.md`) and confirm none is a 1971+ US Games recolour before release.
 - Store fees, prices and policies in the plan were checked on the web on 2026-10-16 and must be re-verified before launch.
