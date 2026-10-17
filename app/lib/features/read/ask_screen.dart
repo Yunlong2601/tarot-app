@@ -97,7 +97,7 @@ class _AskScreenState extends State<AskScreen> {
             spacing: 8,
             runSpacing: 4,
             children: [
-              for (final s in _starters)
+              for (final s in _starters.map(tr))
                 ActionChip(
                   label: Text('${s.trim()}...'),
                   onPressed: () {

@@ -84,18 +84,10 @@ class ReferralTier {
 }
 
 const referralTiers = [
-  ReferralTier(
-    'Seeker',
-    1,
-    '1 free month for each friend who subscribes',
-  ),
+  ReferralTier('Seeker', 1, '1 free month for each friend who subscribes'),
   ReferralTier('Adept', 3, 'An exclusive card back'),
   ReferralTier('Mystic', 6, 'An alternate app icon and reading theme'),
-  ReferralTier(
-    'Oracle',
-    10,
-    'The Oracle title, every cosmetic, early access',
-  ),
+  ReferralTier('Oracle', 10, 'The Oracle title, every cosmetic, early access'),
 ];
 
 /// The highest tier reached, or null below Seeker.

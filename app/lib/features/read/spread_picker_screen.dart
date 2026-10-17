@@ -133,7 +133,7 @@ class _SpreadPickerScreenState extends State<SpreadPickerScreen> {
                               ),
                               const SizedBox(height: 8),
                               Text(
-                                t.def.blurb,
+                                t.blurb,
                                 style: const TextStyle(
                                   color: AppColors.textMuted,
                                 ),

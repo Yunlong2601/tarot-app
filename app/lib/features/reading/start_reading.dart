@@ -241,7 +241,7 @@ class _WaitingState extends State<_Waiting> {
 
   @override
   Widget build(BuildContext context) {
-    final text = _steps.lastWhere((s) => _watch.elapsed >= s.$1).$2;
+    final text = tr(_steps.lastWhere((s) => _watch.elapsed >= s.$1).$2);
     return PopScope(
       canPop: false,
       child: Center(

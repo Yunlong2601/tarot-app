@@ -109,7 +109,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
         state.setPremium(true);
         context.pushReplacement(
           '/welcome-premium',
-          extra: (plan: plan.title, restored: false),
+          extra: (plan: tr(plan.title), restored: false),
         );
       }
     } on SubscriptionException catch (e) {
@@ -236,7 +236,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
                           children: [
                             Expanded(
                               child: Text(
-                                '${p.title} · ${p.priceString} ${p.periodLabel}',
+                                '${tr(p.title)} · ${p.priceString} ${p.periodLabel}',
                                 style: TextStyle(fontWeight: FontWeight.w600),
                               ),
                             ),
@@ -351,9 +351,11 @@ Widget? _planDetails(PlanOption p, List<PlanOption> plans) {
   final parts = <String>[
     if (p.trialLabel != null) p.trialLabel!,
     if (p.title != 'Monthly' && p.perMonthString != null)
-      '${p.title == 'Annual' ? 'just ' : ''}${p.perMonthString}/month',
+      p.title == 'Annual'
+          ? tr('just {0}/month', [p.perMonthString])
+          : tr('{0}/month', [p.perMonthString]),
     if (p.title == 'Annual' && annualSaving(plans) != null)
-      'save ${annualSaving(plans)}% vs monthly',
+      tr('save {0}% vs monthly', [annualSaving(plans)]),
   ];
   return parts.isEmpty ? null : Text(parts.join(' · '));
 }

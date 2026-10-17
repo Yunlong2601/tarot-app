@@ -200,9 +200,9 @@ class _WelcomePremiumScreenState extends State<WelcomePremiumScreen>
                           if (i > 0) const Divider(height: 1, indent: 56),
                           ListTile(
                             leading: Icon(_perks[i].$1, color: AppColors.gold),
-                            title: Text(_perks[i].$2),
+                            title: Text(tr(_perks[i].$2)),
                             subtitle: Text(
-                              _perks[i].$3,
+                              tr(_perks[i].$3),
                               style: const TextStyle(
                                 color: AppColors.textMuted,
                               ),

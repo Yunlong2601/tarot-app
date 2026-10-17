@@ -234,7 +234,9 @@ class _GuideScreenState extends State<GuideScreen> {
   }
 
   void _openHowTo(BuildContext context, int i) {
-    final (icon, title, body) = _howTo[i];
+    final (icon, title0, body0) = _howTo[i];
+    final title = tr(title0);
+    final body = tr(body0);
     final action = _howToAction(context, i);
     _showSheet(
       context,
@@ -255,7 +257,10 @@ class _GuideScreenState extends State<GuideScreen> {
   }
 
   void _openLesson(BuildContext context, int i) {
-    final (title, body, practice) = _lessons[i];
+    final (title0, body0, practice0) = _lessons[i];
+    final title = tr(title0);
+    final body = tr(body0);
+    final practice = tr(practice0);
     _showSheet(
       context,
       leading: _LessonNumber(i + 1, done: _done.contains(i)),
@@ -310,7 +315,7 @@ class _GuideScreenState extends State<GuideScreen> {
               Navigator.of(context).pop();
               _openLesson(context, i + 1);
             },
-            child: Text(tr('Next: {0}', [_lessons[i + 1].$1])),
+            child: Text(tr('Next: {0}', [tr(_lessons[i + 1].$1)])),
           ),
         ],
       ],
@@ -397,7 +402,7 @@ class _GuideScreenState extends State<GuideScreen> {
             for (var i = 0; i < _howTo.length; i++)
               _Tile(
                 icon: _howTo[i].$1,
-                title: _howTo[i].$2,
+                title: tr(_howTo[i].$2),
                 onTap: () => _openHowTo(context, i),
               ),
           ]),
@@ -425,7 +430,7 @@ class _GuideScreenState extends State<GuideScreen> {
                   ListTile(
                     minVerticalPadding: 12,
                     leading: _LessonNumber(i + 1, done: _done.contains(i)),
-                    title: Text(_lessons[i].$1),
+                    title: Text(tr(_lessons[i].$1)),
                     trailing: const Icon(
                       Icons.chevron_right,
                       color: AppColors.textMuted,
@@ -446,12 +451,12 @@ class _GuideScreenState extends State<GuideScreen> {
                   ExpansionTile(
                     shape: const Border(),
                     collapsedShape: const Border(),
-                    title: Text(_myths[i].$1),
+                    title: Text(tr(_myths[i].$1)),
                     childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
                     expandedAlignment: Alignment.centerLeft,
                     children: [
                       Text(
-                        _myths[i].$2,
+                        tr(_myths[i].$2),
                         style: const TextStyle(color: AppColors.textMuted),
                       ),
                     ],

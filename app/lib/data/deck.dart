@@ -9,10 +9,10 @@ enum CardFilter { all, major, wands, cups, swords, pentacles }
 
 extension CardFilterLabel on CardFilter {
   String get label => switch (this) {
-    CardFilter.all => 'All',
+    CardFilter.all => tr('All'),
     CardFilter.major => tr('Major'),
     CardFilter.wands => tr('Wands'),
-    CardFilter.cups => 'Cups',
+    CardFilter.cups => tr('Cups'),
     CardFilter.swords => tr('Swords'),
     CardFilter.pentacles => tr('Pentacles'),
   };

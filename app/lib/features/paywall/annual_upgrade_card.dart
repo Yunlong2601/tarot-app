@@ -109,7 +109,9 @@ class _AnnualUpgradeCardState extends State<AnnualUpgradeCard> {
               Text(
                 tr(
                   tr(
-                    'Switching is optional. The store shows the exact change before you confirm.',
+                    tr(
+                      'Switching is optional. The store shows the exact change before you confirm.',
+                    ),
                   ),
                 ),
                 style: TextStyle(color: AppColors.textMuted, fontSize: 12),

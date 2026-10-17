@@ -1,5 +1,7 @@
 import 'dart:ui' show Offset;
 
+import '../app/i18n.dart';
+
 /// The spread catalog. Keep in sync with backend/src/spreads.ts (same wire ids
 /// and position labels). Positions are about the reader's own situation, never
 /// about what another person thinks or feels.
@@ -7,10 +9,10 @@ enum SpreadCategory { classics, love, career, growth }
 
 extension SpreadCategoryLabel on SpreadCategory {
   String get label => switch (this) {
-    SpreadCategory.love => 'Love',
-    SpreadCategory.career => 'Career',
-    SpreadCategory.growth => 'Growth',
-    SpreadCategory.classics => 'Classics',
+    SpreadCategory.love => tr('Love'),
+    SpreadCategory.career => tr('Career'),
+    SpreadCategory.growth => tr('Growth'),
+    SpreadCategory.classics => tr('Classics'),
   };
 }
 
@@ -248,10 +250,11 @@ const spreadDefs = <SpreadType, SpreadDef>{
 
 extension SpreadInfo on SpreadType {
   SpreadDef get def => spreadDefs[this]!;
-  String get label => def.name;
+  String get label => tr(def.name);
+  String get blurb => tr(def.blurb);
   String get wire => def.wire;
   SpreadCategory get category => def.category;
-  List<String> get positions => def.positions;
+  List<String> get positions => [for (final p in def.positions) tr(p)];
   int get cardCount => def.positions.length;
 
   /// Spreads of up to 3 cards are free within the daily reading limit; the 5,

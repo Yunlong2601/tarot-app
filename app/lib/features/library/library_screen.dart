@@ -142,7 +142,7 @@ class _SpreadsListState extends State<_SpreadsList> {
                                 ),
                                 const SizedBox(height: 4),
                                 Text(
-                                  t.def.blurb,
+                                  t.blurb,
                                   style: const TextStyle(
                                     color: AppColors.textMuted,
                                   ),

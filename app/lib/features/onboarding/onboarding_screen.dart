@@ -57,7 +57,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               _PageIcon(icon: p.$1),
                               const SizedBox(height: 32),
                               Text(
-                                p.$2,
+                                tr(p.$2),
                                 style: Theme.of(context)
                                     .textTheme
                                     .headlineMedium,
@@ -65,7 +65,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               ),
                               const SizedBox(height: 16),
                               Text(
-                                p.$3,
+                                tr(p.$3),
                                 style: Theme.of(context).textTheme.bodyLarge
                                     ?.copyWith(color: AppColors.textMuted),
                                 textAlign: TextAlign.center,

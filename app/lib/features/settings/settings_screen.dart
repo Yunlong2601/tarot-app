@@ -8,6 +8,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../app/app_scope.dart';
+import '../../app/app_state.dart';
 import '../../app/flags.dart';
 import '../../core/install_id.dart';
 import '../../core/user_key_store.dart';
@@ -125,6 +126,17 @@ class SettingsScreen extends StatelessWidget {
             trailing: const Icon(Icons.chevron_right),
             onTap: () => context.push('/settings/reading'),
           ),
+          ListTile(
+            leading: const Icon(Icons.language),
+            title: Text(tr('Language')),
+            subtitle: Text(
+              state.languageChoice == null
+                  ? tr('Phone language ({0})', [I18n.languages[I18n.code]])
+                  : I18n.languages[state.languageChoice]!,
+            ),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => _pickLanguage(context, state),
+          ),
           if (ownKeyEnabled)
             ListTile(
               leading: const Icon(Icons.key_outlined),
@@ -239,4 +251,42 @@ class SettingsScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+Future<void> _pickLanguage(BuildContext context, AppState state) {
+  return showModalBottomSheet<void>(
+    context: context,
+    isScrollControlled: true,
+    useSafeArea: true,
+    builder: (sheet) => DraggableScrollableSheet(
+      expand: false,
+      initialChildSize: 0.7,
+      builder: (_, controller) => ListView(
+        controller: controller,
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(24, 0, 24, 8),
+            child: Text(
+              tr('Language'),
+              style: Theme.of(sheet).textTheme.titleLarge,
+            ),
+          ),
+          for (final code in <String?>[null, ...I18n.languages.keys])
+            ListTile(
+              title: Text(
+                code == null ? tr('Phone language') : I18n.languages[code]!,
+              ),
+              trailing: state.languageChoice == code
+                  ? const Icon(Icons.check, color: AppColors.gold)
+                  : null,
+              selected: state.languageChoice == code,
+              onTap: () {
+                Navigator.of(sheet).pop();
+                state.setLanguage(code);
+              },
+            ),
+        ],
+      ),
+    ),
+  );
 }
