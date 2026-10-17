@@ -14,7 +14,8 @@ Goal (owner): Premium only needs to cover building and running costs. All figure
 
 ## What a user costs per month (AI only)
 - Free user, 1 reading a day, every day: 30 x US$0.0003 = **about US$0.01**; worst case US$0.045.
-- Premium is sold as unlimited, with a hidden fair-use cap of 50 readings and 50 follow-ups a day. Typical subscriber, 2 readings a day: about US$0.02 a month. Heavy, 10 a day: about US$0.10. At the cap every day: about US$0.90 typical, under US$4.50 worst case.
+- Premium has a visible daily allowance of readings and follow-ups together: annual 50, 3 months 40, monthly 30. Typical subscriber, 2 readings a day: about US$0.02 a month. Heavy, 10 a day: about US$0.10. Annual at the cap every day: about US$0.45 typical, up to US$4.50 worst case (ceiling of 5,000 output tokens per reading).
+- Free users get 1 reading plus 1 login credit a day, so up to 2 readings (more on a day they spend banked credits): about US$0.02 a month typical.
 
 ## Revenue per subscriber per month, after the 15% store fee
 | Plan | Price | Net per month |
@@ -26,13 +27,13 @@ Goal (owner): Premium only needs to cover building and running costs. All figure
 ## Break-even
 Fixed costs are about **US$10 to US$15 a month** (Apple fee, plus US$5 Cloudflare if needed). Free users add about US$0.01 each per month.
 
-| Free daily users | AI cost a month | Total to cover | Annual subscribers needed | Or monthly subscribers |
-|---|---|---|---|---|
-| 100 | about US$1 | about US$16 | 3 | 2 |
-| 1,000 | about US$10 | about US$25 | 4 | 2 |
-| 10,000 | about US$90 | about US$105 | 15 | 9 |
+| Free daily users | AI cost a month (2 readings a day each, typical) | Total to cover | Annual subscribers needed (net US$2.83 a month each) |
+|---|---|---|---|
+| 100 | about US$2 | about US$15 | 6 |
+| 1,000 | about US$18 | about US$31 | 11 |
+| 10,000 | about US$180 | about US$193 | 68 |
 
-So a generous free plan is affordable: even 10,000 daily free readers cost about US$90 a month in AI, covered by about 3 annual subscribers at the new price per US$34 net each. Prices (owner decision 2026-10-17, repriced): annual US$39.99, 3 months US$14.99, monthly US$6.99; no weekly. The server's global daily token cap (currently 500,000 tokens in test mode, about US$0.50 a day) stops runaway costs; raise it as real users arrive.
+So a generous free plan is affordable: even 10,000 daily free users cost about US$180 a month in AI at typical cost, covered by 68 annual subscribers (0.7% of them). Worst-case per-reading cost is about 10 times typical, so keep the global token cap and an alert on it. Prices (owner decision 2026-10-17, repriced): annual US$39.99, 3 months US$14.99, monthly US$6.99; no weekly. The server's global daily token cap (currently 500,000 tokens in test mode, about US$0.50 a day) stops runaway costs; raise it as real users arrive.
 
 
 ## Repriced plan and targets (2026-10-17)

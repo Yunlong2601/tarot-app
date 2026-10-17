@@ -255,7 +255,7 @@ class AppState extends ChangeNotifier {
 
   bool get canReadForFree => freeReadingsUsedToday < freeReadingsPerDay;
 
-  /// Premium users are unlimited; free users get one single-card reading a day.
+  /// Premium users get a daily allowance by plan (30 to 50); free users get one reading a day plus credits.
   bool canStart(SpreadType spread) {
     if (isPremium) return true;
     if (!canReadForFree) return hasCredits;

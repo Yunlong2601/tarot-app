@@ -11,7 +11,7 @@ Owner decision 2026-10-17: set up every promotion before launch, not later. Pric
 | Apple offer-code redemption sheet | paywall ("Redeem in App Store") |
 | Upgrade nudge for monthly / 3-month subscribers after a few months | `annual_upgrade_card.dart` |
 | Free tier (1 reading a day) as the trial | backend usage limits |
-| Refer and earn (friend gets annual at US$49.99) | built, switched off: see `referral-setup.md` |
+| Refer and earn (friend gets annual at US$19.99) | built, switched off: see `referral-setup.md` |
 
 ## To create in the stores before launch (owner, needs the paid Apple account)
 1. **Intro offer** on `shentarot_annual`: Apple "Pay up front", 1 month, US$1.99, new subscribers; Play offer `first-month`, eligibility "never had any subscription in this app". Annual only; monthly and 3-month get no intro.

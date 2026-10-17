@@ -8,9 +8,9 @@ Built 2026-10-17, **switched off** (app flag `REFERRALS`, server `REFERRALS_ENAB
 - Not built: Apple subscription extensions / Play deferred billing for referrers who are subscribed (credits are banked instead), cosmetic rewards (art not made), App Review notes text.
 
 ## Owner setup (in order)
-1. **App Store Connect**: on `shentarot_annual` > Subscription Prices > Offer Codes: create an offer "Friend 50%" (new subscribers, pay up front, 1 year, US$49.99). Generate one-time codes (CSV). Codes expire within 6 months; generate in batches.
+1. **App Store Connect**: on `shentarot_annual` > Subscription Prices > Offer Codes: create an offer "Friend 50%" (new subscribers, pay up front, 1 year, US$19.99 (50% of the US$39.99 annual price)). Generate one-time codes (CSV). Codes expire within 6 months; generate in batches.
 2. Send me the CSV file (or run `npx wrangler d1 execute shentarot --remote --command "INSERT INTO apple_offer_codes (code) VALUES ('CODE1'),('CODE2')"`); codes are not secrets but treat them as limited stock.
-3. **Play Console**: on `shentarot_annual` base plan > Add offer: developer-determined, tag **`referral-50`**, one phase: single payment, 1 year, US$49.99, eligibility "never had any subscription in this app".
+3. **Play Console**: on `shentarot_annual` base plan > Add offer: developer-determined, tag **`referral-50`**, one phase: single payment, 1 year, US$19.99 (50% of the US$39.99 annual price), eligibility "never had any subscription in this app".
 4. **RevenueCat**: Project > Integrations > Webhooks: URL `https://shentarot-api.shentech.workers.dev/v1/webhooks/revenuecat`, Authorization header = a long random string; then `npx wrangler secret put REVENUECAT_WEBHOOK_AUTH` with the same string. The RevenueCat secret API key must already be set (`REVENUECAT_SECRET_KEY`).
 5. Tell me to switch on: I apply migration 0003, set `REFERRALS_ENABLED=true`, deploy, and build with `--dart-define=REFERRALS=true`.
 6. Legal review of `docs/referral-terms-draft.md`; then I add it to the Terms and the privacy policy, and update `docs/data-inventory.md`, Play Data safety and Apple privacy labels.
