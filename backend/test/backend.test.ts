@@ -10,7 +10,7 @@ import { parseOpenAI } from "../src/llm";
 import type { UsageStore } from "../src/usage";
 import { verifyIdToken, type AccountStore } from "../src/accounts";
 import type { Referral, ReferralStore } from "../src/referrals";
-import { CREDIT_VALID_DAYS, creditExpiry, type CreditStore } from "../src/credits";
+import type { CreditStore } from "../src/credits";
 import { grantReferralCredits } from "../src/index";
 import { allowWithinMinute } from "../src/usage";
 import { cleanQuestion, parseFollowupRequest, parseReadingRequest } from "../src/validate";
@@ -709,13 +709,6 @@ describe("reading credits", () => {
 });
 
 describe("plan allowances and the daily login credit", () => {
-  it("credits are valid for one year", () => {
-    expect(CREDIT_VALID_DAYS).toBe(365);
-    expect(creditExpiry(Date.parse("2026-10-17T00:00:00Z"))).toBe("2027-10-17T23:59:59.999Z");
-    // a credit received on 25 October 2026 expires 365 days later, 25 October 2027
-    expect(creditExpiry(Date.parse("2026-10-25T09:30:00Z"))).toBe("2027-10-25T23:59:59.999Z");
-  });
-
   const hash = () => hashId(UUID, "salt");
   const daily = async (s: ReturnType<typeof setup>) =>
     (await s.call("/v1/credits/daily", { method: "POST", headers: await authHeaders(s.env) })).json();

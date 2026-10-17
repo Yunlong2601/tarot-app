@@ -420,7 +420,7 @@ class _StarterPackCard extends StatelessWidget {
           Text(
             'Starter Pack: 5 reading credits for $_price, one '
             'time. Use them for extra readings or follow-up questions. '
-            'Credits last one year. Everyone also gets 1 free credit a day when they open the app.',
+            'Credits never expire. Everyone also gets 1 free credit a day when they open the app.',
           ),
           const SizedBox(height: 8),
           Align(

@@ -1,5 +1,5 @@
 /** Reading credits (off unless CREDITS_ENABLED=true). 1 credit = one extra AI
- * reading or follow-up / clarifier beyond the daily allowance. Credits are valid for one year. A credit is refunded if the reading fails. */
+ * reading or follow-up / clarifier beyond the daily allowance. Credits never expire. A credit is refunded if the reading fails. */
 
 /** Everyone gets this many credits the first time they open the app each UTC
  * day, unless they already hold LOGIN_CREDIT_BANK_CAP or more. */
@@ -25,24 +25,18 @@ export function creditsInProduct(productId: string): number | null {
   return m ? Number(m[1]) : null;
 }
 
-/** A credit is valid for 365 days from the day it is received, through the end
- * of that (UTC) day: received 25 Oct 2026 -> usable until the end of 25 Oct 2027. */
-export const CREDIT_VALID_DAYS = 365;
-export const creditExpiry = (nowMs: number): string =>
-  new Date(nowMs + CREDIT_VALID_DAYS * 86_400_000).toISOString().slice(0, 10) + "T23:59:59.999Z";
-
-/** Each grant (purchase, login credit, refund) is a lot with its own expiry;
- * the balance is the unexpired remainder and the soonest-expiring lot is spent first. */
+/** Each grant (purchase, login credit) is a lot. Credits never expire; the
+ * oldest lot is spent first and a refund goes back to the lot it came from. */
 export class D1CreditStore implements CreditStore {
   constructor(private db: D1Database, private nowMs: () => number = () => Date.now()) {}
   private iso() { return new Date(this.nowMs()).toISOString(); }
   private async lot(key: string, amount: number, source: string) {
-    await this.db.prepare("INSERT INTO credit_lots (owner_key, remaining, expires_at, created_at, source) VALUES (?1, ?2, ?3, ?4, ?5)")
-      .bind(key, amount, creditExpiry(this.nowMs()), this.iso(), source).run();
+    await this.db.prepare("INSERT INTO credit_lots (owner_key, remaining, created_at, source) VALUES (?1, ?2, ?3, ?4)")
+      .bind(key, amount, this.iso(), source).run();
   }
   async balance(key: string) {
-    const r = await this.db.prepare("SELECT COALESCE(SUM(remaining), 0) AS n FROM credit_lots WHERE owner_key = ?1 AND expires_at > ?2")
-      .bind(key, this.iso()).first<{ n: number }>();
+    const r = await this.db.prepare("SELECT COALESCE(SUM(remaining), 0) AS n FROM credit_lots WHERE owner_key = ?1")
+      .bind(key).first<{ n: number }>();
     return r?.n ?? 0;
   }
   async add(key: string, amount: number, txn: string) {
@@ -54,8 +48,8 @@ export class D1CreditStore implements CreditStore {
   }
   async claimDaily(key: string, day: string, bankCap: number) {
     // The bank cap counts login credits only; bought credits never block them.
-    const held = await this.db.prepare("SELECT COALESCE(SUM(remaining), 0) AS n FROM credit_lots WHERE owner_key = ?1 AND source = 'login' AND expires_at > ?2")
-      .bind(key, this.iso()).first<{ n: number }>();
+    const held = await this.db.prepare("SELECT COALESCE(SUM(remaining), 0) AS n FROM credit_lots WHERE owner_key = ?1 AND source = 'login'")
+      .bind(key).first<{ n: number }>();
     if ((held?.n ?? 0) >= bankCap) return false;
     await this.db.prepare("INSERT OR IGNORE INTO credits (owner_key, balance, updated_at) VALUES (?1, 0, ?2)").bind(key, this.iso()).run();
     const r = await this.db.prepare(
@@ -68,8 +62,8 @@ export class D1CreditStore implements CreditStore {
   async spend(key: string) {
     for (let attempt = 0; attempt < 3; attempt++) {
       const lot = await this.db.prepare(
-        "SELECT id FROM credit_lots WHERE owner_key = ?1 AND remaining > 0 AND expires_at > ?2 ORDER BY expires_at, id LIMIT 1",
-      ).bind(key, this.iso()).first<{ id: number }>();
+        "SELECT id FROM credit_lots WHERE owner_key = ?1 AND remaining > 0 ORDER BY id LIMIT 1",
+      ).bind(key).first<{ id: number }>();
       if (!lot) return null;
       const r = await this.db.prepare("UPDATE credit_lots SET remaining = remaining - 1 WHERE id = ?1 AND remaining > 0").bind(lot.id).run();
       if ((r.meta.changes ?? 0) > 0) return lot.id;

@@ -23,31 +23,22 @@ const DAY = 86_400_000;
 const T0 = Date.parse("2026-10-25T09:30:00Z");
 
 describe("D1CreditStore (real SQL)", () => {
-  it("a credit bought on 25 Oct 2026 works until the end of 25 Oct 2027, then expires", async () => {
-    const now = { t: T0 };
-    const s = setup(now);
-    expect(await s.add("u", 2, "t1")).toBe(true);
-    expect(await s.add("u", 2, "t1")).toBe(false); // same transaction twice
-    expect(await s.balance("u")).toBe(2);
-    now.t = Date.parse("2027-10-25T20:00:00Z");
-    expect(await s.balance("u")).toBe(2);
-    now.t = Date.parse("2027-10-26T00:00:01Z");
-    expect(await s.balance("u")).toBe(0);
-    expect(await s.spend("u")).toBeNull();
-  });
-
-  it("spends the soonest-expiring credit first and a refund goes back to its own lot", async () => {
+  it("credits never expire, the oldest is spent first, and a refund goes back to its own lot", async () => {
     const now = { t: T0 };
     const s = setup(now);
     await s.add("u", 1, "old");
     now.t = T0 + 30 * DAY;
     await s.add("u", 1, "new");
+    expect(await s.add("u", 1, "new")).toBe(false); // same transaction twice
+    now.t = Date.parse("2035-01-01T00:00:00Z"); // years later
+    expect(await s.balance("u")).toBe(2);
     const first = await s.spend("u");
     expect(first).toBe(1); // the older lot
     await s.refund(first!);
     expect(await s.balance("u")).toBe(2);
-    now.t = Date.parse("2027-10-26T00:00:01Z"); // the old lot expired, the newer one has not
-    expect(await s.balance("u")).toBe(1);
+    expect(await s.spend("u")).toBe(1);
+    expect(await s.spend("u")).toBe(2);
+    expect(await s.spend("u")).toBeNull();
   });
 
   it("one login credit a day, banked up to 3; bought credits never block it", async () => {

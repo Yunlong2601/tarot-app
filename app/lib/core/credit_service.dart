@@ -1,6 +1,6 @@
 /// Reading credits: 1 credit = one extra AI reading after the free daily one,
 /// or a follow-up / clarifier for a free user. Bought as a Starter Pack; never
-/// last one year; everyone also gets one login credit a day (banked up to 3).
+/// never expire; everyone also gets one login credit a day (banked up to 3).
 /// The server holds the balance.
 abstract class CreditBackend {
   Future<int> balance();

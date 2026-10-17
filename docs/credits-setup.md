@@ -4,9 +4,9 @@ Built 2026-10-17, **switched off** (app flag `CREDITS`, server `CREDITS_ENABLED`
 
 ## How it works (ShenTarot's version)
 - 1 credit = one AI reading or one follow-up / clarifier beyond the daily allowance; the same credit works for both. Everyone, free and Premium, gets 1 login credit the first time they open the app each UTC day (`POST /v1/credits/daily`), banked up to 3 (no new one while 3 login credits are held; bought credits do not count toward the 3).
-- Daily allowance (readings and follow-ups together): free 1 reading; Premium by plan: annual 50, 3 months 40, monthly 30 (`PLAN_DAILY_ALLOWANCE` in `backend/src/usage.ts`). Past it, a credit pays. Migration `0005_daily_login_credit.sql` (not applied yet) adds the per-credit expiry table.
+- Daily allowance (readings and follow-ups together): free 1 reading; Premium by plan: annual 50, 3 months 40, monthly 30 (`PLAN_DAILY_ALLOWANCE` in `backend/src/usage.ts`). Past it, a credit pays. Migration `0005_daily_login_credit.sql` (not applied yet) adds the credit lots table.
 - The server holds the balance (per account, or per install without one), so it can't be edited on the phone. Each store purchase is added once, even if the store retries.
-- A credit is given back automatically if the reading fails. Credits are valid for 365 days from the day they are granted (a credit received on 25 October 2026 can be used until the end of 25 October 2027, UTC); the soonest-expiring credit is spent first.
+- A credit is given back automatically if the reading fails. Credits never expire. The oldest credit is spent first, and a failed reading refunds the credit to the lot it came from.
 - The paywall shows the Starter Pack under the memberships: "Not ready to subscribe? Starter Pack: 5 reading credits for $X, one time."
 - Without an account, credits belong to this phone and are lost if the app is deleted (same as referral months); signing in keeps them. Say this in the small print once accounts are on.
 
