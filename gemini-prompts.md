@@ -1,6 +1,6 @@
 # ShenTarot: Google Play listing pack (Gemini prompts + text)
 
-Written 2026-10-16. App: **ShenTarot: AI Scan & Read**, US English, Google Play.
+Written 2026-10-16. App: **ShenTarot: AI Lens**, US English, Google Play.
 Colours read from `app/lib/app/theme.dart` on branch `google-play-prep` (the black-and-gold theme).
 
 ## 0. Read this first (policy points that decide the workflow)
@@ -243,7 +243,7 @@ If you still want a background behind them (my reading: allowed, since it adds n
 Character counts were checked with a script on 2026-10-16.
 
 ### Title (max 30)
-- **Use:** `ShenTarot: AI Scan & Read` (25)
+- **Use:** `ShenTarot: AI Lens` (18)
 - Alt 1: `ShenTarot: Tarot Card Reader` (28)
 - Alt 2: `ShenTarot: Scan Tarot Cards` (27)
 - Alt 3: `ShenTarot - AI Tarot Scanner` (28)
@@ -290,7 +290,7 @@ Private by design
 ShenTarot is for entertainment and self-reflection only. Readings are written by AI. They do not predict the future and are not medical, psychological, legal, financial or other professional advice.
 
 Subscription info
-Premium is an auto-renewing subscription (weekly, monthly or annual; the annual plan may include a free trial), billed through Google Play. It renews automatically until you cancel. Cancel any time in Google Play > Payments & subscriptions > Subscriptions.
+Premium is an auto-renewing subscription (monthly, every 3 months or annual; the annual plan may start with a lower first-month price), billed through Google Play. It renews automatically until you cancel. Cancel any time in Google Play > Payments & subscriptions > Subscriptions.
 
 Privacy Policy: https://yunlong2601.github.io/shentarot-legal/privacy.html
 Terms of Use: https://yunlong2601.github.io/shentarot-legal/terms.html
@@ -304,7 +304,7 @@ Words avoided on purpose: heal, healing, therapy, therapist, cure, anxiety relie
 
 Play Console > your app > **Grow users > Store presence > Main store listing** (menu names as of my check; Google moves them sometimes):
 
-- [ ] App name: `ShenTarot: AI Scan & Read`
+- [ ] App name: `ShenTarot: AI Lens`
 - [ ] Short description (section 7)
 - [ ] Full description (section 7, after removing unshipped features)
 - [ ] App icon: 512 x 512 PNG, under 1 MB

@@ -225,7 +225,7 @@ void main() {
     expect(find.text('Start for \$1.99'), findsOneWidget);
     expect(
       find.textContaining(
-        '\$1.99 for your first month, then \$99.99 per year. Cancel any time '
+        '\$1.99 for your first month, then \$39.99 per year. Cancel any time '
         'at least 24 hours before the first period ends.',
       ),
       findsOneWidget,
@@ -295,11 +295,11 @@ class _PaidIntro extends FakeSubscriptions {
     PlanOption(
       id: 'annual',
       title: 'Annual',
-      priceString: '\$99.99',
+      priceString: '\$39.99',
       periodLabel: 'per year',
       trialLabel: '\$1.99 for your first month',
       trialIsFree: false,
-      price: 99.99,
+      price: 39.99,
     ),
   ];
 }

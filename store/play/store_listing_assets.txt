@@ -1,6 +1,6 @@
 # Google Play Store Listing Text Assets
 # App Name (max 30 chars):
-ShenTarot: AI Scan & Read
+ShenTarot: AI Lens
 
 # Short Description (max 80 chars):
 Drawn a card? Scan it with your camera for a deep, personalized AI reading.

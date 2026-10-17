@@ -52,7 +52,7 @@ Drive it yourself: `~/development/android-sdk/emulator/emulator -avd shentarot_p
 6. **Assets** (Play Console): ready in `store/play/`: `icon-512.png`, `feature-graphic.png` (1024x500, no text), and 4 phone screenshots in `store/play/screenshots/` taken from the emulator build (landing, Card of the Day, Library, Guide). Google wants 2 to 8; check the current size rules. Retake them later with the final art and a real reading.
 
 ## Create the app in Play Console (order)
-1. All apps > Create app: name **ShenTarot: AI Scan & Read** (30 character limit; verify), English (US), App, Free (with in-app subscriptions).
+1. All apps > Create app: name **ShenTarot: AI Lens** (30 character limit; 18 used), English (US), App, Free (with in-app subscriptions).
 2. Set up your app > fill every section:
    - **App access**: no login needed; all features reachable. Reviewer note: free reading daily; for Premium use a license tester account; the camera scan can be skipped via "Can't scan? Pick a card manually".
    - **Ads**: no ads.

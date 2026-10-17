@@ -739,8 +739,8 @@ describe("refer and earn", () => {
     expect((await hook({ type: "INITIAL_PURCHASE" }, "wrong")).status).toBe(401);
     expect(await (await hook({ type: "INITIAL_PURCHASE", price: 0, transaction_id: "t0", app_user_id: FRIEND })).json()).toMatchObject({ ignored: true });
     const paidAt = NOW - 15 * 86_400_000;
-    expect(await (await hook({ type: "INITIAL_PURCHASE", price: 49.99, transaction_id: "t1", app_user_id: FRIEND, event_timestamp_ms: paidAt })).json()).toMatchObject({ qualified: true });
-    expect(await (await hook({ type: "RENEWAL", price: 99.99, transaction_id: "t1", app_user_id: FRIEND })).json()).toMatchObject({ qualified: false }); // no double
+    expect(await (await hook({ type: "INITIAL_PURCHASE", price: 19.99, transaction_id: "t1", app_user_id: FRIEND, event_timestamp_ms: paidAt })).json()).toMatchObject({ qualified: true });
+    expect(await (await hook({ type: "RENEWAL", price: 39.99, transaction_id: "t1", app_user_id: FRIEND })).json()).toMatchObject({ qualified: false }); // no double
     const granted: string[] = [];
     let subscribed = true;
     const run = () => grantReferralCredits(s.env, { referrals: () => s.referrals, now: () => NOW, grant: async (u) => { granted.push(u); return true; }, subscribed: async () => subscribed });

@@ -73,11 +73,11 @@ void main() {
       ..friendPlan = const PlanOption(
         id: 'annual-friend',
         title: 'Annual',
-        priceString: '\$99.99',
+        priceString: '\$39.99',
         periodLabel: 'per year',
-        trialLabel: '\$49.99 for your first year',
+        trialLabel: '\$19.99 for your first year',
         trialIsFree: false,
-        price: 99.99,
+        price: 39.99,
       );
     final s = AppState(
       deck: deck,
@@ -107,9 +107,9 @@ void main() {
     await t.pumpAndSettle();
     expect(refs.redeemed.single, 'wxyz6789/android');
     // The paywall now leads with the friend's annual offer.
-    expect(find.text('Start for \$49.99'), findsOneWidget);
+    expect(find.text('Start for \$19.99'), findsOneWidget);
     expect(
-      find.textContaining('\$49.99 for your first year, then \$99.99 per year'),
+      find.textContaining('\$19.99 for your first year, then \$39.99 per year'),
       findsOneWidget,
     );
   });

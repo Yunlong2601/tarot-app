@@ -16,12 +16,26 @@ Written 2026-10-17. Menu names, sizes and rules change: items marked (verify) mu
 - No demo sign-in, no TODOs, tester mode forced off in release builds, `scripts/release-check.sh` guards production deploys.
 - Store copy drafted (`docs/store-listing.md`), legal pages published, account deletion page live.
 
+## 2b. Current state in App Store Connect (checked 2026-10-17)
+- **Account:** Individual paid team `SX4CW2L35K` ("SHEN YUNLONG"); Xcode on this Mac is signed in to it. Business agreements, bank and tax status: not checked (the next page to look at is Business).
+- **App record:** **ShenTarot: AI Lens**, iOS 1.0 "Prepare for Submission", bundle id `com.shentech.shentarot`, SKU `shentarot`, Apple ID `6823779463`, primary language English (U.S.). Category, content rights, age rating, app privacy and review information are still empty.
+- **Subscription group "Premium"** (id 22486710, display name "ShenTarot Premium"), levels set to match the plan:
+
+| Level | Reference name | Product id | Length | Base price set | Status |
+|---|---|---|---|---|---|
+| 1 | Annual | `shentarot_annual` | 1 year | US$39.99 (Apple-calculated elsewhere: S$59.98, C$49.99, EUR 44.99) | Prepare for Submission |
+| 2 | 3 Months | `shentarot_quarterly` | 3 months | US$14.99 (S$19.98) | Prepare for Submission |
+| 3 | Monthly | `shentarot_monthly` | 1 month | US$6.99 (S$9.98) | Prepare for Submission |
+
+- **Still missing on every subscription:** display name and description (localisation), the US$1.99 first-month introductory offer on Annual, the review screenshot of the paywall, and a check of availability and Singapore prices (Apple's S$59.98 for annual is above the US price once tax is included; adjust if you prefer).
+- The annual price had been US$99.99 from an earlier attempt; it was changed to US$39.99 on 2026-10-17 with all other countries recalculated.
+
 ## 3. Steps only you can do, in order (the critical path)
 1. **Apple Developer Program: status Active** (check developer.apple.com/account; if "Processing" after 3 days, contact Apple Developer Support with your Enrollment ID). Confirm the Team ID in Xcode (`SX4CW2L35K` is in the project now) is the paid team, not a free Personal Team.
 2. **App Store Connect > Business:** accept the Paid Applications agreement, add your Singapore bank and tax forms (verify which). Without this, subscriptions cannot go live. Join the **Small Business Program** (15% fee).
 3. **Identifiers:** App ID `com.shentech.shentarot` with the In-App Purchase capability (Xcode creates it when you sign in with the paid team and build once).
-4. **New App** in App Store Connect: name `ShenTarot: AI Scan & Read` (check it is free; fall back to `ShenTarot` plus subtitle), primary language English, bundle id above, SKU `shentarot-ios`.
-5. **Subscriptions** (Monetization > Subscriptions): one group "ShenTarot Premium" with three auto-renewing subscriptions: `shentarot_annual` (1 year, US$39.99, introductory offer pay-up-front US$1.99 for 1 month, new subscribers), `shentarot_quarterly` (3 months, US$14.99), `shentarot_monthly` (1 month, US$6.99). Add a display name, description and a **review screenshot of the paywall** for each, and the group localisation. Levels: annual 1, quarterly 2, monthly 3. Let Apple generate other countries' prices, then check Singapore.
+4. ~~New App~~ **Done**: record `ShenTarot: AI Lens` exists (section 2b).
+5. **Subscriptions**: the group, the three products, levels and base prices are **done** (section 2b). Still to do: display names and descriptions, the US$1.99 first-month introductory offer on `shentarot_annual` (pay up front, 1 month, new subscribers), a paywall review screenshot for each, and a look at availability and Singapore prices.
 6. **RevenueCat** (`docs/phase-e-subscriptions-setup.md`): add the iOS app, upload the App Store Connect **In-App Purchase key** (.p8, key id, issuer id), import the three products, create entitlement `premium`, make an offering marked *current* with packages Annual, Three Month and Monthly. Copy the public iOS SDK key (starts `appl_`). Set the RevenueCat secret on the Worker (`npx wrangler secret put REVENUECAT_SECRET_KEY`) and, for v1.1 features, the webhook.
 7. **Backend for production:** Anthropic monthly spend limit; secrets set; remove `TESTER_INSTALL_IDS`; raise `GLOBAL_DAILY_TOKEN_CAP` for launch traffic; apply migrations (`npx wrangler d1 migrations apply shentarot --remote`; they only add tables for v1.1, safe to apply); `bash scripts/release-check.sh`; then deploy and run `backend/scripts/smoke.sh` against the live URL. Decide device checks (section 1).
 8. **Build and upload** (on this Mac, after step 6):
@@ -34,7 +48,7 @@ Written 2026-10-17. Menu names, sizes and rules change: items marked (verify) mu
 10. **App Store Connect > the version page:** fill in the fields in section 4, add screenshots (section 5), pick the TestFlight build, set pricing and availability, answer the age rating and privacy questionnaires, add the review notes, then **Add for Review** and **Submit**. Review usually takes 1 to 2 days (verify); first submissions of subscription apps are reviewed together with the subscriptions.
 
 ## 4. Fields to paste into App Store Connect
-- **Name:** ShenTarot: AI Scan & Read. **Subtitle:** Tarot card scanner and reader.
+- **Name:** ShenTarot: AI Lens. **Subtitle:** Tarot card scanner and reader.
 - **Promotional text:** Hold a card up to your camera and find out what it means for the question on your mind.
 - **Keywords (100 characters, no spaces after commas):** reading,meanings,interpretation,spread,journal,daily,deck,reflection,oracle,cards,celtic,cross
 - **Description:** from `docs/store-listing.md` (v1 wording: free = 1 reading a day on 1 to 3-card spreads and one try of a longer spread; Premium = all spreads, up to 50 readings a day, follow-ups, clarifier, look-back).

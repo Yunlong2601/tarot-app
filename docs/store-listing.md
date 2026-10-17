@@ -1,11 +1,11 @@
 # Store listing copy (draft)
 
-Decision (owner, 2026-10-16): store name **ShenTarot: AI Scan & Read**. Home-screen name is "ShenTarot". The name has no "card"/"scanner", so the subtitle and keywords carry them. Positioning: people who own a physical deck and don't know how to read what they drew. Limits (third-party sources, confirm in the consoles): Apple name 30, subtitle 30, keywords 100; Google title 30, short description 80, full 4,000. `scripts/check_listing.py` counts every field below.
+Store name (App Store Connect record, 2026-10-17): **ShenTarot: AI Lens** (18 characters; it replaced the 2026-10-16 pick "AI Scan & Read"). Home-screen name is "ShenTarot". The name has no "card"/"scanner", so the subtitle and keywords carry them. Positioning: people who own a physical deck and don't know how to read what they drew. Limits (third-party sources, confirm in the consoles): Apple name 30, subtitle 30, keywords 100; Google title 30, short description 80, full 4,000. `scripts/check_listing.py` counts every field below.
 
 Claims in this copy must stay true. Remove any line for a feature that is not shipped. Recognition is a baseline model not yet tested on real photos, and subscriptions are not live: **do not publish this copy until the real-device tests in `docs/test-plan.md` pass.**
 
 ## Apple App Store
-- **Name:** ShenTarot: AI Scan & Read
+- **Name:** ShenTarot: AI Lens
 - **Subtitle:** Tarot card scanner and reader
 - **Keywords (comma-separated, no spaces):** reading,meanings,interpretation,spread,journal,daily,deck,reflection,oracle,cards,celtic,cross
 - **Promotional text:** Hold a card up to your camera and find out what it means for the question on your mind.
@@ -38,7 +38,7 @@ Premium is an auto-renewing subscription (monthly, every 3 months or annual; the
 - **Category:** Lifestyle (primary), Entertainment (secondary): decide.
 
 ## Google Play
-- **Title:** ShenTarot: AI Scan & Read
+- **Title:** ShenTarot: AI Lens
 - **Short description:** Scan your tarot cards and get a plain-language reading of what they mean.
 - **Full description:** use the App Store description above, replacing the subscription paragraph with: "Premium is an auto-renewing subscription billed through Google Play. Cancel any time in Google Play > Payments & subscriptions. Privacy Policy: https://yunlong2601.github.io/shentarot-legal/privacy.html". Add the words "tarot card reader", "tarot scanner" and "tarot card meanings" naturally once or twice; Google reads this text for search.
 

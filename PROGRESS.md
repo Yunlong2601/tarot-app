@@ -22,6 +22,9 @@ Primary working copy: the owner's local Mac folder. This repo is the backup and 
 - **Security** (`docs/security-and-abuse.md`): account delete removes credits, referrals, creator posts and screenshots; webhook secret compared in constant time; tester ids only on beta; tester mode off in release builds; `scripts/release-check.sh` runs before production deploys. Owner decisions: shared networks, many devices and creator credits are not treated as abuse.
 - Tests: 106 backend (incl. real SQL on node:sqlite) and 132 app tests pass. Migrations `0004` to `0007` have NOT been applied to the live database; the live Worker is still the old code.
 
+## App Store Connect status (2026-10-17)
+App record **ShenTarot: AI Lens** (Apple ID 6823779463, bundle `com.shentech.shentarot`, paid Individual team `SX4CW2L35K`); subscription group "Premium" with Annual (level 1, US$39.99), 3 Months (level 2, US$14.99) and Monthly (level 3, US$6.99), all "Prepare for Submission". Still empty: subscription names/descriptions, the US$1.99 intro offer, review screenshots, app category, age rating, privacy answers, build upload. Details and the next steps: `docs/app-store-submission-guide.md` (section 2b). Repo is ready for a v1 build with credits, referral and creator OFF.
+
 ## NOT yet implemented for live publishing (2026-10-17)
 **Code still to build**
 1. App Attest (iOS) and Play Integrity (Android) in `POST /v1/install`; per-IP new-install limits in D1. Production must never run `ALLOW_UNATTESTED_INSTALLS`.
@@ -33,7 +36,7 @@ Primary working copy: the owner's local Mac folder. This repo is the backup and 
 7. Card scan model: baseline only, never validated on real deck photos.
 
 **Deploy and accounts (owner)**
-8. Apple Developer enrollment must be Active; App Store Connect app record and real bundle id; Play Console developer verification and closed-testing rule.
+8. Apple side: enrollment is Active and the app record exists; still to do are the Business agreements (bank, tax), subscription names and descriptions, the intro offer and review screenshots. Play Console developer verification and the closed-testing rule are open.
 9. Create in both stores: 3 subscriptions, the US$1.99 intro offer, offer codes (friend US$19.99, launch, creator, win-back) and the 3 credit packs; RevenueCat project, `premium` entitlement, current offering, webhook (INITIAL_PURCHASE, RENEWAL, NON_RENEWING_PURCHASE, TRANSFER) with `REVENUECAT_WEBHOOK_AUTH`.
 10. Deploy the new Worker code; apply migrations 0002 to 0007 to remote D1; create the private R2 bucket; set secrets (`REVENUECAT_SECRET_KEY`, `ADMIN_TOKEN`, webhook secret); turn on `CREDITS_ENABLED`, `REFERRALS_ENABLED`, `CREATOR_ENABLED`; delete `TESTER_INSTALL_IDS`; use `npm run deploy` (runs the release check), not `deploy:beta`.
 11. Build the apps with `--dart-define=CREDITS=true --dart-define=REFERRALS=true --dart-define=CREATOR=true` only after step 10.
@@ -111,7 +114,7 @@ Google Play prep (branch `google-play-prep`): app id `com.shentech.shentarot`, u
 
 (Earlier) UI redesign (branch `ui-redesign`, from the owner's wireframe): tabs Read / Guide / Library / You, landing with Photo-or-Digital reading button, digital card reading (tap to flip), Guide (how to use + tarot basics), Library (Spreads | Cards), You tab, and a DEMO sign-in page (no accounts; closable). Details and what is NOT built: `docs/design-notes.md`. Owner to supply: hero artwork (`app/assets/hero/hero.jpg`) and the landing video. Before release decide: build real sign-in or remove the demo "Sign in" button.
 
-(Earlier) Store name chosen (ShenTarot: AI Scan & Read); onboarding text rewritten to the "hold the cards, we explain them" positioning; listing copy drafted in `docs/store-listing.md` (do not publish before real-device tests pass).
+(Earlier) Store name: ShenTarot: AI Lens (App Store Connect record, 2026-10-17; the first pick was "AI Scan & Read"); onboarding text rewritten to the "hold the cards, we explain them" positioning; listing copy drafted in `docs/store-listing.md` (do not publish before real-device tests pass).
 
 (Earlier) Android: toolchain installed and debug APK + release AAB build (see `docs/play-store-checklist.md`); not run on any device; release is debug-signed.
 

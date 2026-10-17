@@ -26,7 +26,7 @@ Other names seen: Tarot Simple, Trusted Tarot, Daily Tarot Card & Astrology, Gal
 5. **Education framing** (School, Academy). Positions the app as learning rather than fortune-telling.
 
 ## What it means for ShenTarot
-- **ShenTarot fits type 4 well**, for example "ShenTarot: AI Scan & Read" (28 characters). The brand is short and invented; the subtitle holds the search words. "Scanner" and "scan" are in the name, which is the point of difference.
+- **ShenTarot fits type 4 well**, for example "ShenTarot: AI Lens" (18 characters). The brand is short and invented; the subtitle holds the search words. "Scanner" and "scan" are in the name, which is the point of difference.
 - **The scan idea is not unique.** At least Taroter, Thoth Tarot School and one MWM app already offer camera scanning. My earlier claim that scanning is "uncommon" (in the App Store checklist and the plan) should read "less common". The reviewer note should still lead with it, but also lead with the AI reflection and the journal.
 - **Check before committing:** exact-name and near-name availability in both stores, trademark searches (Singapore IPOS, plus the US and EU if you sell there), a free domain and social handle. "ShenTarot" has not been checked.
 - Alternatives in the same style if "ShenTarot" is taken: a calm invented word + "Tarot Scanner" subtitle. Avoid "Rider-Waite" in the name (trademark) and avoid copying Taroter's pattern too closely.
@@ -37,6 +37,6 @@ Subtitle ideas (30-character limit to verify): "Scan tarot cards, get answers", 
 
 ## Name decision (2026-10-16)
 - "Veilscan" was dropped: a cybersecurity product named VeilScan (veilscan.net) exists.
-- "ShenScan: Tarot Card Scanner" was the next pick, then the owner chose **ShenTarot: AI Scan & Read** (25 characters; ShenTech brand + "Tarot" for search). "Tarot" in the brand is easy to find but a weaker trademark (the word is descriptive and several TAROT marks exist, for example TAROT TAP and TAROTVERSE).
+- "ShenScan: Tarot Card Scanner" was the next pick, then the owner first chose "ShenTarot: AI Scan & Read" and, on 2026-10-17, **ShenTarot: AI Lens** (18 characters, the name now in App Store Connect; ShenTech brand + "Tarot" for search). "Tarot" in the brand is easy to find but a weaker trademark (the word is descriptive and several TAROT marks exist, for example TAROT TAP and TAROTVERSE).
 - A quick web search found no ShenTarot app or trademark. That is not a registry check: search IPOS and both stores before launch.
 - Because the name lacks "card" and "scanner", the subtitle carries them: "Tarot card scanner and reader".

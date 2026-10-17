@@ -30,7 +30,7 @@
           },
           "localizations": [
             {
-              "description": "Everything in Premium, best value (7-day free trial)",
+              "description": "Everything in Premium, best value",
               "displayName": "Annual",
               "locale": "en_US"
             }
