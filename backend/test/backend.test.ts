@@ -5,7 +5,7 @@ import type { Env } from "../src/env";
 import { createApp, type Deps } from "../src/index";
 import { buildFollowupMessage, checkOutput } from "../src/prompts";
 import { buildReadingMessage } from "../src/reading";
-import { grantFreeMonth, hasStoreSubscription, isPremium } from "../src/qonversion";
+import { isPremium } from "../src/revenuecat";
 import { safeEqual } from "../src/auth";
 import { parseOpenAI } from "../src/llm";
 import type { UsageStore } from "../src/usage";
@@ -192,7 +192,7 @@ function setup(opts: { premium?: boolean | ((id: string) => boolean); llm?: Deps
   const env = {
     KV: kv, DB: {}, JWT_SECRET: "s".repeat(32), HASH_SALT: "salt", ANTHROPIC_API_KEY: "k",
     ALLOW_UNATTESTED_INSTALLS: opts.allowInstall === false ? "false" : "true",
-    GLOBAL_DAILY_TOKEN_CAP: opts.cap, OPENAI_API_KEY: opts.openaiKey, GOOGLE_CLIENT_IDS: opts.google, REFERRALS_ENABLED: opts.referrals ? "true" : undefined, CREDITS_ENABLED: opts.credits ? "true" : undefined, CREATOR_ENABLED: opts.creator ? "true" : undefined, ADMIN_TOKEN: "admin-token-0123456789-abcdefghij", QONVERSION_WEBHOOK_AUTH: "hook-secret", QONVERSION_SECRET_KEY: "rc",
+    GLOBAL_DAILY_TOKEN_CAP: opts.cap, OPENAI_API_KEY: opts.openaiKey, GOOGLE_CLIENT_IDS: opts.google, REFERRALS_ENABLED: opts.referrals ? "true" : undefined, CREDITS_ENABLED: opts.credits ? "true" : undefined, CREATOR_ENABLED: opts.creator ? "true" : undefined, ADMIN_TOKEN: "admin-token-0123456789-abcdefghij", REVENUECAT_WEBHOOK_AUTH: "hook-secret", REVENUECAT_SECRET_KEY: "rc",
   } as unknown as Env;
   const app = createApp(deps);
   const call = (path: string, init?: RequestInit) => app.request(path, init, env);
@@ -275,36 +275,19 @@ describe("rate limit helper", () => {
   });
 });
 
-describe("qonversion", () => {
+describe("revenuecat", () => {
   const kv = () => new FakeKV() as unknown as KVNamespace;
-  /** Answers the identity lookup, then the entitlements list. */
-  const api = (entitlements: unknown[] | null, ok = true) => (async (url: string) => {
-    if (String(url).includes("/v4/identities/")) return { ok, status: ok ? 200 : 404, json: async () => ({ user_id: "QON_1" }) };
-    return { ok: entitlements !== null, status: entitlements === null ? 404 : 200, json: async () => ({ object: "list", data: entitlements ?? [], has_more: false }) };
-  }) as unknown as typeof fetch;
-  const prem = (expires: string | null, source = "appstore") => ({ id: "premium", is_active: true, expires_at: expires, source, product: { product_id: "shentarot_annual" } });
-  it("fails closed without a key, an unknown identity, or on errors", async () => {
+  const reply = (body: unknown, ok = true) => (async () => ({ ok, json: async () => body })) as unknown as typeof fetch;
+  it("fails closed without a key or on errors", async () => {
     expect(await isPremium("u", undefined, kv(), NOW)).toBe(false);
-    expect(await isPremium("u", "k", kv(), NOW, api([], false))).toBe(false);
+    expect(await isPremium("u", "k", kv(), NOW, reply({}, false))).toBe(false);
     expect(await isPremium("u", "k", kv(), NOW, (async () => { throw new Error("x"); }) as unknown as typeof fetch)).toBe(false);
   });
-  it("accepts an active premium entitlement and rejects an expired or inactive one", async () => {
-    expect(await isPremium("u", "k", kv(), NOW, api([prem("2026-12-01T00:00:00Z")]))).toBe(true);
-    expect(await isPremium("u", "k", kv(), NOW, api([prem("2026-01-01T00:00:00Z")]))).toBe(false);
-    expect(await isPremium("u", "k", kv(), NOW, api([{ ...prem(null), is_active: false }]))).toBe(false);
-    expect(await isPremium("u", "k", kv(), NOW, api([{ ...prem(null), id: "other" }]))).toBe(false);
-  });
-  it("a manual grant is not a store subscription; errors bank the credit", async () => {
-    expect(await hasStoreSubscription("u", "k", NOW, api([prem(null, "manual")]))).toBe(false);
-    expect(await hasStoreSubscription("u", "k", NOW, api([prem(null)]))).toBe(true);
-    expect(await hasStoreSubscription("u", "k", NOW, (async () => { throw new Error("x"); }) as unknown as typeof fetch)).toBe(true);
-  });
-  it("grants a 30-day premium entitlement to the Qonversion user behind the identity", async () => {
-    const calls: { url: string; init?: RequestInit }[] = [];
-    const f = (async (url: string, init?: RequestInit) => { calls.push({ url, init }); return { ok: true, status: 201, json: async () => ({ user_id: "QON_1" }) }; }) as unknown as typeof fetch;
-    expect(await grantFreeMonth("u", "sk_x", NOW, f)).toBe(true);
-    expect(calls[1].url).toBe("https://api.qonversion.io/v4/users/QON_1/entitlements");
-    expect(JSON.parse(String(calls[1].init?.body))).toEqual({ entitlement_id: "premium", expires_at: Math.floor(NOW / 1000) + 30 * 86_400 });
+  it("accepts an active premium entitlement and rejects an expired one", async () => {
+    const active = { subscriber: { entitlements: { premium: { expires_date: "2026-12-01T00:00:00Z" } } } };
+    const expired = { subscriber: { entitlements: { premium: { expires_date: "2026-01-01T00:00:00Z" } } } };
+    expect(await isPremium("u", "k", kv(), NOW, reply(active))).toBe(true);
+    expect(await isPremium("u", "k", kv(), NOW, reply(expired))).toBe(false);
   });
 });
 
@@ -660,7 +643,7 @@ describe("accounts", () => {
     expect(accountId).toBe("acct-1");
     // Same Google user again -> same account.
     expect(((await (await signin(s, { provider: "google", idToken: "good:user-1" })).json()) as { accountId: string }).accountId).toBe("acct-1");
-    // A reading now counts against the account and asks Qonversion about the account id.
+    // A reading now counts against the account and asks RevenueCat about the account id.
     const res = await s.call("/v1/reading", { method: "POST", headers: await authHeaders(s.env), body: JSON.stringify(single) });
     expect(res.status).toBe(200);
     expect(seen.at(-1)).toBe("acct-1");
@@ -758,15 +741,13 @@ describe("refer and earn", () => {
     const s = setup({ referrals: true });
     const code = ((await (await call(s, "/v1/referral/me", UUID)).json()) as { code: string }).code;
     await call(s, "/v1/referral/redeem", FRIEND, { code, platform: "android" });
-    const hook = (event: Record<string, unknown>, auth = "Basic hook-secret") =>
-      s.call("/v1/webhooks/qonversion", { method: "POST", headers: { authorization: auth }, body: JSON.stringify(event) });
-    const ev = (name: string, price: number, txn: string, time?: number) =>
-      ({ event_name: name, identity_id: FRIEND, price: { value: price }, transaction: { transaction_id: txn }, time });
-    expect((await hook({ event_name: "subscription_started" }, "Basic wrong")).status).toBe(401);
-    expect(await (await hook(ev("trial_started", 0, "t0"))).json()).toMatchObject({ ignored: true });
+    const hook = (event: Record<string, unknown>, auth = "hook-secret") =>
+      s.call("/v1/webhooks/revenuecat", { method: "POST", headers: { authorization: auth }, body: JSON.stringify({ event }) });
+    expect((await hook({ type: "INITIAL_PURCHASE" }, "wrong")).status).toBe(401);
+    expect(await (await hook({ type: "INITIAL_PURCHASE", price: 0, transaction_id: "t0", app_user_id: FRIEND })).json()).toMatchObject({ ignored: true });
     const paidAt = NOW - 15 * 86_400_000;
-    expect(await (await hook(ev("subscription_started", 19.99, "t1", paidAt / 1000))).json()).toMatchObject({ qualified: true });
-    expect(await (await hook(ev("subscription_renewed", 39.99, "t1"))).json()).toMatchObject({ qualified: false }); // no double
+    expect(await (await hook({ type: "INITIAL_PURCHASE", price: 19.99, transaction_id: "t1", app_user_id: FRIEND, event_timestamp_ms: paidAt })).json()).toMatchObject({ qualified: true });
+    expect(await (await hook({ type: "RENEWAL", price: 39.99, transaction_id: "t1", app_user_id: FRIEND })).json()).toMatchObject({ qualified: false }); // no double
     const granted: string[] = [];
     let subscribed = true;
     const run = () => grantReferralCredits(s.env, { referrals: () => s.referrals, now: () => NOW, grant: async (u) => { granted.push(u); return true; }, subscribed: async () => subscribed });
@@ -782,26 +763,27 @@ describe("refer and earn", () => {
 
 describe("reading credits", () => {
   const hook = (s: ReturnType<typeof setup>, event: Record<string, unknown>) =>
-    s.call("/v1/webhooks/qonversion", { method: "POST", headers: { authorization: "Basic hook-secret" }, body: JSON.stringify(event) });
+    s.call("/v1/webhooks/revenuecat", { method: "POST", headers: { authorization: "hook-secret" }, body: JSON.stringify({ event }) });
   const read = async (s: ReturnType<typeof setup>) =>
     s.call("/v1/reading", { method: "POST", headers: await authHeaders(s.env), body: JSON.stringify(single) });
 
   it("a refunded credit pack takes back its unused credits", async () => {
     const s = setup({ credits: true });
-    const hook = (event: Record<string, unknown>) =>
-      s.call("/v1/webhooks/qonversion", { method: "POST", headers: { authorization: `Basic ${s.env.QONVERSION_WEBHOOK_AUTH}` }, body: JSON.stringify(event) });
-    const buy = { event_name: "in_app_purchase", product_id: "shentarot_credits_10", transaction: { transaction_id: "r1" }, custom_user_id: UUID };
-    expect((await hook(buy)).status).toBe(200);
+    const buy = { type: "NON_RENEWING_PURCHASE", product_id: "shentarot_credits_10", transaction_id: "r1", app_user_id: UUID };
+    expect((await hook(s, buy)).status).toBe(200);
     const hash = await hashId(UUID, "salt");
     const before = await s.credits.balance(hash);
-    const res = await hook({ event_name: "in_app_refunded", transaction: { transaction_id: "r1" }, custom_user_id: UUID });
+    // A subscription cancellation is not a pack refund.
+    expect(await (await hook(s, { type: "CANCELLATION", product_id: "shentarot_monthly", transaction_id: "r1", app_user_id: UUID })).json()).toMatchObject({ ok: true });
+    expect(await s.credits.balance(hash)).toBe(before);
+    const res = await hook(s, { type: "CANCELLATION", cancel_reason: "CUSTOMER_SUPPORT", product_id: "shentarot_credits_10", transaction_id: "r1", app_user_id: UUID });
     expect(await res.json()).toEqual({ ok: true, revoked: 10 });
     expect(await s.credits.balance(hash)).toBe(before - 10);
   });
 
   it("a Starter Pack adds credits once; the first reading grants the day's 2 free credits and spends 1", async () => {
     const s = setup({ credits: true });
-    const buy = { event_name: "in_app_purchase", product_id: "shentarot_credits_5", transaction: { transaction_id: "c1" }, identity_id: UUID };
+    const buy = { type: "NON_RENEWING_PURCHASE", product_id: "shentarot_credits_5", transaction_id: "c1", app_user_id: UUID };
     expect(await (await hook(s, buy)).json()).toMatchObject({ credited: 5 });
     expect(await (await hook(s, buy)).json()).toMatchObject({ credited: 0 }); // retry, not twice
     const me = async () => (await s.call("/v1/credits/me", { method: "POST", headers: await authHeaders(s.env) })).json();
@@ -1080,7 +1062,7 @@ describe("creator program", () => {
     expect(s.granted).toEqual([]);
     const ok = await admin(s, "/v1/admin/creator/1/verify", { likes: 52 });
     expect(await ok.json()).toEqual({ id: 1, status: "verified", monthGranted: true });
-    expect(s.granted).toEqual([UUID]); // the Qonversion identity
+    expect(s.granted).toEqual([UUID]); // the RevenueCat app user
     expect((await admin(s, "/v1/admin/creator/1/verify", { likes: 60 })).status).toBe(409); // already reviewed
     expect(await mine(s)).toMatchObject({ posts: [{ status: "verified", likes: 52, monthGranted: true }] });
   });
@@ -1176,15 +1158,15 @@ describe("account deletion covers everything held for the account", () => {
 
 describe("secrets and tester switches", () => {
   const hookWith = (s: ReturnType<typeof setup>, auth?: string) =>
-    s.call("/v1/webhooks/qonversion", { method: "POST", headers: auth === undefined ? {} : { authorization: auth }, body: JSON.stringify({ event_name: "test" }) });
+    s.call("/v1/webhooks/revenuecat", { method: "POST", headers: auth === undefined ? {} : { authorization: auth }, body: JSON.stringify({ event: { type: "TEST" } }) });
 
-  it("the Qonversion webhook needs the exact secret (any other value, length or missing header is refused)", async () => {
+  it("the RevenueCat webhook needs the exact secret (any other value, length or missing header is refused)", async () => {
     const s = setup();
     expect((await hookWith(s)).status).toBe(401);
-    expect((await hookWith(s, "Basic hook-secreT")).status).toBe(401); // same length, one character off
-    expect((await hookWith(s, "Basic hook-secret-and-more")).status).toBe(401);
-    expect((await hookWith(s, "hook-secret")).status).toBe(401); // missing the Basic scheme
-    expect((await hookWith(s, "Basic hook-secret")).status).toBe(200);
+    expect((await hookWith(s, "hook-secreT")).status).toBe(401); // same length, one character off
+    expect((await hookWith(s, "hook-secret-and-more")).status).toBe(401);
+    expect((await hookWith(s, "hook")).status).toBe(401);
+    expect((await hookWith(s, "hook-secret")).status).toBe(200);
   });
 
   it("safeEqual compares whole strings", () => {

@@ -4,7 +4,7 @@ Last updated: 2026-10-17. Update this file at the end of every phase.
 
 Primary working copy: the owner's local Mac folder. This repo is the backup and hand-off point.
 
-**2026-10-17: subscriptions moved from RevenueCat to Qonversion** (owner decision, before launch, no subscribers to migrate). App: `qonversion_flutter` 11.12.0, build with `--dart-define=QONVERSION_PROJECT_KEY=…` (one key for iOS and Android). Backend: premium check, free-month grants and the webhook (`/v1/webhooks/qonversion`) use the Qonversion REST API v4 with `QONVERSION_SECRET_KEY` / `QONVERSION_WEBHOOK_AUTH`. Tests pass (backend 108, app 134); iOS simulator build passes; not yet run against Qonversion or a store. Owner next: create the Qonversion project, products and `premium` entitlement (`docs/phase-e-subscriptions-setup.md`), then send the Project Key. Dropped: the RevenueCat `TRANSFER` credit move on reinstall (credits are off for v1; see `docs/credits-setup.md`). Privacy policy text now names Qonversion; republish the `shentarot-legal` pages.
+**2026-10-17: subscriptions stay on RevenueCat.** The owner tried Qonversion the same day, then chose RevenueCat. The Qonversion code was reverted; the credit-pack refund handler now listens for RevenueCat `CANCELLATION` of a credit-pack product, and the TRANSFER credit move on reinstall is back. A Qonversion project "ShenTarot" exists but is unused (can be deleted). The App Store In-App Purchase key ZJ84C2Q9M7 was made for it and can be reused in RevenueCat if the .p8 file is still at hand.
 
 | Phase | Scope | Status |
 |---|---|---|
@@ -13,13 +13,13 @@ Primary working copy: the owner's local Mac folder. This repo is the backup and 
 | B | 78-card data, card list/search/detail | Done; card art added on branch `phase-g-card-art` |
 | C | Camera scan, on-device recognition, manual fallback | Code built; a BASELINE model (public-domain art + synthetic augmentation only) is in `app/assets/models/`; NOT run on a device; not validated on real photos (see `ml/README.md`) |
 | D | Cloudflare Worker proxy + AI reading | Code built on branch `phase-d-backend` (on top of `phase-c-scan`); backend + app tests pass; verified locally with wrangler dev (real local D1/KV, `backend/scripts/smoke.sh` passes); NOT deployed, never called the real API; device attestation not implemented: DECISION (owner, 2026-10-16): implement App Attest + Play Integrity before the public launch; waits for Apple Team ID and final bundle ID |
-| E | Subscriptions (Qonversion since 2026-10-17, was RevenueCat) + real paywall | Code built; fake-service tests pass; NOT run against Qonversion or a store (`docs/phase-e-subscriptions-setup.md`) |
+| E | RevenueCat subscriptions + real paywall | Code built on branch `phase-e-subscriptions`; fake-service tests pass; NOT run against RevenueCat or a store (`docs/phase-e-subscriptions-setup.md`) |
 | F | SQLite history/journal, notifications, accessibility, polish | Code built on branch `phase-f-history`; 47 tests pass; iOS simulator build OK; notifications and SQLite NOT tried on a device; accessibility audit and follow-ups not done |
 | G | Tests, store checklists, privacy and terms drafts | Docs written on branch `phase-g-release-docs` (checklists, test plan, data inventory, legal DRAFTS bundled in the app); lawyer review and device testing still to do |
 
 ## 2026-10-17 session: pricing, credits, growth, security (all on `google-play-prep`, flags OFF, nothing deployed)
 - **Prices** (owner): annual US$39.99 (US$1.99 first month), 3 months US$14.99, monthly US$6.99; no weekly, no free trial. `docs/unit-economics.md`, `docs/growth-and-monetisation-framework.md`, `docs/promotions-plan.md`.
-- **Credit wallet** (`docs/credits-setup.md`): 1 credit = a reading or a follow-up. Everyone gets 2 a day; Premium also gets monthly credits (annual 150, 3 months 120, monthly 90). Roll over, never expire; banks 10 days daily / 2 months monthly; max 50 spent a day. Welcome gift 10. Credit packs 10/25/40 for US$1.99/3.99/5.99 (priced above the monthly plan per credit on purpose). Credits survive a reinstall only when signed in (the RevenueCat TRANSFER move was dropped with Qonversion; open item); signing in moves install credits to the account. Spreads of 1 to 3 cards are free; 5, 7, 10-card spreads are Premium after one trial reading.
+- **Credit wallet** (`docs/credits-setup.md`): 1 credit = a reading or a follow-up. Everyone gets 2 a day; Premium also gets monthly credits (annual 150, 3 months 120, monthly 90). Roll over, never expire; banks 10 days daily / 2 months monthly; max 50 spent a day. Welcome gift 10. Credit packs 10/25/40 for US$1.99/3.99/5.99 (priced above the monthly plan per credit on purpose). Premium keeps credits across a reinstall via the RevenueCat TRANSFER event (restored when the owner went back to RevenueCat, 2026-10-17); signing in moves install credits to the account; signing in moves install credits to the account. Spreads of 1 to 3 cards are free; 5, 7, 10-card spreads are Premium after one trial reading.
 - **Referral credits**: both sides 10 credits after the friend's first reading (referrer up to 20 friends a year). **Creator program** (`docs/creator-setup.md`): #shentarot post link + screenshot = 10 credits (1 a day, 8 a month); 50 likes, checked by the owner, = 1 free month (60-day cooldown, 6 a year); screenshots in R2, deleted after 30 days.
 - **Security** (`docs/security-and-abuse.md`): account delete removes credits, referrals, creator posts and screenshots; webhook secret compared in constant time; tester ids only on beta; tester mode off in release builds; `scripts/release-check.sh` runs before production deploys. Owner decisions: shared networks, many devices and creator credits are not treated as abuse.
 - Tests: 106 backend (incl. real SQL on node:sqlite) and 132 app tests pass. Migrations `0004` to `0007` have NOT been applied to the live database; the live Worker is still the old code.
@@ -32,15 +32,15 @@ App record **ShenTarot: AI Lens** (Apple ID 6823779463, bundle `com.shentech.she
 1. App Attest (iOS) and Play Integrity (Android) in `POST /v1/install`; per-IP new-install limits in D1. Production must never run `ALLOW_UNATTESTED_INSTALLS`.
 2. Token-cap protection: a reserve for Premium and older installs, an 80% alert, Cloudflare rate limiting / Turnstile; raise `GLOBAL_DAILY_TOKEN_CAP` for real traffic.
 3. App fallback when the credit server does not answer while `CREDITS` is on (today free users would be blocked from reading).
-4. Refund handling (Qonversion `subscription_refunded` / `in_app_refunded` webhook events) to remove unused credits; deletion path for people who never signed in.
+4. Refund handling (RevenueCat cancellation events) to remove unused credits; deletion path for people who never signed in.
 5. Privacy policy text (draft, in-app `privacy.txt`, `site/privacy.html`) and the Play data-safety CSVs do not yet mention credits, referrals, creator posts or screenshots, purchase history.
 6. Look-back reminder notification, topic chips, Apple subscription extensions for referrers, cosmetic tier rewards (art not made), creator review page (curl only).
 7. Card scan model: baseline only, never validated on real deck photos.
 
 **Deploy and accounts (owner)**
 8. Apple side: enrollment is Active and the app record exists; still to do are the Business agreements (bank, tax) and the subscription review screenshots. Play Console developer verification and the closed-testing rule are open.
-9. Create in both stores: 3 subscriptions, the US$1.99 intro offer, offer codes (friend US$19.99, launch, creator, win-back) and the 3 credit packs; Qonversion project, products with the store ids, `premium` entitlement, webhook (`subscription_started`, `subscription_renewed`, `trial_converted`, `in_app_purchase`, `in_app_refunded`) with `QONVERSION_WEBHOOK_AUTH`.
-10. Deploy the new Worker code; apply migrations 0005 to 0008 to remote D1 (0002 to 0004 are already applied); create the private R2 bucket; set secrets (`QONVERSION_SECRET_KEY`, `ADMIN_TOKEN`, webhook secret); turn on `CREDITS_ENABLED`, `REFERRALS_ENABLED`, `CREATOR_ENABLED`; delete `TESTER_INSTALL_IDS`; use `npm run deploy` (runs the release check), not `deploy:beta`.
+9. Create in both stores: 3 subscriptions, the US$1.99 intro offer, offer codes (friend US$19.99, launch, creator, win-back) and the 3 credit packs; RevenueCat project, `premium` entitlement, current offering, webhook (INITIAL_PURCHASE, RENEWAL, NON_RENEWING_PURCHASE, TRANSFER, CANCELLATION for pack refunds) with `REVENUECAT_WEBHOOK_AUTH`.
+10. Deploy the new Worker code; apply migrations 0005 to 0008 to remote D1 (0002 to 0004 are already applied); create the private R2 bucket; set secrets (`REVENUECAT_SECRET_KEY`, `ADMIN_TOKEN`, webhook secret); turn on `CREDITS_ENABLED`, `REFERRALS_ENABLED`, `CREATOR_ENABLED`; delete `TESTER_INSTALL_IDS`; use `npm run deploy` (runs the release check), not `deploy:beta`.
 11. Build the apps with `--dart-define=CREDITS=true --dart-define=REFERRALS=true --dart-define=CREATOR=true` only after step 10.
 
 **Testing and review**
@@ -60,7 +60,7 @@ Every feature the paywall, store listing or README promises, checked on the sign
 | AI reading (Claude Haiku, GPT-6 Luna backup) | Built, live | Verified on emulator with the live server |
 | Look first note | Built | Verified live |
 | Card-by-card layout, Why this card | Built | Verified live |
-| Follow-up questions (Premium) | Built | Tested in code; live test needs Premium (blocked on Qonversion) |
+| Follow-up questions (Premium) | Built | Tested in code; live test needs Premium (blocked on RevenueCat) |
 | Clarifier card (Premium) | Built | Same as above |
 | Journal notes (Premium) | Built | Same as above |
 | Look back a week later (Premium) | Built | In-app prompt only; no reminder notification yet |
@@ -71,7 +71,7 @@ Every feature the paywall, store listing or README promises, checked on the sign
 | Guide (how to use + 12 lessons + myths) | Built | |
 | Report a reading (AI content) | Built | |
 | Crisis wording → fixed care message | Built | Hotline numbers still to verify (owner) |
-| Paywall, restore, manage subscription | Built | Shows "not available yet" until Qonversion key exists (blocked on owner) |
+| Paywall, restore, manage subscription | Built | Shows "not available yet" until RevenueCat key exists (blocked on owner) |
 | Own AI key | Built, hidden for launch | `OWN_KEY` flag |
 | Accounts / sign-in | Built, off until set up | Google (Android) and Apple (iOS, behind `APPLE_SIGNIN`) sign-in, sign out, Delete account; server endpoints + migration `0002_accounts.sql` NOT deployed yet. Owner steps: `docs/accounts-setup.md`. Deletion page live: https://yunlong2601.github.io/shentarot-legal/delete-account.html |
 | Play Integrity / App Attest | Not built | Blocked: app must exist in Play Console (Android) and Apple enrollment (iOS) |
@@ -89,7 +89,7 @@ Every feature the paywall, store listing or README promises, checked on the sign
 - Switch from `npm run deploy:beta` to attested installs (Play Integrity / App Attest).
 
 ### (B) Blocked on the owner
-1. Qonversion + Play subscriptions (product ids in `docs/play-release-guide.md`), then connect Google Play in Qonversion (one project key serves both platforms) and `QONVERSION_SECRET_KEY`.
+1. RevenueCat + Play subscriptions (product ids in `docs/play-release-guide.md`), then the `goog_` key and `REVENUECAT_SECRET_KEY`.
 2. Upload the AAB to a closed test, recruit testers (check the current tester/day rule).
 3. Real-phone test, including a real card scan; deck photos for model training.
 4. Verify crisis hotline numbers; decide on accounts (`docs/accounts-plan.md`).
@@ -124,7 +124,7 @@ Google Play prep (branch `google-play-prep`): app id `com.shentech.shentarot`, u
 
 (Earlier) Phase F is coded: readings are saved in SQLite on the device (history list, swipe/delete, delete-all), Premium journal notes, daily reminder (local notification, permission asked only when switched on), onboarding flag and the daily free-reading count now persist. Decisions: history is visible to everyone; writing journal notes is Premium. Follow-up questions (Premium) are implemented on branch `phase-d-followups`: `POST /v1/followup` (30 a day), button on the reading screen, answers shown for the visit only (not saved). Privacy policy and data inventory updated (the earlier reading text is sent for context). Remaining before release: accessibility pass (VoiceOver, Dynamic Type), real-device test of notifications. Next: Phase G (tests, store checklists, privacy and terms drafts) after "continue".
 
-(Earlier) Phase E is coded. Owner: follow `docs/phase-e-subscriptions-setup.md` (Apple + Qonversion setup), then sandbox-test. Next build phase: F (history/notifications/polish) after "continue". iOS is the priority; Play Store work starts after.
+(Earlier) Phase E is coded. Owner: follow `docs/phase-e-subscriptions-setup.md` (Apple + RevenueCat setup), then sandbox-test. Next build phase: F (history/notifications/polish) after "continue". iOS is the priority; Play Store work starts after.
 
 (Earlier) Phase D is coded (`backend/`, `app/lib/core/`). Remaining: owner creates Anthropic/Cloudflare accounts and keys, deploys (`backend/README.md`), builds the app with `--dart-define=API_BASE_URL=...`, and tests a real reading; implement App Attest / Play Integrity in `POST /v1/install`. Then Phase E after "continue".
 
@@ -139,7 +139,7 @@ Google Play prep (branch `google-play-prep`): app id `com.shentech.shentarot`, u
 - Card art: open the Commons pages in `app/assets/cards/art/CREDITS.md` and confirm each is the original 1909/1910 Pamela Colman Smith scan, not a 1971+ recolour.
 - Skim `app/assets/cards/cards.json` meanings (original wording) before release.
 - Pick the final app name; check trademarks and store names (top pick: ShenTarot).
-- Create Anthropic API account with a monthly spend limit; Cloudflare and Qonversion accounts; join Apple Small Business Program.
+- Create Anthropic API account with a monthly spend limit; Cloudflare and RevenueCat accounts; join Apple Small Business Program.
 - Check the Google Play new-personal-account testing rule (testers/days) and the school's rules on commercial work.
 - Buy 2-3 physical RWS-style decks and photograph them for training (see the ML section of `docs/phase-c-design.md`).
 - Lawyer review: image licensing, trademark wording, privacy policy, terms.

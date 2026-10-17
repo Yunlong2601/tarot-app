@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 const _installKey = 'install_id';
 
 /// Anonymous random ID for this install. Used by the backend (hashed) and as
-/// the Qonversion identity, so there are no accounts.
+/// the RevenueCat app user ID, so there are no accounts.
 Future<String> loadInstallId() async {
   final prefs = await SharedPreferences.getInstance();
   var id = prefs.getString(_installKey);

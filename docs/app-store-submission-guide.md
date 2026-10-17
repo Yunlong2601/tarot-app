@@ -32,7 +32,7 @@ Written 2026-10-17. Menu names, sizes and rules change: items marked (verify) mu
 - **Family Sharing:** off on all three.
 - **Review notes: done on all three (2026-10-17):** "Unlocks premium AI tarot readings. Purchase from the paywall shown after onboarding or via Settings > Premium." Review screenshot left empty for now.
 - **Introductory offer on Annual: done (2026-10-17).** Pay up front, 1 month, US$1.99 (UK GBP 1.99, Canada CAD 2.99, Singapore SGD 2.98), all 175 countries, starts Oct 17, 2026, no end date. An earlier draft offer at US$3.99 was deleted and replaced.
-- **Still missing on every subscription:** the review screenshot of the paywall (needs the paywall to show real prices: Qonversion or a StoreKit test run), and a look at Singapore prices (Apple's S$59.98 for annual is above the US price once tax is included; adjust if you prefer).
+- **Still missing on every subscription:** the review screenshot of the paywall (needs the paywall to show real prices: RevenueCat or a StoreKit test run), and a look at Singapore prices (Apple's S$59.98 for annual is above the US price once tax is included; adjust if you prefer).
 - The annual price had been US$99.99 from an earlier attempt; it was changed to US$39.99 on 2026-10-17 with all other countries recalculated.
 
 ## 3. Steps only you can do, in order (the critical path)
@@ -41,12 +41,12 @@ Written 2026-10-17. Menu names, sizes and rules change: items marked (verify) mu
 3. **Identifiers:** App ID `com.shentech.shentarot` with the In-App Purchase capability (Xcode creates it when you sign in with the paid team and build once).
 4. ~~New App~~ **Done**: record `ShenTarot: AI Lens` exists (section 2b).
 5. **Subscriptions**: the group, the three products, levels and base prices are **done** (section 2b). Names, descriptions and the US$1.99 first-month introductory offer on `shentarot_annual` are done too. Availability (all countries), Family Sharing off and review notes are done on all three. Still to do: a paywall review screenshot for each, and a look at Singapore prices.
-6. **Qonversion** (`docs/phase-e-subscriptions-setup.md`; owner chose it over RevenueCat on 2026-10-17): create the project, connect the iOS app (bundle id, App Store Connect **In-App Purchase key** .p8 with key id and issuer id, and Apple server notifications), create products `shentarot_annual`, `shentarot_quarterly`, `shentarot_monthly` linked to the same store ids, and entitlement `premium` attached to all three. Copy the public iOS SDK key (starts `appl_`). Set the Qonversion secret on the Worker (`npx wrangler secret put QONVERSION_SECRET_KEY`) and, for v1.1 features, the webhook.
+6. **RevenueCat** (`docs/phase-e-subscriptions-setup.md`): add the iOS app, upload the App Store Connect **In-App Purchase key** (.p8, key id, issuer id), import the three products, create entitlement `premium`, make an offering marked *current* with packages Annual, Three Month and Monthly. Copy the public iOS SDK key (starts `appl_`). Set the RevenueCat secret on the Worker (`npx wrangler secret put REVENUECAT_SECRET_KEY`) and, for v1.1 features, the webhook.
 7. **Backend for production:** Anthropic monthly spend limit; secrets set; remove `TESTER_INSTALL_IDS`; raise `GLOBAL_DAILY_TOKEN_CAP` for launch traffic; apply migrations (`npx wrangler d1 migrations apply shentarot --remote`; they only add tables for v1.1, safe to apply); `bash scripts/release-check.sh`; then deploy and run `backend/scripts/smoke.sh` against the live URL. Decide device checks (section 1).
 8. **Build and upload** (on this Mac, after step 6):
    ```bash
    cd app
-   flutter build ipa --release --dart-define-from-file=config/live.json --dart-define=QONVERSION_PROJECT_KEY=YOUR_PROJECT_KEY
+   flutter build ipa --release --dart-define-from-file=config/live.json --dart-define=REVENUECAT_IOS_KEY=appl_YOURKEY
    ```
    then upload `build/ios/ipa/*.ipa` with Xcode Organizer or the Transporter app. Raise the build number (`version: 1.0.0+2` in `pubspec.yaml`) for every re-upload. I can run this once the key and paid team exist.
 9. **TestFlight:** install on a real iPhone. Check: camera scan, a real reading, the daily reminder, a sandbox purchase of each plan, Restore on a second device, cancel. Ask 2 or 3 friends to try it (internal testers need no review).
