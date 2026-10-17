@@ -106,6 +106,12 @@ class ApiReadingService
   }
 
   @override
+  Future<int> claimDaily() async {
+    final res = await _post('/v1/credits/daily', const {}, auth: true);
+    return res.status == 200 ? (res.json['granted'] as num?)?.toInt() ?? 0 : 0;
+  }
+
+  @override
   Future<ReferralInfo> me() async {
     final res = await _post('/v1/referral/me', const {}, auth: true);
     if (res.status != 200) {

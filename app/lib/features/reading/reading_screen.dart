@@ -152,7 +152,7 @@ class _FollowUpsState extends State<_FollowUps> {
         clarifier: clarifier,
       );
       if (mounted) setState(() => _thread.add((label, result.text)));
-      if (!state.isPremium) state.refreshCredits();
+      state.refreshCredits();
     } on ReadingException catch (e) {
       if (!mounted) return;
       if (e.kind == ReadingErrorKind.premiumRequired) {

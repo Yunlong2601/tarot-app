@@ -47,7 +47,7 @@ Future<void> main() async {
   );
   await state.loadPersisted();
   unawaited(state.refreshReminders());
-  unawaited(state.refreshCredits());
+  unawaited(state.claimDailyCredit());
   unawaited(state.startSubscriptions());
   runApp(ShenTarotApp(initialState: state));
 }

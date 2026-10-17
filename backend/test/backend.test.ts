@@ -10,7 +10,7 @@ import { parseOpenAI } from "../src/llm";
 import type { UsageStore } from "../src/usage";
 import { verifyIdToken, type AccountStore } from "../src/accounts";
 import type { Referral, ReferralStore } from "../src/referrals";
-import type { CreditStore } from "../src/credits";
+import { CREDIT_VALID_DAYS, creditExpiry, type CreditStore } from "../src/credits";
 import { grantReferralCredits } from "../src/index";
 import { allowWithinMinute } from "../src/usage";
 import { cleanQuestion, parseFollowupRequest, parseReadingRequest } from "../src/validate";
@@ -55,11 +55,16 @@ class MemReferrals implements ReferralStore {
 
 class MemCredits implements CreditStore {
   bal = new Map<string, number>();
+  login = new Map<string, number>();
   txns = new Set<string>();
+  days = new Map<string, string>();
+  async claimDaily(k: string, day: string, cap: number) { if (this.days.get(k) === day || (this.login.get(k) ?? 0) >= cap) return false; this.days.set(k, day); this.login.set(k, (this.login.get(k) ?? 0) + 1); this.bal.set(k, (this.bal.get(k) ?? 0) + 1); return true; }
   async balance(k: string) { return this.bal.get(k) ?? 0; }
   async add(k: string, n: number, txn: string) { if (this.txns.has(txn)) return false; this.txns.add(txn); this.bal.set(k, (this.bal.get(k) ?? 0) + n); return true; }
-  async spend(k: string) { const b = this.bal.get(k) ?? 0; if (b <= 0) return false; this.bal.set(k, b - 1); return true; }
-  async refund(k: string) { this.bal.set(k, (this.bal.get(k) ?? 0) + 1); }
+  owners = new Map<number, string>();
+  private n = 0;
+  async spend(k: string) { const b = this.bal.get(k) ?? 0; if (b <= 0) return null; this.bal.set(k, b - 1); this.owners.set(++this.n, k); return this.n; }
+  async refund(id: number) { const k = this.owners.get(id)!; this.bal.set(k, (this.bal.get(k) ?? 0) + 1); }
 }
 
 class MemAccounts implements AccountStore {
@@ -381,14 +386,14 @@ describe("follow-up questions", () => {
     expect(s.usage.rows[0]).toMatchObject({ kind: "followup", i: 1000, o: 500 });
   });
 
-  it("follow-ups are capped at 30 a day and do not use up readings", async () => {
+  it("follow-ups share the daily allowance with readings", async () => {
     const s = setup({ premium: true });
     const hash = await hashId(UUID, "salt");
     while ((await s.usage.count(hash, "2026-10-16", "followup")) < 50) await s.usage.reserve(hash, "2026-10-16", "followup");
     expect((await post(s, base)).status).toBe(429);
     const reading = await authHeaders(s.env).then((h) =>
       s.call("/v1/reading", { method: "POST", headers: h, body: JSON.stringify(single) }));
-    expect(reading.status).toBe(200);
+    expect(reading.status).toBe(429); // one shared allowance
   });
 
   it("gives the slot back when the model call fails", async () => {
@@ -702,3 +707,67 @@ describe("reading credits", () => {
     expect(await s.credits.balance(await hashId(UUID, "salt"))).toBe(4);
   });
 });
+
+describe("plan allowances and the daily login credit", () => {
+  it("credits are valid for one year", () => {
+    expect(CREDIT_VALID_DAYS).toBe(365);
+    expect(creditExpiry(Date.parse("2026-10-17T00:00:00Z"))).toBe("2027-10-17T23:59:59.999Z");
+    // a credit received on 25 October 2026 expires 365 days later, 25 October 2027
+    expect(creditExpiry(Date.parse("2026-10-25T09:30:00Z"))).toBe("2027-10-25T23:59:59.999Z");
+  });
+
+  const hash = () => hashId(UUID, "salt");
+  const daily = async (s: ReturnType<typeof setup>) =>
+    (await s.call("/v1/credits/daily", { method: "POST", headers: await authHeaders(s.env) })).json();
+  const body = JSON.stringify({ spread: "single", cards: [{ id: "major_00_fool", reversed: false }], reading: "The Fool.", followup: "More?" });
+  const readBody = JSON.stringify(single);
+
+  it("everyone gets one login credit a day, banked up to 3", async () => {
+    const s = setup({ credits: true });
+    expect(await daily(s)).toEqual({ granted: 1, balance: 1, bankCap: 3 });
+    expect(await daily(s)).toMatchObject({ granted: 0, balance: 1 }); // same day
+    s.credits.days.set(await hash(), "2026-10-15");
+    expect(await daily(s)).toMatchObject({ granted: 1, balance: 2 });
+    s.credits.days.set(await hash(), "2026-10-14");
+    s.credits.bal.set(await hash(), 3);
+    s.credits.login.set(await hash(), 3);
+    expect(await daily(s)).toMatchObject({ granted: 0, balance: 3 }); // login bank full
+    expect((await setup().call("/v1/credits/daily", { method: "POST", headers: await authHeaders(setup().env) })).status).toBe(404); // off by default
+  });
+
+  it("a login credit buys a reading after the free one, and a follow-up too", async () => {
+    const s = setup({ credits: true });
+    await daily(s);
+    const go = async (path: string, b: string) => s.call(path, { method: "POST", headers: await authHeaders(s.env), body: b });
+    expect((await go("/v1/reading", readBody)).status).toBe(200); // free daily reading
+    expect((await go("/v1/reading", readBody)).status).toBe(200); // paid with the login credit
+    expect(await s.credits.balance(await hash())).toBe(0);
+  });
+
+  it("premium allowance depends on the plan and is shared by readings and follow-ups", async () => {
+    for (const [allowance, label] of [[50, "annual"], [40, "quarterly"], [30, "monthly"]] as const) {
+      const s = setup({ premium: true });
+      s.deps.premiumAllowance = async () => allowance;
+      const h = await hash();
+      while ((await s.usage.count(h, "2026-10-16", "reading")) < allowance - 1) await s.usage.reserve(h, "2026-10-16", "reading");
+      const go = async (path: string, b: string) => { s.kv.m.clear(); return s.call(path, { method: "POST", headers: await authHeaders(s.env), body: b }); };
+      expect((await go("/v1/followup", body)).status, label).toBe(200); // the last unit of the allowance
+      expect((await go("/v1/reading", readBody)).status, label).toBe(429);
+      expect((await go("/v1/followup", body)).status, label).toBe(429);
+    }
+  });
+
+  it("past the allowance a premium user can spend credits on readings and follow-ups", async () => {
+    const s = setup({ premium: true, credits: true });
+    s.deps.premiumAllowance = async () => 30;
+    const h = await hash();
+    while ((await s.usage.count(h, "2026-10-16", "reading")) < 30) await s.usage.reserve(h, "2026-10-16", "reading");
+    s.credits.bal.set(h, 2);
+    const go = async (path: string, b: string) => { s.kv.m.clear(); return s.call(path, { method: "POST", headers: await authHeaders(s.env), body: b }); };
+    expect((await go("/v1/reading", readBody)).status).toBe(200);
+    expect((await go("/v1/followup", body)).status).toBe(200);
+    expect(await s.credits.balance(h)).toBe(0);
+    expect((await go("/v1/reading", readBody)).status).toBe(429);
+  });
+});
+

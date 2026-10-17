@@ -11,8 +11,8 @@ import {
   readingMaxTokens, READING_SYSTEM_PROMPT, buildReadingMessage, fallbackReading, hitsBannedClaim,
   parseModelReply, renderReading,
 } from "./reading";
-import { isPremium } from "./revenuecat";
-import { D1CreditStore, creditsInProduct, type CreditStore } from "./credits";
+import { isPremium, premiumPlan } from "./revenuecat";
+import { D1CreditStore, DAILY_LOGIN_CREDITS, LOGIN_CREDIT_BANK_CAP, creditsInProduct, type CreditStore } from "./credits";
 import {
   CREDIT_DELAY_DAYS, D1ReferralStore, MAX_CREDITS_PER_YEAR, PLAY_REFERRAL_OFFER_TAG, grantFreeMonth,
   hasStoreSubscription, newCode, normaliseCode, type ReferralStore,
@@ -22,7 +22,7 @@ import {
 } from "./accounts";
 import {
   BURST_PER_MINUTE, D1UsageStore, DEFAULT_GLOBAL_DAILY_TOKEN_CAP, FREE_READINGS_PER_DAY,
-  IP_PER_MINUTE, PREMIUM_FOLLOWUPS_PER_DAY, PREMIUM_READINGS_PER_DAY, allowWithinMinute, utcDay, type UsageStore,
+  DEFAULT_PREMIUM_ALLOWANCE, IP_PER_MINUTE, PLAN_DAILY_ALLOWANCE, allowWithinMinute, utcDay, type UsageStore,
 } from "./usage";
 import { isFreeSpread } from "./spreads";
 import { isUuid, parseFollowupRequest, parseReadingRequest } from "./validate";
@@ -32,6 +32,8 @@ export interface Deps {
   usage: (env: Env) => UsageStore;
   /** `appUserId` is the RevenueCat app user id: the account id when signed in, else the install id. */
   premium: (appUserId: string, env: Env, nowMs: number) => Promise<boolean>;
+  /** Daily AI allowance (readings + follow-ups) for a Premium user, by plan. */
+  premiumAllowance?: (appUserId: string, env: Env, nowMs: number) => Promise<number>;
   now: () => number;
   accounts: (env: Env) => AccountStore;
   referrals: (env: Env) => ReferralStore;
@@ -44,6 +46,11 @@ const defaultDeps: Deps = {
   usage: (env) => new D1UsageStore(env.DB),
   premium: async (id, env, now) =>
     testerIds(env).includes(id) || isPremium(id, env.REVENUECAT_SECRET_KEY, env.KV, now),
+  premiumAllowance: async (id, env, now) => {
+    if (testerIds(env).includes(id)) return DEFAULT_PREMIUM_ALLOWANCE;
+    const plan = await premiumPlan(id, env.REVENUECAT_SECRET_KEY, env.KV, now);
+    return plan && plan !== "other" ? PLAN_DAILY_ALLOWANCE[plan] : DEFAULT_PREMIUM_ALLOWANCE;
+  },
   now: () => Date.now(),
   accounts: (env) => new D1AccountStore(env.DB),
   referrals: (env) => new D1ReferralStore(env.DB),
@@ -147,14 +154,20 @@ export function createApp(deps: Deps = defaultDeps) {
     // per-minute brakes above. Everything else (crisis check, prompt rules,
     // output checks) is the same on both paths.
     if (user.target && !premium) return c.json({ error: "premium_required" }, 402);
-    const limit = premium ? PREMIUM_READINGS_PER_DAY : FREE_READINGS_PER_DAY;
-    let usedCredit = false;
-    if (!user.target && (await usage.count(who.usageKey, day, "reading")) >= limit) {
-      // Free users past today's reading can spend a credit.
-      if (premium || c.env.CREDITS_ENABLED !== "true" || !(await deps.credits(c.env).spend(who.usageKey))) {
-        return c.json({ error: "daily_limit", premium }, 429);
+    // Free: the daily free reading. Premium: the plan allowance, shared by
+    // readings and follow-ups. Past it, a credit pays (daily login credit or Starter Pack).
+    const limit = premium
+      ? await (deps.premiumAllowance?.(who.appUserId, c.env, now) ?? DEFAULT_PREMIUM_ALLOWANCE)
+      : FREE_READINGS_PER_DAY;
+    let creditLot: number | null = null;
+    if (!user.target) {
+      const used = premium
+        ? (await usage.count(who.usageKey, day, "reading")) + (await usage.count(who.usageKey, day, "followup"))
+        : await usage.count(who.usageKey, day, "reading");
+      if (used >= limit) {
+        creditLot = c.env.CREDITS_ENABLED === "true" ? await deps.credits(c.env).spend(who.usageKey) : null;
+        if (creditLot === null) return c.json({ error: "daily_limit", premium, limit }, 429);
       }
-      usedCredit = true;
     }
 
     const slot = await usage.reserve(who.usageKey, day, "reading", req.spread, usageModel(targets[0]!));
@@ -189,7 +202,7 @@ export function createApp(deps: Deps = defaultDeps) {
       });
     } catch (e) {
       await usage.release(slot);
-      if (usedCredit) await deps.credits(c.env).refund(who.usageKey);
+      if (creditLot !== null) await deps.credits(c.env).refund(creditLot);
       if (user.target && isAuthError(e)) return c.json({ error: "user_key_rejected" }, 400);
       logUpstreamError(e);
       return c.json({ error: "upstream_failed" }, 502);
@@ -227,21 +240,25 @@ export function createApp(deps: Deps = defaultDeps) {
 
     if (detectCrisis(req.followup, req.question)) return c.json({ crisis: true, message: CRISIS_MESSAGE });
 
-    let followupCredit = false;
-    if (!(await deps.premium(who.appUserId, c.env, now))) {
+    let followupLot: number | null = null;
+    const premium = await deps.premium(who.appUserId, c.env, now);
+    if (!premium) {
       // Free users can spend a credit on a follow-up or clarifier.
-      if (c.env.CREDITS_ENABLED !== "true" || !(await deps.credits(c.env).spend(who.usageKey))) {
-        return c.json({ error: "premium_required" }, 402);
-      }
-      followupCredit = true;
+      followupLot = c.env.CREDITS_ENABLED === "true" ? await deps.credits(c.env).spend(who.usageKey) : null;
+      if (followupLot === null) return c.json({ error: "premium_required" }, 402);
     }
 
     const usage = deps.usage(c.env);
     const day = utcDay(now);
     const cap = Number(c.env.GLOBAL_DAILY_TOKEN_CAP ?? DEFAULT_GLOBAL_DAILY_TOKEN_CAP);
     if (!user.target && (await usage.tokensToday(day)) >= cap) return c.json({ error: "service_busy" }, 503);
-    if (!user.target && (await usage.count(who.usageKey, day, "followup")) >= PREMIUM_FOLLOWUPS_PER_DAY) {
-      return c.json({ error: "daily_limit", premium: true }, 429);
+    if (!user.target && premium) {
+      const allowance = await (deps.premiumAllowance?.(who.appUserId, c.env, now) ?? DEFAULT_PREMIUM_ALLOWANCE);
+      const used = (await usage.count(who.usageKey, day, "reading")) + (await usage.count(who.usageKey, day, "followup"));
+      if (used >= allowance) {
+        followupLot = c.env.CREDITS_ENABLED === "true" ? await deps.credits(c.env).spend(who.usageKey) : null;
+        if (followupLot === null) return c.json({ error: "daily_limit", premium: true, limit: allowance }, 429);
+      }
     }
 
     const slot = await usage.reserve(who.usageKey, day, "followup", req.spread, usageModel(targets[0]!));
@@ -258,7 +275,7 @@ export function createApp(deps: Deps = defaultDeps) {
       return c.json({ answer: checked.text, disclaimer: DISCLAIMER });
     } catch (e) {
       await usage.release(slot);
-      if (followupCredit) await deps.credits(c.env).refund(who.usageKey);
+      if (followupLot !== null) await deps.credits(c.env).refund(followupLot);
       if (user.target && isAuthError(e)) return c.json({ error: "user_key_rejected" }, 400);
       logUpstreamError(e);
       return c.json({ error: "upstream_failed" }, 502);
@@ -316,6 +333,18 @@ export function createApp(deps: Deps = defaultDeps) {
     if (!installId) return c.json({ error: "unauthorized" }, 401);
     const who = await identity(c.env, installId);
     return c.json({ balance: await deps.credits(c.env).balance(who.usageKey) });
+  });
+
+  // Daily login credit for everyone: +1 the first time the app opens each UTC
+  // day, unless the balance is already at the bank cap.
+  app.post("/v1/credits/daily", async (c) => {
+    if (c.env.CREDITS_ENABLED !== "true") return c.json({ error: "credits_off" }, 404);
+    const installId = await installFrom(c.req.header("authorization"), c.env, deps.now());
+    if (!installId) return c.json({ error: "unauthorized" }, 401);
+    const who = await identity(c.env, installId);
+    const store = deps.credits(c.env);
+    const granted = await store.claimDaily(who.usageKey, utcDay(deps.now()), LOGIN_CREDIT_BANK_CAP);
+    return c.json({ granted: granted ? DAILY_LOGIN_CREDITS : 0, balance: await store.balance(who.usageKey), bankCap: LOGIN_CREDIT_BANK_CAP });
   });
 
   // ---- Refer and earn (off unless REFERRALS_ENABLED=true) ----

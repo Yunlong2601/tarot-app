@@ -60,10 +60,13 @@ export class D1UsageStore implements UsageStore {
 }
 
 export const FREE_READINGS_PER_DAY = 1;
-// Premium is sold as unlimited; these are hidden fair-use caps against bots or
-// leaked devices (Terms: "fair use"). Real users should never reach them.
-export const PREMIUM_READINGS_PER_DAY = 50;
-export const PREMIUM_FOLLOWUPS_PER_DAY = 50;
+// Premium unlocks every feature; AI readings and follow-ups share one daily
+// allowance that depends on the plan (stated openly in the app and the Terms).
+// Credits (daily login credit, Starter Pack) can go past it.
+export const PLAN_DAILY_ALLOWANCE = { annual: 50, quarterly: 40, monthly: 30 } as const;
+export type PremiumPlan = keyof typeof PLAN_DAILY_ALLOWANCE;
+/** Testers and unrecognised paid products: the highest allowance. */
+export const DEFAULT_PREMIUM_ALLOWANCE = PLAN_DAILY_ALLOWANCE.annual;
 export const BURST_PER_MINUTE = 10;
 export const IP_PER_MINUTE = 30;
 export const DEFAULT_GLOBAL_DAILY_TOKEN_CAP = 2_000_000;

@@ -60,6 +60,15 @@ class AppState extends ChangeNotifier {
   final CreditBackend creditApi;
   int credits = 0;
 
+  /// Today's login credit (once a day for everyone), then the balance.
+  Future<void> claimDailyCredit() async {
+    if (!creditsEnabled) return;
+    try {
+      await creditApi.claimDaily();
+    } catch (_) {}
+    await refreshCredits();
+  }
+
   Future<void> refreshCredits() async {
     if (!creditsEnabled) return;
     try {

@@ -43,7 +43,7 @@ Future<void> startReading(
     );
     if (result == null || !context.mounted) return;
     text = result.text;
-    if (!state.isPremium && !state.canReadForFree) state.refreshCredits();
+    state.refreshCredits(); // a credit may have paid for this reading
   }
   final id = 'r${DateTime.now().microsecondsSinceEpoch}';
   state.addReading(
@@ -104,6 +104,17 @@ Future<ReadingResult?> _interpret(
               child: const Text('OK'),
             ),
           ],
+        ),
+      );
+    } else if (failure.kind == ReadingErrorKind.dailyLimit && state.isPremium) {
+      // Premium already has the paywall's benefits: explain the plan allowance.
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            'You have used today\'s readings for your plan. Use a credit, '
+            'or come back after the daily reset (00:00 UTC).',
+          ),
+          duration: Duration(seconds: 8),
         ),
       );
     } else if (failure.kind == ReadingErrorKind.premiumRequired ||

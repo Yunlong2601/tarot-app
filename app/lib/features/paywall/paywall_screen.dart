@@ -156,7 +156,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
           ),
           const SizedBox(height: 16),
           for (final f in const [
-            'Unlimited AI readings (free: 1 a day)',
+            'Up to 30 to 50 AI readings a day, by plan (free: 1 a day)',
             'Follow-up questions on your readings',
             'A clarifier card to shed light on a reading',
             'A look back a week later, with a reminder',
@@ -420,7 +420,7 @@ class _StarterPackCard extends StatelessWidget {
           Text(
             'Starter Pack: 5 reading credits for $_price, one '
             'time. Use them for extra readings or follow-up questions. '
-            'Credits never expire.',
+            'Credits last one year. Everyone also gets 1 free credit a day when they open the app.',
           ),
           const SizedBox(height: 8),
           Align(
