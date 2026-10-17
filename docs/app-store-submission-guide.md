@@ -46,8 +46,9 @@ Written 2026-10-17. Menu names, sizes and rules change: items marked (verify) mu
 8. **Build and upload** (on this Mac, after step 6):
    ```bash
    cd app
-   flutter build ipa --release --dart-define-from-file=config/live.json --dart-define=REVENUECAT_IOS_KEY=appl_YOURKEY
+   flutter build ipa --release --dart-define-from-file=config/live.json
    ```
+   `config/live.json` holds the public iOS SDK key (`REVENUECAT_IOS_KEY`, public by design; the secret key lives only on the Worker). Credits, referrals and the creator program stay off because their flags are not passed.
    then upload `build/ios/ipa/*.ipa` with Xcode Organizer or the Transporter app. Raise the build number (`version: 1.0.0+2` in `pubspec.yaml`) for every re-upload. I can run this once the key and paid team exist.
 9. **TestFlight:** install on a real iPhone. Check: camera scan, a real reading, the daily reminder, a sandbox purchase of each plan, Restore on a second device, cancel. Ask 2 or 3 friends to try it (internal testers need no review).
 10. **App Store Connect > the version page:** fill in the fields in section 4, add screenshots (section 5), pick the TestFlight build, set pricing and availability, answer the age rating and privacy questionnaires, add the review notes, then **Add for Review** and **Submit**. Review usually takes 1 to 2 days (verify); first submissions of subscription apps are reviewed together with the subscriptions.

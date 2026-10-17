@@ -1,3 +1,4 @@
 {
-  "API_BASE_URL": "https://shentarot-api.shentech.workers.dev"
+  "API_BASE_URL": "https://shentarot-api.shentech.workers.dev",
+  "REVENUECAT_IOS_KEY": "appl_AfDKWUPrvLOioGzfjboGmxGTAeI"
 }
