@@ -43,6 +43,9 @@ class _PaywallScreenState extends State<PaywallScreen> {
     final service = state.subscriptions;
     try {
       var plans = await service.plans();
+      // Tester builds before the store products exist: show the planned
+      // plans so the page can be reviewed. Buying stays off.
+      if (plans.isEmpty && testerMode) plans = previewPlans;
       // A friend's code on Android: the annual plan with the referral offer
       // replaces the normal annual plan.
       final tag = state.referralOffer?.playOfferTag;
@@ -186,6 +189,15 @@ class _PaywallScreenState extends State<PaywallScreen> {
           if (AppScope.of(context).referralOffer?.appleOfferCode
               case final code?)
             _AppleFriendOffer(code),
+          if (plans != null && plans.any((p) => p.id.startsWith('preview-')))
+            const Padding(
+              padding: EdgeInsets.only(bottom: 8),
+              child: Text(
+                'Preview: planned prices. Buying turns on after the store setup.',
+                textAlign: TextAlign.center,
+                style: TextStyle(color: AppColors.gold, fontSize: 12),
+              ),
+            ),
           if (plans == null)
             const Center(child: CircularProgressIndicator())
           else if (plans.isEmpty)
@@ -239,7 +251,9 @@ class _PaywallScreenState extends State<PaywallScreen> {
             _CreditPacksCard(packs: _packs, busy: _busy, onBuy: _buyPack),
           const SizedBox(height: 8),
           FilledButton(
-            onPressed: (plan == null || _busy) ? null : () => _buy(plan),
+            onPressed: (plan == null || _busy || plan.id.startsWith('preview-'))
+                ? null
+                : () => _buy(plan),
             child: Text(
               plan?.trialLabel != null
                   ? plan!.trialIsFree
@@ -453,3 +467,33 @@ class _CreditPacksCard extends StatelessWidget {
     ),
   );
 }
+
+/// Planned plans, shown only in tester builds while the stores have no
+/// products. Real prices always come from the store.
+const previewPlans = [
+  PlanOption(
+    id: 'preview-annual',
+    title: 'Annual',
+    priceString: '\$99.99',
+    periodLabel: 'per year',
+    trialLabel: '\$1.99 for your first month',
+    trialIsFree: false,
+    price: 99.99,
+    perMonthString: '\$8.33',
+  ),
+  PlanOption(
+    id: 'preview-quarterly',
+    title: '3 Months',
+    priceString: '\$34.99',
+    periodLabel: 'every 3 months',
+    price: 34.99,
+    perMonthString: '\$11.66',
+  ),
+  PlanOption(
+    id: 'preview-monthly',
+    title: 'Monthly',
+    priceString: '\$14.99',
+    periodLabel: 'per month',
+    price: 14.99,
+  ),
+];
