@@ -27,9 +27,12 @@ Written 2026-10-17. Menu names, sizes and rules change: items marked (verify) mu
 | 2 | 3 Months | `shentarot_quarterly` | 3 months | US$14.99 (S$19.98) | Prepare for Submission |
 | 3 | Monthly | `shentarot_monthly` | 1 month | US$6.99 (S$9.98) | Prepare for Submission |
 
-- **Display names and descriptions (English U.S.): done.** Annual: "Premium Annual" ("All premium readings and features, billed yearly."); 3 Months: "Premium 3 Months" and Monthly: "Premium Monthly" (both "All spreads, follow-ups, 50 readings a day").
+- **Display names and descriptions (English U.S.): done.** "Premium Annual", "Premium 3 Months" and "Premium Monthly", all three with the description "All spreads, follow-ups, 50 readings a day" (owner standardised them 2026-10-17; the app must deliver up to 50 readings a day on Premium, see `app/lib/app/app_state.dart`).
+- **Availability: done (2026-10-17).** All 175 countries or regions on all three subscriptions (3 Months and Monthly had none selected until then).
+- **Family Sharing:** off on all three.
+- **Review notes: done on all three (2026-10-17):** "Unlocks premium AI tarot readings. Purchase from the paywall shown after onboarding or via Settings > Premium." Review screenshot left empty for now.
 - **Introductory offer on Annual: done (2026-10-17).** Pay up front, 1 month, US$1.99 (UK GBP 1.99, Canada CAD 2.99, Singapore SGD 2.98), all 175 countries, starts Oct 17, 2026, no end date. An earlier draft offer at US$3.99 was deleted and replaced.
-- **Still missing on every subscription:** the review screenshot of the paywall (needs the paywall to show real prices: RevenueCat or a StoreKit test run), and a look at availability and Singapore prices (Apple's S$59.98 for annual is above the US price once tax is included; adjust if you prefer).
+- **Still missing on every subscription:** the review screenshot of the paywall (needs the paywall to show real prices: RevenueCat or a StoreKit test run), and a look at Singapore prices (Apple's S$59.98 for annual is above the US price once tax is included; adjust if you prefer).
 - The annual price had been US$99.99 from an earlier attempt; it was changed to US$39.99 on 2026-10-17 with all other countries recalculated.
 
 ## 3. Steps only you can do, in order (the critical path)
@@ -37,7 +40,7 @@ Written 2026-10-17. Menu names, sizes and rules change: items marked (verify) mu
 2. **App Store Connect > Business:** accept the Paid Applications agreement, add your Singapore bank and tax forms (verify which). Without this, subscriptions cannot go live. Join the **Small Business Program** (15% fee).
 3. **Identifiers:** App ID `com.shentech.shentarot` with the In-App Purchase capability (Xcode creates it when you sign in with the paid team and build once).
 4. ~~New App~~ **Done**: record `ShenTarot: AI Lens` exists (section 2b).
-5. **Subscriptions**: the group, the three products, levels and base prices are **done** (section 2b). Names, descriptions and the US$1.99 first-month introductory offer on `shentarot_annual` are done too. Still to do: a paywall review screenshot for each, and a look at availability and Singapore prices.
+5. **Subscriptions**: the group, the three products, levels and base prices are **done** (section 2b). Names, descriptions and the US$1.99 first-month introductory offer on `shentarot_annual` are done too. Availability (all countries), Family Sharing off and review notes are done on all three. Still to do: a paywall review screenshot for each, and a look at Singapore prices.
 6. **RevenueCat** (`docs/phase-e-subscriptions-setup.md`): add the iOS app, upload the App Store Connect **In-App Purchase key** (.p8, key id, issuer id), import the three products, create entitlement `premium`, make an offering marked *current* with packages Annual, Three Month and Monthly. Copy the public iOS SDK key (starts `appl_`). Set the RevenueCat secret on the Worker (`npx wrangler secret put REVENUECAT_SECRET_KEY`) and, for v1.1 features, the webhook.
 7. **Backend for production:** Anthropic monthly spend limit; secrets set; remove `TESTER_INSTALL_IDS`; raise `GLOBAL_DAILY_TOKEN_CAP` for launch traffic; apply migrations (`npx wrangler d1 migrations apply shentarot --remote`; they only add tables for v1.1, safe to apply); `bash scripts/release-check.sh`; then deploy and run `backend/scripts/smoke.sh` against the live URL. Decide device checks (section 1).
 8. **Build and upload** (on this Mac, after step 6):
