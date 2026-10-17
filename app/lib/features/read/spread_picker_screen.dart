@@ -123,10 +123,9 @@ class _SpreadPickerScreenState extends State<SpreadPickerScreen> {
                               ),
                               const SizedBox(height: 4),
                               Text(
-                                tr('{0} card{1}', [
-                                  t.cardCount,
-                                  t.cardCount == 1 ? '' : 's',
-                                ]),
+                                t.cardCount == 1
+                                    ? tr('1 card')
+                                    : tr('{0} cards', [t.cardCount]),
                                 style: const TextStyle(
                                   color: AppColors.textMuted,
                                 ),

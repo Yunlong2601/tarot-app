@@ -68,7 +68,7 @@ class _DailyCardScreenState extends State<DailyCardScreen> {
             )
           else ...[
             Text(
-              '${card.name}${drawn.reversed ? ' (reversed)' : ''}',
+              cardLabel(card.name, drawn.reversed),
               textAlign: TextAlign.center,
               style: t.headlineSmall,
             ),

@@ -136,9 +136,8 @@ class _FollowUpsState extends State<_FollowUps> {
       if (reversed == null || !mounted) return;
       card = DrawnCard(card: state.deck.byId(id)!, reversed: reversed);
     }
-    final label = tr('Clarifier: {0}{1}', [
-      card.card.name,
-      card.reversed ? ' (reversed)' : '',
+    final label = tr('Clarifier: {0}', [
+      cardLabel(card.card.name, card.reversed),
     ]);
     await _send(clarifierPrompt, label, clarifier: card);
   }

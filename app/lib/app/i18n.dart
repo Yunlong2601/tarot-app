@@ -127,3 +127,7 @@ class I18n {
 /// Translates [english] into the app language; `{0}`... are replaced by [args].
 String tr(String english, [List<Object?> args = const []]) =>
     I18n.translate(english, args);
+
+/// A card name with "(reversed)" in the app language when it is upside down.
+String cardLabel(String name, bool reversed) =>
+    reversed ? tr('{0} (reversed)', [name]) : name;

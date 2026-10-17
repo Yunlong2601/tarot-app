@@ -92,7 +92,7 @@ class _FlipCardState extends State<FlipCard>
                             SizedBox(
                               width: 96,
                               child: Text(
-                                '$name${widget.drawn.reversed ? ' (reversed)' : ''}',
+                                cardLabel(name, widget.drawn.reversed),
                                 textAlign: TextAlign.center,
                                 maxLines: 2,
                                 overflow: TextOverflow.ellipsis,

@@ -270,8 +270,8 @@ class _Results extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 2),
               child: Text(
-                '${i + 1}. ${spread.positions[i]}: ${drawn[i].card.name}'
-                '${drawn[i].reversed ? ' (reversed)' : ''}',
+                '${i + 1}. ${spread.positions[i]}: '
+                '${cardLabel(drawn[i].card.name, drawn[i].reversed)}',
                 textAlign: TextAlign.center,
                 style: const TextStyle(color: AppColors.textMuted),
               ),

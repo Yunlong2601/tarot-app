@@ -82,7 +82,7 @@ class _AnnualUpgradeCardState extends State<AnnualUpgradeCard> {
     final m = _current!;
     final perMonth = a.perMonthString == null
         ? ''
-        : ' (about ${a.perMonthString} a month)';
+        : tr(' (about {0} a month)', [a.perMonthString]);
     return SizedBox(
       width: double.infinity,
       child: Card(

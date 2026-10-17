@@ -72,7 +72,7 @@ class TodaySection extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                '${daily.card.name}${daily.reversed ? ' (reversed)' : ''}',
+                                cardLabel(daily.card.name, daily.reversed),
                                 style: t.titleMedium?.copyWith(
                                   color: AppColors.gold,
                                 ),
