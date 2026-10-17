@@ -387,11 +387,13 @@ describe("follow-up questions", () => {
     expect(buildFollowupMessage(parseFollowupRequest(base).ok ? (parseFollowupRequest(base) as any).value : null)).not.toContain("<clarifier>");
   });
 
-  it("requires a token and premium", async () => {
+  it("requires a token; a free user's one daily credit pays for a follow-up, then they need a bonus credit", async () => {
     const s = setup();
     expect((await s.call("/v1/followup", { method: "POST", body: JSON.stringify(base) })).status).toBe(401);
-    expect((await post(s, base)).status).toBe(402);
-    expect(s.calls()).toBe(0);
+    expect((await post(s, base)).status).toBe(200); // the daily credit
+    s.kv.m.clear();
+    expect((await post(s, base)).status).toBe(402); // no daily credit left, no bonus credits
+    expect(s.calls()).toBe(1);
   });
 
   it("premium gets an answer with the disclaimer; usage is logged as followup", async () => {
@@ -695,10 +697,12 @@ describe("reading credits", () => {
     const buy = { type: "NON_RENEWING_PURCHASE", product_id: "shentarot_credits_5", transaction_id: "c1", app_user_id: UUID };
     expect(await (await hook(s, buy)).json()).toMatchObject({ credited: 5 });
     expect(await (await hook(s, buy)).json()).toMatchObject({ credited: 0 }); // retry, not twice
-    expect((await read(s)).status).toBe(200); // the free daily reading
-    expect((await read(s)).status).toBe(200); // paid with a credit
+    const meBefore = await s.call("/v1/credits/me", { method: "POST", headers: await authHeaders(s.env) });
+    expect(await meBefore.json()).toEqual({ balance: 5, daily: { limit: 1, used: 0, left: 1, premium: false } });
+    expect((await read(s)).status).toBe(200); // the daily credit
+    expect((await read(s)).status).toBe(200); // paid with a bonus credit
     const me = await s.call("/v1/credits/me", { method: "POST", headers: await authHeaders(s.env) });
-    expect(await me.json()).toEqual({ balance: 4 });
+    expect(await me.json()).toEqual({ balance: 4, daily: { limit: 1, used: 1, left: 0, premium: false } });
   });
 
   it("a failed reading gives the credit back; no credits means the daily limit", async () => {
@@ -715,13 +719,17 @@ describe("reading credits", () => {
     expect((await read(s)).status).toBe(429);
   });
 
-  it("free users can spend a credit on a follow-up; off by default", async () => {
+  it("a bonus credit pays for a follow-up once the daily credit is used; off by default", async () => {
     const off = setup();
     const body = JSON.stringify({ spread: "single", cards: [{ id: "major_00_fool", reversed: false }], reading: "The Fool.", followup: "More?" });
-    expect((await off.call("/v1/followup", { method: "POST", headers: await authHeaders(off.env), body })).status).toBe(402);
+    const ask = async (s: ReturnType<typeof setup>) => { s.kv.m.clear(); return s.call("/v1/followup", { method: "POST", headers: await authHeaders(s.env), body }); };
+    expect((await ask(off)).status).toBe(200); // the daily credit
+    expect((await ask(off)).status).toBe(402); // credits are off: nothing else to spend
     const s = setup({ credits: true });
     await hook(s, { type: "NON_RENEWING_PURCHASE", product_id: "shentarot_credits_5", transaction_id: "c3", app_user_id: UUID });
-    expect((await s.call("/v1/followup", { method: "POST", headers: await authHeaders(s.env), body })).status).toBe(200);
+    expect((await ask(s)).status).toBe(200); // daily credit
+    expect(await s.credits.balance(await hashId(UUID, "salt"))).toBe(5);
+    expect((await ask(s)).status).toBe(200); // bonus credit
     expect(await s.credits.balance(await hashId(UUID, "salt"))).toBe(4);
   });
 });
