@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../../app/app_scope.dart';
 import '../../data/deck.dart';
 import 'card_art.dart';
+import '../../app/i18n.dart';
 
 /// The 78-card browser (search, filters, grid). Used inside the Library tab.
 class CardsBrowser extends StatefulWidget {
@@ -25,9 +26,9 @@ class _CardsBrowserState extends State<CardsBrowser> {
         Padding(
           padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
           child: TextField(
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
               prefixIcon: Icon(Icons.search),
-              hintText: 'Search name or keyword',
+              hintText: tr('Search name or keyword'),
             ),
             onChanged: (v) => setState(() => _query = v),
           ),
@@ -55,7 +56,7 @@ class _CardsBrowserState extends State<CardsBrowser> {
         ),
         Expanded(
           child: cards.isEmpty
-              ? const Center(child: Text('No cards match'))
+              ? Center(child: Text(tr('No cards match')))
               : GridView.builder(
                   padding: const EdgeInsets.all(16),
                   // Tile height = art (160) + gap + two lines of name text, which

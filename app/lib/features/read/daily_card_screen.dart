@@ -6,6 +6,7 @@ import '../../app/theme.dart';
 import '../../data/models.dart';
 import '../reading/start_reading.dart';
 import 'flip_card.dart';
+import '../../app/i18n.dart';
 
 /// Card of the Day: free, drawn on the phone, explained from stored card text
 /// (no AI call, no cost). "Go deeper" starts a one-card reading with it.
@@ -45,7 +46,7 @@ class _DailyCardScreenState extends State<DailyCardScreen> {
         ? null
         : (drawn.reversed ? k.reversedQuestion : k.uprightQuestion);
     return Scaffold(
-      appBar: AppBar(title: const Text('Card of the Day')),
+      appBar: AppBar(title: Text(tr('Card of the Day'))),
       body: ListView(
         padding: const EdgeInsets.all(24),
         children: [
@@ -60,8 +61,8 @@ class _DailyCardScreenState extends State<DailyCardScreen> {
           ),
           const SizedBox(height: 16),
           if (!_flipped)
-            const Text(
-              'Take a breath, then tap the card to turn it over.',
+            Text(
+              tr('Take a breath, then tap the card to turn it over.'),
               textAlign: TextAlign.center,
               style: TextStyle(color: AppColors.textMuted),
             )
@@ -84,7 +85,7 @@ class _DailyCardScreenState extends State<DailyCardScreen> {
             if (k != null && !drawn.reversed) ...[
               const SizedBox(height: 8),
               Text(
-                'Light: ${k.light}.  Shadow: ${k.shadow}.',
+                tr('Light: {0}.  Shadow: {1}.', [k.light, k.shadow]),
                 style: const TextStyle(color: AppColors.textMuted),
               ),
             ],
@@ -99,7 +100,7 @@ class _DailyCardScreenState extends State<DailyCardScreen> {
             if (question != null) ...[
               const SizedBox(height: 16),
               Text(
-                'To reflect on today: $question',
+                tr('To reflect on today: {0}', [question]),
                 style: const TextStyle(fontStyle: FontStyle.italic),
               ),
             ] else ...[
@@ -116,11 +117,11 @@ class _DailyCardScreenState extends State<DailyCardScreen> {
                 spread: SpreadType.single,
                 cards: [drawn],
               ),
-              child: const Text('Go deeper: reading for this card'),
+              child: Text(tr('Go deeper: reading for this card')),
             ),
             TextButton(
               onPressed: () => context.push('/card/${card.id}'),
-              child: const Text('Learn about this card'),
+              child: Text(tr('Learn about this card')),
             ),
           ],
         ],

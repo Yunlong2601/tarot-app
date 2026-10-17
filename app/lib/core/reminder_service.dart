@@ -4,6 +4,8 @@ import 'package:flutter_timezone/flutter_timezone.dart';
 import 'package:timezone/data/latest.dart' as tzdata;
 import 'package:timezone/timezone.dart' as tz;
 
+import '../app/i18n.dart';
+
 /// Daily "your card" reminder. Local notifications only; nothing is sent to a
 /// server. Notification permission is requested only when the user turns the
 /// reminder on.
@@ -104,14 +106,14 @@ class LocalNotificationReminderService implements ReminderService {
       if (d == 0 && (skipToday || !at.isAfter(now))) continue;
       await _plugin.zonedSchedule(
         id: _firstDailyId + d,
-        title: 'Your card of the day',
-        body: 'Take a quiet moment with today\'s card.',
+        title: tr('Your card of the day'),
+        body: tr('Take a quiet moment with today\'s card.'),
         scheduledDate: at,
-        notificationDetails: const NotificationDetails(
+        notificationDetails: NotificationDetails(
           iOS: DarwinNotificationDetails(),
           android: AndroidNotificationDetails(
             'daily_reminder',
-            'Daily reminder',
+            tr('Daily reminder'),
             channelDescription: 'A once-a-day nudge to draw your card',
           ),
         ),
@@ -139,15 +141,16 @@ class LocalNotificationReminderService implements ReminderService {
     await _init();
     await _plugin.zonedSchedule(
       id: lookBackNotificationId(readingId),
-      title: 'Look back',
-      body:
-          'How did last week\'s reading turn out? Add a line to your journal.',
+      title: tr('Look back'),
+      body: tr(
+        'How did last week\'s reading turn out? Add a line to your journal.',
+      ),
       scheduledDate: tz.TZDateTime.from(at, tz.local),
-      notificationDetails: const NotificationDetails(
+      notificationDetails: NotificationDetails(
         iOS: DarwinNotificationDetails(),
         android: AndroidNotificationDetails(
           'look_back',
-          'Look back',
+          tr('Look back'),
           channelDescription: 'A nudge a week after a reading',
         ),
       ),
@@ -167,17 +170,17 @@ class LocalNotificationReminderService implements ReminderService {
     await _init();
     await _plugin.zonedSchedule(
       id: _introEndingId,
-      title: 'Your first month ends in 2 days',
-      body:
-          'Premium then renews at the yearly price. You can manage or cancel '
-          'in your store subscription settings.',
+      title: tr('Your first month ends in 2 days'),
+      body: tr(
+        'Premium then renews at the yearly price. You can manage or cancel in your store subscription settings.',
+      ),
       scheduledDate: tz.TZDateTime.from(at, tz.local),
-      notificationDetails: const NotificationDetails(
+      notificationDetails: NotificationDetails(
         iOS: DarwinNotificationDetails(),
         android: AndroidNotificationDetails(
           'billing_reminder',
-          'Billing reminder',
-          channelDescription: 'Before an introductory price ends',
+          tr('Billing reminder'),
+          channelDescription: tr('Before an introductory price ends'),
         ),
       ),
       androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,

@@ -5,6 +5,7 @@ import 'package:flutter/physics.dart';
 import 'package:flutter/services.dart';
 
 import '../../app/brand.dart';
+import '../../app/i18n.dart';
 
 /// Where a picked card sat on screen, so it can fly from there to its slot.
 class FanPick {
@@ -180,8 +181,8 @@ class _DeckFanState extends State<DeckFan> with TickerProviderStateMixin {
     return Semantics(
       button: true,
       enabled: _interactive,
-      label: 'Deck. Tap to draw the next card.',
-      hint: 'Or swipe the fan and tap any card.',
+      label: tr('Deck. Tap to draw the next card.'),
+      hint: tr('Or swipe the fan and tap any card.'),
       excludeSemantics: true,
       onTap: _pickMiddle,
       child: GestureDetector(

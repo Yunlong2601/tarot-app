@@ -1,13 +1,14 @@
 import '../../data/models.dart';
+import '../../app/i18n.dart';
 
 enum HistoryPeriod { any, week, month, year }
 
 extension HistoryPeriodLabel on HistoryPeriod {
   String get label => switch (this) {
-    HistoryPeriod.any => 'Any time',
-    HistoryPeriod.week => 'Past 7 days',
-    HistoryPeriod.month => 'Past 30 days',
-    HistoryPeriod.year => 'Past year',
+    HistoryPeriod.any => tr('Any time'),
+    HistoryPeriod.week => tr('Past 7 days'),
+    HistoryPeriod.month => tr('Past 30 days'),
+    HistoryPeriod.year => tr('Past year'),
   };
 }
 

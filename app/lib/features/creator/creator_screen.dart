@@ -6,6 +6,7 @@ import 'package:image_picker/image_picker.dart';
 import '../../app/app_scope.dart';
 import '../../app/theme.dart';
 import '../../core/creator_service.dart';
+import '../../app/i18n.dart';
 
 /// Chooses a screenshot and returns its bytes, or null if none was chosen.
 typedef ScreenshotPicker = Future<Uint8List?> Function();
@@ -66,7 +67,7 @@ class _CreatorScreenState extends State<CreatorScreen> {
     setState(() {
       _shot = bytes;
       _error = bytes.length > 1000000
-          ? 'That screenshot is over 1 MB. Choose a smaller one.'
+          ? tr('That screenshot is over 1 MB. Choose a smaller one.')
           : null;
     });
   }
@@ -88,7 +89,7 @@ class _CreatorScreenState extends State<CreatorScreen> {
       _link.clear();
       setState(() => _shot = null);
       messenger.showSnackBar(
-        SnackBar(content: Text('Thank you! $credits credits added.')),
+        SnackBar(content: Text(tr('Thank you! {0} credits added.', [credits]))),
       );
       await _refresh();
     } on CreatorException catch (e) {
@@ -107,10 +108,12 @@ class _CreatorScreenState extends State<CreatorScreen> {
   String _status(CreatorPost p, CreatorRules r) => switch (p.status) {
     'verified' =>
       p.monthGranted
-          ? 'Verified (${p.likes} likes): free month added'
-          : 'Verified (${p.likes} likes)',
-    'rejected' => 'Not accepted',
-    _ => 'Credits added · waiting for ${r.likesForMonth} likes to be checked',
+          ? tr('Verified ({0} likes): free month added', [p.likes])
+          : tr('Verified ({0} likes)', [p.likes]),
+    'rejected' => tr('Not accepted'),
+    _ => tr('Credits added · waiting for {0} likes to be checked', [
+      r.likesForMonth,
+    ]),
   };
 
   @override
@@ -119,38 +122,41 @@ class _CreatorScreenState extends State<CreatorScreen> {
     final muted = const TextStyle(color: AppColors.textMuted);
     final rules = _overview?.rules ?? const CreatorRules();
     return Scaffold(
-      appBar: AppBar(title: const Text('Creator program')),
+      appBar: AppBar(title: Text(tr('Creator program'))),
       body: ListView(
         padding: const EdgeInsets.all(24),
         children: [
-          Text('Post it. Get credits.', style: t.headlineSmall),
+          Text(tr('Post it. Get credits.'), style: t.headlineSmall),
           const SizedBox(height: 8),
           Text(
-            'Anyone can be a creator. Post about ShenTarot on TikTok, '
-            'Instagram, YouTube, Xiaohongshu, Reddit, X, Facebook or Threads '
-            'with #shentarot, and add #ad or #gifted. Send us the link and a '
-            'screenshot of your post.',
+            tr(
+              tr(
+                'Anyone can be a creator. Post about ShenTarot on TikTok, Instagram, YouTube, Xiaohongshu, Reddit, X, Facebook or Threads with #shentarot, and add #ad or #gifted. Send us the link and a screenshot of your post.',
+              ),
+            ),
             style: muted,
           ),
           const SizedBox(height: 12),
           _Bullet(
-            'Every post you send earns ${rules.creditsPerPost} credits '
-            'at once (${rules.maxPerDay} a day, ${rules.maxPerMonth} a month, '
-            'each post once).',
+            tr(
+              'Every post you send earns {0} credits at once ({1} a day, {2} a month, each post once).',
+              [rules.creditsPerPost, rules.maxPerDay, rules.maxPerMonth],
+            ),
           ),
           _Bullet(
-            'When your post reaches ${rules.likesForMonth} likes, we '
-            'check it and give you 1 free month of Premium (once every 60 '
-            'days, up to 6 a year).',
+            tr(
+              'When your post reaches {0} likes, we check it and give you 1 free month of Premium (once every 60 days, up to 6 a year).',
+              [rules.likesForMonth],
+            ),
           ),
           const SizedBox(height: 16),
           TextField(
             controller: _link,
             keyboardType: TextInputType.url,
             autocorrect: false,
-            decoration: const InputDecoration(
-              labelText: 'Link to your post',
-              hintText: 'https://www.tiktok.com/…',
+            decoration: InputDecoration(
+              labelText: tr('Link to your post'),
+              hintText: tr('https://www.tiktok.com/…'),
             ),
             onChanged: (_) => setState(() {}),
           ),
@@ -160,8 +166,10 @@ class _CreatorScreenState extends State<CreatorScreen> {
             icon: const Icon(Icons.image_outlined),
             label: Text(
               _shot == null
-                  ? 'Choose screenshot'
-                  : 'Screenshot chosen (${(_shot!.length / 1024).round()} KB)',
+                  ? tr('Choose screenshot')
+                  : tr('Screenshot chosen ({0} KB)', [
+                      (_shot!.length / 1024).round(),
+                    ]),
             ),
           ),
           if (_error != null) ...[
@@ -171,10 +179,10 @@ class _CreatorScreenState extends State<CreatorScreen> {
           const SizedBox(height: 12),
           FilledButton(
             onPressed: _ready ? _submit : null,
-            child: Text(_busy ? 'Sending…' : 'Send my post'),
+            child: Text(_busy ? tr('Sending…') : tr('Send my post')),
           ),
           const SizedBox(height: 24),
-          Text('My posts', style: t.titleMedium),
+          Text(tr('My posts'), style: t.titleMedium),
           const SizedBox(height: 4),
           if (_overview == null)
             const Padding(
@@ -182,7 +190,7 @@ class _CreatorScreenState extends State<CreatorScreen> {
               child: LinearProgressIndicator(),
             )
           else if (_overview!.posts.isEmpty)
-            Text('No posts yet.', style: muted)
+            Text(tr('No posts yet.'), style: muted)
           else
             for (final p in _overview!.posts)
               ListTile(
@@ -200,12 +208,11 @@ class _CreatorScreenState extends State<CreatorScreen> {
               ),
           const SizedBox(height: 16),
           Text(
-            'Small print: rewards are for the post, never for ratings or '
-            'reviews. Do not ask for or buy likes; fake likes mean no reward. '
-            'We keep your screenshot for 30 days to check it, then delete it, '
-            'and keep the link and result. A free subscription counts as '
-            'payment, so label your post #ad or #gifted. We may stop or change '
-            'the program. Terms apply.',
+            tr(
+              tr(
+                'Small print: rewards are for the post, never for ratings or reviews. Do not ask for or buy likes; fake likes mean no reward. We keep your screenshot for 30 days to check it, then delete it, and keep the link and result. A free subscription counts as payment, so label your post #ad or #gifted. We may stop or change the program. Terms apply.',
+              ),
+            ),
             style: muted.copyWith(fontSize: 12),
           ),
         ],

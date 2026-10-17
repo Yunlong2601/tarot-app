@@ -1,4 +1,5 @@
 import '../data/models.dart';
+import '../app/i18n.dart';
 
 enum ReadingErrorKind {
   notConfigured,
@@ -63,9 +64,9 @@ class UnconfiguredReadingService implements ReadingService {
     required List<DrawnCard> cards,
     String? question,
     String? impression,
-  }) => throw const ReadingException(
+  }) => throw ReadingException(
     ReadingErrorKind.notConfigured,
-    'The reading service is not set up yet.',
+    tr('The reading service is not set up yet.'),
   );
 
   @override
@@ -76,9 +77,9 @@ class UnconfiguredReadingService implements ReadingService {
     required String reading,
     required String followUp,
     DrawnCard? clarifier,
-  }) => throw const ReadingException(
+  }) => throw ReadingException(
     ReadingErrorKind.notConfigured,
-    'The reading service is not set up yet.',
+    tr('The reading service is not set up yet.'),
   );
 }
 

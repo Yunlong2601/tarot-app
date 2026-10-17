@@ -1,5 +1,7 @@
 import 'dart:typed_data';
 
+import '../app/i18n.dart';
+
 /// Creator program: anyone can post about ShenTarot with #shentarot, then submit
 /// the post link and a screenshot. Every attempt earns credits at once; a post
 /// with 50 likes, once checked, earns one free month of Premium.
@@ -84,5 +86,5 @@ class UnconfiguredCreatorBackend implements CreatorBackend {
   Future<CreatorOverview> mine() async => const CreatorOverview();
   @override
   Future<int> submit({required String url, required Uint8List screenshot}) =>
-      throw const CreatorException('The creator program is not available yet.');
+      throw CreatorException(tr('The creator program is not available yet.'));
 }

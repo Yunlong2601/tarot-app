@@ -3,17 +3,18 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 
 import 'models.dart';
+import '../app/i18n.dart';
 
 enum CardFilter { all, major, wands, cups, swords, pentacles }
 
 extension CardFilterLabel on CardFilter {
   String get label => switch (this) {
     CardFilter.all => 'All',
-    CardFilter.major => 'Major',
-    CardFilter.wands => 'Wands',
+    CardFilter.major => tr('Major'),
+    CardFilter.wands => tr('Wands'),
     CardFilter.cups => 'Cups',
-    CardFilter.swords => 'Swords',
-    CardFilter.pentacles => 'Pentacles',
+    CardFilter.swords => tr('Swords'),
+    CardFilter.pentacles => tr('Pentacles'),
   };
 
   bool matches(TarotCard c) => switch (this) {

@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 
 import '../../app/motion.dart';
+import '../../app/i18n.dart';
 
 /// Asks which way up a manually picked card is. Null if dismissed.
 Future<bool?> askOrientation(BuildContext context) => showAppDialog<bool>(
   context: context,
   builder: (ctx) => SimpleDialog(
-    title: const Text('Which way up?'),
+    title: Text(tr('Which way up?')),
     children: [
       SimpleDialogOption(
         onPressed: () => Navigator.pop(ctx, false),
-        child: const Text('Upright'),
+        child: Text(tr('Upright')),
       ),
       SimpleDialogOption(
         onPressed: () => Navigator.pop(ctx, true),
-        child: const Text('Reversed'),
+        child: Text(tr('Reversed')),
       ),
     ],
   ),

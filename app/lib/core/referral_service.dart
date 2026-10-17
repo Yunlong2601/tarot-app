@@ -1,3 +1,5 @@
+import '../app/i18n.dart';
+
 /// Refer and earn: the friend gets 50% off their first year of annual when they
 /// subscribe; the referrer gets 1 free month per friend who pays (max 6 a year).
 class ReferralInfo {
@@ -23,7 +25,7 @@ class ReferralInfo {
     creditsEarned: (j['creditsEarned'] as num?)?.toInt() ?? 0,
     creditsPerFriend: (j['creditsPerFriend'] as num?)?.toInt() ?? 10,
     friends: [
-      for (final f in (j['friends'] as List? ?? const []))
+      for (final f in (j['friends'] as List? ?? []))
         (joined: (f as Map)['joined'] as String, status: f['status'] as String),
     ],
   );
@@ -64,7 +66,8 @@ abstract class ReferralBackend {
 
 class UnconfiguredReferralBackend implements ReferralBackend {
   const UnconfiguredReferralBackend();
-  static const _e = ReferralException('Invites are not available yet.');
+  static ReferralException get _e =>
+      ReferralException(tr('Invites are not available yet.'));
   @override
   Future<ReferralInfo> me() => throw _e;
   @override
@@ -81,10 +84,18 @@ class ReferralTier {
 }
 
 const referralTiers = [
-  ReferralTier('Seeker', 1, '1 free month for each friend who subscribes'),
+  ReferralTier(
+    'Seeker',
+    1,
+    '1 free month for each friend who subscribes',
+  ),
   ReferralTier('Adept', 3, 'An exclusive card back'),
   ReferralTier('Mystic', 6, 'An alternate app icon and reading theme'),
-  ReferralTier('Oracle', 10, 'The Oracle title, every cosmetic, early access'),
+  ReferralTier(
+    'Oracle',
+    10,
+    'The Oracle title, every cosmetic, early access',
+  ),
 ];
 
 /// The highest tier reached, or null below Seeker.

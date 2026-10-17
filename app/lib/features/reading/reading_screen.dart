@@ -14,6 +14,7 @@ import 'report_reading.dart';
 import 'dart:math';
 
 import '../../app/motion.dart';
+import '../../app/i18n.dart';
 
 class _AskDialog extends StatefulWidget {
   const _AskDialog();
@@ -33,24 +34,24 @@ class _AskDialogState extends State<_AskDialog> {
 
   @override
   Widget build(BuildContext context) => AlertDialog(
-    title: const Text('Ask a follow-up'),
+    title: Text(tr('Ask a follow-up')),
     content: TextField(
       controller: _controller,
       autofocus: true,
       maxLength: 300,
       maxLines: 3,
-      decoration: const InputDecoration(
-        hintText: 'What would you like to explore?',
+      decoration: InputDecoration(
+        hintText: tr('What would you like to explore?'),
       ),
     ),
     actions: [
       TextButton(
         onPressed: () => Navigator.pop(context),
-        child: const Text('Cancel'),
+        child: Text(tr('Cancel')),
       ),
       FilledButton(
         onPressed: () => Navigator.pop(context, _controller.text.trim()),
-        child: const Text('Ask'),
+        child: Text(tr('Ask')),
       ),
     ],
   );
@@ -91,18 +92,20 @@ class _FollowUpsState extends State<_FollowUps> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const ListTile(
-              title: Text('Draw a clarifier card'),
-              subtitle: Text('One more card to shed light on this reading.'),
+            ListTile(
+              title: Text(tr('Draw a clarifier card')),
+              subtitle: Text(
+                tr('One more card to shed light on this reading.'),
+              ),
             ),
             ListTile(
               leading: const Icon(Icons.style_outlined),
-              title: const Text('Draw one for me'),
+              title: Text(tr('Draw one for me')),
               onTap: () => Navigator.pop(ctx, 'draw'),
             ),
             ListTile(
               leading: const Icon(Icons.back_hand_outlined),
-              title: const Text('I drew one from my deck'),
+              title: Text(tr('I drew one from my deck')),
               onTap: () => Navigator.pop(ctx, 'pick'),
             ),
           ],
@@ -125,9 +128,7 @@ class _FollowUpsState extends State<_FollowUps> {
       if (id == null || !mounted) return;
       if (used.contains(id)) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('That card is already in this reading.'),
-          ),
+          SnackBar(content: Text(tr('That card is already in this reading.'))),
         );
         return;
       }
@@ -135,8 +136,10 @@ class _FollowUpsState extends State<_FollowUps> {
       if (reversed == null || !mounted) return;
       card = DrawnCard(card: state.deck.byId(id)!, reversed: reversed);
     }
-    final label =
-        'Clarifier: ${card.card.name}${card.reversed ? ' (reversed)' : ''}';
+    final label = tr('Clarifier: {0}{1}', [
+      card.card.name,
+      card.reversed ? ' (reversed)' : '',
+    ]);
     await _send(clarifierPrompt, label, clarifier: card);
   }
 
@@ -199,12 +202,12 @@ class _FollowUpsState extends State<_FollowUps> {
           ),
           label: Text(
             _busy
-                ? 'Thinking...'
+                ? tr('Thinking...')
                 : state.isPremium
-                ? 'Ask a follow-up'
+                ? tr('Ask a follow-up')
                 : state.hasCredits
-                ? 'Ask a follow-up (1 credit)'
-                : 'Ask a follow-up (Premium)',
+                ? tr('Ask a follow-up (1 credit)')
+                : tr('Ask a follow-up (Premium)'),
           ),
         ),
         const SizedBox(height: 8),
@@ -221,10 +224,10 @@ class _FollowUpsState extends State<_FollowUps> {
           ),
           label: Text(
             state.isPremium
-                ? 'Draw a clarifier card'
+                ? tr('Draw a clarifier card')
                 : state.hasCredits
-                ? 'Draw a clarifier card (1 credit)'
-                : 'Draw a clarifier card (Premium)',
+                ? tr('Draw a clarifier card (1 credit)')
+                : tr('Draw a clarifier card (Premium)'),
           ),
         ),
       ],
@@ -260,8 +263,8 @@ class _JournalState extends State<_Journal> {
           controller: _controller,
           maxLines: 4,
           maxLength: 1000,
-          decoration: const InputDecoration(
-            labelText: 'Your journal note',
+          decoration: InputDecoration(
+            labelText: tr('Your journal note'),
             border: OutlineInputBorder(),
           ),
         ),
@@ -271,9 +274,9 @@ class _JournalState extends State<_Journal> {
             onPressed: () {
               state.setNote(widget.reading.id, _controller.text);
               ScaffoldMessenger.of(context)
-                  .showSnackBar(const SnackBar(content: Text('Note saved')));
+                  .showSnackBar(SnackBar(content: Text(tr('Note saved'))));
             },
-            child: const Text('Save note'),
+            child: Text(tr('Save note')),
           ),
         ),
       ],
@@ -312,7 +315,7 @@ class _RevisitState extends State<_Revisit> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Looking back',
+              tr('Looking back'),
               style: Theme.of(context).textTheme.titleMedium,
             ),
             const SizedBox(height: 4),
@@ -330,13 +333,16 @@ class _RevisitState extends State<_Revisit> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Looking back',
+              tr('Looking back'),
               style: Theme.of(context).textTheme.titleMedium,
             ),
             const SizedBox(height: 4),
-            const Text(
-              'About a week has passed. How did this turn out, and did the '
-              'reading help you think it through?',
+            Text(
+              tr(
+                tr(
+                  'About a week has passed. How did this turn out, and did the reading help you think it through?',
+                ),
+              ),
               style: TextStyle(color: AppColors.textMuted),
             ),
             const SizedBox(height: 12),
@@ -345,14 +351,14 @@ class _RevisitState extends State<_Revisit> {
               maxLines: 3,
               maxLength: 1000,
               textCapitalization: TextCapitalization.sentences,
-              decoration: const InputDecoration(hintText: 'Since then...'),
+              decoration: InputDecoration(hintText: tr('Since then...')),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 TextButton(
                   onPressed: () => state.setRevisit(r.id, ''),
-                  child: const Text('Not now'),
+                  child: Text(tr('Not now')),
                 ),
                 const SizedBox(width: 8),
                 FilledButton(
@@ -361,7 +367,7 @@ class _RevisitState extends State<_Revisit> {
                     if (_controller.text.trim().isEmpty) return;
                     state.setRevisit(r.id, _controller.text);
                   },
-                  child: const Text('Save'),
+                  child: Text(tr('Save')),
                 ),
               ],
             ),
@@ -383,7 +389,7 @@ class ReadingScreen extends StatelessWidget {
     if (reading == null) {
       return Scaffold(
         appBar: AppBar(),
-        body: const Center(child: Text('Reading not found')),
+        body: Center(child: Text(tr('Reading not found'))),
       );
     }
     return Scaffold(
@@ -391,26 +397,26 @@ class ReadingScreen extends StatelessWidget {
         title: Text(reading.spread.label),
         actions: [
           IconButton(
-            tooltip: 'Report a problem with this reading',
+            tooltip: tr('Report a problem with this reading'),
             icon: const Icon(Icons.flag_outlined),
             onPressed: () => reportReading(context, reading),
           ),
           IconButton(
-            tooltip: 'Delete reading',
+            tooltip: tr('Delete reading'),
             icon: const Icon(Icons.delete_outline),
             onPressed: () async {
               final ok = await showAppDialog<bool>(
                 context: context,
                 builder: (c) => AlertDialog(
-                  title: const Text('Delete this reading?'),
+                  title: Text(tr('Delete this reading?')),
                   actions: [
                     TextButton(
                       onPressed: () => Navigator.pop(c, false),
-                      child: const Text('Cancel'),
+                      child: Text(tr('Cancel')),
                     ),
                     TextButton(
                       onPressed: () => Navigator.pop(c, true),
-                      child: const Text('Delete'),
+                      child: Text(tr('Delete')),
                     ),
                   ],
                 ),
@@ -648,7 +654,7 @@ class _CardSectionState extends State<_CardSection> {
             style: TextButton.styleFrom(padding: EdgeInsets.zero),
             onPressed: () => setState(() => _why = !_why),
             icon: Icon(_why ? Icons.expand_less : Icons.expand_more, size: 18),
-            label: const Text('Why this card'),
+            label: Text(tr('Why this card')),
           ),
           if (_why)
             Text(

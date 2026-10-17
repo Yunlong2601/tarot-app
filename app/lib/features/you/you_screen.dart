@@ -7,6 +7,7 @@ import '../../app/brand.dart';
 import '../../app/flags.dart';
 import '../../app/theme.dart';
 import '../../core/account_service.dart';
+import '../../app/i18n.dart';
 
 /// Days in a row (ending today or yesterday) with at least one reading.
 int readingStreak(List<DateTime> dates, DateTime now) {
@@ -30,7 +31,7 @@ class YouScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final state = AppScope.of(context);
     return Scaffold(
-      appBar: AppBar(title: const Text('You')),
+      appBar: AppBar(title: Text(tr('You'))),
       body: ListView(
         padding: const EdgeInsets.fromLTRB(16, 4, 16, 24),
         children: [
@@ -51,28 +52,28 @@ class YouScreen extends StatelessWidget {
             children: [
               _Tile(
                 icon: Icons.history,
-                title: 'Reading History',
-                subtitle: '${state.history.length} saved',
+                title: tr('Reading History'),
+                subtitle: tr('{0} saved', [state.history.length]),
                 onTap: () => context.push('/history'),
               ),
               if (referralsEnabled)
                 _Tile(
                   icon: Icons.card_giftcard,
-                  title: 'Invite friends',
-                  subtitle: 'Free months for you',
+                  title: tr('Invite friends'),
+                  subtitle: tr('Free months for you'),
                   onTap: () => context.push('/invite'),
                 ),
               if (creatorEnabled && creditsEnabled)
                 _Tile(
                   icon: Icons.video_library_outlined,
-                  title: 'Creator program',
-                  subtitle: 'Post and earn credits',
+                  title: tr('Creator program'),
+                  subtitle: tr('Post and earn credits'),
                   onTap: () => context.push('/creator'),
                 ),
               _Tile(
                 icon: Icons.settings_outlined,
-                title: 'Settings',
-                subtitle: 'Reminders, privacy, help',
+                title: tr('Settings'),
+                subtitle: tr('Reminders, privacy, help'),
                 onTap: () => context.push('/settings'),
               ),
             ],
@@ -127,12 +128,16 @@ class _ProfileCard extends StatelessWidget {
                     children: [
                       Text(
                         signedIn
-                            ? 'Signed in with ${state.account!.provider.label}'
-                            : 'Guest',
+                            ? tr('Signed in with {0}', [
+                                state.account!.provider.label,
+                              ])
+                            : tr('Guest'),
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
                       Text(
-                        state.isPremium ? 'Premium member' : 'Free plan',
+                        state.isPremium
+                            ? tr('Premium member')
+                            : tr('Free plan'),
                         style: const TextStyle(color: AppColors.textMuted),
                       ),
                     ],
@@ -141,7 +146,7 @@ class _ProfileCard extends StatelessWidget {
                 if (state.accountsAvailable)
                   TextButton(
                     onPressed: () => context.push('/account'),
-                    child: Text(signedIn ? 'Account' : 'Sign in'),
+                    child: Text(signedIn ? tr('Account') : tr('Sign in')),
                   ),
               ],
             ),
@@ -154,8 +159,8 @@ class _ProfileCard extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 10),
-            const Text(
-              'Your readings and notes stay on this phone.',
+            Text(
+              tr('Your readings and notes stay on this phone.'),
               style: TextStyle(fontSize: 12, color: AppColors.textMuted),
             ),
           ],
@@ -199,13 +204,17 @@ class _PremiumCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    premium ? 'Premium is active' : 'Go Premium',
+                    premium ? tr('Premium is active') : tr('Go Premium'),
                     style: Theme.of(context).textTheme.titleMedium
                         ?.copyWith(color: AppColors.gold),
                   ),
                   const SizedBox(height: 2),
                   Text(
-                    premium ? 'All spreads, follow-ups, 50 readings a day.' : 'All spreads, follow-ups, 50 readings a day, plus the clarifier card and a look back.',
+                    premium
+                        ? tr('All spreads, follow-ups, 50 readings a day.')
+                        : tr(
+                            'All spreads, follow-ups, 50 readings a day, plus the clarifier card and a look back.',
+                          ),
                     style: const TextStyle(color: AppColors.textMuted),
                   ),
                 ],

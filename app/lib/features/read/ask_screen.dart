@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../../app/app_scope.dart';
 import '../../app/theme.dart';
 import 'question_nudge.dart';
+import '../../app/i18n.dart';
 
 /// Step 1 of a reading: the question. Optional, but a good question makes a
 /// better reading. If [skipPicker] is set the spread was already chosen in the
@@ -65,14 +66,18 @@ class _AskScreenState extends State<AskScreen> {
   Widget build(BuildContext context) {
     final t = Theme.of(context).textTheme;
     return Scaffold(
-      appBar: AppBar(title: const Text('Your question')),
+      appBar: AppBar(title: Text(tr('Your question'))),
       body: ListView(
         padding: const EdgeInsets.all(24),
         children: [
-          Text('What is on your mind?', style: t.headlineSmall),
+          Text(tr('What is on your mind?'), style: t.headlineSmall),
           const SizedBox(height: 6),
-          const Text(
-            'An open question works best. You can also leave it blank for a general reading.',
+          Text(
+            tr(
+              tr(
+                'An open question works best. You can also leave it blank for a general reading.',
+              ),
+            ),
             style: TextStyle(color: AppColors.textMuted),
           ),
           const SizedBox(height: 16),
@@ -82,7 +87,7 @@ class _AskScreenState extends State<AskScreen> {
             maxLines: 4,
             autofocus: false,
             decoration: InputDecoration(
-              hintText: 'Type your question',
+              hintText: tr('Type your question'),
               border: const OutlineInputBorder(),
               helperText: _nudge,
               helperMaxLines: 3,
@@ -105,17 +110,17 @@ class _AskScreenState extends State<AskScreen> {
             ],
           ),
           const SizedBox(height: 24),
-          FilledButton(onPressed: _next, child: const Text('Next')),
+          FilledButton(onPressed: _next, child: Text(tr('Next'))),
           TextButton(
             onPressed: () {
               _controller.clear();
               _next();
             },
-            child: const Text('Skip: general reading'),
+            child: Text(tr('Skip: general reading')),
           ),
           const SizedBox(height: 8),
-          const Text(
-            'Please keep personal details out of your question.',
+          Text(
+            tr('Please keep personal details out of your question.'),
             textAlign: TextAlign.center,
             style: TextStyle(color: AppColors.textMuted, fontSize: 12),
           ),

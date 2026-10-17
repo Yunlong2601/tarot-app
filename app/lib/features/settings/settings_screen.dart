@@ -14,6 +14,7 @@ import '../../core/user_key_store.dart';
 import '../../app/theme.dart';
 import '../../core/subscription_service.dart';
 import '../../app/motion.dart';
+import '../../app/i18n.dart';
 
 const _feedbackEmail = 'shenyunlongbusiness@gmail.com';
 const _appStoreId = '6823779463';
@@ -30,8 +31,8 @@ class SettingsScreen extends StatelessWidget {
       if (!await launchUrl(url, mode: LaunchMode.externalApplication) &&
           context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Open Settings > Subscriptions on your device.'),
+          SnackBar(
+            content: Text(tr('Open Settings > Subscriptions on your device.')),
           ),
         );
       }
@@ -46,8 +47,8 @@ class SettingsScreen extends StatelessWidget {
           SnackBar(
             content: Text(
               premium
-                  ? 'Premium restored.'
-                  : 'No active subscription found for this account.',
+                  ? tr('Premium restored.')
+                  : tr('No active subscription found for this account.'),
             ),
           ),
         );
@@ -73,16 +74,16 @@ class SettingsScreen extends StatelessWidget {
       final ok = await showAppDialog<bool>(
         context: context,
         builder: (c) => AlertDialog(
-          title: const Text('Delete all data?'),
-          content: const Text('This removes your reading history.'),
+          title: Text(tr('Delete all data?')),
+          content: Text(tr('This removes your reading history.')),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(c, false),
-              child: const Text('Cancel'),
+              child: Text(tr('Cancel')),
             ),
             TextButton(
               onPressed: () => Navigator.pop(c, true),
-              child: const Text('Delete'),
+              child: Text(tr('Delete')),
             ),
           ],
         ),
@@ -91,27 +92,27 @@ class SettingsScreen extends StatelessWidget {
     }
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Settings')),
+      appBar: AppBar(title: Text(tr('Settings'))),
       body: ListView(
         children: [
-          section('Subscription'),
+          section(tr('Subscription')),
           ListTile(
             leading: const Icon(Icons.credit_card),
-            title: const Text('Manage subscription'),
+            title: Text(tr('Manage subscription')),
             onTap: manage,
           ),
           ListTile(
             leading: const Icon(Icons.restore),
-            title: const Text('Restore Purchases'),
+            title: Text(tr('Restore Purchases')),
             onTap: restore,
           ),
-          section('Preferences'),
+          section(tr('Preferences')),
           ListTile(
             leading: const Icon(Icons.notifications_outlined),
-            title: const Text('Reminders'),
+            title: Text(tr('Reminders')),
             subtitle: Text(
               state.reminderEnabled
-                  ? 'Daily at ${state.reminderTime.format(context)}'
+                  ? tr('Daily at {0}', [state.reminderTime.format(context)])
                   : 'Off',
             ),
             trailing: const Icon(Icons.chevron_right),
@@ -119,26 +120,26 @@ class SettingsScreen extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.tune),
-            title: const Text('Reading settings'),
-            subtitle: const Text('Look first, auto-reveal, reversed cards'),
+            title: Text(tr('Reading settings')),
+            subtitle: Text(tr('Look first, auto-reveal, reversed cards')),
             trailing: const Icon(Icons.chevron_right),
             onTap: () => context.push('/settings/reading'),
           ),
           if (ownKeyEnabled)
             ListTile(
               leading: const Icon(Icons.key_outlined),
-              title: const Text('Your own AI key'),
+              title: Text(tr('Your own AI key')),
               subtitle: Text(
                 state.usesOwnKey
                     ? 'On: ${state.ownKeyProvider!.label}'
-                    : 'Premium: unlimited readings with your key',
+                    : tr('Premium: unlimited readings with your key'),
               ),
               onTap: () => context.push('/own-key'),
             ),
-          section('Support and about'),
+          section(tr('Support and about')),
           ListTile(
             leading: const Icon(Icons.mail_outline),
-            title: const Text('Send feedback'),
+            title: Text(tr('Send feedback')),
             subtitle: const Text(_feedbackEmail),
             onTap: () async {
               final messenger = ScaffoldMessenger.of(context);
@@ -152,8 +153,10 @@ class SettingsScreen extends StatelessWidget {
                   const ClipboardData(text: _feedbackEmail),
                 );
                 messenger.showSnackBar(
-                  const SnackBar(
-                    content: Text('No mail app found. Email address copied.'),
+                  SnackBar(
+                    content: Text(
+                      tr('No mail app found. Email address copied.'),
+                    ),
                   ),
                 );
               }
@@ -161,7 +164,7 @@ class SettingsScreen extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.star_outline),
-            title: const Text('Rate ShenTarot'),
+            title: Text(tr('Rate ShenTarot')),
             // The App Store page always opens; the in-app prompt is often
             // suppressed by iOS (and never shows in TestFlight).
             onTap: () =>
@@ -169,44 +172,44 @@ class SettingsScreen extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.privacy_tip_outlined),
-            title: const Text('Privacy Policy'),
+            title: Text(tr('Privacy Policy')),
             onTap: () => context.push('/legal/privacy'),
           ),
           ListTile(
             leading: const Icon(Icons.description_outlined),
-            title: const Text('Terms of Use'),
+            title: Text(tr('Terms of Use')),
             onTap: () => context.push('/legal/terms'),
           ),
-          section('Account and data'),
+          section(tr('Account and data')),
           if (state.account != null) ...[
             ListTile(
               leading: const Icon(Icons.logout),
-              title: const Text('Sign out'),
+              title: Text(tr('Sign out')),
               onTap: state.signOut,
             ),
             ListTile(
               leading: const Icon(Icons.person_remove_outlined),
-              title: const Text('Delete account'),
+              title: Text(tr('Delete account')),
               onTap: () => context.push('/account'),
             ),
           ],
           ListTile(
             leading: const Icon(Icons.delete_outline),
-            title: const Text('Delete all my data'),
+            title: Text(tr('Delete all my data')),
             onTap: confirmDeleteData,
           ),
           if (kDebugMode && state.isPremium)
             ListTile(
               leading: const Icon(Icons.bug_report_outlined),
-              title: const Text('Dev: turn Premium off'),
+              title: Text(tr('Dev: turn Premium off')),
               onTap: () => state.setPremium(false),
             ),
           if (testerMode) ...[
             const Divider(),
             SwitchListTile(
               secondary: const Icon(Icons.science_outlined),
-              title: const Text('Tester: pretend Premium'),
-              subtitle: const Text('Test builds only. Not in the store app.'),
+              title: Text(tr('Tester: pretend Premium')),
+              subtitle: Text(tr('Test builds only. Not in the store app.')),
               value: state.isPremium,
               onChanged: state.setTesterPremium,
             ),
@@ -214,7 +217,7 @@ class SettingsScreen extends StatelessWidget {
               future: loadInstallId(),
               builder: (context, snap) => ListTile(
                 leading: const Icon(Icons.fingerprint),
-                title: const Text('Tester install ID'),
+                title: Text(tr('Tester install ID')),
                 subtitle: SelectableText(snap.data ?? '...'),
               ),
             ),

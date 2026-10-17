@@ -7,6 +7,7 @@ import '../../app/theme.dart';
 import '../../data/models.dart';
 import '../cards/cards_browser.dart';
 import '../spreads/spread_layout.dart';
+import '../../app/i18n.dart';
 
 class LibraryScreen extends StatefulWidget {
   const LibraryScreen({super.key});
@@ -21,7 +22,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Library')),
+      appBar: AppBar(title: Text(tr('Library'))),
       body: Column(
         children: [
           Padding(
@@ -30,9 +31,9 @@ class _LibraryScreenState extends State<LibraryScreen> {
               width: double.infinity,
               child: SegmentedButton<bool>(
                 showSelectedIcon: false,
-                segments: const [
-                  ButtonSegment(value: false, label: Text('Spreads')),
-                  ButtonSegment(value: true, label: Text('Cards')),
+                segments: [
+                  ButtonSegment(value: false, label: Text(tr('Spreads'))),
+                  ButtonSegment(value: true, label: Text(tr('Cards'))),
                 ],
                 selected: {_showCards},
                 onSelectionChanged: (s) => setState(() => _showCards = s.first),
@@ -74,16 +75,16 @@ class _SpreadsListState extends State<_SpreadsList> {
           child: SizedBox(
             width: double.infinity,
             child: SegmentedButton<ReadMode>(
-              segments: const [
+              segments: [
                 ButtonSegment(
                   value: ReadMode.photo,
                   icon: Icon(Icons.center_focus_strong_outlined),
-                  label: Text('Scan my cards'),
+                  label: Text(tr('Scan my cards')),
                 ),
                 ButtonSegment(
                   value: ReadMode.digital,
                   icon: Icon(Icons.style_outlined),
-                  label: Text('Draw digitally'),
+                  label: Text(tr('Draw digitally')),
                 ),
               ],
               selected: {state.readMode},

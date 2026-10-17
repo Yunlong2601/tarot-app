@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../app/app_scope.dart';
 import '../../app/theme.dart';
 import '../../core/subscription_service.dart';
+import '../../app/i18n.dart';
 
 /// For monthly or 3-month subscribers after a few months: plain maths on switching to
 /// annual, with store prices only. Shown on the Read tab (never during a
@@ -63,7 +64,7 @@ class _AnnualUpgradeCardState extends State<AnnualUpgradeCard> {
         await state.dismissAnnualUpgrade();
         if (mounted) setState(() => _hidden = true);
         messenger.showSnackBar(
-          const SnackBar(content: Text('You are on the annual plan now.')),
+          SnackBar(content: Text(tr('You are on the annual plan now.'))),
         );
       }
     } on SubscriptionException catch (e) {
@@ -92,18 +93,25 @@ class _AnnualUpgradeCardState extends State<AnnualUpgradeCard> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Thank you for $months months of Premium',
+                tr('Thank you for {0} months of Premium', [months]),
                 style: Theme.of(context).textTheme.titleMedium,
               ),
               const SizedBox(height: 6),
               Text(
-                'You pay ${m.priceString} ${m.periodLabel}. The annual plan is '
-                '${a.priceString} a year$perMonth.',
+                tr('You pay {0} {1}. The annual plan is {2} a year{3}.', [
+                  m.priceString,
+                  m.periodLabel,
+                  a.priceString,
+                  perMonth,
+                ]),
               ),
               const SizedBox(height: 4),
-              const Text(
-                'Switching is optional. The store shows the exact change before '
-                'you confirm.',
+              Text(
+                tr(
+                  tr(
+                    'Switching is optional. The store shows the exact change before you confirm.',
+                  ),
+                ),
                 style: TextStyle(color: AppColors.textMuted, fontSize: 12),
               ),
               const SizedBox(height: 8),
@@ -113,14 +121,14 @@ class _AnnualUpgradeCardState extends State<AnnualUpgradeCard> {
                 children: [
                   TextButton(
                     onPressed: _busy ? null : _dismiss,
-                    child: const Text('Not now'),
+                    child: Text(tr('Not now')),
                   ),
                   FilledButton(
                     style: FilledButton.styleFrom(
                       minimumSize: const Size(0, 44),
                     ),
                     onPressed: _busy ? null : _switch,
-                    child: const Text('Switch to annual'),
+                    child: Text(tr('Switch to annual')),
                   ),
                 ],
               ),

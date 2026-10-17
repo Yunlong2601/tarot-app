@@ -7,6 +7,7 @@ import '../../app/brand.dart';
 import '../../app/theme.dart';
 import '../paywall/annual_upgrade_card.dart';
 import 'hero_background.dart';
+import '../../app/i18n.dart';
 
 /// The landing screen (Read tab): artwork, tagline and one big button that
 /// either scans a physical deck ("Photo reading") or draws cards on screen
@@ -40,15 +41,15 @@ class ReadHomeScreen extends StatelessWidget {
                             child: Column(
                               children: [
                                 Text(
-                                  'Hold the cards.',
+                                  tr('Hold the cards.'),
                                   style: Theme.of(context)
                                       .textTheme
                                       .headlineLarge
                                       ?.copyWith(fontWeight: FontWeight.w300),
                                 ),
                                 const SizedBox(height: 6),
-                                const Text(
-                                  'We explain them.',
+                                Text(
+                                  tr('We explain them.'),
                                   style: TextStyle(
                                     color: AppColors.textMuted,
                                     fontSize: 16,
@@ -71,7 +72,7 @@ class ReadHomeScreen extends StatelessWidget {
                                   ),
                                   label: Text(
                                     state.dailyCardIfDrawn == null
-                                        ? 'Card of the Day (free)'
+                                        ? tr('Card of the Day (free)')
                                         : "Today's card: ${state.dailyCardIfDrawn!.card.name}",
                                   ),
                                 ),
@@ -80,8 +81,8 @@ class ReadHomeScreen extends StatelessWidget {
                                     onPressed: () =>
                                         context.push('/reading/${due.id}'),
                                     icon: const Icon(Icons.history, size: 18),
-                                    label: const Text(
-                                      'Look back at last week\'s reading',
+                                    label: Text(
+                                      tr('Look back at last week\'s reading'),
                                     ),
                                   ),
                                 Text(
@@ -122,7 +123,7 @@ class _ModeButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final label = photo ? 'Photo reading' : 'Digital card reading';
+    final label = photo ? tr('Photo reading') : tr('Digital card reading');
     return Material(
       color: AppColors.gold,
       borderRadius: BorderRadius.circular(32),
@@ -165,8 +166,8 @@ class _ModeButton extends StatelessWidget {
             const VerticalDivider(width: 1, color: Color(0x33000000)),
             IconButton(
               tooltip: photo
-                  ? 'Switch to digital card reading'
-                  : 'Switch to photo reading',
+                  ? tr('Switch to digital card reading')
+                  : tr('Switch to photo reading'),
               onPressed: onSwap,
               icon: const Icon(Icons.swap_horiz, color: AppColors.onGold),
               padding: const EdgeInsets.symmetric(horizontal: 14),

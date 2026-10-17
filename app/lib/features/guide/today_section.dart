@@ -5,6 +5,7 @@ import '../../app/app_scope.dart';
 import '../../app/app_state.dart';
 import '../../app/theme.dart';
 import '../cards/card_art.dart';
+import '../../app/i18n.dart';
 
 /// Top of the Guide tab: today's card with a question to carry through the
 /// day, and "Your journey" built from the reading history on this phone.
@@ -30,17 +31,20 @@ class TodaySection extends StatelessWidget {
                 ? Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Today', style: t.titleLarge),
+                      Text(tr('Today'), style: t.titleLarge),
                       const SizedBox(height: 6),
-                      const Text(
-                        'Draw your Card of the Day for a question to carry '
-                        'with you today. Free, every day.',
+                      Text(
+                        tr(
+                          tr(
+                            'Draw your Card of the Day for a question to carry with you today. Free, every day.',
+                          ),
+                        ),
                         style: TextStyle(color: AppColors.textMuted),
                       ),
                       const SizedBox(height: 12),
                       FilledButton(
                         onPressed: () => context.push('/daily'),
-                        child: const Text('Draw today\'s card'),
+                        child: Text(tr('Draw today\'s card')),
                       ),
                     ],
                   )
@@ -59,8 +63,8 @@ class TodaySection extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Text(
-                                'TODAY\'S CARD',
+                              Text(
+                                tr('TODAY\'S CARD'),
                                 style: TextStyle(
                                   fontSize: 11,
                                   letterSpacing: 1.2,
@@ -78,7 +82,7 @@ class TodaySection extends StatelessWidget {
                               if (question != null) ...[
                                 const SizedBox(height: 8),
                                 Text(
-                                  'Today\'s guidance: $question',
+                                  tr('Today\'s guidance: {0}', [question]),
                                   style: const TextStyle(
                                     fontStyle: FontStyle.italic,
                                   ),
@@ -142,7 +146,7 @@ class _Journey extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Your journey',
+              tr('Your journey'),
               style: Theme.of(context).textTheme.titleMedium,
             ),
             const SizedBox(height: 12),
@@ -159,8 +163,12 @@ class _Journey extends StatelessWidget {
             if (top.isNotEmpty && top.first.value > 1) ...[
               const SizedBox(height: 12),
               Text(
-                'The card that keeps appearing: ${top.first.key} '
-                '(${top.first.value} times). What might it be asking of you?',
+                tr(
+                  tr(
+                    'The card that keeps appearing: {0} ({1} times). What might it be asking of you?',
+                  ),
+                  [top.first.key, top.first.value],
+                ),
                 style: const TextStyle(color: AppColors.textMuted),
               ),
             ],

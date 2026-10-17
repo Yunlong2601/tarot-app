@@ -9,6 +9,7 @@ import '../../app/flags.dart';
 import '../../app/brand.dart';
 import '../../app/theme.dart';
 import '../../core/subscription_service.dart';
+import '../../app/i18n.dart';
 
 /// Paywall. Prices, periods and the trial come from the store through
 /// RevenueCat (localised); nothing is hardcoded. Shows price, billing period,
@@ -24,7 +25,7 @@ class PaywallScreen extends StatefulWidget {
 
 class _PaywallScreenState extends State<PaywallScreen> {
   List<PlanOption>? _plans;
-  List<PlanOption> _packs = const [];
+  List<PlanOption> _packs = [];
   String? _loadError;
   String? _selected;
   bool _busy = false;
@@ -57,7 +58,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
       }
       final packs = creditsEnabled
           ? await service.creditPacks()
-          : const <PlanOption>[];
+          : <PlanOption>[];
       if (!mounted) return;
       setState(() {
         _packs = packs;
@@ -67,8 +68,10 @@ class _PaywallScreenState extends State<PaywallScreen> {
     } catch (_) {
       if (!mounted) return;
       setState(() {
-        _plans = const [];
-        _loadError = 'Could not load subscription options. Please try again.';
+        _plans = [];
+        _loadError = tr(
+          'Could not load subscription options. Please try again.',
+        );
       });
     }
   }
@@ -81,11 +84,13 @@ class _PaywallScreenState extends State<PaywallScreen> {
       await state.subscriptions.purchase(pack);
       // The server adds the credits when the store confirms; check twice.
       for (var i = 0; i < 2; i++) {
-        await Future<void>.delayed(const Duration(seconds: 2));
+        await Future<void>.delayed(Duration(seconds: 2));
         await state.refreshCredits();
       }
       messenger.showSnackBar(
-        SnackBar(content: Text('You have ${state.credits} reading credits.')),
+        SnackBar(
+          content: Text(tr('You have {0} reading credits.', [state.credits])),
+        ),
       );
     } on SubscriptionException catch (e) {
       messenger.showSnackBar(SnackBar(content: Text(e.message)));
@@ -127,7 +132,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
           extra: (plan: null, restored: true),
         );
       } else {
-        _toast('No active subscription found for this account.');
+        _toast(tr('No active subscription found for this account.'));
       }
     } on SubscriptionException catch (e) {
       _toast(e.message);
@@ -148,65 +153,65 @@ class _PaywallScreenState extends State<PaywallScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          tooltip: 'Close',
-          icon: const Icon(Icons.close),
+          tooltip: tr('Close'),
+          icon: Icon(Icons.close),
           onPressed: () => context.pop(),
         ),
       ),
       body: ListView(
-        padding: const EdgeInsets.all(24),
+        padding: EdgeInsets.all(24),
         children: [
-          const Center(child: CardFan(cardWidth: 64)),
-          const SizedBox(height: 4),
-          const Center(child: BrandWordmark(size: 13)),
-          const SizedBox(height: 12),
+          Center(child: CardFan(cardWidth: 64)),
+          SizedBox(height: 4),
+          Center(child: BrandWordmark(size: 13)),
+          SizedBox(height: 12),
           Text(
-            'Unlock Premium',
+            tr('Unlock Premium'),
             style: Theme.of(context).textTheme.headlineMedium,
             textAlign: TextAlign.center,
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
           for (final f in [
-            'All spreads, follow-ups, 50 readings a day',
+            tr('All spreads, follow-ups, 50 readings a day'),
             if (creditsEnabled) '90 to 150 new credits every month by plan (free: 2 a day), and unused credits roll over',
             'A clarifier card to shed light on a reading',
             'A look back a week later, with a reminder',
-            'Helps keep ShenTarot running',
+            tr('Helps keep ShenTarot running'),
           ])
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 4),
+              padding: EdgeInsets.symmetric(vertical: 4),
               child: Row(
                 children: [
-                  const Icon(
-                    Icons.check_circle,
-                    color: AppColors.gold,
-                    size: 20,
-                  ),
-                  const SizedBox(width: 12),
+                  Icon(Icons.check_circle, color: AppColors.gold, size: 20),
+                  SizedBox(width: 12),
                   Expanded(child: Text(f)),
                 ],
               ),
             ),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
           if (AppScope.of(context).referralOffer?.appleOfferCode
               case final code?)
             _AppleFriendOffer(code),
           if (plans != null && plans.any((p) => p.id.startsWith('preview-')))
-            const Padding(
+            Padding(
               padding: EdgeInsets.only(bottom: 8),
               child: Text(
-                'Preview: planned prices. Buying turns on after the store setup.',
+                tr(
+                  tr(
+                    'Preview: planned prices. Buying turns on after the store setup.',
+                  ),
+                ),
                 textAlign: TextAlign.center,
                 style: TextStyle(color: AppColors.gold, fontSize: 12),
               ),
             ),
           if (plans == null)
-            const Center(child: CircularProgressIndicator())
+            Center(child: CircularProgressIndicator())
           else if (plans.isEmpty)
             Text(
-              _loadError ?? 'Subscriptions are not available yet.',
+              _loadError ?? tr('Subscriptions are not available yet.'),
               textAlign: TextAlign.center,
-              style: const TextStyle(color: AppColors.textMuted),
+              style: TextStyle(color: AppColors.textMuted),
             )
           else
             RadioGroup<String>(
@@ -232,14 +237,12 @@ class _PaywallScreenState extends State<PaywallScreen> {
                             Expanded(
                               child: Text(
                                 '${p.title} · ${p.priceString} ${p.periodLabel}',
-                                style: const TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                ),
+                                style: TextStyle(fontWeight: FontWeight.w600),
                               ),
                             ),
                             if (p.title == 'Annual' &&
                                 annualSaving(plans) != null)
-                              const _Badge('Best value'),
+                              _Badge(tr('Best value')),
                           ],
                         ),
                         subtitle: _planDetails(p, plans),
@@ -251,7 +254,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
           if (creditsEnabled && plans != null)
             // With no store products yet the card is a preview: shown, not buyable.
             _CreditPacksCard(packs: _packs, busy: _busy, onBuy: _buyPack),
-          const SizedBox(height: 8),
+          SizedBox(height: 8),
           FilledButton(
             onPressed: (plan == null || _busy || plan.id.startsWith('preview-'))
                 ? null
@@ -259,34 +262,52 @@ class _PaywallScreenState extends State<PaywallScreen> {
             child: Text(
               plan?.trialLabel != null
                   ? plan!.trialIsFree
-                        ? 'Start ${plan.trialLabel!.replaceAll(' free', '')} free trial'
-                        : 'Start for ${plan.trialLabel!.split(' for ').first}'
-                  : 'Subscribe',
+                        ? tr('Start {0} free trial', [
+                            plan.trialDuration ??
+                                plan.trialLabel!.replaceAll(' free', ''),
+                          ])
+                        : tr('Start for {0}', [
+                            plan.trialPrice ??
+                                plan.trialLabel!.split(' for ').first,
+                          ])
+                  : tr('Subscribe'),
             ),
           ),
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
           if (plan != null)
             Text(
               plan.trialLabel != null
-                  ? '${plan.trialLabel}, then ${plan.priceString} ${plan.periodLabel}. '
-                        'Cancel any time at least 24 hours before the '
-                        '${plan.trialIsFree ? 'trial' : 'first period'} ends.'
+                  ? (plan.trialIsFree
+                        ? tr(
+                            '{0}, then {1} {2}. Cancel any time at least 24 hours before the trial ends.',
+                            [
+                              plan.trialLabel,
+                              plan.priceString,
+                              plan.periodLabel,
+                            ],
+                          )
+                        : tr(
+                            '{0}, then {1} {2}. Cancel any time at least 24 hours before the first period ends.',
+                            [
+                              plan.trialLabel,
+                              plan.priceString,
+                              plan.periodLabel,
+                            ],
+                          ))
                   : '${plan.priceString} ${plan.periodLabel}.',
               textAlign: TextAlign.center,
               // Same weight as the button: what you pay after the offer.
-              style: const TextStyle(fontSize: 14),
+              style: TextStyle(fontSize: 14),
             ),
-          const SizedBox(height: 4),
+          SizedBox(height: 4),
           Text(
             Platform.isIOS
-                ? 'Payment is charged to your Apple ID account. The '
-                      'subscription renews automatically unless cancelled at '
-                      'least 24 hours before the end of the current period. '
-                      'Manage or cancel in your App Store account settings.'
-                : 'Payment is charged to your Google Play account. The '
-                      'subscription renews automatically unless cancelled '
-                      'before the end of the current period. Manage or cancel '
-                      'in Google Play > Payments & subscriptions.',
+                ? tr(
+                    'Payment is charged to your Apple ID account. The subscription renews automatically unless cancelled at least 24 hours before the end of the current period. Manage or cancel in your App Store account settings.',
+                  )
+                : tr(
+                    'Payment is charged to your Google Play account. The subscription renews automatically unless cancelled before the end of the current period. Manage or cancel in Google Play > Payments & subscriptions.',
+                  ),
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 12, color: AppColors.textMuted),
           ),
@@ -295,15 +316,15 @@ class _PaywallScreenState extends State<PaywallScreen> {
             children: [
               TextButton(
                 onPressed: _busy ? null : _restore,
-                child: const Text('Restore Purchases'),
+                child: Text(tr('Restore Purchases')),
               ),
               TextButton(
                 onPressed: () => context.push('/legal/privacy'),
-                child: const Text('Privacy Policy'),
+                child: Text(tr('Privacy Policy')),
               ),
               TextButton(
                 onPressed: () => context.push('/legal/terms'),
-                child: const Text('Terms of Use'),
+                child: Text(tr('Terms of Use')),
               ),
             ],
           ),
@@ -343,14 +364,14 @@ class _Badge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+    padding: EdgeInsets.symmetric(horizontal: 8, vertical: 3),
     decoration: BoxDecoration(
       color: AppColors.gold,
       borderRadius: BorderRadius.circular(8),
     ),
     child: Text(
       text,
-      style: const TextStyle(
+      style: TextStyle(
         color: AppColors.onGold,
         fontSize: 11,
         fontWeight: FontWeight.w700,
@@ -367,37 +388,40 @@ class _AppleFriendOffer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Card(
-    margin: const EdgeInsets.only(bottom: 16),
+    margin: EdgeInsets.only(bottom: 16),
     child: Padding(
-      padding: const EdgeInsets.all(16),
+      padding: EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Friend\'s offer: 50% off your first year',
+            tr('Friend\'s offer: 50% off your first year'),
             style: Theme.of(context).textTheme.titleMedium,
           ),
-          const SizedBox(height: 6),
-          SelectableText('Your App Store code: $code'),
-          const SizedBox(height: 4),
-          const Text(
-            'Copy the code, then redeem it in the App Store sheet. The price '
-            'and renewal terms are shown there before you confirm.',
+          SizedBox(height: 6),
+          SelectableText(tr('Your App Store code: {0}', [code])),
+          SizedBox(height: 4),
+          Text(
+            tr(
+              tr(
+                'Copy the code, then redeem it in the App Store sheet. The price and renewal terms are shown there before you confirm.',
+              ),
+            ),
             style: TextStyle(color: AppColors.textMuted, fontSize: 12),
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: 8),
           OverflowBar(
             spacing: 8,
             children: [
               TextButton(
                 onPressed: () => Clipboard.setData(ClipboardData(text: code)),
-                child: const Text('Copy code'),
+                child: Text(tr('Copy code')),
               ),
               FilledButton(
-                style: FilledButton.styleFrom(minimumSize: const Size(0, 44)),
+                style: FilledButton.styleFrom(minimumSize: Size(0, 44)),
                 onPressed: () =>
                     AppScope.of(context).subscriptions.redeemOfferCode(),
-                child: const Text('Redeem in App Store'),
+                child: Text(tr('Redeem in App Store')),
               ),
             ],
           ),
@@ -423,32 +447,31 @@ class _CreditPacksCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Card(
-    margin: const EdgeInsets.only(top: 16),
+    margin: EdgeInsets.only(top: 16),
     child: Padding(
-      padding: const EdgeInsets.all(16),
+      padding: EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Not ready to subscribe?',
+            tr('Not ready to subscribe?'),
             style: Theme.of(context).textTheme.titleMedium,
           ),
-          const SizedBox(height: 4),
-          const Text(
-            'Buy a few credits once. One credit pays for a reading or a '
-            'follow-up, and credits never expire. Premium costs less per '
-            'credit and also includes 90 to 150 new credits every month and '
-            'the 5, 7 and 10-card spreads. Free users get 2 new credits a day. '
-            'Premium members keep their credits if they reinstall and restore '
-            'purchases.',
+          SizedBox(height: 4),
+          Text(
+            tr(
+              tr(
+                'Buy a few credits once. One credit pays for a reading or a follow-up, and credits never expire. Premium costs less per credit and also includes 90 to 150 new credits every month and the 5, 7 and 10-card spreads. Free users get 2 new credits a day. Premium members keep their credits if they reinstall and restore purchases.',
+              ),
+            ),
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: 8),
           if (packs.isEmpty)
-            const Align(
+            Align(
               alignment: Alignment.centerRight,
               child: OutlinedButton(
                 onPressed: null,
-                child: Text('Coming soon'),
+                child: Text(tr('Coming soon')),
               ),
             )
           else
@@ -472,7 +495,7 @@ class _CreditPacksCard extends StatelessWidget {
 
 /// Planned plans, shown only in tester builds while the stores have no
 /// products. Real prices always come from the store.
-const previewPlans = [
+final previewPlans = [
   PlanOption(
     id: 'preview-annual',
     title: 'Annual',

@@ -5,6 +5,7 @@ import '../../app/app_scope.dart';
 import '../../app/theme.dart';
 import '../../data/spreads.dart';
 import 'history_filter.dart';
+import '../../app/i18n.dart';
 
 class HistoryScreen extends StatefulWidget {
   const HistoryScreen({super.key});
@@ -29,7 +30,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
       period: _period,
     );
     return Scaffold(
-      appBar: AppBar(title: const Text('History')),
+      appBar: AppBar(title: Text(tr('History'))),
       body: all.isEmpty
           ? Center(
               child: Padding(
@@ -43,14 +44,14 @@ class _HistoryScreenState extends State<HistoryScreen> {
                       color: AppColors.textMuted,
                     ),
                     const SizedBox(height: 12),
-                    const Text(
-                      'No readings yet',
+                    Text(
+                      tr('No readings yet'),
                       style: TextStyle(color: AppColors.textMuted),
                     ),
                     const SizedBox(height: 12),
                     FilledButton(
                       onPressed: () => context.go('/read'),
-                      child: const Text('Draw your first card'),
+                      child: Text(tr('Draw your first card')),
                     ),
                   ],
                 ),
@@ -61,9 +62,9 @@ class _HistoryScreenState extends State<HistoryScreen> {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
                   child: TextField(
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       prefixIcon: Icon(Icons.search),
-                      hintText: 'Search cards, questions, notes',
+                      hintText: tr('Search cards, questions, notes'),
                     ),
                     onChanged: (v) => setState(() => _query = v),
                   ),
@@ -74,7 +75,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                   child: Row(
                     children: [
                       ChoiceChip(
-                        label: const Text('All'),
+                        label: Text(tr('All')),
                         selected: _category == null,
                         onSelected: (_) => setState(() => _category = null),
                       ),
@@ -100,10 +101,10 @@ class _HistoryScreenState extends State<HistoryScreen> {
                   ),
                 ),
                 if (items.isEmpty)
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.all(32),
                     child: Text(
-                      'No readings match.',
+                      tr('No readings match.'),
                       style: TextStyle(color: AppColors.textMuted),
                     ),
                   ),
@@ -127,7 +128,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                         onDismissed: (_) {
                           state.deleteReading(r.id);
                           ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text('Reading deleted')),
+                            SnackBar(content: Text(tr('Reading deleted'))),
                           );
                         },
                         child: Card(

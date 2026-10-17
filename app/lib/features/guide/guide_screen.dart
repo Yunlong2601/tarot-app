@@ -6,6 +6,7 @@ import '../../app/app_scope.dart';
 import '../../app/app_state.dart';
 import '../../app/theme.dart';
 import 'today_section.dart';
+import '../../app/i18n.dart';
 
 /// Teaches how to use the app, plus a short tarot course for beginners.
 /// Layout: today's card, quick ways to start, how-to tiles (tap for details),
@@ -272,8 +273,8 @@ class _GuideScreenState extends State<GuideScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'TRY IT',
+              Text(
+                tr('TRY IT'),
                 style: TextStyle(
                   fontSize: 11,
                   letterSpacing: 1.2,
@@ -309,7 +310,7 @@ class _GuideScreenState extends State<GuideScreen> {
               Navigator.of(context).pop();
               _openLesson(context, i + 1);
             },
-            child: Text('Next: ${_lessons[i + 1].$1}'),
+            child: Text(tr('Next: {0}', [_lessons[i + 1].$1])),
           ),
         ],
       ],
@@ -359,7 +360,7 @@ class _GuideScreenState extends State<GuideScreen> {
     final doneCount = _done.where((i) => i < _lessons.length).length;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Guide')),
+      appBar: AppBar(title: Text(tr('Guide'))),
       body: ListView(
         padding: const EdgeInsets.fromLTRB(16, 8, 16, 32),
         children: [
@@ -368,26 +369,26 @@ class _GuideScreenState extends State<GuideScreen> {
           pairs([
             _Tile(
               icon: Icons.center_focus_strong,
-              title: 'Photo reading',
-              subtitle: 'Scan your own cards',
+              title: tr('Photo reading'),
+              subtitle: tr('Scan your own cards'),
               onTap: () => _startReading(context, ReadMode.photo),
             ),
             _Tile(
               icon: Icons.auto_awesome,
-              title: 'Digital reading',
-              subtitle: 'No deck needed',
+              title: tr('Digital reading'),
+              subtitle: tr('No deck needed'),
               onTap: () => _startReading(context, ReadMode.digital),
             ),
             _Tile(
               icon: Icons.wb_sunny_outlined,
-              title: 'Card of the Day',
-              subtitle: 'Free, every day',
+              title: tr('Card of the Day'),
+              subtitle: tr('Free, every day'),
               onTap: () => context.push('/daily'),
             ),
             _Tile(
               icon: Icons.style_outlined,
-              title: 'All 78 cards',
-              subtitle: 'Meanings and art',
+              title: tr('All 78 cards'),
+              subtitle: tr('Meanings and art'),
               onTap: () => context.go('/library'),
             ),
           ]),
@@ -411,7 +412,7 @@ class _GuideScreenState extends State<GuideScreen> {
               minHeight: 6,
               color: AppColors.gold,
               backgroundColor: AppColors.goldTint,
-              semanticsLabel: 'Lessons done',
+              semanticsLabel: tr('Lessons done'),
             ),
           ),
           const SizedBox(height: 12),
@@ -465,7 +466,7 @@ class _GuideScreenState extends State<GuideScreen> {
               minimumSize: const Size.fromHeight(48),
             ),
             onPressed: () => context.go('/library'),
-            child: const Text('Browse all 78 cards'),
+            child: Text(tr('Browse all 78 cards')),
           ),
         ],
       ),

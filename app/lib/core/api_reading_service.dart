@@ -10,6 +10,7 @@ import 'creator_service.dart';
 import 'referral_service.dart';
 import 'reading_service.dart';
 import 'user_key_store.dart';
+import '../app/i18n.dart';
 
 /// Talks to the Cloudflare Worker (`backend/`). Sends only the card IDs,
 /// orientation, spread and the optional question, plus an anonymous install ID.
@@ -84,10 +85,12 @@ class ApiReadingService
     final id = res.json['accountId'];
     if (res.status == 200 && id is String) return id;
     throw AccountException(switch (res.json['error']) {
-      'accounts_not_configured' => 'Accounts are not available yet.',
-      'invalid_token' => 'Sign-in could not be confirmed. Please try again.',
-      'rate_limited' => 'Too many attempts. Please wait a minute.',
-      _ => 'Sign-in failed. Please try again.',
+      'accounts_not_configured' => tr('Accounts are not available yet.'),
+      'invalid_token' => tr(
+        'Sign-in could not be confirmed. Please try again.',
+      ),
+      'rate_limited' => tr('Too many attempts. Please wait a minute.'),
+      _ => tr('Sign-in failed. Please try again.'),
     });
   }
 
@@ -100,8 +103,8 @@ class ApiReadingService
   Future<void> deleteAccount() async {
     final res = await _post('/v1/account/delete', const {}, auth: true);
     if (res.status != 200) {
-      throw const AccountException(
-        'The account could not be deleted. Please try again.',
+      throw AccountException(
+        tr('The account could not be deleted. Please try again.'),
       );
     }
   }
@@ -154,16 +157,17 @@ class ApiReadingService
     }, auth: true);
     if (res.status == 200) return (res.json['credits'] as num?)?.toInt() ?? 0;
     throw CreatorException(switch (res.json['error']) {
-      'invalid_link' =>
-        'That is not a link to a post on TikTok, Instagram, YouTube, '
-            'Xiaohongshu, Reddit, X, Facebook or Threads.',
-      'invalid_screenshot' =>
+      'invalid_link' => tr(
+        'That is not a link to a post on TikTok, Instagram, YouTube, Xiaohongshu, Reddit, X, Facebook or Threads.',
+      ),
+      'invalid_screenshot' => tr(
         'The screenshot could not be used. Choose a PNG or JPEG under 1 MB.',
-      'duplicate_link' => 'You already sent this post.',
-      'daily_limit' => 'One post a day earns credits. Come back tomorrow.',
-      'monthly_limit' => 'You have reached this month\'s limit of posts.',
-      'rate_limited' => 'Too many tries. Wait a minute and try again.',
-      _ => 'The creator program is not available right now.',
+      ),
+      'duplicate_link' => tr('You already sent this post.'),
+      'daily_limit' => tr('One post a day earns credits. Come back tomorrow.'),
+      'monthly_limit' => tr('You have reached this month\'s limit of posts.'),
+      'rate_limited' => tr('Too many tries. Wait a minute and try again.'),
+      _ => tr('The creator program is not available right now.'),
     });
   }
 
@@ -171,7 +175,7 @@ class ApiReadingService
   Future<ReferralInfo> me() async {
     final res = await _post('/v1/referral/me', const {}, auth: true);
     if (res.status != 200) {
-      throw const ReferralException('Invites are not available right now.');
+      throw ReferralException(tr('Invites are not available right now.'));
     }
     return ReferralInfo.fromJson(res.json);
   }
@@ -189,12 +193,16 @@ class ApiReadingService
       );
     }
     throw ReferralException(switch (res.json['error']) {
-      'unknown_code' => 'That code was not found. Check it and try again.',
-      'own_code' => 'That is your own code. Share it with a friend instead.',
+      'unknown_code' => tr('That code was not found. Check it and try again.'),
+      'own_code' => tr(
+        'That is your own code. Share it with a friend instead.',
+      ),
       'already_referred' => 'A friend\'s code is already used on this phone.',
-      'no_codes_left' => 'Friend offers are out right now. Please try later.',
-      'rate_limited' => 'Too many tries. Please wait a minute.',
-      _ => 'The code could not be used. Please try again.',
+      'no_codes_left' => tr(
+        'Friend offers are out right now. Please try later.',
+      ),
+      'rate_limited' => tr('Too many tries. Please wait a minute.'),
+      _ => tr('The code could not be used. Please try again.'),
     });
   }
 
@@ -224,30 +232,29 @@ class ApiReadingService
     }
     final error = res.json['error'];
     throw switch ((res.status, error)) {
-      (429, 'daily_limit') => const ReadingException(
+      (429, 'daily_limit') => ReadingException(
         ReadingErrorKind.dailyLimit,
-        'You have used today\'s free reading.',
+        tr('You have used today\'s free reading.'),
       ),
-      (400, 'invalid_user_key' || 'user_key_rejected') =>
-        const ReadingException(
-          ReadingErrorKind.userKey,
-          'Your AI key was not accepted. Check it in You > Your own AI key.',
-        ),
-      (402, _) => const ReadingException(
+      (400, 'invalid_user_key' || 'user_key_rejected') => ReadingException(
+        ReadingErrorKind.userKey,
+        tr('Your AI key was not accepted. Check it in You > Your own AI key.'),
+      ),
+      (402, _) => ReadingException(
         ReadingErrorKind.premiumRequired,
-        'This is part of Premium.',
+        tr('This is part of Premium.'),
       ),
       (422, _) => const ReadingException(
         ReadingErrorKind.declined,
         'A reading could not be made for this question. Try rewording it.',
       ),
-      (429, _) || (503, _) => const ReadingException(
+      (429, _) || (503, _) => ReadingException(
         ReadingErrorKind.failed,
-        'The service is busy. Please try again in a minute.',
+        tr('The service is busy. Please try again in a minute.'),
       ),
-      _ => const ReadingException(
+      _ => ReadingException(
         ReadingErrorKind.failed,
-        'Something went wrong. Please try again.',
+        tr('Something went wrong. Please try again.'),
       ),
     };
   }
@@ -281,14 +288,14 @@ class ApiReadingService
       } catch (_) {}
       return _Response(resp.statusCode, json);
     } on SocketException {
-      throw const ReadingException(
+      throw ReadingException(
         ReadingErrorKind.network,
-        'No connection. Check your internet and try again.',
+        tr('No connection. Check your internet and try again.'),
       );
     } on HttpException {
-      throw const ReadingException(
+      throw ReadingException(
         ReadingErrorKind.network,
-        'No connection. Check your internet and try again.',
+        tr('No connection. Check your internet and try again.'),
       );
     } finally {
       client.close();
@@ -303,9 +310,9 @@ class ApiReadingService
     }, auth: false);
     final token = res.json['token'];
     if (res.status != 200 || token is! String) {
-      throw const ReadingException(
+      throw ReadingException(
         ReadingErrorKind.failed,
-        'Something went wrong. Please try again.',
+        tr('Something went wrong. Please try again.'),
       );
     }
     return _token = token;

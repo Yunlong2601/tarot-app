@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../app/brand.dart';
 import '../../app/theme.dart';
+import '../../app/i18n.dart';
 
 /// Shown right after a purchase or restore: a thank-you, a short gold burst,
 /// and what Premium now unlocks, with a way straight into a reading.
@@ -82,11 +83,14 @@ class _WelcomePremiumScreenState extends State<WelcomePremiumScreen>
   @override
   Widget build(BuildContext context) {
     final t = Theme.of(context).textTheme;
-    final title = widget.restored ? 'Welcome back' : 'Welcome to Premium';
+    final title = widget.restored
+        ? tr('Welcome back')
+        : tr('Welcome to Premium');
     final thanks = widget.restored
-        ? 'Your Premium is restored on this phone.'
-        : 'Thank you for supporting ShenTarot. Your purchase keeps the readings '
-              'thoughtful and the app independent.';
+        ? tr('Your Premium is restored on this phone.')
+        : tr(
+            'Thank you for supporting ShenTarot. Your purchase keeps the readings thoughtful and the app independent.',
+          );
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -94,7 +98,7 @@ class _WelcomePremiumScreenState extends State<WelcomePremiumScreen>
             Align(
               alignment: Alignment.centerLeft,
               child: IconButton(
-                tooltip: 'Close',
+                tooltip: tr('Close'),
                 icon: const Icon(Icons.close),
                 onPressed: _close,
               ),
@@ -164,7 +168,7 @@ class _WelcomePremiumScreenState extends State<WelcomePremiumScreen>
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Text(
-                          '${widget.plan} plan',
+                          tr('{0} plan', [widget.plan]),
                           style: const TextStyle(color: AppColors.gold),
                         ),
                       ),
@@ -180,8 +184,8 @@ class _WelcomePremiumScreenState extends State<WelcomePremiumScreen>
                     ),
                   ),
                   const SizedBox(height: 24),
-                  const Text(
-                    'NOW UNLOCKED',
+                  Text(
+                    tr('NOW UNLOCKED'),
                     style: TextStyle(
                       fontSize: 12,
                       letterSpacing: 1.2,
@@ -227,9 +231,9 @@ class _WelcomePremiumScreenState extends State<WelcomePremiumScreen>
                       _close();
                       router.push('/ask');
                     },
-                    child: const Text('Start a Premium reading'),
+                    child: Text(tr('Start a Premium reading')),
                   ),
-                  TextButton(onPressed: _close, child: const Text('Continue')),
+                  TextButton(onPressed: _close, child: Text(tr('Continue'))),
                 ],
               ),
             ),

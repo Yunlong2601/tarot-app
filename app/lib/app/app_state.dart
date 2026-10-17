@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import 'i18n.dart';
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -107,11 +109,11 @@ class AppState extends ChangeNotifier {
   /// The one-line status under the reading buttons.
   String get creditLine {
     if (!creditsEnabled) {
-      if (isPremium) return 'Premium: 50 readings a day';
+      if (isPremium) return tr('Premium: 50 readings a day');
       final left = freeReadingsPerDay - freeReadingsUsedToday;
       return canReadForFree
           ? '$left free ${left == 1 ? 'reading' : 'readings'} left today'
-          : 'Free readings used. Come back tomorrow or go Premium.';
+          : tr('Free readings used. Come back tomorrow or go Premium.');
     }
     final perDay = dailyCredits > 0 ? dailyCredits : 2;
     final perMonth = monthlyCredits > 0 ? monthlyCredits : 90;
@@ -122,8 +124,11 @@ class AppState extends ChangeNotifier {
       return '$credits credits · $plan, unused credits roll over';
     }
     return isPremium
-        ? 'No credits left. $perDay new credits arrive tomorrow.'
-        : 'No credits left. $perDay new credits arrive tomorrow, or go Premium.';
+        ? tr('No credits left. {0} new credits arrive tomorrow.', [perDay])
+        : tr(
+            'No credits left. {0} new credits arrive tomorrow, or go Premium.',
+            [perDay],
+          );
   }
 
   /// The friend's offer unlocked by a code typed on this phone, if any.
@@ -280,6 +285,7 @@ class AppState extends ChangeNotifier {
   int _usedCount = 0;
 
   static const _kOnboarded = 'onboarded';
+  static const _kLanguage = 'language';
   static const _kUsedDay = 'free_used_day';
   static const _kUsedCount = 'free_used_count';
   static const _kTrial = 'trial_used';
@@ -313,6 +319,39 @@ class AppState extends ChangeNotifier {
   /// True when this spread would use the one-time free trial reading.
   bool usesTrial(SpreadType spread) =>
       !isPremium && !spread.isFree && !trialUsed;
+
+  /// Language chosen in Settings, or null to follow the phone.
+  String? languageChoice;
+
+  /// Loads the app language: the Settings choice, else the phone's language.
+  Future<void> loadLanguage() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      languageChoice = prefs.getString(_kLanguage);
+    } catch (_) {}
+    await I18n.load(
+      languageChoice ??
+          I18n.codeForDevice(WidgetsBinding.instance.platformDispatcher.locale),
+    );
+  }
+
+  /// [code] null = follow the phone.
+  Future<void> setLanguage(String? code) async {
+    languageChoice = code;
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      if (code == null) {
+        await prefs.remove(_kLanguage);
+      } else {
+        await prefs.setString(_kLanguage, code);
+      }
+    } catch (_) {}
+    await I18n.load(
+      code ??
+          I18n.codeForDevice(WidgetsBinding.instance.platformDispatcher.locale),
+    );
+    notifyListeners();
+  }
 
   /// Loads saved history and settings. Failures leave the app usable.
   Future<void> loadPersisted() async {

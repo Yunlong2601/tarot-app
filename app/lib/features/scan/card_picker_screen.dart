@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../app/app_scope.dart';
+import '../../app/i18n.dart';
 
 /// Manual fallback: pick a card when recognition is unsure. Pops the chosen
 /// card id.
@@ -19,15 +20,15 @@ class _CardPickerScreenState extends State<CardPickerScreen> {
   Widget build(BuildContext context) {
     final cards = AppScope.of(context).deck.search(_query);
     return Scaffold(
-      appBar: AppBar(title: const Text('Pick a card')),
+      appBar: AppBar(title: Text(tr('Pick a card'))),
       body: Column(
         children: [
           Padding(
             padding: const EdgeInsets.all(16),
             child: TextField(
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 prefixIcon: Icon(Icons.search),
-                hintText: 'Search name or keyword',
+                hintText: tr('Search name or keyword'),
               ),
               onChanged: (v) => setState(() => _query = v),
             ),

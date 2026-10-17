@@ -2,10 +2,12 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:go_router/go_router.dart';
 
 import 'app/app_scope.dart';
 import 'app/app_state.dart';
+import 'app/i18n.dart';
 import 'app/router.dart';
 import 'app/theme.dart';
 import 'core/account_service.dart';
@@ -47,6 +49,7 @@ Future<void> main() async {
         ? const UnconfiguredSubscriptionService()
         : RevenueCatSubscriptionService(storeKey),
   );
+  await state.loadLanguage();
   await state.loadPersisted();
   unawaited(state.refreshReminders());
   unawaited(state.claimDailyCredit());
@@ -77,11 +80,18 @@ class _ShenTarotAppState extends State<ShenTarotApp> {
   Widget build(BuildContext context) {
     return AppScope(
       state: _state,
-      child: MaterialApp.router(
-        title: 'ShenTarot',
-        theme: buildTheme(),
-        routerConfig: _router,
-        debugShowCheckedModeBanner: false,
+      child: ValueListenableBuilder<String>(
+        valueListenable: I18n.current,
+        builder: (context, code, _) => MaterialApp.router(
+          key: ValueKey(code),
+          title: 'ShenTarot',
+          locale: I18n.locale,
+          supportedLocales: I18n.supportedLocales,
+          localizationsDelegates: GlobalMaterialLocalizations.delegates,
+          theme: buildTheme(),
+          routerConfig: _router,
+          debugShowCheckedModeBanner: false,
+        ),
       ),
     );
   }

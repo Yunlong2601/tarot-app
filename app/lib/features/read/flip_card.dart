@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../../app/brand.dart';
 import '../../data/models.dart';
 import '../cards/card_art.dart';
+import '../../app/i18n.dart';
 
 /// A face-down card that flips over when [flipped] becomes true.
 class FlipCard extends StatefulWidget {
@@ -60,7 +61,7 @@ class _FlipCardState extends State<FlipCard>
       button: !widget.flipped,
       label: widget.flipped
           ? '$name${widget.drawn.reversed ? ', reversed' : ''}'
-          : 'Face-down card. Tap to turn over.',
+          : tr('Face-down card. Tap to turn over.'),
       excludeSemantics: true,
       onTap: widget.flipped ? null : widget.onTap,
       child: GestureDetector(

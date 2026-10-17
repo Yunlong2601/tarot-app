@@ -11,6 +11,7 @@ import '../reading/start_reading.dart';
 import '../spreads/spread_layout.dart';
 import 'deck_fan.dart';
 import 'flying_card.dart';
+import '../../app/i18n.dart';
 
 /// Digital card reading: the deck is shuffled with a riffle animation and
 /// spread face down in a fan. The user swipes the fan, taps any card to send
@@ -130,11 +131,14 @@ class _DrawScreenState extends State<DrawScreen> {
     final allFlipped = allPlaced && _flipped.length == n;
     final question = state.draftQuestion;
     final hint = !allPlaced
-        ? 'Swipe the fan and pick card ${placed + 1} of $n: '
-              '${_spread.positions[placed]}'
+        ? tr('Swipe the fan and pick card {0} of {1}: {2}', [
+            placed + 1,
+            n,
+            _spread.positions[placed],
+          ])
         : allFlipped
-        ? 'All cards turned. Ready when you are.'
-        : 'Tap each card to turn it over.';
+        ? tr('All cards turned. Ready when you are.')
+        : tr('Tap each card to turn it over.');
     return Scaffold(
       appBar: AppBar(title: Text(_spread.label)),
       body: SafeArea(
@@ -148,14 +152,14 @@ class _DrawScreenState extends State<DrawScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    question.isEmpty ? 'General reading' : question,
+                    question.isEmpty ? tr('General reading') : question,
                     style: Theme.of(context).textTheme.titleMedium,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(height: 4),
-                  const Text(
-                    'Take a breath and hold your question in mind.',
+                  Text(
+                    tr('Take a breath and hold your question in mind.'),
                     style: TextStyle(color: AppColors.textMuted),
                   ),
                 ],
@@ -214,7 +218,7 @@ class _DrawScreenState extends State<DrawScreen> {
                   // Reshuffling is only offered before the first card is down.
                   onPressed: placed == 0 && _flying == null ? _shuffle : null,
                   icon: const Icon(Icons.shuffle),
-                  label: const Text('Shuffle again'),
+                  label: Text(tr('Shuffle again')),
                 ),
               ),
             ] else
@@ -274,10 +278,7 @@ class _Results extends StatelessWidget {
             ),
           if (ready) ...[
             const SizedBox(height: 12),
-            FilledButton(
-              onPressed: onRead,
-              child: const Text('Get my reading'),
-            ),
+            FilledButton(onPressed: onRead, child: Text(tr('Get my reading'))),
           ],
         ],
       ),

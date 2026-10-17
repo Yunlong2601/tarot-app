@@ -7,6 +7,7 @@ import '../../app/app_scope.dart';
 import '../../app/theme.dart';
 import '../../core/account_service.dart';
 import '../../app/motion.dart';
+import '../../app/i18n.dart';
 
 /// Optional account: sign in with Google or Apple so Premium follows you to
 /// another phone. Sign out and Delete account live here too.
@@ -27,7 +28,7 @@ class _AccountScreenState extends State<AccountScreen> {
     } on AccountException catch (e) {
       _toast(e.message);
     } catch (_) {
-      _toast('Something went wrong. Please try again.');
+      _toast(tr('Something went wrong. Please try again.'));
     } finally {
       if (mounted) setState(() => _busy = false);
     }
@@ -39,27 +40,28 @@ class _AccountScreenState extends State<AccountScreen> {
   }
 
   Future<void> _delete() async {
-    final store = Platform.isIOS ? 'the App Store' : 'Google Play';
+    final store = Platform.isIOS ? tr('the App Store') : tr('Google Play');
     final ok = await showAppDialog<bool>(
       context: context,
       builder: (c) => AlertDialog(
-        title: const Text('Delete your account?'),
+        title: Text(tr('Delete your account?')),
         content: Text(
-          'This permanently deletes your ShenTarot account and its usage '
-          'records on our server. Readings on this phone are kept; you can '
-          'remove them with Delete all my data.\n\nAn active subscription is '
-          'not cancelled by this. Cancel it in $store first if you no longer '
-          'want it.',
+          tr(
+            tr(
+              'This permanently deletes your ShenTarot account and its usage records on our server. Readings on this phone are kept; you can remove them with Delete all my data.\n\nAn active subscription is not cancelled by this. Cancel it in {0} first if you no longer want it.',
+            ),
+            [store],
+          ),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(c, false),
-            child: const Text('Cancel'),
+            child: Text(tr('Cancel')),
           ),
           TextButton(
             onPressed: () => Navigator.pop(c, true),
             style: TextButton.styleFrom(foregroundColor: Colors.redAccent),
-            child: const Text('Delete account'),
+            child: Text(tr('Delete account')),
           ),
         ],
       ),
@@ -67,7 +69,7 @@ class _AccountScreenState extends State<AccountScreen> {
     if (ok != true || !mounted) return;
     await _run(() async {
       await AppScope.of(context).deleteAccount();
-      _toast('Your account was deleted.');
+      _toast(tr('Your account was deleted.'));
     });
   }
 
@@ -77,7 +79,7 @@ class _AccountScreenState extends State<AccountScreen> {
     final account = state.account;
     const muted = TextStyle(color: AppColors.textMuted);
     return Scaffold(
-      appBar: AppBar(title: const Text('Account')),
+      appBar: AppBar(title: Text(tr('Account'))),
       body: AbsorbPointer(
         absorbing: _busy,
         child: ListView(
@@ -85,18 +87,24 @@ class _AccountScreenState extends State<AccountScreen> {
           children: [
             if (account == null) ...[
               Text(
-                'Sign in (optional)',
+                tr('Sign in (optional)'),
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
               const SizedBox(height: 8),
-              const Text(
-                'Sign in to keep Premium when you change or add a phone. '
-                'You can use ShenTarot fully without an account.',
+              Text(
+                tr(
+                  tr(
+                    'Sign in to keep Premium when you change or add a phone. You can use ShenTarot fully without an account.',
+                  ),
+                ),
               ),
               const SizedBox(height: 8),
-              const Text(
-                'We do not store your name or email. Your readings and journal '
-                'stay on this phone either way.',
+              Text(
+                tr(
+                  tr(
+                    'We do not store your name or email. Your readings and journal stay on this phone either way.',
+                  ),
+                ),
                 style: muted,
               ),
               const SizedBox(height: 24),
@@ -105,7 +113,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   onPressed: () => _run(() async {
                     final router = GoRouter.of(context);
                     if (await state.signIn(p)) {
-                      _toast('Signed in with ${p.label}');
+                      _toast(tr('Signed in with {0}', [p.label]));
                       // Let the router finish its refresh from the state
                       // change first, or it would restore this page.
                       await WidgetsBinding.instance.endOfFrame;
@@ -117,7 +125,7 @@ class _AccountScreenState extends State<AccountScreen> {
                         ? Icons.apple
                         : Icons.account_circle_outlined,
                   ),
-                  label: Text('Continue with ${p.label}'),
+                  label: Text(tr('Continue with {0}', [p.label])),
                 ),
                 const SizedBox(height: 12),
               ],
@@ -126,14 +134,14 @@ class _AccountScreenState extends State<AccountScreen> {
                 style: OutlinedButton.styleFrom(
                   minimumSize: const Size.fromHeight(48),
                 ),
-                child: const Text('Continue without an account'),
+                child: Text(tr('Continue without an account')),
               ),
             ] else ...[
               ListTile(
                 contentPadding: EdgeInsets.zero,
                 leading: const Icon(Icons.verified_user, color: AppColors.gold),
-                title: Text('Signed in with ${account.provider.label}'),
-                subtitle: const Text('Premium follows this account'),
+                title: Text(tr('Signed in with {0}', [account.provider.label])),
+                subtitle: Text(tr('Premium follows this account')),
               ),
               const SizedBox(height: 16),
               OutlinedButton(
@@ -141,13 +149,13 @@ class _AccountScreenState extends State<AccountScreen> {
                 style: OutlinedButton.styleFrom(
                   minimumSize: const Size.fromHeight(48),
                 ),
-                child: const Text('Sign out'),
+                child: Text(tr('Sign out')),
               ),
               const SizedBox(height: 32),
               TextButton(
                 onPressed: _delete,
                 style: TextButton.styleFrom(foregroundColor: Colors.redAccent),
-                child: const Text('Delete account'),
+                child: Text(tr('Delete account')),
               ),
             ],
             if (_busy) ...[

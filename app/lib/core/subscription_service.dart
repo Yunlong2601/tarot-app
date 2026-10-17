@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 
 import 'credit_service.dart';
+import '../app/i18n.dart';
 
 /// One purchasable plan, with the store-localised price. Never hardcode prices.
 class PlanOption {
@@ -18,6 +19,8 @@ class PlanOption {
     this.price,
     this.perMonthString,
     this.productId,
+    this.trialDuration,
+    this.trialPrice,
   });
 
   final String id;
@@ -44,6 +47,12 @@ class PlanOption {
 
   /// Store product id (Play ids may carry ":baseplan"; compare the part before).
   final String? productId;
+
+  /// Translated length of the introductory offer, e.g. "7 days".
+  final String? trialDuration;
+
+  /// Store-formatted price of a paid introductory offer, e.g. "$1.99".
+  final String? trialPrice;
 }
 
 class SubscriptionException implements Exception {
@@ -114,7 +123,7 @@ int monthsPaidBetween(DateTime first, DateTime latest) =>
 class UnconfiguredSubscriptionService implements SubscriptionService {
   const UnconfiguredSubscriptionService();
 
-  static const _msg = 'Subscriptions are not available yet.';
+  static String get _msg => tr('Subscriptions are not available yet.');
 
   @override
   bool get isConfigured => false;
@@ -129,11 +138,10 @@ class UnconfiguredSubscriptionService implements SubscriptionService {
   Future<List<PlanOption>> plans() async => const [];
 
   @override
-  Future<bool> purchase(PlanOption plan) =>
-      throw const SubscriptionException(_msg);
+  Future<bool> purchase(PlanOption plan) => throw SubscriptionException(_msg);
 
   @override
-  Future<bool> restore() => throw const SubscriptionException(_msg);
+  Future<bool> restore() => throw SubscriptionException(_msg);
 
   @override
   Future<String> manageUrl() async => _storeSubscriptionsUrl();
@@ -154,14 +162,13 @@ class UnconfiguredSubscriptionService implements SubscriptionService {
   Future<PlanOption?> referralPlan(String offerTag) async => null;
 
   @override
-  Future<void> redeemOfferCode() => throw const SubscriptionException(_msg);
+  Future<void> redeemOfferCode() => throw SubscriptionException(_msg);
 
   @override
   Future<List<PlanOption>> creditPacks() async => const [];
 
   @override
-  Future<bool> switchTo(PlanOption plan) =>
-      throw const SubscriptionException(_msg);
+  Future<bool> switchTo(PlanOption plan) => throw SubscriptionException(_msg);
 }
 
 String _storeSubscriptionsUrl() => Platform.isIOS
@@ -248,7 +255,7 @@ class RevenueCatSubscriptionService implements SubscriptionService {
       for (final p in products)
         PlanOption(
           id: 'pack-${creditsInPack(p.identifier)}',
-          title: '${creditsInPack(p.identifier)} credits',
+          title: tr('{0} credits', [creditsInPack(p.identifier)]),
           priceString: p.priceString,
           periodLabel: 'one time',
           handle: p,
@@ -296,7 +303,7 @@ class RevenueCatSubscriptionService implements SubscriptionService {
   @override
   Future<bool> switchTo(PlanOption plan) async {
     final pkg = plan.handle;
-    if (pkg is! Package) throw const SubscriptionException('Unknown plan.');
+    if (pkg is! Package) throw SubscriptionException(tr('Unknown plan.'));
     final old = _monthlyProductId;
     try {
       final result = await Purchases.purchase(
@@ -313,8 +320,8 @@ class RevenueCatSubscriptionService implements SubscriptionService {
           PurchasesErrorCode.purchaseCancelledError) {
         return false;
       }
-      throw const SubscriptionException(
-        'The change could not be completed. You were not charged.',
+      throw SubscriptionException(
+        tr('The change could not be completed. You were not charged.'),
       );
     }
   }
@@ -344,22 +351,27 @@ class RevenueCatSubscriptionService implements SubscriptionService {
 
   PlanOption _toPlan(Package p) {
     final (title, period) = switch (p.packageType) {
-      PackageType.annual => ('Annual', 'per year'),
-      PackageType.threeMonth => ('3 Months', 'every 3 months'),
-      PackageType.monthly => ('Monthly', 'per month'),
-      PackageType.weekly => ('Weekly', 'per week'),
+      PackageType.annual => ('Annual', tr('per year')),
+      PackageType.threeMonth => ('3 Months', tr('every 3 months')),
+      PackageType.monthly => ('Monthly', tr('per month')),
+      PackageType.weekly => ('Weekly', tr('per week')),
       _ => (p.storeProduct.title, ''),
     };
     final intro = p.storeProduct.introductoryPrice;
     // The introductory offer as the store defines it: free ("7 days free")
     // or paid ("7 days for $1.98"). Nothing is hardcoded here.
     final n = intro == null ? 0 : intro.periodNumberOfUnits * intro.cycles;
+    final duration = intro == null ? null : _duration(intro.periodUnit, n);
     final trial = intro == null
         ? null
         : intro.price == 0
-        ? '$n ${_unit(intro.periodUnit, n)} free'
-        : '${intro.priceString} for your first '
-              '${n == 1 ? _unit(intro.periodUnit, 1) : '$n ${_unit(intro.periodUnit, n)}'}';
+        ? tr('{0} free', [duration])
+        : (n == 1
+              ? tr('{0} for your first {1}', [
+                  intro.priceString,
+                  _unitName(intro.periodUnit),
+                ])
+              : tr('{0} for your first {1}', [intro.priceString, duration]));
     return PlanOption(
       id: p.identifier,
       title: title,
@@ -371,19 +383,24 @@ class RevenueCatSubscriptionService implements SubscriptionService {
       price: p.storeProduct.price,
       perMonthString: p.storeProduct.pricePerMonthString,
       productId: p.storeProduct.identifier.split(':').first,
+      trialDuration: duration,
+      trialPrice: intro == null || intro.price == 0 ? null : intro.priceString,
     );
   }
 
-  String _unit(PeriodUnit u, int n) {
-    final base = switch (u) {
-      PeriodUnit.day => 'day',
-      PeriodUnit.week => 'week',
-      PeriodUnit.month => 'month',
-      PeriodUnit.year => 'year',
-      _ => 'day',
-    };
-    return n == 1 ? base : '${base}s';
-  }
+  String _unitName(PeriodUnit u) => switch (u) {
+    PeriodUnit.week => tr('week'),
+    PeriodUnit.month => tr('month'),
+    PeriodUnit.year => tr('year'),
+    _ => tr('day'),
+  };
+
+  String _duration(PeriodUnit u, int n) => switch (u) {
+    PeriodUnit.week => n == 1 ? tr('1 week') : tr('{0} weeks', [n]),
+    PeriodUnit.month => n == 1 ? tr('1 month') : tr('{0} months', [n]),
+    PeriodUnit.year => n == 1 ? tr('1 year') : tr('{0} years', [n]),
+    _ => n == 1 ? tr('1 day') : tr('{0} days', [n]),
+  };
 
   @override
   Future<bool> purchase(PlanOption plan) async {
@@ -392,7 +409,7 @@ class RevenueCatSubscriptionService implements SubscriptionService {
       Package p => PurchaseParams.package(p),
       SubscriptionOption o => PurchaseParams.subscriptionOption(o),
       StoreProduct p => PurchaseParams.storeProduct(p),
-      _ => throw const SubscriptionException('Unknown plan.'),
+      _ => throw SubscriptionException(tr('Unknown plan.')),
     };
     try {
       final result = await Purchases.purchase(params);
@@ -402,8 +419,8 @@ class RevenueCatSubscriptionService implements SubscriptionService {
           PurchasesErrorCode.purchaseCancelledError) {
         return false;
       }
-      throw const SubscriptionException(
-        'The purchase could not be completed. You were not charged.',
+      throw SubscriptionException(
+        tr('The purchase could not be completed. You were not charged.'),
       );
     }
   }
@@ -413,8 +430,8 @@ class RevenueCatSubscriptionService implements SubscriptionService {
     try {
       return _isPremium(await Purchases.restorePurchases());
     } on PlatformException {
-      throw const SubscriptionException(
-        'Could not restore purchases. Please try again.',
+      throw SubscriptionException(
+        tr('Could not restore purchases. Please try again.'),
       );
     }
   }

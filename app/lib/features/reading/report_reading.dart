@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../data/models.dart';
+import '../../app/i18n.dart';
 
 /// Where problem reports go. Public support address (see the legal pages).
 const reportEmail = 'shenyunlongbusiness@gmail.com';
@@ -18,18 +19,18 @@ Future<void> reportReading(BuildContext context, Reading reading) async {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Padding(
+          Padding(
             padding: EdgeInsets.all(16),
             child: Text(
-              'What is wrong with this reading?',
+              tr('What is wrong with this reading?'),
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
             ),
           ),
-          for (final r in const [
-            'Offensive or harmful',
-            'Inaccurate or makes no sense',
-            'Gives advice it should not',
-            'Something else',
+          for (final r in [
+            tr('Offensive or harmful'),
+            tr('Inaccurate or makes no sense'),
+            tr('Gives advice it should not'),
+            tr('Something else'),
           ])
             ListTile(title: Text(r), onTap: () => Navigator.pop(ctx, r)),
         ],
@@ -56,8 +57,10 @@ Future<void> reportReading(BuildContext context, Reading reading) async {
   final ok = await launchUrl(uri);
   if (!ok && context.mounted) {
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('No email app found. Write to $reportEmail instead.'),
+      SnackBar(
+        content: Text(
+          tr('No email app found. Write to {0} instead.', [reportEmail]),
+        ),
       ),
     );
   }

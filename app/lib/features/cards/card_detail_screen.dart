@@ -4,15 +4,16 @@ import '../../app/app_scope.dart';
 import '../../app/theme.dart';
 import '../../data/models.dart';
 import 'card_art.dart';
+import '../../app/i18n.dart';
 
 class CardDetailScreen extends StatelessWidget {
   const CardDetailScreen({super.key, required this.cardId});
   final String cardId;
 
   String _subtitle(TarotCard c) {
-    if (c.arcana == Arcana.major) return 'Major Arcana · ${c.number}';
+    if (c.arcana == Arcana.major) return tr('Major Arcana · {0}', [c.number]);
     final suit = c.suit!.name[0].toUpperCase() + c.suit!.name.substring(1);
-    return 'Minor Arcana · $suit';
+    return tr('Minor Arcana · {0}', [suit]);
   }
 
   @override
@@ -21,7 +22,7 @@ class CardDetailScreen extends StatelessWidget {
     if (card == null) {
       return Scaffold(
         appBar: AppBar(),
-        body: const Center(child: Text('Card not found')),
+        body: Center(child: Text(tr('Card not found'))),
       );
     }
     final t = Theme.of(context).textTheme;
@@ -48,9 +49,9 @@ class CardDetailScreen extends StatelessWidget {
             const SizedBox(height: 8),
             Text(
               [
-                if (card.element != null) 'Element: ${card.element}',
+                if (card.element != null) tr('Element: {0}', [card.element]),
                 if (card.association != null)
-                  'Traditional association: ${card.association}',
+                  tr('Traditional association: {0}', [card.association]),
               ].join('  ·  '),
               textAlign: TextAlign.center,
               style: const TextStyle(color: AppColors.textMuted, fontSize: 13),
@@ -59,7 +60,7 @@ class CardDetailScreen extends StatelessWidget {
           const SizedBox(height: 24),
           if (card.knowledge != null) ..._richSections(card.knowledge!, t),
           Text(
-            'Upright',
+            tr('Upright'),
             style: t.titleMedium?.copyWith(color: AppColors.gold),
           ),
           const SizedBox(height: 4),
@@ -67,18 +68,21 @@ class CardDetailScreen extends StatelessWidget {
           if (card.knowledge != null) ...[
             const SizedBox(height: 6),
             Text(
-              'Light: ${card.knowledge!.light}.  Shadow: ${card.knowledge!.shadow}.',
+              tr('Light: {0}.  Shadow: {1}.', [
+                card.knowledge!.light,
+                card.knowledge!.shadow,
+              ]),
               style: const TextStyle(color: AppColors.textMuted),
             ),
             const SizedBox(height: 6),
             Text(
-              'To reflect on: ${card.knowledge!.uprightQuestion}',
+              tr('To reflect on: {0}', [card.knowledge!.uprightQuestion]),
               style: const TextStyle(fontStyle: FontStyle.italic),
             ),
           ],
           const SizedBox(height: 20),
           Text(
-            'Reversed',
+            tr('Reversed'),
             style: t.titleMedium?.copyWith(color: AppColors.gold),
           ),
           const SizedBox(height: 4),
@@ -89,7 +93,7 @@ class CardDetailScreen extends StatelessWidget {
               Text('• $m', style: const TextStyle(color: AppColors.textMuted)),
             const SizedBox(height: 6),
             Text(
-              'To reflect on: ${card.knowledge!.reversedQuestion}',
+              tr('To reflect on: {0}', [card.knowledge!.reversedQuestion]),
               style: const TextStyle(fontStyle: FontStyle.italic),
             ),
           ],
@@ -103,14 +107,14 @@ List<Widget> _richSections(CardKnowledge k, TextTheme t) => [
   Text(k.essence, style: t.titleLarge, textAlign: TextAlign.center),
   const SizedBox(height: 16),
   Text(
-    'What is pictured',
+    tr('What is pictured'),
     style: t.titleMedium?.copyWith(color: AppColors.gold),
   ),
   const SizedBox(height: 4),
   Text(k.imagery),
   const SizedBox(height: 16),
   Text(
-    'Why it means this',
+    tr('Why it means this'),
     style: t.titleMedium?.copyWith(color: AppColors.gold),
   ),
   const SizedBox(height: 4),

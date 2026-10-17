@@ -9,6 +9,7 @@ import '../../core/reading_service.dart';
 import '../../data/mock_data.dart';
 import '../../data/models.dart';
 import '../../app/motion.dart';
+import '../../app/i18n.dart';
 
 /// Shared by photo and digital readings: checks the free/Premium rule, asks the
 /// backend for the interpretation (with a spinner), saves the reading and opens
@@ -97,12 +98,12 @@ Future<ReadingResult?> _interpret(
       await showAppDialog<void>(
         context: context,
         builder: (ctx) => AlertDialog(
-          title: const Text('You are not alone'),
+          title: Text(tr('You are not alone')),
           content: Text(failure!.message),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(ctx),
-              child: const Text('OK'),
+              child: Text(tr('OK')),
             ),
           ],
         ),
@@ -110,10 +111,13 @@ Future<ReadingResult?> _interpret(
     } else if (failure.kind == ReadingErrorKind.dailyLimit && state.isPremium) {
       // Premium already has the paywall's benefits: explain the plan allowance.
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text(
-            'You have used today\'s readings for your plan. Use a credit, '
-            'or come back after the daily reset (00:00 UTC).',
+            tr(
+              tr(
+                'You have used today\'s readings for your plan. Use a credit, or come back after the daily reset (00:00 UTC).',
+              ),
+            ),
           ),
           duration: Duration(seconds: 8),
         ),
@@ -131,7 +135,7 @@ Future<ReadingResult?> _interpret(
           duration: const Duration(seconds: 8),
           action: canRetry
               ? SnackBarAction(
-                  label: 'Retry',
+                  label: tr('Retry'),
                   onPressed: () => startReading(
                     context,
                     spread: spread,
@@ -157,7 +161,7 @@ Future<String?> _lookFirst(BuildContext context, List<DrawnCard> cards) {
   return showAppDialog<String>(
     context: context,
     builder: (ctx) => AlertDialog(
-      title: const Text('Look first'),
+      title: Text(tr('Look first')),
       content: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -165,9 +169,12 @@ Future<String?> _lookFirst(BuildContext context, List<DrawnCard> cards) {
           children: [
             Text(names),
             const SizedBox(height: 12),
-            const Text(
-              'Before the reading, what do you notice? A colour, a figure, a '
-              'feeling. Optional.',
+            Text(
+              tr(
+                tr(
+                  'Before the reading, what do you notice? A colour, a figure, a feeling. Optional.',
+                ),
+              ),
             ),
             const SizedBox(height: 12),
             TextField(
@@ -175,7 +182,7 @@ Future<String?> _lookFirst(BuildContext context, List<DrawnCard> cards) {
               maxLength: 300,
               maxLines: 3,
               textCapitalization: TextCapitalization.sentences,
-              decoration: const InputDecoration(hintText: 'I notice...'),
+              decoration: InputDecoration(hintText: tr('I notice...')),
             ),
           ],
         ),
@@ -183,16 +190,16 @@ Future<String?> _lookFirst(BuildContext context, List<DrawnCard> cards) {
       actions: [
         TextButton(
           onPressed: () => Navigator.pop(ctx),
-          child: const Text('Cancel'),
+          child: Text(tr('Cancel')),
         ),
         TextButton(
           onPressed: () => Navigator.pop(ctx, ''),
-          child: const Text('Skip'),
+          child: Text(tr('Skip')),
         ),
         FilledButton(
           style: FilledButton.styleFrom(minimumSize: const Size(0, 44)),
           onPressed: () => Navigator.pop(ctx, controller.text.trim()),
-          child: const Text('Read'),
+          child: Text(tr('Read')),
         ),
       ],
     ),

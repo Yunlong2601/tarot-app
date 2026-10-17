@@ -11,6 +11,7 @@ import 'orientation_dialog.dart';
 import 'recognition/preprocess.dart';
 import 'recognition/recognizer.dart';
 import 'recognition/scan_logic.dart';
+import '../../app/i18n.dart';
 
 /// Scans [count] cards one at a time with the camera. Pops the list of
 /// [DrawnCard] when complete, or null if the user leaves.
@@ -74,15 +75,18 @@ class _CameraScanScreenState extends State<CameraScanScreen> {
       setState(() {
         _recognizer = recognizer;
         _cameraError = e.code.contains('Denied')
-            ? 'Camera access is off. You can allow it in Settings, or pick cards manually.'
-            : 'The camera could not start. You can pick cards manually.';
+            ? tr(
+                'Camera access is off. You can allow it in Settings, or pick cards manually.',
+              )
+            : tr('The camera could not start. You can pick cards manually.');
       });
     } catch (_) {
       if (!mounted) return;
       setState(() {
         _recognizer = recognizer;
-        _cameraError =
-            'The camera could not start. You can pick cards manually.';
+        _cameraError = tr(
+          'The camera could not start. You can pick cards manually.',
+        );
       });
     }
   }
@@ -105,7 +109,7 @@ class _CameraScanScreenState extends State<CameraScanScreen> {
       path = shot.path;
       final recognizer = _recognizer;
       if (recognizer == null) {
-        _toast('Recognition is not available yet. Pick the card manually.');
+        _toast(tr('Recognition is not available yet. Pick the card manually.'));
         return;
       }
       final bytes = await shot.readAsBytes();
@@ -119,7 +123,9 @@ class _CameraScanScreenState extends State<CameraScanScreen> {
       if (!mounted) return;
       await _handleDecision(decision);
     } catch (_) {
-      _toast('That scan did not work. Try again or pick the card manually.');
+      _toast(
+        tr('That scan did not work. Try again or pick the card manually.'),
+      );
     } finally {
       if (path != null) {
         try {
@@ -153,14 +159,14 @@ class _CameraScanScreenState extends State<CameraScanScreen> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  'Is this ${card.name}?',
+                  tr('Is this {0}?', [card.name]),
                   style: Theme.of(ctx).textTheme.titleLarge,
                 ),
                 const SizedBox(height: 8),
                 SegmentedButton<bool>(
-                  segments: const [
-                    ButtonSegment(value: false, label: Text('Upright')),
-                    ButtonSegment(value: true, label: Text('Reversed')),
+                  segments: [
+                    ButtonSegment(value: false, label: Text(tr('Upright'))),
+                    ButtonSegment(value: true, label: Text(tr('Reversed'))),
                   ],
                   selected: {reversed},
                   onSelectionChanged: (s) => setSheet(() => reversed = s.first),
@@ -171,11 +177,11 @@ class _CameraScanScreenState extends State<CameraScanScreen> {
                     _accept(card.id, reversed);
                     Navigator.of(ctx).pop(false);
                   },
-                  child: const Text('Yes, use this card'),
+                  child: Text(tr('Yes, use this card')),
                 ),
                 TextButton(
                   onPressed: () => Navigator.of(ctx).pop(false),
-                  child: const Text('Not this card'),
+                  child: Text(tr('Not this card')),
                 ),
               ],
             ),
@@ -196,14 +202,14 @@ class _CameraScanScreenState extends State<CameraScanScreen> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                "I'm not sure. Is it one of these?",
+                tr('I\'m not sure. Is it one of these?'),
                 style: Theme.of(ctx).textTheme.titleLarge,
               ),
               const SizedBox(height: 8),
               for (final g in guesses)
                 ListTile(
                   title: Text(deck.byId(g.cardId)!.name),
-                  subtitle: Text(g.reversed ? 'Reversed?' : 'Upright?'),
+                  subtitle: Text(g.reversed ? tr('Reversed?') : tr('Upright?')),
                   onTap: () {
                     Navigator.of(ctx).pop();
                     _accept(g.cardId, g.reversed);
@@ -214,7 +220,7 @@ class _CameraScanScreenState extends State<CameraScanScreen> {
                   Navigator.of(ctx).pop();
                   _pickManually();
                 },
-                child: const Text('Pick manually'),
+                child: Text(tr('Pick manually')),
               ),
             ],
           ),
@@ -233,7 +239,7 @@ class _CameraScanScreenState extends State<CameraScanScreen> {
 
   void _accept(String cardId, bool reversed) {
     if (!_session.add(cardId, reversed: reversed)) {
-      _toast('That card is already in this reading.');
+      _toast(tr('That card is already in this reading.'));
       return;
     }
     if (_session.isComplete) {
@@ -260,14 +266,14 @@ class _CameraScanScreenState extends State<CameraScanScreen> {
       appBar: AppBar(
         title: Text(
           widget.count == 1
-              ? 'Scan your card'
-              : 'Card ${_session.nextIndex} of ${widget.count}',
+              ? tr('Scan your card')
+              : tr('Card {0} of {1}', [_session.nextIndex, widget.count]),
         ),
         actions: [
           if (_session.cards.isNotEmpty)
             TextButton(
               onPressed: () => setState(_session.undo),
-              child: const Text('Undo last'),
+              child: Text(tr('Undo last')),
             ),
         ],
       ),
@@ -303,9 +309,12 @@ class _CameraScanScreenState extends State<CameraScanScreen> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const Text(
-                    'Line the card up inside the frame. The photo is read on your '
-                    'phone and never saved or uploaded.',
+                  Text(
+                    tr(
+                      tr(
+                        'Line the card up inside the frame. The photo is read on your phone and never saved or uploaded.',
+                      ),
+                    ),
                     textAlign: TextAlign.center,
                     style: TextStyle(color: AppColors.textMuted),
                   ),
@@ -314,11 +323,13 @@ class _CameraScanScreenState extends State<CameraScanScreen> {
                     FilledButton.icon(
                       onPressed: _busy ? null : _capture,
                       icon: const Icon(Icons.camera_alt),
-                      label: Text(_busy ? 'Reading card...' : 'Scan card'),
+                      label: Text(
+                        _busy ? tr('Reading card...') : tr('Scan card'),
+                      ),
                     ),
                   OutlinedButton(
                     onPressed: _busy ? null : _pickManually,
-                    child: const Text('Pick a card manually'),
+                    child: Text(tr('Pick a card manually')),
                   ),
                 ],
               ),

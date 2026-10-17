@@ -6,6 +6,7 @@ import '../../app/app_state.dart';
 import '../../app/theme.dart';
 import '../../data/spreads.dart';
 import '../spreads/spread_layout.dart';
+import '../../app/i18n.dart';
 
 /// Step 2: choose a spread. The best match for the question comes first and is
 /// marked Recommended. Swipe sideways to see the others.
@@ -36,7 +37,7 @@ class _SpreadPickerScreenState extends State<SpreadPickerScreen> {
     final q = state.draftQuestion;
     final locked = !state.isPremium && !chosen.isFree && state.trialUsed;
     return Scaffold(
-      appBar: AppBar(title: const Text('Select a Spread')),
+      appBar: AppBar(title: Text(tr('Select a Spread'))),
       body: Column(
         children: [
           Padding(
@@ -44,7 +45,7 @@ class _SpreadPickerScreenState extends State<SpreadPickerScreen> {
             child: Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                q.isEmpty ? 'General reading (no question)' : q,
+                q.isEmpty ? tr('General reading (no question)') : q,
                 style: Theme.of(context).textTheme.titleMedium,
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
@@ -111,7 +112,7 @@ class _SpreadPickerScreenState extends State<SpreadPickerScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               if (recommended) ...[
-                                const Chip(label: Text('Recommended')),
+                                Chip(label: Text(tr('Recommended'))),
                                 const SizedBox(height: 8),
                               ],
                               Text(
@@ -122,7 +123,10 @@ class _SpreadPickerScreenState extends State<SpreadPickerScreen> {
                               ),
                               const SizedBox(height: 4),
                               Text(
-                                '${t.cardCount} card${t.cardCount == 1 ? '' : 's'}',
+                                tr('{0} card{1}', [
+                                  t.cardCount,
+                                  t.cardCount == 1 ? '' : 's',
+                                ]),
                                 style: const TextStyle(
                                   color: AppColors.textMuted,
                                 ),
@@ -143,7 +147,7 @@ class _SpreadPickerScreenState extends State<SpreadPickerScreen> {
                               ),
                               const SizedBox(height: 12),
                               if (state.usesTrial(t))
-                                const Row(
+                                Row(
                                   children: [
                                     Icon(
                                       Icons.card_giftcard,
@@ -153,7 +157,11 @@ class _SpreadPickerScreenState extends State<SpreadPickerScreen> {
                                     SizedBox(width: 8),
                                     Expanded(
                                       child: Text(
-                                        'Uses your one-time free premium reading',
+                                        tr(
+                                          tr(
+                                            'Uses your one-time free premium reading',
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -171,7 +179,7 @@ class _SpreadPickerScreenState extends State<SpreadPickerScreen> {
           Padding(
             padding: const EdgeInsets.only(top: 12),
             child: Semantics(
-              label: 'Spread ${_index + 1} of ${_spreads.length}',
+              label: tr('Spread {0} of {1}', [_index + 1, _spreads.length]),
               excludeSemantics: true,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -208,10 +216,10 @@ class _SpreadPickerScreenState extends State<SpreadPickerScreen> {
               },
               child: Text(
                 locked
-                    ? 'Unlock with Premium'
+                    ? tr('Unlock with Premium')
                     : state.usesTrial(chosen)
-                    ? 'Start free reading'
-                    : 'Start reading',
+                    ? tr('Start free reading')
+                    : tr('Start reading'),
               ),
             ),
           ),

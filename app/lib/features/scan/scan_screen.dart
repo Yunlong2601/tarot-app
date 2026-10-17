@@ -8,6 +8,7 @@ import '../../data/models.dart';
 import '../reading/start_reading.dart';
 import '../spreads/spread_layout.dart';
 import 'orientation_dialog.dart';
+import '../../app/i18n.dart';
 
 /// Starts a reading by scanning with the camera (Phase C), picking manually,
 /// or - in debug builds - simulating a scan.
@@ -63,7 +64,7 @@ class _ScanScreenState extends State<ScanScreen> {
       final id = await context.push<String>('/pick');
       if (id == null || !mounted) return;
       if (picked.any((c) => c.card.id == id)) {
-        _toast('That card is already in this reading.');
+        _toast(tr('That card is already in this reading.'));
         continue;
       }
       final reversed = await askOrientation(context);
@@ -78,7 +79,7 @@ class _ScanScreenState extends State<ScanScreen> {
     final state = AppScope.of(context);
     final q = state.draftQuestion;
     return Scaffold(
-      appBar: AppBar(title: const Text('Photo reading')),
+      appBar: AppBar(title: Text(tr('Photo reading'))),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
@@ -89,7 +90,7 @@ class _ScanScreenState extends State<ScanScreen> {
           ),
           const SizedBox(height: 4),
           Text(
-            q.isEmpty ? 'General reading' : q,
+            q.isEmpty ? tr('General reading') : q,
             textAlign: TextAlign.center,
             maxLines: 3,
             overflow: TextOverflow.ellipsis,
@@ -105,8 +106,13 @@ class _ScanScreenState extends State<ScanScreen> {
           const SizedBox(height: 8),
           Text(
             _spread.cardCount == 1
-                ? 'Shuffle your deck while you hold your question, draw one card, then scan it.'
-                : 'Shuffle your deck while you hold your question, draw ${_spread.cardCount} cards, lay them out as shown, then scan them one at a time.',
+                ? tr(
+                    'Shuffle your deck while you hold your question, draw one card, then scan it.',
+                  )
+                : tr(
+                    'Shuffle your deck while you hold your question, draw {0} cards, lay them out as shown, then scan them one at a time.',
+                    [_spread.cardCount],
+                  ),
             textAlign: TextAlign.center,
             style: const TextStyle(color: AppColors.textMuted),
           ),
@@ -114,14 +120,14 @@ class _ScanScreenState extends State<ScanScreen> {
           FilledButton.icon(
             onPressed: _scanWithCamera,
             icon: const Icon(Icons.camera_alt),
-            label: const Text('Scan with camera'),
+            label: Text(tr('Scan with camera')),
           ),
           if (kDebugMode) ...[
             const SizedBox(height: 8),
             OutlinedButton(
               onPressed: () =>
                   _startReading(_asDrawn(_mockDraw()), simulated: true),
-              child: const Text('Simulate scan'),
+              child: Text(tr('Simulate scan')),
             ),
           ],
           const SizedBox(height: 8),
@@ -130,7 +136,7 @@ class _ScanScreenState extends State<ScanScreen> {
             style: OutlinedButton.styleFrom(
               minimumSize: const Size.fromHeight(48),
             ),
-            child: const Text("Can't scan? Pick a card manually"),
+            child: Text(tr('Can\'t scan? Pick a card manually')),
           ),
           const SizedBox(height: 12),
           Text(

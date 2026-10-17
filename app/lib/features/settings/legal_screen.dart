@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../app/theme.dart';
+import '../../app/i18n.dart';
 
 /// Shows the bundled legal text (`assets/legal/*.txt`, generated from the
 /// drafts in `docs/`). The stores also need the same text at a public URL.
@@ -12,9 +13,9 @@ class LegalScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final (title, file) = switch (doc) {
-      'privacy' => ('Privacy Policy', 'privacy'),
-      'terms' => ('Terms of Use', 'terms'),
-      _ => ('Disclaimer', 'disclaimer'),
+      'privacy' => (tr('Privacy Policy'), 'privacy'),
+      'terms' => (tr('Terms of Use'), 'terms'),
+      _ => (tr('Disclaimer'), 'disclaimer'),
     };
     return Scaffold(
       appBar: AppBar(title: Text(title)),
@@ -22,10 +23,14 @@ class LegalScreen extends StatelessWidget {
         future: rootBundle.loadString('assets/legal/$file.txt'),
         builder: (context, snap) {
           if (snap.hasError) {
-            return const Padding(
+            return Padding(
               padding: EdgeInsets.all(24),
               child: Text(
-                'For entertainment and self-reflection only. This text could not be loaded.',
+                tr(
+                  tr(
+                    'For entertainment and self-reflection only. This text could not be loaded.',
+                  ),
+                ),
                 style: TextStyle(color: AppColors.textMuted),
               ),
             );
@@ -63,8 +68,8 @@ class _DisclaimerCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Disclaimer',
+            Text(
+              tr('Disclaimer'),
               style: TextStyle(
                 color: AppColors.gold,
                 fontSize: 17,
@@ -73,7 +78,7 @@ class _DisclaimerCard extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             Text(
-              snap.data ?? 'For entertainment and self-reflection only.',
+              snap.data ?? tr('For entertainment and self-reflection only.'),
               style: const TextStyle(color: AppColors.textMuted),
             ),
           ],

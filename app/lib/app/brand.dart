@@ -3,6 +3,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 import 'theme.dart';
+import 'i18n.dart';
 
 /// ShenTarot brand pieces, all drawn in code (original art, no assets).
 
@@ -16,7 +17,7 @@ class BrandMark extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Semantics(
-    label: 'ShenTarot logo',
+    label: tr('ShenTarot logo'),
     image: true,
     child: SizedBox(
       width: size * 0.62,
