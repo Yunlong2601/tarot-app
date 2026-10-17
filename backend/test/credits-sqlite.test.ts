@@ -16,7 +16,7 @@ function fakeD1(db: DatabaseSync): D1Database {
 
 function setup(now: { t: number }) {
   const db = new DatabaseSync(":memory:");
-  for (const f of ["0004_credits.sql", "0005_daily_login_credit.sql"]) db.exec(readFileSync(new URL(`../migrations/${f}`, import.meta.url), "utf8"));
+  for (const f of ["0004_credits.sql", "0005_daily_login_credit.sql", "0008_credit_refunds.sql"]) db.exec(readFileSync(new URL(`../migrations/${f}`, import.meta.url), "utf8"));
   return new D1CreditStore(fakeD1(db), () => now.t);
 }
 const DAY = 86_400_000;
@@ -55,6 +55,17 @@ describe("D1CreditStore (real SQL)", () => {
     for (let i = 0; i < 5; i++) await s.spend("u");
     now.t += DAY;
     expect(await s.claimDaily("u", "2026-10-29", 5, 12)).toBe(0); // oldest lot spent was the bought one
+  });
+
+  it("a refunded pack loses only its unused credits, even after a move", async () => {
+    const s = setup({ t: T0 });
+    await s.add("u", 10, "pack1");
+    await s.add("u", 5, "other");
+    for (let i = 0; i < 3; i++) await s.spend("u"); // spends from the older pack1 lot
+    await s.move("u", "v");
+    expect(await s.revoke("pack1")).toBe(7);
+    expect(await s.balance("v")).toBe(5);
+    expect(await s.revoke("pack1")).toBe(0); // repeat webhook: nothing more
   });
 
   it("move() hands every credit to the new owner", async () => {

@@ -628,6 +628,13 @@ export function createApp(deps: Deps = defaultDeps) {
       const added = await deps.credits(c.env).add(await keyFor(appUser), amount, txn);
       return c.json({ ok: true, credited: added ? amount : 0 });
     }
+    // A refunded credit pack takes back its unused credits. (Subscription
+    // refunds end Premium through the store; monthly credits already granted
+    // stay, as with RevenueCat.)
+    if (type === "in_app_refunded" && c.env.CREDITS_ENABLED === "true") {
+      if (!txn) return c.json({ ok: true, ignored: true });
+      return c.json({ ok: true, revoked: await deps.credits(c.env).revoke(txn) });
+    }
     if (!referralsOn(c.env)) return c.json({ ok: true });
     const price = Number(((e.price ?? {}) as Record<string, unknown>).value ?? 0);
     if (!["subscription_started", "subscription_renewed", "trial_converted"].includes(type) || !(price > 0) || !txn || !appUser) {

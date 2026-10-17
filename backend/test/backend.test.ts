@@ -92,7 +92,9 @@ class MemCredits implements CreditStore {
   async balance(k: string) { return this.bal.get(k) ?? 0; }
   async deleteAll(k: string) { for (const m of [this.bal, this.daily, this.monthly, this.days, this.months] as Map<string, unknown>[]) m.delete(k); }
   skipWelcome = false;
-  async add(k: string, n: number, txn: string, source?: string) { if ((source === "welcome" && this.skipWelcome) || this.txns.has(txn)) return false; this.txns.add(txn); this.bal.set(k, (this.bal.get(k) ?? 0) + n); return true; }
+  byTxn = new Map<string, { k: string; left: number }>();
+  async add(k: string, n: number, txn: string, source?: string) { if ((source === "welcome" && this.skipWelcome) || this.txns.has(txn)) return false; this.txns.add(txn); this.bal.set(k, (this.bal.get(k) ?? 0) + n); this.byTxn.set(txn, { k, left: n }); return true; }
+  async revoke(txn: string) { const g = this.byTxn.get(txn); if (!g) return 0; const n = Math.min(g.left, this.bal.get(g.k) ?? 0); this.bal.set(g.k, (this.bal.get(g.k) ?? 0) - n); g.left = 0; return n; }
   async move(f: string, t: string) { const n = this.bal.get(f) ?? 0; if (f === t) return 0; this.bal.set(f, 0); this.bal.set(t, (this.bal.get(t) ?? 0) + n); return n; }
   owners = new Map<number, string>();
   private n = 0;
@@ -783,6 +785,19 @@ describe("reading credits", () => {
     s.call("/v1/webhooks/qonversion", { method: "POST", headers: { authorization: "Basic hook-secret" }, body: JSON.stringify(event) });
   const read = async (s: ReturnType<typeof setup>) =>
     s.call("/v1/reading", { method: "POST", headers: await authHeaders(s.env), body: JSON.stringify(single) });
+
+  it("a refunded credit pack takes back its unused credits", async () => {
+    const s = setup({ credits: true });
+    const hook = (event: Record<string, unknown>) =>
+      s.call("/v1/webhooks/qonversion", { method: "POST", headers: { authorization: `Basic ${s.env.QONVERSION_WEBHOOK_AUTH}` }, body: JSON.stringify(event) });
+    const buy = { event_name: "in_app_purchase", product_id: "shentarot_credits_10", transaction: { transaction_id: "r1" }, custom_user_id: UUID };
+    expect((await hook(buy)).status).toBe(200);
+    const hash = await hashId(UUID, "salt");
+    const before = await s.credits.balance(hash);
+    const res = await hook({ event_name: "in_app_refunded", transaction: { transaction_id: "r1" }, custom_user_id: UUID });
+    expect(await res.json()).toEqual({ ok: true, revoked: 10 });
+    expect(await s.credits.balance(hash)).toBe(before - 10);
+  });
 
   it("a Starter Pack adds credits once; the first reading grants the day's 2 free credits and spends 1", async () => {
     const s = setup({ credits: true });
