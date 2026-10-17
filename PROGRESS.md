@@ -23,7 +23,7 @@ Primary working copy: the owner's local Mac folder. This repo is the backup and 
 - Tests: 106 backend (incl. real SQL on node:sqlite) and 132 app tests pass. Migrations `0004` to `0007` have NOT been applied to the live database; the live Worker is still the old code.
 
 ## App Store Connect status (2026-10-17)
-App record **ShenTarot: AI Lens** (Apple ID 6823779463, bundle `com.shentech.shentarot`, paid Individual team `SX4CW2L35K`); subscription group "Premium" with Annual (level 1, US$39.99), 3 Months (level 2, US$14.99) and Monthly (level 3, US$6.99), all "Prepare for Submission". Still empty: subscription names/descriptions, the US$1.99 intro offer, review screenshots, app category, age rating, privacy answers, build upload. Details and the next steps: `docs/app-store-submission-guide.md` (section 2b). Repo is ready for a v1 build with credits, referral and creator OFF.
+App record **ShenTarot: AI Lens** (Apple ID 6823779463, bundle `com.shentech.shentarot`, paid Individual team `SX4CW2L35K`); subscription group "Premium" with Annual (level 1, US$39.99), 3 Months (level 2, US$14.99) and Monthly (level 3, US$6.99), all "Prepare for Submission", with names and descriptions set and the US$1.99 first-month intro offer on Annual (pay up front, all countries, from Oct 17, 2026). Still empty: subscription review screenshots, app category, age rating, privacy answers, build upload. Details and the next steps: `docs/app-store-submission-guide.md` (section 2b). Repo is ready for a v1 build with credits, referral and creator OFF.
 
 ## NOT yet implemented for live publishing (2026-10-17)
 **Code still to build**
@@ -36,7 +36,7 @@ App record **ShenTarot: AI Lens** (Apple ID 6823779463, bundle `com.shentech.she
 7. Card scan model: baseline only, never validated on real deck photos.
 
 **Deploy and accounts (owner)**
-8. Apple side: enrollment is Active and the app record exists; still to do are the Business agreements (bank, tax), subscription names and descriptions, the intro offer and review screenshots. Play Console developer verification and the closed-testing rule are open.
+8. Apple side: enrollment is Active and the app record exists; still to do are the Business agreements (bank, tax) and the subscription review screenshots. Play Console developer verification and the closed-testing rule are open.
 9. Create in both stores: 3 subscriptions, the US$1.99 intro offer, offer codes (friend US$19.99, launch, creator, win-back) and the 3 credit packs; RevenueCat project, `premium` entitlement, current offering, webhook (INITIAL_PURCHASE, RENEWAL, NON_RENEWING_PURCHASE, TRANSFER) with `REVENUECAT_WEBHOOK_AUTH`.
 10. Deploy the new Worker code; apply migrations 0002 to 0007 to remote D1; create the private R2 bucket; set secrets (`REVENUECAT_SECRET_KEY`, `ADMIN_TOKEN`, webhook secret); turn on `CREDITS_ENABLED`, `REFERRALS_ENABLED`, `CREATOR_ENABLED`; delete `TESTER_INSTALL_IDS`; use `npm run deploy` (runs the release check), not `deploy:beta`.
 11. Build the apps with `--dart-define=CREDITS=true --dart-define=REFERRALS=true --dart-define=CREATOR=true` only after step 10.
