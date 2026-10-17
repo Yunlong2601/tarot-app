@@ -6,7 +6,7 @@ Written 2026-10-17. Menu names, sizes and rules change: items marked (verify) mu
 
 ## 1. Launch scope for v1 (decide first)
 **Recommended: ship v1 with the new credit wallet, referral, creator program and sign-in switched OFF.** It cuts review risk and work: no consumable packs to review, no credit server to deploy and test, no free-credit giveaways to attack. v1 is then:
-- Free: 1 AI reading a day on 1 to 3-card spreads, plus one try of a 5, 7 or 10-card spread; scanning, manual pick, Card of the Day, library, guide, history.
+- Free: 2 AI readings a day on 1 to 3-card spreads, plus one try of a 5, 7 or 10-card spread; scanning, manual pick, Card of the Day, library, guide, history.
 - Premium: all spreads, up to 50 readings a day, follow-ups, clarifier card, look-back, journal notes. Plans: monthly US$6.99, 3 months US$14.99, annual US$39.99 with US$1.99 first month.
 - The credit wallet, referrals, creator program and credit packs ship in v1.1 (all built and tested, flags off; `docs/credits-setup.md`, `docs/creator-setup.md`).
 
@@ -58,7 +58,7 @@ Written 2026-10-17. Menu names, sizes and rules change: items marked (verify) mu
 - **Name:** ShenTarot: AI Lens. **Subtitle:** Tarot card scanner and reader.
 - **Promotional text:** Hold a card up to your camera and find out what it means for the question on your mind.
 - **Keywords (100 characters, no spaces after commas):** reading,meanings,interpretation,spread,journal,daily,deck,reflection,oracle,cards,celtic,cross
-- **Description:** from `docs/store-listing.md` (v1 wording: free = 1 reading a day on 1 to 3-card spreads and one try of a longer spread; Premium = all spreads, up to 50 readings a day, follow-ups, clarifier, look-back).
+- **Description:** from `docs/store-listing.md` (v1 wording: free = 2 readings a day on 1 to 3-card spreads and one try of a longer spread; Premium = all spreads, up to 50 readings a day, follow-ups, clarifier, look-back).
 - **Category:** Lifestyle (primary), Entertainment (secondary). **Copyright:** 2026 ShenTech.
 - **Support URL:** https://yunlong2601.github.io/shentarot-legal/ **Privacy Policy URL:** https://yunlong2601.github.io/shentarot-legal/privacy.html **Terms:** use Apple's standard EULA, or https://yunlong2601.github.io/shentarot-legal/terms.html in the app description.
 - **Content rights:** the app contains third-party content: yes, public-domain 1909 card scans (`app/assets/cards/art/CREDITS.md`); you have the rights to use it.

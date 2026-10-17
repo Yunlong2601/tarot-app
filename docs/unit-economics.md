@@ -13,7 +13,7 @@ Goal (owner): Premium only needs to cover building and running costs. All figure
 | Store fee on subscriptions | 15% (Apple Small Business Program, Google Play subscriptions) | Verify enrollment and current rates |
 
 ## What a user costs per month (AI only)
-- Free user, 1 reading a day, every day: 30 x US$0.0003 = **about US$0.01**; worst case US$0.045.
+- Free user, 2 readings a day, every day (owner decision 2026-10-17, was 1): 60 x US$0.0003 = **about US$0.02**; worst case US$0.09.
 - Premium gets monthly credits (annual 150, 3 months 120, monthly 90) plus the free 2 a day; unused credits roll over. Worst-case AI cost at about US$0.003 a credit: annual US$0.45 a month (net revenue US$2.83), 3 months US$0.36 (net US$4.25), monthly US$0.27 (net US$5.94). Typical cost is about a tenth of that.
 - Free users get 2 credits a day (60 a month), unused ones roll over (bank 20): about US$0.02 a month typical. Nobody can spend more than 50 credits a day.
 
