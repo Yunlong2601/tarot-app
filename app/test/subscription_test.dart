@@ -146,6 +146,12 @@ void main() {
     expect(subs.purchases, 1);
     expect(state.isPremium, isTrue);
     expect(find.text('Unlock Premium'), findsNothing);
+    // A thank-you screen confirms the purchase and lists what it unlocked.
+    expect(find.text('Welcome to Premium'), findsOneWidget);
+    expect(find.textContaining('Thank you'), findsOneWidget);
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+    expect(find.text('Welcome to Premium'), findsNothing);
   });
 
   testWidgets('without store keys the paywall cannot sell anything', (

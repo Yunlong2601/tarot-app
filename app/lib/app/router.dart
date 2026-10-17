@@ -18,6 +18,7 @@ import '../features/read/read_home_screen.dart';
 import '../features/home/home_shell.dart';
 import '../features/onboarding/onboarding_screen.dart';
 import '../features/paywall/paywall_screen.dart';
+import '../features/paywall/welcome_premium_screen.dart';
 import '../features/reading/reading_screen.dart';
 import '../features/scan/camera_scan_screen.dart';
 import '../features/scan/card_picker_screen.dart';
@@ -102,6 +103,16 @@ GoRouter buildRouter(AppState state) {
         builder: (_, s) => ReadingScreen(readingId: s.pathParameters['id']!),
       ),
       GoRoute(path: '/paywall', builder: (_, _) => const PaywallScreen()),
+      GoRoute(
+        path: '/welcome-premium',
+        builder: (_, s) {
+          final e = s.extra as ({String? plan, bool restored})?;
+          return WelcomePremiumScreen(
+            plan: e?.plan,
+            restored: e?.restored ?? false,
+          );
+        },
+      ),
       GoRoute(
         path: '/legal/:doc',
         builder: (_, s) => LegalScreen(doc: s.pathParameters['doc']!),

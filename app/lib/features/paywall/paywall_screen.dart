@@ -101,8 +101,11 @@ class _PaywallScreenState extends State<PaywallScreen> {
       final premium = await state.subscriptions.purchase(plan);
       if (!mounted) return;
       if (premium) {
-        context.pop();
         state.setPremium(true);
+        context.pushReplacement(
+          '/welcome-premium',
+          extra: (plan: plan.title, restored: false),
+        );
       }
     } on SubscriptionException catch (e) {
       _toast(e.message);
@@ -118,8 +121,11 @@ class _PaywallScreenState extends State<PaywallScreen> {
       final premium = await state.subscriptions.restore();
       if (!mounted) return;
       if (premium) {
-        context.pop();
         state.setPremium(true);
+        context.pushReplacement(
+          '/welcome-premium',
+          extra: (plan: null, restored: true),
+        );
       } else {
         _toast('No active subscription found for this account.');
       }
