@@ -11,7 +11,7 @@ import '../../app/theme.dart';
 import '../../core/subscription_service.dart';
 
 /// Paywall. Prices, periods and the trial come from the store through
-/// Qonversion (localised); nothing is hardcoded. Shows price, billing period,
+/// RevenueCat (localised); nothing is hardcoded. Shows price, billing period,
 /// auto-renew terms, Restore Purchases and Privacy/Terms links next to the
 /// buy button, as the store guidelines require (verify current rules in
 /// docs/step1-plan.md).
@@ -432,7 +432,9 @@ class _CreditPacksCard extends StatelessWidget {
             'Buy a few credits once. One credit pays for a reading or a '
             'follow-up, and credits never expire. Premium costs less per '
             'credit and also includes 90 to 150 new credits every month and '
-            'the 5, 7 and 10-card spreads. Free users get 2 new credits a day.',
+            'the 5, 7 and 10-card spreads. Free users get 2 new credits a day. '
+            'Premium members keep their credits if they reinstall and restore '
+            'purchases.',
           ),
           const SizedBox(height: 8),
           if (packs.isEmpty)

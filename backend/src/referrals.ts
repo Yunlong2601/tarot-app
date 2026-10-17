@@ -4,7 +4,7 @@
  * Friend: 50% off the first year of annual, only when subscribing (Apple
  * one-time offer code / Play developer-determined offer "referral-50").
  * Referrer: 1 free month per friend who pays, 14 days after the payment, at
- * most 6 a year, granted as a Qonversion manual entitlement. */
+ * most 6 a year, granted as a RevenueCat promotional entitlement. */
 
 export const CREDIT_DELAY_DAYS = 14;
 export const MAX_CREDITS_PER_YEAR = 6;
@@ -154,4 +154,31 @@ function rowToReferral(r: Record<string, string | null>): Referral {
     friendKey: r.friend_key!, referrerKey: r.referrer_key!, code: r.code!, platform: r.platform!,
     redeemedAt: r.redeemed_at!, paidTxn: r.paid_txn ?? null, paidAt: r.paid_at ?? null, creditedAt: r.credited_at ?? null,
   };
+}
+
+/** RevenueCat promotional entitlement: one month of "premium" for the app user. */
+export async function grantFreeMonth(appUserId: string, secretKey: string, fetchFn: typeof fetch = fetch): Promise<boolean> {
+  const res = await fetchFn(
+    `https://api.revenuecat.com/v1/subscribers/${encodeURIComponent(appUserId)}/entitlements/premium/promotional`,
+    { method: "POST", headers: { Authorization: `Bearer ${secretKey}`, "Content-Type": "application/json" }, body: JSON.stringify({ duration: "monthly" }) },
+  );
+  return res.ok;
+}
+
+/** True when the user has Premium from a store subscription (not a promotional
+ * grant). Free months are banked until then. Fails "true" (bank) on errors. */
+export async function hasStoreSubscription(appUserId: string, secretKey: string, nowMs: number, fetchFn: typeof fetch = fetch): Promise<boolean> {
+  try {
+    const res = await fetchFn(`https://api.revenuecat.com/v1/subscribers/${encodeURIComponent(appUserId)}`, {
+      headers: { Authorization: `Bearer ${secretKey}` },
+    });
+    if (!res.ok) return true;
+    const data = (await res.json()) as { subscriber?: { entitlements?: Record<string, { expires_date: string | null; product_identifier?: string }> } };
+    const e = data.subscriber?.entitlements?.premium;
+    if (!e) return false;
+    const active = e.expires_date === null || Date.parse(e.expires_date) > nowMs;
+    return active && !(e.product_identifier ?? "").startsWith("rc_promo");
+  } catch {
+    return true;
+  }
 }

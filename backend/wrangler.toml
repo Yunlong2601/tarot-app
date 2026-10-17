@@ -1,5 +1,5 @@
 # No secrets here. Set secrets with `wrangler secret put <NAME>`:
-#   JWT_SECRET, HASH_SALT, ANTHROPIC_API_KEY, QONVERSION_SECRET_KEY, QONVERSION_WEBHOOK_AUTH
+#   JWT_SECRET, HASH_SALT, ANTHROPIC_API_KEY, REVENUECAT_SECRET_KEY
 # Local development: copy .dev.vars.example to .dev.vars (git-ignored).
 name = "shentarot-api"
 main = "src/index.ts"

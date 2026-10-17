@@ -1,6 +1,7 @@
 import 'dart:io';
 
-import 'package:qonversion_flutter/qonversion_flutter.dart';
+import 'package:flutter/services.dart';
+import 'package:purchases_flutter/purchases_flutter.dart';
 
 import 'credit_service.dart';
 
@@ -54,7 +55,7 @@ class SubscriptionException implements Exception {
 }
 
 abstract class SubscriptionService {
-  /// False when no Qonversion project key was provided at build time.
+  /// False when no store/RevenueCat key was provided at build time.
   bool get isConfigured;
 
   /// Starts the SDK with the anonymous install ID and reports entitlement
@@ -74,7 +75,7 @@ abstract class SubscriptionService {
   /// The store page where the user can manage or cancel.
   Future<String> manageUrl();
 
-  /// Switches the Qonversion identity (account id when signed in, install id
+  /// Switches the RevenueCat app user (account id when signed in, install id
   /// when not), so Premium follows the account.
   Future<void> switchUser(String appUserId);
 
@@ -108,7 +109,7 @@ abstract class SubscriptionService {
 int monthsPaidBetween(DateTime first, DateTime latest) =>
     1 + (latest.difference(first).inDays / 30.4).round();
 
-/// Used when `QONVERSION_PROJECT_KEY` was not given
+/// Used when `REVENUECAT_IOS_KEY` / `REVENUECAT_ANDROID_KEY` were not given
 /// via `--dart-define`. No purchases are possible; nothing is faked.
 class UnconfiguredSubscriptionService implements SubscriptionService {
   const UnconfiguredSubscriptionService();
@@ -169,38 +170,17 @@ String _storeSubscriptionsUrl() => Platform.isIOS
 
 const premiumEntitlement = 'premium';
 
-/// The Qonversion product ids. Create them in Qonversion with exactly these
-/// ids (each linked to the App Store / Google Play product of the same id),
-/// and an entitlement `premium` attached to all three.
-const annualProductId = 'shentarot_annual';
-const quarterlyProductId = 'shentarot_quarterly';
-const monthlyProductId = 'shentarot_monthly';
+class RevenueCatSubscriptionService implements SubscriptionService {
+  RevenueCatSubscriptionService(this.apiKey);
 
-/// A Google Play offer to buy with a product (the friend's referral offer).
-class _ProductWithOffer {
-  const _ProductWithOffer(this.product, this.offer);
-  final QProduct product;
-  final QProductOfferDetails offer;
-}
-
-class QonversionSubscriptionService implements SubscriptionService {
-  QonversionSubscriptionService(this.projectKey);
-
-  final String projectKey;
+  final String apiKey;
   bool _started = false;
-
-  Qonversion get _q => Qonversion.getSharedInstance();
 
   @override
   bool get isConfigured => true;
 
-  static QEntitlement? _premium(Map<String, QEntitlement>? ents) {
-    final e = ents?[premiumEntitlement];
-    return e != null && e.isActive ? e : null;
-  }
-
-  Future<QEntitlement?> _activePremium() async =>
-      _premium(await _q.checkEntitlements());
+  bool _isPremium(CustomerInfo info) =>
+      info.entitlements.active.containsKey(premiumEntitlement);
 
   @override
   Future<void> start(
@@ -208,20 +188,13 @@ class QonversionSubscriptionService implements SubscriptionService {
     void Function(bool) onPremiumChanged,
   ) async {
     if (_started) return;
-    Qonversion.initialize(
-      QonversionConfigBuilder(
-        projectKey,
-        QLaunchMode.subscriptionManagement,
-      ).build(),
-    );
+    final config = PurchasesConfiguration(apiKey)..appUserID = appUserId;
+    await Purchases.configure(config);
     _started = true;
-    // Our install / account id is the Qonversion identity; the backend asks
-    // Qonversion about the same id.
-    await _q.identify(appUserId);
-    _q.updatedEntitlementsStream.listen(
-      (ents) => onPremiumChanged(_premium(ents) != null),
+    Purchases.addCustomerInfoUpdateListener(
+      (info) => onPremiumChanged(_isPremium(info)),
     );
-    onPremiumChanged(await _activePremium() != null);
+    onPremiumChanged(_isPremium(await Purchases.getCustomerInfo()));
   }
 
   String? _monthlyProductId;
@@ -229,11 +202,14 @@ class QonversionSubscriptionService implements SubscriptionService {
   @override
   Future<int?> monthlyMonthsPaid() async {
     if (!_started) return null;
-    final ent = await _activePremium();
-    if (ent == null || ent.productId.contains('annual')) return null;
-    _monthlyProductId = ent.productId;
-    final first = ent.firstPurchaseDate ?? ent.startedDate;
-    final latest = ent.lastPurchaseDate;
+    final ent = (await Purchases.getCustomerInfo())
+        .entitlements
+        .active[premiumEntitlement];
+    if (ent == null || ent.productIdentifier.contains('annual')) return null;
+    if (ent.periodType != PeriodType.normal) return null;
+    _monthlyProductId = ent.productIdentifier;
+    final first = DateTime.tryParse(ent.originalPurchaseDate);
+    final latest = DateTime.tryParse(ent.latestPurchaseDate);
     if (first == null || latest == null) return null;
     return monthsPaidBetween(first, latest);
   }
@@ -241,42 +217,44 @@ class QonversionSubscriptionService implements SubscriptionService {
   @override
   Future<PlanOption?> referralPlan(String offerTag) async {
     if (!_started || !Platform.isAndroid) return null;
-    final product = (await _q.products())[annualProductId];
-    final offer = product?.storeDetails?.subscriptionOfferDetails
+    final pkg = (await Purchases.getOfferings()).current?.annual;
+    final option = pkg?.storeProduct.subscriptionOptions
         ?.where((o) => o.tags.contains(offerTag))
         .firstOrNull;
-    final intro = offer?.introPhase;
-    if (product == null || offer == null || intro == null) return null;
+    final intro = option?.introPhase;
+    if (pkg == null || option == null || intro == null) return null;
     return PlanOption(
       id: 'annual-friend',
       title: 'Annual',
-      priceString: product.prettyPrice ?? '',
+      priceString: pkg.storeProduct.priceString,
       periodLabel: 'per year',
-      trialLabel: '${intro.price.formattedPrice} for your first year',
+      trialLabel: '${intro.price.formatted} for your first year',
       trialIsFree: false,
-      handle: _ProductWithOffer(product, offer),
-      price: product.price,
-      perMonthString: _perMonth(product, 12),
-      productId: annualProductId,
+      handle: option,
+      price: pkg.storeProduct.price,
+      perMonthString: pkg.storeProduct.pricePerMonthString,
+      productId: pkg.storeProduct.identifier.split(':').first,
     );
   }
 
   @override
   Future<List<PlanOption>> creditPacks() async {
     if (!_started) return const [];
-    final products = await _q.products();
+    final products = await Purchases.getProducts(
+      creditPackProductIds,
+      productCategory: ProductCategory.nonSubscription,
+    );
     final packs = [
-      for (final id in creditPackProductIds)
-        if (products[id] case final p? when p.prettyPrice != null)
-          PlanOption(
-            id: 'pack-${creditsInPack(id)}',
-            title: '${creditsInPack(id)} credits',
-            priceString: p.prettyPrice!,
-            periodLabel: 'one time',
-            handle: p,
-            price: p.price,
-            productId: id,
-          ),
+      for (final p in products)
+        PlanOption(
+          id: 'pack-${creditsInPack(p.identifier)}',
+          title: '${creditsInPack(p.identifier)} credits',
+          priceString: p.priceString,
+          periodLabel: 'one time',
+          handle: p,
+          price: p.price,
+          productId: p.identifier,
+        ),
     ];
     packs.sort(
       (a, b) =>
@@ -288,181 +266,153 @@ class QonversionSubscriptionService implements SubscriptionService {
 
   @override
   Future<void> redeemOfferCode() async {
-    if (Platform.isIOS) await _q.presentCodeRedemptionSheet();
+    if (Platform.isIOS) await Purchases.presentCodeRedemptionSheet();
   }
 
   @override
   Future<DateTime?> introEndsAt() async {
     if (!_started) return null;
-    final ent = await _activePremium();
-    final end = ent?.expirationDate;
-    if (ent == null || end == null || ent.renewsCount > 0) return null;
-    // A free trial, or the paid first month on the annual plan: the current
-    // period is far shorter than a year.
-    final start = ent.lastPurchaseDate ?? ent.startedDate;
-    final shortAnnual =
-        ent.productId.contains('annual') &&
-        start != null &&
-        end.difference(start).inDays < 300;
-    return ent.trialStartDate != null || shortAnnual ? end : null;
+    final ent = (await Purchases.getCustomerInfo())
+        .entitlements
+        .active[premiumEntitlement];
+    if (ent == null ||
+        (ent.periodType != PeriodType.intro &&
+            ent.periodType != PeriodType.trial)) {
+      return null;
+    }
+    final end = ent.expirationDate;
+    return end == null ? null : DateTime.tryParse(end);
   }
 
   @override
   Future<String?> currentProductId() async {
     if (!_started) return null;
-    return (await _activePremium())?.productId.split(':').first;
+    final ent = (await Purchases.getCustomerInfo())
+        .entitlements
+        .active[premiumEntitlement];
+    return ent?.productIdentifier.split(':').first;
   }
 
   @override
   Future<bool> switchTo(PlanOption plan) async {
-    final product = plan.handle;
-    if (product is! QProduct) {
-      throw const SubscriptionException('Unknown plan.');
+    final pkg = plan.handle;
+    if (pkg is! Package) throw const SubscriptionException('Unknown plan.');
+    final old = _monthlyProductId;
+    try {
+      final result = await Purchases.purchase(
+        PurchaseParams.package(
+          pkg,
+          productChangeInfo: Platform.isAndroid && old != null
+              ? StoreProductChangeInfo(old.split(':').first)
+              : null,
+        ),
+      );
+      return _isPremium(result.customerInfo);
+    } on PlatformException catch (e) {
+      if (PurchasesErrorHelper.getErrorCode(e) ==
+          PurchasesErrorCode.purchaseCancelledError) {
+        return false;
+      }
+      throw const SubscriptionException(
+        'The change could not be completed. You were not charged.',
+      );
     }
-    final oldId = _monthlyProductId;
-    final old = Platform.isAndroid && oldId != null
-        ? (await _q.products())[oldId.split(':').first]
-        : null;
-    return _buy(
-      product,
-      old == null ? null : QPurchaseOptionsBuilder().setOldProduct(old).build(),
-      'The change could not be completed. You were not charged.',
-    );
   }
 
   @override
   Future<void> switchUser(String appUserId) async {
     if (!_started) return;
-    await _q.identify(appUserId);
+    await Purchases.logIn(appUserId);
   }
 
   @override
   Future<List<PlanOption>> plans() async {
-    final products = await _q.products();
+    final packages =
+        (await Purchases.getOfferings()).current?.availablePackages ?? const [];
     // Annual first (best value), then 3 months, then monthly. Weekly is not
-    // offered (owner decision 2026-10-17).
+    // offered (owner decision 2026-10-17); a weekly package is ignored.
     const order = [
-      (annualProductId, 'Annual', 'per year', 12),
-      (quarterlyProductId, '3 Months', 'every 3 months', 3),
-      (monthlyProductId, 'Monthly', 'per month', 1),
+      PackageType.annual,
+      PackageType.threeMonth,
+      PackageType.monthly,
     ];
-    return [
-      for (final (id, title, period, months) in order)
-        if (products[id] case final p? when p.prettyPrice != null)
-          _toPlan(p, id, title, period, months),
+    final known = [
+      for (final t in order) ...packages.where((p) => p.packageType == t),
     ];
+    return [for (final p in known) _toPlan(p)];
   }
 
-  PlanOption _toPlan(
-    QProduct p,
-    String id,
-    String title,
-    String period,
-    int months,
-  ) {
-    final (trial, free) = _introLabel(p);
+  PlanOption _toPlan(Package p) {
+    final (title, period) = switch (p.packageType) {
+      PackageType.annual => ('Annual', 'per year'),
+      PackageType.threeMonth => ('3 Months', 'every 3 months'),
+      PackageType.monthly => ('Monthly', 'per month'),
+      PackageType.weekly => ('Weekly', 'per week'),
+      _ => (p.storeProduct.title, ''),
+    };
+    final intro = p.storeProduct.introductoryPrice;
+    // The introductory offer as the store defines it: free ("7 days free")
+    // or paid ("7 days for $1.98"). Nothing is hardcoded here.
+    final n = intro == null ? 0 : intro.periodNumberOfUnits * intro.cycles;
+    final trial = intro == null
+        ? null
+        : intro.price == 0
+        ? '$n ${_unit(intro.periodUnit, n)} free'
+        : '${intro.priceString} for your first '
+              '${n == 1 ? _unit(intro.periodUnit, 1) : '$n ${_unit(intro.periodUnit, n)}'}';
     return PlanOption(
-      id: id,
+      id: p.identifier,
       title: title,
-      priceString: p.prettyPrice!,
+      priceString: p.storeProduct.priceString,
       periodLabel: period,
       trialLabel: trial,
-      trialIsFree: free,
+      trialIsFree: intro == null || intro.price == 0,
       handle: p,
-      price: p.price,
-      perMonthString: months == 1 ? null : _perMonth(p, months),
-      productId: id,
+      price: p.storeProduct.price,
+      perMonthString: p.storeProduct.pricePerMonthString,
+      productId: p.storeProduct.identifier.split(':').first,
     );
   }
 
-  /// The introductory offer as the store defines it: free ("7 days free") or
-  /// paid ("$1.99 for your first month"). Nothing is hardcoded here.
-  (String?, bool) _introLabel(QProduct p) {
-    final ios = p.skProduct?.introductoryPrice;
-    if (ios != null) {
-      final sp = ios.subscriptionPeriod;
-      if (sp == null) return (null, true);
-      final n = sp.numberOfUnits * ios.numberOfPeriods;
-      final unit = switch (sp.unit) {
-        SKSubscriptionPeriodUnit.day => 'day',
-        SKSubscriptionPeriodUnit.week => 'week',
-        SKSubscriptionPeriodUnit.month => 'month',
-        SKSubscriptionPeriodUnit.year => 'year',
-      };
-      if (ios.paymentMode == SKProductDiscountPaymentMode.freeTrial) {
-        return ('$n ${_plural(unit, n)} free', true);
-      }
-      final price = p.prettyIntroductoryPrice;
-      return price == null
-          ? (null, true)
-          : ('$price ${_forFirst(unit, n)}', false);
-    }
-    final offer = p.storeDetails?.defaultSubscriptionOfferDetails;
-    final phase = offer?.trialPhase ?? offer?.introPhase;
-    if (phase == null) return (null, true);
-    final n = phase.billingPeriod.unitCount * phase.billingCycleCount;
-    final unit = switch (phase.billingPeriod.unit) {
-      QSubscriptionPeriodUnit.day => 'day',
-      QSubscriptionPeriodUnit.week => 'week',
-      QSubscriptionPeriodUnit.month => 'month',
-      QSubscriptionPeriodUnit.year => 'year',
-      QSubscriptionPeriodUnit.unknown => 'day',
+  String _unit(PeriodUnit u, int n) {
+    final base = switch (u) {
+      PeriodUnit.day => 'day',
+      PeriodUnit.week => 'week',
+      PeriodUnit.month => 'month',
+      PeriodUnit.year => 'year',
+      _ => 'day',
     };
-    if (phase.isTrial || phase.price.isFree) {
-      return ('$n ${_plural(unit, n)} free', true);
-    }
-    return ('${phase.price.formattedPrice} ${_forFirst(unit, n)}', false);
-  }
-
-  String _forFirst(String unit, int n) =>
-      'for your first ${n == 1 ? unit : '$n ${_plural(unit, n)}'}';
-
-  String _plural(String unit, int n) => n == 1 ? unit : '${unit}s';
-
-  /// The plan's price per month, written like the store's own price string.
-  String? _perMonth(QProduct p, int months) {
-    final pretty = p.prettyPrice;
-    final price = p.price;
-    if (pretty == null || price == null) return null;
-    return formatLikePrice(pretty, price / months);
-  }
-
-  Future<bool> _buy(
-    QProduct product,
-    QPurchaseOptions? options,
-    String failure,
-  ) async {
-    final QPurchaseResult result;
-    try {
-      result = await _q.purchaseWithResult(product, purchaseOptions: options);
-    } catch (_) {
-      throw SubscriptionException(failure);
-    }
-    if (result.isCanceled || result.isPending) return false;
-    if (result.isSuccess) return _premium(result.entitlements) != null;
-    throw SubscriptionException(failure);
+    return n == 1 ? base : '${base}s';
   }
 
   @override
   Future<bool> purchase(PlanOption plan) async {
-    const failure =
-        'The purchase could not be completed. You were not charged.';
-    return switch (plan.handle) {
-      _ProductWithOffer h => _buy(
-        h.product,
-        QPurchaseOptionsBuilder().setOffer(h.offer).build(),
-        failure,
-      ),
-      QProduct p => _buy(p, null, failure),
+    final handle = plan.handle;
+    final params = switch (handle) {
+      Package p => PurchaseParams.package(p),
+      SubscriptionOption o => PurchaseParams.subscriptionOption(o),
+      StoreProduct p => PurchaseParams.storeProduct(p),
       _ => throw const SubscriptionException('Unknown plan.'),
     };
+    try {
+      final result = await Purchases.purchase(params);
+      return _isPremium(result.customerInfo);
+    } on PlatformException catch (e) {
+      if (PurchasesErrorHelper.getErrorCode(e) ==
+          PurchasesErrorCode.purchaseCancelledError) {
+        return false;
+      }
+      throw const SubscriptionException(
+        'The purchase could not be completed. You were not charged.',
+      );
+    }
   }
 
   @override
   Future<bool> restore() async {
     try {
-      return _premium(await _q.restore()) != null;
-    } catch (_) {
+      return _isPremium(await Purchases.restorePurchases());
+    } on PlatformException {
       throw const SubscriptionException(
         'Could not restore purchases. Please try again.',
       );
@@ -470,20 +420,12 @@ class QonversionSubscriptionService implements SubscriptionService {
   }
 
   @override
-  Future<String> manageUrl() async => _storeSubscriptionsUrl();
-}
-
-/// [value] written in the style of a store price string such as "$39.99",
-/// "39,99 €" or "¥5,800": same symbol and position, same decimal mark and
-/// number of decimals. Falls back to two decimals with a dot.
-String formatLikePrice(String sample, double value) {
-  final m = RegExp(r'\d[\d.,\s  ]*\d|\d').firstMatch(sample);
-  if (m == null) return value.toStringAsFixed(2);
-  final digits = m.group(0)!;
-  final dec = RegExp(r'([.,])(\d{1,2})$').firstMatch(digits);
-  final places = dec == null ? 0 : dec.group(2)!.length;
-  final mark = dec?.group(1) ?? '.';
-  var number = value.toStringAsFixed(places);
-  if (mark == ',') number = number.replaceAll('.', ',');
-  return sample.replaceRange(m.start, m.end, number);
+  Future<String> manageUrl() async {
+    try {
+      return (await Purchases.getCustomerInfo()).managementURL ??
+          _storeSubscriptionsUrl();
+    } catch (_) {
+      return _storeSubscriptionsUrl();
+    }
+  }
 }
