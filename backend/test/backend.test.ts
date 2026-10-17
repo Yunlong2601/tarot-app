@@ -63,6 +63,7 @@ class MemCredits implements CreditStore {
   async add(k: string, n: number, txn: string) { if (this.txns.has(txn)) return false; this.txns.add(txn); this.bal.set(k, (this.bal.get(k) ?? 0) + n); return true; }
   owners = new Map<number, string>();
   private n = 0;
+  async move(f: string, t: string) { const n = this.bal.get(f) ?? 0; if (f === t) return 0; this.bal.set(f, 0); this.bal.set(t, (this.bal.get(t) ?? 0) + n); return n; }
   async spend(k: string) { const b = this.bal.get(k) ?? 0; if (b <= 0) return null; this.bal.set(k, b - 1); this.owners.set(++this.n, k); return this.n; }
   async refund(id: number) { const k = this.owners.get(id)!; this.bal.set(k, (this.bal.get(k) ?? 0) + 1); }
 }
@@ -761,6 +762,21 @@ describe("plan allowances and the daily login credit", () => {
     expect((await go("/v1/followup", body)).status).toBe(200);
     expect(await s.credits.balance(h)).toBe(0);
     expect((await go("/v1/reading", readBody)).status).toBe(429);
+  });
+
+  it("a Premium user's credits follow them to a new install; a free user's do not", async () => {
+    const OLD = "11111111-1111-4111-8111-111111111111";
+    const mk = (premium: boolean) => { const s = setup({ credits: true, premium }); return s; };
+    const transfer = (s: ReturnType<typeof setup>) => s.call("/v1/webhooks/revenuecat", { method: "POST", headers: { authorization: "hook-secret" }, body: JSON.stringify({ event: { type: "TRANSFER", transferred_from: [OLD], transferred_to: [UUID] } }) });
+    const prem = mk(true);
+    prem.credits.bal.set(await hashId(OLD, "salt"), 4);
+    expect(await (await transfer(prem)).json()).toEqual({ ok: true, moved: 4 });
+    expect(await prem.credits.balance(await hashId(UUID, "salt"))).toBe(4);
+    expect(await prem.credits.balance(await hashId(OLD, "salt"))).toBe(0);
+    const free = mk(false);
+    free.credits.bal.set(await hashId(OLD, "salt"), 4);
+    expect(await (await transfer(free)).json()).toEqual({ ok: true, moved: 0 });
+    expect(await free.credits.balance(await hashId(OLD, "salt"))).toBe(4); // stays behind
   });
 });
 

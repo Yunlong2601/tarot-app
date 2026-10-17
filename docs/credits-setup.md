@@ -18,3 +18,5 @@ Built 2026-10-17, **switched off** (app flag `CREDITS`, server `CREDITS_ENABLED`
 5. Store forms: Play Data safety already declares Purchase history; Apple's privacy label already covers purchases. Re-check both after switching on.
 
 - Tests: `backend/test/credits-sqlite.test.ts` runs the real SQL (migrations 0004 and 0005) on node:sqlite. Still to do once: apply the migration to the live D1 database and try `/v1/credits/daily` with `wrangler dev`.
+
+- Reinstall: free users lose credits when they delete the app (credits belong to the install) unless they signed in. Premium users keep them: when they restore purchases, RevenueCat sends a `TRANSFER` webhook event and the server moves the credits to the new install if the new id has an active Premium entitlement. RevenueCat must send TRANSFER events to the same webhook URL (all events are sent by default); Project Settings > Restore behavior must stay on the default "Transfer to new App User ID". Known gap: RevenueCat can merge anonymous ids without a TRANSFER event; test a delete / reinstall / restore on a real device before launch, and tell users to sign in as the sure way to keep credits.

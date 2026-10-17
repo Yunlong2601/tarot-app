@@ -13,6 +13,8 @@ export interface CreditStore {
   balance(key: string): Promise<number>;
   /** Adds credits for a store purchase; false if this transaction was seen. */
   add(key: string, amount: number, txn: string): Promise<boolean>;
+  /** Moves every credit from one owner to another (a Premium user restoring on a new install). */
+  move(fromKey: string, toKey: string): Promise<number>;
   /** Takes one credit if there is one; returns the lot it came from. */
   spend(key: string): Promise<number | null>;
   /** Gives a spent credit back to the lot it came from. */
@@ -58,6 +60,12 @@ export class D1CreditStore implements CreditStore {
     if ((r.meta.changes ?? 0) === 0) return false;
     await this.lot(key, 1, "login");
     return true;
+  }
+  async move(fromKey: string, toKey: string) {
+    if (fromKey === toKey) return 0;
+    const held = await this.balance(fromKey);
+    await this.db.prepare("UPDATE credit_lots SET owner_key = ?2 WHERE owner_key = ?1").bind(fromKey, toKey).run();
+    return held;
   }
   async spend(key: string) {
     for (let attempt = 0; attempt < 3; attempt++) {

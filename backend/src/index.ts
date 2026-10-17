@@ -421,6 +421,21 @@ export function createApp(deps: Deps = defaultDeps) {
     const keyFor = async (appUser: string) => (await deps.accounts(c.env).isAccount(appUser))
       ? hashId(`acct:${appUser}`, c.env.HASH_SALT)
       : hashId(appUser, c.env.HASH_SALT);
+    // A Premium user reinstalled and restored: RevenueCat moves the subscription
+    // to the new app user id, and their credits follow it. Free users (no active
+    // subscription on the new id) do not keep credits from a deleted install.
+    if (type === "TRANSFER" && c.env.CREDITS_ENABLED === "true") {
+      const ours = (v: unknown) => (Array.isArray(v) ? v.map(String).filter((id: string) => id !== "" && !id.startsWith("$RC")) : []);
+      const from = ours(e.transferred_from);
+      const to = ours(e.transferred_to);
+      let moved = 0;
+      for (const dest of to) {
+        await c.env.KV.delete(`premium:${dest}`); // do not trust a cached "not premium" from before the restore
+        if (!(await deps.premium(dest, c.env, deps.now()))) continue;
+        for (const src of from) moved += await deps.credits(c.env).move(await keyFor(src), await keyFor(dest));
+      }
+      return c.json({ ok: true, moved });
+    }
     // Starter Pack and other credit packs (consumables).
     if (type === "NON_RENEWING_PURCHASE" && c.env.CREDITS_ENABLED === "true") {
       const amount = creditsInProduct(String(e.product_id ?? ""));

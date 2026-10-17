@@ -52,4 +52,14 @@ describe("D1CreditStore (real SQL)", () => {
     expect(await s.claimDaily("u", "2026-10-28", LOGIN_CREDIT_BANK_CAP)).toBe(false); // 3 login credits held
     expect(await s.balance("u")).toBe(8);
   });
+
+  it("move() hands every credit to the new owner", async () => {
+    const s = setup({ t: T0 });
+    await s.add("old", 3, "p1");
+    await s.claimDaily("old", "2026-10-25", LOGIN_CREDIT_BANK_CAP);
+    expect(await s.move("old", "new")).toBe(4);
+    expect(await s.balance("old")).toBe(0);
+    expect(await s.balance("new")).toBe(4);
+    expect(await s.spend("new")).not.toBeNull();
+  });
 });
