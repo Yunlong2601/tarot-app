@@ -344,17 +344,20 @@ describe("POST /v1/reading", () => {
     expect(s.usage.rows[0]).toMatchObject({ i: 1000, o: 500 });
   });
 
-  it("free users get one reading a day", async () => {
+  it("free users get two readings a day", async () => {
     const s = setup();
     expect((await post(s, single)).status).toBe(200);
+    expect((await post(s, single)).status).toBe(200);
     expect((await post(s, single)).status).toBe(429);
-    expect(s.calls()).toBe(1);
+    expect(s.calls()).toBe(2);
   });
 
   it("free users get 1 trial reading on a 5/7/10-card spread, then Premium is required", async () => {
     const fiveCross = { spread: "five_cross", cards: ["major_00_fool", "major_01_magician", "major_02_high_priestess", "major_03_empress", "major_04_emperor"].map((id) => ({ id, reversed: false })) };
     const free = setup();
     expect((await post(free, fiveCross)).status).toBe(200); // the one trial reading
+    free.kv.m.clear();
+    expect((await post(free, single)).status).toBe(200); // second free reading today
     free.kv.m.clear();
     expect((await post(free, single)).status).toBe(429); // daily limit
     free.usage.rows.forEach((r) => (r.day = "2000-01-01")); // next day
@@ -472,13 +475,15 @@ describe("follow-up questions", () => {
     expect(buildFollowupMessage(parseFollowupRequest(base).ok ? (parseFollowupRequest(base) as any).value : null)).not.toContain("<clarifier>");
   });
 
-  it("requires a token; a free user's one daily credit pays for a follow-up, then they need a bonus credit", async () => {
+  it("requires a token; a free user's two daily uses pay for follow-ups, then they need a bonus credit", async () => {
     const s = setup();
     expect((await s.call("/v1/followup", { method: "POST", body: JSON.stringify(base) })).status).toBe(401);
-    expect((await post(s, base)).status).toBe(200); // the daily credit
+    expect((await post(s, base)).status).toBe(200); // daily use 1
     s.kv.m.clear();
-    expect((await post(s, base)).status).toBe(402); // no daily credit left, no bonus credits
-    expect(s.calls()).toBe(1);
+    expect((await post(s, base)).status).toBe(200); // daily use 2
+    s.kv.m.clear();
+    expect((await post(s, base)).status).toBe(402); // none left, no bonus credits
+    expect(s.calls()).toBe(2);
   });
 
   it("premium gets an answer with the disclaimer; usage is logged as followup", async () => {
@@ -803,11 +808,12 @@ describe("reading credits", () => {
     expect((await read(s)).status).toBe(429); // today's credits are already granted and spent
   });
 
-  it("a credit pays for a follow-up just like a reading; off by default (1 free a day)", async () => {
+  it("a credit pays for a follow-up just like a reading; off by default (2 free a day)", async () => {
     const off = setup();
     const body = JSON.stringify({ spread: "single", cards: [{ id: "major_00_fool", reversed: false }], reading: "The Fool.", followup: "More?" });
     const ask = async (s: ReturnType<typeof setup>) => { s.kv.m.clear(); return s.call("/v1/followup", { method: "POST", headers: await authHeaders(s.env), body }); };
-    expect((await ask(off)).status).toBe(200); // the one free daily use
+    expect((await ask(off)).status).toBe(200); // free daily use 1
+    expect((await ask(off)).status).toBe(200); // free daily use 2
     expect((await ask(off)).status).toBe(402); // credits are off: nothing else to spend
     const s = setup({ credits: true });
     const hash = await hashId(UUID, "salt");

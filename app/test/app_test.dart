@@ -148,9 +148,11 @@ void main() {
       },
     );
 
-    test('free reading is consumed after one reading', () {
+    test('two free readings a day', () {
       final s = AppState(deck: deck);
       s.addReading(sample('a'));
+      expect(s.canStart(SpreadType.single), isTrue);
+      s.addReading(sample('b'));
       expect(s.canStart(SpreadType.single), isFalse);
       expect(s.canStart(SpreadType.threeCard), isFalse);
     });
@@ -160,6 +162,7 @@ void main() {
       final s = AppState(deck: deck, clock: () => now);
       s.addReading(sample('a', spread: SpreadType.horseshoe));
       expect(s.trialUsed, isTrue);
+      s.addReading(sample('b'));
       expect(s.canStart(SpreadType.single), isFalse);
       now = DateTime(2026, 10, 17); // a new day: daily limit reset
       expect(s.canStart(SpreadType.threeCard), isTrue);

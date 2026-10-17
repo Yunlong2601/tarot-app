@@ -31,7 +31,7 @@ Important notice
 ShenTarot is designed for mindfulness and self-reflection. AI readings offer perspective and food for thought; they do not predict the future and do not replace professional medical, psychological, legal, or financial advice.
 
 Subscription information
-ShenTarot is free to use: one AI reading a day with the one-card and three-card spreads, plus one free try of a longer spread, card scanning, the journal, Card of the Day, the card library and lessons. ShenTarot Premium: all spreads, follow-ups, 50 readings a day, plus clarifier cards and a look back a week later. Premium is an auto-renewing subscription billed through Google Play and can be managed or cancelled anytime in Google Play > Payments & subscriptions.
+ShenTarot is free to use: two AI readings a day with the one-card and three-card spreads, plus one free try of a longer spread, card scanning, the journal, Card of the Day, the card library and lessons. ShenTarot Premium: all spreads, follow-ups, 50 readings a day, plus clarifier cards and a look back a week later. Premium is an auto-renewing subscription billed through Google Play and can be managed or cancelled anytime in Google Play > Payments & subscriptions.
 
 Privacy Policy: https://yunlong2601.github.io/shentarot-legal/privacy.html
 Terms of Use: https://yunlong2601.github.io/shentarot-legal/terms.html

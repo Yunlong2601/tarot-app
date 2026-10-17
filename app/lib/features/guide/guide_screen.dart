@@ -29,7 +29,7 @@ class GuideScreen extends StatelessWidget {
     (
       Icons.dashboard_customize_outlined,
       'Pick a spread',
-      'One card is a quick answer. Three cards show past, present and future. The Celtic Cross uses ten cards for a deeper look. One and three-card spreads are free (one AI reading a day); the 5, 7 and 10-card spreads are part of Premium, with one free try.',
+      'One card is a quick answer. Three cards show past, present and future. The Celtic Cross uses ten cards for a deeper look. One and three-card spreads are free (two AI readings a day); the 5, 7 and 10-card spreads are part of Premium, with one free try.',
     ),
     (
       Icons.edit_note,

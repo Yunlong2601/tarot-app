@@ -19,7 +19,7 @@ HOLD THE CARDS. WE EXPLAIN THEM.
 - Ask a question, choose a spread for it (love, career, growth or classics), and get a thoughtful reading of your cards.
 
 BUILT FOR BEGINNERS, USEFUL FOR EVERYONE
-- Free: one AI reading every day with the one-card and three-card spreads, plus one free try of a longer spread. Scanning, Card of the Day, the card library and lessons are free too.
+- Free: two AI readings every day with the one-card and three-card spreads, plus one free try of a longer spread. Scanning, Card of the Day, the card library and lessons are free too.
 - Premium: all spreads, follow-ups, 50 readings a day (all 14 spreads including the Celtic Cross), plus a clarifier card and a look back a week later.
 - A card library with keywords and upright and reversed meanings for all 78 cards.
 - Daily reminder, if you want one.

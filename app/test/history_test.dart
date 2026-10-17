@@ -245,6 +245,7 @@ void main() {
         final a = make();
         a.completeOnboarding();
         a.addReading(reading('a', now));
+        a.addReading(reading('b', now));
         await Future<void>.delayed(const Duration(milliseconds: 20));
 
         final b = make();

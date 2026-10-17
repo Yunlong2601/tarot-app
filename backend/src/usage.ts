@@ -62,9 +62,9 @@ export class D1UsageStore implements UsageStore {
   }
 }
 
-/** Free daily credits once the credit wallet is on; before that, 1 free reading a day. */
+/** Free daily credits once the credit wallet is on; before that, 2 free readings a day. */
 export const FREE_DAILY_CREDITS = 2;
-export const FREE_READINGS_PER_DAY = 1;
+export const FREE_READINGS_PER_DAY = 2;
 // Premium also receives monthly credits by plan (on top of the free daily
 // credits). One credit buys a reading or a follow-up.
 export const PLAN_MONTHLY_CREDITS = { annual: 150, quarterly: 120, monthly: 90 } as const;

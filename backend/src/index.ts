@@ -92,7 +92,7 @@ export function createApp(deps: Deps = defaultDeps) {
    * UTC month. Unused credits roll over and never expire, with a bank of 10
    * days' worth of daily and 2 months' worth of monthly credits. No one can spend
    * more than 50 credits a day. Before the wallet is switched on
-   * (CREDITS_ENABLED), free gets 1 reading a day and Premium up to 50. */
+   * (CREDITS_ENABLED), free gets 2 readings a day and Premium up to 50. */
   type Charge = { ok: true; lot: number | null } | { ok: false; limit: number };
   const walletOn = (env: Env) => env.CREDITS_ENABLED === "true";
   const monthlyFor = async (who: { appUserId: string }, env: Env, premium: boolean, now: number) =>

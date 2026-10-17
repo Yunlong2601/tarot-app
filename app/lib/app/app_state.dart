@@ -98,9 +98,10 @@ class AppState extends ChangeNotifier {
   String get creditLine {
     if (!creditsEnabled) {
       if (isPremium) return 'Premium: 50 readings a day';
+      final left = freeReadingsPerDay - freeReadingsUsedToday;
       return canReadForFree
-          ? '1 free reading left today'
-          : 'Free reading used. Come back tomorrow or go Premium.';
+          ? '$left free ${left == 1 ? 'reading' : 'readings'} left today'
+          : 'Free readings used. Come back tomorrow or go Premium.';
     }
     final perDay = dailyCredits > 0 ? dailyCredits : 2;
     final perMonth = monthlyCredits > 0 ? monthlyCredits : 90;
@@ -245,7 +246,7 @@ class AppState extends ChangeNotifier {
   /// The Read tab's main button: scan a physical deck or draw digitally.
   ReadMode readMode = ReadMode.photo;
   bool isPremium = false;
-  static const freeReadingsPerDay = 1;
+  static const freeReadingsPerDay = 2;
   final List<Reading> history = [];
 
   /// Whether digital draws and the Card of the Day may come up reversed.
@@ -289,7 +290,7 @@ class AppState extends ChangeNotifier {
 
   bool get canReadForFree => freeReadingsUsedToday < freeReadingsPerDay;
 
-  /// Premium users get a daily allowance by plan (30 to 50); free users get one reading a day plus credits.
+  /// Premium users get a daily allowance by plan (30 to 50); free users get two readings a day plus credits.
   bool canStart(SpreadType spread) {
     if (isPremium) return true;
     if (creditsEnabled) return credits > 0 && (spread.isFree || !trialUsed);
