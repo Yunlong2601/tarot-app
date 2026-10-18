@@ -146,7 +146,22 @@ class _AskScreenState extends State<AskScreen> {
                 ),
             ],
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 16),
+          FilledButton(onPressed: _next, child: const Text('Next')),
+          TextButton(
+            onPressed: () {
+              _controller.clear();
+              _next();
+            },
+            child: const Text('Skip: general reading'),
+          ),
+          const SizedBox(height: 8),
+          const Text(
+            'Please keep personal details out of your question.',
+            textAlign: TextAlign.center,
+            style: TextStyle(color: AppColors.textMuted, fontSize: 12),
+          ),
+          const SizedBox(height: 24),
           Text('Need ideas?', style: t.titleSmall),
           const SizedBox(height: 8),
           SingleChildScrollView(
@@ -178,21 +193,6 @@ class _AskScreenState extends State<AskScreen> {
               title: Text(q),
               onTap: () => _fill(q),
             ),
-          const SizedBox(height: 24),
-          FilledButton(onPressed: _next, child: const Text('Next')),
-          TextButton(
-            onPressed: () {
-              _controller.clear();
-              _next();
-            },
-            child: const Text('Skip: general reading'),
-          ),
-          const SizedBox(height: 8),
-          const Text(
-            'Please keep personal details out of your question.',
-            textAlign: TextAlign.center,
-            style: TextStyle(color: AppColors.textMuted, fontSize: 12),
-          ),
         ],
       ),
     );
