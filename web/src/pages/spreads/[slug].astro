@@ -14,6 +14,7 @@ const count = plural(s.positions.length, "card");
   title={`${s.name} tarot spread: ${count} · ShenTarot`}
   description={`${s.name}: a ${s.positions.length}-card tarot spread. ${APP_SPREADS[id].blurb}`}
   path={`spreads/${slug(id)}`}
+  crumbs={[["Spreads", "spreads"], [s.name, `spreads/${slug(id)}`]]}
 >
   <p class="muted"><a href={`${BASE}spreads`}>Spreads</a></p>
   <h1>{s.name}</h1>

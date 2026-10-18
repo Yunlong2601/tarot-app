@@ -10,10 +10,32 @@ interface Props {
   path: string;
   /** Hide the "Read your own cards" panel (pages that already end with one). */
   noCta?: boolean;
+  /** Share preview image under the site, e.g. "cards/art/major_00_fool.jpg". */
+  image?: string;
+  /** "Home › Section › Page" trail for search results: [name, path] pairs after Home. */
+  crumbs?: [string, string][];
+  /** Extra schema.org data for this page. */
+  jsonLd?: Record<string, unknown>[];
 }
-const { title, description, path, noCta = false } = Astro.props;
+const { title, description, path, noCta = false, image = "og.png", crumbs = [], jsonLd = [] } = Astro.props;
 const canonical = new URL(path, Astro.site).href;
+const imageUrl = new URL(image, Astro.site).href;
 const base = BASE;
+const schema = [...jsonLd];
+if (crumbs.length) {
+  schema.push({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [["ShenTarot", ""], ...crumbs].map(([name, p], i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name,
+      item: new URL(p, Astro.site).href,
+    })),
+  });
+}
+// Escapes "<" so page text can never close the script tag.
+const ld = (o: unknown) => JSON.stringify(o).replace(/</g, "\\u003c");
 ---
 <!doctype html>
 <html lang="en">
@@ -27,6 +49,12 @@ const base = BASE;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="ShenTarot" />
+    <meta property="og:image" content={imageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href={`${base}icon.png`} type="image/png" />
+    <link rel="apple-touch-icon" href={`${base}icon.png`} />
+    {schema.map((o) => <script type="application/ld+json" set:html={ld(o)} />)}
     <meta name="theme-color" content="#0d0c0a" media="(prefers-color-scheme: dark)" />
   </head>
   <body>

@@ -5,11 +5,33 @@ import { BASE, SUPPORT_EMAIL } from "../config.ts";
 import { TOPICS } from "../lib/topics.ts";
 
 const fan = ["major_17_star", "major_00_fool", "major_02_high_priestess"];
+const site = Astro.site!.href;
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "ShenTech",
+    url: site,
+    logo: new URL("icon.png", site).href,
+    email: SUPPORT_EMAIL,
+  },
+  { "@context": "https://schema.org", "@type": "WebSite", name: "ShenTarot", url: site },
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    name: "ShenTarot",
+    operatingSystem: "iOS, Android",
+    applicationCategory: "LifestyleApplication",
+    description: "AI tarot reading app: scan your own deck or draw on screen and get a reading for your question.",
+    publisher: { "@type": "Organization", name: "ShenTech" },
+  },
+];
 ---
 <Base
-  title="ShenTarot: tarot readings for your own cards"
-  description="Scan your own tarot deck or draw on screen, ask your question and get a thoughtful reading. Your photo never leaves your phone, and no sign-up is needed."
+  title="ShenTarot: AI Tarot Reading with Your Own Cards"
+  description="AI tarot reading app for iPhone and Android. Scan your own deck or draw on screen, ask your question and get a thoughtful reading. Free daily card, no sign-up needed."
   path=""
+  jsonLd={jsonLd}
   noCta
 >
   <section class="hero">
@@ -18,8 +40,8 @@ const fan = ["major_17_star", "major_00_fool", "major_02_high_priestess"];
     </div>
     <h1>Ask the cards anything</h1>
     <p class="lead">
-      Scan your own deck or draw on screen. ShenTarot picks a spread for your question and gives you a reading you can
-      keep asking about.
+      AI tarot readings for your own cards. Scan your deck or draw on screen. ShenTarot picks a spread for your question
+      and gives you a reading you can keep asking about.
     </p>
     <StoreButtons />
     <p><a class="btn ghost" href={`${BASE}tools/random-card`}>Draw a free card now</a></p>

@@ -21,6 +21,8 @@ const next = cardIds.at((i + 1) % cardIds.length)!;
   title={`${c.name} tarot card meaning: upright and reversed · ShenTarot`}
   description={`${c.name} meaning in tarot, upright and reversed: ${c.keywords.join(", ")}. ${k?.essence ?? c.upright}`}
   path={`cards/${slug(id)}`}
+  image={`cards/art/${id}.jpg`}
+  crumbs={[["Card meanings", "cards"], [c.name, `cards/${slug(id)}`]]}
 >
   <p class="muted"><a href={`${BASE}cards`}>Card meanings</a> › {suitTitle(c.suit)}</p>
   <div class="card-top">
