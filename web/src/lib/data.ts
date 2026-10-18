@@ -50,3 +50,21 @@ export const deckForTools = cardIds.map((id) => ({
   major: CARDS[id].arcana === "major",
   n: CARDS[id].number,
 }));
+
+/** The deck with the short meanings the reading tools show. */
+export const readerDeck = cardIds.map((id) => {
+  const c = CARDS[id];
+  return {
+    id,
+    slug: slug(id),
+    name: c.name,
+    suit: c.suit as string | null,
+    n: c.number as number | null,
+    keywords: c.keywords,
+    up: c.upright,
+    rev: c.reversed,
+    upQ: c.k?.upright.question ?? "",
+    revQ: c.k?.reversed.question ?? "",
+  };
+});
+export type ReaderCard = (typeof readerDeck)[number];

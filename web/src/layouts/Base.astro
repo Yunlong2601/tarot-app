@@ -29,8 +29,8 @@ const { title, description, path, noCta = false, image = "og.png", crumbs = [], 
 const nav = [
   ["Card meanings", "cards"],
   ["Spreads", "spreads"],
-  ["Draw a card", "tools/random-card"],
-  ["Birth cards", "tools/birth-card"],
+  ["Yes or No", "tools/yes-no"],
+  ["Free tools", "tools"],
 ];
 const year = new Date().getFullYear();
 const canonical = new URL(path, Astro.site).href;
@@ -79,7 +79,7 @@ const ld = (o: unknown) => JSON.stringify(o).replace(/</g, "\\u003c");
         <a class="brand" href={`${base}`} aria-label="ShenTarot home"><Logo />ShenTarot</a>
         <nav class="site-nav" aria-label="Main">
           {nav.map(([name, p]) => (
-            <a href={`${base}${p}`} aria-current={path === p || path.startsWith(`${p}/`) ? "page" : undefined}>{name}</a>
+            <a href={`${base}${p}`} aria-current={path === p || (p !== "tools" && path.startsWith(`${p}/`)) || (p === "tools" && path.startsWith("tools/") && path !== "tools/yes-no") ? "page" : undefined}>{name}</a>
           ))}
         </nav>
         <a class="btn btn-gold btn-sm header-cta" href={`${base}#get-app`}>Get the app</a>
@@ -110,6 +110,8 @@ const ld = (o: unknown) => JSON.stringify(o).replace(/</g, "\\u003c");
             <ul>
               <li><a href={`${base}cards`}>Card meanings</a></li>
               <li><a href={`${base}spreads`}>Tarot spreads</a></li>
+              <li><a href={`${base}tools/yes-no`}>Yes or No tarot</a></li>
+              <li><a href={`${base}tools/daily-card`}>Card of the day</a></li>
               <li><a href={`${base}tools/random-card`}>Draw a card</a></li>
               <li><a href={`${base}tools/birth-card`}>Birth card calculator</a></li>
             </ul>

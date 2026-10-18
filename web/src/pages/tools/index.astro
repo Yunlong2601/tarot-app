@@ -1,0 +1,35 @@
+---
+import Base from "../../layouts/Base.astro";
+import { BASE } from "../../config.ts";
+
+const tools = [
+  { href: "tools/yes-no", title: "Yes or No tarot", text: "Three cards and a lean for a yes or no question.", art: ["major_19_sun", "major_10_wheel_of_fortune", "major_18_moon"] },
+  { href: "tools/daily-card", title: "Card of the day", text: "One card, its meaning and a question to reflect on.", art: ["major_17_star", "major_19_sun", "cups_ace"] },
+  { href: "spreads", title: "Read any spread", text: "Pick from 15 spreads, draw the cards and read every position.", art: ["swords_two", "major_07_chariot", "wands_three"] },
+  { href: "tools/random-card", title: "Draw random cards", text: "Shuffle the full deck and turn over one to ten cards.", art: ["major_10_wheel_of_fortune", "cups_ace", "major_18_moon"] },
+  { href: "tools/birth-card", title: "Birth card calculator", text: "Your birth cards and your card for this year.", art: ["major_03_empress", "major_21_world", "major_04_emperor"] },
+  { href: "cards", title: "Card meanings", text: "All 78 cards, upright and reversed.", art: ["major_00_fool", "major_01_magician", "major_02_high_priestess"] },
+];
+---
+<Base
+  title="Free tarot tools: yes or no, daily card, spreads · ShenTarot"
+  description="Free tarot tools in your browser: a yes or no reading, your card of the day, any spread with every position explained, random cards and birth cards."
+  path="tools"
+  crumbs={[["Free tools", "tools"]]}
+>
+  <header class="page-head center">
+    <p class="eyebrow">Free, in your browser</p>
+    <h1>Tarot tools</h1>
+    <p class="lead">Everything here runs on this page. Nothing you type or draw is sent anywhere.</p>
+  </header>
+  <div class="grid-2">
+    {tools.map((t) => (
+      <a class="panel tool-tile" href={`${BASE}${t.href}`}>
+        <div class="mini" aria-hidden="true">
+          {t.art.map((id) => <img src={`${BASE}cards/art/${id}.jpg`} alt="" loading="lazy" width="150" height="257" />)}
+        </div>
+        <div><h3>{t.title}</h3><p>{t.text}</p><span class="link-arrow">Open</span></div>
+      </a>
+    ))}
+  </div>
+</Base>
