@@ -25,34 +25,38 @@ npm run check    # type check
 
 `src/config.ts`:
 
-- `SITE_URL`: where the site lives. It is the old GitHub Pages address until the
-  domain is set up; change it to the domain (e.g. `https://shentarot.com/`).
+- `SITE_URL`: where the site lives, `https://shentarot.com/`.
 - `APP_STORE_URL`, `PLAY_STORE_URL`: fill in when the apps are live. Until then
   pages say "Coming soon".
 
 ## Publish on Cloudflare
 
-1. Set `SITE_URL` in `src/config.ts` to the domain (links on the pages are
-   built from it).
-2. `npx wrangler login`, then `npm run deploy` (deploys `dist/` as the
-   `shentarot-site` Worker, static files only).
-3. In the Cloudflare dashboard add the domain to the `shentarot-site` Worker
-   (Settings > Domains & Routes).
-4. Keep the GitHub Pages copy of `privacy.html` and `terms.html` up, or redirect
-   them, until the App Store and Google Play listings point at the new domain.
+shentarot.com is registered with Cloudflare, so its DNS is already there.
+
+1. Deploy the backend first (`backend/README.md`): the site hands shared
+   readings to it, and its `SHARE_BASE_URL` makes new share links use
+   shentarot.com.
+2. In `web/`: `npx wrangler login`, then `npm run deploy`. This deploys the
+   `shentarot-site` Worker and attaches shentarot.com to it as a custom domain.
+3. Check https://shentarot.com/privacy.html and /terms.html load, then switch
+   the App Store, Google Play and Google sign-in links from the old GitHub
+   Pages address to shentarot.com. Keep the GitHub Pages copy up until they
+   are all switched.
 
 ## Shared readings and opening links in the app
 
-Shared reading pages (`/s/<link>`) are served by the backend Worker. To serve
-them on the site's domain:
+`/s/<link>` pages are rendered by the backend Worker; `worker/index.js` passes
+those requests to it through a service binding, and serves everything else
+from `dist/`.
 
-1. In `backend/wrangler.toml` add a route for `<domain>/s/*` to the
-   `shentarot-api` Worker, and set `SHARE_BASE_URL = "https://<domain>"` so new
-   links use the domain.
-2. iOS: `public/.well-known/apple-app-site-association` already lists the app
-   (team `SX4CW2L35K`, bundle `com.shentech.shentarot`) for `/s/*`. Add the
-   Associated Domains capability with `applinks:<domain>` to the app.
-3. Android: add `public/.well-known/assetlinks.json` with the app signing
-   certificate's SHA-256 fingerprint (Play Console > Test and release > App
-   integrity), and an `autoVerify` intent filter for `https://<domain>/s/` in
-   `AndroidManifest.xml`.
+- iOS: `public/.well-known/apple-app-site-association` lists the app (team
+  `SX4CW2L35K`, bundle `com.shentech.shentarot`) for `/s/*`, and the app has
+  the matching Associated Domains entitlement (`applinks:shentarot.com`).
+  Xcode's automatic signing adds the capability to the App ID on the next
+  build.
+- Android: the app has a verified intent filter for `https://shentarot.com/s/`.
+  Verification also needs `public/.well-known/assetlinks.json` with the app
+  signing certificate's SHA-256 fingerprint (Play Console > Test and release >
+  App integrity). Until it exists, Android opens these links in the browser.
+- The app opens a shared link on its question screen, matching the page's
+  "Ask your own question" button.

@@ -1,6 +1,6 @@
-/** Where the site is published. Change this when the ShenTarot domain is set
- * up on Cloudflare (used for canonical links, the sitemap and share previews). */
-export const SITE_URL = "https://yunlong2601.github.io/shentarot-legal/";
+/** Where the site is published (canonical links, the sitemap, share previews
+ * and every link between pages). */
+export const SITE_URL = "https://shentarot.com/";
 
 /** Store pages for the download buttons. Leave empty until the app is live:
  * the site then says "Coming soon" instead of showing a dead button. */

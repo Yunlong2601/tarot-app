@@ -69,6 +69,9 @@ GoRouter buildRouter(AppState state) {
           ),
         ],
       ),
+      // A shared reading link opened on a phone with the app: the page asks
+      // "Ask your own question", so start one.
+      GoRoute(path: '/s/:token', redirect: (_, _) => '/ask'),
       GoRoute(
         path: '/ask',
         builder: (_, s) => AskScreen(skipPicker: s.extra == true),

@@ -8,6 +8,8 @@ compatibility_date = "2026-10-01"
 [vars]
 LLM_MODEL = "claude-haiku-5-5"
 GLOBAL_DAILY_TOKEN_CAP = "2000000"
+# Share links point at the website, which passes /s/* to this Worker.
+SHARE_BASE_URL = "https://shentarot.com"
 
 # Create with `wrangler d1 create shentarot` and `wrangler kv namespace create KV`,
 # then paste the ids below.
