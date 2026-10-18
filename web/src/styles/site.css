@@ -377,3 +377,5 @@ input:focus, select:focus { outline: none; border-color: var(--gold); box-shadow
 #try { scroll-margin-top: 4.5rem; }
 @media (max-width: 52rem) { .ask { margin-inline: auto; } .ask-try { justify-content: center; } }
 @media (max-width: 30rem) { .ask-row { flex-direction: column; border-radius: 18px; } .ask-row input { padding-left: 0.6rem; } }
+.steps-list{display:grid;gap:.6rem;padding-left:1.3rem;margin:0 0 1rem}
+.steps-list li{color:#d6cebf}

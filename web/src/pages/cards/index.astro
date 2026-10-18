@@ -1,20 +1,14 @@
 ---
 import Base from "../../layouts/Base.astro";
 import { BASE } from "../../config.ts";
-import { CARDS, cardIds, slug, suitTitle } from "../../lib/data.ts";
+import { CARDS, GROUP_ABOUT, cardIds, slug, suitTitle } from "../../lib/data.ts";
 
 const groups = ["major", "wands", "cups", "swords", "pentacles"].map((g) => ({
   key: g,
   title: g === "major" ? "Major Arcana" : suitTitle(g),
   ids: cardIds.filter((id) => (g === "major" ? CARDS[id].arcana === "major" : CARDS[id].suit === g)),
 }));
-const about: Record<string, string> = {
-  major: "Life's big themes and turning points",
-  wands: "Energy, drive and creativity",
-  cups: "Feelings, love and relationships",
-  swords: "Thought, conflict and truth",
-  pentacles: "Work, money and the body",
-};
+const about = GROUP_ABOUT;
 ---
 <Base
   title="Tarot card meanings: all 78 cards · ShenTarot"
