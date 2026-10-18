@@ -1,6 +1,7 @@
 import type { APIRoute } from "astro";
 import { SITE_URL } from "../config.ts";
 import { cardIds, slug, spreadIds } from "../lib/data.ts";
+import { QUESTION_GUIDES } from "../lib/questions.ts";
 import { TOPICS } from "../lib/topics.ts";
 
 export const GET: APIRoute = () => {
@@ -16,6 +17,8 @@ export const GET: APIRoute = () => {
     "tools/random-card",
     "tools/birth-card",
     ...TOPICS.map((t) => `topics/${t.slug}`),
+    "questions",
+    ...QUESTION_GUIDES.map((g) => `questions/${g.slug}`),
     ...cardIds.map((id) => `cards/${slug(id)}`),
     ...spreadIds.map((id) => `spreads/${slug(id)}`),
     "privacy",

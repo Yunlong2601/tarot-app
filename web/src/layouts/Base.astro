@@ -120,7 +120,10 @@ const ld = (o: unknown) => JSON.stringify(o).replace(/</g, "\\u003c");
           </div>
           <div>
             <h4>Readings</h4>
-            <ul>{TOPICS.map((t) => <li><a href={`${base}topics/${t.slug}`}>{t.title}</a></li>)}</ul>
+            <ul>
+              {TOPICS.map((t) => <li><a href={`${base}topics/${t.slug}`}>{t.title}</a></li>)}
+              <li><a href={`${base}questions`}>Tarot questions</a></li>
+            </ul>
           </div>
           <div>
             <h4>Company</h4>

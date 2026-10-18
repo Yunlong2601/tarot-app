@@ -379,3 +379,9 @@ input:focus, select:focus { outline: none; border-color: var(--gold); box-shadow
 @media (max-width: 30rem) { .ask-row { flex-direction: column; border-radius: 18px; } .ask-row input { padding-left: 0.6rem; } }
 .steps-list{display:grid;gap:.6rem;padding-left:1.3rem;margin:0 0 1rem}
 .steps-list li{color:#d6cebf}
+.card-notes{display:grid;grid-template-columns:repeat(auto-fill,minmax(16rem,1fr));gap:1rem;margin:1rem 0}
+.card-notes a{display:flex;gap:1rem;align-items:center;text-decoration:none;color:inherit}
+.card-notes img{width:4.2rem;height:auto;border-radius:6px;flex:none}
+.card-notes b{display:block;color:#e9cf8f;margin-bottom:.25rem}
+.card-notes span{color:#d6cebf;font-size:.95rem}
+.guide-list{display:grid;gap:.5rem;padding-left:1.2rem}
