@@ -11,6 +11,8 @@ export const GET: APIRoute = () => {
     "tools",
     "tools/yes-no",
     "tools/daily-card",
+    "tools/combinations",
+    "tools/elements",
     "tools/random-card",
     "tools/birth-card",
     ...TOPICS.map((t) => `topics/${t.slug}`),

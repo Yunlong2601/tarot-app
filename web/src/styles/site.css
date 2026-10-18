@@ -346,3 +346,19 @@ input:focus, select:focus { outline: none; border-color: var(--gold); box-shadow
 .summary ul { margin: 0 0 0.8rem; padding-left: 1.2rem; }
 .summary li { margin: 0.35rem 0; color: #d6cebf; }
 .summary .quint { margin: 0; padding-top: 0.8rem; border-top: 1px solid var(--line); }
+
+/* Card pickers (combinations, elemental dignities) */
+.picker { max-width: 52rem; align-items: start; }
+.picker .pick { display: grid; gap: 0.5rem; flex: 1 1 14rem; }
+.picker select { width: 100%; }
+.picker .check { display: flex; align-items: center; gap: 0.5rem; grid-template-columns: none; }
+.picker .check input { min-height: 0; width: 1.1rem; height: 1.1rem; accent-color: var(--gold); }
+.picker .actions { flex-basis: 100%; margin: 0; }
+.face .elem { font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; margin-bottom: 0.3rem; }
+.elem.fire { color: #f0a46a; }
+.elem.water { color: #8fb8f0; }
+.elem.air { color: #d9d3f5; }
+.elem.earth { color: #a9cf8f; }
+.elem.none { color: var(--muted); }
+.questions-mini { margin: 0.4rem 0 0; padding-left: 1.2rem; }
+.questions-mini li { font: 1.1rem/1.4 var(--display); color: var(--fg); }
