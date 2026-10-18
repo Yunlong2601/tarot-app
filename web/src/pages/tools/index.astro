@@ -1,7 +1,13 @@
 ---
 import Base from "../../layouts/Base.astro";
+import Tabs from "../../components/Tabs.astro";
 import { BASE } from "../../config.ts";
 
+const GROUPS = [
+  { id: "readings", label: "Readings", hrefs: ["tools/yes-no", "tools/daily-card", "spreads", "tools/weekly-draw", "tools/random-card", "tools/combinations", "tools/elements"] },
+  { id: "birthday", label: "Birthday and stars", hrefs: ["tools/birth-card", "tools/year-card", "tools/love-compatibility", "tools/zodiac-tarot", "tools/life-path"] },
+  { id: "fun", label: "Quiz and learning", hrefs: ["tools/which-card-are-you", "cards", "tools/reading-sheet"] },
+];
 const tools = [
   { href: "tools/yes-no", title: "Yes or No tarot", text: "Three cards and a lean for a yes or no question.", art: ["major_19_sun", "major_10_wheel_of_fortune", "major_18_moon"] },
   { href: "tools/daily-card", title: "Card of the day", text: "One card, its meaning and a question to reflect on.", art: ["major_17_star", "major_19_sun", "cups_ace"] },
@@ -31,14 +37,18 @@ const tools = [
     <h1>Tarot tools</h1>
     <p class="lead">Everything here runs on this page. Nothing you type or draw is sent anywhere.</p>
   </header>
-  <div class="grid-2">
-    {tools.map((t) => (
-      <a class="panel tool-tile" href={`${BASE}${t.href}`}>
-        <div class="mini" aria-hidden="true">
-          {t.art.map((id) => <img src={`${BASE}cards/art/${id}.jpg`} alt="" loading="lazy" width="150" height="257" />)}
-        </div>
-        <div><h3>{t.title}</h3><p>{t.text}</p><span class="link-arrow">Open</span></div>
-      </a>
+  <Tabs label="Kinds of tool" tabs={GROUPS.map((g) => ({ id: g.id, label: g.label }))}>
+    {GROUPS.map((g) => (
+      <div class="grid-2" data-panel={g.id}>
+        {g.hrefs.map((h) => tools.find((t) => t.href === h)!).map((t) => (
+          <a class="panel tool-tile" href={`${BASE}${t.href}`}>
+            <div class="mini" aria-hidden="true">
+              {t.art.map((id) => <img src={`${BASE}cards/art/${id}.jpg`} alt="" loading="lazy" width="150" height="257" />)}
+            </div>
+            <div><h3>{t.title}</h3><p>{t.text}</p><span class="link-arrow">Open</span></div>
+          </a>
+        ))}
+      </div>
     ))}
-  </div>
+  </Tabs>
 </Base>

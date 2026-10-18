@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Tabs from "../components/Tabs.astro";
 import Icon from "../components/Icon.astro";
 import StoreButtons from "../components/StoreButtons.astro";
 import AskBox from "../components/AskBox.astro";
@@ -145,26 +146,16 @@ const jsonLd = [
     <div class="wrap">
       <div class="section-head">
         <p class="ornament">✦</p>
-        <h2>The Major Arcana</h2>
-        <p>Twenty-two cards for life's big themes. Tap one to read its meaning, upright and reversed.</p>
+        <h2>Explore tarot</h2>
       </div>
-      <div class="card-row">
-        {majors.map((id) => (
-          <a class="tcard" href={`${BASE}cards/${slug(id)}`}>
-            <img src={`${BASE}cards/art/${id}.jpg`} alt="" loading="lazy" width="150" height="257" />
-            {CARDS[id].name}
-          </a>
-        ))}
-      </div>
-      <p class="center"><a class="btn btn-ghost" href={`${BASE}cards`}>All 78 card meanings</a></p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap">
+      <Tabs label="Explore tarot" tabs={[
+        { id: "tools", label: "Free tools" },
+        { id: "major-arcana", label: "The Major Arcana" },
+        { id: "questions", label: "Questions" },
+      ]}>
+        <div data-panel="tools">
       <div class="section-head">
-        <p class="ornament">✦</p>
-        <h2>Free tarot tools</h2>
+        <h2 class="sr-only">Free tarot tools</h2>
         <p>Try them in your browser. Nothing is sent anywhere. <a href={`${BASE}tools`}>See all tools</a>.</p>
       </div>
       <div class="grid-2">
@@ -201,14 +192,25 @@ const jsonLd = [
           <div><h3>Find your birth cards</h3><p>Your birth cards and your card for this year, from your birthday.</p><span class="link-arrow">Find yours</span></div>
         </a>
       </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap">
+        </div>
+        <div data-panel="major-arcana">
       <div class="section-head">
-        <p class="ornament">✦</p>
-        <h2>Questions</h2>
+        <h2 class="sr-only">The Major Arcana</h2>
+        <p>Twenty-two cards for life's big themes. Tap one to read its meaning, upright and reversed.</p>
+      </div>
+      <div class="card-row">
+        {majors.map((id) => (
+          <a class="tcard" href={`${BASE}cards/${slug(id)}`}>
+            <img src={`${BASE}cards/art/${id}.jpg`} alt="" loading="lazy" width="150" height="257" />
+            {CARDS[id].name}
+          </a>
+        ))}
+      </div>
+      <p class="center"><a class="btn btn-ghost" href={`${BASE}cards`}>All 78 card meanings</a></p>
+        </div>
+        <div data-panel="questions">
+      <div class="section-head">
+        <h2 class="sr-only">Questions</h2>
       </div>
       <div class="faq">
         {faq.map(([q, a]) => (
@@ -218,6 +220,8 @@ const jsonLd = [
           </details>
         ))}
       </div>
+        </div>
+      </Tabs>
     </div>
   </section>
 
