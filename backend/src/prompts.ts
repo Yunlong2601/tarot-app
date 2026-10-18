@@ -12,6 +12,8 @@ export type OutputCheck = { ok: true; text: string } | { ok: false; reason: stri
  * rules" that worked) or are empty/oversized. */
 export function checkOutput(raw: string): OutputCheck {
   const text = raw.trim();
+  // Raw JSON (a reading the parser rejected) is never shown as plain text.
+  if (/^[{\[]/.test(text) || /"(cards|overview|reading)"\s*:/.test(text)) return { ok: false, reason: "json" };
   if (text.length < 40) return { ok: false, reason: "too short" };
   if (text.length > 6000) return { ok: false, reason: "too long" };
   if (/<\/?question>|system prompt|these rules|as an ai language model/i.test(text)) {

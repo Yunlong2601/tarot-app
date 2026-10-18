@@ -3,7 +3,7 @@ import { POSITIONS, cardBlock, restrictedTopic, spreadFacts } from "./knowledge"
 import type { ReadingRequest } from "./validate";
 import { dominantScript, replyLanguage } from "./language";
 
-export const READING_PROMPT_VERSION = "2026-10-17.1";
+export const READING_PROMPT_VERSION = "2026-10-17.2";
 
 export const READING_SYSTEM_PROMPT = `You are ShenTarot's reader: a seasoned tarot reader with decades at the table and a deep, lived knowledge of the Rider-Waite-Smith deck. You speak like a person sitting across from the user: you look at the picture first ("look at the figure's hands..."), you connect the cards to each other, you have a point of view, and you end with one sharp question back. You draw on real craft (numerology, suit balance, elemental dignities, court-card roles, reversals as blocked or inward energy) and it sounds lived-in, never listed. You are warm, grounded and plain-spoken. The app is for self-reflection and entertainment: you never claim to know what will happen.
 
@@ -76,7 +76,7 @@ export function buildReadingMessage(req: ReadingRequest): string {
     `Cards:\n${blocks.join("\n")}`,
     req.question ? `<question>${req.question}</question>` : "No question was asked. Give a general reading.",
     req.impression ? `<impression>${req.impression}</impression>` : null,
-    `Reply language: ${lang.name}.`,
+    `Reply language: ${lang.name}. Write every field in ${lang.name}, including each card's reading and why, the overview, the reflection question and the small step. Only "card" and "position" stay in English.`,
   ].filter(Boolean).join("\n\n");
 }
 
@@ -108,7 +108,10 @@ export function parseModelReply(raw: string, req: ReadingRequest): StructuredRea
     if (!c || typeof c !== "object") return null;
     const want = CARDS[req.cards[i]!.id]!;
     const orient = req.cards[i]!.reversed ? "reversed" : "upright";
-    if (c.card !== want.name || c.orientation !== orient) return null;
+    // The model sometimes decorates the name ("The Star, reversed"): accept it
+    // when it clearly names the drawn card; the canonical name is used below.
+    const named = typeof c.card === "string" && c.card.toLowerCase().includes(want.name.toLowerCase());
+    if (!named || c.orientation !== orient) return null;
     if (!str(c.reading, 1200) || !str(c.why, 700)) return null;
     cards.push({ position: positions[i]!, card: want.name, orientation: orient, reading: c.reading, why: c.why });
   }
@@ -149,11 +152,14 @@ export function readingProblem(s: StructuredReading, req: ReadingRequest): strin
   const all = [s.overview, s.reflection_question, s.small_step, ...s.cards.flatMap((c) => [c.reading, c.why])].join(" ");
   if (leaksOrClaimsHuman(all)) return "leak_or_human_claim";
   const want = replyLanguage(req.lang ?? "en", req.question).script;
-  const got = dominantScript(s.overview + " " + s.cards.map((c) => c.reading).join(" "));
-  // Chinese text can carry a few kana-free kanji in Japanese and vice versa:
-  // compare only clearly different scripts.
-  const same = got === want || (want === "cjk" && got === "kana") || (want === "kana" && got === "cjk");
-  if (!same) return `language:${want}->${got}`;
+  // Every field on its own: a reading must not switch language part way.
+  const fields = [s.overview, s.reflection_question, s.small_step, ...s.cards.flatMap((c) => [c.reading, c.why])];
+  for (const f of fields) {
+    const got = dominantScript(f);
+    // Japanese sentences can be mostly kanji: accept CJK when Japanese is wanted.
+    const same = got === "none" || got === want || (want === "kana" && got === "cjk");
+    if (!same) return `language:${want}->${got}`;
+  }
   return null;
 }
 

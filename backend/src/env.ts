@@ -30,6 +30,9 @@ export interface Env {
   REVENUECAT_WEBHOOK_AUTH?: string;
   /** Testing only: comma-separated install/account ids treated as Premium. */
   TESTER_INSTALL_IDS?: string;
+  /** Secret for the owner's release quality test: skips the install limit and
+   * the daily reading charge for requests that send it as x-qa-token. */
+  QA_TOKEN?: string;
   /** Optional webhook (Discord/Slack/ntfy) for owner alerts such as the 80% token-cap warning. */
   ALERT_WEBHOOK_URL?: string;
   /** Skips device attestation. Beta, and the v1 launch until App Attest / Play Integrity ship (with the per-IP new-install limit). Never together with TESTER_INSTALL_IDS. */

@@ -83,6 +83,10 @@ export const NEW_INSTALLS_PER_IP_PER_DAY = 30;
 /** Share of GLOBAL_DAILY_TOKEN_CAP at which the owner is alerted (once a day). */
 export const TOKEN_ALERT_SHARE = 0.8;
 
+/** The owner's release-test key (QA_TOKEN secret, at least 24 characters). */
+export const isQa = (env: Env, header: string | undefined): boolean =>
+  !!env.QA_TOKEN && env.QA_TOKEN.length >= 24 && !!header && safeEqual(header, env.QA_TOKEN);
+
 /** KV, not atomic: a brake on scripted install farming, not an exact count. */
 export async function allowNewInstall(env: Env, installId: string, ip: string, nowMs: number): Promise<boolean> {
   const seenKey = `seen:${await hashId(installId, env.HASH_SALT)}`;
@@ -217,7 +221,7 @@ export function createApp(deps: Deps = defaultDeps) {
     const installId = (body as { installId: string }).installId;
     // Until App Attest / Play Integrity exist: at most NEW_INSTALLS_PER_IP_PER_DAY
     // new install ids per IP per UTC day. Known installs (token refresh) pass.
-    if (!(await allowNewInstall(c.env, installId, ip, deps.now()))) {
+    if (!isQa(c.env, c.req.header("x-qa-token")) && !(await allowNewInstall(c.env, installId, ip, deps.now()))) {
       return c.json({ error: "rate_limited" }, 429);
     }
     const token = await signToken(installId, c.env.JWT_SECRET, Math.floor(deps.now() / 1000));
@@ -235,8 +239,9 @@ export function createApp(deps: Deps = defaultDeps) {
     const installHash = who.installHash;
     const ip = c.req.header("cf-connecting-ip") ?? "unknown";
     if (
-      !(await allowWithinMinute(c.env.KV, `burst:${installHash}`, BURST_PER_MINUTE, now)) ||
-      !(await allowWithinMinute(c.env.KV, `ip:${await hashId(ip, c.env.HASH_SALT)}`, IP_PER_MINUTE, now))
+      !isQa(c.env, c.req.header("x-qa-token")) &&
+      (!(await allowWithinMinute(c.env.KV, `burst:${installHash}`, BURST_PER_MINUTE, now)) ||
+        !(await allowWithinMinute(c.env.KV, `ip:${await hashId(ip, c.env.HASH_SALT)}`, IP_PER_MINUTE, now)))
     ) {
       return c.json({ error: "rate_limited" }, 429);
     }
@@ -279,7 +284,8 @@ export function createApp(deps: Deps = defaultDeps) {
     if (user.target && !premium) return c.json({ error: "premium_required" }, 402);
     // One credit per reading: daily credits first, then bonus credits.
     let creditLot: number | null = null;
-    if (!user.target) {
+    // The owner's release test (scripts/quality-check.mjs) is not charged.
+    if (!user.target && !isQa(c.env, c.req.header("x-qa-token"))) {
       const paid = await charge(who, c.env, premium, usage, day, now);
       if (!paid.ok) return c.json({ error: "daily_limit", premium, limit: paid.limit }, 429);
       creditLot = paid.lot;

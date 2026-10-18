@@ -224,10 +224,15 @@ class _DeckFanState extends State<DeckFan> with TickerProviderStateMixin {
     );
     final riffle = math.sin(riffleT * math.pi * 4) * (1 - riffleT) * 0.9;
     final n = widget.remaining.length;
+    // Cards past the box edges are not built: past the sides (from the radius
+    // and width) or past the visible arc. Applies during the shuffle too, so
+    // the fan never paints over the slots or off screen.
+    final sideLimit = math.asin(math.min(1.0, (w / 2 + cw) / _radius));
+    final limit = math.min(DeckFan.maxVisibleAngle, sideLimit);
     final cards = <Widget>[];
     for (var i = 0; i < n; i++) {
       final angle = _angleOf(i);
-      if (angle.abs() > DeckFan.maxVisibleAngle && spread == 1) continue;
+      if (angle.abs() > limit && spread > 0) continue;
       var center = _cardCenter(angle, w, spread);
       if (spread == 0) {
         // Alternate halves slide out and back in, like a riffle shuffle.
@@ -254,7 +259,9 @@ class _DeckFanState extends State<DeckFan> with TickerProviderStateMixin {
       );
     }
     return ExcludeSemantics(
-      child: Stack(clipBehavior: Clip.none, children: cards),
+      // Clipped to the fan's own box: nothing spills over the spread above
+      // or past the screen edges, whatever the device size or text size.
+      child: Stack(clipBehavior: Clip.hardEdge, children: cards),
     );
   }
 }
