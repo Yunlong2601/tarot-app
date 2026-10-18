@@ -8,6 +8,7 @@ import '../../app/app_scope.dart';
 import '../../app/flags.dart';
 import '../../app/brand.dart';
 import '../../app/theme.dart';
+import '../../core/credit_service.dart';
 import '../../core/subscription_service.dart';
 
 /// Paywall. Prices, periods and the trial come from the store through
@@ -244,7 +245,12 @@ class _PaywallScreenState extends State<PaywallScreen> {
             ),
           if (creditsEnabled && plans != null)
             // With no store products yet the card is a preview: shown, not buyable.
-            _CreditPacksCard(packs: _packs, busy: _busy, onBuy: _buyPack),
+            _CreditPacksCard(
+              packs: _packs,
+              plans: plans,
+              busy: _busy,
+              onBuy: _buyPack,
+            ),
           const SizedBox(height: 8),
           FilledButton(
             onPressed: (plan == null || _busy || plan.id.startsWith('preview-'))
@@ -406,62 +412,123 @@ class _AppleFriendOffer extends StatelessWidget {
 class _CreditPacksCard extends StatelessWidget {
   const _CreditPacksCard({
     required this.packs,
+    required this.plans,
     required this.busy,
     required this.onBuy,
   });
 
   /// Empty while the store products do not exist yet (preview).
   final List<PlanOption> packs;
+  final List<PlanOption> plans;
   final bool busy;
   final void Function(PlanOption) onBuy;
 
   @override
-  Widget build(BuildContext context) => Card(
-    margin: const EdgeInsets.only(top: 16),
-    child: Padding(
-      padding: const EdgeInsets.all(16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'Not ready to subscribe?',
-            style: Theme.of(context).textTheme.titleMedium,
-          ),
-          const SizedBox(height: 4),
-          const Text(
-            'Buy a few credits once. One credit pays for a reading or a '
-            'follow-up, and credits never expire. Premium costs less per '
-            'credit and also includes 90 to 150 new credits every month and '
-            'the 5, 7 and 10-card spreads. Free users get 2 new credits a day. '
-            'Premium members keep their credits if they reinstall and restore '
-            'purchases.',
-          ),
-          const SizedBox(height: 8),
-          if (packs.isEmpty)
-            const Align(
-              alignment: Alignment.centerRight,
-              child: OutlinedButton(
-                onPressed: null,
-                child: Text('Coming soon'),
-              ),
-            )
-          else
-            Wrap(
-              spacing: 8,
-              runSpacing: 8,
-              alignment: WrapAlignment.end,
-              children: [
-                for (final pack in packs)
-                  OutlinedButton(
-                    onPressed: busy ? null : () => onBuy(pack),
-                    child: Text('${pack.title} · ${pack.priceString}'),
-                  ),
-              ],
+  Widget build(BuildContext context) {
+    final premium = premiumPerCredit(plans);
+    return Card(
+      margin: const EdgeInsets.only(top: 16),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Not ready to subscribe?',
+              style: Theme.of(context).textTheme.titleMedium,
             ),
-        ],
+            const SizedBox(height: 4),
+            const Text(
+              'Buy a few credits once. One credit pays for a reading or a '
+              'follow-up, and credits never expire. Premium costs less per '
+              'credit and also includes 90 to 150 new credits every month and '
+              'the 5, 7 and 10-card spreads. Free users get 2 new credits a day. '
+              'Premium members keep their credits if they reinstall and restore '
+              'purchases.',
+            ),
+            const SizedBox(height: 8),
+            if (packs.isEmpty)
+              const Align(
+                alignment: Alignment.centerRight,
+                child: OutlinedButton(
+                  onPressed: null,
+                  child: Text('Coming soon'),
+                ),
+              )
+            else
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                alignment: WrapAlignment.end,
+                children: [
+                  for (final pack in packs)
+                    OutlinedButton(
+                      onPressed: busy ? null : () => onBuy(pack),
+                      child: Text(
+                        [
+                          '${pack.title} · ${pack.priceString}',
+                          ?_packPerCredit(pack),
+                        ].join('\n'),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                ],
+              ),
+            if (premium != null) ...[
+              const SizedBox(height: 8),
+              Text(
+                'Premium works out at about $premium per credit.',
+                style: const TextStyle(
+                  color: AppColors.textMuted,
+                  fontSize: 13,
+                ),
+              ),
+            ],
+          ],
+        ),
       ),
-    ),
-  );
+    );
+  }
+}
+
+String? _packPerCredit(PlanOption pack) {
+  final n = creditsInPack(pack.productId ?? '');
+  final each = pack.price == null || n <= 0
+      ? null
+      : perUnitString(pack.priceString, pack.price! / n);
+  return each == null ? null : '$each per credit';
+}
+
+/// Credits per billing period by plan (`PLAN_MONTHLY_CREDITS` in
+/// backend/src/usage.ts times the months billed).
+const _planCredits = {'Annual': 150 * 12, '3 Months': 120 * 3, 'Monthly': 90};
+
+/// The lowest Premium price per credit across the plans on offer, in the
+/// store's currency format, or null when no price is known.
+String? premiumPerCredit(List<PlanOption> plans) {
+  PlanOption? best;
+  double? bestEach;
+  for (final p in plans) {
+    final n = _planCredits[p.title];
+    if (p.price == null || n == null) continue;
+    final each = p.price! / n;
+    if (bestEach == null || each < bestEach) (best, bestEach) = (p, each);
+  }
+  return best == null ? null : perUnitString(best.priceString, bestEach!);
+}
+
+/// Writes [value] in the same currency format as [priceString] ("\$1.99",
+/// "1,99 €", "¥200"): same symbol and decimal mark, the same number of
+/// decimals (at least two below one unit). Null if no number is found.
+String? perUnitString(String priceString, double value) {
+  final m = RegExp(r'\d[\d.,\s\u00a0]*').firstMatch(priceString);
+  if (m == null) return null;
+  final number = m.group(0)!.trimRight();
+  final dec = RegExp(r'[.,](\d{1,2})$').firstMatch(number);
+  final mark = dec == null ? '.' : number[dec.start];
+  final places = dec == null ? (value < 1 ? 2 : 0) : dec.group(1)!.length;
+  final text = value.toStringAsFixed(places).replaceAll('.', mark);
+  return priceString.replaceRange(m.start, m.start + number.length, text);
 }
 
 /// Planned plans, shown only in tester builds while the stores have no
