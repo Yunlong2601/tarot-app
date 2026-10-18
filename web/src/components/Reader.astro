@@ -28,6 +28,7 @@ const config = JSON.stringify({ positions, mode, reversals, base: BASE, deck: re
   {mode === "daily" && (
     <p class="center"><button class="btn btn-gold" type="button" data-draw>{button}</button></p>
   )}
+  <p class="ask-note" data-ask-note hidden>We picked this spread for your question. Shuffle when you're ready.</p>
   <div class="table" data-table aria-live="polite"></div>
   <div class="reader-foot" data-foot hidden>
     <div class="lean" data-lean hidden></div>
@@ -40,6 +41,8 @@ const config = JSON.stringify({ positions, mode, reversals, base: BASE, deck: re
 </div>
 
 <script>
+  import { ASK_KEY } from "../lib/recommend.ts";
+
   type Card = { id: string; slug: string; name: string; suit: string | null; n: number | null; keywords: string[]; up: string; rev: string; upQ: string; revQ: string };
   type Config = { positions: string[]; mode: "spread" | "yesno" | "daily"; reversals: number; base: string; deck: Card[] };
   type Drawn = { card: Card; reversed: boolean; open: boolean };
@@ -209,6 +212,18 @@ const config = JSON.stringify({ positions, mode, reversals, base: BASE, deck: re
       }
       setTimeout(() => (copy.textContent = "Copy reading"), 2000);
     };
+
+    // A question asked on the home page arrives with the spread it was matched to.
+    if (question) {
+      try {
+        const asked = sessionStorage.getItem(ASK_KEY);
+        if (asked) {
+          sessionStorage.removeItem(ASK_KEY);
+          question.value = asked;
+          root.querySelector<HTMLElement>("[data-ask-note]")!.hidden = false;
+        }
+      } catch {}
+    }
 
     // The daily card stays the same for the rest of the day.
     if (cfg.mode === "daily") {
