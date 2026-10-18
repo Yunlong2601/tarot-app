@@ -153,7 +153,10 @@ class _ProfileCard extends StatelessWidget {
             const Divider(height: 28),
             Row(
               children: [
-                stat('${state.history.length}', 'readings'),
+                stat(
+                  '${state.history.length}',
+                  state.history.length == 1 ? 'reading' : 'readings',
+                ),
                 stat('$streak', streak == 1 ? 'day streak' : 'days streak'),
                 if (creditsEnabled) stat('${state.credits}', 'credits'),
               ],
