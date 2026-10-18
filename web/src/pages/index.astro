@@ -11,15 +11,15 @@ const fan = ["major_17_star", "major_00_fool", "major_02_high_priestess"];
 const majors = cardIds.filter((id) => CARDS[id].arcana === "major");
 const features = [
   { icon: "lock", title: "Your photo stays on your phone", text: "Cards are recognised on the device. The photo is never uploaded." },
-  { icon: "spark", title: "Sign-in is optional", text: "Start reading straight away. Sign in with Google or Apple to keep Premium on all your phones." },
+  { icon: "spark", title: "One-tap sign-in for AI readings", text: "Draw cards and look up meanings without an account. Sign in with Google or Apple for AI readings." },
   { icon: "sun", title: "A free card every day", text: "A Card of the Day, plus free readings with up to three cards each day." },
   { icon: "chat", title: "Readings you can question", text: "Ask a follow-up about your reading, or draw a clarifying card." },
   { icon: "layout", title: "Spreads for your question", text: "Love, career, decisions, yes or no, and the classic Celtic Cross." },
   { icon: "book", title: "A journal of your readings", text: "Keep notes on every reading and search your history later." },
 ] as const;
 const faq = [
-  ["Is ShenTarot free?", "Yes, to start. You get a free Card of the Day and free readings with up to three cards every day. Premium adds more."],
-  ["Do I need an account?", "No. You can start reading straight away. Signing in with Google or Apple is optional and keeps Premium on all your phones, with no new password to create."],
+  ["Is ShenTarot free?", "Yes, to start. You get a free Card of the Day and free AI readings with up to three cards every day once you sign in. Premium adds more."],
+  ["Do I need an account?", "Only for AI readings. You can draw cards and look up meanings without one. For AI readings, sign in with Google or Apple, so there is no new password to create."],
   ["Do I need my own tarot deck?", "No. You can scan your own Rider-Waite-Smith deck with the camera, or draw cards on screen from the full 78-card deck."],
   ["Is the photo of my cards uploaded?", "No. Cards are recognised on your phone and the photo is never saved or sent. Only the card names and your question are used to write the reading."],
   ["How does the AI tarot reading work?", "ShenTarot picks a spread for your question, then writes a reading from the cards you drew, their positions and whether they are upright or reversed. You can ask a follow-up about it."],
@@ -54,7 +54,7 @@ const jsonLd = [
 ---
 <Base
   title="ShenTarot: AI Tarot Reading with Your Own Cards"
-  description="AI tarot reading app for iPhone and Android. Scan your own deck or draw on screen, ask your question and get a thoughtful reading. Free daily card, no sign-up needed."
+  description="AI tarot reading app for iPhone and Android. Scan your own deck or draw on screen, ask your question and get a thoughtful reading. Free daily card, and one-tap Google or Apple sign-in for AI readings."
   path=""
   jsonLd={jsonLd}
   bare
@@ -74,7 +74,7 @@ const jsonLd = [
         <p class="alt"><a class="link-arrow" href={`${BASE}tools/random-card`}>Or draw a free card now</a></p>
         <ul class="trust">
           <li>Free daily card</li>
-          <li>No sign-up needed</li>
+          <li>One-tap sign-in</li>
           <li>Photo stays on your phone</li>
         </ul>
       </div>
