@@ -1,0 +1,42 @@
+---
+// Ask a question on the home page, get sent to the spread that suits it, with
+// the question filled in. The question never leaves the browser.
+import { BASE } from "../config.ts";
+import { TOPICS } from "../lib/topics.ts";
+
+const samples = TOPICS.map((t) => t.questions[0]!);
+---
+<form class="ask" data-ask data-base={BASE}>
+  <label for="ask-q" class="sr-only">Your question</label>
+  <div class="ask-row">
+    <input id="ask-q" type="text" name="q" maxlength="200" placeholder="What's on your mind?" autocomplete="off" required />
+    <button class="btn btn-gold" type="submit">Find my spread</button>
+  </div>
+  <p class="ask-try">
+    <span>Try:</span>
+    {samples.map((q) => <button type="button" class="chip" data-sample={q}>{q}</button>)}
+  </p>
+</form>
+
+<script>
+  import { recommendSpread, ASK_KEY } from "../lib/recommend.ts";
+
+  for (const form of document.querySelectorAll<HTMLFormElement>("[data-ask]")) {
+    const input = form.querySelector("input")!;
+    for (const b of form.querySelectorAll<HTMLButtonElement>("[data-sample]")) {
+      b.onclick = () => {
+        input.value = b.dataset.sample!;
+        input.focus();
+      };
+    }
+    form.onsubmit = (e) => {
+      e.preventDefault();
+      const q = input.value.trim();
+      if (!q) return;
+      try {
+        sessionStorage.setItem(ASK_KEY, q);
+      } catch {}
+      location.href = `${form.dataset.base}spreads/${recommendSpread(q).replace(/_/g, "-")}#try`;
+    };
+  }
+</script>

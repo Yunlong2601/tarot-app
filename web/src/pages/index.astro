@@ -2,6 +2,7 @@
 import Base from "../layouts/Base.astro";
 import Icon from "../components/Icon.astro";
 import StoreButtons from "../components/StoreButtons.astro";
+import AskBox from "../components/AskBox.astro";
 import { BASE, SUPPORT_EMAIL } from "../config.ts";
 import { CARDS, cardIds, slug } from "../lib/data.ts";
 import { TOPICS, TOPIC_ART } from "../lib/topics.ts";
@@ -67,6 +68,7 @@ const jsonLd = [
           Scan your own deck or draw on screen. ShenTarot picks a spread for your question and gives you a reading you
           can keep asking about.
         </p>
+        <AskBox />
         <StoreButtons />
         <p class="alt"><a class="link-arrow" href={`${BASE}tools/random-card`}>Or draw a free card now</a></p>
         <ul class="trust">
