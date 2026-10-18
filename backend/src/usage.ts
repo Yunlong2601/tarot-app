@@ -3,7 +3,9 @@ import type { Spread } from "./validate";
 
 /** Per-install daily usage and the global token budget. D1 in production,
  * in-memory in tests. */
-export type UsageKind = "reading" | "followup";
+/** "off_topic": a reading the model turned away. Its tokens stay counted in
+ * the global budget, but it is not a reading (no daily use, no trial). */
+export type UsageKind = "reading" | "followup" | "off_topic";
 
 export interface UsageStore {
   /** Requests of this kind counted for this install today (including in-flight ones). */
@@ -17,6 +19,8 @@ export interface UsageStore {
   finalize(id: number, inputTokens: number, outputTokens: number): Promise<void>;
   /** Give the slot back when the model call failed. */
   release(id: number): Promise<void>;
+  /** Changes the kind of a finalized row (keeps its tokens). */
+  relabel(id: number, kind: UsageKind): Promise<void>;
 }
 
 export class D1UsageStore implements UsageStore {
@@ -59,6 +63,10 @@ export class D1UsageStore implements UsageStore {
 
   async release(id: number): Promise<void> {
     await this.db.prepare("DELETE FROM usage WHERE id = ?1").bind(id).run();
+  }
+
+  async relabel(id: number, kind: UsageKind): Promise<void> {
+    await this.db.prepare("UPDATE usage SET kind = ?2 WHERE id = ?1").bind(id, kind).run();
   }
 }
 

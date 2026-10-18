@@ -12,6 +12,7 @@ import {
   hitsBannedClaim, leaksOrClaimsHuman, parseModelReply, parseOffTopic, readingProblem, renderReading,
 } from "./reading";
 import { dominantScript, replyLanguage } from "./language";
+import { detectOffTopic, offTopicMessage } from "./offtopic";
 import { isPremium, premiumPlan } from "./revenuecat";
 import { D1CreditStore, DAILY_BANK_DAYS, MONTHLY_BANK_MONTHS, WELCOME_CREDITS, creditsInProduct, type CreditStore } from "./credits";
 import {
@@ -260,6 +261,11 @@ export function createApp(deps: Deps = defaultDeps) {
     if (detectCrisis(req.question, req.impression)) {
       return c.json({ crisis: true, message: CRISIS_MESSAGE });
     }
+    // Plainly off-topic (about the AI, maths, code, injection): a fixed
+    // redirect, no model call, nothing charged.
+    if (detectOffTopic(req.question)) {
+      return c.json({ off_topic: true, message: offTopicMessage(req.question, req.lang) });
+    }
 
     const premium = await deps.premium(who.appUserId, c.env, now);
     const usage = deps.usage(c.env);
@@ -314,10 +320,13 @@ export function createApp(deps: Deps = defaultDeps) {
           return c.json({ error: "declined" }, 422);
         }
         const redirect = parseOffTopic(result.text);
-        if (redirect !== null) {
+        if (redirect !== null || /"off_topic"\s*:\s*true/.test(result.text)) {
           console.log(JSON.stringify({ event: "off_topic", prompt: READING_PROMPT_VERSION, in: inTok, out: outTok }));
-          await noCharge();
-          return c.json({ off_topic: true, message: redirect });
+          // Tokens stay in the budget; the row stops counting as a reading.
+          await usage.finalize(slot, inTok, outTok);
+          await usage.relabel(slot, "off_topic");
+          if (creditLot !== null) await deps.credits(c.env).refund(creditLot);
+          return c.json({ off_topic: true, message: redirect ?? offTopicMessage(req.question, req.lang) });
         }
         structured = parseModelReply(result.text, req);
         if (structured?.crisis) {
