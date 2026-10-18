@@ -37,4 +37,8 @@ export interface Env {
   ALERT_WEBHOOK_URL?: string;
   /** Skips device attestation. Beta, and the v1 launch until App Attest / Play Integrity ship (with the per-IP new-install limit). Never together with TESTER_INSTALL_IDS. */
   ALLOW_UNATTESTED_INSTALLS?: string;
+  /** App Attest app id: "<Team ID>.<bundle id>". Set = iOS device proof is checked. */
+  APPLE_APP_ID?: string;
+  /** "true" also accepts development-environment App Attest keys (Xcode debug builds). Never in production. */
+  APP_ATTEST_ALLOW_DEVELOPMENT?: string;
 }

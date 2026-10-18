@@ -34,6 +34,7 @@ import {
 } from "./creator";
 import { isFreeSpread } from "./spreads";
 import { isUuid, parseFollowupRequest, parseReadingRequest } from "./validate";
+import { AttestError, b64ToBytes, bytesToB64, clientDataFor, verifyAssertion, verifyAttestation, type AttestedKey } from "./appattest";
 
 export interface Deps {
   llm: LlmFn;
@@ -52,6 +53,8 @@ export interface Deps {
   /** One free month of Premium (RevenueCat promotional entitlement). */
   grantMonth: (appUserId: string, env: Env) => Promise<boolean>;
   verifyIdToken: (provider: AccountProvider, token: string, audiences: string[], kv: KVNamespace, nowSeconds: number) => Promise<string | null>;
+  /** Tests only: a stand-in for Apple's App Attest root certificate. */
+  appAttestRoot?: string;
   /** Sends an owner alert (ALERT_WEBHOOK_URL). Optional so tests can capture it. */
   alert?: (message: string, env: Env) => Promise<void>;
 }
@@ -83,6 +86,63 @@ const MAX_BODY_BYTES = 4096;
 export const NEW_INSTALLS_PER_IP_PER_DAY = 30;
 /** Share of GLOBAL_DAILY_TOKEN_CAP at which the owner is alerted (once a day). */
 export const TOKEN_ALERT_SHARE = 0.8;
+
+/** Install requests carry an App Attest attestation (first time) or assertion (refresh). */
+export interface InstallBody {
+  installId?: unknown;
+  keyId?: unknown;
+  challenge?: unknown;
+  attestation?: unknown;
+  assertion?: unknown;
+}
+
+/** Attestation objects are about 5 KB as base64. */
+export const MAX_INSTALL_BODY_BYTES = 16_384;
+const ATTEST_CHALLENGE_TTL = 300;
+/** Attested keys are kept a year past their last use. */
+const ATTEST_KEY_TTL = 400 * 86_400;
+
+/** "ok" when the request proves a genuine app on a real Apple device, "failed"
+ * when it tried and the proof did not hold, "none" when it carried no proof. */
+export async function checkAppAttest(
+  env: Env, body: InstallBody, keyName: string, nowMs: number, rootPem?: string,
+): Promise<"ok" | "failed" | "none"> {
+  const { keyId, challenge, attestation, assertion } = body;
+  if (typeof attestation !== "string" && typeof assertion !== "string") return "none";
+  if (typeof keyId !== "string" || typeof challenge !== "string" || keyId.length > 100 || challenge.length > 100) {
+    return "failed";
+  }
+  // Each challenge works once.
+  const chKey = `att-ch:${challenge}`;
+  if (!(await env.KV.get(chKey))) return "failed";
+  await env.KV.delete(chKey);
+  const appId = env.APPLE_APP_ID!;
+  const clientData = clientDataFor(body.installId as string, challenge);
+  try {
+    let key: AttestedKey;
+    if (typeof attestation === "string") {
+      key = await verifyAttestation({
+        attestation: b64ToBytes(attestation), keyId, clientData, appId,
+        allowDevelopment: env.APP_ATTEST_ALLOW_DEVELOPMENT === "true", nowMs, rootPem,
+      });
+    } else {
+      const stored = await env.KV.get(keyName);
+      if (!stored) return "failed";
+      const saved = JSON.parse(stored) as AttestedKey & { keyId: string };
+      if (saved.keyId !== keyId) return "failed";
+      const counter = await verifyAssertion({ assertion: b64ToBytes(assertion as string), clientData, key: saved, appId });
+      key = { ...saved, counter };
+    }
+    await env.KV.put(keyName, JSON.stringify({ ...key, keyId }), { expirationTtl: ATTEST_KEY_TTL });
+    return "ok";
+  } catch (e) {
+    if (e instanceof AttestError) {
+      console.warn(`app attest: ${e.message}`);
+      return "failed";
+    }
+    throw e;
+  }
+}
 
 /** The owner's release-test key (QA_TOKEN secret, at least 24 characters). */
 export const isQa = (env: Env, header: string | undefined): boolean =>
@@ -204,26 +264,48 @@ export function createApp(deps: Deps = defaultDeps) {
     return token ? await verifyToken(token, env.JWT_SECRET, Math.floor(now / 1000)) : null;
   }
 
+  // One-time challenge for App Attest (iOS device proof), valid 5 minutes.
+  app.post("/v1/install/challenge", async (c) => {
+    const ip = c.req.header("cf-connecting-ip") ?? "unknown";
+    if (!(await allowWithinMinute(c.env.KV, `ip-install:${ip}`, 10, deps.now()))) {
+      return c.json({ error: "rate_limited" }, 429);
+    }
+    if (!c.env.APPLE_APP_ID) return c.json({ error: "attestation_not_configured" }, 501);
+    const challenge = bytesToB64(crypto.getRandomValues(new Uint8Array(32)));
+    await c.env.KV.put(`att-ch:${challenge}`, "1", { expirationTtl: ATTEST_CHALLENGE_TTL });
+    return c.json({ challenge });
+  });
+
   // Anonymous install -> short-lived token.
   app.post("/v1/install", async (c) => {
     const ip = c.req.header("cf-connecting-ip") ?? "unknown";
     if (!(await allowWithinMinute(c.env.KV, `ip-install:${ip}`, 10, deps.now()))) {
       return c.json({ error: "rate_limited" }, 429);
     }
-    const body = await readJson(c.req.raw);
-    if (!body || !isUuid((body as { installId?: unknown }).installId)) {
+    const body = (await readJson(c.req.raw, MAX_INSTALL_BODY_BYTES)) as InstallBody | null;
+    if (!body || !isUuid(body.installId)) {
       return c.json({ error: "invalid_request" }, 400);
     }
-    // TODO(owner/Phase E): verify App Attest (iOS) / Play Integrity (Android) here.
-    // Until that exists, installs are refused unless the local-testing flag is set.
-    if (c.env.ALLOW_UNATTESTED_INSTALLS !== "true") {
-      return c.json({ error: "attestation_not_configured" }, 501);
-    }
-    const installId = (body as { installId: string }).installId;
-    // Until App Attest / Play Integrity exist: at most NEW_INSTALLS_PER_IP_PER_DAY
-    // new install ids per IP per UTC day. Known installs (token refresh) pass.
-    if (!isQa(c.env, c.req.header("x-qa-token")) && !(await allowNewInstall(c.env, installId, ip, deps.now()))) {
-      return c.json({ error: "rate_limited" }, 429);
+    const installId = body.installId;
+    const keyName = `att:${await hashId(installId, c.env.HASH_SALT)}`;
+    // App Attest (iOS): a valid attestation or assertion skips the unattested rules.
+    const proof = c.env.APPLE_APP_ID ? await checkAppAttest(c.env, body, keyName, deps.now(), deps.appAttestRoot) : "none";
+    if (proof === "failed") return c.json({ error: "attestation_failed" }, 403);
+    if (proof === "none") {
+      // An install that once attested must keep proving it with its key.
+      if (c.env.APPLE_APP_ID && (await c.env.KV.get(keyName))) {
+        return c.json({ error: "attestation_required" }, 403);
+      }
+      // TODO(owner): Play Integrity (Android). Until then unattested installs
+      // are refused unless ALLOW_UNATTESTED_INSTALLS is set.
+      if (c.env.ALLOW_UNATTESTED_INSTALLS !== "true") {
+        return c.json({ error: "attestation_not_configured" }, 501);
+      }
+      // At most NEW_INSTALLS_PER_IP_PER_DAY new unattested install ids per IP
+      // per UTC day. Known installs (token refresh) pass.
+      if (!isQa(c.env, c.req.header("x-qa-token")) && !(await allowNewInstall(c.env, installId, ip, deps.now()))) {
+        return c.json({ error: "rate_limited" }, 429);
+      }
     }
     const token = await signToken(installId, c.env.JWT_SECRET, Math.floor(deps.now() / 1000));
     return c.json({ token });
