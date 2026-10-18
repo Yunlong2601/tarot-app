@@ -155,9 +155,16 @@ const config = JSON.stringify({ mode, slots, base: BASE, deck: readerDeck });
     }
 
     function render() {
-      const picked = chosen().filter((p) => p.card) as { card: Card; reversed: boolean }[];
+      // The first two slots are required and the third is optional, so a card
+      // always shows (and is saved) under the slot it was picked in.
+      const all = chosen();
+      // Keep the choice in the address so it can be shared or bookmarked.
+      const params = new URLSearchParams();
+      all.forEach((p, i) => p.card && params.set(String.fromCharCode(97 + i), `${p.card.slug}${p.reversed ? "~r" : ""}`));
+      history.replaceState(null, "", params.toString() ? `?${params}` : location.pathname);
       out.replaceChildren();
-      if (picked.length < 2) return;
+      if (!all[0]!.card || !all[1]!.card) return;
+      const picked = (all[2]?.card ? all : all.slice(0, 2)) as { card: Card; reversed: boolean }[];
       const table = el("div", "table");
       table.dataset.count = String(picked.length);
       picked.forEach((p, i) => table.append(face(p.card, p.reversed, cfg.slots[i] ?? "")));
@@ -179,10 +186,6 @@ const config = JSON.stringify({ mode, slots, base: BASE, deck: readerDeck });
         }
       }
       out.append(table, panel);
-      // Keep the choice in the address so it can be shared or bookmarked.
-      const params = new URLSearchParams();
-      picked.forEach((p, i) => params.set(String.fromCharCode(97 + i), `${p.card.slug}${p.reversed ? "~r" : ""}`));
-      history.replaceState(null, "", `?${params}`);
     }
 
     function randomize() {
