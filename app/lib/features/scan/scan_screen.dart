@@ -53,7 +53,17 @@ class _ScanScreenState extends State<ScanScreen> {
       extra: _spread.cardCount,
     );
     if (cards == null || !mounted) return;
-    _startReading(cards);
+    await _reviewAndRead(cards);
+  }
+
+  /// Every scanned or picked spread gets a check step before the reading.
+  Future<void> _reviewAndRead(List<DrawnCard> cards) async {
+    final checked = await context.push<List<DrawnCard>>(
+      '/review-cards',
+      extra: cards,
+    );
+    if (checked == null || !mounted) return;
+    await _startReading(checked);
   }
 
   Future<void> _pickManually() async {
@@ -70,7 +80,7 @@ class _ScanScreenState extends State<ScanScreen> {
       if (reversed == null || !mounted) return;
       picked.add(DrawnCard(card: deck.byId(id)!, reversed: reversed));
     }
-    _startReading(picked);
+    await _reviewAndRead(picked);
   }
 
   @override

@@ -22,9 +22,11 @@ import '../features/paywall/paywall_screen.dart';
 import '../features/reading/reading_screen.dart';
 import '../features/scan/camera_scan_screen.dart';
 import '../features/scan/card_picker_screen.dart';
+import '../features/scan/review_cards_screen.dart';
 import '../features/scan/scan_screen.dart';
 import '../features/settings/legal_screen.dart';
 import '../features/you/you_screen.dart';
+import '../data/models.dart';
 import 'app_state.dart';
 
 GoRouter buildRouter(AppState state) {
@@ -99,6 +101,11 @@ GoRouter buildRouter(AppState state) {
         builder: (_, s) => CameraScanScreen(count: s.extra! as int),
       ),
       GoRoute(path: '/pick', builder: (_, _) => const CardPickerScreen()),
+      GoRoute(
+        path: '/review-cards',
+        builder: (_, s) =>
+            ReviewCardsScreen(cards: s.extra! as List<DrawnCard>),
+      ),
       GoRoute(
         path: '/reading/:id',
         builder: (_, s) => ReadingScreen(readingId: s.pathParameters['id']!),
