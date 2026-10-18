@@ -71,7 +71,7 @@ const esc = (s: string): string =>
 
 /** Section titles the app writes (see renderReading in reading.ts). */
 const LEAD = new Set(["In a line"]);
-const BOXED = new Set(["Yes or no", "In short", "Putting it together"]);
+const BOXED = new Set(["In short", "Putting it together"]);
 
 function readingHtml(text: string): string {
   return text.split(/\n\s*\n/).map((block) => {
@@ -83,6 +83,7 @@ function readingHtml(text: string): string {
     const why = rest.filter((l) => l.startsWith("Why:")).map((l) => `<p class="why">${esc(l)}</p>`).join("");
     const body = rest.filter((l) => !l.startsWith("Why:")).map((l) => `<p>${esc(l)}</p>`).join("");
     if (LEAD.has(title!)) return `<p class="lead">${esc(rest.join(" "))}</p>`;
+    if (title === "Yes or no") return `<p class="lean">${esc(rest.join(" "))}</p>`;
     const cls = BOXED.has(title!) ? "section boxed" : "section";
     return `<section class="${cls}"><h2>${esc(title!)}</h2>${body}${why}</section>`;
   }).join("\n");
@@ -118,6 +119,7 @@ ol.strip{position:sticky;top:0;list-style:none;margin:1rem -1rem;padding:.6rem 1
 ol.strip li{flex:0 0 auto;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:.45rem .7rem;display:flex;flex-direction:column;min-width:7rem}
 .pos{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}.name{font-weight:600}.rev{font-size:.75rem;color:#c0563f}
 .lead{font-size:1.25rem;font-weight:700;margin:1.2rem 0}
+.lean{font-size:1.6rem;font-weight:800;color:var(--gold);text-align:center;border:1px solid var(--gold);border-radius:16px;padding:.8rem;margin:1rem 0}
 .section{margin:1rem 0}.boxed{background:var(--panel);border:1px solid var(--gold);border-radius:16px;padding:.8rem 1rem}
 h2{font-size:1.05rem;color:var(--gold);margin:.2rem 0}.why{color:var(--muted);font-style:italic;font-size:.92rem}
 .cta{margin-top:2rem;padding:1.2rem;border-radius:16px;background:var(--panel);border:1px solid var(--line);text-align:center}
