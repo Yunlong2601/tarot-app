@@ -16,6 +16,14 @@ export const spreadIds = Object.keys(SPREADS) as SpreadId[];
 export const slug = (id: string) => id.replace(/_/g, "-");
 export const suitTitle = (s?: string | null) => (s ? s[0]!.toUpperCase() + s.slice(1) : "Major Arcana");
 export const titleCase = (s: string) => s[0]!.toUpperCase() + s.slice(1);
+/** What each group of cards is about, shown on the card pages. */
+export const GROUP_ABOUT: Record<string, string> = {
+  major: "Life's big themes and turning points",
+  wands: "Energy, drive and creativity",
+  cups: "Feelings, love and relationships",
+  swords: "Thought, conflict and truth",
+  pentacles: "Work, money and the body",
+};
 export const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? "" : "s"}`;
 
 /** What each spread is for and where it comes from, as the app shows them
