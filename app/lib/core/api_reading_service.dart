@@ -4,6 +4,7 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import '../data/models.dart';
+import 'app_attest.dart';
 import 'install_id.dart';
 import 'account_service.dart';
 import 'credit_service.dart';
@@ -26,7 +27,9 @@ class ApiReadingService
     this.baseUrl, {
     HttpClient Function()? clientFactory,
     this.userKey,
-  }) : _newClient = clientFactory ?? HttpClient.new;
+    DeviceProof? deviceProof,
+  }) : _newClient = clientFactory ?? HttpClient.new,
+       _proof = deviceProof ?? AppAttest();
 
   final String baseUrl;
 
@@ -34,6 +37,7 @@ class ApiReadingService
   /// it to the provider for this one call and never stores or logs it.
   final Future<UserKey?> Function()? userKey;
   final HttpClient Function() _newClient;
+  final DeviceProof _proof;
   String? _token;
 
   @override
@@ -321,10 +325,23 @@ class ApiReadingService
   Future<String> _ensureToken() async {
     final existing = _token;
     if (existing != null) return existing;
-    final res = await _post('/v1/install', {
-      'installId': await loadInstallId(),
-    }, auth: false);
-    final token = res.json['token'];
+    final installId = await loadInstallId();
+    // With App Attest (iPhone) the server gets proof of a genuine app on a
+    // real device. If the proof is refused, try once with a new key, then
+    // without proof (accepted while the server still allows it).
+    _Response? res;
+    for (final attempt in const ['proof', 'fresh', 'none']) {
+      if (attempt == 'fresh') await _proof.reset();
+      final proof = attempt == 'none' ? null : await _deviceProof(installId);
+      if (attempt != 'none' && proof == null && res != null) continue;
+      res = await _post('/v1/install', {
+        'installId': installId,
+        ...?proof,
+      }, auth: false);
+      if (res.status == 200 && proof != null) await _proof.accepted();
+      if (res.status != 403) break;
+    }
+    final token = res!.json['token'];
     if (res.status != 200 || token is! String) {
       throw ReadingException(
         ReadingErrorKind.failed,
@@ -332,6 +349,21 @@ class ApiReadingService
       );
     }
     return _token = token;
+  }
+
+  /// Device proof fields for the install request, or null without one.
+  Future<Map<String, String>?> _deviceProof(String installId) async {
+    if (!await _proof.supported) return null;
+    try {
+      final res = await _post('/v1/install/challenge', const {}, auth: false);
+      final challenge = res.json['challenge'];
+      if (res.status != 200 || challenge is! String) return null;
+      return await _proof.proofFor(installId, challenge);
+    } on ReadingException {
+      rethrow;
+    } catch (_) {
+      return null;
+    }
   }
 }
 
