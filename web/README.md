@@ -56,9 +56,9 @@ from `dist/`.
   the matching Associated Domains entitlement (`applinks:shentarot.com`).
   Xcode's automatic signing adds the capability to the App ID on the next
   build.
-- Android: the app has a verified intent filter for `https://shentarot.com/s/`.
-  Verification also needs `public/.well-known/assetlinks.json` with the app
+- Android: the app has a verified intent filter for `https://shentarot.com/s/`,
+  verified by `public/.well-known/assetlinks.json`. It holds the Play app
   signing certificate's SHA-256 fingerprint (Play Console > Test and release >
-  App integrity). Until it exists, Android opens these links in the browser.
+  App integrity > App signing); update it if that key ever changes.
 - The app opens a shared link on its question screen, matching the page's
   "Ask your own question" button.
