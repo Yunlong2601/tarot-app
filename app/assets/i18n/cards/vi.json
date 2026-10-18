@@ -1,0 +1,782 @@
+{
+ "major_00_fool": {
+  "name": "The Fool (Chàng Khờ)",
+  "keywords": [
+   "khởi đầu",
+   "tự nhiên",
+   "tin tưởng"
+  ],
+  "upright": "Một khởi đầu mới đòi hỏi một bước nhảy của niềm tin. Hãy tò mò và cởi mở với điều mới.",
+  "reversed": "Do dự hoặc bất cẩn. Dừng lại xem kỹ mặt đất trước khi bước."
+ },
+ "major_01_magician": {
+  "name": "The Magician (Nhà Ảo Thuật)",
+  "keywords": [
+   "kỹ năng",
+   "tập trung",
+   "tháo vát"
+  ],
+  "upright": "Bạn đã có sẵn công cụ cần thiết. Gom sự chú ý và hành động có chủ đích.",
+  "reversed": "Năng lượng phân tán hoặc tài năng chưa dùng đến. Hãy hỏi điều gì đang cản sự tập trung."
+ },
+ "major_02_high_priestess": {
+  "name": "The High Priestess (Nữ Tư Tế)",
+  "keywords": [
+   "trực giác",
+   "tĩnh lặng",
+   "điều chưa nói"
+  ],
+  "upright": "Suy ngẫm lặng lẽ mang lại câu trả lời mà ồn ào không thể. Tin vào điều bạn cảm nhận bên dưới bề mặt.",
+  "reversed": "Phớt lờ tiếng nói bên trong, hoặc giấu điều gì đó với chính mình."
+ },
+ "major_03_empress": {
+  "name": "The Empress (Nữ Hoàng)",
+  "keywords": [
+   "chăm sóc",
+   "sung túc",
+   "sáng tạo"
+  ],
+  "upright": "Sự quan tâm, thoải mái và phát triển đang ở gần. Chăm chút điều bạn yêu và để nó nở hoa.",
+  "reversed": "Bao bọc quá mức, bỏ bê bản thân, hoặc bế tắc sáng tạo."
+ },
+ "major_04_emperor": {
+  "name": "The Emperor (Hoàng Đế)",
+  "keywords": [
+   "cấu trúc",
+   "quyền uy",
+   "ổn định"
+  ],
+  "upright": "Ranh giới rõ ràng và kế hoạch đều đặn tạo nền móng vững chắc. Dẫn dắt bằng sự bình tĩnh.",
+  "reversed": "Cứng nhắc hoặc kiểm soát. Hãy xem sự kiên định đã thành bướng bỉnh ở đâu."
+ },
+ "major_05_hierophant": {
+  "name": "The Hierophant (Giáo Hoàng)",
+  "keywords": [
+   "truyền thống",
+   "chỉ dẫn",
+   "thuộc về"
+  ],
+  "upright": "Học hỏi từ trí tuệ đã được kiểm chứng hoặc từ cộng đồng giúp bạn vững vàng.",
+  "reversed": "Đặt câu hỏi với những quy tắc không còn phù hợp. Tìm con đường riêng đến ý nghĩa."
+ },
+ "major_06_lovers": {
+  "name": "The Lovers (Tình Nhân)",
+  "keywords": [
+   "lựa chọn",
+   "gắn kết",
+   "hòa hợp"
+  ],
+  "upright": "Một lựa chọn ý nghĩa phản ánh giá trị của bạn, hoặc một mối quan hệ cần sự chân thành.",
+  "reversed": "Lệch nhịp hoặc do dự. Xem hành động của bạn có khớp với điều bạn coi trọng."
+ },
+ "major_07_chariot": {
+  "name": "The Chariot (Cỗ Xe)",
+  "keywords": [
+   "quyết tâm",
+   "động lực",
+   "phương hướng"
+  ],
+  "upright": "Ý chí và sự tập trung đưa bạn tiến lên. Giữ chắc dây cương.",
+  "reversed": "Mất phương hướng, hoặc thúc ép quá mức mà không có kế hoạch."
+ },
+ "major_08_strength": {
+  "name": "Strength (Sức Mạnh)",
+  "keywords": [
+   "can đảm",
+   "kiên nhẫn",
+   "lòng trắc ẩn"
+  ],
+  "upright": "Sự can đảm lặng lẽ và dịu dàng làm được điều mà sức ép không làm được.",
+  "reversed": "Nghi ngờ bản thân hoặc cạn kiệt. Xây lại sự tự tin từng bước nhỏ."
+ },
+ "major_09_hermit": {
+  "name": "The Hermit (Ẩn Sĩ)",
+  "keywords": [
+   "cô tịch",
+   "suy ngẫm",
+   "chỉ dẫn bên trong"
+  ],
+  "upright": "Lùi lại một bước để suy nghĩ. Thời gian một mình có thể cho thấy điều quan trọng.",
+  "reversed": "Cô lập hoặc né tránh suy ngẫm. Cân bằng giữa một mình và kết nối."
+ },
+ "major_10_wheel_of_fortune": {
+  "name": "Wheel of Fortune (Bánh Xe Số Phận)",
+  "keywords": [
+   "chu kỳ",
+   "thay đổi",
+   "góc nhìn"
+  ],
+  "upright": "Mọi thứ xoay vòng theo chu kỳ. Thích nghi với thay đổi và tìm điều nó mang lại.",
+  "reversed": "Chống lại thay đổi hoặc thấy mắc kẹt trong vòng lặp. Tìm điều bạn có thể tác động."
+ },
+ "major_11_justice": {
+  "name": "Justice (Công Lý)",
+  "keywords": [
+   "công bằng",
+   "sự thật",
+   "trách nhiệm"
+  ],
+  "upright": "Cân nhắc sự việc một cách trung thực. Lựa chọn rõ ràng và công bằng mang lại cân bằng.",
+  "reversed": "Thiên vị, né trách nhiệm, hoặc góc nhìn lệch lạc."
+ },
+ "major_12_hanged_man": {
+  "name": "The Hanged Man (Người Treo Ngược)",
+  "keywords": [
+   "tạm dừng",
+   "buông bỏ",
+   "góc nhìn mới"
+  ],
+  "upright": "Dừng lại để nhìn khác đi có thể gỡ một tình huống bế tắc.",
+  "reversed": "Trì hoãn vô định. Hãy hỏi việc chờ đợi có còn giúp ích."
+ },
+ "major_13_death": {
+  "name": "Death (Cái Chết)",
+  "keywords": [
+   "kết thúc",
+   "chuyển tiếp",
+   "buông bỏ"
+  ],
+  "upright": "Một chương khép lại để chương khác bắt đầu. Buông điều đã hết vai trò.",
+  "reversed": "Níu kéo quá khứ hoặc sợ một thay đổi cần thiết."
+ },
+ "major_14_temperance": {
+  "name": "Temperance (Tiết Chế)",
+  "keywords": [
+   "cân bằng",
+   "kiên nhẫn",
+   "điều độ"
+  ],
+  "upright": "Hòa hợp những nhu cầu trái ngược bằng sự kiên nhẫn. Bước đi đều đặn, chừng mực là tốt nhất.",
+  "reversed": "Thái quá hoặc nóng vội. Tìm chỗ đang mất cân bằng."
+ },
+ "major_15_devil": {
+  "name": "The Devil (Ác Quỷ)",
+  "keywords": [
+   "ràng buộc",
+   "thói quen",
+   "mặt tối"
+  ],
+  "upright": "Nhận ra điều gì đang giữ bạn, dù là thói quen, niềm tin hay sự lệ thuộc, và bạn thật sự có bao nhiêu lựa chọn.",
+  "reversed": "Sự trói buộc nới lỏng. Nhận biết là bước đầu tiên đến tự do."
+ },
+ "major_16_tower": {
+  "name": "The Tower (Tòa Tháp)",
+  "keywords": [
+   "biến động",
+   "khám phá",
+   "làm lại"
+  ],
+  "upright": "Một cú chấn động bất ngờ lộ ra điều không vững chắc. Mặt bằng trống tạo chỗ để xây lại.",
+  "reversed": "Sợ thay đổi hoặc một vấn đề âm ỉ. Đối mặt thay vì chờ đợi."
+ },
+ "major_17_star": {
+  "name": "The Star (Ngôi Sao)",
+  "keywords": [
+   "hy vọng",
+   "hồi phục",
+   "bình yên"
+  ],
+  "upright": "Sau giai đoạn khó khăn, hy vọng dịu dàng trở lại. Nghỉ ngơi và tin vào sự hồi phục chậm rãi.",
+  "reversed": "Nghi ngờ hoặc thiếu động lực. Tử tế với bản thân và giữ những hy vọng nhỏ."
+ },
+ "major_18_moon": {
+  "name": "The Moon (Mặt Trăng)",
+  "keywords": [
+   "bất định",
+   "giấc mơ",
+   "trực giác"
+  ],
+  "upright": "Mọi thứ chưa hoàn toàn rõ ràng. Bước cẩn thận và để ý nỗi sợ cùng bản năng.",
+  "reversed": "Sự mơ hồ tan dần, hoặc nỗi lo cần được neo giữ."
+ },
+ "major_19_sun": {
+  "name": "The Sun (Mặt Trời)",
+  "keywords": [
+   "niềm vui",
+   "sức sống",
+   "rõ ràng"
+  ],
+  "upright": "Ấm áp, tự tin và cởi mở. Tận hưởng những gì đang suôn sẻ.",
+  "reversed": "Nhiệt huyết lụi dần hoặc cái tôi quá lớn. Tìm những nguồn sáng nhỏ."
+ },
+ "major_20_judgement": {
+  "name": "Judgement (Phán Xét)",
+  "keywords": [
+   "suy ngẫm",
+   "tái sinh",
+   "tiếng gọi"
+  ],
+  "upright": "Khoảnh khắc nhìn lại trung thực. Tha thứ quá khứ và đáp lại tiếng gọi bên trong.",
+  "reversed": "Tự trách mình hoặc né tránh một quyết định cần thiết."
+ },
+ "major_21_world": {
+  "name": "The World (Thế Giới)",
+  "keywords": [
+   "hoàn tất",
+   "trọn vẹn",
+   "thành tựu"
+  ],
+  "upright": "Một chu kỳ khép lại. Nhìn lại bạn đã đi xa thế nào.",
+  "reversed": "Việc còn dang dở hoặc đích đến có vẻ ngoài tầm với. Còn một bước cuối."
+ },
+ "wands_ace": {
+  "name": "Át Gậy",
+  "keywords": [
+   "tia lửa",
+   "cảm hứng",
+   "năng lượng mới"
+  ],
+  "upright": "Một làn sóng nhiệt huyết và cơ hội bắt đầu điều táo bạo.",
+  "reversed": "Năng lượng thấp hoặc khởi đầu hụt. Nuôi dưỡng ý tưởng trước khi vội vàng."
+ },
+ "wands_two": {
+  "name": "Hai Gậy",
+  "keywords": [
+   "lập kế hoạch",
+   "lựa chọn",
+   "tầm nhìn"
+  ],
+  "upright": "Bạn đứng ở rìa những gì quen thuộc. Quyết định sẽ nhắm tới đâu.",
+  "reversed": "Sợ rời vùng an toàn, hoặc kế hoạch chỉ nằm trên giấy."
+ },
+ "wands_three": {
+  "name": "Ba Gậy",
+  "keywords": [
+   "tầm xa",
+   "tiến triển",
+   "mở rộng"
+  ],
+  "upright": "Những nỗ lực ban đầu đang chuyển động. Nhìn xa hơn và tiếp tục.",
+  "reversed": "Chậm trễ hoặc tầm nhìn hẹp. Mở rộng góc nhìn."
+ },
+ "wands_four": {
+  "name": "Bốn Gậy",
+  "keywords": [
+   "ăn mừng",
+   "ổn định",
+   "mái ấm"
+  ],
+  "upright": "Khoảnh khắc nghỉ ngơi và niềm vui chung sau nỗ lực.",
+  "reversed": "Bất an ở nhà hoặc cuộc vui thấy trống rỗng."
+ },
+ "wands_five": {
+  "name": "Năm Gậy",
+  "keywords": [
+   "cạnh tranh",
+   "va chạm",
+   "tranh luận"
+  ],
+  "upright": "Ý tưởng va nhau và sự ganh đua. Cạnh tranh có thể mài giũa bạn nếu vẫn thân thiện.",
+  "reversed": "Né tránh xung đột, hoặc căng thẳng dồn vào trong."
+ },
+ "wands_six": {
+  "name": "Sáu Gậy",
+  "keywords": [
+   "được ghi nhận",
+   "tiến triển",
+   "tự tin"
+  ],
+  "upright": "Thành công được nhiều người thấy hoặc sự tự tin tăng lên nhờ nỗ lực.",
+  "reversed": "Nghi ngờ bản thân hoặc khao khát lời khen. Đo thành công bằng thước của chính bạn."
+ },
+ "wands_seven": {
+  "name": "Bảy Gậy",
+  "keywords": [
+   "phòng thủ",
+   "bền bỉ",
+   "giữ vững lập trường"
+  ],
+  "upright": "Bạn giữ vững vị trí. Kiên định với điều bạn tin.",
+  "reversed": "Thấy quá tải hoặc bỏ cuộc quá sớm."
+ },
+ "wands_eight": {
+  "name": "Tám Gậy",
+  "keywords": [
+   "tốc độ",
+   "chuyển động",
+   "tin tức"
+  ],
+  "upright": "Mọi việc diễn ra nhanh. Hành động kịp thời và giữ liên lạc thông suốt.",
+  "reversed": "Chậm trễ hoặc nỗ lực tản mát. Chậm lại để sắp xếp."
+ },
+ "wands_nine": {
+  "name": "Chín Gậy",
+  "keywords": [
+   "kiên cường",
+   "ranh giới",
+   "cú gắng cuối"
+  ],
+  "upright": "Mệt nhưng gần tới rồi. Dựa vào sự kiên cường của bạn.",
+  "reversed": "Kiệt sức hoặc cố chấp. Nghỉ ngơi có thể khôn ngoan hơn một vòng nữa."
+ },
+ "wands_ten": {
+  "name": "Mười Gậy",
+  "keywords": [
+   "gánh nặng",
+   "trách nhiệm",
+   "quá tải"
+  ],
+  "upright": "Bạn đang gánh quá nhiều. Xem điều gì có thể đặt xuống.",
+  "reversed": "Đặt gánh xuống, hoặc khó mở lời nhờ giúp."
+ },
+ "wands_page": {
+  "name": "Tiểu Đồng Gậy",
+  "keywords": [
+   "tò mò",
+   "nhiệt huyết",
+   "khám phá"
+  ],
+  "upright": "Một người mới đầy sức sống, háo hức khám phá và thử ý tưởng.",
+  "reversed": "Nóng vội hoặc dự án bỏ dở."
+ },
+ "wands_knight": {
+  "name": "Hiệp Sĩ Gậy",
+  "keywords": [
+   "phiêu lưu",
+   "năng lượng",
+   "bốc đồng"
+  ],
+  "upright": "Năng lượng táo bạo, không yên, lao về phía trước.",
+  "reversed": "Liều lĩnh hoặc bực bội. Nghĩ trước khi nhảy."
+ },
+ "wands_queen": {
+  "name": "Nữ Hoàng Gậy",
+  "keywords": [
+   "ấm áp",
+   "tự tin",
+   "cuốn hút"
+  ],
+  "upright": "Tự tin, niềm nở và đầy động lực. Dẫn dắt bằng cảm hứng.",
+  "reversed": "Bất an hoặc ghen tị. Kết nối lại với ngọn lửa của chính bạn."
+ },
+ "wands_king": {
+  "name": "Vua Gậy",
+  "keywords": [
+   "tầm nhìn",
+   "lãnh đạo",
+   "táo bạo"
+  ],
+  "upright": "Một nhà lãnh đạo bẩm sinh với tầm nhìn rõ ràng.",
+  "reversed": "Lãnh đạo áp đặt hoặc bốc đồng."
+ },
+ "cups_ace": {
+  "name": "Át Cốc",
+  "keywords": [
+   "cởi mở",
+   "cảm xúc mới",
+   "lòng trắc ẩn"
+  ],
+  "upright": "Trái tim mở ra. Đón nhận lòng tốt và sự đổi mới cảm xúc.",
+  "reversed": "Cảm xúc bị kìm nén. Cho phép mình được cảm nhận."
+ },
+ "cups_two": {
+  "name": "Hai Cốc",
+  "keywords": [
+   "gắn kết",
+   "đồng hành",
+   "tôn trọng lẫn nhau"
+  ],
+  "upright": "Một mối liên kết cân bằng dựa trên tôn trọng và cảm xúc chung.",
+  "reversed": "Mất cân bằng hoặc hiểu lầm trong mối quan hệ."
+ },
+ "cups_three": {
+  "name": "Ba Cốc",
+  "keywords": [
+   "tình bạn",
+   "ăn mừng",
+   "cộng đồng"
+  ],
+  "upright": "Niềm vui được chia sẻ. Tận hưởng những người bạn tốt.",
+  "reversed": "Quá đà, hoặc cảm thấy bị gạt ra ngoài."
+ },
+ "cups_four": {
+  "name": "Bốn Cốc",
+  "keywords": [
+   "thờ ơ",
+   "trầm ngâm",
+   "đánh giá lại"
+  ],
+  "upright": "Chán chường hoặc thu mình. Hỏi xem bạn thật sự muốn gì.",
+  "reversed": "Thức tỉnh với lựa chọn mới sau giai đoạn tẻ nhạt."
+ },
+ "cups_five": {
+  "name": "Năm Cốc",
+  "keywords": [
+   "mất mát",
+   "hối tiếc",
+   "đau buồn"
+  ],
+  "upright": "Tập trung vào điều đã mất. Nhớ rằng vẫn còn những chiếc cốc đứng vững.",
+  "reversed": "Bước tiếp, tha thứ và từ từ quay về những gì còn lại."
+ },
+ "cups_six": {
+  "name": "Sáu Cốc",
+  "keywords": [
+   "hoài niệm",
+   "ngây thơ",
+   "tử tế"
+  ],
+  "upright": "Ký ức và sự rộng lượng dịu dàng. Nhìn lại quá khứ bằng sự ấm áp.",
+  "reversed": "Mắc kẹt trong quá khứ, hoặc ngoái lại thay vì nhìn tới."
+ },
+ "cups_seven": {
+  "name": "Bảy Cốc",
+  "keywords": [
+   "mơ mộng",
+   "lựa chọn",
+   "ảo ảnh"
+  ],
+  "upright": "Nhiều khả năng và chút mộng tưởng. Tách điều thật khỏi điều tưởng tượng.",
+  "reversed": "Sự rõ ràng đến, hoặc lựa chọn nhiều đến choáng ngợp."
+ },
+ "cups_eight": {
+  "name": "Tám Cốc",
+  "keywords": [
+   "rời đi",
+   "tìm kiếm thêm",
+   "bước tiếp"
+  ],
+  "upright": "Rời bỏ điều không còn làm bạn thỏa mãn để đi tìm ý nghĩa.",
+  "reversed": "Trôi dạt vô định, hoặc sợ rời đi."
+ },
+ "cups_nine": {
+  "name": "Chín Cốc",
+  "keywords": [
+   "mãn nguyện",
+   "hài lòng",
+   "biết ơn"
+  ],
+  "upright": "Cảm giác viên mãn. Trân trọng những gì bạn có.",
+  "reversed": "Tự mãn hoặc điều ước không thỏa mãn như mong đợi."
+ },
+ "cups_ten": {
+  "name": "Mười Cốc",
+  "keywords": [
+   "hòa hợp",
+   "gia đình",
+   "viên mãn"
+  ],
+  "upright": "Viên mãn về cảm xúc và cảm giác thuộc về.",
+  "reversed": "Quan hệ căng thẳng, hoặc giá trị chưa thật sự hòa hợp."
+ },
+ "cups_page": {
+  "name": "Tiểu Đồng Cốc",
+  "keywords": [
+   "nhạy cảm",
+   "trí tưởng tượng",
+   "cởi mở"
+  ],
+  "upright": "Một thông điệp dịu dàng và sáng tạo. Lắng nghe cảm xúc của bạn.",
+  "reversed": "Thất thường hoặc non nớt về cảm xúc."
+ },
+ "cups_knight": {
+  "name": "Hiệp Sĩ Cốc",
+  "keywords": [
+   "lãng mạn",
+   "quyến rũ",
+   "lý tưởng"
+  ],
+  "upright": "Người mộng mơ đi theo trái tim. Lời mời hoặc đề nghị có thể đến.",
+  "reversed": "Ý tưởng thiếu thực tế hoặc tín hiệu lẫn lộn."
+ },
+ "cups_queen": {
+  "name": "Nữ Hoàng Cốc",
+  "keywords": [
+   "đồng cảm",
+   "trực giác",
+   "quan tâm"
+  ],
+  "upright": "Rất chu đáo và giàu trực giác. Hãy chăm sóc cả bản thân.",
+  "reversed": "Cảm xúc quá tải hoặc bỏ quên nhu cầu của mình."
+ },
+ "cups_king": {
+  "name": "Vua Cốc",
+  "keywords": [
+   "cân bằng cảm xúc",
+   "khéo léo",
+   "điềm tĩnh"
+  ],
+  "upright": "Chín chắn, vững vàng và nhân hậu. Giữ bình tĩnh trước áp lực.",
+  "reversed": "Cảm xúc bị dồn nén hoặc tâm trạng thất thường sau vẻ điềm tĩnh."
+ },
+ "swords_ace": {
+  "name": "Át Kiếm",
+  "keywords": [
+   "rõ ràng",
+   "sự thật",
+   "đột phá"
+  ],
+  "upright": "Một ý tưởng rõ ràng cắt xuyên sự rối ren. Suy nghĩ và nói thẳng thắn.",
+  "reversed": "Suy nghĩ rối rắm hoặc lời nói gay gắt."
+ },
+ "swords_two": {
+  "name": "Hai Kiếm",
+  "keywords": [
+   "bế tắc",
+   "do dự",
+   "phòng thủ"
+  ],
+  "upright": "Một lựa chọn khó bạn đang né. Gỡ khăn bịt mắt khi đã sẵn sàng.",
+  "reversed": "Thông tin lộ ra, hoặc sự do dự kéo dài."
+ },
+ "swords_three": {
+  "name": "Ba Kiếm",
+  "keywords": [
+   "đau lòng",
+   "nỗi buồn",
+   "trung thực"
+  ],
+  "upright": "Sự thật đau lòng hoặc nỗi buồn. Thừa nhận nó để vết thương lành.",
+  "reversed": "Bắt đầu hồi phục, hoặc bạn vẫn ôm nỗi đau."
+ },
+ "swords_four": {
+  "name": "Bốn Kiếm",
+  "keywords": [
+   "nghỉ ngơi",
+   "hồi phục",
+   "lui về"
+  ],
+  "upright": "Dừng lại và nạp năng lượng. Nghỉ ngơi cũng là làm việc hiệu quả.",
+  "reversed": "Bồn chồn hoặc quay lại hành động quá sớm."
+ },
+ "swords_five": {
+  "name": "Năm Kiếm",
+  "keywords": [
+   "xung đột",
+   "căng thẳng",
+   "chiến thắng rỗng"
+  ],
+  "upright": "Cuộc chiến mất nhiều hơn được. Hãy chọn trận mà đánh.",
+  "reversed": "Làm hòa, hoặc oán giận còn vương lại."
+ },
+ "swords_six": {
+  "name": "Sáu Kiếm",
+  "keywords": [
+   "chuyển tiếp",
+   "bước tiếp",
+   "vùng nước êm hơn"
+  ],
+  "upright": "Chậm rãi rời xa rắc rối. Sự chữa lành đang diễn ra.",
+  "reversed": "Chống lại thay đổi, hoặc hành trang chưa giải quyết."
+ },
+ "swords_seven": {
+  "name": "Bảy Kiếm",
+  "keywords": [
+   "chiến lược",
+   "bí mật",
+   "thận trọng"
+  ],
+  "upright": "Suy nghĩ kỹ; cách làm khôn lỏi cần trung thực về cái giá của nó.",
+  "reversed": "Thú nhận, hoặc kế hoạch phản tác dụng."
+ },
+ "swords_eight": {
+  "name": "Tám Kiếm",
+  "keywords": [
+   "giới hạn",
+   "sợ hãi",
+   "cảm giác bị mắc kẹt"
+  ],
+  "upright": "Bạn thấy mắc kẹt, nhưng lựa chọn có thể rộng hơn bạn tưởng.",
+  "reversed": "Tự giải thoát và thấy lại các lựa chọn."
+ },
+ "swords_nine": {
+  "name": "Chín Kiếm",
+  "keywords": [
+   "lo âu",
+   "lo lắng",
+   "đêm mất ngủ"
+  ],
+  "upright": "Nỗi lo trở nên to lớn. Chia sẻ với người bạn tin tưởng.",
+  "reversed": "Nỗi sợ dịu bớt, hoặc lo âu cần được hỗ trợ."
+ },
+ "swords_ten": {
+  "name": "Mười Kiếm",
+  "keywords": [
+   "kết thúc",
+   "kiệt sức",
+   "chạm đáy"
+  ],
+  "upright": "Một chương đau đớn khép lại. Giờ chỉ còn hướng đi tới.",
+  "reversed": "Bắt đầu hồi phục, hoặc bạn níu giữ quá khứ."
+ },
+ "swords_page": {
+  "name": "Tiểu Đồng Kiếm",
+  "keywords": [
+   "tò mò",
+   "cảnh giác",
+   "ý tưởng"
+  ],
+  "upright": "Đầu óc sắc bén và ham hỏi. Đặt câu hỏi và thu thập dữ kiện.",
+  "reversed": "Ngồi lê đôi mách, vội vàng hoặc suy nghĩ rời rạc."
+ },
+ "swords_knight": {
+  "name": "Hiệp Sĩ Kiếm",
+  "keywords": [
+   "tham vọng",
+   "vội vã",
+   "thẳng thắn"
+  ],
+  "upright": "Quyết liệt và hành động nhanh. Cẩn thận với sự cộc cằn.",
+  "reversed": "Kiệt sức, hoặc hành động không suy nghĩ."
+ },
+ "swords_queen": {
+  "name": "Nữ Hoàng Kiếm",
+  "keywords": [
+   "rõ ràng",
+   "độc lập",
+   "trung thực"
+  ],
+  "upright": "Sáng suốt và công bằng. Nói thật một cách tử tế.",
+  "reversed": "Lạnh lùng hoặc quá khắt khe."
+ },
+ "swords_king": {
+  "name": "Vua Kiếm",
+  "keywords": [
+   "trí tuệ",
+   "quyền uy",
+   "lý trí"
+  ],
+  "upright": "Logic, có nguyên tắc và quyết đoán. Hướng tới công bằng.",
+  "reversed": "Tư duy cứng nhắc hoặc lạm quyền."
+ },
+ "pentacles_ace": {
+  "name": "Át Tiền",
+  "keywords": [
+   "cơ hội",
+   "thịnh vượng",
+   "nền tảng"
+  ],
+  "upright": "Hạt giống cơ hội trong công việc hay tiền bạc. Gieo nó cẩn thận.",
+  "reversed": "Cơ hội bị bỏ lỡ hoặc kế hoạch kém."
+ },
+ "pentacles_two": {
+  "name": "Hai Tiền",
+  "keywords": [
+   "cân bằng",
+   "xoay xở",
+   "thích nghi"
+  ],
+  "upright": "Xoay xở các ưu tiên một cách linh hoạt. Giữ nhịp của bạn.",
+  "reversed": "Ôm đồm quá nhiều hoặc thiếu tổ chức."
+ },
+ "pentacles_three": {
+  "name": "Ba Tiền",
+  "keywords": [
+   "làm việc nhóm",
+   "tay nghề",
+   "kỹ năng"
+  ],
+  "upright": "Hợp tác lành nghề. Việc tốt lớn lên nhờ cộng tác.",
+  "reversed": "Làm việc nhóm kém hoặc công việc dưới mức thường ngày."
+ },
+ "pentacles_four": {
+  "name": "Bốn Tiền",
+  "keywords": [
+   "an toàn",
+   "tiết kiệm",
+   "kiểm soát"
+  ],
+  "upright": "Giữ chặt những gì bạn có. An toàn là tốt; cẩn thận đừng bám víu.",
+  "reversed": "Sự rộng rãi trở lại, hoặc bàn tay nắm chặt nới lỏng."
+ },
+ "pentacles_five": {
+  "name": "Năm Tiền",
+  "keywords": [
+   "khó khăn",
+   "lo lắng",
+   "cảm giác bị bỏ rơi"
+  ],
+  "upright": "Một giai đoạn eo hẹp. Có sự giúp đỡ nếu bạn chìa tay.",
+  "reversed": "Hồi phục, hoặc từ chối nhờ hỗ trợ."
+ },
+ "pentacles_six": {
+  "name": "Sáu Tiền",
+  "keywords": [
+   "rộng lượng",
+   "chia sẻ",
+   "công bằng"
+  ],
+  "upright": "Cho và nhận cân bằng. Công bằng với nguồn lực.",
+  "reversed": "Giúp đỡ kèm điều kiện, hoặc trao đổi một chiều."
+ },
+ "pentacles_seven": {
+  "name": "Bảy Tiền",
+  "keywords": [
+   "kiên nhẫn",
+   "đánh giá",
+   "tầm nhìn dài hạn"
+  ],
+  "upright": "Dừng lại xem xét nỗ lực của bạn. Phát triển cần thời gian.",
+  "reversed": "Nóng vội hoặc nghi ngờ tiến bộ của mình."
+ },
+ "pentacles_eight": {
+  "name": "Tám Tiền",
+  "keywords": [
+   "chăm chỉ",
+   "thành thạo",
+   "luyện tập"
+  ],
+  "upright": "Làm việc đều đặn và tập trung bồi đắp kỹ năng.",
+  "reversed": "Cầu toàn hoặc việc lặp lại vô mục đích."
+ },
+ "pentacles_nine": {
+  "name": "Chín Tiền",
+  "keywords": [
+   "tự lập",
+   "thoải mái",
+   "phần thưởng"
+  ],
+  "upright": "Tận hưởng những gì nỗ lực của bạn đã xây dựng.",
+  "reversed": "Làm việc quá sức, hoặc sự thoải mái thấy trống rỗng."
+ },
+ "pentacles_ten": {
+  "name": "Mười Tiền",
+  "keywords": [
+   "di sản",
+   "gia đình",
+   "an toàn lâu dài"
+  ],
+  "upright": "Ổn định lâu dài, gia đình và của cải chung.",
+  "reversed": "Va chạm trong gia đình hoặc suy nghĩ ngắn hạn."
+ },
+ "pentacles_page": {
+  "name": "Tiểu Đồng Tiền",
+  "keywords": [
+   "học tập",
+   "hoài bão",
+   "thực tế"
+  ],
+  "upright": "Một học trò chăm chỉ của cuộc đời, háo hức học và xây dựng.",
+  "reversed": "Trì hoãn hoặc thiếu tập trung."
+ },
+ "pentacles_knight": {
+  "name": "Hiệp Sĩ Tiền",
+  "keywords": [
+   "đáng tin cậy",
+   "bền bỉ",
+   "nề nếp"
+  ],
+  "upright": "Đáng tin và chu đáo. Chậm mà chắc.",
+  "reversed": "Bướng bỉnh, chán nản hoặc cầu toàn."
+ },
+ "pentacles_queen": {
+  "name": "Nữ Hoàng Tiền",
+  "keywords": [
+   "chăm sóc",
+   "thực tế",
+   "tháo vát"
+  ],
+  "upright": "Ấm áp, thực tế và rộng lượng. Tạo sự thoải mái cho bản thân và người khác.",
+  "reversed": "Bỏ bê bản thân hoặc bao bọc quá mức."
+ },
+ "pentacles_king": {
+  "name": "Vua Tiền",
+  "keywords": [
+   "sung túc",
+   "ổn định",
+   "lãnh đạo"
+  ],
+  "upright": "Vững vàng, rộng lượng và an toàn. Dẫn dắt đều đặn.",
+  "reversed": "Tham lam, bướng bỉnh hoặc coi tiền hơn người."
+ }
+}

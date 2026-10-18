@@ -1,0 +1,782 @@
+{
+ "major_00_fool": {
+  "name": "The Fool (Si Bodoh)",
+  "keywords": [
+   "awal",
+   "spontanitas",
+   "kepercayaan"
+  ],
+  "upright": "Awal yang baru butuh lompatan iman. Tetap penasaran dan terbuka pada hal baru.",
+  "reversed": "Ragu-ragu atau ceroboh. Berhenti dan periksa pijakan sebelum melangkah."
+ },
+ "major_01_magician": {
+  "name": "The Magician (Penyihir)",
+  "keywords": [
+   "keterampilan",
+   "fokus",
+   "akal"
+  ],
+  "upright": "Kamu sudah memegang alat yang kamu butuhkan. Kumpulkan perhatian dan bertindak dengan niat.",
+  "reversed": "Energi yang tercerai-berai atau bakat yang tak terpakai. Tanyakan apa yang menahan fokusmu."
+ },
+ "major_02_high_priestess": {
+  "name": "The High Priestess (Pendeta Agung)",
+  "keywords": [
+   "intuisi",
+   "keheningan",
+   "yang tak terucap"
+  ],
+  "upright": "Renungan yang tenang membawa jawaban yang tak bisa diberikan keramaian. Percayai apa yang kamu rasakan di bawah permukaan.",
+  "reversed": "Mengabaikan suara hati, atau menyembunyikan sesuatu dari diri sendiri."
+ },
+ "major_03_empress": {
+  "name": "The Empress (Permaisuri)",
+  "keywords": [
+   "merawat",
+   "kelimpahan",
+   "kreativitas"
+  ],
+  "upright": "Kepedulian, kenyamanan, dan pertumbuhan ada di dekatmu. Rawat yang kamu cintai dan biarkan ia berkembang.",
+  "reversed": "Terlalu mengekang, mengabaikan diri, atau kebuntuan kreatif."
+ },
+ "major_04_emperor": {
+  "name": "The Emperor (Kaisar)",
+  "keywords": [
+   "struktur",
+   "otoritas",
+   "stabilitas"
+  ],
+  "upright": "Batas yang jelas dan perencanaan yang mantap membangun fondasi kokoh. Pimpin dengan tenang.",
+  "reversed": "Kaku atau mengendalikan. Tanyakan di mana ketegasan berubah jadi keras kepala."
+ },
+ "major_05_hierophant": {
+  "name": "The Hierophant (Imam Agung)",
+  "keywords": [
+   "tradisi",
+   "bimbingan",
+   "rasa memiliki"
+  ],
+  "upright": "Belajar dari kebijaksanaan yang sudah teruji atau dari komunitas bisa menenangkanmu.",
+  "reversed": "Mempertanyakan aturan yang tak lagi cocok. Temukan jalanmu sendiri menuju makna."
+ },
+ "major_06_lovers": {
+  "name": "The Lovers (Sepasang Kekasih)",
+  "keywords": [
+   "pilihan",
+   "hubungan",
+   "keselarasan"
+  ],
+  "upright": "Pilihan bermakna yang mencerminkan nilai-nilaimu, atau ikatan yang menuntut kejujuran.",
+  "reversed": "Tidak selaras atau bimbang. Periksa apakah tindakanmu sesuai dengan yang kamu hargai."
+ },
+ "major_07_chariot": {
+  "name": "The Chariot (Kereta Perang)",
+  "keywords": [
+   "tekad",
+   "dorongan",
+   "arah"
+  ],
+  "upright": "Kemauan dan fokus membawamu maju. Pegang kendali dengan mantap.",
+  "reversed": "Kehilangan arah, atau memaksa terlalu keras tanpa rencana."
+ },
+ "major_08_strength": {
+  "name": "Strength (Kekuatan)",
+  "keywords": [
+   "keberanian",
+   "kesabaran",
+   "welas asih"
+  ],
+  "upright": "Keberanian yang tenang dan kelembutan bisa menangani apa yang tak bisa diatasi paksaan.",
+  "reversed": "Meragukan diri atau kehabisan tenaga. Bangun kembali kepercayaan diri selangkah demi selangkah."
+ },
+ "major_09_hermit": {
+  "name": "The Hermit (Pertapa)",
+  "keywords": [
+   "kesendirian",
+   "renungan",
+   "bimbingan batin"
+  ],
+  "upright": "Mundur sejenak untuk berpikir. Waktu sendiri bisa menunjukkan apa yang penting.",
+  "reversed": "Mengasingkan diri atau menghindari renungan. Seimbangkan kesendirian dan kebersamaan."
+ },
+ "major_10_wheel_of_fortune": {
+  "name": "Wheel of Fortune (Roda Keberuntungan)",
+  "keywords": [
+   "siklus",
+   "perubahan",
+   "sudut pandang"
+  ],
+  "upright": "Segala sesuatu berputar dalam siklus. Beradaptasilah dengan perubahan dan cari apa yang ditawarkannya.",
+  "reversed": "Menolak perubahan atau merasa terjebak dalam putaran. Cari apa yang bisa kamu pengaruhi."
+ },
+ "major_11_justice": {
+  "name": "Justice (Keadilan)",
+  "keywords": [
+   "keadilan",
+   "kebenaran",
+   "tanggung jawab"
+  ],
+  "upright": "Timbang fakta dengan jujur. Pilihan yang jelas dan adil membawa keseimbangan.",
+  "reversed": "Berat sebelah, menghindari tanggung jawab, atau pandangan yang timpang."
+ },
+ "major_12_hanged_man": {
+  "name": "The Hanged Man (Orang Tergantung)",
+  "keywords": [
+   "jeda",
+   "berserah",
+   "sudut baru"
+  ],
+  "upright": "Berhenti untuk melihat dengan cara berbeda bisa membuka situasi yang buntu.",
+  "reversed": "Menunda tanpa tujuan. Tanyakan apakah menunggu masih membantu."
+ },
+ "major_13_death": {
+  "name": "Death (Kematian)",
+  "keywords": [
+   "akhir",
+   "peralihan",
+   "melepaskan"
+  ],
+  "upright": "Satu bab ditutup agar bab lain bisa dimulai. Lepaskan yang sudah selesai masanya.",
+  "reversed": "Berpegang pada masa lalu atau takut pada perubahan yang perlu."
+ },
+ "major_14_temperance": {
+  "name": "Temperance (Keseimbangan)",
+  "keywords": [
+   "keseimbangan",
+   "kesabaran",
+   "kesahajaan"
+  ],
+  "upright": "Padukan kebutuhan yang berlawanan dengan sabar. Langkah yang mantap dan terukur paling berhasil.",
+  "reversed": "Berlebihan atau tidak sabar. Cari di mana keseimbangan hilang."
+ },
+ "major_15_devil": {
+  "name": "The Devil (Iblis)",
+  "keywords": [
+   "keterikatan",
+   "kebiasaan",
+   "bayangan"
+  ],
+  "upright": "Perhatikan apa yang mengikatmu, entah kebiasaan, keyakinan, atau ketergantungan, dan seberapa besar pilihan yang sebenarnya kamu punya.",
+  "reversed": "Ikatan mengendur. Kesadaran adalah langkah pertama menuju kebebasan."
+ },
+ "major_16_tower": {
+  "name": "The Tower (Menara)",
+  "keywords": [
+   "guncangan",
+   "pengungkapan",
+   "mulai ulang"
+  ],
+  "upright": "Guncangan tiba-tiba mengungkap apa yang tidak kokoh. Lahan yang kosong memberi ruang untuk membangun kembali.",
+  "reversed": "Takut berubah atau masalah yang membara pelan-pelan. Hadapi, jangan menunggu."
+ },
+ "major_17_star": {
+  "name": "The Star (Bintang)",
+  "keywords": [
+   "harapan",
+   "pembaruan",
+   "ketenangan"
+  ],
+  "upright": "Setelah masa sulit, harapan yang lembut kembali. Beristirahatlah dan percayai pemulihan yang pelan.",
+  "reversed": "Ragu atau kurang motivasi. Bersikap baiklah pada diri sendiri dan jaga harapan-harapan kecil."
+ },
+ "major_18_moon": {
+  "name": "The Moon (Bulan)",
+  "keywords": [
+   "ketidakpastian",
+   "mimpi",
+   "intuisi"
+  ],
+  "upright": "Segalanya belum sepenuhnya jelas. Melangkahlah hati-hati dan perhatikan rasa takut serta nalurimu.",
+  "reversed": "Kebingungan mulai sirna, atau kecemasan yang perlu dipijakkan."
+ },
+ "major_19_sun": {
+  "name": "The Sun (Matahari)",
+  "keywords": [
+   "sukacita",
+   "vitalitas",
+   "kejelasan"
+  ],
+  "upright": "Kehangatan, percaya diri, dan keterbukaan. Nikmati apa yang berjalan baik.",
+  "reversed": "Semangat meredup atau ego berlebihan. Cari sumber cahaya kecil."
+ },
+ "major_20_judgement": {
+  "name": "Judgement (Penghakiman)",
+  "keywords": [
+   "renungan",
+   "pembaruan",
+   "panggilan"
+  ],
+  "upright": "Saat meninjau diri dengan jujur. Maafkan masa lalu dan jawab panggilan batinmu.",
+  "reversed": "Mengkritik diri atau menghindari keputusan yang perlu."
+ },
+ "major_21_world": {
+  "name": "The World (Dunia)",
+  "keywords": [
+   "penyelesaian",
+   "keutuhan",
+   "pencapaian"
+  ],
+  "upright": "Satu siklus selesai. Lihat seberapa jauh kamu sudah melangkah.",
+  "reversed": "Urusan yang belum tuntas atau akhir yang terasa jauh. Tinggal satu langkah lagi."
+ },
+ "wands_ace": {
+  "name": "As Tongkat",
+  "keywords": [
+   "percikan",
+   "inspirasi",
+   "energi baru"
+  ],
+  "upright": "Ledakan semangat dan kesempatan memulai sesuatu yang berani.",
+  "reversed": "Energi rendah atau awal yang salah. Rawat idenya sebelum terburu-buru."
+ },
+ "wands_two": {
+  "name": "Dua Tongkat",
+  "keywords": [
+   "perencanaan",
+   "pilihan",
+   "visi"
+  ],
+  "upright": "Kamu berdiri di tepi yang sudah dikenal. Tentukan ke mana kamu membidik.",
+  "reversed": "Takut meninggalkan zona nyaman, atau rencana yang hanya di atas kertas."
+ },
+ "wands_three": {
+  "name": "Tiga Tongkat",
+  "keywords": [
+   "wawasan ke depan",
+   "kemajuan",
+   "perluasan"
+  ],
+  "upright": "Usaha awal mulai bergerak. Pandang lebih jauh dan terus melangkah.",
+  "reversed": "Penundaan atau pandangan sempit. Perluas cakrawalamu."
+ },
+ "wands_four": {
+  "name": "Empat Tongkat",
+  "keywords": [
+   "perayaan",
+   "stabilitas",
+   "rumah"
+  ],
+  "upright": "Saat istirahat dan sukacita bersama setelah bekerja keras.",
+  "reversed": "Gelisah di rumah atau perayaan yang terasa hampa."
+ },
+ "wands_five": {
+  "name": "Lima Tongkat",
+  "keywords": [
+   "persaingan",
+   "gesekan",
+   "perdebatan"
+  ],
+  "upright": "Ide-ide yang berbenturan dan persaingan. Persaingan bisa mengasahmu jika tetap bersahabat.",
+  "reversed": "Menghindari konflik, atau ketegangan yang berbalik ke dalam."
+ },
+ "wands_six": {
+  "name": "Enam Tongkat",
+  "keywords": [
+   "pengakuan",
+   "kemajuan",
+   "percaya diri"
+  ],
+  "upright": "Keberhasilan yang dilihat orang atau dorongan percaya diri atas usahamu.",
+  "reversed": "Meragukan diri atau haus pujian. Ukur keberhasilan dengan caramu sendiri."
+ },
+ "wands_seven": {
+  "name": "Tujuh Tongkat",
+  "keywords": [
+   "pertahanan",
+   "ketekunan",
+   "bertahan teguh"
+  ],
+  "upright": "Kamu mempertahankan posisimu. Teguhlah pada apa yang kamu yakini.",
+  "reversed": "Merasa kewalahan atau menyerah terlalu cepat."
+ },
+ "wands_eight": {
+  "name": "Delapan Tongkat",
+  "keywords": [
+   "kecepatan",
+   "gerak",
+   "kabar"
+  ],
+  "upright": "Segalanya bergerak cepat. Bertindak segera dan jaga komunikasi tetap terbuka.",
+  "reversed": "Penundaan atau usaha yang tercerai-berai. Melambatlah untuk menata ulang."
+ },
+ "wands_nine": {
+  "name": "Sembilan Tongkat",
+  "keywords": [
+   "ketangguhan",
+   "batasan",
+   "dorongan terakhir"
+  ],
+  "upright": "Lelah tapi hampir sampai. Andalkan ketangguhanmu.",
+  "reversed": "Kelelahan berat atau keras kepala. Beristirahat mungkin lebih bijak daripada satu putaran lagi."
+ },
+ "wands_ten": {
+  "name": "Sepuluh Tongkat",
+  "keywords": [
+   "beban",
+   "tanggung jawab",
+   "kelebihan beban"
+  ],
+  "upright": "Kamu memikul banyak hal. Pikirkan apa yang bisa kamu letakkan.",
+  "reversed": "Melepaskan beban, atau kesulitan meminta bantuan."
+ },
+ "wands_page": {
+  "name": "Page Tongkat",
+  "keywords": [
+   "rasa ingin tahu",
+   "antusiasme",
+   "penjelajahan"
+  ],
+  "upright": "Pendatang baru yang bersemangat, ingin menjelajah dan mencoba ide.",
+  "reversed": "Tidak sabar atau proyek yang setengah jadi."
+ },
+ "wands_knight": {
+  "name": "Knight Tongkat",
+  "keywords": [
+   "petualangan",
+   "energi",
+   "dorongan hati"
+  ],
+  "upright": "Energi berani dan gelisah yang melaju ke depan.",
+  "reversed": "Gegabah atau frustrasi. Pikirkan sebelum melompat."
+ },
+ "wands_queen": {
+  "name": "Queen Tongkat",
+  "keywords": [
+   "kehangatan",
+   "percaya diri",
+   "karisma"
+  ],
+  "upright": "Percaya diri, ramah, dan penuh dorongan. Pimpin dengan menginspirasi.",
+  "reversed": "Rasa tidak aman atau cemburu. Sambungkan lagi dengan percikanmu sendiri."
+ },
+ "wands_king": {
+  "name": "King Tongkat",
+  "keywords": [
+   "visi",
+   "kepemimpinan",
+   "keberanian"
+  ],
+  "upright": "Pemimpin alami dengan visi yang jelas.",
+  "reversed": "Kepemimpinan yang mendominasi atau impulsif."
+ },
+ "cups_ace": {
+  "name": "As Cawan",
+  "keywords": [
+   "keterbukaan",
+   "perasaan baru",
+   "welas asih"
+  ],
+  "upright": "Hati yang terbuka. Sambut kebaikan dan pembaruan emosi.",
+  "reversed": "Perasaan yang ditahan. Izinkan dirimu merasakan."
+ },
+ "cups_two": {
+  "name": "Dua Cawan",
+  "keywords": [
+   "hubungan",
+   "kemitraan",
+   "saling menghormati"
+  ],
+  "upright": "Ikatan seimbang yang dibangun di atas rasa hormat dan perasaan bersama.",
+  "reversed": "Ketimpangan atau salah paham dalam hubungan."
+ },
+ "cups_three": {
+  "name": "Tiga Cawan",
+  "keywords": [
+   "persahabatan",
+   "perayaan",
+   "komunitas"
+  ],
+  "upright": "Sukacita yang dibagi bersama. Nikmati kebersamaan yang baik.",
+  "reversed": "Berlebihan, atau merasa ditinggalkan."
+ },
+ "cups_four": {
+  "name": "Empat Cawan",
+  "keywords": [
+   "apatis",
+   "perenungan",
+   "evaluasi ulang"
+  ],
+  "upright": "Bosan atau menarik diri. Tanyakan apa yang benar-benar kamu inginkan.",
+  "reversed": "Terbangun pada pilihan baru setelah masa yang hambar."
+ },
+ "cups_five": {
+  "name": "Lima Cawan",
+  "keywords": [
+   "kehilangan",
+   "penyesalan",
+   "duka"
+  ],
+  "upright": "Fokus pada yang hilang. Ingat bahwa beberapa cawan masih berdiri.",
+  "reversed": "Melangkah maju, memaafkan, dan perlahan berpaling pada yang tersisa."
+ },
+ "cups_six": {
+  "name": "Enam Cawan",
+  "keywords": [
+   "nostalgia",
+   "kepolosan",
+   "kebaikan"
+  ],
+  "upright": "Kenangan dan kemurahan hati yang lembut. Kunjungi masa lalu dengan hangat.",
+  "reversed": "Terjebak di masa lalu, atau menoleh ke belakang alih-alih ke depan."
+ },
+ "cups_seven": {
+  "name": "Tujuh Cawan",
+  "keywords": [
+   "lamunan",
+   "pilihan",
+   "ilusi"
+  ],
+  "upright": "Banyak kemungkinan dan sedikit khayalan. Pisahkan yang nyata dari yang dibayangkan.",
+  "reversed": "Kejelasan datang, atau pilihan yang membingungkan."
+ },
+ "cups_eight": {
+  "name": "Delapan Cawan",
+  "keywords": [
+   "pergi",
+   "mencari lebih",
+   "melangkah maju"
+  ],
+  "upright": "Meninggalkan yang tak lagi memuaskan untuk mencari makna.",
+  "reversed": "Hanyut tanpa arah, atau takut pergi."
+ },
+ "cups_nine": {
+  "name": "Sembilan Cawan",
+  "keywords": [
+   "kepuasan",
+   "rasa cukup",
+   "syukur"
+  ],
+  "upright": "Rasa terpenuhi. Hargai apa yang kamu miliki.",
+  "reversed": "Puas diri atau keinginan yang tak semenyenangkan dugaan."
+ },
+ "cups_ten": {
+  "name": "Sepuluh Cawan",
+  "keywords": [
+   "keharmonisan",
+   "keluarga",
+   "kebahagiaan"
+  ],
+  "upright": "Kebahagiaan emosional dan rasa memiliki.",
+  "reversed": "Ikatan yang tegang, atau nilai yang tak benar-benar sejalan."
+ },
+ "cups_page": {
+  "name": "Page Cawan",
+  "keywords": [
+   "kepekaan",
+   "imajinasi",
+   "keterbukaan"
+  ],
+  "upright": "Pesan yang lembut dan kreatif. Dengarkan perasaanmu.",
+  "reversed": "Suasana hati naik turun atau ketidakmatangan emosi."
+ },
+ "cups_knight": {
+  "name": "Knight Cawan",
+  "keywords": [
+   "romansa",
+   "pesona",
+   "idealisme"
+  ],
+  "upright": "Pemimpi yang mengikuti kata hati. Tawaran atau undangan mungkin datang.",
+  "reversed": "Gagasan yang tak realistis atau sinyal yang membingungkan."
+ },
+ "cups_queen": {
+  "name": "Queen Cawan",
+  "keywords": [
+   "empati",
+   "intuisi",
+   "kepedulian"
+  ],
+  "upright": "Sangat peduli dan intuitif. Jaga dirimu juga.",
+  "reversed": "Kewalahan secara emosi atau mengabaikan kebutuhan sendiri."
+ },
+ "cups_king": {
+  "name": "King Cawan",
+  "keywords": [
+   "keseimbangan emosi",
+   "diplomasi",
+   "ketenangan"
+  ],
+  "upright": "Dewasa, stabil, dan penuh welas asih. Tetap tenang di bawah tekanan.",
+  "reversed": "Perasaan yang dipendam atau suasana hati yang tersembunyi di balik ketenangan."
+ },
+ "swords_ace": {
+  "name": "As Pedang",
+  "keywords": [
+   "kejelasan",
+   "kebenaran",
+   "terobosan"
+  ],
+  "upright": "Gagasan yang jernih memotong kebingungan. Berpikir dan berbicaralah dengan lugas.",
+  "reversed": "Pikiran kusut atau kata-kata kasar."
+ },
+ "swords_two": {
+  "name": "Dua Pedang",
+  "keywords": [
+   "kebuntuan",
+   "kebimbangan",
+   "berjaga-jaga"
+  ],
+  "upright": "Pilihan sulit yang kamu hindari. Lepaskan penutup mata saat kamu siap.",
+  "reversed": "Informasi terungkap, atau kebimbangan berlarut-larut."
+ },
+ "swords_three": {
+  "name": "Tiga Pedang",
+  "keywords": [
+   "patah hati",
+   "kesedihan",
+   "kejujuran"
+  ],
+  "upright": "Kebenaran yang menyakitkan atau kesedihan. Akui agar bisa sembuh.",
+  "reversed": "Pemulihan dimulai, atau kamu masih menggenggam rasa sakit."
+ },
+ "swords_four": {
+  "name": "Empat Pedang",
+  "keywords": [
+   "istirahat",
+   "pemulihan",
+   "menyepi"
+  ],
+  "upright": "Berhenti dan isi ulang tenaga. Beristirahat itu produktif.",
+  "reversed": "Gelisah atau kembali bertindak terlalu cepat."
+ },
+ "swords_five": {
+  "name": "Lima Pedang",
+  "keywords": [
+   "konflik",
+   "ketegangan",
+   "kemenangan hampa"
+  ],
+  "upright": "Pertengkaran yang lebih banyak ruginya. Pilih pertarunganmu.",
+  "reversed": "Berdamai, atau dendam yang masih tersisa."
+ },
+ "swords_six": {
+  "name": "Enam Pedang",
+  "keywords": [
+   "peralihan",
+   "melangkah maju",
+   "air yang lebih tenang"
+  ],
+  "upright": "Menjauh perlahan dari masalah. Penyembuhan sedang berjalan.",
+  "reversed": "Menolak perubahan, atau beban yang belum selesai."
+ },
+ "swords_seven": {
+  "name": "Tujuh Pedang",
+  "keywords": [
+   "strategi",
+   "kerahasiaan",
+   "kehati-hatian"
+  ],
+  "upright": "Pikirkan baik-baik; cara yang licik menuntut kejujuran tentang harganya.",
+  "reversed": "Berterus terang, atau rencana yang berbalik merugikan."
+ },
+ "swords_eight": {
+  "name": "Delapan Pedang",
+  "keywords": [
+   "keterbatasan",
+   "ketakutan",
+   "merasa terjebak"
+  ],
+  "upright": "Kamu merasa terjebak, padahal pilihan mungkin lebih terbuka dari kelihatannya.",
+  "reversed": "Membebaskan diri dan kembali melihat pilihan."
+ },
+ "swords_nine": {
+  "name": "Sembilan Pedang",
+  "keywords": [
+   "kecemasan",
+   "kekhawatiran",
+   "malam tanpa tidur"
+  ],
+  "upright": "Kekhawatiran terasa sangat besar. Ceritakan kepada orang yang kamu percaya.",
+  "reversed": "Ketakutan mereda, atau kecemasan yang butuh dukungan."
+ },
+ "swords_ten": {
+  "name": "Sepuluh Pedang",
+  "keywords": [
+   "akhir",
+   "kelelahan",
+   "titik terendah"
+  ],
+  "upright": "Bab yang menyakitkan berakhir. Satu-satunya arah sekarang adalah maju.",
+  "reversed": "Pemulihan dimulai, atau kamu berpegang pada masa lalu."
+ },
+ "swords_page": {
+  "name": "Page Pedang",
+  "keywords": [
+   "rasa ingin tahu",
+   "kewaspadaan",
+   "gagasan"
+  ],
+  "upright": "Pikiran yang tajam dan ingin tahu. Ajukan pertanyaan dan kumpulkan fakta.",
+  "reversed": "Gosip, tergesa-gesa, atau pikiran yang berserakan."
+ },
+ "swords_knight": {
+  "name": "Knight Pedang",
+  "keywords": [
+   "ambisi",
+   "tergesa-gesa",
+   "keterusterangan"
+  ],
+  "upright": "Bersemangat dan cepat bertindak. Hati-hati dengan sikap ketus.",
+  "reversed": "Kehabisan tenaga, atau bertindak tanpa berpikir."
+ },
+ "swords_queen": {
+  "name": "Queen Pedang",
+  "keywords": [
+   "kejelasan",
+   "kemandirian",
+   "kejujuran"
+  ],
+  "upright": "Berpandangan jernih dan adil. Sampaikan kebenaran dengan baik.",
+  "reversed": "Dingin atau terlalu kritis."
+ },
+ "swords_king": {
+  "name": "King Pedang",
+  "keywords": [
+   "kecerdasan",
+   "otoritas",
+   "nalar"
+  ],
+  "upright": "Logis, berprinsip, dan tegas. Utamakan keadilan.",
+  "reversed": "Pemikiran kaku atau penyalahgunaan kekuasaan."
+ },
+ "pentacles_ace": {
+  "name": "As Pentakel",
+  "keywords": [
+   "peluang",
+   "kemakmuran",
+   "fondasi"
+  ],
+  "upright": "Benih peluang dalam pekerjaan atau uang. Tanam dengan cermat.",
+  "reversed": "Kesempatan yang terlewat atau perencanaan yang buruk."
+ },
+ "pentacles_two": {
+  "name": "Dua Pentakel",
+  "keywords": [
+   "keseimbangan",
+   "menyulap",
+   "daya adaptasi"
+  ],
+  "upright": "Menyeimbangkan prioritas dengan luwes. Jaga ritmemu.",
+  "reversed": "Terlalu banyak komitmen atau tidak teratur."
+ },
+ "pentacles_three": {
+  "name": "Tiga Pentakel",
+  "keywords": [
+   "kerja sama tim",
+   "keahlian",
+   "keterampilan"
+  ],
+  "upright": "Kolaborasi yang terampil. Pekerjaan bagus tumbuh lewat kerja sama.",
+  "reversed": "Kerja tim yang buruk atau hasil di bawah standarmu biasanya."
+ },
+ "pentacles_four": {
+  "name": "Empat Pentakel",
+  "keywords": [
+   "rasa aman",
+   "menabung",
+   "kendali"
+  ],
+  "upright": "Menggenggam apa yang kamu punya. Rasa aman itu baik; waspadai cengkeraman berlebihan.",
+  "reversed": "Kemurahan hati kembali, atau cengkeraman mengendur."
+ },
+ "pentacles_five": {
+  "name": "Lima Pentakel",
+  "keywords": [
+   "kesulitan",
+   "kekhawatiran",
+   "merasa tersisih"
+  ],
+  "upright": "Masa yang sulit. Bantuan ada jika kamu mengulurkan tangan.",
+  "reversed": "Pemulihan, atau menolak meminta dukungan."
+ },
+ "pentacles_six": {
+  "name": "Enam Pentakel",
+  "keywords": [
+   "kemurahan hati",
+   "berbagi",
+   "keadilan"
+  ],
+  "upright": "Memberi dan menerima dengan seimbang. Adil dalam membagi sumber daya.",
+  "reversed": "Bantuan bersyarat, atau pertukaran sepihak."
+ },
+ "pentacles_seven": {
+  "name": "Tujuh Pentakel",
+  "keywords": [
+   "kesabaran",
+   "penilaian",
+   "pandangan jangka panjang"
+  ],
+  "upright": "Berhenti sejenak untuk meninjau usahamu. Pertumbuhan butuh waktu.",
+  "reversed": "Tidak sabar atau meragukan kemajuanmu."
+ },
+ "pentacles_eight": {
+  "name": "Delapan Pentakel",
+  "keywords": [
+   "ketekunan",
+   "penguasaan",
+   "latihan"
+  ],
+  "upright": "Kerja yang mantap dan fokus membangun keterampilan.",
+  "reversed": "Perfeksionis atau pekerjaan berulang tanpa tujuan."
+ },
+ "pentacles_nine": {
+  "name": "Sembilan Pentakel",
+  "keywords": [
+   "kemandirian",
+   "kenyamanan",
+   "imbalan"
+  ],
+  "upright": "Nikmati apa yang telah dibangun oleh usahamu.",
+  "reversed": "Terlalu banyak bekerja, atau kenyamanan yang terasa hampa."
+ },
+ "pentacles_ten": {
+  "name": "Sepuluh Pentakel",
+  "keywords": [
+   "warisan",
+   "keluarga",
+   "keamanan jangka panjang"
+  ],
+  "upright": "Stabilitas jangka panjang, keluarga, dan kekayaan bersama.",
+  "reversed": "Gesekan keluarga atau pemikiran jangka pendek."
+ },
+ "pentacles_page": {
+  "name": "Page Pentakel",
+  "keywords": [
+   "belajar",
+   "ambisi",
+   "praktis"
+  ],
+  "upright": "Pelajar kehidupan yang rajin, bersemangat untuk belajar dan membangun.",
+  "reversed": "Menunda-nunda atau kurang fokus."
+ },
+ "pentacles_knight": {
+  "name": "Knight Pentakel",
+  "keywords": [
+   "keandalan",
+   "kegigihan",
+   "rutinitas"
+  ],
+  "upright": "Dapat diandalkan dan teliti. Pelan tapi pasti.",
+  "reversed": "Keras kepala, bosan, atau perfeksionis."
+ },
+ "pentacles_queen": {
+  "name": "Queen Pentakel",
+  "keywords": [
+   "merawat",
+   "praktis",
+   "banyak akal"
+  ],
+  "upright": "Hangat, praktis, dan murah hati. Ciptakan kenyamanan untuk dirimu dan orang lain.",
+  "reversed": "Mengabaikan diri atau terlalu mengekang."
+ },
+ "pentacles_king": {
+  "name": "King Pentakel",
+  "keywords": [
+   "kelimpahan",
+   "stabilitas",
+   "kepemimpinan"
+  ],
+  "upright": "Mapan, murah hati, dan aman. Pimpin dengan mantap.",
+  "reversed": "Serakah, keras kepala, atau lebih menghargai uang daripada orang."
+ }
+}

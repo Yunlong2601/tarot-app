@@ -1,0 +1,782 @@
+{
+ "major_00_fool": {
+  "name": "Deli",
+  "keywords": [
+   "başlangıçlar",
+   "kendiliğindenlik",
+   "güven"
+  ],
+  "upright": "Yeni bir başlangıç bir inanç sıçraması ister. Meraklı kal ve yeniye açık ol.",
+  "reversed": "Tereddüt ya da dikkatsizlik. Adım atmadan önce zemini kontrol et."
+ },
+ "major_01_magician": {
+  "name": "Büyücü",
+  "keywords": [
+   "beceri",
+   "odak",
+   "becerikli olmak"
+  ],
+  "upright": "İhtiyacın olan araçlar zaten elinde. Dikkatini topla ve niyetle harekete geç.",
+  "reversed": "Dağınık enerji ya da kullanılmayan yetenek. Odağını neyin engellediğini sor."
+ },
+ "major_02_high_priestess": {
+  "name": "Başrahibe",
+  "keywords": [
+   "sezgi",
+   "dinginlik",
+   "söylenmeyen"
+  ],
+  "upright": "Sessiz düşünmek, gürültünün veremeyeceği cevapları getirir. Yüzeyin altında hissettiğine güven.",
+  "reversed": "İç sesini duymazdan gelmek ya da kendinden bir şey saklamak."
+ },
+ "major_03_empress": {
+  "name": "İmparatoriçe",
+  "keywords": [
+   "besleme",
+   "bolluk",
+   "yaratıcılık"
+  ],
+  "upright": "İlgi, rahatlık ve büyüme yakında. Sevdiğin şeye özen göster ve serpilmesine izin ver.",
+  "reversed": "Boğucu ilgi, kendini ihmal etmek ya da yaratıcı tıkanıklık."
+ },
+ "major_04_emperor": {
+  "name": "İmparator",
+  "keywords": [
+   "düzen",
+   "otorite",
+   "istikrar"
+  ],
+  "upright": "Net sınırlar ve istikrarlı planlama sağlam bir temel kurar. Sakinlikle yönet.",
+  "reversed": "Katılık ya da kontrol. Kararlılığın nerede inatçılığa dönüştüğünü sor."
+ },
+ "major_05_hierophant": {
+  "name": "Aziz",
+  "keywords": [
+   "gelenek",
+   "rehberlik",
+   "aidiyet"
+  ],
+  "upright": "Yerleşik bilgelikten ya da bir topluluktan öğrenmek seni dengeleyebilir.",
+  "reversed": "Artık uymayan kuralları sorgulamak. Anlama giden kendi yolunu bul."
+ },
+ "major_06_lovers": {
+  "name": "Âşıklar",
+  "keywords": [
+   "seçim",
+   "bağ",
+   "uyum"
+  ],
+  "upright": "Değerlerini yansıtan önemli bir seçim ya da dürüstlük isteyen bir bağ.",
+  "reversed": "Uyumsuzluk ya da kararsızlık. Davranışlarının değerlerinle örtüşüp örtüşmediğine bak."
+ },
+ "major_07_chariot": {
+  "name": "Savaş Arabası",
+  "keywords": [
+   "kararlılık",
+   "itici güç",
+   "yön"
+  ],
+  "upright": "İrade ve odak seni ileri taşır. Dizginleri sıkı tut.",
+  "reversed": "Yönünü kaybetmek ya da plansızca fazla zorlamak."
+ },
+ "major_08_strength": {
+  "name": "Güç",
+  "keywords": [
+   "cesaret",
+   "sabır",
+   "şefkat"
+  ],
+  "upright": "Sessiz cesaret ve yumuşaklık, zorun başaramadığını başarır.",
+  "reversed": "Kendinden şüphe ya da tükenmişlik. Güvenini küçük adımlarla yeniden kur."
+ },
+ "major_09_hermit": {
+  "name": "Ermiş",
+  "keywords": [
+   "yalnızlık",
+   "iç gözlem",
+   "içsel rehberlik"
+  ],
+  "upright": "Düşünmek için bir adım geri çekil. Yalnız geçen zaman neyin önemli olduğunu gösterebilir.",
+  "reversed": "Yalıtılmışlık ya da düşünmekten kaçmak. Yalnızlıkla bağlantı arasında denge kur."
+ },
+ "major_10_wheel_of_fortune": {
+  "name": "Kader Çarkı",
+  "keywords": [
+   "döngüler",
+   "değişim",
+   "bakış açısı"
+  ],
+  "upright": "Her şey döngüler halinde döner. Değişime uyum sağla ve sunduklarına bak.",
+  "reversed": "Değişime direnmek ya da bir kısır döngüde sıkışmış hissetmek. Etkileyebileceğin şeyleri ara."
+ },
+ "major_11_justice": {
+  "name": "Adalet",
+  "keywords": [
+   "hakkaniyet",
+   "gerçek",
+   "sorumluluk"
+  ],
+  "upright": "Gerçekleri dürüstçe tart. Net ve adil seçimler denge getirir.",
+  "reversed": "Önyargı, sorumluluktan kaçmak ya da dengesiz bir bakış."
+ },
+ "major_12_hanged_man": {
+  "name": "Asılan Adam",
+  "keywords": [
+   "duraklama",
+   "teslimiyet",
+   "yeni açı"
+  ],
+  "upright": "Durup farklı bakmak, tıkanmış bir durumu çözebilir.",
+  "reversed": "Amaçsızca oyalanmak. Beklemenin hâlâ işe yarayıp yaramadığını sor."
+ },
+ "major_13_death": {
+  "name": "Ölüm",
+  "keywords": [
+   "sonlar",
+   "geçiş",
+   "bırakmak"
+  ],
+  "upright": "Bir bölüm kapanır ki bir diğeri başlayabilsin. Ömrünü tamamlamış olanı bırak.",
+  "reversed": "Geçmişe tutunmak ya da gerekli bir değişimden korkmak."
+ },
+ "major_14_temperance": {
+  "name": "Denge",
+  "keywords": [
+   "denge",
+   "sabır",
+   "ölçülülük"
+  ],
+  "upright": "Zıt ihtiyaçları sabırla harmanla. İstikrarlı, ölçülü adımlar en iyisidir.",
+  "reversed": "Aşırılık ya da sabırsızlık. Dengenin nerede bozulduğuna bak."
+ },
+ "major_15_devil": {
+  "name": "Şeytan",
+  "keywords": [
+   "bağımlılık",
+   "alışkanlık",
+   "gölge"
+  ],
+  "upright": "Seni neyin tuttuğunu fark et; bir alışkanlık, bir inanç ya da bir bağımlılık. Ve gerçekte ne kadar seçeneğin olduğunu.",
+  "reversed": "Bağların gevşemesi. Farkındalık özgürlüğe giden ilk adımdır."
+ },
+ "major_16_tower": {
+  "name": "Kule",
+  "keywords": [
+   "altüst oluş",
+   "ifşa",
+   "yeniden başlama"
+  ],
+  "upright": "Ani bir sarsıntı, sağlam olmayanı ortaya çıkarır. Boşalan zemin yeniden inşa için yer açar.",
+  "reversed": "Değişim korkusu ya da için için büyüyen bir sorun. Beklemek yerine yüzleş."
+ },
+ "major_17_star": {
+  "name": "Yıldız",
+  "keywords": [
+   "umut",
+   "yenilenme",
+   "huzur"
+  ],
+  "upright": "Zor bir dönemin ardından yumuşak bir umut geri gelir. Dinlen ve yavaş iyileşmeye güven.",
+  "reversed": "Şüphe ya da düşük motivasyon. Kendine nazik ol ve küçük umutları canlı tut."
+ },
+ "major_18_moon": {
+  "name": "Ay",
+  "keywords": [
+   "belirsizlik",
+   "rüyalar",
+   "sezgi"
+  ],
+  "upright": "Her şey henüz tam net değil. Dikkatle ilerle, korkularını ve içgüdülerini fark et.",
+  "reversed": "Kafa karışıklığı dağılıyor ya da ayağı yere basması gereken bir kaygı."
+ },
+ "major_19_sun": {
+  "name": "Güneş",
+  "keywords": [
+   "neşe",
+   "canlılık",
+   "netlik"
+  ],
+  "upright": "Sıcaklık, özgüven ve açıklık. İyi giden şeylerin tadını çıkar.",
+  "reversed": "Sönen heves ya da fazla ego. Küçük ışık kaynakları ara."
+ },
+ "major_20_judgement": {
+  "name": "Mahkeme",
+  "keywords": [
+   "değerlendirme",
+   "yenilenme",
+   "çağrı"
+  ],
+  "upright": "Dürüst bir değerlendirme anı. Geçmişi affet ve içindeki çağrıya cevap ver.",
+  "reversed": "Öz eleştiri ya da gerekli bir karardan kaçmak."
+ },
+ "major_21_world": {
+  "name": "Dünya",
+  "keywords": [
+   "tamamlanma",
+   "bütünlük",
+   "başarı"
+  ],
+  "upright": "Bir döngü tamamlanıyor. Ne kadar yol aldığını gör.",
+  "reversed": "Yarım kalan işler ya da ulaşılamaz görünen bir son. Son bir adım kaldı."
+ },
+ "wands_ace": {
+  "name": "Değnek Ası",
+  "keywords": [
+   "kıvılcım",
+   "ilham",
+   "yeni enerji"
+  ],
+  "upright": "Bir heves dalgası ve cesur bir şeye başlama fırsatı.",
+  "reversed": "Düşük enerji ya da yanlış bir başlangıç. Acele etmeden önce fikri besle."
+ },
+ "wands_two": {
+  "name": "Değnek İkilisi",
+  "keywords": [
+   "planlama",
+   "seçenekler",
+   "vizyon"
+  ],
+  "upright": "Bildiğin yerin kıyısında duruyorsun. Nereyi hedefleyeceğine karar ver.",
+  "reversed": "Konfor alanından çıkma korkusu ya da kâğıtta kalan planlar."
+ },
+ "wands_three": {
+  "name": "Değnek Üçlüsü",
+  "keywords": [
+   "öngörü",
+   "ilerleme",
+   "genişleme"
+  ],
+  "upright": "İlk çabalar ilerliyor. Daha uzağa bak ve devam et.",
+  "reversed": "Gecikmeler ya da dar bakış. Ufkunu genişlet."
+ },
+ "wands_four": {
+  "name": "Değnek Dörtlüsü",
+  "keywords": [
+   "kutlama",
+   "istikrar",
+   "yuva"
+  ],
+  "upright": "Emekten sonra bir dinlenme ve paylaşılan neşe anı.",
+  "reversed": "Evde huzursuzluk ya da içi boş gelen bir kutlama."
+ },
+ "wands_five": {
+  "name": "Değnek Beşlisi",
+  "keywords": [
+   "rekabet",
+   "sürtüşme",
+   "tartışma"
+  ],
+  "upright": "Çatışan fikirler ve rekabet. Dostça kaldıkça rekabet seni bileyebilir.",
+  "reversed": "Çatışmadan kaçmak ya da içe dönen gerginlik."
+ },
+ "wands_six": {
+  "name": "Değnek Altılısı",
+  "keywords": [
+   "takdir",
+   "ilerleme",
+   "özgüven"
+  ],
+  "upright": "Herkesin gördüğü bir başarı ya da çabana karşı artan özgüven.",
+  "reversed": "Kendinden şüphe ya da övgü açlığı. Başarıyı kendi ölçülerinle değerlendir."
+ },
+ "wands_seven": {
+  "name": "Değnek Yedilisi",
+  "keywords": [
+   "savunma",
+   "azim",
+   "yerinde durmak"
+  ],
+  "upright": "Yerini koruyorsun. İnandığın şeyde sağlam dur.",
+  "reversed": "Bunalmış hissetmek ya da çok erken pes etmek."
+ },
+ "wands_eight": {
+  "name": "Değnek Sekizlisi",
+  "keywords": [
+   "hız",
+   "hareket",
+   "haberler"
+  ],
+  "upright": "İşler hızlı ilerliyor. Çabuk davran ve iletişimi açık tut.",
+  "reversed": "Gecikmeler ya da dağınık çaba. Toparlanmak için yavaşla."
+ },
+ "wands_nine": {
+  "name": "Değnek Dokuzlusu",
+  "keywords": [
+   "dayanıklılık",
+   "sınırlar",
+   "son hamle"
+  ],
+  "upright": "Yorgunsun ama neredeyse vardın. Dayanıklılığına güven.",
+  "reversed": "Tükenmişlik ya da inat. Bir tur daha yerine dinlenmek daha akıllıca olabilir."
+ },
+ "wands_ten": {
+  "name": "Değnek Onlusu",
+  "keywords": [
+   "yük",
+   "sorumluluk",
+   "aşırı yüklenme"
+  ],
+  "upright": "Çok şey taşıyorsun. Neyi bırakabileceğini düşün.",
+  "reversed": "Bir yükü bırakmak ya da yardım istemekte zorlanmak."
+ },
+ "wands_page": {
+  "name": "Değnek Prensi",
+  "keywords": [
+   "merak",
+   "heves",
+   "keşif"
+  ],
+  "upright": "Keşfetmeye ve fikirleri denemeye hevesli, enerjik bir yeni gelen.",
+  "reversed": "Sabırsızlık ya da yarım kalmış projeler."
+ },
+ "wands_knight": {
+  "name": "Değnek Şövalyesi",
+  "keywords": [
+   "macera",
+   "enerji",
+   "dürtü"
+  ],
+  "upright": "İleri atılan cesur, yerinde duramayan bir enerji.",
+  "reversed": "Pervasızlık ya da hayal kırıklığı. Atlamadan önce düşün."
+ },
+ "wands_queen": {
+  "name": "Değnek Kraliçesi",
+  "keywords": [
+   "sıcaklık",
+   "özgüven",
+   "karizma"
+  ],
+  "upright": "Kendinden emin, sıcak ve azimli. İlham vererek yönet.",
+  "reversed": "Güvensizlik ya da kıskançlık. Kendi kıvılcımınla yeniden bağ kur."
+ },
+ "wands_king": {
+  "name": "Değnek Kralı",
+  "keywords": [
+   "vizyon",
+   "liderlik",
+   "cesaret"
+  ],
+  "upright": "Net bir vizyona sahip doğuştan bir lider.",
+  "reversed": "Baskıcı ya da düşüncesiz liderlik."
+ },
+ "cups_ace": {
+  "name": "Kupa Ası",
+  "keywords": [
+   "açıklık",
+   "yeni duygular",
+   "şefkat"
+  ],
+  "upright": "Kalp açılıyor. İyiliği ve duygusal yenilenmeyi kabul et.",
+  "reversed": "Bastırılan duygular. Hissetmene izin ver."
+ },
+ "cups_two": {
+  "name": "Kupa İkilisi",
+  "keywords": [
+   "bağ",
+   "ortaklık",
+   "karşılıklı saygı"
+  ],
+  "upright": "Saygı ve paylaşılan duygu üzerine kurulu dengeli bir bağ.",
+  "reversed": "İlişkide dengesizlik ya da yanlış anlaşılma."
+ },
+ "cups_three": {
+  "name": "Kupa Üçlüsü",
+  "keywords": [
+   "dostluk",
+   "kutlama",
+   "topluluk"
+  ],
+  "upright": "Başkalarıyla paylaşılan neşe. İyi arkadaşlığın tadını çıkar.",
+  "reversed": "Aşırıya kaçmak ya da dışlanmış hissetmek."
+ },
+ "cups_four": {
+  "name": "Kupa Dörtlüsü",
+  "keywords": [
+   "ilgisizlik",
+   "derin düşünme",
+   "yeniden değerlendirme"
+  ],
+  "upright": "Can sıkıntısı ya da içe kapanma. Gerçekten ne istediğini sor.",
+  "reversed": "Durgun bir dönemden sonra yeni seçeneklere uyanmak."
+ },
+ "cups_five": {
+  "name": "Kupa Beşlisi",
+  "keywords": [
+   "kayıp",
+   "pişmanlık",
+   "yas"
+  ],
+  "upright": "Odak kaybedilende. Hâlâ ayakta duran kupalar olduğunu hatırla.",
+  "reversed": "İlerlemek, affetmek ve yavaş yavaş kalana dönmek."
+ },
+ "cups_six": {
+  "name": "Kupa Altılısı",
+  "keywords": [
+   "nostalji",
+   "masumiyet",
+   "iyilik"
+  ],
+  "upright": "Anılar ve yumuşak bir cömertlik. Geçmişe sıcaklıkla bak.",
+  "reversed": "Geçmişte takılı kalmak ya da ileri yerine geriye bakmak."
+ },
+ "cups_seven": {
+  "name": "Kupa Yedilisi",
+  "keywords": [
+   "hayaller",
+   "seçenekler",
+   "yanılsama"
+  ],
+  "upright": "Pek çok olasılık ve biraz hayal. Gerçeği hayal edilenden ayır.",
+  "reversed": "Netlik geliyor ya da bunaltan seçenekler."
+ },
+ "cups_eight": {
+  "name": "Kupa Sekizlisi",
+  "keywords": [
+   "ayrılmak",
+   "daha fazlasını aramak",
+   "yola devam"
+  ],
+  "upright": "Artık tatmin etmeyen bir şeyi anlam aramak için geride bırakmak.",
+  "reversed": "Amaçsızca sürüklenmek ya da gitme korkusu."
+ },
+ "cups_nine": {
+  "name": "Kupa Dokuzlusu",
+  "keywords": [
+   "hoşnutluk",
+   "memnuniyet",
+   "şükran"
+  ],
+  "upright": "Bir doyum hissi. Sahip olduklarının kıymetini bil.",
+  "reversed": "Kendini beğenmişlik ya da beklendiği kadar tatmin etmeyen bir dilek."
+ },
+ "cups_ten": {
+  "name": "Kupa Onlusu",
+  "keywords": [
+   "uyum",
+   "aile",
+   "doyum"
+  ],
+  "upright": "Duygusal doyum ve aidiyet duygusu.",
+  "reversed": "Gerilen bağlar ya da tam örtüşmeyen değerler."
+ },
+ "cups_page": {
+  "name": "Kupa Prensi",
+  "keywords": [
+   "duyarlılık",
+   "hayal gücü",
+   "açıklık"
+  ],
+  "upright": "Yumuşak, yaratıcı bir mesaj. Duygularını dinle.",
+  "reversed": "Ruh hali değişkenliği ya da duygusal olgunlaşmamışlık."
+ },
+ "cups_knight": {
+  "name": "Kupa Şövalyesi",
+  "keywords": [
+   "romantizm",
+   "çekicilik",
+   "idealizm"
+  ],
+  "upright": "Kalbinin peşinden giden bir hayalperest. Teklifler ya da davetler gelebilir.",
+  "reversed": "Gerçekçi olmayan fikirler ya da karışık sinyaller."
+ },
+ "cups_queen": {
+  "name": "Kupa Kraliçesi",
+  "keywords": [
+   "empati",
+   "sezgi",
+   "özen"
+  ],
+  "upright": "Derinden şefkatli ve sezgili. Kendine de iyi bak.",
+  "reversed": "Duygusal bunalma ya da kendi ihtiyaçlarını ihmal etmek."
+ },
+ "cups_king": {
+  "name": "Kupa Kralı",
+  "keywords": [
+   "duygusal denge",
+   "diplomasi",
+   "sakinlik"
+  ],
+  "upright": "Olgun, istikrarlı ve şefkatli. Baskı altında sakin kal.",
+  "reversed": "Bastırılmış duygular ya da soğukkanlılığın ardındaki dalgalanmalar."
+ },
+ "swords_ace": {
+  "name": "Kılıç Ası",
+  "keywords": [
+   "netlik",
+   "gerçek",
+   "atılım"
+  ],
+  "upright": "Net bir fikir karmaşayı yarar. Açıkça düşün ve konuş.",
+  "reversed": "Bulanık düşünce ya da sert sözler."
+ },
+ "swords_two": {
+  "name": "Kılıç İkilisi",
+  "keywords": [
+   "çıkmaz",
+   "kararsızlık",
+   "temkinli"
+  ],
+  "upright": "Kaçındığın zor bir seçim. Hazır olduğunda göz bağını çıkar.",
+  "reversed": "Bilgiler gün yüzüne çıkıyor ya da kararsızlık uzuyor."
+ },
+ "swords_three": {
+  "name": "Kılıç Üçlüsü",
+  "keywords": [
+   "kalp acısı",
+   "keder",
+   "dürüstlük"
+  ],
+  "upright": "Acı bir gerçek ya da hüzün. İyileşebilmesi için kabul et.",
+  "reversed": "İyileşme başlıyor ya da acıya tutunuyorsun."
+ },
+ "swords_four": {
+  "name": "Kılıç Dörtlüsü",
+  "keywords": [
+   "dinlenme",
+   "toparlanma",
+   "geri çekilme"
+  ],
+  "upright": "Dur ve şarj ol. Dinlenmek de verimliliktir.",
+  "reversed": "Huzursuzluk ya da eyleme çok erken dönmek."
+ },
+ "swords_five": {
+  "name": "Kılıç Beşlisi",
+  "keywords": [
+   "çatışma",
+   "gerginlik",
+   "boş zaferler"
+  ],
+  "upright": "Kazandırdığından fazlasını kaybettiren bir kavga. Savaşlarını seç.",
+  "reversed": "Barışmak ya da süren bir kırgınlık."
+ },
+ "swords_six": {
+  "name": "Kılıç Altılısı",
+  "keywords": [
+   "geçiş",
+   "yola devam",
+   "sakin sular"
+  ],
+  "upright": "Sorunlardan yavaş bir uzaklaşma. İyileşme sürüyor.",
+  "reversed": "Değişime direnç ya da çözülmemiş yükler."
+ },
+ "swords_seven": {
+  "name": "Kılıç Yedilisi",
+  "keywords": [
+   "strateji",
+   "gizlilik",
+   "temkin"
+  ],
+  "upright": "Dikkatle düşün; kurnaz bir yol, bedeli konusunda dürüstlük ister.",
+  "reversed": "İtiraf etmek ya da geri tepen bir plan."
+ },
+ "swords_eight": {
+  "name": "Kılıç Sekizlisi",
+  "keywords": [
+   "kısıtlama",
+   "korku",
+   "kapana kısılmışlık"
+  ],
+  "upright": "Sıkışmış hissediyorsun ama seçenekler göründüğünden daha açık olabilir.",
+  "reversed": "Kendini özgür bırakmak ve seçenekleri yeniden görmek."
+ },
+ "swords_nine": {
+  "name": "Kılıç Dokuzlusu",
+  "keywords": [
+   "kaygı",
+   "endişe",
+   "uykusuz geceler"
+  ],
+  "upright": "Endişe çok büyük görünüyor. Güvendiğin biriyle paylaş.",
+  "reversed": "Korkular hafifliyor ya da destek gerektiren bir kaygı."
+ },
+ "swords_ten": {
+  "name": "Kılıç Onlusu",
+  "keywords": [
+   "sonlar",
+   "bitkinlik",
+   "dip noktası"
+  ],
+  "upright": "Acı bir bölüm sona eriyor. Artık tek yön ileri.",
+  "reversed": "Toparlanma başlıyor ya da geçmişe tutunuyorsun."
+ },
+ "swords_page": {
+  "name": "Kılıç Prensi",
+  "keywords": [
+   "merak",
+   "uyanıklık",
+   "fikirler"
+  ],
+  "upright": "Keskin, sorgulayan bir zihin. Soru sor ve gerçekleri topla.",
+  "reversed": "Dedikodu, acelecilik ya da dağınık düşünceler."
+ },
+ "swords_knight": {
+  "name": "Kılıç Şövalyesi",
+  "keywords": [
+   "hırs",
+   "acelecilik",
+   "dobralık"
+  ],
+  "upright": "Azimli ve hızlı harekete geçen. Sertliğe dikkat et.",
+  "reversed": "Tükenmek ya da düşünmeden davranmak."
+ },
+ "swords_queen": {
+  "name": "Kılıç Kraliçesi",
+  "keywords": [
+   "netlik",
+   "bağımsızlık",
+   "dürüstlük"
+  ],
+  "upright": "Berrak bakışlı ve adil. Gerçeği nazikçe söyle.",
+  "reversed": "Soğukluk ya da aşırı eleştiri."
+ },
+ "swords_king": {
+  "name": "Kılıç Kralı",
+  "keywords": [
+   "zekâ",
+   "otorite",
+   "akıl"
+  ],
+  "upright": "Mantıklı, ilkeli ve kararlı. Adaleti ara.",
+  "reversed": "Katı düşünce ya da gücün kötüye kullanılması."
+ },
+ "pentacles_ace": {
+  "name": "Tılsım Ası",
+  "keywords": [
+   "fırsat",
+   "refah",
+   "temeller"
+  ],
+  "upright": "İşte ya da parada bir fırsat tohumu. Özenle ek.",
+  "reversed": "Kaçırılmış bir fırsat ya da kötü planlama."
+ },
+ "pentacles_two": {
+  "name": "Tılsım İkilisi",
+  "keywords": [
+   "denge",
+   "hokkabazlık",
+   "uyum yeteneği"
+  ],
+  "upright": "Öncelikleri esneklikle idare etmek. Ritmini koru.",
+  "reversed": "Fazla sorumluluk almak ya da dağınıklık."
+ },
+ "pentacles_three": {
+  "name": "Tılsım Üçlüsü",
+  "keywords": [
+   "ekip çalışması",
+   "zanaat",
+   "beceri"
+  ],
+  "upright": "Ustaca bir iş birliği. İyi iş, birlikte çalışarak büyür.",
+  "reversed": "Zayıf ekip çalışması ya da her zamanki seviyenin altında iş."
+ },
+ "pentacles_four": {
+  "name": "Tılsım Dörtlüsü",
+  "keywords": [
+   "güvenlik",
+   "birikim",
+   "kontrol"
+  ],
+  "upright": "Sahip olduğuna sıkı tutunuyorsun. Güvenlik iyidir; aşırı yapışmaya dikkat et.",
+  "reversed": "Cömertlik geri dönüyor ya da sıkı tutuş gevşiyor."
+ },
+ "pentacles_five": {
+  "name": "Tılsım Beşlisi",
+  "keywords": [
+   "zorluk",
+   "endişe",
+   "dışlanmışlık"
+  ],
+  "upright": "Kıt bir dönem. Elini uzatırsan yardım var.",
+  "reversed": "Toparlanma ya da destek istemeyi reddetmek."
+ },
+ "pentacles_six": {
+  "name": "Tılsım Altılısı",
+  "keywords": [
+   "cömertlik",
+   "paylaşım",
+   "hakkaniyet"
+  ],
+  "upright": "Vermek ve almak dengede. Kaynaklarla adil ol.",
+  "reversed": "Şarta bağlı yardım ya da tek taraflı bir alışveriş."
+ },
+ "pentacles_seven": {
+  "name": "Tılsım Yedilisi",
+  "keywords": [
+   "sabır",
+   "değerlendirme",
+   "uzun vade"
+  ],
+  "upright": "Çabalarını gözden geçirmek için dur. Büyüme zaman alır.",
+  "reversed": "Sabırsızlık ya da ilerlemenden şüphe etmek."
+ },
+ "pentacles_eight": {
+  "name": "Tılsım Sekizlisi",
+  "keywords": [
+   "çalışkanlık",
+   "ustalık",
+   "pratik"
+  ],
+  "upright": "İstikrarlı, odaklı çalışma beceri kazandırır.",
+  "reversed": "Mükemmeliyetçilik ya da amaçsız tekrar."
+ },
+ "pentacles_nine": {
+  "name": "Tılsım Dokuzlusu",
+  "keywords": [
+   "kendine yetme",
+   "konfor",
+   "ödül"
+  ],
+  "upright": "Emeğinin kurduğu şeyin tadını çıkar.",
+  "reversed": "Aşırı çalışmak ya da boş gelen bir konfor."
+ },
+ "pentacles_ten": {
+  "name": "Tılsım Onlusu",
+  "keywords": [
+   "miras",
+   "aile",
+   "kalıcı güvence"
+  ],
+  "upright": "Uzun vadeli istikrar, aile ve paylaşılan zenginlik.",
+  "reversed": "Aile içi sürtüşme ya da kısa vadeli düşünce."
+ },
+ "pentacles_page": {
+  "name": "Tılsım Prensi",
+  "keywords": [
+   "öğrenme",
+   "hırs",
+   "pratiklik"
+  ],
+  "upright": "Öğrenmeye ve inşa etmeye hevesli, çalışkan bir hayat öğrencisi.",
+  "reversed": "Erteleme ya da odak eksikliği."
+ },
+ "pentacles_knight": {
+  "name": "Tılsım Şövalyesi",
+  "keywords": [
+   "güvenilirlik",
+   "azim",
+   "rutin"
+  ],
+  "upright": "Güvenilir ve titiz. Yavaş ve istikrarlı olan kazanır.",
+  "reversed": "İnat, sıkılma ya da mükemmeliyetçilik."
+ },
+ "pentacles_queen": {
+  "name": "Tılsım Kraliçesi",
+  "keywords": [
+   "besleme",
+   "pratiklik",
+   "becerikli olmak"
+  ],
+  "upright": "Sıcak, pratik ve cömert. Kendin ve başkaları için rahatlık yarat.",
+  "reversed": "Kendini ihmal etmek ya da boğucu ilgi."
+ },
+ "pentacles_king": {
+  "name": "Tılsım Kralı",
+  "keywords": [
+   "bolluk",
+   "istikrar",
+   "liderlik"
+  ],
+  "upright": "Yerleşik, cömert ve güvende. İstikrarla yönet.",
+  "reversed": "Açgözlülük, inat ya da parayı insanlardan üstün tutmak."
+ }
+}
