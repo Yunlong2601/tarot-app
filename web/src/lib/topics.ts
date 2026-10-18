@@ -59,3 +59,12 @@ export const TOPICS: Topic[] = [
     spreads: ["three_hhh", "growth_shadow_light", "horseshoe"],
   },
 ];
+
+/** The card pictured on each topic's tile and page. */
+export const TOPIC_ART: Record<string, string> = {
+  love: "major_06_lovers",
+  career: "pentacles_eight",
+  daily: "major_19_sun",
+  choices: "swords_two",
+  growth: "major_09_hermit",
+};

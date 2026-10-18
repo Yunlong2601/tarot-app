@@ -1,7 +1,7 @@
 ---
 import Base from "../../layouts/Base.astro";
 import { BASE } from "../../config.ts";
-import { SPREADS, plural, slug, spreadIds, titleCase } from "../../lib/data.ts";
+import { APP_SPREADS, SPREADS, plural, slug, spreadIds, titleCase } from "../../lib/data.ts";
 
 const cats = ["classics", "love", "career", "growth"];
 ---
@@ -9,20 +9,30 @@ const cats = ["classics", "love", "career", "growth"];
   title="Tarot spreads: layouts and what each position means · ShenTarot"
   description="Tarot spreads for love, career, decisions and yes or no questions, with every position explained."
   path="spreads"
+  crumbs={[["Spreads", "spreads"]]}
 >
-  <h1>Tarot spreads</h1>
-  <p class="muted">What each spread is for and what each position means.</p>
+  <header class="page-head center">
+    <p class="eyebrow">Layouts</p>
+    <h1>Tarot spreads</h1>
+    <p class="lead">What each spread is for and what every position means, from one card to the Celtic Cross.</p>
+  </header>
+  <nav class="pills" style="justify-content:center" aria-label="Categories">
+    {cats.map((cat) => <a href={`#${cat}`}>{titleCase(cat)}</a>)}
+  </nav>
   {cats.map((cat) => (
-    <>
-      <h2>{titleCase(cat)}</h2>
-      <ul>
+    <section>
+      <h2 class="group-title" id={cat}>{titleCase(cat)}</h2>
+      <div class="grid-3">
         {spreadIds.filter((id) => SPREADS[id].category === cat).map((id) => (
-          <li>
-            <a href={`${BASE}spreads/${slug(id)}`}>{SPREADS[id].name}</a>{" "}
-            <span class="muted">({plural(SPREADS[id].positions.length, "card")})</span>
-          </li>
+          <a class="panel spread-card" href={`${BASE}spreads/${slug(id)}`}>
+            <div class="layout" aria-hidden="true">{SPREADS[id].positions.map(() => <i />)}</div>
+            <p class="count">{plural(SPREADS[id].positions.length, "card")}</p>
+            <h3>{SPREADS[id].name}</h3>
+            <p>{APP_SPREADS[id].blurb}</p>
+            <span class="link-arrow">See the positions</span>
+          </a>
         ))}
-      </ul>
-    </>
+      </div>
+    </section>
   ))}
 </Base>
