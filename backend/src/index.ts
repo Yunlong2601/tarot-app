@@ -144,6 +144,14 @@ export async function checkAppAttest(
   }
 }
 
+/** Free AI readings a day without Premium: fewer for guests, to encourage
+ * sign-in, but only once sign-in is offered (otherwise guests keep the full amount). */
+export const GUEST_READINGS_PER_DAY = 1;
+export function freeReadingsFor(env: Env, accountId: string | null | undefined): number {
+  const signInOffered = !!(env.APPLE_CLIENT_IDS || env.GOOGLE_CLIENT_IDS);
+  return accountId || !signInOffered ? FREE_READINGS_PER_DAY : GUEST_READINGS_PER_DAY;
+}
+
 /** The owner's release-test key (QA_TOKEN secret, at least 24 characters). */
 export const isQa = (env: Env, header: string | undefined): boolean =>
   !!env.QA_TOKEN && env.QA_TOKEN.length >= 24 && !!header && safeEqual(header, env.QA_TOKEN);
@@ -235,10 +243,10 @@ export function createApp(deps: Deps = defaultDeps) {
     await store.add(who.usageKey, REFERRAL_CREDITS, `ref-friend:${who.usageKey}`, "referral");
     if (won.rewardReferrer) await store.add(won.referrerKey, REFERRAL_CREDITS, `ref-referrer:${who.usageKey}`, "referral");
   };
-  const charge = async (who: { appUserId: string; usageKey: string }, env: Env, premium: boolean, usage: UsageStore, day: string, now: number): Promise<Charge> => {
+  const charge = async (who: { appUserId: string; usageKey: string; accountId?: string | null }, env: Env, premium: boolean, usage: UsageStore, day: string, now: number): Promise<Charge> => {
     const used = await spentToday(usage, who.usageKey, day);
     if (!walletOn(env)) {
-      const limit = premium ? DAILY_SPEND_GUARD : FREE_READINGS_PER_DAY;
+      const limit = premium ? DAILY_SPEND_GUARD : freeReadingsFor(env, who.accountId);
       return used < limit ? { ok: true, lot: null } : { ok: false, limit };
     }
     if (used >= DAILY_SPEND_GUARD) return { ok: false, limit: DAILY_SPEND_GUARD };
@@ -375,7 +383,7 @@ export function createApp(deps: Deps = defaultDeps) {
     // The owner's release test (scripts/quality-check.mjs) is not charged.
     if (!user.target && !isQa(c.env, c.req.header("x-qa-token"))) {
       const paid = await charge(who, c.env, premium, usage, day, now);
-      if (!paid.ok) return c.json({ error: "daily_limit", premium, limit: paid.limit }, 429);
+      if (!paid.ok) return c.json({ error: "daily_limit", premium, limit: paid.limit, guest: !premium && paid.limit === GUEST_READINGS_PER_DAY && !who.accountId }, 429);
       creditLot = paid.lot;
     }
 

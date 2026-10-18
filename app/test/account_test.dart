@@ -52,6 +52,25 @@ void main() {
     ]);
   });
 
+  test('guests get 1 free reading when sign-in is offered, 2 after', () async {
+    final s = AppState(
+      deck: deck,
+      accountApi: _FakeBackend(),
+      signIn: _FakeSignIn(),
+      accountProviders: const [AccountProvider.google],
+    );
+    expect(s.freeReadingsPerDay, 1);
+    expect(s.guestCouldSignIn, isTrue);
+    expect(await s.signIn(AccountProvider.google), isTrue);
+    expect(s.freeReadingsPerDay, 2);
+    expect(s.guestCouldSignIn, isFalse);
+    // No sign-in on this phone: guests keep 2.
+    expect(
+      AppState(deck: deck, accountProviders: const []).freeReadingsPerDay,
+      2,
+    );
+  });
+
   test('sign in, persist, sign out', () async {
     final backend = _FakeBackend();
     final signIn = _FakeSignIn();

@@ -118,6 +118,8 @@ class AppState extends ChangeNotifier {
                   : '{0} free readings left today',
               [left],
             )
+          : guestCouldSignIn
+          ? tr('Free reading used. Sign in for 2 a day, or go Premium.')
           : tr('Free readings used. Come back tomorrow or go Premium.');
     }
     final perDay = dailyCredits > 0 ? dailyCredits : 2;
@@ -266,7 +268,18 @@ class AppState extends ChangeNotifier {
   /// The Read tab's main button: scan a physical deck or draw digitally.
   ReadMode readMode = ReadMode.photo;
   bool isPremium = false;
-  static const freeReadingsPerDay = 2;
+
+  /// Free AI readings a day: 2 when signed in, 1 for guests once sign-in is
+  /// offered on this phone (matches the server's rule).
+  static const signedInReadingsPerDay = 2;
+  static const guestReadingsPerDay = 1;
+  int get freeReadingsPerDay => account != null || accountProviders.isEmpty
+      ? signedInReadingsPerDay
+      : guestReadingsPerDay;
+
+  /// A guest who could get more free readings by signing in.
+  bool get guestCouldSignIn =>
+      !isPremium && account == null && accountProviders.isNotEmpty;
   final List<Reading> history = [];
 
   /// Whether digital draws and the Card of the Day may come up reversed.

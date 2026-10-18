@@ -1289,3 +1289,32 @@ describe("off-topic pre-check", () => {
     expect(detectOffTopic("")).toBe(false);
   });
 });
+
+describe("guest reading limit", () => {
+  const read = (s: ReturnType<typeof setup>, h: Record<string, string>) =>
+    s.call("/v1/reading", { method: "POST", headers: h, body: JSON.stringify(single) });
+
+  it("guests get 1 free reading once sign-in is offered, signed-in users 2", async () => {
+    const s = setup({ google: "client.apps.googleusercontent.com" });
+    const h = await authHeaders(s.env);
+    expect((await read(s, h)).status).toBe(200);
+    const blocked = await read(s, h);
+    expect(blocked.status).toBe(429);
+    expect(await blocked.json()).toMatchObject({ error: "daily_limit", guest: true, limit: 1 });
+    // After signing in, limits follow the account, which gets 2 a day.
+    await s.accounts.link(await hashId(UUID, "salt"), "acct-1");
+    expect((await read(s, h)).status).toBe(200);
+    expect((await read(s, h)).status).toBe(200);
+    const after = await read(s, h);
+    expect(after.status).toBe(429);
+    expect(await after.json()).toMatchObject({ guest: false, limit: 2 });
+  });
+
+  it("guests keep 2 a day while sign-in is not offered", async () => {
+    const s = setup();
+    const h = await authHeaders(s.env);
+    expect((await read(s, h)).status).toBe(200);
+    expect((await read(s, h)).status).toBe(200);
+    expect((await read(s, h)).status).toBe(429);
+  });
+});

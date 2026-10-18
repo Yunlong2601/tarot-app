@@ -129,6 +129,9 @@ Future<ReadingResult?> _interpret(
           duration: Duration(seconds: 8),
         ),
       );
+    } else if (failure.kind == ReadingErrorKind.dailyLimit &&
+        state.guestCouldSignIn) {
+      await showSignInNudge(context);
     } else if (failure.kind == ReadingErrorKind.premiumRequired ||
         failure.kind == ReadingErrorKind.dailyLimit) {
       context.push('/paywall');
@@ -313,3 +316,39 @@ Future<void> showOffTopic(BuildContext context, String message) {
     ),
   );
 }
+
+/// A guest used today's free reading: signing in adds another one every day.
+/// Premium is the second option; nothing is forced.
+Future<void> showSignInNudge(BuildContext context) => showAppDialog<void>(
+  context: context,
+  builder: (ctx) => AlertDialog(
+    icon: const Icon(Icons.auto_awesome, color: AppColors.gold),
+    title: Text(tr('Get a second free reading every day')),
+    content: Text(
+      tr(
+        'Guests get 1 free reading a day. Sign in and you get 2, and your Premium follows you to a new phone. Your readings stay on this phone either way.',
+      ),
+    ),
+    actions: [
+      TextButton(
+        onPressed: () => Navigator.pop(ctx),
+        child: Text(tr('Not now')),
+      ),
+      TextButton(
+        onPressed: () {
+          Navigator.pop(ctx);
+          context.push('/paywall');
+        },
+        child: Text(tr('Go Premium')),
+      ),
+      FilledButton(
+        style: FilledButton.styleFrom(minimumSize: const Size(0, 44)),
+        onPressed: () {
+          Navigator.pop(ctx);
+          context.push('/account');
+        },
+        child: Text(tr('Sign in')),
+      ),
+    ],
+  ),
+);
