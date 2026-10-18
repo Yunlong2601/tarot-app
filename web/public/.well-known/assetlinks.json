@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.shentech.shentarot",
+      "sha256_cert_fingerprints": [
+        "98:A5:90:25:C8:F6:7A:59:9A:10:45:C2:F2:E5:EC:8F:06:97:26:0C:0F:6E:8E:C5:D6:81:5A:4E:1B:DC:CB:27"
+      ]
+    }
+  }
+]
