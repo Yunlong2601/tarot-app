@@ -16,49 +16,74 @@ const facts = [c.element && `Element: ${c.element}`, c.association && `Tradition
 const i = cardIds.indexOf(id);
 const prev = cardIds.at(i - 1)!;
 const next = cardIds.at((i + 1) % cardIds.length)!;
+const group = c.arcana === "major" ? "major" : c.suit;
 ---
 <Base
   title={`${c.name} tarot card meaning: upright and reversed · ShenTarot`}
   description={`${c.name} meaning in tarot, upright and reversed: ${c.keywords.join(", ")}. ${k?.essence ?? c.upright}`}
   path={`cards/${slug(id)}`}
+  image={`cards/art/${id}.jpg`}
+  crumbs={[["Card meanings", "cards"], [c.name, `cards/${slug(id)}`]]}
 >
-  <p class="muted"><a href={`${BASE}cards`}>Card meanings</a> › {suitTitle(c.suit)}</p>
-  <div class="card-top">
-    <img class="card-img" src={`${BASE}cards/art/${id}.jpg`} alt={`${c.name}, Rider-Waite-Smith deck`} width="300" height="514" />
-    <div>
-      <h1>{c.name}</h1>
-      <p class="muted">{kind}{facts && ` · ${facts}`}</p>
-      <p class="chips">{c.keywords.map((w) => <span>{w}</span>)}</p>
-      {k && <p><strong>{k.essence}</strong></p>}
-      <p>{c.upright}</p>
+  <ol class="crumbs" style="margin-top:2rem">
+    <li><a href={`${BASE}`}>Home</a></li>
+    <li><a href={`${BASE}cards`}>Card meanings</a></li>
+    <li><a href={`${BASE}cards#${group}`}>{suitTitle(c.suit)}</a></li>
+  </ol>
+  <section class="card-hero">
+    <div class="card-frame">
+      <img src={`${BASE}cards/art/${id}.jpg`} alt={`${c.name}, Rider-Waite-Smith deck`} width="300" height="514" fetchpriority="high" />
     </div>
-  </div>
+    <div>
+      <p class="meta">{kind}</p>
+      <h1>{c.name}</h1>
+      {k && <p class="essence">{k.essence}</p>}
+      <p class="lead">{c.upright}</p>
+      <ul class="chips">{c.keywords.map((w) => <li>{w}</li>)}</ul>
+      {facts && <p class="muted">{facts}</p>}
+    </div>
+  </section>
   {k ? (
     <>
-      <div class="panel"><h2>What the card shows</h2><p>{k.imagery}</p><p class="muted">{k.why}</p></div>
-      <div class="panel">
-        <h2>Upright</h2>
-        <p>{k.upright.core}</p>
-        <p><strong>Light:</strong> {k.upright.light}. <strong>Shadow:</strong> {k.upright.shadow}.</p>
-        <p><strong>Love:</strong> {k.upright.love}</p>
-        <p><strong>Work:</strong> {k.upright.work}</p>
-        <p><em>To reflect on: {k.upright.question}</em></p>
+      <div class="panel" style="margin-bottom:1rem">
+        <h2>What the card shows</h2>
+        <p>{k.imagery}</p>
+        <p class="muted">{k.why}</p>
       </div>
-      <div class="panel">
-        <h2>Reversed</h2>
-        <p>{k.reversed.core}</p>
-        <ul>{k.reversed.modes.map((m) => <li>{m}</li>)}</ul>
-        <p><em>To reflect on: {k.reversed.question}</em></p>
+      <div class="meaning">
+        <div class="panel">
+          <h2><span>▲</span>Upright</h2>
+          <p>{k.upright.core}</p>
+          <div class="dl">
+            <div><b>Light</b>{k.upright.light}</div>
+            <div><b>Shadow</b>{k.upright.shadow}</div>
+            <div><b>Love</b>{k.upright.love}</div>
+            <div><b>Work</b>{k.upright.work}</div>
+          </div>
+          <p class="reflect">{k.upright.question}</p>
+        </div>
+        <div class="panel">
+          <h2><span>▼</span>Reversed</h2>
+          <p>{k.reversed.core}</p>
+          <div class="dl">{k.reversed.modes.map((m) => <div>{m}</div>)}</div>
+          <p class="reflect">{k.reversed.question}</p>
+        </div>
       </div>
     </>
   ) : (
-    <>
-      <div class="panel"><h2>Upright</h2><p>{c.upright}</p></div>
-      <div class="panel"><h2>Reversed</h2><p>{c.reversed}</p></div>
-    </>
+    <div class="meaning">
+      <div class="panel"><h2><span>▲</span>Upright</h2><p>{c.upright}</p></div>
+      <div class="panel"><h2><span>▼</span>Reversed</h2><p>{c.reversed}</p></div>
+    </div>
   )}
-  <p>
-    <a href={`${BASE}cards/${slug(prev)}`}>‹ {CARDS[prev].name}</a> ·
-    <a href={`${BASE}cards/${slug(next)}`}>{CARDS[next].name} ›</a>
-  </p>
+  <nav class="pager" aria-label="More cards">
+    <a class="panel" href={`${BASE}cards/${slug(prev)}`}>
+      <img src={`${BASE}cards/art/${prev}.jpg`} alt="" loading="lazy" width="150" height="257" />
+      <span><small>Previous card</small><b>{CARDS[prev].name}</b></span>
+    </a>
+    <a class="panel next" href={`${BASE}cards/${slug(next)}`}>
+      <span><small>Next card</small><b>{CARDS[next].name}</b></span>
+      <img src={`${BASE}cards/art/${next}.jpg`} alt="" loading="lazy" width="150" height="257" />
+    </a>
+  </nav>
 </Base>

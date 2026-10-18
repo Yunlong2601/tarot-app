@@ -2,31 +2,44 @@
 import Base from "../../layouts/Base.astro";
 import { BASE } from "../../config.ts";
 import { APP_SPREADS, SPREADS, plural, slug } from "../../lib/data.ts";
-import { TOPICS, type Topic } from "../../lib/topics.ts";
+import { TOPICS, TOPIC_ART, type Topic } from "../../lib/topics.ts";
 
 export function getStaticPaths() {
   return TOPICS.map((t) => ({ params: { slug: t.slug }, props: { t } }));
 }
 const { t } = Astro.props as { t: Topic };
+const art = TOPIC_ART[t.slug]!;
 ---
 <Base
   title={`${t.title}: questions to ask and spreads to use · ShenTarot`}
   description={`${t.intro} Sample questions and the spreads that suit them.`}
   path={`topics/${t.slug}`}
+  image={`cards/art/${art}.jpg`}
+  crumbs={[[t.title, `topics/${t.slug}`]]}
 >
-  <h1>{t.title}</h1>
-  <p>{t.intro}</p>
+  <section class="card-hero" style="padding-top:3rem">
+    <div class="card-frame">
+      <img src={`${BASE}cards/art/${art}.jpg`} alt="" width="300" height="514" fetchpriority="high" />
+    </div>
+    <div>
+      <p class="meta">{t.name} readings</p>
+      <h1>{t.title}</h1>
+      <p class="lead">{t.intro}</p>
+    </div>
+  </section>
   <h2>Questions people ask</h2>
   <ul class="questions">{t.questions.map((q) => <li>{q}</li>)}</ul>
   <p class="muted">In the app, tap a question like these to start your reading, or write your own.</p>
-  <h2>Spreads for {t.name.toLowerCase()} questions</h2>
-  <div class="cards3">
+  <h2 style="margin-top:3rem">Spreads for {t.name.toLowerCase()} questions</h2>
+  <div class="grid-3" style="margin-top:1.4rem">
     {t.spreads.map((id) => (
-      <div class="panel">
-        <h3><a href={`${BASE}spreads/${slug(id)}`}>{SPREADS[id].name}</a></h3>
-        <p class="muted">{plural(SPREADS[id].positions.length, "card")}</p>
+      <a class="panel spread-card" href={`${BASE}spreads/${slug(id)}`}>
+        <div class="layout" aria-hidden="true">{SPREADS[id].positions.map(() => <i />)}</div>
+        <p class="count">{plural(SPREADS[id].positions.length, "card")}</p>
+        <h3>{SPREADS[id].name}</h3>
         <p>{APP_SPREADS[id].blurb}</p>
-      </div>
+        <span class="link-arrow">See the positions</span>
+      </a>
     ))}
   </div>
 </Base>

@@ -8,16 +8,19 @@ import { deckForTools } from "../../lib/data.ts";
   description="Draw random tarot cards from the full 78-card Rider-Waite-Smith deck. Tap a card to turn it over and read its meaning."
   path="tools/random-card"
 >
-  <h1>Draw a tarot card</h1>
-  <p class="muted">Shuffled in your browser from all 78 cards. About one card in four comes up reversed.</p>
-  <p>
-    <label>Cards:
+  <header class="page-head center">
+    <p class="eyebrow">Free tool</p>
+    <h1>Draw a tarot card</h1>
+    <p class="lead">Shuffled in your browser from all 78 cards. Tap a card to turn it over. About one card in four comes up reversed.</p>
+  </header>
+  <div class="panel tool-panel">
+    <label>How many cards
       <select id="n">
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => <option selected={n === 3}>{n}</option>)}
       </select>
     </label>
-    <button id="go" type="button">Shuffle and draw</button>
-  </p>
+    <button class="btn btn-gold" id="go" type="button">Shuffle and draw</button>
+  </div>
   <div class="draw" id="out" aria-live="polite"></div>
   <script is:inline define:vars={{ DECK: deckForTools, BASE }}>
     const rand = (n) => { const r = new Uint32Array(1); crypto.getRandomValues(r); return r[0] % n; };

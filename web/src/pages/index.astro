@@ -1,56 +1,220 @@
 ---
 import Base from "../layouts/Base.astro";
+import Icon from "../components/Icon.astro";
 import StoreButtons from "../components/StoreButtons.astro";
 import { BASE, SUPPORT_EMAIL } from "../config.ts";
-import { TOPICS } from "../lib/topics.ts";
+import { CARDS, cardIds, slug } from "../lib/data.ts";
+import { TOPICS, TOPIC_ART } from "../lib/topics.ts";
 
 const fan = ["major_17_star", "major_00_fool", "major_02_high_priestess"];
+const majors = cardIds.filter((id) => CARDS[id].arcana === "major");
+const features = [
+  { icon: "lock", title: "Your photo stays on your phone", text: "Cards are recognised on the device. The photo is never uploaded." },
+  { icon: "spark", title: "No sign-up", text: "Start reading straight away. An account is optional." },
+  { icon: "sun", title: "A free card every day", text: "A Card of the Day, plus free readings with up to three cards each day." },
+  { icon: "chat", title: "Readings you can question", text: "Ask a follow-up about your reading, or draw a clarifying card." },
+  { icon: "layout", title: "Spreads for your question", text: "Love, career, decisions, yes or no, and the classic Celtic Cross." },
+  { icon: "book", title: "A journal of your readings", text: "Keep notes on every reading and search your history later." },
+] as const;
+const faq = [
+  ["Is ShenTarot free?", "Yes, to start. You get a free Card of the Day and free readings with up to three cards every day, with no sign-up. Premium adds more."],
+  ["Do I need my own tarot deck?", "No. You can scan your own Rider-Waite-Smith deck with the camera, or draw cards on screen from the full 78-card deck."],
+  ["Is the photo of my cards uploaded?", "No. Cards are recognised on your phone and the photo is never saved or sent. Only the card names and your question are used to write the reading."],
+  ["How does the AI tarot reading work?", "ShenTarot picks a spread for your question, then writes a reading from the cards you drew, their positions and whether they are upright or reversed. You can ask a follow-up about it."],
+  ["Can tarot predict the future?", "ShenTarot is for entertainment and self-reflection. Readings help you think through a question; they are not predictions or professional advice."],
+];
+const site = Astro.site!.href;
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "ShenTech",
+    url: site,
+    logo: new URL("icon.png", site).href,
+    email: SUPPORT_EMAIL,
+  },
+  { "@context": "https://schema.org", "@type": "WebSite", name: "ShenTarot", url: site },
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    name: "ShenTarot",
+    operatingSystem: "iOS, Android",
+    applicationCategory: "LifestyleApplication",
+    description: "AI tarot reading app: scan your own deck or draw on screen and get a reading for your question.",
+    publisher: { "@type": "Organization", name: "ShenTech" },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
+  },
+];
 ---
 <Base
-  title="ShenTarot: tarot readings for your own cards"
-  description="Scan your own tarot deck or draw on screen, ask your question and get a thoughtful reading. Your photo never leaves your phone, and no sign-up is needed."
+  title="ShenTarot: AI Tarot Reading with Your Own Cards"
+  description="AI tarot reading app for iPhone and Android. Scan your own deck or draw on screen, ask your question and get a thoughtful reading. Free daily card, no sign-up needed."
   path=""
+  jsonLd={jsonLd}
+  bare
   noCta
 >
   <section class="hero">
-    <div class="fan" aria-hidden="true">
-      {fan.map((id) => <img src={`${BASE}cards/art/${id}.jpg`} alt="" width="150" height="257" />)}
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">AI tarot reading app</p>
+        <h1>Ask the cards <em>anything</em></h1>
+        <p class="lead">
+          Scan your own deck or draw on screen. ShenTarot picks a spread for your question and gives you a reading you
+          can keep asking about.
+        </p>
+        <StoreButtons />
+        <p class="alt"><a class="link-arrow" href={`${BASE}tools/random-card`}>Or draw a free card now</a></p>
+        <ul class="trust">
+          <li>Free daily card</li>
+          <li>No sign-up</li>
+          <li>Photo stays on your phone</li>
+        </ul>
+      </div>
+      <div class="hero-art">
+        <div class="fan" aria-hidden="true">
+          {fan.map((id, i) => (
+            <img src={`${BASE}cards/art/${id}.jpg`} alt="" width="300" height="514" fetchpriority={i === 1 ? "high" : undefined} />
+          ))}
+        </div>
+      </div>
     </div>
-    <h1>Ask the cards anything</h1>
-    <p class="lead">
-      Scan your own deck or draw on screen. ShenTarot picks a spread for your question and gives you a reading you can
-      keep asking about.
-    </p>
-    <StoreButtons />
-    <p><a class="btn ghost" href={`${BASE}tools/random-card`}>Draw a free card now</a></p>
   </section>
 
-  <h2>What do you want to ask about?</h2>
-  <div class="topics">
-    {TOPICS.map((t) => <a href={`${BASE}topics/${t.slug}`}>{t.name}</a>)}
-  </div>
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="ornament">✦</p>
+        <h2>A reading in three steps</h2>
+        <p>Bring a question. ShenTarot does the rest, with your cards.</p>
+      </div>
+      <ol class="steps">
+        <li><h3>Ask your question</h3><p>Type what is on your mind, or tap one of the sample questions for love, work and more.</p></li>
+        <li><h3>Draw your cards</h3><p>Scan the cards from your own deck, or shuffle and draw on screen. ShenTarot suggests the spread.</p></li>
+        <li><h3>Read and reflect</h3><p>Get a reading card by card, with a summary at the end. Ask a follow-up or keep notes in your journal.</p></li>
+      </ol>
+    </div>
+  </section>
 
-  <h2>Why ShenTarot</h2>
-  <div class="cards3">
-    <div class="panel"><h3>Your photo stays on your phone</h3><p>Cards are recognised on the device. The photo is never uploaded.</p></div>
-    <div class="panel"><h3>No sign-up</h3><p>Start reading straight away. An account is optional.</p></div>
-    <div class="panel"><h3>A free card every day</h3><p>A Card of the Day, plus free readings with up to three cards each day.</p></div>
-    <div class="panel"><h3>Readings you can question</h3><p>Ask a follow-up about your reading, or draw a clarifying card.</p></div>
-    <div class="panel"><h3>Spreads for your question</h3><p>Love, career, decisions, yes or no, and the classic Celtic Cross.</p></div>
-    <div class="panel"><h3>A journal of your readings</h3><p>Keep notes on every reading and search your history later.</p></div>
-  </div>
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="ornament">✦</p>
+        <h2>What's on your mind?</h2>
+        <p>Questions people ask, and the spreads that suit them.</p>
+      </div>
+      <div class="topic-tiles">
+        {TOPICS.map((t) => (
+          <a class="topic-tile" href={`${BASE}topics/${t.slug}`}>
+            <img src={`${BASE}cards/art/${TOPIC_ART[t.slug]}.jpg`} alt="" loading="lazy" width="300" height="514" />
+            <b>{t.name}</b>
+            <span>{t.title}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
 
-  <h2>Free tarot tools</h2>
-  <ul>
-    <li><a href={`${BASE}cards`}>Tarot card meanings: all 78 cards</a></li>
-    <li><a href={`${BASE}spreads`}>Tarot spreads and what each position means</a></li>
-    <li><a href={`${BASE}tools/random-card`}>Draw a random tarot card</a></li>
-    <li><a href={`${BASE}tools/birth-card`}>Tarot birth card calculator</a></li>
-  </ul>
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="ornament">✦</p>
+        <h2>Why ShenTarot</h2>
+        <p>Thoughtful readings that respect your privacy.</p>
+      </div>
+      <div class="grid-3">
+        {features.map((f) => (
+          <div class="panel feature">
+            <div class="icon"><Icon name={f.icon} /></div>
+            <h3>{f.title}</h3>
+            <p>{f.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
-  <section class="cta">
-    <h2>Get ShenTarot</h2>
-    <StoreButtons />
-    <p class="muted">Support: <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>. Provided by ShenTech, Singapore.</p>
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="ornament">✦</p>
+        <h2>The Major Arcana</h2>
+        <p>Twenty-two cards for life's big themes. Tap one to read its meaning, upright and reversed.</p>
+      </div>
+      <div class="card-row">
+        {majors.map((id) => (
+          <a class="tcard" href={`${BASE}cards/${slug(id)}`}>
+            <img src={`${BASE}cards/art/${id}.jpg`} alt="" loading="lazy" width="150" height="257" />
+            {CARDS[id].name}
+          </a>
+        ))}
+      </div>
+      <p class="center"><a class="btn btn-ghost" href={`${BASE}cards`}>All 78 card meanings</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="ornament">✦</p>
+        <h2>Free tarot tools</h2>
+        <p>Try them in your browser. Nothing is sent anywhere.</p>
+      </div>
+      <div class="grid-2">
+        <a class="panel tool-tile" href={`${BASE}tools/random-card`}>
+          <div class="mini" aria-hidden="true">
+            <img src={`${BASE}cards/art/major_10_wheel_of_fortune.jpg`} alt="" loading="lazy" width="150" height="257" />
+            <img src={`${BASE}cards/art/cups_ace.jpg`} alt="" loading="lazy" width="150" height="257" />
+            <img src={`${BASE}cards/art/major_18_moon.jpg`} alt="" loading="lazy" width="150" height="257" />
+          </div>
+          <div><h3>Draw a tarot card</h3><p>Shuffle the full deck and turn over one to ten cards.</p><span class="link-arrow">Draw now</span></div>
+        </a>
+        <a class="panel tool-tile" href={`${BASE}tools/birth-card`}>
+          <div class="mini" aria-hidden="true">
+            <img src={`${BASE}cards/art/major_03_empress.jpg`} alt="" loading="lazy" width="150" height="257" />
+            <img src={`${BASE}cards/art/major_21_world.jpg`} alt="" loading="lazy" width="150" height="257" />
+            <img src={`${BASE}cards/art/major_04_emperor.jpg`} alt="" loading="lazy" width="150" height="257" />
+          </div>
+          <div><h3>Find your birth cards</h3><p>Your birth cards and your card for this year, from your birthday.</p><span class="link-arrow">Find yours</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="ornament">✦</p>
+        <h2>Questions</h2>
+      </div>
+      <div class="faq">
+        {faq.map(([q, a]) => (
+          <details>
+            <summary>{q}</summary>
+            <p>{a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" id="get-app">
+    <div class="cta-band">
+      <div class="fan sm" aria-hidden="true">
+        {["major_19_sun", "major_21_world", "major_18_moon"].map((id) => (
+          <img src={`${BASE}cards/art/${id}.jpg`} alt="" loading="lazy" width="150" height="257" />
+        ))}
+      </div>
+      <h2>Get ShenTarot</h2>
+      <p>AI tarot readings for your own cards, on iPhone and Android.</p>
+      <StoreButtons center />
+      <p class="muted" style="margin:1.6rem 0 0;font-size:.85rem">
+        Questions? <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>
+      </p>
+    </div>
   </section>
 </Base>

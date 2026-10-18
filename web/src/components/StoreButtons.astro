@@ -1,11 +1,28 @@
 ---
 import { APP_STORE_URL, PLAY_STORE_URL } from "../config.ts";
+
+interface Props {
+  center?: boolean;
+}
+const { center = false } = Astro.props;
+// Until a store page exists the badge says "Coming soon" and links nowhere.
+const stores = [
+  { name: "App Store", url: APP_STORE_URL, icon: "M8 2.5h8a1.5 1.5 0 011.5 1.5v16a1.5 1.5 0 01-1.5 1.5H8A1.5 1.5 0 016.5 20V4A1.5 1.5 0 018 2.5zM10.5 18.5h3" },
+  { name: "Google Play", url: PLAY_STORE_URL, icon: "M6 3.5v17l14-8.5z" },
+];
 ---
-{APP_STORE_URL || PLAY_STORE_URL ? (
-  <p>
-    {APP_STORE_URL && <a class="btn" href={APP_STORE_URL}>Download on the App Store</a>}
-    {PLAY_STORE_URL && <a class="btn" href={PLAY_STORE_URL}>Get it on Google Play</a>}
-  </p>
-) : (
-  <p class="muted">Coming soon to the App Store and Google Play.</p>
-)}
+<div class:list={["stores", { center }]}>
+  {stores.map((s) =>
+    s.url ? (
+      <a class="store" href={s.url}>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d={s.icon} /></svg>
+        <span><small>Download on</small><b>{s.name}</b></span>
+      </a>
+    ) : (
+      <span class="store soon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d={s.icon} /></svg>
+        <span><small>Coming soon to</small><b>{s.name}</b></span>
+      </span>
+    ),
+  )}
+</div>

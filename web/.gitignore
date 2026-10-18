@@ -3,3 +3,4 @@ dist/
 .astro/
 .wrangler/
 public/cards/art/
+public/icon.png

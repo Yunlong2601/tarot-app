@@ -4,28 +4,43 @@ import { BASE } from "../../config.ts";
 import { CARDS, cardIds, slug, suitTitle } from "../../lib/data.ts";
 
 const groups = ["major", "wands", "cups", "swords", "pentacles"].map((g) => ({
+  key: g,
   title: g === "major" ? "Major Arcana" : suitTitle(g),
   ids: cardIds.filter((id) => (g === "major" ? CARDS[id].arcana === "major" : CARDS[id].suit === g)),
 }));
+const about: Record<string, string> = {
+  major: "Life's big themes and turning points",
+  wands: "Energy, drive and creativity",
+  cups: "Feelings, love and relationships",
+  swords: "Thought, conflict and truth",
+  pentacles: "Work, money and the body",
+};
 ---
 <Base
   title="Tarot card meanings: all 78 cards · ShenTarot"
   description="Meanings of all 78 Rider-Waite-Smith tarot cards, upright and reversed, with what each card shows and why."
   path="cards"
+  crumbs={[["Card meanings", "cards"]]}
 >
-  <h1>Tarot card meanings</h1>
-  <p class="muted">All 78 cards of the Rider-Waite-Smith deck, upright and reversed.</p>
+  <header class="page-head center">
+    <p class="eyebrow">The full deck</p>
+    <h1>Tarot card meanings</h1>
+    <p class="lead">All 78 cards of the Rider-Waite-Smith deck, upright and reversed, with what each card shows and why.</p>
+  </header>
+  <nav class="pills" style="justify-content:center" aria-label="Suits">
+    {groups.map((g) => <a href={`#${g.key}`}>{g.title}</a>)}
+  </nav>
   {groups.map((g) => (
-    <>
-      <h2>{g.title}</h2>
-      <div class="grid">
+    <section>
+      <h2 class="group-title" id={g.key}>{g.title} <small>{about[g.key]}</small></h2>
+      <div class="card-grid">
         {g.ids.map((id) => (
-          <a href={`${BASE}cards/${slug(id)}`}>
+          <a class="tcard" href={`${BASE}cards/${slug(id)}`}>
             <img src={`${BASE}cards/art/${id}.jpg`} alt="" loading="lazy" width="150" height="257" />
             {CARDS[id].name}
           </a>
         ))}
       </div>
-    </>
+    </section>
   ))}
 </Base>

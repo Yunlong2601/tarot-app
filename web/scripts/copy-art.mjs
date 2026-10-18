@@ -15,4 +15,6 @@ for (const f of readdirSync(from)) {
     n++;
   }
 }
-console.log(`Copied ${n} card art files.`);
+// The app icon doubles as the site's favicon.
+copyFileSync(join(web, "../app/assets/icon/icon.png"), join(web, "public/icon.png"));
+console.log(`Copied ${n} card art files and the icon.`);
