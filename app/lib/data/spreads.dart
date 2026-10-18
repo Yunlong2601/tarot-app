@@ -30,6 +30,7 @@ enum SpreadType {
   careerStrengths,
   threeHhh,
   growthShadowLight,
+  yesNo,
 }
 
 class SpreadDef {
@@ -40,6 +41,7 @@ class SpreadDef {
     required this.blurb,
     required this.positions,
     required this.layout,
+    required this.source,
   });
 
   final String wire;
@@ -52,7 +54,13 @@ class SpreadDef {
 
   /// Where each position sits, in a 0..1 box (x right, y down).
   final List<Offset> layout;
+
+  /// Where the spread comes from, shown with it. Only claims we can stand by.
+  final String source;
 }
+
+const _traditional = 'A traditional layout used by many readers.';
+const _original = 'Designed by ShenTarot for self-reflection.';
 
 const _row3 = [Offset(0.18, 0.5), Offset(0.5, 0.5), Offset(0.82, 0.5)];
 const _cross5 = [
@@ -92,6 +100,7 @@ const spreadDefs = <SpreadType, SpreadDef>{
     blurb: 'One clearly framed question; a single theme to notice.',
     positions: ['The card'],
     layout: [Offset(0.5, 0.5)],
+    source: 'A traditional one-card draw.',
   ),
   SpreadType.threeCard: SpreadDef(
     wire: 'three',
@@ -100,6 +109,7 @@ const spreadDefs = <SpreadType, SpreadDef>{
     blurb: 'A concise story of how a situation developed.',
     positions: ['Where it began', 'Where it stands', 'Where it is heading'],
     layout: _row3,
+    source: 'A common modern three-card layout.',
   ),
   SpreadType.threeDecision: SpreadDef(
     wire: 'three_decision',
@@ -108,6 +118,7 @@ const spreadDefs = <SpreadType, SpreadDef>{
     blurb: 'Framing a decision: what is going on and how to move.',
     positions: ['The situation', 'The challenge', 'A way forward'],
     layout: _row3,
+    source: 'A common modern three-card layout.',
   ),
   SpreadType.fiveCross: SpreadDef(
     wire: 'five_cross',
@@ -122,6 +133,7 @@ const spreadDefs = <SpreadType, SpreadDef>{
       'What grounds me',
     ],
     layout: _cross5,
+    source: _traditional,
   ),
   SpreadType.horseshoe: SpreadDef(
     wire: 'horseshoe',
@@ -138,6 +150,7 @@ const spreadDefs = <SpreadType, SpreadDef>{
       'Direction if the pattern continues',
     ],
     layout: _arc7,
+    source: _traditional,
   ),
   SpreadType.celticCross: SpreadDef(
     wire: 'celtic',
@@ -157,28 +170,33 @@ const spreadDefs = <SpreadType, SpreadDef>{
       'Direction',
     ],
     layout: _celtic10,
+    source: 'Adapted from the layout A. E. Waite described in The Pictorial Key to the Tarot (1910).',
   ),
   SpreadType.loveConnection: SpreadDef(
     wire: 'love_connection',
-    name: 'Love & Relationship',
+    name: 'Where Do We Stand?',
     category: SpreadCategory.love,
-    blurb: 'What is my part in this relationship right now?',
+    blurb: 'Where does this relationship stand, and what is my part in it?',
     positions: ['What I bring', 'The connection itself', 'What it asks of me'],
     layout: _row3,
+    source: _original,
   ),
   SpreadType.loveBring: SpreadDef(
     wire: 'love_bring',
-    name: 'What I Bring to This Connection',
+    name: 'Is This Relationship Right for Me?',
     category: SpreadCategory.love,
-    blurb: 'What am I bringing into this connection?',
+    blurb: 'What I bring, what I need, and what I may be avoiding.',
     positions: ['What I bring', 'What I need', 'What I may be avoiding'],
     layout: _row3,
+    source: _original,
   ),
   SpreadType.loveReconnect: SpreadDef(
     wire: 'love_reconnect',
-    name: 'Healing & Reconnection',
+    name: 'Will My Ex Come Back?',
     category: SpreadCategory.love,
-    blurb: 'What would need to change in me before healthy reconnection?',
+    blurb:
+        'The cards cannot say what someone else will do. They can show what '
+        'you are still carrying and what you can change.',
     positions: [
       'What ended',
       'What I am still carrying',
@@ -189,12 +207,13 @@ const spreadDefs = <SpreadType, SpreadDef>{
       'A next step for me',
     ],
     layout: _arc7,
+    source: _original,
   ),
   SpreadType.loveReady: SpreadDef(
     wire: 'love_ready',
-    name: 'Single & New Love',
+    name: 'When Will I Find Love?',
     category: SpreadCategory.love,
-    blurb: 'Am I genuinely ready for a new relationship?',
+    blurb: 'Are you ready for new love, and what would open you up to it?',
     positions: [
       'How I feel about love now',
       'What I carry from the past',
@@ -205,6 +224,7 @@ const spreadDefs = <SpreadType, SpreadDef>{
       'A step toward it',
     ],
     layout: _arc7,
+    source: _original,
   ),
   SpreadType.careerPath: SpreadDef(
     wire: 'career_path',
@@ -213,6 +233,7 @@ const spreadDefs = <SpreadType, SpreadDef>{
     blurb: 'Where am I in my work, and what could I explore next?',
     positions: ['Where I am', 'What holds me back', 'What to explore next'],
     layout: _row3,
+    source: _original,
   ),
   SpreadType.careerStrengths: SpreadDef(
     wire: 'career_strengths',
@@ -227,6 +248,7 @@ const spreadDefs = <SpreadType, SpreadDef>{
       'A next step',
     ],
     layout: _cross5,
+    source: _original,
   ),
   SpreadType.threeHhh: SpreadDef(
     wire: 'three_hhh',
@@ -235,6 +257,7 @@ const spreadDefs = <SpreadType, SpreadDef>{
     blurb: 'What do I think, what do I feel, what will I do?',
     positions: ['What I think', 'What I feel', 'What I will do'],
     layout: _row3,
+    source: 'A modern self-reflection layout.',
   ),
   SpreadType.growthShadowLight: SpreadDef(
     wire: 'growth_shadow_light',
@@ -243,8 +266,38 @@ const spreadDefs = <SpreadType, SpreadDef>{
     blurb: 'A strength, a hidden side, and how to bring them together.',
     positions: ['My light', 'My shadow', 'Bringing them together'],
     layout: _row3,
+    source: _original,
+  ),
+  SpreadType.yesNo: SpreadDef(
+    wire: 'yes_no',
+    name: 'Yes or No',
+    category: SpreadCategory.classics,
+    blurb: 'A yes or no question: which way the cards lean, and why.',
+    positions: ['First card', 'The heart of it (counts double)', 'Third card'],
+    layout: _row3,
+    source:
+        'A common yes or no method: upright cards lean yes, reversed cards '
+        'lean no, and the middle card counts double. Reversed cards are '
+        'always on for this spread.',
   ),
 };
+
+/// The Yes or No spread's lean. Upright cards vote yes, reversed vote no, and
+/// the middle card counts double. Keep in step with `yesNoLean` in
+/// backend/src/spreads.ts (the backend decides what the reading shows).
+enum YesNoLean { yes, no, unsettled }
+
+YesNoLean yesNoLean(List<bool> reversed) {
+  var score = 0;
+  for (final (i, r) in reversed.indexed) {
+    score += (r ? -1 : 1) * (i == 1 ? 2 : 1);
+  }
+  return score > 0
+      ? YesNoLean.yes
+      : score < 0
+      ? YesNoLean.no
+      : YesNoLean.unsettled;
+}
 
 extension SpreadInfo on SpreadType {
   SpreadDef get def => spreadDefs[this]!;
@@ -300,6 +353,7 @@ SpreadType recommendSpread(String question) {
   if (any(['job', 'career', 'work', 'boss', 'promotion', 'study', 'school'])) {
     return SpreadType.careerPath;
   }
+  if (looksYesNo(q)) return SpreadType.yesNo;
   if (any(['decide', 'decision', 'choose', 'choice', 'option', 'whether'])) {
     return SpreadType.threeDecision;
   }
@@ -308,3 +362,8 @@ SpreadType recommendSpread(String question) {
   }
   return SpreadType.threeCard;
 }
+
+/// A question worded for a yes or no answer ("Should I...", "Will it...").
+bool looksYesNo(String question) =>
+    RegExp(r'^(will|should|is|am|are|do|does|can|shall|would)\b')
+        .hasMatch(question.trim().toLowerCase());

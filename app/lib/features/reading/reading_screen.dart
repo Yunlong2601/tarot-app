@@ -370,12 +370,41 @@ class _RevisitState extends State<_Revisit> {
   }
 }
 
-class ReadingScreen extends StatelessWidget {
+class ReadingScreen extends StatefulWidget {
   const ReadingScreen({super.key, required this.readingId});
   final String readingId;
 
   @override
+  State<ReadingScreen> createState() => _ReadingScreenState();
+}
+
+class _ReadingScreenState extends State<ReadingScreen> {
+  final _scroll = ScrollController();
+  final _layoutKey = GlobalKey();
+  bool _showStrip = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _scroll.addListener(_onScroll);
+  }
+
+  @override
+  void dispose() {
+    _scroll.dispose();
+    super.dispose();
+  }
+
+  /// Pins a small strip of the cards once the full layout scrolls away.
+  void _onScroll() {
+    final box = _layoutKey.currentContext?.findRenderObject() as RenderBox?;
+    final show = box != null && _scroll.offset > box.size.height + 24;
+    if (show != _showStrip) setState(() => _showStrip = show);
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final readingId = widget.readingId;
     final state = AppScope.of(context);
     final reading = state.history.where((r) => r.id == readingId).firstOrNull;
     if (reading == null) {
@@ -421,79 +450,138 @@ class ReadingScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: ListView(
-        padding: const EdgeInsets.all(24),
+      body: Stack(
         children: [
-          if (reading.cards.length >= 5)
-            Center(
-              child: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 380),
-                child: SpreadLayoutView(
-                  type: reading.spread,
-                  slotBuilder: (i, w, h) => InkWell(
-                    onTap: () =>
-                        context.push('/card/${reading.cards[i].card.id}'),
-                    child: CardArt(
-                      card: reading.cards[i].card,
-                      reversed: reading.cards[i].reversed,
-                      width: w,
-                    ),
-                  ),
-                ),
-              ),
-            )
-          else
-            Wrap(
-              spacing: 12,
-              runSpacing: 12,
-              alignment: WrapAlignment.center,
-              children: [
-                for (final (i, d) in reading.cards.indexed)
-                  InkWell(
-                    onTap: () => context.push('/card/${d.card.id}'),
-                    child: Column(
-                      children: [
-                        CardArt(card: d.card, reversed: d.reversed, width: 90),
-                        const SizedBox(height: 4),
-                        SizedBox(
-                          width: 96,
-                          child: Text(
-                            reading.spread.positions[i],
-                            textAlign: TextAlign.center,
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                            style: const TextStyle(
-                              fontSize: 11,
-                              color: AppColors.textMuted,
+          ListView(
+            controller: _scroll,
+            padding: const EdgeInsets.all(24),
+            children: [
+              KeyedSubtree(
+                key: _layoutKey,
+                child: reading.cards.length >= 5
+                    ? Center(
+                        child: ConstrainedBox(
+                          constraints: const BoxConstraints(maxWidth: 380),
+                          child: SpreadLayoutView(
+                            type: reading.spread,
+                            slotBuilder: (i, w, h) => InkWell(
+                              onTap: () => context.push(
+                                '/card/${reading.cards[i].card.id}',
+                              ),
+                              child: CardArt(
+                                card: reading.cards[i].card,
+                                reversed: reading.cards[i].reversed,
+                                width: w,
+                              ),
                             ),
                           ),
                         ),
-                      ],
-                    ),
+                      )
+                    : Wrap(
+                        spacing: 12,
+                        runSpacing: 12,
+                        alignment: WrapAlignment.center,
+                        children: [
+                          for (final (i, d) in reading.cards.indexed)
+                            InkWell(
+                              onTap: () => context.push('/card/${d.card.id}'),
+                              child: Column(
+                                children: [
+                                  CardArt(
+                                    card: d.card,
+                                    reversed: d.reversed,
+                                    width: 90,
+                                  ),
+                                  const SizedBox(height: 4),
+                                  SizedBox(
+                                    width: 96,
+                                    child: Text(
+                                      reading.spread.positions[i],
+                                      textAlign: TextAlign.center,
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: const TextStyle(
+                                        fontSize: 11,
+                                        color: AppColors.textMuted,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                        ],
+                      ),
+              ),
+              if (reading.question != null) ...[
+                const SizedBox(height: 20),
+                Text(
+                  '“${reading.question}”',
+                  style: const TextStyle(
+                    fontStyle: FontStyle.italic,
+                    color: AppColors.textMuted,
                   ),
+                ),
               ],
-            ),
-          if (reading.question != null) ...[
-            const SizedBox(height: 20),
-            Text(
-              '“${reading.question}”',
-              style: const TextStyle(
-                fontStyle: FontStyle.italic,
-                color: AppColors.textMuted,
+              const SizedBox(height: 20),
+              _ReadingText(reading),
+              const SizedBox(height: 20),
+              _FollowUps(reading: reading),
+              const SizedBox(height: 12),
+              _Journal(reading: reading),
+              _Revisit(reading: reading),
+            ],
+          ),
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: IgnorePointer(
+              ignoring: !_showStrip,
+              child: AnimatedOpacity(
+                opacity: _showStrip ? 1 : 0,
+                duration: const Duration(milliseconds: 200),
+                child: _CardStrip(reading),
               ),
             ),
-          ],
-          const SizedBox(height: 20),
-          _ReadingText(reading),
-          const SizedBox(height: 20),
-          _FollowUps(reading: reading),
-          const SizedBox(height: 12),
-          _Journal(reading: reading),
-          _Revisit(reading: reading),
+          ),
         ],
       ),
     );
   }
+}
+
+/// The cards in a row, pinned at the top while the reading scrolls.
+class _CardStrip extends StatelessWidget {
+  const _CardStrip(this.reading);
+  final Reading reading;
+
+  @override
+  Widget build(BuildContext context) => Material(
+    color: AppColors.surface,
+    elevation: 4,
+    child: SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      child: Row(
+        children: [
+          for (final (i, d) in reading.cards.indexed)
+            Padding(
+              padding: const EdgeInsets.only(right: 8),
+              child: Semantics(
+                button: true,
+                label:
+                    '${reading.spread.positions[i]}: ${d.card.name}'
+                    '${d.reversed ? ', reversed' : ''}',
+                child: InkWell(
+                  onTap: () => context.push('/card/${d.card.id}'),
+                  child: CardArt(card: d.card, reversed: d.reversed, width: 32),
+                ),
+              ),
+            ),
+        ],
+      ),
+    ),
+  );
 }
 
 /// Lays the reading out by section: the summary first, one panel per card
@@ -527,6 +615,14 @@ class _ReadingText extends StatelessWidget {
       children: [
         for (final s in sections)
           switch (s.kind) {
+            SectionKind.headline => Padding(
+              padding: const EdgeInsets.only(bottom: 16),
+              child: Text(
+                s.body,
+                style: t.titleLarge?.copyWith(fontWeight: FontWeight.w700),
+              ),
+            ),
+            SectionKind.lean => _LeanBadge(s.body),
             SectionKind.overview => panel(
               highlight: true,
               Column(
@@ -580,6 +676,50 @@ class _ReadingText extends StatelessWidget {
             ),
           },
       ],
+    );
+  }
+}
+
+/// The Yes or No spread's answer, large: "Leaning yes", "Leaning no" or
+/// "Not settled". Computed from the cards by the backend, not by the AI.
+class _LeanBadge extends StatelessWidget {
+  const _LeanBadge(this.label);
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    final icon = switch (label) {
+      'Leaning yes' => Icons.thumb_up_alt_outlined,
+      'Leaning no' => Icons.thumb_down_alt_outlined,
+      _ => Icons.balance,
+    };
+    return Container(
+      width: double.infinity,
+      margin: const EdgeInsets.only(bottom: 16),
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+      decoration: BoxDecoration(
+        color: AppColors.goldTint,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: AppColors.goldDeep),
+      ),
+      child: Column(
+        children: [
+          Icon(icon, color: AppColors.gold, size: 32),
+          const SizedBox(height: 8),
+          Text(
+            label,
+            style: Theme.of(context).textTheme.headlineSmall
+                ?.copyWith(color: AppColors.gold),
+          ),
+          const SizedBox(height: 4),
+          const Text(
+            'Upright cards lean yes, reversed lean no; the middle card counts '
+            'double. A tendency to reflect on, not a certain answer.',
+            textAlign: TextAlign.center,
+            style: TextStyle(color: AppColors.textMuted, fontSize: 12),
+          ),
+        ],
+      ),
     );
   }
 }

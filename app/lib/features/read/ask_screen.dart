@@ -20,12 +20,59 @@ class _AskScreenState extends State<AskScreen> {
   final _controller = TextEditingController();
   bool _seeded = false;
   String? _nudge;
+  int _topic = 0;
 
   static const _starters = [
     'What do I need to understand about ',
     'What is helping and what is in the way with ',
     'How can I approach ',
   ];
+
+  /// Example questions per topic: tap one to fill the box (and edit it).
+  static const _samples = <(String, List<String>)>[
+    (
+      'Love',
+      [
+        'Will my ex come back?',
+        'Where does my relationship stand?',
+        'When will I find love?',
+      ],
+    ),
+    (
+      'Career',
+      [
+        'Should I take this job offer?',
+        'What is holding me back at work?',
+        'What could I explore next in my career?',
+      ],
+    ),
+    (
+      'Daily',
+      [
+        'What do I need to focus on today?',
+        'What energy should I bring to this week?',
+      ],
+    ),
+    (
+      'Choices',
+      [
+        'Should I move to a new city?',
+        'What do I need to know before I decide?',
+      ],
+    ),
+    (
+      'Growth',
+      [
+        'What lesson do I keep repeating?',
+        'What am I not seeing about myself?',
+      ],
+    ),
+  ];
+
+  void _fill(String text) {
+    _controller.text = text;
+    _controller.selection = TextSelection.collapsed(offset: text.length);
+  }
 
   @override
   void didChangeDependencies() {
@@ -95,15 +142,42 @@ class _AskScreenState extends State<AskScreen> {
               for (final s in _starters)
                 ActionChip(
                   label: Text('${s.trim()}...'),
-                  onPressed: () {
-                    _controller.text = s;
-                    _controller.selection = TextSelection.collapsed(
-                      offset: s.length,
-                    );
-                  },
+                  onPressed: () => _fill(s),
                 ),
             ],
           ),
+          const SizedBox(height: 20),
+          Text('Need ideas?', style: t.titleSmall),
+          const SizedBox(height: 8),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                for (final (i, (topic, _)) in _samples.indexed)
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8),
+                    child: ChoiceChip(
+                      label: Text(topic),
+                      selected: i == _topic,
+                      onSelected: (_) => setState(() => _topic = i),
+                    ),
+                  ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 4),
+          for (final q in _samples[_topic].$2)
+            ListTile(
+              contentPadding: EdgeInsets.zero,
+              dense: true,
+              leading: const Icon(
+                Icons.chat_bubble_outline,
+                size: 18,
+                color: AppColors.gold,
+              ),
+              title: Text(q),
+              onTap: () => _fill(q),
+            ),
           const SizedBox(height: 24),
           FilledButton(onPressed: _next, child: const Text('Next')),
           TextButton(

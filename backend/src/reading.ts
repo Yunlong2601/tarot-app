@@ -16,6 +16,7 @@ HOW TO READ
 7. If there is no question, give a general reading and a gentle reflection.
 8. For each card also write a short "why": one or two sentences that teach a beginner why the card means this (image, number, suit, or tradition). Mark traditions as "traditionally" or "commonly read as".
 9. If the user provided an <impression> (what they noticed in the card before the reading), acknowledge it briefly and connect it to the card where it fits.
+10. For the Yes or No spread you are given the lean computed from the cards. Your headline states that lean as a tendency ("The cards lean toward yes" or similar), never as a certain answer, and the synthesis says what in the cards could shift it. If you are told not to give a lean, do not give one.
 
 TONE
 - Second person, calm, kind. No fear language, no doom. Hard cards (Death, Tower, Devil, Ten of Swords and the like) are about change, awareness and limits, not disaster. Say plainly that Death does not mean physical death when it appears.
@@ -34,7 +35,8 @@ OUTPUT (JSON only, no markdown, no text outside the JSON)
     { "position": "<position label as given>", "card": "<card name as given>", "orientation": "upright" | "reversed",
       "reading": "<2 to 4 sentences: image, meaning, position, question>", "why": "<1 to 2 sentences>" }
   ],
-  "overview": "<a short answer to open the reading. For 1 card: 1 to 2 sentences. For 3 cards: 3 to 4. For 5 to 10 cards: 5 to 7. Name the central theme or tension. Never a yes or no, and never what will happen>",
+  "headline": "<one plain sentence, at most 25 words, that opens the reading: the main takeaway for the user's question. Never what will happen, and never a yes or no except the given lean in the Yes or No spread>",
+  "overview": "<the synthesis that closes the card-by-card reading: how the cards work together. For 1 card: 1 to 2 sentences. For 3 cards: 3 to 4. For 5 to 10 cards: 5 to 7. Name the central theme or tension. Never a yes or no, and never what will happen>",
   "reflection_question": "<one open question for the user, not yes/no>",
   "small_step": "<one low-stakes action: notice, write, ask, pause. Never medical, legal, financial or about a relationship decision>",
   "declined_topic": null | "medical" | "legal" | "financial" | "death" | "pregnancy" | "gambling" | "third_party" | "other",
@@ -42,7 +44,7 @@ OUTPUT (JSON only, no markdown, no text outside the JSON)
 }
 Length limits for the whole reading: 1 card about 180 words, 3 cards about 380, 5 cards about 480, 7 cards about 560, 10 cards about 650.`;
 
-import { SPREADS, spreadSize, type Spread } from "./spreads";
+import { LEAN_LABEL, SPREADS, spreadSize, yesNoLean, type Spread } from "./spreads";
 
 /** Output budget grows with the number of cards. */
 export function readingMaxTokens(spread: Spread): number {
@@ -57,6 +59,11 @@ export function buildReadingMessage(req: ReadingRequest): string {
   return [
     `Spread: ${SPREADS[req.spread].name} (${req.cards.length} cards). Purpose: ${SPREADS[req.spread].purpose}`,
     topic ? `Possible restricted topic in the user's text: ${topic} (set declined_topic and keep the reading general)` : null,
+    req.spread === "yes_no"
+      ? topic
+        ? "Yes/no lean: do not give one for this topic."
+        : `Yes/no lean (computed from the cards): ${LEAN_LABEL[yesNoLean(req.cards).lean]} (score ${yesNoLean(req.cards).score}; upright +1, reversed -1, the middle card counts double)`
+      : null,
     `Spread facts:\n${spreadFacts(req.cards)}`,
     `Cards:\n${blocks.join("\n")}`,
     req.question ? `<question>${req.question}</question>` : "No question was asked. Give a general reading.",
@@ -65,6 +72,8 @@ export function buildReadingMessage(req: ReadingRequest): string {
 }
 
 export interface StructuredReading {
+  /** One-sentence takeaway shown first. Null if the model left it out. */
+  headline: string | null;
   cards: { position: string; card: string; orientation: "upright" | "reversed"; reading: string; why: string }[];
   overview: string;
   reflection_question: string;
@@ -97,19 +106,34 @@ export function parseModelReply(raw: string, req: ReadingRequest): StructuredRea
     cards.push({ position: positions[i]!, card: want.name, orientation: orient, reading: c.reading, why: c.why });
   }
   if (!str(o.overview, 1500) || !str(o.reflection_question, 400) || !str(o.small_step, 500)) return null;
+  const headline = str(o.headline, 300) ? o.headline.trim() : null;
   const declined = typeof o.declined_topic === "string" ? o.declined_topic.slice(0, 30) : null;
   return {
-    cards, overview: o.overview, reflection_question: o.reflection_question, small_step: o.small_step,
+    headline, cards, overview: o.overview, reflection_question: o.reflection_question, small_step: o.small_step,
     declined_topic: declined, crisis: o.crisis === true,
   };
 }
 
-/** Plain text for the app (the app can render the structured form later). */
-export function renderReading(s: StructuredReading): string {
-  const parts = [`In short\n${s.overview}`];
+/** The Yes or No spread's lean as a reading section, or null when there is
+ * none to show (another spread, or a restricted topic or declined reading). */
+export function leanSection(req: ReadingRequest, declined: string | null = null): string | null {
+  if (req.spread !== "yes_no" || declined || restrictedTopic(req.question, req.impression)) return null;
+  return `Yes or no\n${LEAN_LABEL[yesNoLean(req.cards).lean]}`;
+}
+
+/** Plain text for the app, split into sections the app lays out (see
+ * app/lib/features/reading/reading_sections.dart): the one-line takeaway and
+ * the Yes or No lean first, one section per card, then the synthesis. Older
+ * app versions show unknown titles as plain sections. */
+export function renderReading(s: StructuredReading, req: ReadingRequest): string {
+  const parts: string[] = [];
+  if (s.headline) parts.push(`In a line\n${s.headline}`);
+  const lean = leanSection(req, s.declined_topic);
+  if (lean) parts.push(lean);
   for (const c of s.cards) {
     parts.push(`${c.position}: ${c.card}${c.orientation === "reversed" ? " (reversed)" : ""}\n${c.reading}\nWhy: ${c.why}`);
   }
+  parts.push(`Putting it together\n${s.overview}`);
   parts.push(`To reflect on\n${s.reflection_question}`);
   parts.push(`A small step\n${s.small_step}`);
   return parts.join("\n\n");
@@ -136,5 +160,6 @@ export function fallbackReading(req: ReadingRequest): string {
     ? (req.cards[0]!.reversed ? CARDS[req.cards[0]!.id]!.k!.reversed.question : CARDS[req.cards[0]!.id]!.k!.upright.question)
     : "What stands out to you most in these cards, and why?";
   parts.push(`To reflect on\n${q}`);
-  return parts.join("\n\n");
+  const lean = leanSection(req);
+  return (lean ? [lean, ...parts] : parts).join("\n\n");
 }

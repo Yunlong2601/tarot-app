@@ -2,14 +2,17 @@
 /// backend/src/reading.ts) into sections the app can lay out:
 ///
 /// ```text
-/// In short / overview
+/// In a line / one-sentence takeaway   (newer readings)
+/// Yes or no / Leaning yes|Leaning no|Not settled   (Yes or No spread only)
+/// In short / overview                 (older readings: summary first)
 /// Position: Card [(reversed)] / text / Why: note   (one per card)
+/// Putting it together / synthesis     (newer readings: summary last)
 /// To reflect on / question
 /// A small step / step
 /// ```
 ///
 /// Older or fallback readings may lack some parts; plain text gives null.
-enum SectionKind { overview, card, reflect, step, other }
+enum SectionKind { headline, lean, overview, card, reflect, step, other }
 
 class ReadingSection {
   const ReadingSection(
@@ -50,7 +53,9 @@ List<ReadingSection>? parseReading(String text) {
     final why = rest.where((l) => l.startsWith('Why:')).firstOrNull;
     final body = rest.where((l) => !l.startsWith('Why:')).join('\n');
     final kind = switch (title) {
-      'In short' => SectionKind.overview,
+      'In a line' => SectionKind.headline,
+      'Yes or no' => SectionKind.lean,
+      'In short' || 'Putting it together' => SectionKind.overview,
       'To reflect on' => SectionKind.reflect,
       'A small step' => SectionKind.step,
       _ => title.contains(':') ? SectionKind.card : SectionKind.other,

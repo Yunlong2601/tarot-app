@@ -242,7 +242,7 @@ export function createApp(deps: Deps = defaultDeps) {
       // falls back to a reading built from stored card text, never an error.
       const structured = parseModelReply(result.text, req);
       if (structured?.crisis) return c.json({ crisis: true, message: CRISIS_MESSAGE });
-      let text: string | null = structured ? renderReading(structured) : null;
+      let text: string | null = structured ? renderReading(structured, req) : null;
       if (text === null) {
         const plain = checkOutput(result.text);
         text = plain.ok ? plain.text : null;
