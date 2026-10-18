@@ -1,5 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
+import Tabs from "../../components/Tabs.astro";
 import { BASE } from "../../config.ts";
 import { CARDS, slug } from "../../lib/data.ts";
 import { PLANET_CARD, SIGNS, SUIT_OF } from "../../lib/zodiac.ts";
@@ -23,13 +24,11 @@ import { PLANET_CARD, SIGNS, SUIT_OF } from "../../lib/zodiac.ts";
     <label>Your birthday <input type="date" data-bd /></label>
     <button class="btn btn-gold" type="button" data-go>Find my sign</button>
   </div>
-  <nav class="sign-grid" aria-label="Star signs">
-    {SIGNS.map((s) => <a class="btn btn-ghost btn-sm" href={`#${s.slug}`}>{s.name}<small>{s.dates.replace(/ to /, " – ")}</small></a>)}
-  </nav>
+  <Tabs label="Star signs" tabs={SIGNS.map((s) => ({ id: s.slug, label: s.name }))}>
   {SIGNS.map((s) => {
     const planet = PLANET_CARD[s.ruler]!;
     return (
-      <section class="section" id={s.slug} style="padding-bottom:0;scroll-margin-top:4.5rem">
+      <section data-panel={s.slug}>
         <h2>{s.name} <small class="muted">{s.dates}</small></h2>
         <p>{s.element} sign, so its suit is {SUIT_OF[s.element][0]!.toUpperCase() + SUIT_OF[s.element].slice(1)}. Traditional ruler: {s.ruler}.</p>
         <div class="card-notes">
@@ -46,6 +45,7 @@ import { PLANET_CARD, SIGNS, SUIT_OF } from "../../lib/zodiac.ts";
       </section>
     );
   })}
+  </Tabs>
   <p class="muted section">Sign dates move by a day in some years. If you were born on the first or last day of a sign, check both.</p>
 </Base>
 

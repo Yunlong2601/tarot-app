@@ -1,0 +1,60 @@
+---
+// Tabs that keep every panel in the page (so search engines and no-JS
+// readers see it all) and show one at a time once the script runs. Panels
+// are direct children marked data-panel="<id>". A #<id> in the address
+// opens that tab.
+interface Props {
+  tabs: { id: string; label: string }[];
+  label: string;
+}
+const { tabs, label } = Astro.props;
+---
+<div class="tabs" data-tabs>
+  <div class="tablist" role="tablist" aria-label={label}>
+    {tabs.map((t, i) => (
+      <button type="button" role="tab" id={`tab-${t.id}`} aria-controls={t.id} aria-selected={i === 0 ? "true" : "false"} tabindex={i === 0 ? 0 : -1}>{t.label}</button>
+    ))}
+  </div>
+  <slot />
+</div>
+
+<script>
+  for (const root of document.querySelectorAll<HTMLElement>("[data-tabs]")) {
+    const tabs = [...root.querySelectorAll<HTMLButtonElement>(":scope > .tablist [role=tab]")];
+    const panels = [...root.querySelectorAll<HTMLElement>(":scope > [data-panel]")];
+    for (const p of panels) {
+      p.id = p.dataset.panel!;
+      p.setAttribute("role", "tabpanel");
+      p.setAttribute("aria-labelledby", `tab-${p.id}`);
+    }
+    const select = (id: string, focus = false) => {
+      for (const t of tabs) {
+        const on = t.getAttribute("aria-controls") === id;
+        t.setAttribute("aria-selected", String(on));
+        t.tabIndex = on ? 0 : -1;
+        if (on && focus) t.focus();
+        if (on) t.scrollIntoView({ block: "nearest", inline: "nearest" });
+      }
+      for (const p of panels) p.hidden = p.id !== id;
+    };
+    root.classList.add("tabs-on");
+    tabs.forEach((t, i) => {
+      t.onclick = () => {
+        select(t.getAttribute("aria-controls")!);
+        history.replaceState(null, "", `#${t.getAttribute("aria-controls")}`);
+      };
+      t.onkeydown = (e) => {
+        const d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+        if (!d) return;
+        e.preventDefault();
+        select(tabs[(i + d + tabs.length) % tabs.length]!.getAttribute("aria-controls")!, true);
+      };
+    });
+    const fromHash = () => {
+      const id = location.hash.slice(1);
+      select(panels.some((p) => p.id === id) ? id : panels[0]!.id);
+    };
+    addEventListener("hashchange", fromHash);
+    fromHash();
+  }
+</script>

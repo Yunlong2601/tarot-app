@@ -1,5 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
+import Tabs from "../../components/Tabs.astro";
 import { BASE } from "../../config.ts";
 import { CARDS, GROUP_ABOUT, cardIds, slug, suitTitle, type CardId } from "../../lib/data.ts";
 
@@ -79,6 +80,13 @@ const jsonLd = faq.length
       {facts && <p class="muted">{facts}</p>}
     </div>
   </section>
+  <Tabs label={`About ${c.name}`} tabs={[
+    { id: "meaning", label: "Meaning" },
+    ...(k ? [{ id: "love-work", label: "Love and work" }] : []),
+    { id: "related", label: "Related cards" },
+    ...(faq.length ? [{ id: "faq", label: "Questions" }] : []),
+  ]}>
+    <div data-panel="meaning">
   {k ? (
     <>
       <div class="panel" style="margin-bottom:1rem">
@@ -112,6 +120,8 @@ const jsonLd = faq.length
       <div class="panel"><h2><span>▼</span>Reversed</h2><p>{c.reversed}</p></div>
     </div>
   )}
+    </div>
+    {k && <div data-panel="love-work">
   {k && (
     <section class="section" style="padding-bottom:0">
       <h2>{c.name} in a reading</h2>
@@ -134,6 +144,8 @@ const jsonLd = faq.length
       </div>
     </section>
   )}
+    </div>}
+    <div data-panel="related">
   {related.length > 0 && (
     <section class="section" style="padding-bottom:0">
       <h2>Related cards</h2>
@@ -156,6 +168,8 @@ const jsonLd = faq.length
       <a class="panel tool-tile" href={`${BASE}tools/yes-no`}><div><h3>Yes or No tarot</h3><p>Draw three cards for a yes or no question.</p><span class="link-arrow">Ask</span></div></a>
     </div>
   </section>
+    </div>
+    {faq.length > 0 && <div data-panel="faq">
   {faq.length > 0 && (
     <section class="section" style="padding-bottom:0">
       <h2 class="center">Questions about {c.name}</h2>
@@ -169,6 +183,8 @@ const jsonLd = faq.length
       </div>
     </section>
   )}
+    </div>}
+  </Tabs>
   <nav class="pager" aria-label="More cards">
     <a class="panel" href={`${BASE}cards/${slug(prev)}`}>
       <img src={`${BASE}cards/art/${prev}.jpg`} alt="" loading="lazy" width="150" height="257" />

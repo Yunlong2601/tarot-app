@@ -417,3 +417,17 @@ input:focus, select:focus { outline: none; border-color: var(--gold); box-shadow
   .sheet-line span{border-color:#999}
   .sheet-lines{background:repeating-linear-gradient(transparent 0 1.55rem,#999 1.55rem calc(1.55rem + 1px))}
 }
+.tabs{margin:1.5rem 0 0}
+.tablist{display:none}
+.tabs-on>.tablist{display:flex;gap:.4rem;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--line);margin-bottom:1.4rem}
+.tablist::-webkit-scrollbar{display:none}
+.tablist [role=tab]{flex:none;font:inherit;font-size:.92rem;padding:.6rem .95rem;border:0;border-bottom:2px solid transparent;background:none;color:var(--muted);cursor:pointer;white-space:nowrap}
+.tablist [role=tab][aria-selected=true]{color:var(--gold-2);border-bottom-color:var(--gold)}
+.tablist [role=tab]:focus-visible{outline:2px solid var(--gold);outline-offset:-2px}
+.tabs [data-panel]>.section:first-child,.tabs [data-panel]>section:first-child{padding-top:0}
+@media (max-width:640px){
+  .grid-3:has(> .feature){grid-template-columns:1fr 1fr;gap:.7rem}
+  .feature{padding:1rem}
+  .feature h3{font-size:1rem}
+  .feature p{font-size:.85rem}
+}

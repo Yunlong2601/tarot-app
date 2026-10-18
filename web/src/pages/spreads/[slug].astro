@@ -1,5 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
+import Tabs from "../../components/Tabs.astro";
 import Reader from "../../components/Reader.astro";
 import { BASE } from "../../config.ts";
 import { APP_SPREADS, SPREADS, plural, slug, spreadIds, titleCase, type SpreadId } from "../../lib/data.ts";
@@ -40,24 +41,15 @@ const jsonLd = [{ "@context": "https://schema.org", "@type": "FAQPage", mainEnti
     <h1>{s.name}</h1>
     <p class="lead">{APP_SPREADS[id].blurb}</p>
   </header>
-  <h2 style="margin:1rem 0 1.4rem">The positions</h2>
-  <ol class="positions">{s.positions.map((p) => <li>{p}</li>)}</ol>
-  {APP_SPREADS[id].source && <p class="muted" style="margin-top:1.5rem">Source: {APP_SPREADS[id].source}</p>}
-  {questions.length > 0 && (
-    <>
-      <h2 style="margin:2.5rem 0 1rem">Best for questions like</h2>
-      <ul class="questions">{questions.map((q) => <li>{q}</li>)}</ul>
-      <p class="muted">From {topics.map((t, i) => <>{i > 0 && (i === topics.length - 1 ? " and " : ", ")}<a href={`${BASE}topics/${t.slug}`}>{t.title.toLowerCase()}</a></>)}.</p>
-    </>
-  )}
-  <h2 style="margin:2.5rem 0 1rem">How to read it</h2>
-  <ol class="steps-list">
-    <li>Hold one clear question in mind{id === "yes_no" ? ", worded so it can be answered yes or no" : ""}.</li>
-    <li>Shuffle, then lay out {count} in order{n > 1 ? `, from position 1 to ${n}` : ""}.</li>
-    <li>Read each card for its position: the same card means something different as {n > 1 ? `"${s.positions[0]}" than as "${s.positions[n - 1]}"` : "a single answer than inside a bigger spread"}.</li>
-    {n > 1 && <li>Then read the cards together: the story they tell, which suits lead and how many are Major Arcana. The reader below shows this for you.</li>}
-  </ol>
-  <section class="section" id="try" style="padding-bottom:0">
+  <Tabs label={`The ${s.name} spread`} tabs={[
+    { id: "try", label: "Draw the cards" },
+    { id: "positions", label: "Positions" },
+    { id: "how", label: "How to read it" },
+    ...(related.length ? [{ id: "related", label: "Related spreads" }] : []),
+    { id: "faq", label: "Questions" },
+  ]}>
+    <div data-panel="try">
+  <section>
     <div class="section-head">
       <p class="ornament">✦</p>
       <h2>Try this spread</h2>
@@ -65,6 +57,29 @@ const jsonLd = [{ "@context": "https://schema.org", "@type": "FAQPage", mainEnti
     </div>
     <Reader positions={s.positions} mode={id === "yes_no" ? "yesno" : "spread"} reversals={id === "yes_no" ? 0.5 : 0.25} />
   </section>
+    </div>
+    <div data-panel="positions">
+  <h2 class="sr-only">The positions</h2>
+  <ol class="positions">{s.positions.map((p) => <li>{p}</li>)}</ol>
+  {APP_SPREADS[id].source && <p class="muted" style="margin-top:1.5rem">Source: {APP_SPREADS[id].source}</p>}
+  {questions.length > 0 && (
+    <>
+      <h2 style="margin:2rem 0 1rem">Best for questions like</h2>
+      <ul class="questions">{questions.map((q) => <li>{q}</li>)}</ul>
+      <p class="muted">From {topics.map((t, i) => <>{i > 0 && (i === topics.length - 1 ? " and " : ", ")}<a href={`${BASE}topics/${t.slug}`}>{t.title.toLowerCase()}</a></>)}.</p>
+    </>
+  )}
+    </div>
+    <div data-panel="how">
+  <h2 class="sr-only">How to read it</h2>
+  <ol class="steps-list">
+    <li>Hold one clear question in mind{id === "yes_no" ? ", worded so it can be answered yes or no" : ""}.</li>
+    <li>Shuffle, then lay out {count} in order{n > 1 ? `, from position 1 to ${n}` : ""}.</li>
+    <li>Read each card for its position: the same card means something different as {n > 1 ? `"${s.positions[0]}" than as "${s.positions[n - 1]}"` : "a single answer than inside a bigger spread"}.</li>
+    {n > 1 && <li>Then read the cards together: the story they tell, which suits lead and how many are Major Arcana. The reader below shows this for you.</li>}
+  </ol>
+    </div>
+    {related.length > 0 && <div data-panel="related">
   {related.length > 0 && (
     <section class="section" style="padding-bottom:0">
       <h2>Related spreads</h2>
@@ -79,6 +94,8 @@ const jsonLd = [{ "@context": "https://schema.org", "@type": "FAQPage", mainEnti
       </div>
     </section>
   )}
+    </div>}
+    <div data-panel="faq">
   <section class="section" style="padding-bottom:0">
     <h2 class="center">Questions about the {s.name} spread</h2>
     <div class="faq">
@@ -90,4 +107,6 @@ const jsonLd = [{ "@context": "https://schema.org", "@type": "FAQPage", mainEnti
       ))}
     </div>
   </section>
+    </div>
+  </Tabs>
 </Base>

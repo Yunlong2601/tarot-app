@@ -1,5 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
+import Tabs from "../../components/Tabs.astro";
 import { BASE } from "../../config.ts";
 import { APP_SPREADS, CARDS, SPREADS, plural, slug } from "../../lib/data.ts";
 import { QUESTION_GUIDES, type QuestionGuide } from "../../lib/questions.ts";
@@ -43,13 +44,14 @@ const jsonLd = {
     <p><a class="btn btn-gold" href={href} data-ask-guide={g.question}>Ask this in a reading</a></p>
   </header>
 
-  <section class="section" style="padding-top:0;padding-bottom:0">
+  <Tabs label="This guide" tabs={[{ id: "ask", label: "Better ways to ask" }, { id: "spread", label: "The spread" }, { id: "cards", label: "Cards to look out for" }, { id: "note", label: "Before you draw" }, { id: "faq", label: "Questions" }]}>
+  <section data-panel="ask">
     <h2>Better ways to ask</h2>
     <p class="muted">Open questions about you tend to give clearer readings than questions about what someone else will do.</p>
     <ul class="questions">{g.better.map((q) => <li>{q}</li>)}</ul>
   </section>
 
-  <section class="section" style="padding-bottom:0">
+  <section data-panel="spread">
     <h2>The spread to use</h2>
     <a class="panel spread-card" href={`${BASE}spreads/${slug(spread)}`} style="max-width:26rem">
       <div class="layout" aria-hidden="true">{s.positions.map(() => <i />)}</div>
@@ -60,7 +62,7 @@ const jsonLd = {
     </a>
   </section>
 
-  <section class="section" style="padding-bottom:0">
+  <section data-panel="cards">
     <h2>Cards to look out for</h2>
     <div class="card-notes">
       {g.cards.map(([id, note]) => (
@@ -73,12 +75,12 @@ const jsonLd = {
     <p class="muted">No single card decides a reading. Read each one in its position and alongside the others.</p>
   </section>
 
-  <section class="section" style="padding-bottom:0">
+  <section data-panel="note">
     <h2>A note before you draw</h2>
     <p>{g.tip}</p>
   </section>
 
-  <section class="section" style="padding-bottom:0">
+  <section data-panel="faq">
     <h2 class="center">Questions about this reading</h2>
     <div class="faq">
       {faq.map(([q, a]) => (
@@ -90,6 +92,7 @@ const jsonLd = {
     </div>
   </section>
 
+  </Tabs>
   <section class="section">
     <h2>More questions</h2>
     <ul class="guide-list">
