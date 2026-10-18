@@ -10,7 +10,7 @@ Owner decision 2026-10-17: set up every promotion before launch, not later. Pric
 | Intro offer text ("$1.99 for your first month, then $39.99 per year. Cancel any time") read from the store product | paywall + `subscription_service.dart` |
 | Apple offer-code redemption sheet | paywall ("Redeem in App Store") |
 | Upgrade nudge for monthly / 3-month subscribers after a few months | `annual_upgrade_card.dart` |
-| Free tier (1 reading a day) as the trial | backend usage limits |
+| Free tier (2 readings a day) as the trial | backend usage limits |
 | Refer and earn (friend gets annual at US$19.99) | built, switched off: see `referral-setup.md` |
 
 ## To create in the stores before launch (owner, needs the paid Apple account)

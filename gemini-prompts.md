@@ -278,8 +278,8 @@ Learn tarot as you go
 - A short guide to how tarot readings work and how to use spreads.
 
 Free and Premium
-- Free: one reading every day (one card or Past, Present, Future), plus a trial reading of a longer spread.
-- Premium: 14 spreads including the Celtic Cross and Horseshoe, unlimited readings, follow-up questions, a clarifier card, and a journal for your own notes.
+- Free: two readings every day (one card or Past, Present, Future), plus a trial reading of a longer spread.
+- Premium: all 14 spreads including the Celtic Cross and Horseshoe, 50 readings a day, follow-up questions, a clarifier card, and a journal for your own notes.
 
 Private by design
 - No account needed.
