@@ -1,0 +1,782 @@
+{
+ "major_00_fool": {
+  "name": "Der Narr",
+  "keywords": [
+   "Anfänge",
+   "Spontaneität",
+   "Vertrauen"
+  ],
+  "upright": "Ein Neuanfang verlangt einen Vertrauensvorschuss. Bleib neugierig und offen für Neues.",
+  "reversed": "Zögern oder Leichtsinn. Prüfe den Boden, bevor du den Schritt machst."
+ },
+ "major_01_magician": {
+  "name": "Der Magier",
+  "keywords": [
+   "Können",
+   "Fokus",
+   "Einfallsreichtum"
+  ],
+  "upright": "Du hast die nötigen Werkzeuge schon in der Hand. Sammle deine Aufmerksamkeit und handle bewusst.",
+  "reversed": "Zerstreute Energie oder ungenutztes Talent. Frag dich, was deinen Fokus bremst."
+ },
+ "major_02_high_priestess": {
+  "name": "Die Hohepriesterin",
+  "keywords": [
+   "Intuition",
+   "Stille",
+   "das Unausgesprochene"
+  ],
+  "upright": "Stilles Nachdenken bringt Antworten, die der Lärm nicht bringt. Vertrau dem, was du unter der Oberfläche spürst.",
+  "reversed": "Die innere Stimme überhören oder etwas vor dir selbst verbergen."
+ },
+ "major_03_empress": {
+  "name": "Die Herrscherin",
+  "keywords": [
+   "Fürsorge",
+   "Fülle",
+   "Kreativität"
+  ],
+  "upright": "Fürsorge, Geborgenheit und Wachstum sind da. Pflege, was du liebst, und lass es aufblühen.",
+  "reversed": "Erdrücken, dich selbst vernachlässigen oder eine kreative Blockade."
+ },
+ "major_04_emperor": {
+  "name": "Der Herrscher",
+  "keywords": [
+   "Struktur",
+   "Autorität",
+   "Stabilität"
+  ],
+  "upright": "Klare Grenzen und stetige Planung schaffen ein solides Fundament. Führe mit Ruhe.",
+  "reversed": "Starrheit oder Kontrolle. Frag dich, wo Festigkeit zu Sturheit geworden ist."
+ },
+ "major_05_hierophant": {
+  "name": "Der Hierophant",
+  "keywords": [
+   "Tradition",
+   "Führung",
+   "Zugehörigkeit"
+  ],
+  "upright": "Von bewährtem Wissen oder einer Gemeinschaft zu lernen, kann dir Halt geben.",
+  "reversed": "Regeln hinterfragen, die nicht mehr passen. Finde deinen eigenen Weg zu Sinn."
+ },
+ "major_06_lovers": {
+  "name": "Die Liebenden",
+  "keywords": [
+   "Wahl",
+   "Verbindung",
+   "Stimmigkeit"
+  ],
+  "upright": "Eine wichtige Entscheidung, die deine Werte widerspiegelt, oder eine Bindung, die Ehrlichkeit verlangt.",
+  "reversed": "Unstimmigkeit oder Unentschlossenheit. Prüfe, ob dein Handeln zu deinen Werten passt."
+ },
+ "major_07_chariot": {
+  "name": "Der Wagen",
+  "keywords": [
+   "Entschlossenheit",
+   "Antrieb",
+   "Richtung"
+  ],
+  "upright": "Willenskraft und Fokus bringen dich voran. Halte die Zügel fest.",
+  "reversed": "Die Richtung verlieren oder ohne Plan zu sehr drängen."
+ },
+ "major_08_strength": {
+  "name": "Die Kraft",
+  "keywords": [
+   "Mut",
+   "Geduld",
+   "Mitgefühl"
+  ],
+  "upright": "Stiller Mut und Sanftheit schaffen, was mit Gewalt nicht geht.",
+  "reversed": "Selbstzweifel oder leere Reserven. Baue Vertrauen in kleinen Schritten wieder auf."
+ },
+ "major_09_hermit": {
+  "name": "Der Eremit",
+  "keywords": [
+   "Alleinsein",
+   "Besinnung",
+   "innere Führung"
+  ],
+  "upright": "Tritt einen Schritt zurück und denk nach. Zeit für dich zeigt, was zählt.",
+  "reversed": "Isolation oder Vermeidung von Besinnung. Halte Alleinsein und Verbindung im Gleichgewicht."
+ },
+ "major_10_wheel_of_fortune": {
+  "name": "Das Rad des Schicksals",
+  "keywords": [
+   "Zyklen",
+   "Wandel",
+   "Perspektive"
+  ],
+  "upright": "Alles dreht sich in Zyklen. Pass dich dem Wandel an und schau, was er bietet.",
+  "reversed": "Widerstand gegen Wandel oder das Gefühl, im Kreis zu laufen. Such, worauf du Einfluss hast."
+ },
+ "major_11_justice": {
+  "name": "Die Gerechtigkeit",
+  "keywords": [
+   "Fairness",
+   "Wahrheit",
+   "Verantwortung"
+  ],
+  "upright": "Wäge die Fakten ehrlich ab. Klare, faire Entscheidungen bringen Gleichgewicht.",
+  "reversed": "Voreingenommenheit, sich vor Verantwortung drücken oder eine einseitige Sicht."
+ },
+ "major_12_hanged_man": {
+  "name": "Der Gehängte",
+  "keywords": [
+   "Innehalten",
+   "Hingabe",
+   "neuer Blickwinkel"
+  ],
+  "upright": "Anzuhalten und anders hinzusehen, kann eine festgefahrene Lage lösen.",
+  "reversed": "Stillstand ohne Sinn. Frag dich, ob das Warten noch hilft."
+ },
+ "major_13_death": {
+  "name": "Der Tod",
+  "keywords": [
+   "Enden",
+   "Übergang",
+   "Loslassen"
+  ],
+  "upright": "Ein Kapitel schließt sich, damit ein anderes beginnen kann. Lass los, was ausgedient hat.",
+  "reversed": "Am Alten festhalten oder einen nötigen Wandel fürchten."
+ },
+ "major_14_temperance": {
+  "name": "Die Mäßigkeit",
+  "keywords": [
+   "Ausgleich",
+   "Geduld",
+   "Maß"
+  ],
+  "upright": "Bring gegensätzliche Bedürfnisse geduldig zusammen. Stetige, maßvolle Schritte wirken am besten.",
+  "reversed": "Übermaß oder Ungeduld. Such, wo etwas aus dem Gleichgewicht ist."
+ },
+ "major_15_devil": {
+  "name": "Der Teufel",
+  "keywords": [
+   "Bindung",
+   "Gewohnheit",
+   "Schatten"
+  ],
+  "upright": "Bemerke, was dich festhält, ob Gewohnheit, Überzeugung oder Abhängigkeit, und wie viel Wahl du wirklich hast.",
+  "reversed": "Der Griff lockert sich. Erkennen ist der erste Schritt zur Freiheit."
+ },
+ "major_16_tower": {
+  "name": "Der Turm",
+  "keywords": [
+   "Umbruch",
+   "Enthüllung",
+   "Neustart"
+  ],
+  "upright": "Eine plötzliche Erschütterung zeigt, was nicht stabil war. Freier Boden schafft Raum für Neues.",
+  "reversed": "Angst vor Veränderung oder ein schwelendes Problem. Stell dich ihm, statt zu warten."
+ },
+ "major_17_star": {
+  "name": "Der Stern",
+  "keywords": [
+   "Hoffnung",
+   "Erneuerung",
+   "Ruhe"
+  ],
+  "upright": "Nach einer harten Zeit kehrt sanfte Hoffnung zurück. Ruh dich aus und vertrau auf eine langsame Erholung.",
+  "reversed": "Zweifel oder wenig Antrieb. Sei gut zu dir und halte kleine Hoffnungen am Leben."
+ },
+ "major_18_moon": {
+  "name": "Der Mond",
+  "keywords": [
+   "Ungewissheit",
+   "Träume",
+   "Intuition"
+  ],
+  "upright": "Noch ist nicht alles klar. Geh behutsam vor und achte auf deine Ängste und Instinkte.",
+  "reversed": "Verwirrung löst sich, oder Unruhe, die Halt braucht."
+ },
+ "major_19_sun": {
+  "name": "Die Sonne",
+  "keywords": [
+   "Freude",
+   "Lebenskraft",
+   "Klarheit"
+  ],
+  "upright": "Wärme, Zuversicht und Offenheit. Genieße, was gut läuft.",
+  "reversed": "Gedämpfte Begeisterung oder zu viel Ego. Such kleine Lichtquellen."
+ },
+ "major_20_judgement": {
+  "name": "Das Gericht",
+  "keywords": [
+   "Rückschau",
+   "Erneuerung",
+   "Berufung"
+  ],
+  "upright": "Ein Moment ehrlicher Rückschau. Vergib der Vergangenheit und folge deinem inneren Ruf.",
+  "reversed": "Selbstkritik oder das Vermeiden einer nötigen Entscheidung."
+ },
+ "major_21_world": {
+  "name": "Die Welt",
+  "keywords": [
+   "Vollendung",
+   "Ganzheit",
+   "Erfolg"
+  ],
+  "upright": "Ein Zyklus schließt sich. Schau, wie weit du gekommen bist.",
+  "reversed": "Lose Enden oder ein Ziel, das unerreichbar scheint. Ein letzter Schritt fehlt."
+ },
+ "wands_ace": {
+  "name": "Ass der Stäbe",
+  "keywords": [
+   "Funke",
+   "Inspiration",
+   "neue Energie"
+  ],
+  "upright": "Ein Schub an Begeisterung und die Chance, etwas Mutiges zu beginnen.",
+  "reversed": "Wenig Energie oder ein Fehlstart. Lass die Idee reifen, bevor du losstürmst."
+ },
+ "wands_two": {
+  "name": "Zwei der Stäbe",
+  "keywords": [
+   "Planung",
+   "Wahl",
+   "Vision"
+  ],
+  "upright": "Du stehst am Rand des Vertrauten. Entscheide, wohin du zielst.",
+  "reversed": "Angst, die Komfortzone zu verlassen, oder Pläne, die auf dem Papier bleiben."
+ },
+ "wands_three": {
+  "name": "Drei der Stäbe",
+  "keywords": [
+   "Weitblick",
+   "Fortschritt",
+   "Ausdehnung"
+  ],
+  "upright": "Erste Bemühungen kommen in Gang. Schau weiter voraus und bleib dran.",
+  "reversed": "Verzögerungen oder ein enger Blick. Weite deine Sicht."
+ },
+ "wands_four": {
+  "name": "Vier der Stäbe",
+  "keywords": [
+   "Feier",
+   "Stabilität",
+   "Zuhause"
+  ],
+  "upright": "Ein Moment der Ruhe und geteilten Freude nach der Mühe.",
+  "reversed": "Unruhe zu Hause oder eine Feier, die sich hohl anfühlt."
+ },
+ "wands_five": {
+  "name": "Fünf der Stäbe",
+  "keywords": [
+   "Wettbewerb",
+   "Reibung",
+   "Streitgespräch"
+  ],
+  "upright": "Aufeinanderprallende Ideen und Rivalität. Wettbewerb schärft dich, wenn er freundlich bleibt.",
+  "reversed": "Konflikten ausweichen oder Spannung, die sich nach innen richtet."
+ },
+ "wands_six": {
+  "name": "Sechs der Stäbe",
+  "keywords": [
+   "Anerkennung",
+   "Fortschritt",
+   "Selbstvertrauen"
+  ],
+  "upright": "Öffentlicher Erfolg oder ein Schub an Selbstvertrauen für deine Mühe.",
+  "reversed": "Selbstzweifel oder Gier nach Lob. Miss Erfolg an deinen eigenen Maßstäben."
+ },
+ "wands_seven": {
+  "name": "Sieben der Stäbe",
+  "keywords": [
+   "Verteidigung",
+   "Ausdauer",
+   "standhaft bleiben"
+  ],
+  "upright": "Du behauptest dich. Steh zu dem, woran du glaubst.",
+  "reversed": "Sich überfordert fühlen oder zu früh aufgeben."
+ },
+ "wands_eight": {
+  "name": "Acht der Stäbe",
+  "keywords": [
+   "Tempo",
+   "Bewegung",
+   "Nachrichten"
+  ],
+  "upright": "Die Dinge bewegen sich schnell. Handle zügig und halte die Kommunikation offen.",
+  "reversed": "Verzögerungen oder verzettelte Kräfte. Werde langsamer und sammle dich."
+ },
+ "wands_nine": {
+  "name": "Neun der Stäbe",
+  "keywords": [
+   "Widerstandskraft",
+   "Grenzen",
+   "letzter Einsatz"
+  ],
+  "upright": "Müde, aber fast am Ziel. Greif auf deine Widerstandskraft zurück.",
+  "reversed": "Erschöpfung oder Sturheit. Ruhe kann klüger sein als noch eine Runde."
+ },
+ "wands_ten": {
+  "name": "Zehn der Stäbe",
+  "keywords": [
+   "Last",
+   "Verantwortung",
+   "Überlastung"
+  ],
+  "upright": "Du trägst viel. Überlege, was du ablegen kannst.",
+  "reversed": "Eine Last ablegen oder Mühe, um Hilfe zu bitten."
+ },
+ "wands_page": {
+  "name": "Bube der Stäbe",
+  "keywords": [
+   "Neugier",
+   "Begeisterung",
+   "Entdeckung"
+  ],
+  "upright": "Ein lebhafter Neuling, der erkunden und Ideen ausprobieren will.",
+  "reversed": "Ungeduld oder halb fertige Projekte."
+ },
+ "wands_knight": {
+  "name": "Ritter der Stäbe",
+  "keywords": [
+   "Abenteuer",
+   "Energie",
+   "Impuls"
+  ],
+  "upright": "Kühne, rastlose Energie, die vorwärtsstürmt.",
+  "reversed": "Leichtsinn oder Frust. Denk nach, bevor du springst."
+ },
+ "wands_queen": {
+  "name": "Königin der Stäbe",
+  "keywords": [
+   "Wärme",
+   "Zuversicht",
+   "Ausstrahlung"
+  ],
+  "upright": "Selbstbewusst, herzlich und zielstrebig. Führe, indem du inspirierst.",
+  "reversed": "Unsicherheit oder Eifersucht. Finde deinen eigenen Funken wieder."
+ },
+ "wands_king": {
+  "name": "König der Stäbe",
+  "keywords": [
+   "Vision",
+   "Führung",
+   "Kühnheit"
+  ],
+  "upright": "Eine geborene Führungsperson mit klarer Vision.",
+  "reversed": "Herrische oder impulsive Führung."
+ },
+ "cups_ace": {
+  "name": "Ass der Kelche",
+  "keywords": [
+   "Offenheit",
+   "neue Gefühle",
+   "Mitgefühl"
+  ],
+  "upright": "Das Herz öffnet sich. Heiße Güte und emotionale Erneuerung willkommen.",
+  "reversed": "Zurückgehaltene Gefühle. Erlaube dir zu fühlen."
+ },
+ "cups_two": {
+  "name": "Zwei der Kelche",
+  "keywords": [
+   "Verbindung",
+   "Partnerschaft",
+   "gegenseitiger Respekt"
+  ],
+  "upright": "Eine ausgewogene Bindung aus Respekt und geteiltem Gefühl.",
+  "reversed": "Ungleichgewicht oder Missverständnisse in einer Beziehung."
+ },
+ "cups_three": {
+  "name": "Drei der Kelche",
+  "keywords": [
+   "Freundschaft",
+   "Feier",
+   "Gemeinschaft"
+  ],
+  "upright": "Mit anderen geteilte Freude. Genieße gute Gesellschaft.",
+  "reversed": "Übermaß oder das Gefühl, ausgeschlossen zu sein."
+ },
+ "cups_four": {
+  "name": "Vier der Kelche",
+  "keywords": [
+   "Teilnahmslosigkeit",
+   "Nachsinnen",
+   "Neubewertung"
+  ],
+  "upright": "Langeweile oder Rückzug. Frag dich, was du wirklich willst.",
+  "reversed": "Nach einer trüben Phase neue Möglichkeiten entdecken."
+ },
+ "cups_five": {
+  "name": "Fünf der Kelche",
+  "keywords": [
+   "Verlust",
+   "Bedauern",
+   "Trauer"
+  ],
+  "upright": "Der Blick liegt auf dem Verlorenen. Denk daran, dass manche Kelche noch stehen.",
+  "reversed": "Weitergehen, Vergebung und sich langsam dem zuwenden, was bleibt."
+ },
+ "cups_six": {
+  "name": "Sechs der Kelche",
+  "keywords": [
+   "Nostalgie",
+   "Unschuld",
+   "Freundlichkeit"
+  ],
+  "upright": "Erinnerungen und sanfte Großzügigkeit. Blick mit Wärme zurück.",
+  "reversed": "In der Vergangenheit festhängen oder zurück- statt nach vorn schauen."
+ },
+ "cups_seven": {
+  "name": "Sieben der Kelche",
+  "keywords": [
+   "Tagträume",
+   "Möglichkeiten",
+   "Illusion"
+  ],
+  "upright": "Viele Möglichkeiten und etwas Fantasie. Trenne Wirkliches von Erträumtem.",
+  "reversed": "Klarheit kommt, oder überwältigende Auswahl."
+ },
+ "cups_eight": {
+  "name": "Acht der Kelche",
+  "keywords": [
+   "Weggehen",
+   "mehr suchen",
+   "weiterziehen"
+  ],
+  "upright": "Etwas verlassen, das nicht mehr erfüllt, um Sinn zu suchen.",
+  "reversed": "Zielloses Treiben oder Angst zu gehen."
+ },
+ "cups_nine": {
+  "name": "Neun der Kelche",
+  "keywords": [
+   "Zufriedenheit",
+   "Erfüllung",
+   "Dankbarkeit"
+  ],
+  "upright": "Ein Gefühl der Erfüllung. Schätze, was du hast.",
+  "reversed": "Selbstgefälligkeit oder ein Wunsch, der weniger erfüllt als erhofft."
+ },
+ "cups_ten": {
+  "name": "Zehn der Kelche",
+  "keywords": [
+   "Harmonie",
+   "Familie",
+   "Erfüllung"
+  ],
+  "upright": "Emotionale Erfüllung und ein Gefühl der Zugehörigkeit.",
+  "reversed": "Angespannte Bindungen oder Werte, die nicht ganz zusammenpassen."
+ },
+ "cups_page": {
+  "name": "Bube der Kelche",
+  "keywords": [
+   "Feingefühl",
+   "Fantasie",
+   "Offenheit"
+  ],
+  "upright": "Eine zarte, kreative Botschaft. Hör auf deine Gefühle.",
+  "reversed": "Launenhaftigkeit oder emotionale Unreife."
+ },
+ "cups_knight": {
+  "name": "Ritter der Kelche",
+  "keywords": [
+   "Romantik",
+   "Charme",
+   "Idealismus"
+  ],
+  "upright": "Ein Träumer, der dem Herzen folgt. Angebote oder Einladungen können kommen.",
+  "reversed": "Unrealistische Ideen oder widersprüchliche Signale."
+ },
+ "cups_queen": {
+  "name": "Königin der Kelche",
+  "keywords": [
+   "Einfühlung",
+   "Intuition",
+   "Fürsorge"
+  ],
+  "upright": "Zutiefst fürsorglich und intuitiv. Sorge auch für dich selbst.",
+  "reversed": "Emotionale Überforderung oder eigene Bedürfnisse vernachlässigen."
+ },
+ "cups_king": {
+  "name": "König der Kelche",
+  "keywords": [
+   "emotionale Ausgeglichenheit",
+   "Diplomatie",
+   "Ruhe"
+  ],
+  "upright": "Reif, beständig und mitfühlend. Bleib unter Druck gelassen.",
+  "reversed": "Unterdrückte Gefühle oder Launen hinter der Fassung."
+ },
+ "swords_ace": {
+  "name": "Ass der Schwerter",
+  "keywords": [
+   "Klarheit",
+   "Wahrheit",
+   "Durchbruch"
+  ],
+  "upright": "Ein klarer Gedanke durchschneidet die Verwirrung. Denk und sprich geradeheraus.",
+  "reversed": "Wirres Denken oder harte Worte."
+ },
+ "swords_two": {
+  "name": "Zwei der Schwerter",
+  "keywords": [
+   "Patt",
+   "Unentschlossenheit",
+   "Abwehr"
+  ],
+  "upright": "Eine schwere Wahl, der du ausweichst. Nimm die Augenbinde ab, wenn du bereit bist.",
+  "reversed": "Informationen kommen ans Licht, oder die Unentschlossenheit zieht sich hin."
+ },
+ "swords_three": {
+  "name": "Drei der Schwerter",
+  "keywords": [
+   "Herzschmerz",
+   "Kummer",
+   "Ehrlichkeit"
+  ],
+  "upright": "Eine schmerzhafte Wahrheit oder Traurigkeit. Erkenne sie an, damit sie heilen kann.",
+  "reversed": "Heilung beginnt, oder du hältst am Schmerz fest."
+ },
+ "swords_four": {
+  "name": "Vier der Schwerter",
+  "keywords": [
+   "Ruhe",
+   "Erholung",
+   "Rückzug"
+  ],
+  "upright": "Halte inne und tanke auf. Ruhe ist produktiv.",
+  "reversed": "Unrast oder zu frühe Rückkehr ins Handeln."
+ },
+ "swords_five": {
+  "name": "Fünf der Schwerter",
+  "keywords": [
+   "Konflikt",
+   "Spannung",
+   "leere Siege"
+  ],
+  "upright": "Ein Kampf, der mehr kostet als er bringt. Wähle deine Kämpfe.",
+  "reversed": "Frieden schließen oder anhaltender Groll."
+ },
+ "swords_six": {
+  "name": "Sechs der Schwerter",
+  "keywords": [
+   "Übergang",
+   "weiterziehen",
+   "ruhigere Gewässer"
+  ],
+  "upright": "Ein langsamer Aufbruch weg von Ärger. Die Heilung ist im Gange.",
+  "reversed": "Widerstand gegen Veränderung oder ungelöster Ballast."
+ },
+ "swords_seven": {
+  "name": "Sieben der Schwerter",
+  "keywords": [
+   "Strategie",
+   "Heimlichkeit",
+   "Vorsicht"
+  ],
+  "upright": "Denk gut nach; ein schlauer Weg verlangt Ehrlichkeit über seinen Preis.",
+  "reversed": "Reinen Tisch machen oder ein Plan, der nach hinten losgeht."
+ },
+ "swords_eight": {
+  "name": "Acht der Schwerter",
+  "keywords": [
+   "Einschränkung",
+   "Angst",
+   "sich gefangen fühlen"
+  ],
+  "upright": "Du fühlst dich gefangen, doch die Möglichkeiten sind vielleicht offener, als es scheint.",
+  "reversed": "Dich befreien und wieder Wahlmöglichkeiten sehen."
+ },
+ "swords_nine": {
+  "name": "Neun der Schwerter",
+  "keywords": [
+   "Angst",
+   "Sorge",
+   "schlaflose Nächte"
+  ],
+  "upright": "Die Sorge wirkt riesig. Teile sie mit jemandem, dem du vertraust.",
+  "reversed": "Ängste lassen nach, oder Unruhe, die Unterstützung braucht."
+ },
+ "swords_ten": {
+  "name": "Zehn der Schwerter",
+  "keywords": [
+   "Enden",
+   "Erschöpfung",
+   "Tiefpunkt"
+  ],
+  "upright": "Ein schmerzhaftes Kapitel endet. Jetzt geht es nur noch vorwärts.",
+  "reversed": "Erholung beginnt, oder du klammerst dich an die Vergangenheit."
+ },
+ "swords_page": {
+  "name": "Bube der Schwerter",
+  "keywords": [
+   "Neugier",
+   "Wachsamkeit",
+   "Ideen"
+  ],
+  "upright": "Ein scharfer, wissbegieriger Geist. Stell Fragen und sammle Fakten.",
+  "reversed": "Klatsch, Hast oder zerstreute Gedanken."
+ },
+ "swords_knight": {
+  "name": "Ritter der Schwerter",
+  "keywords": [
+   "Ehrgeiz",
+   "Hast",
+   "Direktheit"
+  ],
+  "upright": "Getrieben und schnell im Handeln. Achte auf Schroffheit.",
+  "reversed": "Ausbrennen oder handeln, ohne zu denken."
+ },
+ "swords_queen": {
+  "name": "Königin der Schwerter",
+  "keywords": [
+   "Klarheit",
+   "Unabhängigkeit",
+   "Ehrlichkeit"
+  ],
+  "upright": "Klarsichtig und fair. Sag die Wahrheit freundlich.",
+  "reversed": "Kälte oder übermäßige Kritik."
+ },
+ "swords_king": {
+  "name": "König der Schwerter",
+  "keywords": [
+   "Verstand",
+   "Autorität",
+   "Vernunft"
+  ],
+  "upright": "Logisch, prinzipientreu und entschlossen. Strebe nach Fairness.",
+  "reversed": "Starres Denken oder Machtmissbrauch."
+ },
+ "pentacles_ace": {
+  "name": "Ass der Münzen",
+  "keywords": [
+   "Gelegenheit",
+   "Wohlstand",
+   "Fundament"
+  ],
+  "upright": "Ein Samenkorn der Gelegenheit bei Arbeit oder Geld. Pflanze es sorgfältig.",
+  "reversed": "Eine verpasste Chance oder schlechte Planung."
+ },
+ "pentacles_two": {
+  "name": "Zwei der Münzen",
+  "keywords": [
+   "Balance",
+   "Jonglieren",
+   "Anpassungsfähigkeit"
+  ],
+  "upright": "Prioritäten flexibel jonglieren. Behalte deinen Rhythmus.",
+  "reversed": "Zu viele Verpflichtungen oder Unordnung."
+ },
+ "pentacles_three": {
+  "name": "Drei der Münzen",
+  "keywords": [
+   "Teamarbeit",
+   "Handwerk",
+   "Können"
+  ],
+  "upright": "Geschickte Zusammenarbeit. Gute Arbeit wächst durch Kooperation.",
+  "reversed": "Schlechte Teamarbeit oder Arbeit unter deinem gewohnten Niveau."
+ },
+ "pentacles_four": {
+  "name": "Vier der Münzen",
+  "keywords": [
+   "Sicherheit",
+   "Sparen",
+   "Kontrolle"
+  ],
+  "upright": "Du hältst fest, was du hast. Sicherheit ist gut; achte auf Klammern.",
+  "reversed": "Großzügigkeit kehrt zurück, oder der feste Griff lockert sich."
+ },
+ "pentacles_five": {
+  "name": "Fünf der Münzen",
+  "keywords": [
+   "Not",
+   "Sorge",
+   "sich ausgeschlossen fühlen"
+  ],
+  "upright": "Eine magere Zeit. Hilfe ist da, wenn du danach greifst.",
+  "reversed": "Erholung oder die Weigerung, um Unterstützung zu bitten."
+ },
+ "pentacles_six": {
+  "name": "Sechs der Münzen",
+  "keywords": [
+   "Großzügigkeit",
+   "Teilen",
+   "Fairness"
+  ],
+  "upright": "Geben und Nehmen im Gleichgewicht. Geh fair mit Ressourcen um.",
+  "reversed": "Hilfe mit Bedingungen oder ein einseitiger Austausch."
+ },
+ "pentacles_seven": {
+  "name": "Sieben der Münzen",
+  "keywords": [
+   "Geduld",
+   "Bewertung",
+   "langer Atem"
+  ],
+  "upright": "Halte inne und prüfe deine Mühen. Wachstum braucht Zeit.",
+  "reversed": "Ungeduld oder Zweifel an deinem Fortschritt."
+ },
+ "pentacles_eight": {
+  "name": "Acht der Münzen",
+  "keywords": [
+   "Fleiß",
+   "Meisterschaft",
+   "Übung"
+  ],
+  "upright": "Stetige, konzentrierte Arbeit baut Können auf.",
+  "reversed": "Perfektionismus oder sinnlose, sich wiederholende Arbeit."
+ },
+ "pentacles_nine": {
+  "name": "Neun der Münzen",
+  "keywords": [
+   "Eigenständigkeit",
+   "Behaglichkeit",
+   "Lohn"
+  ],
+  "upright": "Genieße, was deine Mühe aufgebaut hat.",
+  "reversed": "Überarbeitung oder Behaglichkeit, die sich leer anfühlt."
+ },
+ "pentacles_ten": {
+  "name": "Zehn der Münzen",
+  "keywords": [
+   "Vermächtnis",
+   "Familie",
+   "dauerhafte Sicherheit"
+  ],
+  "upright": "Langfristige Stabilität, Familie und geteilter Wohlstand.",
+  "reversed": "Familienstreit oder kurzfristiges Denken."
+ },
+ "pentacles_page": {
+  "name": "Bube der Münzen",
+  "keywords": [
+   "Lernen",
+   "Ehrgeiz",
+   "Bodenständigkeit"
+  ],
+  "upright": "Ein fleißiger Schüler des Lebens, der lernen und aufbauen will.",
+  "reversed": "Aufschieben oder mangelnder Fokus."
+ },
+ "pentacles_knight": {
+  "name": "Ritter der Münzen",
+  "keywords": [
+   "Verlässlichkeit",
+   "Beharrlichkeit",
+   "Routine"
+  ],
+  "upright": "Zuverlässig und gründlich. Langsam und stetig gewinnt.",
+  "reversed": "Sturheit, Langeweile oder Perfektionismus."
+ },
+ "pentacles_queen": {
+  "name": "Königin der Münzen",
+  "keywords": [
+   "Fürsorge",
+   "praktisch",
+   "einfallsreich"
+  ],
+  "upright": "Warm, praktisch und großzügig. Schaffe Wohlbefinden für dich und andere.",
+  "reversed": "Selbstvernachlässigung oder Erdrücken."
+ },
+ "pentacles_king": {
+  "name": "König der Münzen",
+  "keywords": [
+   "Fülle",
+   "Stabilität",
+   "Führung"
+  ],
+  "upright": "Etabliert, großzügig und sicher. Führe beständig.",
+  "reversed": "Gier, Sturheit oder Geld über Menschen stellen."
+ }
+}
