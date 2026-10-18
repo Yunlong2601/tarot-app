@@ -1,0 +1,61 @@
+---
+import Base from "../../layouts/Base.astro";
+import { BASE } from "../../config.ts";
+import { CARDS, slug } from "../../lib/data.ts";
+import { PLANET_CARD, SIGNS, SUIT_OF } from "../../lib/zodiac.ts";
+
+---
+<Base
+  title="Zodiac tarot cards: the tarot card for every star sign · ShenTarot"
+  description="Find the tarot cards for your star sign: its Major Arcana card, its ruling planet's card and the three cards of its decans, from Aries to Pisces."
+  path="tools/zodiac-tarot"
+  crumbs={[["Free tools", "tools"], ["Zodiac tarot cards", "tools/zodiac-tarot"]]}
+>
+  <header class="page-head center">
+    <p class="eyebrow">Free tool</p>
+    <h1>Your zodiac tarot cards</h1>
+    <p class="lead">
+      In the Golden Dawn tradition behind the Rider-Waite-Smith deck, every star sign has its own Major Arcana card,
+      a ruling planet with a card of its own, and three numbered cards for the thirds of the sign.
+    </p>
+  </header>
+  <div class="panel tool-panel" data-zodiac>
+    <label>Your birthday <input type="date" data-bd /></label>
+    <button class="btn btn-gold" type="button" data-go>Find my sign</button>
+  </div>
+  <nav class="sign-grid" aria-label="Star signs">
+    {SIGNS.map((s) => <a class="btn btn-ghost btn-sm" href={`#${s.slug}`}>{s.name}<small>{s.dates.replace(/ to /, " – ")}</small></a>)}
+  </nav>
+  {SIGNS.map((s) => {
+    const planet = PLANET_CARD[s.ruler]!;
+    return (
+      <section class="section" id={s.slug} style="padding-bottom:0;scroll-margin-top:4.5rem">
+        <h2>{s.name} <small class="muted">{s.dates}</small></h2>
+        <p>{s.element} sign, so its suit is {SUIT_OF[s.element][0]!.toUpperCase() + SUIT_OF[s.element].slice(1)}. Traditional ruler: {s.ruler}.</p>
+        <div class="card-notes">
+          <a class="panel" href={`${BASE}cards/${slug(s.major)}`}>
+            <img src={`${BASE}cards/art/${s.major}.jpg`} alt="" loading="lazy" width="150" height="257" />
+            <span><b>{CARDS[s.major].name}</b>The card of {s.name}: {CARDS[s.major].keywords.join(", ")}.</span>
+          </a>
+          <a class="panel" href={`${BASE}cards/${slug(planet)}`}>
+            <img src={`${BASE}cards/art/${planet}.jpg`} alt="" loading="lazy" width="150" height="257" />
+            <span><b>{CARDS[planet].name}</b>The card of {s.ruler}, the sign's ruler: {CARDS[planet].keywords.join(", ")}.</span>
+          </a>
+        </div>
+        <p class="muted">The three thirds of {s.name}: {s.decans.map((d, i) => <><a href={`${BASE}cards/${slug(d)}`}>{CARDS[d].name}</a>{i < 2 ? ", " : "."}</>)}</p>
+      </section>
+    );
+  })}
+  <p class="muted section">Sign dates move by a day in some years. If you were born on the first or last day of a sign, check both.</p>
+</Base>
+
+<script>
+  import { parseDate } from "../../lib/numerology.ts";
+  import { signFor } from "../../lib/zodiac.ts";
+
+  const root = document.querySelector<HTMLElement>("[data-zodiac]")!;
+  root.querySelector<HTMLButtonElement>("[data-go]")!.onclick = () => {
+    const d = parseDate(root.querySelector<HTMLInputElement>("[data-bd]")!.value);
+    if (d) location.hash = signFor(d[1], d[2]).slug;
+  };
+</script>

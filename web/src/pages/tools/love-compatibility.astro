@@ -1,0 +1,85 @@
+---
+import Base from "../../layouts/Base.astro";
+import { BASE } from "../../config.ts";
+import { meaningDeck } from "../../lib/data.ts";
+
+const config = JSON.stringify({ base: BASE, deck: meaningDeck.filter((c) => c.suit === null) });
+---
+<Base
+  title="Tarot love compatibility: compare two birth cards · ShenTarot"
+  description="Enter two birthdays to find each person's tarot birth card and see how the two cards and their elements get on. Free, and worked out in your browser."
+  path="tools/love-compatibility"
+  crumbs={[["Free tools", "tools"], ["Love compatibility", "tools/love-compatibility"]]}
+>
+  <header class="page-head center">
+    <p class="eyebrow">Free tool</p>
+    <h1>Tarot love compatibility</h1>
+    <p class="lead">
+      Each birthday gives a Major Arcana birth card. Compare the two cards and their elements to see where you meet
+      and where you may clash. Worked out in your browser; nothing is sent.
+    </p>
+  </header>
+  <div data-compat>
+    <script type="application/json" data-config set:html={config.replace(/</g, "\\u003c")} />
+    <div class="panel tool-panel">
+      <label>Your birthday <input type="date" data-a /></label>
+      <label>Their birthday <input type="date" data-b /></label>
+      <button class="btn btn-gold" type="button" data-go>Compare</button>
+    </div>
+    <div class="results" data-out aria-live="polite"></div>
+  </div>
+  <section class="section" style="padding-bottom:0">
+    <h2>How it works</h2>
+    <p>Add the month, day and year of a birthday, then add the digits until the total is 22 or less. That number is the person's birth card (22 is The Fool). Then each card's element is compared the way readers compare cards in a spread: the same element strengthens, Fire and Water or Air and Earth pull against each other, and the other pairs support each other. Cards linked to a planet have no single element.</p>
+    <p class="muted">For fun and reflection. No pair of cards decides whether a relationship works.</p>
+  </section>
+</Base>
+
+<script>
+  import { birthCards, parseDate } from "../../lib/numerology.ts";
+  import { cardResult, el, readConfig } from "../../lib/cardView.ts";
+  import type { MeaningCard } from "../../lib/data.ts";
+
+  const TEXT: Record<string, string> = {
+    same: "Your cards share an element, so you understand each other easily. Watch for having the same blind spots.",
+    friendly: "Your cards' elements support each other. You bring different things that fit together.",
+    contrary: "Your cards' elements pull against each other. There is spark and friction; it works when you respect the difference.",
+    neutral: "One of your cards is linked to a planet rather than an element, so it adapts to the other.",
+  };
+  const relation = (a: string | null, b: string | null) => {
+    if (!a || !b) return "neutral";
+    if (a === b) return "same";
+    const p = [a, b].sort().join("+");
+    return p === "Fire+Water" || p === "Air+Earth" ? "contrary" : "friendly";
+  };
+
+  for (const root of document.querySelectorAll<HTMLElement>("[data-compat]")) {
+    const cfg = readConfig<{ base: string; deck: MeaningCard[] }>(root);
+    const byN = (n: number) => cfg.deck.find((c) => c.n === n)!;
+    const out = root.querySelector<HTMLElement>("[data-out]")!;
+    const today = new Date().toISOString().slice(0, 10);
+    root.querySelectorAll<HTMLInputElement>("input[type=date]").forEach((i) => (i.max = today));
+    root.querySelector<HTMLButtonElement>("[data-go]")!.onclick = () => {
+      const a = parseDate(root.querySelector<HTMLInputElement>("[data-a]")!.value);
+      const b = parseDate(root.querySelector<HTMLInputElement>("[data-b]")!.value);
+      if (!a || !b) {
+        out.replaceChildren(el("p", "center muted", "Pick both birthdays first."));
+        return;
+      }
+      const ca = byN(birthCards(...a)[0]!);
+      const cb = byN(birthCards(...b)[0]!);
+      const panel = el("div", "panel summary verdict");
+      panel.append(el("h3", "", ca.id === cb.id ? `You share a birth card: ${ca.name}` : `${ca.name} and ${cb.name}`));
+      const ul = el("ul");
+      if (ca.id === cb.id) ul.append(el("li", "", "The same card: you may see yourself in each other, strengths and habits alike."));
+      if (ca.el && cb.el) ul.append(el("li", "", `Elements: ${ca.el} and ${cb.el}.`));
+      ul.append(el("li", "", TEXT[relation(ca.el, cb.el)]!));
+      panel.append(ul);
+      out.replaceChildren(
+        cardResult(ca, cfg.base, "Your birth card", ca.love || ca.core),
+        cardResult(cb, cfg.base, "Their birth card", cb.love || cb.core),
+        panel,
+      );
+    };
+  }
+</script>
