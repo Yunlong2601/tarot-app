@@ -1,0 +1,19 @@
+---
+import Base from "../../layouts/Base.astro";
+import Reader from "../../components/Reader.astro";
+
+const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+---
+<Base
+  title="Weekly tarot reading: one free card for each day · ShenTarot"
+  description="Draw seven tarot cards, one for each day of the week, and read what each day may ask of you. Free and drawn in your browser."
+  path="tools/weekly-draw"
+  crumbs={[["Free tools", "tools"], ["Weekly draw", "tools/weekly-draw"]]}
+>
+  <header class="page-head center">
+    <p class="eyebrow">Free tool</p>
+    <h1>Your week in tarot</h1>
+    <p class="lead">Seven cards, one for each day from Monday to Sunday. Draw at the start of the week, then come back each day to read that day's card. Shuffled in your browser.</p>
+  </header>
+  <Reader positions={days} button="Draw my week" />
+</Base>

@@ -1,0 +1,65 @@
+---
+import Base from "../../layouts/Base.astro";
+import { BASE } from "../../config.ts";
+import { meaningDeck } from "../../lib/data.ts";
+
+const config = JSON.stringify({ base: BASE, deck: meaningDeck.filter((c) => c.suit === null) });
+---
+<Base
+  title="Tarot year card calculator: your card for the year · ShenTarot"
+  description="Find your personal tarot year card from your birthday, for this year or the next, with what it means and a question to carry through the year."
+  path="tools/year-card"
+  crumbs={[["Free tools", "tools"], ["Year card", "tools/year-card"]]}
+>
+  <header class="page-head center">
+    <p class="eyebrow">Free tool</p>
+    <h1>Your tarot year card</h1>
+    <p class="lead">
+      Add your birth month and day to the year you want to look at, then reduce the total to a Major Arcana card.
+      That card is a theme for your year. Worked out in your browser; nothing is sent.
+    </p>
+  </header>
+  <div data-year>
+    <script type="application/json" data-config set:html={config.replace(/</g, "\\u003c")} />
+    <div class="panel tool-panel">
+      <label>Your birthday <input type="date" data-bd /></label>
+      <label>Year <select data-y></select></label>
+      <button class="btn btn-gold" type="button" data-go>Find my card</button>
+    </div>
+    <div class="results" data-out aria-live="polite"></div>
+  </div>
+  <section class="section" style="padding-bottom:0">
+    <h2>How it works</h2>
+    <p>Add your birth month, your birth day and the year, then add the digits of the total until it is 22 or less. 22 is The Fool. The card changes each year, so it is worth looking again at every birthday. Your <a href={`${BASE}tools/birth-card`}>birth cards</a> use your birth year instead and stay the same for life.</p>
+  </section>
+</Base>
+
+<script>
+  import { parseDate, yearCard } from "../../lib/numerology.ts";
+  import { cardResult, el, readConfig } from "../../lib/cardView.ts";
+  import type { MeaningCard } from "../../lib/data.ts";
+
+  for (const root of document.querySelectorAll<HTMLElement>("[data-year]")) {
+    const cfg = readConfig<{ base: string; deck: MeaningCard[] }>(root);
+    const byN = (n: number) => cfg.deck.find((c) => c.n === n)!;
+    const out = root.querySelector<HTMLElement>("[data-out]")!;
+    const sel = root.querySelector<HTMLSelectElement>("[data-y]")!;
+    const now = new Date().getFullYear();
+    for (let y = now - 1; y <= now + 2; y++) sel.append(new Option(String(y), String(y), false, y === now));
+    root.querySelector<HTMLInputElement>("[data-bd]")!.max = new Date().toISOString().slice(0, 10);
+    root.querySelector<HTMLButtonElement>("[data-go]")!.onclick = () => {
+      const d = parseDate(root.querySelector<HTMLInputElement>("[data-bd]")!.value);
+      if (!d) {
+        out.replaceChildren(el("p", "center muted", "Pick your birthday first."));
+        return;
+      }
+      const year = +sel.value;
+      const c = byN(yearCard(year, d[1], d[2]));
+      const next = byN(yearCard(year + 1, d[1], d[2]));
+      const nodes: Node[] = [cardResult(c, cfg.base, `Your card for ${year}`, c.core)];
+      if (c.question) nodes.push(el("p", "center quint", `A question for the year: ${c.question}`));
+      nodes.push(el("p", "center muted", `Next, in ${year + 1}: ${next.name}.`));
+      out.replaceChildren(...nodes);
+    };
+  }
+</script>

@@ -385,3 +385,35 @@ input:focus, select:focus { outline: none; border-color: var(--gold); box-shadow
 .card-notes b{display:block;color:#e9cf8f;margin-bottom:.25rem}
 .card-notes span{color:#d6cebf;font-size:.95rem}
 .guide-list{display:grid;gap:.5rem;padding-left:1.2rem}
+.result-card{display:flex;gap:1.2rem;align-items:flex-start;text-align:left;max-width:40rem;margin:0 auto 1rem}
+.result-card img{width:7.5rem;height:auto;border-radius:8px;flex:none}
+.result-card h3{margin:.1rem 0 .3rem}
+.result-card .pos{color:var(--gold-2);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;margin:0}
+.result-card .kw{color:var(--muted);font-size:.9rem;margin:0 0 .5rem}
+.results{margin-top:2rem}
+.results .verdict{max-width:40rem;margin:0 auto 1.2rem;text-align:left}
+.sign-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(7.5rem,1fr));gap:.6rem;margin:1rem 0}
+.sign-grid button{padding:.7rem .4rem;border-radius:10px;border:1px solid var(--line-strong);background:var(--surface);color:var(--fg);cursor:pointer;font:inherit}
+.sign-grid button[aria-pressed="true"]{border-color:var(--gold-2);color:var(--gold-2)}
+.sign-grid small{display:block;color:var(--muted);font-size:.75rem}
+.quiz fieldset{border:1px solid var(--line-strong);border-radius:12px;padding:1rem 1.2rem;margin:0 0 1rem}
+.quiz legend{padding:0 .4rem;font-weight:600}
+.quiz label{display:block;padding:.3rem 0;cursor:pointer}
+@media (max-width:520px){.result-card{flex-direction:column;align-items:center;text-align:center}.result-card img{width:9rem}}
+.big-number{font-family:var(--display);font-size:4.5rem;line-height:1;color:var(--gold-2);margin:.2rem 0}
+.sheet{max-width:44rem;margin:2rem auto;padding:1.6rem;border:1px solid var(--line-strong);border-radius:var(--radius)}
+.sheet ol{display:grid;gap:1.1rem;padding-left:1.3rem}
+.sheet li b{display:block}
+.sheet-line{display:flex;gap:.5rem;align-items:end;margin:.4rem 0;color:var(--muted)}
+.sheet-line span{flex:1;border-bottom:1px solid var(--line-strong);min-height:1.2rem}
+.sheet-lines{display:block;height:3.2rem;background:repeating-linear-gradient(transparent 0 1.55rem,var(--line-strong) 1.55rem calc(1.55rem + 1px))}
+.sheet-foot{color:var(--muted);font-size:.8rem;text-align:right}
+@media print{
+  .site-header,.site-footer,.no-print,#get-app,nav{display:none!important}
+  body{background:#fff!important;color:#000!important}
+  .sheet{border:none;margin:0;padding:0;max-width:none}
+  .sheet h2,.sheet b{color:#000!important}
+  .sheet-line,.sheet-foot{color:#444}
+  .sheet-line span{border-color:#999}
+  .sheet-lines{background:repeating-linear-gradient(transparent 0 1.55rem,#999 1.55rem calc(1.55rem + 1px))}
+}

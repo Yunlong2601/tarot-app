@@ -92,3 +92,21 @@ export const readerDeck = cardIds.map((id) => {
   };
 });
 export type ReaderCard = (typeof readerDeck)[number];
+
+/** Card meanings for the birthday, zodiac and quiz tools. */
+export const meaningDeck = cardIds.map((id) => {
+  const c = CARDS[id];
+  return {
+    id,
+    slug: slug(id),
+    name: c.name,
+    suit: c.suit as string | null,
+    n: c.number as number | null,
+    keywords: c.keywords,
+    core: c.k?.upright.core ?? c.upright,
+    love: c.k?.upright.love ?? "",
+    question: c.k?.upright.question ?? "",
+    el: elementOf(id),
+  };
+});
+export type MeaningCard = (typeof meaningDeck)[number];
