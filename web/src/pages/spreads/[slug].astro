@@ -1,5 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
+import Reader from "../../components/Reader.astro";
 import { BASE } from "../../config.ts";
 import { APP_SPREADS, SPREADS, plural, slug, spreadIds, titleCase, type SpreadId } from "../../lib/data.ts";
 
@@ -29,4 +30,12 @@ const count = plural(s.positions.length, "card");
   <h2 style="margin:1rem 0 1.4rem">The positions</h2>
   <ol class="positions">{s.positions.map((p) => <li>{p}</li>)}</ol>
   {APP_SPREADS[id].source && <p class="muted" style="margin-top:1.5rem">Source: {APP_SPREADS[id].source}</p>}
+  <section class="section" style="padding-bottom:0">
+    <div class="section-head">
+      <p class="ornament">✦</p>
+      <h2>Try this spread</h2>
+      <p>Draw the cards here and read each position. Nothing is sent anywhere.</p>
+    </div>
+    <Reader positions={s.positions} mode={id === "yes_no" ? "yesno" : "spread"} reversals={id === "yes_no" ? 0.5 : 0.25} />
+  </section>
 </Base>

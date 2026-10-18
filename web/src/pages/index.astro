@@ -162,9 +162,25 @@ const jsonLd = [
       <div class="section-head">
         <p class="ornament">✦</p>
         <h2>Free tarot tools</h2>
-        <p>Try them in your browser. Nothing is sent anywhere.</p>
+        <p>Try them in your browser. Nothing is sent anywhere. <a href={`${BASE}tools`}>See all tools</a>.</p>
       </div>
       <div class="grid-2">
+        <a class="panel tool-tile" href={`${BASE}tools/yes-no`}>
+          <div class="mini" aria-hidden="true">
+            <img src={`${BASE}cards/art/major_19_sun.jpg`} alt="" loading="lazy" width="150" height="257" />
+            <img src={`${BASE}cards/art/major_11_justice.jpg`} alt="" loading="lazy" width="150" height="257" />
+            <img src={`${BASE}cards/art/major_18_moon.jpg`} alt="" loading="lazy" width="150" height="257" />
+          </div>
+          <div><h3>Yes or No tarot</h3><p>Three cards and a lean for a yes or no question.</p><span class="link-arrow">Ask now</span></div>
+        </a>
+        <a class="panel tool-tile" href={`${BASE}tools/daily-card`}>
+          <div class="mini" aria-hidden="true">
+            <img src={`${BASE}cards/art/major_17_star.jpg`} alt="" loading="lazy" width="150" height="257" />
+            <img src={`${BASE}cards/art/cups_ace.jpg`} alt="" loading="lazy" width="150" height="257" />
+            <img src={`${BASE}cards/art/major_14_temperance.jpg`} alt="" loading="lazy" width="150" height="257" />
+          </div>
+          <div><h3>Card of the day</h3><p>One card, its meaning and a question to reflect on.</p><span class="link-arrow">Draw today's card</span></div>
+        </a>
         <a class="panel tool-tile" href={`${BASE}tools/random-card`}>
           <div class="mini" aria-hidden="true">
             <img src={`${BASE}cards/art/major_10_wheel_of_fortune.jpg`} alt="" loading="lazy" width="150" height="257" />

@@ -1,0 +1,20 @@
+---
+import Base from "../../layouts/Base.astro";
+import Reader from "../../components/Reader.astro";
+---
+<Base
+  title="Daily tarot card: your card of the day · ShenTarot"
+  description="Draw your tarot card of the day, with its meaning and a question to reflect on. Your card stays the same until tomorrow. Free, in your browser."
+  path="tools/daily-card"
+  crumbs={[["Free tools", "tools"], ["Daily tarot card", "tools/daily-card"]]}
+>
+  <header class="page-head center">
+    <p class="eyebrow">Free tool</p>
+    <h1>Your card of the day</h1>
+    <p class="lead">
+      Take a breath, think about the day ahead and draw one card. Read its meaning in the morning, and come back to the
+      question tonight. Your card stays the same until tomorrow.
+    </p>
+  </header>
+  <Reader positions={["Your card for today"]} mode="daily" button="Draw today's card" />
+</Base>
