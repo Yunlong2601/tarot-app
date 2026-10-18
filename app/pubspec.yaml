@@ -88,6 +88,7 @@ flutter:
     - assets/legal/
     - assets/hero/
     - assets/i18n/
+    - assets/i18n/cards/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

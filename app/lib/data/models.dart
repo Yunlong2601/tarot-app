@@ -1,3 +1,4 @@
+import '../app/i18n.dart';
 import 'spreads.dart';
 
 export 'spreads.dart';
@@ -54,17 +55,21 @@ class CardKnowledge {
 class TarotCard {
   const TarotCard({
     required this.id,
-    required this.name,
+    required String name,
     required this.arcana,
-    required this.keywords,
-    required this.upright,
-    required this.reversed,
+    required List<String> keywords,
+    required String upright,
+    required String reversed,
     this.suit,
     this.number,
     this.element,
     this.association,
-    this.knowledge,
-  });
+    CardKnowledge? knowledge,
+  }) : englishName = name,
+       englishKeywords = keywords,
+       englishUpright = upright,
+       englishReversed = reversed,
+       fullKnowledge = knowledge;
 
   factory TarotCard.fromJson(
     Map<String, dynamic> j, [
@@ -84,7 +89,9 @@ class TarotCard {
   );
 
   final String id;
-  final String name;
+
+  /// The card's English name (the deck's own names); [name] is translated.
+  final String englishName;
   final Arcana arcana;
   final Suit? suit;
   final int? number;
@@ -92,12 +99,20 @@ class TarotCard {
 
   /// Traditional astrological/elemental association (Major Arcana only).
   final String? association;
-  final List<String> keywords;
-  final String upright;
-  final String reversed;
+  final List<String> englishKeywords;
+  final String englishUpright;
+  final String englishReversed;
+  final CardKnowledge? fullKnowledge;
 
-  /// Richer knowledge when written (Major Arcana first); null otherwise.
-  final CardKnowledge? knowledge;
+  /// Name, keywords and short meanings in the app language (English fallback).
+  String get name => I18n.cardText(id, 'name') ?? englishName;
+  List<String> get keywords => I18n.cardKeywords(id) ?? englishKeywords;
+  String get upright => I18n.cardText(id, 'upright') ?? englishUpright;
+  String get reversed => I18n.cardText(id, 'reversed') ?? englishReversed;
+
+  /// The long card pages, written in English only for now: other languages
+  /// use the translated short meanings instead.
+  CardKnowledge? get knowledge => I18n.code == 'en' ? fullKnowledge : null;
 
   /// Bundled art path. May be missing until public-domain art is added.
   String get artAsset => 'assets/cards/art/$id.jpg';

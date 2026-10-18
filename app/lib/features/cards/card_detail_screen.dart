@@ -49,9 +49,10 @@ class CardDetailScreen extends StatelessWidget {
             const SizedBox(height: 8),
             Text(
               [
-                if (card.element != null) tr('Element: {0}', [card.element]),
+                if (card.element != null)
+                  tr('Element: {0}', [tr(card.element!)]),
                 if (card.association != null)
-                  tr('Traditional association: {0}', [card.association]),
+                  tr('Traditional association: {0}', [tr(card.association!)]),
               ].join('  ·  '),
               textAlign: TextAlign.center,
               style: const TextStyle(color: AppColors.textMuted, fontSize: 13),

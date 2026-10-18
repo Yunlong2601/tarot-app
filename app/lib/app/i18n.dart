@@ -55,6 +55,7 @@ class I18n {
   /// Changes when the language changes; the app rebuilds on it.
   static final ValueNotifier<String> current = ValueNotifier('en');
   static Map<String, String> _strings = const {};
+  static Map<String, dynamic> _cards = const {};
 
   static String get code => _code;
 
@@ -92,6 +93,7 @@ class I18n {
     if (!languages.containsKey(code) || code == 'en') {
       _code = 'en';
       _strings = const {};
+      _cards = const {};
       current.value = _code;
       return;
     }
@@ -105,13 +107,40 @@ class I18n {
       _code = 'en';
       _strings = const {};
     }
+    try {
+      _cards = _code == 'en'
+          ? const {}
+          : jsonDecode(
+              await rootBundle.loadString('assets/i18n/cards/$_code.json'),
+            ) as Map<String, dynamic>;
+    } catch (_) {
+      _cards = const {};
+    }
     current.value = _code;
   }
 
   /// For tests.
-  static void setForTest(String code, Map<String, String> strings) {
+  static void setForTest(
+    String code,
+    Map<String, String> strings, [
+    Map<String, dynamic> cards = const {},
+  ]) {
     _code = code;
     _strings = strings;
+    _cards = cards;
+  }
+
+  /// A translated card field ('name', 'upright', 'reversed'), or null.
+  static String? cardText(String id, String field) {
+    final c = _cards[id];
+    return c is Map ? c[field] as String? : null;
+  }
+
+  /// Translated card keywords, or null.
+  static List<String>? cardKeywords(String id) {
+    final c = _cards[id];
+    final k = c is Map ? c['keywords'] : null;
+    return k is List ? k.cast<String>() : null;
   }
 
   static String translate(String english, [List<Object?> args = const []]) {

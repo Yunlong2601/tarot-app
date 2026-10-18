@@ -80,6 +80,7 @@ class Deck {
         if (filter.matches(c) &&
             (q.isEmpty ||
                 c.name.toLowerCase().contains(q) ||
+                c.englishName.toLowerCase().contains(q) ||
                 c.keywords.any((k) => k.toLowerCase().contains(q))))
           c,
     ];
