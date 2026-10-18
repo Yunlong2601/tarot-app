@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
@@ -304,6 +305,13 @@ class ApiReadingService
       throw ReadingException(
         ReadingErrorKind.network,
         tr('No connection. Check your internet and try again.'),
+      );
+    } on TimeoutException {
+      throw ReadingException(
+        ReadingErrorKind.failed,
+        tr(
+          'The reader took too long to answer. Check your connection and try again.',
+        ),
       );
     } finally {
       client.close();

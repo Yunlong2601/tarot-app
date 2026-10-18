@@ -10,6 +10,7 @@ import '../spreads/spread_layout.dart';
 import '../scan/orientation_dialog.dart';
 import 'reading_sections.dart';
 import 'report_reading.dart';
+import 'reading_problem.dart';
 
 import 'dart:math';
 
@@ -161,6 +162,13 @@ class _FollowUpsState extends State<_FollowUps> {
       if (!mounted) return;
       if (e.kind == ReadingErrorKind.premiumRequired) {
         context.push('/paywall');
+      } else if (e.kind == ReadingErrorKind.network ||
+          e.kind == ReadingErrorKind.failed) {
+        showReadingProblem(
+          context,
+          e,
+          onRetry: () => _send(text, label, clarifier: clarifier),
+        );
       } else {
         ScaffoldMessenger.of(context)
             .showSnackBar(SnackBar(content: Text(e.message)));

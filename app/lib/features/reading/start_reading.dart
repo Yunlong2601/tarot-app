@@ -11,6 +11,7 @@ import '../../data/models.dart';
 import '../../app/motion.dart';
 import '../../app/i18n.dart';
 import '../../app/theme.dart';
+import 'reading_problem.dart';
 
 /// Shared by photo and digital readings: checks the free/Premium rule, asks the
 /// backend for the interpretation (with a spinner), saves the reading and opens
@@ -91,6 +92,11 @@ Future<ReadingResult?> _interpret(
     );
   } on ReadingException catch (e) {
     failure = e;
+  } catch (_) {
+    failure = ReadingException(
+      ReadingErrorKind.failed,
+      tr('Something went wrong. Please try again.'),
+    );
   } finally {
     nav.pop(); // close the spinner
   }
@@ -130,23 +136,25 @@ Future<ReadingResult?> _interpret(
       final canRetry =
           failure.kind == ReadingErrorKind.network ||
           failure.kind == ReadingErrorKind.failed;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(failure.message),
-          duration: const Duration(seconds: 8),
-          action: canRetry
-              ? SnackBarAction(
-                  label: tr('Retry'),
-                  onPressed: () => startReading(
-                    context,
-                    spread: spread,
-                    cards: cards,
-                    question: question,
-                  ),
-                )
-              : null,
-        ),
-      );
+      if (canRetry) {
+        await showReadingProblem(
+          context,
+          failure,
+          onRetry: () => startReading(
+            context,
+            spread: spread,
+            cards: cards,
+            question: question,
+          ),
+        );
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(failure.message),
+            duration: const Duration(seconds: 8),
+          ),
+        );
+      }
     }
   }
   return result;
