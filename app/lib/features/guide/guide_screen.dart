@@ -250,7 +250,7 @@ class _GuideScreenState extends State<GuideScreen> {
               Navigator.of(context).pop();
               action.$2();
             },
-            child: Text(action.$1),
+            child: Text(tr(action.$1)),
           ),
       ],
     );
@@ -302,7 +302,7 @@ class _GuideScreenState extends State<GuideScreen> {
             icon: Icon(
               _done.contains(i) ? Icons.check_circle : Icons.circle_outlined,
             ),
-            label: Text(_done.contains(i) ? 'Done' : 'Mark as done'),
+            label: Text(tr(_done.contains(i) ? 'Done' : 'Mark as done')),
           ),
         ),
         if (i + 1 < _lessons.length) ...[
@@ -330,7 +330,7 @@ class _GuideScreenState extends State<GuideScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Semantics(header: true, child: Text(title, style: t.titleLarge)),
+          Semantics(header: true, child: Text(tr(title), style: t.titleLarge)),
           if (subtitle != null) ...[
             const SizedBox(height: 4),
             Text(subtitle, style: const TextStyle(color: AppColors.textMuted)),
@@ -397,7 +397,7 @@ class _GuideScreenState extends State<GuideScreen> {
               onTap: () => context.go('/library'),
             ),
           ]),
-          header('How ShenTarot works', 'Tap a topic for the details.'),
+          header('How ShenTarot works', tr('Tap a topic for the details.')),
           pairs([
             for (var i = 0; i < _howTo.length; i++)
               _Tile(
@@ -408,7 +408,10 @@ class _GuideScreenState extends State<GuideScreen> {
           ]),
           header(
             'Learn tarot',
-            '12 short lessons. $doneCount of ${_lessons.length} done.',
+            tr('12 short lessons. {0} of {1} done.', [
+              doneCount,
+              _lessons.length,
+            ]),
           ),
           ClipRRect(
             borderRadius: BorderRadius.circular(4),
@@ -502,7 +505,7 @@ class _LessonNumber extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Semantics(
-    label: done ? 'Lesson $n, done' : 'Lesson $n',
+    label: done ? tr('Lesson {0}, done', [n]) : tr('Lesson {0}', [n]),
     excludeSemantics: true,
     child: Container(
       width: 36,

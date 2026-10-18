@@ -259,8 +259,11 @@ class _TierHeader extends StatelessWidget {
         Text(
           next == null
               ? tr('Top tier reached. Thank you!')
-              : '${info.friendsPaid} of ${next.friends} friends who subscribed '
-                    'to reach ${next.name}',
+              : tr('{0} of {1} friends who subscribed to reach {2}', [
+                  info.friendsPaid,
+                  next.friends,
+                  next.name,
+                ]),
           style: const TextStyle(color: AppColors.textMuted),
         ),
       ],

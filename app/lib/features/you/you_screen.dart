@@ -103,7 +103,7 @@ class _ProfileCard extends StatelessWidget {
                 ?.copyWith(color: AppColors.gold),
           ),
           Text(
-            label,
+            tr(label),
             style: const TextStyle(fontSize: 12, color: AppColors.textMuted),
           ),
         ],

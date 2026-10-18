@@ -114,7 +114,7 @@ class LocalNotificationReminderService implements ReminderService {
           android: AndroidNotificationDetails(
             'daily_reminder',
             tr('Daily reminder'),
-            channelDescription: 'A once-a-day nudge to draw your card',
+            channelDescription: tr('A once-a-day nudge to draw your card'),
           ),
         ),
         androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
@@ -151,7 +151,7 @@ class LocalNotificationReminderService implements ReminderService {
         android: AndroidNotificationDetails(
           'look_back',
           tr('Look back'),
-          channelDescription: 'A nudge a week after a reading',
+          channelDescription: tr('A nudge a week after a reading'),
         ),
       ),
       androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,

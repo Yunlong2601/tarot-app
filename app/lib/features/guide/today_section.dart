@@ -132,7 +132,7 @@ class _Journey extends StatelessWidget {
                 ?.copyWith(color: AppColors.gold),
           ),
           Text(
-            label,
+            tr(label),
             textAlign: TextAlign.center,
             style: const TextStyle(fontSize: 12, color: AppColors.textMuted),
           ),

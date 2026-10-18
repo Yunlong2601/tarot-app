@@ -173,9 +173,12 @@ class _PaywallScreenState extends State<PaywallScreen> {
           SizedBox(height: 16),
           for (final f in [
             tr('All spreads, follow-ups, 50 readings a day'),
-            if (creditsEnabled) '90 to 150 new credits every month by plan (free: 2 a day), and unused credits roll over',
-            'A clarifier card to shed light on a reading',
-            'A look back a week later, with a reminder',
+            if (creditsEnabled)
+              tr(
+                '90 to 150 new credits every month by plan (free: 2 a day), and unused credits roll over',
+              ),
+            tr('A clarifier card to shed light on a reading'),
+            tr('A look back a week later, with a reminder'),
             tr('Helps keep ShenTarot running'),
           ])
             Padding(

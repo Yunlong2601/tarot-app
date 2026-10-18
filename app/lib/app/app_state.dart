@@ -112,16 +112,21 @@ class AppState extends ChangeNotifier {
       if (isPremium) return tr('Premium: 50 readings a day');
       final left = freeReadingsPerDay - freeReadingsUsedToday;
       return canReadForFree
-          ? '$left free ${left == 1 ? 'reading' : 'readings'} left today'
+          ? tr(
+              left == 1
+                  ? '{0} free reading left today'
+                  : '{0} free readings left today',
+              [left],
+            )
           : tr('Free readings used. Come back tomorrow or go Premium.');
     }
     final perDay = dailyCredits > 0 ? dailyCredits : 2;
     final perMonth = monthlyCredits > 0 ? monthlyCredits : 90;
     final plan = isPremium
-        ? '$perMonth new credits every month, and $perDay a day'
-        : '$perDay new credits every day';
+        ? tr('{0} new credits every month, and {1} a day', [perMonth, perDay])
+        : tr('{0} new credits every day', [perDay]);
     if (credits > 0) {
-      return '$credits credits · $plan, unused credits roll over';
+      return tr('{0} credits · {1}, unused credits roll over', [credits, plan]);
     }
     return isPremium
         ? tr('No credits left. {0} new credits arrive tomorrow.', [perDay])

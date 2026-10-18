@@ -149,7 +149,9 @@ class _SpreadsListState extends State<_SpreadsList> {
                                 ),
                                 const SizedBox(height: 6),
                                 Text(
-                                  '${t.cardCount} ${t.cardCount == 1 ? 'card' : 'cards'}',
+                                  t.cardCount == 1
+                                      ? tr('1 card')
+                                      : tr('{0} cards', [t.cardCount]),
                                   style: const TextStyle(
                                     color: AppColors.gold,
                                     fontWeight: FontWeight.w600,
