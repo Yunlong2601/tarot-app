@@ -668,25 +668,40 @@ class AppState extends ChangeNotifier {
   /// The newest reading waiting for a look-back, if any.
   Reading? get dueRevisit => history.where(revisitDue).firstOrNull;
 
-  void deleteReading(String id) {
-    // A shared page goes with the reading (best effort).
+  /// Deletes a reading. A shared page goes with it: if that page cannot be
+  /// removed (offline, server down) the reading is kept, so the user still
+  /// has a way to stop sharing, and this returns false.
+  Future<bool> deleteReading(String id) async {
     if (sharedLinks.containsKey(id)) {
-      unawaited(stopSharing(id).catchError((_) {}));
+      try {
+        await stopSharing(id);
+      } on Exception {
+        return false;
+      }
     }
     history.removeWhere((r) => r.id == id);
     _guard(() => reminders.cancelLookBack(id));
     _guard(() => _repo.delete(id));
     notifyListeners();
+    return true;
   }
 
-  Future<void> deleteAllData() async {
+  /// Deletes everything. Shared pages are removed first; if any cannot be,
+  /// nothing is deleted and this returns false, so no page is left without a
+  /// way to remove it.
+  Future<bool> deleteAllData() async {
     for (final id in [...sharedLinks.keys]) {
-      await stopSharing(id).catchError((_) {});
+      try {
+        await stopSharing(id);
+      } on Exception {
+        return false;
+      }
     }
     history.clear();
     await removeOwnKey();
     notifyListeners();
     await _guard(_repo.clear);
+    return true;
   }
 
   /// Turns the daily reminder on or off. Returns false if the user denied the

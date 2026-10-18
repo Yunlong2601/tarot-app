@@ -371,6 +371,10 @@ class _RevisitState extends State<_Revisit> {
   }
 }
 
+const _keptMessage =
+    'Could not remove its shared page, so the reading was kept. '
+    'Please try again.';
+
 class ReadingScreen extends StatefulWidget {
   const ReadingScreen({super.key, required this.readingId});
   final String readingId;
@@ -448,9 +452,12 @@ class _ReadingScreenState extends State<ReadingScreen> {
                   ],
                 ),
               );
-              if (ok == true && context.mounted) {
-                state.deleteReading(reading.id);
-                context.pop();
+              if (ok != true || !context.mounted) return;
+              if (await state.deleteReading(reading.id)) {
+                if (context.mounted) context.pop();
+              } else if (context.mounted) {
+                ScaffoldMessenger.of(context)
+                    .showSnackBar(const SnackBar(content: Text(_keptMessage)));
               }
             },
           ),

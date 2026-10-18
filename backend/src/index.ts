@@ -31,7 +31,7 @@ import {
   parsePostUrl, sniffImage, type CreatorStore, type ShotStorage,
 } from "./creator";
 import { isFreeSpread } from "./spreads";
-import { SHARE_DAYS, SHARES_PER_DAY, isShareToken, newShareToken, notFoundPage, parseShareRequest, renderSharePage, type SharedReading } from "./share";
+import { MAX_SHARED_READING, SHARE_DAYS, SHARES_PER_DAY, isShareToken, newShareToken, notFoundPage, parseShareRequest, renderSharePage, type SharedReading } from "./share";
 import { isUuid, parseFollowupRequest, parseReadingRequest } from "./validate";
 
 export interface Deps {
@@ -244,7 +244,9 @@ export function createApp(deps: Deps = defaultDeps) {
       const structured = parseModelReply(result.text, req);
       if (structured?.crisis) return c.json({ crisis: true, message: CRISIS_MESSAGE });
       let text: string | null = structured ? renderReading(structured, req) : null;
-      if (text === null) {
+      // Yes or No needs the lean computed in code (or withheld for restricted
+      // topics), which only the structured path adds: no plain text there.
+      if (text === null && req.spread !== "yes_no") {
         const plain = checkOutput(result.text);
         text = plain.ok ? plain.text : null;
       }
@@ -340,9 +342,6 @@ export function createApp(deps: Deps = defaultDeps) {
     }
   });
 
-  // Optional accounts. The app signs in with Google or Apple, sends the ID
-  // token here, and this install is linked to our account id. No email or
-  // name is stored.
   // Share a reading (opt-in): store a copy, return a public link.
   app.post("/v1/share", async (c) => {
     const now = deps.now();
@@ -353,7 +352,7 @@ export function createApp(deps: Deps = defaultDeps) {
     const dayKey = `share-day:${owner}:${utcDay(now)}`;
     const today = Number((await c.env.KV.get(dayKey)) ?? 0);
     if (today >= SHARES_PER_DAY) return c.json({ error: "rate_limited" }, 429);
-    const parsed = parseShareRequest(await readJson(c.req.raw), new Date(now));
+    const parsed = parseShareRequest(await readJson(c.req.raw, MAX_SHARED_READING + 4096), new Date(now));
     if (!parsed.ok) return c.json({ error: "invalid_request", detail: parsed.error }, 400);
     const token = newShareToken();
     await c.env.KV.put(`share:${token}`, JSON.stringify({ ...parsed.value, owner }), { expirationTtl: SHARE_DAYS * 86_400 });
@@ -388,6 +387,9 @@ export function createApp(deps: Deps = defaultDeps) {
       { ...headers, "cache-control": "no-store" });
   });
 
+  // Optional accounts. The app signs in with Google or Apple, sends the ID
+  // token here, and this install is linked to our account id. No email or
+  // name is stored.
   app.post("/v1/account/signin", async (c) => {
     const now = deps.now();
     const installId = await installFrom(c.req.header("authorization"), c.env, now);

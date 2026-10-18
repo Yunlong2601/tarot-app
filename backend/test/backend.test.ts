@@ -539,6 +539,16 @@ describe("crisis handling and structured readings over HTTP", () => {
     expect(json.fallback).toBe(true);
     expect(json.reading).not.toMatch(/thinking about you/);
   });
+
+  it("a plain-text Yes or No reply uses stored text, with the lean from code or none", async () => {
+    const s = setup({ llm: async () => ({ text: "The cards lean yes. " + GOOD, inputTokens: 5, outputTokens: 5, refused: false }) });
+    const yesNo = { spread: "yes_no", cards: three.cards.map((c, i) => ({ ...c, reversed: i === 1 })), question: "Will this work out?" };
+    const json = (await (await post(s, yesNo)).json()) as { reading: string; fallback: boolean };
+    expect(json.fallback).toBe(true);
+    expect(json.reading).toMatch(/^Yes or no\nNot settled/);
+    const restricted = (await (await post(s, { ...yesNo, question: "Will I get pregnant this year?" })).json()) as { reading: string };
+    expect(restricted.reading).not.toMatch(/Yes or no|lean yes/i);
+  });
 });
 
 describe("providers and own keys", () => {
@@ -1224,6 +1234,13 @@ describe("shared readings", () => {
     expect((await call(`/v1/share/${token}/delete`, { method: "POST", headers: other })).status).toBe(403);
     expect((await call(`/v1/share/${token}/delete`, { method: "POST", headers: await authHeaders(env) })).status).toBe(200);
     expect((await call(`/s/${token}`)).status).toBe(404);
+  });
+
+  it("accepts a long Premium reading", async () => {
+    const { call, env } = setup();
+    const long = { ...body, reading: `${body.reading}\n\n${"Words of a long reading. ".repeat(220)}`.slice(0, 5900) };
+    const res = await call("/v1/share", { method: "POST", headers: await authHeaders(env), body: JSON.stringify(long) });
+    expect(res.status).toBe(200);
   });
 
   it("rejects bad input, unauthenticated calls and too many shares a day", async () => {

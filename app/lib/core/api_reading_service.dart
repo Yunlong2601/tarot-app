@@ -82,7 +82,7 @@ class ApiReadingService
     Reading reading, {
     required bool includeQuestion,
   }) async {
-    final res = await _post('/v1/share', {
+    final res = await _authed('/v1/share', {
       'spread': reading.spread.wire,
       'cards': [
         for (final c in reading.cards)
@@ -90,7 +90,7 @@ class ApiReadingService
       ],
       'reading': reading.interpretation,
       'question': includeQuestion ? reading.question : null,
-    }, auth: true);
+    });
     final token = res.json['token'];
     final url = res.json['url'];
     if (res.status == 200 && token is String && url is String) {
@@ -109,7 +109,7 @@ class ApiReadingService
 
   @override
   Future<void> unshare(String token) async {
-    final res = await _post('/v1/share/$token/delete', const {}, auth: true);
+    final res = await _authed('/v1/share/$token/delete', const {});
     if (res.status != 200) {
       throw const ShareException(
         'Could not remove the link. Please try again.',
@@ -244,13 +244,15 @@ class ApiReadingService
     String path,
     Map<String, Object?> body,
     String textKey,
-  ) async {
-    var res = await _post(path, body, auth: true);
-    if (res.status == 401) {
-      _token = null;
-      res = await _post(path, body, auth: true);
-    }
-    return _toResult(res, textKey);
+  ) async => _toResult(await _authed(path, body), textKey);
+
+  /// An authenticated call that gets a fresh token once if the cached one
+  /// has expired.
+  Future<_Response> _authed(String path, Map<String, Object?> body) async {
+    final res = await _post(path, body, auth: true);
+    if (res.status != 401) return res;
+    _token = null;
+    return _post(path, body, auth: true);
   }
 
   ReadingResult _toResult(_Response res, String textKey) {
