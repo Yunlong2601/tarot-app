@@ -20,9 +20,9 @@ const next = cardIds.at((i + 1) % cardIds.length)!;
 <Base
   title={`${c.name} tarot card meaning: upright and reversed · ShenTarot`}
   description={`${c.name} meaning in tarot, upright and reversed: ${c.keywords.join(", ")}. ${k?.essence ?? c.upright}`}
-  path={`cards/${slug(id)}.html`}
+  path={`cards/${slug(id)}`}
 >
-  <p class="muted"><a href={`${BASE}cards/index.html`}>Card meanings</a> › {suitTitle(c.suit)}</p>
+  <p class="muted"><a href={`${BASE}cards`}>Card meanings</a> › {suitTitle(c.suit)}</p>
   <div class="card-top">
     <img class="card-img" src={`${BASE}cards/art/${id}.jpg`} alt={`${c.name}, Rider-Waite-Smith deck`} width="300" height="514" />
     <div>
@@ -58,7 +58,7 @@ const next = cardIds.at((i + 1) % cardIds.length)!;
     </>
   )}
   <p>
-    <a href={`${BASE}cards/${slug(prev)}.html`}>‹ {CARDS[prev].name}</a> ·
-    <a href={`${BASE}cards/${slug(next)}.html`}>{CARDS[next].name} ›</a>
+    <a href={`${BASE}cards/${slug(prev)}`}>‹ {CARDS[prev].name}</a> ·
+    <a href={`${BASE}cards/${slug(next)}`}>{CARDS[next].name} ›</a>
   </p>
 </Base>

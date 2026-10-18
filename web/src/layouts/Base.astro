@@ -6,7 +6,7 @@ import { BASE } from "../config.ts";
 interface Props {
   title: string;
   description: string;
-  /** This page's address under the site, e.g. "cards/index.html" ("" = home). */
+  /** This page's address under the site, e.g. "cards" ("" = home). */
   path: string;
   /** Hide the "Read your own cards" panel (pages that already end with one). */
   noCta?: boolean;
@@ -32,12 +32,12 @@ const base = BASE;
   <body>
     <a class="skip" href="#main">Skip to content</a>
     <header>
-      <a class="brand" href={`${base}index.html`}>ShenTarot</a>
+      <a class="brand" href={`${base}`}>ShenTarot</a>
       <nav aria-label="Main">
-        <a href={`${base}cards/index.html`}>Card meanings</a>
-        <a href={`${base}spreads/index.html`}>Spreads</a>
-        <a href={`${base}tools/random-card.html`}>Draw a card</a>
-        <a href={`${base}tools/birth-card.html`}>Birth cards</a>
+        <a href={`${base}cards`}>Card meanings</a>
+        <a href={`${base}spreads`}>Spreads</a>
+        <a href={`${base}tools/random-card`}>Draw a card</a>
+        <a href={`${base}tools/birth-card`}>Birth cards</a>
       </nav>
     </header>
     <main id="main">
@@ -52,7 +52,7 @@ const base = BASE;
     </main>
     <footer>
       <p>For entertainment and self-reflection only. Card images: Rider-Waite-Smith deck (1909), public domain.</p>
-      <p><a href={`${base}privacy.html`}>Privacy</a> · <a href={`${base}terms.html`}>Terms</a> · <a href={`${base}delete-account.html`}>Delete your data</a></p>
+      <p><a href={`${base}privacy`}>Privacy</a> · <a href={`${base}terms`}>Terms</a> · <a href={`${base}delete-account`}>Delete your data</a></p>
     </footer>
   </body>
 </html>

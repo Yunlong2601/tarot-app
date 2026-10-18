@@ -8,7 +8,7 @@ const cats = ["classics", "love", "career", "growth"];
 <Base
   title="Tarot spreads: layouts and what each position means · ShenTarot"
   description="Tarot spreads for love, career, decisions and yes or no questions, with every position explained."
-  path="spreads/index.html"
+  path="spreads"
 >
   <h1>Tarot spreads</h1>
   <p class="muted">What each spread is for and what each position means.</p>
@@ -18,7 +18,7 @@ const cats = ["classics", "love", "career", "growth"];
       <ul>
         {spreadIds.filter((id) => SPREADS[id].category === cat).map((id) => (
           <li>
-            <a href={`${BASE}spreads/${slug(id)}.html`}>{SPREADS[id].name}</a>{" "}
+            <a href={`${BASE}spreads/${slug(id)}`}>{SPREADS[id].name}</a>{" "}
             <span class="muted">({plural(SPREADS[id].positions.length, "card")})</span>
           </li>
         ))}

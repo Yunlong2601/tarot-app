@@ -6,7 +6,7 @@ import { deckForTools } from "../../lib/data.ts";
 <Base
   title="Random tarot card generator: draw 1 to 10 cards · ShenTarot"
   description="Draw random tarot cards from the full 78-card Rider-Waite-Smith deck. Tap a card to turn it over and read its meaning."
-  path="tools/random-card.html"
+  path="tools/random-card"
 >
   <h1>Draw a tarot card</h1>
   <p class="muted">Shuffled in your browser from all 78 cards. About one card in four comes up reversed.</p>
@@ -38,7 +38,7 @@ import { deckForTools } from "../../lib/data.ts";
         back.onclick = () => {
           slot.textContent = "";
           const a = document.createElement("a");
-          a.href = `${BASE}cards/${c.slug}.html`;
+          a.href = `${BASE}cards/${c.slug}`;
           const img = document.createElement("img");
           img.src = `${BASE}cards/art/${c.id}.jpg`;
           img.alt = c.name + (rev ? ", reversed" : "");

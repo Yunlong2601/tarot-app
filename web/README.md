@@ -3,7 +3,9 @@
 The companion site for the iOS and Android apps: card meanings, spreads, topic
 pages, a random card draw, a birth card calculator, and the privacy and terms
 pages the store listings link to. Built with [Astro](https://astro.build) as
-plain static pages (no tracking, no cookies) and hosted on Cloudflare.
+plain static pages (no tracking, no cookies) and hosted on Cloudflare at clean
+addresses such as https://shentarot.com/privacy and
+https://shentarot.com/cards/major-00-fool (old `.html` addresses redirect).
 
 Card and spread content comes from the backend (`backend/src/cards.ts`,
 `backend/src/spreads.ts`) and the app (`app/lib/data/spreads.dart` for each
@@ -38,7 +40,7 @@ shentarot.com is registered with Cloudflare, so its DNS is already there.
    shentarot.com.
 2. In `web/`: `npx wrangler login`, then `npm run deploy`. This deploys the
    `shentarot-site` Worker and attaches shentarot.com to it as a custom domain.
-3. Check https://shentarot.com/privacy.html and /terms.html load, then switch
+3. Check https://shentarot.com/privacy and /terms load, then switch
    the App Store, Google Play and Google sign-in links from the old GitHub
    Pages address to shentarot.com. Keep the GitHub Pages copy up until they
    are all switched.

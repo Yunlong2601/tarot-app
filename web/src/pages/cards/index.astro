@@ -11,7 +11,7 @@ const groups = ["major", "wands", "cups", "swords", "pentacles"].map((g) => ({
 <Base
   title="Tarot card meanings: all 78 cards · ShenTarot"
   description="Meanings of all 78 Rider-Waite-Smith tarot cards, upright and reversed, with what each card shows and why."
-  path="cards/index.html"
+  path="cards"
 >
   <h1>Tarot card meanings</h1>
   <p class="muted">All 78 cards of the Rider-Waite-Smith deck, upright and reversed.</p>
@@ -20,7 +20,7 @@ const groups = ["major", "wands", "cups", "swords", "pentacles"].map((g) => ({
       <h2>{g.title}</h2>
       <div class="grid">
         {g.ids.map((id) => (
-          <a href={`${BASE}cards/${slug(id)}.html`}>
+          <a href={`${BASE}cards/${slug(id)}`}>
             <img src={`${BASE}cards/art/${id}.jpg`} alt="" loading="lazy" width="150" height="257" />
             {CARDS[id].name}
           </a>

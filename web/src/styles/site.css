@@ -30,3 +30,4 @@ header{max-width:64rem;margin:0 auto}
 .fan img:nth-child(1){transform:rotate(-10deg) translateY(.6rem)}.fan img:nth-child(3){transform:rotate(10deg) translateY(.6rem)}.fan img:nth-child(2){position:relative;z-index:1}
 ul.questions{list-style:none;padding:0}ul.questions li{padding:.55rem .8rem;margin:.4rem 0;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
 .skip{position:absolute;left:-999px}.skip:focus{left:1rem;top:1rem;background:var(--panel);padding:.4rem .8rem}
+.legal h2{margin-top:1.6rem}.legal li{margin:.35rem 0}

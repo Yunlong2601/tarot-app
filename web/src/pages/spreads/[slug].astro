@@ -13,9 +13,9 @@ const count = plural(s.positions.length, "card");
 <Base
   title={`${s.name} tarot spread: ${count} · ShenTarot`}
   description={`${s.name}: a ${s.positions.length}-card tarot spread. ${APP_SPREADS[id].blurb}`}
-  path={`spreads/${slug(id)}.html`}
+  path={`spreads/${slug(id)}`}
 >
-  <p class="muted"><a href={`${BASE}spreads/index.html`}>Spreads</a></p>
+  <p class="muted"><a href={`${BASE}spreads`}>Spreads</a></p>
   <h1>{s.name}</h1>
   <p class="muted">{count} · {titleCase(s.category)}</p>
   <div class="panel"><h2>Best for</h2><p>{APP_SPREADS[id].blurb}</p></div>

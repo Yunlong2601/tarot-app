@@ -6,15 +6,15 @@ import { TOPICS } from "../lib/topics.ts";
 export const GET: APIRoute = () => {
   const paths = [
     "",
-    "cards/index.html",
-    "spreads/index.html",
-    "tools/random-card.html",
-    "tools/birth-card.html",
-    ...TOPICS.map((t) => `topics/${t.slug}.html`),
-    ...cardIds.map((id) => `cards/${slug(id)}.html`),
-    ...spreadIds.map((id) => `spreads/${slug(id)}.html`),
-    "privacy.html",
-    "terms.html",
+    "cards",
+    "spreads",
+    "tools/random-card",
+    "tools/birth-card",
+    ...TOPICS.map((t) => `topics/${t.slug}`),
+    ...cardIds.map((id) => `cards/${slug(id)}`),
+    ...spreadIds.map((id) => `spreads/${slug(id)}`),
+    "privacy",
+    "terms",
   ];
   const body = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

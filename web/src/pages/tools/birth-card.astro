@@ -8,7 +8,7 @@ const majors = deckForTools.filter((c) => c.major);
 <Base
   title="Tarot birth card calculator: find your birth cards · ShenTarot"
   description="Find your tarot birth cards and your card for this year from your birthday. Worked out in your browser; nothing is sent."
-  path="tools/birth-card.html"
+  path="tools/birth-card"
 >
   <h1>Tarot birth card calculator</h1>
   <p class="muted">
@@ -36,7 +36,7 @@ const majors = deckForTools.filter((c) => c.major);
       const c = DECK.find((x) => x.n === n);
       const a = document.createElement("a");
       a.className = "slot";
-      a.href = `${BASE}cards/${c.slug}.html`;
+      a.href = `${BASE}cards/${c.slug}`;
       const img = document.createElement("img");
       img.className = "card-img";
       img.src = `${BASE}cards/art/${c.id}.jpg`;

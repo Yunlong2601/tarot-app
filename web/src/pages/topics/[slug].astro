@@ -12,7 +12,7 @@ const { t } = Astro.props as { t: Topic };
 <Base
   title={`${t.title}: questions to ask and spreads to use · ShenTarot`}
   description={`${t.intro} Sample questions and the spreads that suit them.`}
-  path={`topics/${t.slug}.html`}
+  path={`topics/${t.slug}`}
 >
   <h1>{t.title}</h1>
   <p>{t.intro}</p>
@@ -23,7 +23,7 @@ const { t } = Astro.props as { t: Topic };
   <div class="cards3">
     {t.spreads.map((id) => (
       <div class="panel">
-        <h3><a href={`${BASE}spreads/${slug(id)}.html`}>{SPREADS[id].name}</a></h3>
+        <h3><a href={`${BASE}spreads/${slug(id)}`}>{SPREADS[id].name}</a></h3>
         <p class="muted">{plural(SPREADS[id].positions.length, "card")}</p>
         <p>{APP_SPREADS[id].blurb}</p>
       </div>

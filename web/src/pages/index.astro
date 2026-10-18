@@ -22,12 +22,12 @@ const fan = ["major_17_star", "major_00_fool", "major_02_high_priestess"];
       keep asking about.
     </p>
     <StoreButtons />
-    <p><a class="btn ghost" href={`${BASE}tools/random-card.html`}>Draw a free card now</a></p>
+    <p><a class="btn ghost" href={`${BASE}tools/random-card`}>Draw a free card now</a></p>
   </section>
 
   <h2>What do you want to ask about?</h2>
   <div class="topics">
-    {TOPICS.map((t) => <a href={`${BASE}topics/${t.slug}.html`}>{t.name}</a>)}
+    {TOPICS.map((t) => <a href={`${BASE}topics/${t.slug}`}>{t.name}</a>)}
   </div>
 
   <h2>Why ShenTarot</h2>
@@ -42,10 +42,10 @@ const fan = ["major_17_star", "major_00_fool", "major_02_high_priestess"];
 
   <h2>Free tarot tools</h2>
   <ul>
-    <li><a href={`${BASE}cards/index.html`}>Tarot card meanings: all 78 cards</a></li>
-    <li><a href={`${BASE}spreads/index.html`}>Tarot spreads and what each position means</a></li>
-    <li><a href={`${BASE}tools/random-card.html`}>Draw a random tarot card</a></li>
-    <li><a href={`${BASE}tools/birth-card.html`}>Tarot birth card calculator</a></li>
+    <li><a href={`${BASE}cards`}>Tarot card meanings: all 78 cards</a></li>
+    <li><a href={`${BASE}spreads`}>Tarot spreads and what each position means</a></li>
+    <li><a href={`${BASE}tools/random-card`}>Draw a random tarot card</a></li>
+    <li><a href={`${BASE}tools/birth-card`}>Tarot birth card calculator</a></li>
   </ul>
 
   <section class="cta">
