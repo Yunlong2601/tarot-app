@@ -1,6 +1,7 @@
 import 'package:go_router/go_router.dart';
 
 import '../features/you/own_key_screen.dart';
+import '../features/birth/birth_card_screen.dart';
 import '../features/cards/card_detail_screen.dart';
 import '../features/draw/draw_screen.dart';
 import '../features/creator/creator_screen.dart';
@@ -21,9 +22,11 @@ import '../features/paywall/paywall_screen.dart';
 import '../features/reading/reading_screen.dart';
 import '../features/scan/camera_scan_screen.dart';
 import '../features/scan/card_picker_screen.dart';
+import '../features/scan/review_cards_screen.dart';
 import '../features/scan/scan_screen.dart';
 import '../features/settings/legal_screen.dart';
 import '../features/you/you_screen.dart';
+import '../data/models.dart';
 import 'app_state.dart';
 
 GoRouter buildRouter(AppState state) {
@@ -66,6 +69,9 @@ GoRouter buildRouter(AppState state) {
           ),
         ],
       ),
+      // A shared reading link opened on a phone with the app: the page asks
+      // "Ask your own question", so start one.
+      GoRoute(path: '/s/:token', redirect: (_, _) => '/ask'),
       GoRoute(
         path: '/ask',
         builder: (_, s) => AskScreen(skipPicker: s.extra == true),
@@ -75,6 +81,7 @@ GoRouter buildRouter(AppState state) {
       GoRoute(path: '/photo', builder: (_, _) => const ScanScreen()),
       GoRoute(path: '/digital', builder: (_, _) => const DrawScreen()),
       GoRoute(path: '/daily', builder: (_, _) => const DailyCardScreen()),
+      GoRoute(path: '/birth', builder: (_, _) => const BirthCardScreen()),
       GoRoute(path: '/history', builder: (_, _) => const HistoryScreen()),
       GoRoute(path: '/account', builder: (_, _) => const AccountScreen()),
       GoRoute(path: '/invite', builder: (_, _) => const InviteScreen()),
@@ -97,6 +104,11 @@ GoRouter buildRouter(AppState state) {
         builder: (_, s) => CameraScanScreen(count: s.extra! as int),
       ),
       GoRoute(path: '/pick', builder: (_, _) => const CardPickerScreen()),
+      GoRoute(
+        path: '/review-cards',
+        builder: (_, s) =>
+            ReviewCardsScreen(cards: s.extra! as List<DrawnCard>),
+      ),
       GoRoute(
         path: '/reading/:id',
         builder: (_, s) => ReadingScreen(readingId: s.pathParameters['id']!),

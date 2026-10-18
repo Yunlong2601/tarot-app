@@ -1,0 +1,31 @@
+---
+import Base from "../../layouts/Base.astro";
+import { BASE } from "../../config.ts";
+import { CARDS, cardIds, slug, suitTitle } from "../../lib/data.ts";
+
+const groups = ["major", "wands", "cups", "swords", "pentacles"].map((g) => ({
+  title: g === "major" ? "Major Arcana" : suitTitle(g),
+  ids: cardIds.filter((id) => (g === "major" ? CARDS[id].arcana === "major" : CARDS[id].suit === g)),
+}));
+---
+<Base
+  title="Tarot card meanings: all 78 cards · ShenTarot"
+  description="Meanings of all 78 Rider-Waite-Smith tarot cards, upright and reversed, with what each card shows and why."
+  path="cards"
+>
+  <h1>Tarot card meanings</h1>
+  <p class="muted">All 78 cards of the Rider-Waite-Smith deck, upright and reversed.</p>
+  {groups.map((g) => (
+    <>
+      <h2>{g.title}</h2>
+      <div class="grid">
+        {g.ids.map((id) => (
+          <a href={`${BASE}cards/${slug(id)}`}>
+            <img src={`${BASE}cards/art/${id}.jpg`} alt="" loading="lazy" width="150" height="257" />
+            {CARDS[id].name}
+          </a>
+        ))}
+      </div>
+    </>
+  ))}
+</Base>

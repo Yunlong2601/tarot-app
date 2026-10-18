@@ -1,3 +1,5 @@
+import '../../data/spreads.dart';
+
 /// A gentle, offline check of how a question is worded. Returns a short
 /// suggestion, or null when the question looks fine. Tarot works best as
 /// reflection, so we nudge away from yes/no, timing, and mind-reading
@@ -15,8 +17,8 @@ String? questionNudge(String question) {
   if (RegExp(r'\bwhen (will|am i going to|do i)\b').hasMatch(q)) {
     return 'Timing is hard for the cards. Try: "What can I do to move this forward?"';
   }
-  if (RegExp(r'^(will|should|is|am|are|do|does|can|shall)\b').hasMatch(q)) {
-    return 'Open questions give richer readings. Try starting with "What" or "How": "What would help me with this?"';
+  if (looksYesNo(q)) {
+    return 'This reads as a yes or no question: the Yes or No spread shows which way the cards lean. For a fuller reading, try "What would help me with this?"';
   }
   return null;
 }

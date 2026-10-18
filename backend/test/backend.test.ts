@@ -539,6 +539,16 @@ describe("crisis handling and structured readings over HTTP", () => {
     expect(json.fallback).toBe(true);
     expect(json.reading).not.toMatch(/thinking about you/);
   });
+
+  it("a plain-text Yes or No reply uses stored text, with the lean from code or none", async () => {
+    const s = setup({ llm: async () => ({ text: "The cards lean yes. " + GOOD, inputTokens: 5, outputTokens: 5, refused: false }) });
+    const yesNo = { spread: "yes_no", cards: three.cards.map((c, i) => ({ ...c, reversed: i === 1 })), question: "Will this work out?" };
+    const json = (await (await post(s, yesNo)).json()) as { reading: string; fallback: boolean };
+    expect(json.fallback).toBe(true);
+    expect(json.reading).toMatch(/^Yes or no\nNot settled/);
+    const restricted = (await (await post(s, { ...yesNo, question: "Will I get pregnant this year?" })).json()) as { reading: string };
+    expect(restricted.reading).not.toMatch(/Yes or no|lean yes/i);
+  });
 });
 
 describe("providers and own keys", () => {
@@ -1187,3 +1197,70 @@ describe("secrets and tester switches", () => {
 
 
 
+
+describe("shared readings", () => {
+  const body = {
+    ...three,
+    reading: "In a line\nA fresh start is close.\n\nWhere it began: The Fool\nA <b>leap</b>.\nWhy: Zero.\n\nPutting it together\nIt hangs together.",
+    question: "What should I <script>focus</script> on?",
+  };
+
+  it("stores an opt-in copy and serves an escaped, noindex page", async () => {
+    const { call, env, kv } = setup();
+    const res = await call("/v1/share", { method: "POST", headers: await authHeaders(env), body: JSON.stringify(body) });
+    expect(res.status).toBe(200);
+    const j = (await res.json()) as { token: string; url: string };
+    expect(j.url).toMatch(new RegExp(`/s/${j.token}$`));
+    const stored = kv.m.get(`share:${j.token}`)!;
+    expect(stored).not.toContain(UUID); // only a salted hash of the install
+    const page = await call(`/s/${j.token}`);
+    expect(page.status).toBe(200);
+    expect(page.headers.get("x-robots-tag")).toBe("noindex");
+    const html = await page.text();
+    expect(html).toContain("The Fool");
+    expect(html).toContain('<p class="lead">A fresh start is close.</p>');
+    expect(html).not.toMatch(/<script>|<b>/);
+    expect(html).toContain("What should I scriptfocus/script on?");
+  });
+
+  it("leaves the question out unless sent, and only the sharer can delete", async () => {
+    const { call, env } = setup();
+    const res = await call("/v1/share", {
+      method: "POST", headers: await authHeaders(env), body: JSON.stringify({ ...body, question: null }),
+    });
+    const { token } = (await res.json()) as { token: string };
+    expect(await (await call(`/s/${token}`)).text()).toContain("A tarot reading");
+    const other = { authorization: `Bearer ${await signToken("00000000-0000-4000-8000-000000000999", env.JWT_SECRET, Math.floor(NOW / 1000))}` };
+    expect((await call(`/v1/share/${token}/delete`, { method: "POST", headers: other })).status).toBe(403);
+    expect((await call(`/v1/share/${token}/delete`, { method: "POST", headers: await authHeaders(env) })).status).toBe(200);
+    expect((await call(`/s/${token}`)).status).toBe(404);
+  });
+
+  it("uses the website's address for links when one is set", async () => {
+    const { call, env } = setup();
+    (env as { SHARE_BASE_URL?: string }).SHARE_BASE_URL = "https://shentarot.example/";
+    const res = await call("/v1/share", { method: "POST", headers: await authHeaders(env), body: JSON.stringify(body) });
+    const { url, token } = (await res.json()) as { url: string; token: string };
+    expect(url).toBe(`https://shentarot.example/s/${token}`);
+  });
+
+  it("accepts a long Premium reading", async () => {
+    const { call, env } = setup();
+    const long = { ...body, reading: `${body.reading}\n\n${"Words of a long reading. ".repeat(220)}`.slice(0, 5900) };
+    const res = await call("/v1/share", { method: "POST", headers: await authHeaders(env), body: JSON.stringify(long) });
+    expect(res.status).toBe(200);
+  });
+
+  it("rejects bad input, unauthenticated calls and too many shares a day", async () => {
+    const { call, env, kv } = setup();
+    expect((await call("/v1/share", { method: "POST", body: JSON.stringify(body) })).status).toBe(401);
+    const h = await authHeaders(env);
+    const bad = { ...body, cards: body.cards.slice(0, 2) };
+    expect((await call("/v1/share", { method: "POST", headers: h, body: JSON.stringify(bad) })).status).toBe(400);
+    for (const k of kv.m.keys()) if (k.startsWith("share-day:")) kv.m.set(k, "20");
+    const owner = await hashId(`share:${UUID}`, env.HASH_SALT);
+    kv.m.set(`share-day:${owner}:${new Date(NOW).toISOString().slice(0, 10)}`, "20");
+    expect((await call("/v1/share", { method: "POST", headers: h, body: JSON.stringify(body) })).status).toBe(429);
+    expect((await call("/s/not-a-token")).status).toBe(404);
+  });
+});

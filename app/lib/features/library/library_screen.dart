@@ -39,6 +39,14 @@ class _LibraryScreenState extends State<LibraryScreen> {
               ),
             ),
           ),
+          if (_showCards)
+            ListTile(
+              leading: const Icon(Icons.cake_outlined, color: AppColors.gold),
+              title: const Text('Your birth cards'),
+              subtitle: const Text('Find your cards from your birthday'),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => context.push('/birth'),
+            ),
           Expanded(
             child: _showCards ? const CardsBrowser() : const _SpreadsList(),
           ),

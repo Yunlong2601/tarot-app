@@ -121,12 +121,12 @@ export const CRISIS_MESSAGE =
   "If you can, reach out to someone you trust today. You deserve real support.";
 
 const RESTRICTED: [string, RegExp][] = [
-  ["medical", /\b(diagnos|cancer|tumou?r|medication|symptom|surgery|disease|therapy|treatment|illness|sick)\b/],
+  ["medical", /\b(diagnos\w*|cancer|tumou?r|medication|symptom|surgery|disease|therapy|treatment|illness|sick)\b/],
   ["legal", /\b(lawsuit|sue\b|court|lawyer|attorney|custody|divorce case|visa|immigration)\b/],
-  ["financial", /\b(invest|stock|crypto|bitcoin|loan|mortgage|tax(es)?|lottery|should i buy|trading)\b/],
+  ["financial", /\b(invest\w*|stock|crypto|bitcoin|loan|mortgage|tax(es)?|lottery|should i buy|trading)\b/],
   ["death", /\b(when will i die|lifespan|how long (will|do) i live|will .* die)\b/],
-  ["pregnancy", /\b(pregnan|conceive|fertility)\b/],
-  ["gambling", /\b(gambl|casino|betting|lotto)\b/],
+  ["pregnancy", /\b(pregnan\w*|conceiv\w*|fertility)\b/],
+  ["gambling", /\b(gambl\w*|casino|betting|lotto)\b/],
 ];
 
 /** A hint for the model, never a reason to refuse by itself. */

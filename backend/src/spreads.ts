@@ -25,6 +25,11 @@ export const SPREADS = {
     purpose: "Framing a decision: what is going on, what is in the way, and a way to move.",
     positions: ["The situation", "The challenge", "A way forward"],
   },
+  yes_no: {
+    name: "Yes or No", category: "classics",
+    purpose: "A yes or no question. The app computes a lean from the cards: upright leans yes, reversed leans no, and the middle card counts double. Explain the lean as a tendency the cards show, never a certain answer, and say what could shift it.",
+    positions: ["First card", "The heart of it (counts double)", "Third card"],
+  },
   five_cross: {
     name: "Five-Card Cross", category: "classics",
     purpose: "Looking at one clearly stated matter from five sides.",
@@ -44,17 +49,17 @@ export const SPREADS = {
     ],
   },
   love_connection: {
-    name: "Love & Relationship", category: "love",
+    name: "Where Do We Stand?", category: "love",
     purpose: "Reflecting on the user's own part in a relationship. Never what the other person thinks or feels.",
     positions: ["What I bring", "The connection itself", "What it asks of me"],
   },
   love_bring: {
-    name: "What I Bring to This Connection", category: "love",
+    name: "Is This Relationship Right for Me?", category: "love",
     purpose: "Self-reflection about what the user brings, needs and may be avoiding in a connection.",
     positions: ["What I bring", "What I need", "What I may be avoiding"],
   },
   love_reconnect: {
-    name: "Healing & Reconnection", category: "love",
+    name: "Will My Ex Come Back?", category: "love",
     purpose: "Reflecting on a past relationship from the user's side: what happened inside them and what they can change. Never predict whether anyone returns and never advise contacting anyone.",
     positions: [
       "What ended", "What I am still carrying", "What I need to understand", "What I can change",
@@ -62,7 +67,7 @@ export const SPREADS = {
     ],
   },
   love_ready: {
-    name: "Single & New Love", category: "love",
+    name: "When Will I Find Love?", category: "love",
     purpose: "Reflecting on readiness for new love, from the user's side only.",
     positions: [
       "How I feel about love now", "What I carry from the past", "What I truly want",
@@ -102,3 +107,19 @@ export const isSpread = (v: unknown): v is Spread => typeof v === "string" && Ob
  * (owner decision 2026-10-17). This is the one place to change that. */
 export const FREE_SPREAD_MAX_CARDS = 3;
 export const isFreeSpread = (s: Spread): boolean => spreadSize(s) <= FREE_SPREAD_MAX_CARDS;
+
+export type YesNoLean = "yes" | "no" | "unsettled";
+
+/** The Yes or No spread's lean, computed in code (never by the model): upright
+ * cards vote yes, reversed vote no, and the middle card counts double. Keep in
+ * step with `yesNoLean` in app/lib/data/spreads.dart. */
+export function yesNoLean(cards: { reversed: boolean }[]): { lean: YesNoLean; score: number } {
+  const score = cards.reduce((sum, c, i) => sum + (c.reversed ? -1 : 1) * (i === 1 ? 2 : 1), 0);
+  return { lean: score > 0 ? "yes" : score < 0 ? "no" : "unsettled", score };
+}
+
+export const LEAN_LABEL: Record<YesNoLean, string> = {
+  yes: "Leaning yes",
+  no: "Leaning no",
+  unsettled: "Not settled",
+};

@@ -1,0 +1,27 @@
+---
+import Base from "../../layouts/Base.astro";
+import { BASE } from "../../config.ts";
+import { APP_SPREADS, SPREADS, plural, slug, spreadIds, titleCase, type SpreadId } from "../../lib/data.ts";
+
+export function getStaticPaths() {
+  return spreadIds.map((id) => ({ params: { slug: slug(id) }, props: { id } }));
+}
+const { id } = Astro.props as { id: SpreadId };
+const s = SPREADS[id];
+const count = plural(s.positions.length, "card");
+---
+<Base
+  title={`${s.name} tarot spread: ${count} · ShenTarot`}
+  description={`${s.name}: a ${s.positions.length}-card tarot spread. ${APP_SPREADS[id].blurb}`}
+  path={`spreads/${slug(id)}`}
+>
+  <p class="muted"><a href={`${BASE}spreads`}>Spreads</a></p>
+  <h1>{s.name}</h1>
+  <p class="muted">{count} · {titleCase(s.category)}</p>
+  <div class="panel"><h2>Best for</h2><p>{APP_SPREADS[id].blurb}</p></div>
+  <div class="panel">
+    <h2>Positions</h2>
+    <ol class="positions">{s.positions.map((p) => <li>{p}</li>)}</ol>
+  </div>
+  {APP_SPREADS[id].source && <p class="muted">Source: {APP_SPREADS[id].source}</p>}
+</Base>

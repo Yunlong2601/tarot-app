@@ -153,7 +153,7 @@ void main() {
     );
     await t.tap(find.text('Next'));
     await t.pumpAndSettle();
-    expect(find.text('Healing & Reconnection'), findsOneWidget);
+    expect(find.text('Will My Ex Come Back?'), findsOneWidget);
     expect(find.text('Recommended'), findsOneWidget);
     expect(
       find.text('Start free reading'),
@@ -186,7 +186,7 @@ void main() {
     expect(find.text('One-Card Reading'), findsOneWidget);
     expect(find.text('1 card'), findsOneWidget);
     await tapVisible(t, find.text('Love'));
-    expect(find.text('Love & Relationship'), findsOneWidget);
+    expect(find.text('Where Do We Stand?'), findsOneWidget);
   });
 
   testWidgets(

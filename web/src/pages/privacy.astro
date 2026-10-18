@@ -1,24 +1,24 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Privacy Policy - ShenTarot</title>
-<style>body{font-family:-apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem;line-height:1.55;color:#222}
-@media(prefers-color-scheme:dark){body{background:#14121c;color:#e5e1ec}a{color:#d9b86a}}</style></head>
-<body>
+---
+import Base from "../layouts/Base.astro";
+---
+<Base title="Privacy Policy · ShenTarot" description="How ShenTarot handles your data: what stays on your phone, what is sent, and how to delete it." path="privacy" noCta>
+<article class="legal">
 <h1>Privacy Policy</h1>
-<p><strong>ShenTarot</strong> (&quot;the app&quot;) is provided by ShenTech, Singapore. Contact: <a href="mailto:shenyunlongbusiness@gmail.com">shenyunlongbusiness@gmail.com</a>. Effective date: 16 October 2026.</p>
+<p><strong>ShenTarot</strong> (&quot;the app&quot;) is provided by ShenTech, Singapore. Contact: <a href="mailto:shenyunlongbusiness@gmail.com">shenyunlongbusiness@gmail.com</a>. Effective date: 18 October 2026.</p>
 <p>The app is for entertainment and self-reflection only.</p>
 <h2>What we handle and why</h2>
 <ul>
 <li><strong>Camera.</strong> When you scan a card, the photo is analysed on your phone to recognise the card. The photo is not saved and is not sent to us or anyone else.</li>
-<li><strong>Your reading request.</strong> To write a reading we send the cards (names/IDs and whether upright or reversed), the spread type and, if you typed them, your question and what you noticed in the cards ("Look first") to our server, which passes it to an AI provider (Anthropic, or OpenAI as a backup) to generate the text. If you ask a follow-up question (Premium), we also send your follow-up and the earlier reading text from your phone so the answer fits the reading. We do not store your question or the reading on our servers. The AI provider may keep API data for a limited time under its own policy: <a href="https://www.anthropic.com/legal/privacy">https://www.anthropic.com/legal/privacy</a> Please do not put sensitive personal information in your question.</li>
+<li><strong>Your reading request.</strong> To write a reading we send the cards (names/IDs and whether upright or reversed), the spread type and, if you typed them, your question and what you noticed in the cards ("Look first") to our server, which passes it to an AI provider (Anthropic, or OpenAI as a backup) to generate the text. If you ask a follow-up question (Premium), we also send your follow-up and the earlier reading text from your phone so the answer fits the reading. We do not store your question or the reading on our servers unless you share the reading (see Shared readings). The AI provider may keep API data for a limited time under its own policy: <a href="https://www.anthropic.com/legal/privacy">https://www.anthropic.com/legal/privacy</a> Please do not put sensitive personal information in your question.</li>
 <li><strong>Your own AI key (optional, Premium).</strong> If you add your own Anthropic or OpenAI API key, it is stored only on your phone in its secure storage (iOS Keychain / Android Keystore). It is sent with each reading to our server, which passes it to that provider for that one request. We never save or log your key. The provider bills your account and handles your request under its own terms and privacy policy. You can remove the key at any time in the app.</li>
-<li><strong>Account (optional).</strong> If you sign in with Google or Apple, they send us a sign-in token that we check. We keep only a random account ID, which sign-in method you used, and a scrambled (hashed) version of your Google or Apple user ID. We do not store your name or email address. Your account ID is linked to the anonymous ID of each phone you sign in on, and is shared with RevenueCat so Premium follows your account. Delete your account at any time in You &gt; Account &gt; Delete account, or as described on our <a href="delete-account.html">account deletion page</a>.</li>
+<li><strong>Account (optional).</strong> If you sign in with Google or Apple, they send us a sign-in token that we check. We keep only a random account ID, which sign-in method you used, and a scrambled (hashed) version of your Google or Apple user ID. We do not store your name or email address. Your account ID is linked to the anonymous ID of each phone you sign in on, and is shared with RevenueCat so Premium follows your account. Delete your account at any time in You &gt; Account &gt; Delete account, or as described on our <a href="/delete-account">account deletion page</a>.</li>
 <li><strong>Anonymous ID.</strong> The app creates a random ID on your phone. We store only a scrambled (hashed) version, together with the date, spread type and the amount of AI text used, to apply daily limits, prevent abuse and control costs. We do not know who you are from this.</li>
 <li><strong>Network address.</strong> Our hosting provider (Cloudflare) sees your IP address when the app connects. We use a scrambled version of it for a short-lived (about two minutes) request counter to prevent abuse.</li>
 <li><strong>Purchases.</strong> Subscriptions and credit packs are handled by Apple or Google and by RevenueCat, our subscription service provider. RevenueCat receives your anonymous ID (or account ID if you sign in), your purchase receipts and transaction status, and basic technical information about your phone (such as operating system and app version, country and IP address) so we can unlock Premium, add credits, restore purchases and see subscription statistics. RevenueCat stores this data in the United States (<a href="https://www.revenuecat.com/privacy">https://www.revenuecat.com/privacy</a>). We do not receive your payment details.</li>
 <li><strong>Credits.</strong> If you use reading credits, our server keeps your credit balance, when credits were added (daily, monthly, bought, gifted or earned) and the store transaction of each credit pack, so credits cannot be edited on the phone and a refunded pack can be taken back. Kept until you delete your account or ask us to delete it.</li>
 <li><strong>Invite friends (optional).</strong> If you use invites, we keep a random invite code for your account or phone, a link between your random ID and the random IDs of friends who used your code, the store transaction of a friend's qualifying purchase (to confirm a real payment and stop duplicates), and when rewards were added. We never collect names, contacts, emails or phone numbers; sharing uses your phone's share sheet.</li>
 <li><strong>Creator program (optional).</strong> If you submit a post, we keep its public link, which platform it is on, its review status and like count, and the screenshot you upload. Screenshots are stored privately (Cloudflare R2), used only to check the post and deleted after 30 days. Do not include other people's personal details in what you submit.</li>
+<li><strong>Shared readings (optional).</strong> If you tap Share on a reading and then Create link, we store a copy of that reading on our server (Cloudflare): the spread, the cards and the reading text, plus your question only if you switch on &ldquo;Show my question&rdquo;. Anyone with the link can open the page; it asks search engines not to list it. We also keep a scrambled (hashed) version of your anonymous ID with it so only your phone can remove it. Your journal notes, name and contact details are never included. Remove a page any time with Stop sharing on that reading (deleting the reading or using Delete all my data also removes it). Pages are deleted automatically after one year.</li>
 <li><strong>Stored on your device only.</strong> Your reading history, journal notes, reminder time and settings stay on your phone. You can delete them in Settings &gt; Delete all my data, or by uninstalling the app.</li>
 <li><strong>Reminders.</strong> The daily reminder is a local notification scheduled on your phone. We do not send push notifications.</li>
 </ul>
@@ -27,7 +27,7 @@
 <h2>Sharing and overseas transfers</h2>
 <p>We share data only with service providers needed to run the app: Anthropic and OpenAI (AI), Google and Apple (optional sign-in), Cloudflare (hosting), RevenueCat (subscriptions, United States), and Apple/Google (payments). These providers operate outside Singapore, so your request data is transferred overseas.</p>
 <h2>Retention</h2>
-<p>Usage records (hashed ID, date, spread, token counts) are kept for 90 days. Account records are kept until you delete the account. Everything on your device stays until you delete it.</p>
+<p>Usage records (hashed ID, date, spread, token counts) are kept for 90 days. Shared reading pages are kept for one year or until you remove them. Account records are kept until you delete the account. Everything on your device stays until you delete it.</p>
 <h2>Your choices and rights</h2>
 <p>You can use the app without typing a question. You can delete your on-device data at any time. To ask about, access or correct data we hold (the hashed ID and usage records), or to ask us to delete it, contact <a href="mailto:shenyunlongbusiness@gmail.com">shenyunlongbusiness@gmail.com</a>. Our contact for data protection is ShenTech at the email above.</p>
 <h2>Children</h2>
@@ -36,5 +36,5 @@
 <p>Requests use HTTPS. Secrets are kept on the server, not in the app. No method is perfectly secure.</p>
 <h2>Changes</h2>
 <p>We will update this page and the date above when this policy changes.</p>
-<p><a href="index.html">Back</a></p>
-</body></html>
+</article>
+</Base>

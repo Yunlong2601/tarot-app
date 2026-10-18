@@ -1,0 +1,10 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["SX4CW2L35K.com.shentech.shentarot"],
+        "components": [{ "/": "/s/*", "comment": "Shared readings open in the app" }]
+      }
+    ]
+  }
+}

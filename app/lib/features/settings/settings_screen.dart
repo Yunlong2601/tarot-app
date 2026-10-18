@@ -82,7 +82,17 @@ class SettingsScreen extends StatelessWidget {
           ],
         ),
       );
-      if (ok == true) await state.deleteAllData();
+      if (ok != true) return;
+      if (!await state.deleteAllData() && context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text(
+              'Could not remove your shared reading pages, so nothing was '
+              'deleted. Check your connection and try again.',
+            ),
+          ),
+        );
+      }
     }
 
     return Scaffold(

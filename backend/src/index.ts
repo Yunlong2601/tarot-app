@@ -31,6 +31,7 @@ import {
   parsePostUrl, sniffImage, type CreatorStore, type ShotStorage,
 } from "./creator";
 import { isFreeSpread } from "./spreads";
+import { MAX_SHARED_READING, SHARE_DAYS, SHARES_PER_DAY, isShareToken, newShareToken, notFoundPage, parseShareRequest, renderSharePage, type SharedReading } from "./share";
 import { isUuid, parseFollowupRequest, parseReadingRequest } from "./validate";
 
 export interface Deps {
@@ -242,8 +243,10 @@ export function createApp(deps: Deps = defaultDeps) {
       // falls back to a reading built from stored card text, never an error.
       const structured = parseModelReply(result.text, req);
       if (structured?.crisis) return c.json({ crisis: true, message: CRISIS_MESSAGE });
-      let text: string | null = structured ? renderReading(structured) : null;
-      if (text === null) {
+      let text: string | null = structured ? renderReading(structured, req) : null;
+      // Yes or No needs the lean computed in code (or withheld for restricted
+      // topics), which only the structured path adds: no plain text there.
+      if (text === null && req.spread !== "yes_no") {
         const plain = checkOutput(result.text);
         text = plain.ok ? plain.text : null;
       }
@@ -337,6 +340,52 @@ export function createApp(deps: Deps = defaultDeps) {
       logUpstreamError(e);
       return c.json({ error: "upstream_failed" }, 502);
     }
+  });
+
+  // Share a reading (opt-in): store a copy, return a public link.
+  app.post("/v1/share", async (c) => {
+    const now = deps.now();
+    const installId = await installFrom(c.req.header("authorization"), c.env, now);
+    if (!installId) return c.json({ error: "unauthorized" }, 401);
+    const owner = await hashId(`share:${installId}`, c.env.HASH_SALT);
+    if (!(await allowWithinMinute(c.env.KV, `share-burst:${owner}`, 5, now))) return c.json({ error: "rate_limited" }, 429);
+    const dayKey = `share-day:${owner}:${utcDay(now)}`;
+    const today = Number((await c.env.KV.get(dayKey)) ?? 0);
+    if (today >= SHARES_PER_DAY) return c.json({ error: "rate_limited" }, 429);
+    const parsed = parseShareRequest(await readJson(c.req.raw, MAX_SHARED_READING + 4096), new Date(now));
+    if (!parsed.ok) return c.json({ error: "invalid_request", detail: parsed.error }, 400);
+    const token = newShareToken();
+    await c.env.KV.put(`share:${token}`, JSON.stringify({ ...parsed.value, owner }), { expirationTtl: SHARE_DAYS * 86_400 });
+    await c.env.KV.put(dayKey, String(today + 1), { expirationTtl: 2 * 86_400 });
+    const base = (c.env.SHARE_BASE_URL || new URL(c.req.url).origin).replace(/\/+$/, "");
+    return c.json({ token, url: `${base}/s/${token}`, days: SHARE_DAYS });
+  });
+
+  // Stop sharing: only the install that shared it can delete it.
+  app.post("/v1/share/:token/delete", async (c) => {
+    const installId = await installFrom(c.req.header("authorization"), c.env, deps.now());
+    if (!installId) return c.json({ error: "unauthorized" }, 401);
+    const token = c.req.param("token");
+    if (!isShareToken(token)) return c.json({ ok: true });
+    const raw = await c.env.KV.get(`share:${token}`);
+    if (raw) {
+      const owner = await hashId(`share:${installId}`, c.env.HASH_SALT);
+      if (!safeEqual((JSON.parse(raw) as { owner: string }).owner, owner)) return c.json({ error: "forbidden" }, 403);
+      await c.env.KV.delete(`share:${token}`);
+    }
+    return c.json({ ok: true });
+  });
+
+  // The public page for a shared reading.
+  app.get("/s/:token", async (c) => {
+    const token = c.req.param("token");
+    const raw = isShareToken(token) ? await c.env.KV.get(`share:${token}`) : null;
+    const headers = { "content-type": "text/html; charset=utf-8", "x-robots-tag": "noindex", "referrer-policy": "no-referrer",
+      "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; img-src 'self'" };
+    if (!raw) return c.body(notFoundPage(), 404, headers);
+    const s = JSON.parse(raw) as SharedReading;
+    return c.body(renderSharePage(s, { appStore: c.env.APP_STORE_URL, playStore: c.env.PLAY_STORE_URL }), 200,
+      { ...headers, "cache-control": "no-store" });
   });
 
   // Optional accounts. The app signs in with Google or Apple, sends the ID

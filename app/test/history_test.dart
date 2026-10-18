@@ -7,6 +7,7 @@ import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'package:shentarot/app/app_state.dart';
 import 'package:shentarot/core/reading_service.dart';
 import 'package:shentarot/core/reminder_service.dart';
+import 'package:shentarot/core/share_service.dart';
 import 'package:shentarot/core/subscription_service.dart';
 import 'package:shentarot/data/deck.dart';
 import 'package:shentarot/data/history_repository.dart';
@@ -266,6 +267,22 @@ void main() {
       s.deleteReading('a');
       expect(s.history, isEmpty);
     });
+
+    test('a shared reading is kept if its page cannot be removed', () async {
+      final api = _FlakyShare();
+      final s = AppState(deck: deck, shareApi: api);
+      s.addReading(reading('a', DateTime(2026, 1, 1)));
+      await s.shareLink(s.history.single, includeQuestion: false);
+      api.offline = true;
+      expect(await s.deleteReading('a'), isFalse);
+      expect(await s.deleteAllData(), isFalse);
+      expect(s.history, hasLength(1));
+      expect(s.sharedUrl('a'), isNotNull);
+      api.offline = false;
+      expect(await s.deleteReading('a'), isTrue);
+      expect(s.history, isEmpty);
+      expect(api.removed, ['t1']);
+    });
   });
 
   group('reminder', () {
@@ -471,4 +488,22 @@ class _IntroSubs extends UnconfiguredSubscriptionService {
   final DateTime end;
   @override
   Future<DateTime?> introEndsAt() async => end;
+}
+
+class _FlakyShare implements ShareBackend {
+  bool offline = false;
+  final removed = <String>[];
+
+  @override
+  Future<ShareLink> share(
+    Reading reading, {
+    required bool includeQuestion,
+  }) async =>
+      const ShareLink(token: 't1', url: 'https://example.test/s/t1', days: 365);
+
+  @override
+  Future<void> unshare(String token) async {
+    if (offline) throw const ShareException('offline');
+    removed.add(token);
+  }
 }

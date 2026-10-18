@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { CARDS } from "../src/cards";
+import { yesNoLean } from "../src/spreads";
 import { CRISIS_MESSAGE, POSITIONS, cardBlock, detectCrisis, restrictedTopic, spreadFacts } from "../src/knowledge";
 import {
   READING_SYSTEM_PROMPT, buildReadingMessage, fallbackReading, hitsBannedClaim, parseModelReply, renderReading,
@@ -102,8 +103,10 @@ describe("model reply handling", () => {
   it("accepts a valid reply and renders it with positions from the server", () => {
     const s = parseModelReply("```json\n" + JSON.stringify(good) + "\n```", r)!;
     expect(s).toBeTruthy();
-    const text = renderReading(s);
+    const text = renderReading(s, r);
     expect(text).toContain("Where it began: The Fool");
+    expect(text).toContain("Putting it together\nA story of starting");
+    expect(text).not.toContain("In a line");
     expect(text).toContain("Ace of Cups (reversed)");
     expect(text).toContain("A small step");
   });
@@ -174,8 +177,48 @@ describe("spread catalog", () => {
       spread: "love_reconnect", question: null, impression: null,
       cards: ["major_00_fool", "major_01_magician", "major_02_high_priestess", "major_03_empress", "major_04_emperor", "major_05_hierophant", "major_06_lovers"].map((id) => ({ id, reversed: false })),
     });
-    expect(m).toContain("Healing & Reconnection");
+    expect(m).toContain("Will My Ex Come Back?");
     expect(m).toMatch(/never predict whether anyone returns/i);
     expect(m).toContain("What I am still carrying");
+  });
+});
+
+describe("headline and the Yes or No spread", () => {
+  const yn = (rev: [boolean, boolean, boolean], q = "Should I take the new course?") =>
+    req([["major_00_fool", rev[0]], ["cups_ace", rev[1]], ["swords_ten", rev[2]]], "yes_no", q);
+  const reply = (r: ReturnType<typeof yn>, extra: Record<string, unknown> = {}) => JSON.stringify({
+    headline: "The cards lean toward yes, with a condition.",
+    cards: r.cards.map((c, i) => ({
+      position: "x", card: CARDS[c.id]!.name, orientation: c.reversed ? "reversed" : "upright",
+      reading: `Card ${i} reading text.`, why: "Because.",
+    })),
+    overview: "Together they ask for patience.", reflection_question: "What would help?",
+    small_step: "Write one line.", declined_topic: null, crisis: false, ...extra,
+  });
+
+  it("computes the lean in code: upright yes, reversed no, middle counts double", () => {
+    expect(yesNoLean([{ reversed: false }, { reversed: false }, { reversed: true }]).lean).toBe("yes");
+    expect(yesNoLean([{ reversed: false }, { reversed: true }, { reversed: false }]).lean).toBe("unsettled");
+    expect(yesNoLean([{ reversed: true }, { reversed: true }, { reversed: false }]).lean).toBe("no");
+  });
+  it("tells the model the lean and shows it first with the headline", () => {
+    const r = yn([false, true, true]);
+    expect(buildReadingMessage(r)).toMatch(/Yes\/no lean \(computed from the cards\): Leaning no \(score -2/);
+    const text = renderReading(parseModelReply(reply(r), r)!, r);
+    expect(text.startsWith("In a line\nThe cards lean toward yes, with a condition.\n\nYes or no\nLeaning no")).toBe(true);
+  });
+  it("gives no lean for a restricted topic or a declined reading", () => {
+    const risky = yn([false, false, false], "Will I get pregnant this year?");
+    expect(buildReadingMessage(risky)).toMatch(/do not give one/);
+    expect(renderReading(parseModelReply(reply(risky), risky)!, risky)).not.toContain("Yes or no");
+    expect(fallbackReading(risky)).not.toContain("Yes or no");
+    const r = yn([false, false, false]);
+    expect(renderReading(parseModelReply(reply(r, { declined_topic: "other" }), r)!, r)).not.toContain("Yes or no");
+    expect(fallbackReading(r)).toMatch(/^Yes or no\nLeaning yes/);
+  });
+  it("accepts a reply without a headline", () => {
+    const r = yn([false, false, false]);
+    const s = parseModelReply(reply(r, { headline: undefined }), r)!;
+    expect(s.headline).toBeNull();
   });
 });

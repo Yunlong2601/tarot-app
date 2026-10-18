@@ -124,6 +124,27 @@ class _HistoryScreenState extends State<HistoryScreen> {
                           color: Colors.red.shade900,
                           child: const Icon(Icons.delete_outline),
                         ),
+                        // A shared page is removed before the swipe
+                        // completes; if that fails the reading stays.
+                        confirmDismiss: (_) async {
+                          if (state.sharedUrl(r.id) == null) return true;
+                          try {
+                            await state.stopSharing(r.id);
+                            return true;
+                          } on Exception {
+                            if (context.mounted) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text(
+                                    'Could not remove its shared page, so the '
+                                    'reading was kept. Please try again.',
+                                  ),
+                                ),
+                              );
+                            }
+                            return false;
+                          }
+                        },
                         onDismissed: (_) {
                           state.deleteReading(r.id);
                           ScaffoldMessenger.of(context).showSnackBar(

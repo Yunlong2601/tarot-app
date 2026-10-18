@@ -59,12 +59,16 @@ class _DrawScreenState extends State<DrawScreen> {
   void _shuffle() {
     final state = AppScope.of(context);
     final cards = [...state.deck.cards]..shuffle(_rng);
+    // The Yes or No spread needs reversed cards (they are its "no" votes), at
+    // even odds so neither answer is favoured.
+    final yesNo = _spread == SpreadType.yesNo;
+    final odds = yesNo ? 0.5 : 0.25;
     setState(() {
       _deck = [
         for (final c in cards)
           DrawnCard(
             card: c,
-            reversed: state.readReversed && _rng.nextDouble() < 0.25,
+            reversed: (yesNo || state.readReversed) && _rng.nextDouble() < odds,
           ),
       ];
       _remaining = List.generate(_deck.length, (i) => i);
