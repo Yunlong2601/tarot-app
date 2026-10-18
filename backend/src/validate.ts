@@ -11,6 +11,9 @@ export interface ReadingRequest {
   question: string | null;
   /** What the user noticed in the cards before the reading (optional). */
   impression?: string | null;
+  /** The phone's language as a BCP 47 tag (e.g. "zh-Hans-CN"), used when
+   * there is no question to take the language from. */
+  locale?: string | null;
 }
 
 export type Parsed<T> = { ok: true; value: T } | { ok: false; error: string };
@@ -45,6 +48,13 @@ function parseSpreadAndCards(b: Record<string, unknown>): Parsed<{ spread: Sprea
   return { ok: true, value: { spread, cards } };
 }
 
+/** Optional BCP 47 language tag. Anything malformed is ignored, not refused,
+ * so an odd phone setting never blocks a reading. */
+export function parseLocale(raw: unknown): string | null {
+  if (typeof raw !== "string" || raw.length > 35) return null;
+  return /^[A-Za-z]{2,3}(-[A-Za-z0-9]{2,8})*$/.test(raw) ? raw : null;
+}
+
 function parseText(raw: unknown, max: number, what: string): Parsed<string | null> {
   if (raw === undefined || raw === null) return { ok: true, value: null };
   if (typeof raw !== "string") return fail(`${what} must be text`);
@@ -63,7 +73,7 @@ export function parseReadingRequest(body: unknown): Parsed<ReadingRequest> {
   if (!q.ok) return q;
   const imp = parseText(b.impression, MAX_QUESTION_LENGTH, "impression");
   if (!imp.ok) return imp;
-  return { ok: true, value: { ...sc.value, question: q.value, impression: imp.value } };
+  return { ok: true, value: { ...sc.value, question: q.value, impression: imp.value, locale: parseLocale(b.locale) } };
 }
 
 export const MAX_FOLLOWUP_LENGTH = 300;
@@ -99,7 +109,10 @@ export function parseFollowupRequest(body: unknown): Parsed<FollowupRequest> {
     if (sc.value.cards.some((c) => c.id === id)) return fail("clarifier is already in the spread");
     clarifier = { id, reversed };
   }
-  return { ok: true, value: { ...sc.value, question: q.value, reading: r.value, followup: f.value, clarifier } };
+  return {
+    ok: true,
+    value: { ...sc.value, question: q.value, reading: r.value, followup: f.value, clarifier, locale: parseLocale(b.locale) },
+  };
 }
 
 function fail(error: string): { ok: false; error: string } {

@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
+import 'dart:ui' show PlatformDispatcher;
 
 import '../data/models.dart';
 import 'install_id.dart';
@@ -26,7 +27,15 @@ class ApiReadingService
     this.baseUrl, {
     HttpClient Function()? clientFactory,
     this.userKey,
-  }) : _newClient = clientFactory ?? HttpClient.new;
+    String? Function()? locale,
+  }) : _newClient = clientFactory ?? HttpClient.new,
+       _locale = locale ?? _phoneLocale;
+
+  /// The phone's language (e.g. "zh-Hans-CN"). Readings are written in the
+  /// language of the question; this is used when there is no question.
+  static String? _phoneLocale() =>
+      PlatformDispatcher.instance.locale.toLanguageTag();
+  final String? Function() _locale;
 
   final String baseUrl;
 
@@ -51,6 +60,7 @@ class ApiReadingService
       if (question != null && question.trim().isNotEmpty) 'question': question,
       if (impression != null && impression.trim().isNotEmpty)
         'impression': impression.trim(),
+      'locale': ?_locale(),
     };
     return _send('/v1/reading', body, 'reading');
   }
@@ -74,6 +84,7 @@ class ApiReadingService
       'followup': followUp,
       if (clarifier != null)
         'clarifier': {'id': clarifier.card.id, 'reversed': clarifier.reversed},
+      'locale': ?_locale(),
     }, 'answer');
   }
 
@@ -260,6 +271,14 @@ class ApiReadingService
       final j = res.json;
       if (j['crisis'] == true) {
         throw ReadingException(ReadingErrorKind.crisis, j['message'] as String);
+      }
+      // Follow-ups carry the redirect as their answer; a reading has none.
+      if (j['off_topic'] == true && j[textKey] is! String) {
+        throw ReadingException(
+          ReadingErrorKind.offTopic,
+          j['message'] as String? ??
+              'I read the cards about your own life. What is on your mind?',
+        );
       }
       return ReadingResult(
         text: j[textKey] as String,

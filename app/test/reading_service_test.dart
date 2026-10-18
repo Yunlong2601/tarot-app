@@ -67,7 +67,49 @@ void main() {
           {'id': 'major_00_fool', 'reversed': true},
         ],
         'question': 'Hello?',
+        'locale': 'en-US',
       });
+    },
+  );
+
+  test('sends the phone language, or none when unknown', () async {
+    var tag = 'zh-Hans-CN' as String?;
+    final svc = ApiReadingService(
+      'http://127.0.0.1:${server.port}',
+      locale: () => tag,
+    );
+    await svc.interpret(spread: SpreadType.single, cards: await cards());
+    expect((seen.last['body'] as Map)['locale'], 'zh-Hans-CN');
+    tag = null;
+    await svc.interpret(spread: SpreadType.single, cards: await cards());
+    expect((seen.last['body'] as Map).containsKey('locale'), isFalse);
+  });
+
+  test(
+    'an off-topic reading becomes its own error; a follow-up keeps the answer',
+    () async {
+      final svc = ApiReadingService('http://127.0.0.1:${server.port}');
+      readingBody = {'off_topic': true, 'message': 'Ask about your life.'};
+      await expectLater(
+        svc.interpret(spread: SpreadType.single, cards: await cards()),
+        throwsA(
+          isA<ReadingException>()
+              .having((e) => e.kind, 'kind', ReadingErrorKind.offTopic)
+              .having((e) => e.message, 'message', 'Ask about your life.'),
+        ),
+      );
+      readingBody = {
+        'off_topic': true,
+        'answer': 'Ask about this reading.',
+        'disclaimer': 'd',
+      };
+      final r = await svc.followUp(
+        spread: SpreadType.single,
+        cards: await cards(),
+        reading: 'A reading.',
+        followUp: 'What model are you?',
+      );
+      expect(r.text, 'Ask about this reading.');
     },
   );
 

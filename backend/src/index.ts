@@ -4,12 +4,13 @@ import type { Env } from "./env";
 import { callProvider, isAuthError, type LlmFn, type LlmParams, type LlmResult, type LlmTarget } from "./llm";
 import { serverTargets, usageModel, userTarget } from "./route";
 import { CRISIS_MESSAGE, detectCrisis } from "./knowledge";
+import { detectOffTopic, offTopicMessage } from "./offtopic";
 import {
   DISCLAIMER, FOLLOWUP_MAX_TOKENS, FOLLOWUP_SYSTEM_PROMPT, buildFollowupMessage, checkOutput,
 } from "./prompts";
 import {
   readingMaxTokens, READING_SYSTEM_PROMPT, buildReadingMessage, fallbackReading, hitsBannedClaim,
-  parseModelReply, renderReading,
+  offTopicReply, parseModelReply, renderReading,
 } from "./reading";
 import { isPremium, premiumPlan } from "./revenuecat";
 import { D1CreditStore, DAILY_BANK_DAYS, MONTHLY_BANK_MONTHS, WELCOME_CREDITS, creditsInProduct, type CreditStore } from "./credits";
@@ -203,6 +204,11 @@ export function createApp(deps: Deps = defaultDeps) {
     if (detectCrisis(req.question, req.impression)) {
       return c.json({ crisis: true, message: CRISIS_MESSAGE });
     }
+    // Plainly not about the user's life ("what model are you", maths, code,
+    // injection): a short redirect, no model call, no credit.
+    if (detectOffTopic(req.question)) {
+      return c.json({ off_topic: true, message: offTopicMessage(req.question, req.locale) });
+    }
 
     const premium = await deps.premium(who.appUserId, c.env, now);
     const usage = deps.usage(c.env);
@@ -238,6 +244,14 @@ export function createApp(deps: Deps = defaultDeps) {
       );
       await usage.finalize(slot, result.inputTokens, result.outputTokens);
       if (result.refused) return c.json({ error: "declined" }, 422);
+      // The model judged the question off-topic: same redirect, credit back,
+      // and the row stops counting as a reading (its tokens stay logged).
+      const offTopic = offTopicReply(result.text);
+      if (offTopic !== null) {
+        if (creditLot !== null) await deps.credits(c.env).refund(creditLot);
+        await usage.relabel(slot, "off_topic");
+        return c.json({ off_topic: true, message: offTopic || offTopicMessage(req.question, req.locale) });
+      }
       // Structured JSON is the normal case. If the model ignored the format,
       // accept a clean plain-text reply; anything else (or any banned claim)
       // falls back to a reading built from stored card text, never an error.
@@ -301,6 +315,9 @@ export function createApp(deps: Deps = defaultDeps) {
     const req = parsed.value;
 
     if (detectCrisis(req.followup, req.question)) return c.json({ crisis: true, message: CRISIS_MESSAGE });
+    if (detectOffTopic(req.followup)) {
+      return c.json({ answer: offTopicMessage(req.followup, req.locale), off_topic: true, disclaimer: DISCLAIMER });
+    }
 
     let followupLot: number | null = null;
     const premium = await deps.premium(who.appUserId, c.env, now);

@@ -13,6 +13,10 @@ enum ReadingErrorKind {
 
   /// The user's own AI key was refused (bad shape, or rejected by the provider).
   userKey,
+
+  /// The question was not about the user's own life ("what model are you",
+  /// maths, code). The message is a short redirect; no credit was used.
+  offTopic,
 }
 
 class ReadingException implements Exception {

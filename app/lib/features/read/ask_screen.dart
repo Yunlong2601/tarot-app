@@ -99,6 +99,24 @@ class _AskScreenState extends State<AskScreen> {
   }
 
   void _next() {
+    // Caught before the draw so the user does not shuffle for nothing (the
+    // server would turn it away too, without using a credit).
+    if (looksOffTopic(_controller.text)) {
+      showDialog<void>(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: const Text('Ask about your own life'),
+          content: const Text(offTopicNudge),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(ctx),
+              child: const Text('Edit question'),
+            ),
+          ],
+        ),
+      );
+      return;
+    }
     final state = AppScope.of(context);
     state.setDraftQuestion(_controller.text);
     if (widget.skipPicker) {

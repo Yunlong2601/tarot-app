@@ -106,6 +106,20 @@ Future<ReadingResult?> _interpret(
           ],
         ),
       );
+    } else if (failure.kind == ReadingErrorKind.offTopic) {
+      await showDialog<void>(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: const Text('Ask about your own life'),
+          content: Text('${failure!.message}\n\nNo credit was used.'),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(ctx),
+              child: const Text('OK'),
+            ),
+          ],
+        ),
+      );
     } else if (failure.kind == ReadingErrorKind.dailyLimit && state.isPremium) {
       // Premium already has the paywall's benefits: explain the plan allowance.
       ScaffoldMessenger.of(context).showSnackBar(
