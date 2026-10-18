@@ -55,6 +55,10 @@ List<AccountProvider> availableProviders({bool? isIOS, String? googleId}) {
 /// user cancelled.
 abstract class SignInProvider {
   Future<String?> idToken(AccountProvider provider);
+
+  /// Apple's one-time authorization code from the last [idToken] call (Apple
+  /// only). The server trades it for a token it revokes if the account is deleted.
+  String? get authorizationCode;
   Future<void> signOut();
 }
 
@@ -62,7 +66,11 @@ class PlatformSignIn implements SignInProvider {
   bool _googleReady = false;
 
   @override
+  String? authorizationCode;
+
+  @override
   Future<String?> idToken(AccountProvider provider) async {
+    authorizationCode = null;
     switch (provider) {
       case AccountProvider.google:
         if (!_googleReady) {
@@ -84,6 +92,7 @@ class PlatformSignIn implements SignInProvider {
         try {
           // No name or email is requested; we only need the user id.
           final c = await SignInWithApple.getAppleIDCredential(scopes: []);
+          authorizationCode = c.authorizationCode;
           return c.identityToken;
         } on SignInWithAppleAuthorizationException catch (e) {
           if (e.code == AuthorizationErrorCode.canceled) return null;
@@ -105,7 +114,11 @@ class PlatformSignIn implements SignInProvider {
 /// The server side of accounts (implemented by the API client).
 abstract class AccountBackend {
   /// Returns our account id.
-  Future<String> signIn(AccountProvider provider, String idToken);
+  Future<String> signIn(
+    AccountProvider provider,
+    String idToken, {
+    String? authorizationCode,
+  });
   Future<void> signOut();
   Future<void> deleteAccount();
 }
@@ -115,7 +128,11 @@ class UnconfiguredAccountBackend implements AccountBackend {
   static AccountException get _e =>
       AccountException(tr('Accounts are not available yet.'));
   @override
-  Future<String> signIn(AccountProvider provider, String idToken) => throw _e;
+  Future<String> signIn(
+    AccountProvider provider,
+    String idToken, {
+    String? authorizationCode,
+  }) => throw _e;
   @override
   Future<void> signOut() async {}
   @override

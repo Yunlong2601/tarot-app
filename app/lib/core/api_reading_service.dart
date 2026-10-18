@@ -84,10 +84,15 @@ class ApiReadingService
   }
 
   @override
-  Future<String> signIn(AccountProvider provider, String idToken) async {
+  Future<String> signIn(
+    AccountProvider provider,
+    String idToken, {
+    String? authorizationCode,
+  }) async {
     final res = await _post('/v1/account/signin', {
       'provider': provider.wire,
       'idToken': idToken,
+      'authorizationCode': ?authorizationCode,
     }, auth: true);
     final id = res.json['accountId'];
     if (res.status == 200 && id is String) return id;

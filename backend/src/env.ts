@@ -41,4 +41,9 @@ export interface Env {
   APPLE_APP_ID?: string;
   /** "true" also accepts development-environment App Attest keys (Xcode debug builds). Never in production. */
   APP_ATTEST_ALLOW_DEVELOPMENT?: string;
+  /** Sign in with Apple key, for revoking Apple tokens when an account is deleted. */
+  APPLE_TEAM_ID?: string;
+  APPLE_SIWA_KEY_ID?: string;
+  /** Secret: the .p8 key's PEM text. */
+  APPLE_SIWA_PRIVATE_KEY?: string;
 }

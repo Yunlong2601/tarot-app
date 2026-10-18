@@ -174,7 +174,11 @@ class AppState extends ChangeNotifier {
   Future<bool> signIn(AccountProvider provider) async {
     final token = await _signIn.idToken(provider);
     if (token == null) return false;
-    final id = await accountApi.signIn(provider, token);
+    final id = await accountApi.signIn(
+      provider,
+      token,
+      authorizationCode: _signIn.authorizationCode,
+    );
     account = Account(id, provider);
     await _saveAccount();
     await _switchSubscriptionUser();

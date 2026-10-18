@@ -13,6 +13,8 @@ class _FakeSignIn implements SignInProvider {
   String? token = 'id-token';
   int signOuts = 0;
   @override
+  String? authorizationCode = 'apple-code';
+  @override
   Future<String?> idToken(AccountProvider provider) async => token;
   @override
   Future<void> signOut() async => signOuts++;
@@ -20,9 +22,15 @@ class _FakeSignIn implements SignInProvider {
 
 class _FakeBackend implements AccountBackend {
   final calls = <String>[];
+  final codes = <String?>[];
   @override
-  Future<String> signIn(AccountProvider provider, String idToken) async {
+  Future<String> signIn(
+    AccountProvider provider,
+    String idToken, {
+    String? authorizationCode,
+  }) async {
     calls.add('signin:${provider.wire}:$idToken');
+    codes.add(authorizationCode);
     return 'acct-1';
   }
 

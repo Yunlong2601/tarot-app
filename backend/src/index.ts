@@ -34,6 +34,7 @@ import {
 } from "./creator";
 import { isFreeSpread } from "./spreads";
 import { isUuid, parseFollowupRequest, parseReadingRequest } from "./validate";
+import { appleTokenKey, exchangeCode, revokeToken, siwaConfigured } from "./applesignin";
 import { AttestError, b64ToBytes, bytesToB64, clientDataFor, verifyAssertion, verifyAttestation, type AttestedKey } from "./appattest";
 
 export interface Deps {
@@ -55,6 +56,8 @@ export interface Deps {
   verifyIdToken: (provider: AccountProvider, token: string, audiences: string[], kv: KVNamespace, nowSeconds: number) => Promise<string | null>;
   /** Tests only: a stand-in for Apple's App Attest root certificate. */
   appAttestRoot?: string;
+  /** Tests only: replaces fetch for calls to Apple's token endpoints. */
+  appleFetch?: typeof fetch;
   /** Sends an owner alert (ALERT_WEBHOOK_URL). Optional so tests can capture it. */
   alert?: (message: string, env: Env) => Promise<void>;
 }
@@ -568,7 +571,7 @@ export function createApp(deps: Deps = defaultDeps) {
     if (!(await allowWithinMinute(c.env.KV, `signin:${await hashId(ip, c.env.HASH_SALT)}`, 10, now))) {
       return c.json({ error: "rate_limited" }, 429);
     }
-    const body = (await readJson(c.req.raw)) as { provider?: unknown; idToken?: unknown } | null;
+    const body = (await readJson(c.req.raw)) as { provider?: unknown; idToken?: unknown; authorizationCode?: unknown } | null;
     if (!body || !isAccountProvider(body.provider) || typeof body.idToken !== "string" || body.idToken.length > 4096) {
       return c.json({ error: "invalid_request" }, 400);
     }
@@ -581,6 +584,11 @@ export function createApp(deps: Deps = defaultDeps) {
     const accountId = await store.findOrCreate(provider, await hashId(`${provider}:${subject}`, c.env.HASH_SALT));
     const installHash = await hashId(installId, c.env.HASH_SALT);
     await store.link(installHash, accountId);
+    // Keep an Apple refresh token so deleting the account can revoke it.
+    if (provider === "apple" && siwaConfigured(c.env) && typeof body.authorizationCode === "string" && body.authorizationCode.length < 1024) {
+      const rt = await exchangeCode(c.env, body.authorizationCode, Math.floor(now / 1000), deps.appleFetch);
+      if (rt) await c.env.KV.put(appleTokenKey(accountId), rt);
+    }
     // Signing in keeps the credits earned on this install.
     if (c.env.CREDITS_ENABLED === "true") {
       await deps.credits(c.env).move(installHash, await hashId(`acct:${accountId}`, c.env.HASH_SALT));
@@ -614,6 +622,12 @@ export function createApp(deps: Deps = defaultDeps) {
     }
     await accounts.delete(who.accountId, who.usageKey);
     await c.env.KV.delete(`premium:${who.accountId}`);
+    // Sign in with Apple: revoke the user's Apple tokens for this app.
+    const appleToken = await c.env.KV.get(appleTokenKey(who.accountId));
+    if (appleToken && siwaConfigured(c.env)) {
+      await revokeToken(c.env, appleToken, Math.floor(deps.now() / 1000), deps.appleFetch);
+    }
+    await c.env.KV.delete(appleTokenKey(who.accountId));
     return c.json({ deleted: true });
   });
 

@@ -13,6 +13,9 @@ GLOBAL_DAILY_TOKEN_CAP = "2000000"
 # must keep doing so. Unattested installs still work while ALLOW_UNATTESTED_INSTALLS
 # is true (Android until Play Integrity, and older iOS builds).
 APPLE_APP_ID = "SX4CW2L35K.com.shentech.shentarot"
+# Sign in with Apple: the ID token audience (bundle id). Setting it also turns on the
+# guest limit (1 free reading a day without an account, 2 when signed in).
+APPLE_CLIENT_IDS = "com.shentech.shentarot"
 
 # Create with `wrangler d1 create shentarot` and `wrangler kv namespace create KV`,
 # then paste the ids below.
