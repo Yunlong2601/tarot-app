@@ -31,6 +31,7 @@ import {
   parsePostUrl, sniffImage, type CreatorStore, type ShotStorage,
 } from "./creator";
 import { isFreeSpread } from "./spreads";
+import { SHARE_DAYS, SHARES_PER_DAY, isShareToken, newShareToken, notFoundPage, parseShareRequest, renderSharePage, type SharedReading } from "./share";
 import { isUuid, parseFollowupRequest, parseReadingRequest } from "./validate";
 
 export interface Deps {
@@ -342,6 +343,51 @@ export function createApp(deps: Deps = defaultDeps) {
   // Optional accounts. The app signs in with Google or Apple, sends the ID
   // token here, and this install is linked to our account id. No email or
   // name is stored.
+  // Share a reading (opt-in): store a copy, return a public link.
+  app.post("/v1/share", async (c) => {
+    const now = deps.now();
+    const installId = await installFrom(c.req.header("authorization"), c.env, now);
+    if (!installId) return c.json({ error: "unauthorized" }, 401);
+    const owner = await hashId(`share:${installId}`, c.env.HASH_SALT);
+    if (!(await allowWithinMinute(c.env.KV, `share-burst:${owner}`, 5, now))) return c.json({ error: "rate_limited" }, 429);
+    const dayKey = `share-day:${owner}:${utcDay(now)}`;
+    const today = Number((await c.env.KV.get(dayKey)) ?? 0);
+    if (today >= SHARES_PER_DAY) return c.json({ error: "rate_limited" }, 429);
+    const parsed = parseShareRequest(await readJson(c.req.raw), new Date(now));
+    if (!parsed.ok) return c.json({ error: "invalid_request", detail: parsed.error }, 400);
+    const token = newShareToken();
+    await c.env.KV.put(`share:${token}`, JSON.stringify({ ...parsed.value, owner }), { expirationTtl: SHARE_DAYS * 86_400 });
+    await c.env.KV.put(dayKey, String(today + 1), { expirationTtl: 2 * 86_400 });
+    return c.json({ token, url: `${new URL(c.req.url).origin}/s/${token}`, days: SHARE_DAYS });
+  });
+
+  // Stop sharing: only the install that shared it can delete it.
+  app.post("/v1/share/:token/delete", async (c) => {
+    const installId = await installFrom(c.req.header("authorization"), c.env, deps.now());
+    if (!installId) return c.json({ error: "unauthorized" }, 401);
+    const token = c.req.param("token");
+    if (!isShareToken(token)) return c.json({ ok: true });
+    const raw = await c.env.KV.get(`share:${token}`);
+    if (raw) {
+      const owner = await hashId(`share:${installId}`, c.env.HASH_SALT);
+      if (!safeEqual((JSON.parse(raw) as { owner: string }).owner, owner)) return c.json({ error: "forbidden" }, 403);
+      await c.env.KV.delete(`share:${token}`);
+    }
+    return c.json({ ok: true });
+  });
+
+  // The public page for a shared reading.
+  app.get("/s/:token", async (c) => {
+    const token = c.req.param("token");
+    const raw = isShareToken(token) ? await c.env.KV.get(`share:${token}`) : null;
+    const headers = { "content-type": "text/html; charset=utf-8", "x-robots-tag": "noindex", "referrer-policy": "no-referrer",
+      "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; img-src 'self'" };
+    if (!raw) return c.body(notFoundPage(), 404, headers);
+    const s = JSON.parse(raw) as SharedReading;
+    return c.body(renderSharePage(s, { appStore: c.env.APP_STORE_URL, playStore: c.env.PLAY_STORE_URL }), 200,
+      { ...headers, "cache-control": "no-store" });
+  });
+
   app.post("/v1/account/signin", async (c) => {
     const now = deps.now();
     const installId = await installFrom(c.req.header("authorization"), c.env, now);

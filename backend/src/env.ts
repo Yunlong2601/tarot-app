@@ -30,6 +30,9 @@ export interface Env {
   REVENUECAT_WEBHOOK_AUTH?: string;
   /** Testing only: comma-separated install/account ids treated as Premium. */
   TESTER_INSTALL_IDS?: string;
+  /** Store links on shared reading pages (left out when unset). */
+  APP_STORE_URL?: string;
+  PLAY_STORE_URL?: string;
   /** Local testing only: skips device attestation. Never set in production. */
   ALLOW_UNATTESTED_INSTALLS?: string;
 }

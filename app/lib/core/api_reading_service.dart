@@ -9,6 +9,7 @@ import 'credit_service.dart';
 import 'creator_service.dart';
 import 'referral_service.dart';
 import 'reading_service.dart';
+import 'share_service.dart';
 import 'user_key_store.dart';
 
 /// Talks to the Cloudflare Worker (`backend/`). Sends only the card IDs,
@@ -19,7 +20,8 @@ class ApiReadingService
         AccountBackend,
         ReferralBackend,
         CreditBackend,
-        CreatorBackend {
+        CreatorBackend,
+        ShareBackend {
   ApiReadingService(
     this.baseUrl, {
     HttpClient Function()? clientFactory,
@@ -73,6 +75,46 @@ class ApiReadingService
       if (clarifier != null)
         'clarifier': {'id': clarifier.card.id, 'reversed': clarifier.reversed},
     }, 'answer');
+  }
+
+  @override
+  Future<ShareLink> share(
+    Reading reading, {
+    required bool includeQuestion,
+  }) async {
+    final res = await _post('/v1/share', {
+      'spread': reading.spread.wire,
+      'cards': [
+        for (final c in reading.cards)
+          {'id': c.card.id, 'reversed': c.reversed},
+      ],
+      'reading': reading.interpretation,
+      'question': includeQuestion ? reading.question : null,
+    }, auth: true);
+    final token = res.json['token'];
+    final url = res.json['url'];
+    if (res.status == 200 && token is String && url is String) {
+      return ShareLink(
+        token: token,
+        url: url,
+        days: (res.json['days'] as num?)?.toInt() ?? 365,
+      );
+    }
+    throw ShareException(
+      res.status == 429
+          ? 'You have shared a lot today. Please try again tomorrow.'
+          : 'Could not make a link. Please try again.',
+    );
+  }
+
+  @override
+  Future<void> unshare(String token) async {
+    final res = await _post('/v1/share/$token/delete', const {}, auth: true);
+    if (res.status != 200) {
+      throw const ShareException(
+        'Could not remove the link. Please try again.',
+      );
+    }
   }
 
   @override

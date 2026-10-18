@@ -10,6 +10,7 @@ import '../spreads/spread_layout.dart';
 import '../scan/orientation_dialog.dart';
 import 'reading_sections.dart';
 import 'report_reading.dart';
+import 'share_reading.dart';
 
 import 'dart:math';
 
@@ -417,6 +418,11 @@ class _ReadingScreenState extends State<ReadingScreen> {
       appBar: AppBar(
         title: Text(reading.spread.label),
         actions: [
+          IconButton(
+            tooltip: 'Share this reading',
+            icon: const Icon(Icons.ios_share),
+            onPressed: () => shareReading(context, reading),
+          ),
           IconButton(
             tooltip: 'Report a problem with this reading',
             icon: const Icon(Icons.flag_outlined),

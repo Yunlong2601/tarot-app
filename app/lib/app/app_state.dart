@@ -1,3 +1,5 @@
+import 'dart:async';
+import 'dart:convert';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -7,6 +9,7 @@ import '../core/account_service.dart';
 import '../core/credit_service.dart';
 import '../core/creator_service.dart';
 import '../core/referral_service.dart';
+import '../core/share_service.dart';
 import 'flags.dart';
 import '../core/install_id.dart';
 import '../core/reading_service.dart';
@@ -34,6 +37,7 @@ class AppState extends ChangeNotifier {
     this.referralApi = const UnconfiguredReferralBackend(),
     this.creditApi = const UnconfiguredCreditBackend(),
     this.creatorApi = const UnconfiguredCreatorBackend(),
+    this.shareApi = const UnconfiguredShareBackend(),
     SignInProvider? signIn,
     List<AccountProvider>? accountProviders,
     DateTime Function()? clock,
@@ -63,6 +67,66 @@ class AppState extends ChangeNotifier {
 
   /// Creator program (behind `creatorEnabled`).
   final CreatorBackend creatorApi;
+
+  /// Public links to readings the user chose to share.
+  final ShareBackend shareApi;
+
+  /// Reading id -> (token, url) of its public page, kept on this phone so the
+  /// link can be shared again or removed.
+  Map<String, (String, String)> sharedLinks = {};
+  static const _kShared = 'shared_reading_links';
+
+  /// Makes the public link for a reading.
+  Future<String> shareLink(Reading r, {required bool includeQuestion}) async {
+    final link = await shareApi.share(r, includeQuestion: includeQuestion);
+    sharedLinks = {...sharedLinks, r.id: (link.token, link.url)};
+    await _saveShared();
+    notifyListeners();
+    return link.url;
+  }
+
+  /// The public link for a reading the user shared, if any.
+  String? sharedUrl(String readingId) => sharedLinks[readingId]?.$2;
+
+  /// Removes the public page. Throws [ShareException] if the server refuses.
+  Future<void> stopSharing(String readingId) async {
+    final link = sharedLinks[readingId];
+    if (link == null) return;
+    await shareApi.unshare(link.$1);
+    sharedLinks = {...sharedLinks}..remove(readingId);
+    await _saveShared();
+    notifyListeners();
+  }
+
+  Future<void> _saveShared() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString(
+        _kShared,
+        jsonEncode({
+          for (final e in sharedLinks.entries) e.key: [e.value.$1, e.value.$2],
+        }),
+      );
+    } catch (e) {
+      debugPrint('Share storage error: $e');
+    }
+  }
+
+  Future<void> _loadShared(SharedPreferences prefs) async {
+    try {
+      final raw = prefs.getString(_kShared);
+      if (raw != null) {
+        sharedLinks = {
+          for (final e in (jsonDecode(raw) as Map).entries)
+            e.key as String: (
+              (e.value as List)[0] as String,
+              (e.value as List)[1] as String,
+            ),
+        };
+      }
+    } catch (_) {}
+  }
+
   int credits = 0;
 
   /// New credits that arrive every day for this user, as the server reports it.
@@ -324,6 +388,7 @@ class AppState extends ChangeNotifier {
       _usedCount = prefs.getInt(_kUsedCount) ?? 0;
       trialUsed = prefs.getBool(_kTrial) ?? false;
       readReversed = prefs.getBool(_kReversed) ?? true;
+      await _loadShared(prefs);
       _upgradeShown = prefs.getInt(_kUpgradeShown) ?? 0;
       autoReveal = prefs.getBool(_kAutoReveal) ?? false;
       final refTag = prefs.getString(_kRefTag);
@@ -604,6 +669,10 @@ class AppState extends ChangeNotifier {
   Reading? get dueRevisit => history.where(revisitDue).firstOrNull;
 
   void deleteReading(String id) {
+    // A shared page goes with the reading (best effort).
+    if (sharedLinks.containsKey(id)) {
+      unawaited(stopSharing(id).catchError((_) {}));
+    }
     history.removeWhere((r) => r.id == id);
     _guard(() => reminders.cancelLookBack(id));
     _guard(() => _repo.delete(id));
@@ -611,6 +680,9 @@ class AppState extends ChangeNotifier {
   }
 
   Future<void> deleteAllData() async {
+    for (final id in [...sharedLinks.keys]) {
+      await stopSharing(id).catchError((_) {});
+    }
     history.clear();
     await removeOwnKey();
     notifyListeners();
