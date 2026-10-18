@@ -1,0 +1,56 @@
+---
+import Base from "../layouts/Base.astro";
+import StoreButtons from "../components/StoreButtons.astro";
+import { BASE, SUPPORT_EMAIL } from "../config.ts";
+import { TOPICS } from "../lib/topics.ts";
+
+const fan = ["major_17_star", "major_00_fool", "major_02_high_priestess"];
+---
+<Base
+  title="ShenTarot: tarot readings for your own cards"
+  description="Scan your own tarot deck or draw on screen, ask your question and get a thoughtful reading. Your photo never leaves your phone, and no sign-up is needed."
+  path=""
+  noCta
+>
+  <section class="hero">
+    <div class="fan" aria-hidden="true">
+      {fan.map((id) => <img src={`${BASE}cards/art/${id}.jpg`} alt="" width="150" height="257" />)}
+    </div>
+    <h1>Ask the cards anything</h1>
+    <p class="lead">
+      Scan your own deck or draw on screen. ShenTarot picks a spread for your question and gives you a reading you can
+      keep asking about.
+    </p>
+    <StoreButtons />
+    <p><a class="btn ghost" href={`${BASE}tools/random-card.html`}>Draw a free card now</a></p>
+  </section>
+
+  <h2>What do you want to ask about?</h2>
+  <div class="topics">
+    {TOPICS.map((t) => <a href={`${BASE}topics/${t.slug}.html`}>{t.name}</a>)}
+  </div>
+
+  <h2>Why ShenTarot</h2>
+  <div class="cards3">
+    <div class="panel"><h3>Your photo stays on your phone</h3><p>Cards are recognised on the device. The photo is never uploaded.</p></div>
+    <div class="panel"><h3>No sign-up</h3><p>Start reading straight away. An account is optional.</p></div>
+    <div class="panel"><h3>A free card every day</h3><p>A Card of the Day, plus free readings with up to three cards each day.</p></div>
+    <div class="panel"><h3>Readings you can question</h3><p>Ask a follow-up about your reading, or draw a clarifying card.</p></div>
+    <div class="panel"><h3>Spreads for your question</h3><p>Love, career, decisions, yes or no, and the classic Celtic Cross.</p></div>
+    <div class="panel"><h3>A journal of your readings</h3><p>Keep notes on every reading and search your history later.</p></div>
+  </div>
+
+  <h2>Free tarot tools</h2>
+  <ul>
+    <li><a href={`${BASE}cards/index.html`}>Tarot card meanings: all 78 cards</a></li>
+    <li><a href={`${BASE}spreads/index.html`}>Tarot spreads and what each position means</a></li>
+    <li><a href={`${BASE}tools/random-card.html`}>Draw a random tarot card</a></li>
+    <li><a href={`${BASE}tools/birth-card.html`}>Tarot birth card calculator</a></li>
+  </ul>
+
+  <section class="cta">
+    <h2>Get ShenTarot</h2>
+    <StoreButtons />
+    <p class="muted">Support: <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>. Provided by ShenTech, Singapore.</p>
+  </section>
+</Base>

@@ -1,0 +1,69 @@
+---
+import Base from "../../layouts/Base.astro";
+import { BASE } from "../../config.ts";
+import { deckForTools } from "../../lib/data.ts";
+
+const majors = deckForTools.filter((c) => c.major);
+---
+<Base
+  title="Tarot birth card calculator: find your birth cards · ShenTarot"
+  description="Find your tarot birth cards and your card for this year from your birthday. Worked out in your browser; nothing is sent."
+  path="tools/birth-card.html"
+>
+  <h1>Tarot birth card calculator</h1>
+  <p class="muted">
+    A traditional numerology method: add your birth month, day and year, then add the digits until you reach 22 or
+    less. That number is a Major Arcana card (22 is The Fool). A two-digit result also gives the card for the sum of
+    its digits. Worked out in your browser; nothing is sent.
+  </p>
+  <p>
+    <label>Your birthday: <input type="date" id="bd" /></label>
+    <button id="go" type="button">Find my cards</button>
+  </p>
+  <div id="out" aria-live="polite"></div>
+  <script is:inline define:vars={{ DECK: majors, BASE }}>
+    document.getElementById("bd").max = new Date().toISOString().slice(0, 10);
+    const digits = (n) => String(n).split("").reduce((s, d) => s + +d, 0);
+    function nums(y, m, d) {
+      let n = y + m + d;
+      while (n > 22) n = digits(n);
+      if (n === 22) return [0, 4];
+      const o = [n];
+      while (n >= 10) { n = digits(n); o.push(n); }
+      return o;
+    }
+    function card(n) {
+      const c = DECK.find((x) => x.n === n);
+      const a = document.createElement("a");
+      a.className = "slot";
+      a.href = `${BASE}cards/${c.slug}.html`;
+      const img = document.createElement("img");
+      img.className = "card-img";
+      img.src = `${BASE}cards/art/${c.id}.jpg`;
+      img.alt = "";
+      const t = document.createElement("div");
+      t.textContent = c.name;
+      a.append(img, t);
+      return a;
+    }
+    function section(title, ns) {
+      const h = document.createElement("h2");
+      h.textContent = title;
+      const row = document.createElement("div");
+      row.className = "draw";
+      row.append(...ns.map(card));
+      return [h, row];
+    }
+    document.getElementById("go").onclick = () => {
+      const v = document.getElementById("bd").value;
+      const out = document.getElementById("out");
+      if (!v) { out.textContent = "Pick a date first."; return; }
+      const [y, m, d] = v.split("-").map(Number);
+      const year = new Date().getFullYear();
+      const note = document.createElement("p");
+      note.className = "muted";
+      note.textContent = "Themes you may grow into, not a fixed fate.";
+      out.replaceChildren(...section("Your birth cards", nums(y, m, d)), ...section(`Your card for ${year}`, [nums(year, m, d)[0]]), note);
+    };
+  </script>
+</Base>

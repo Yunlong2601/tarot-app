@@ -357,7 +357,8 @@ export function createApp(deps: Deps = defaultDeps) {
     const token = newShareToken();
     await c.env.KV.put(`share:${token}`, JSON.stringify({ ...parsed.value, owner }), { expirationTtl: SHARE_DAYS * 86_400 });
     await c.env.KV.put(dayKey, String(today + 1), { expirationTtl: 2 * 86_400 });
-    return c.json({ token, url: `${new URL(c.req.url).origin}/s/${token}`, days: SHARE_DAYS });
+    const base = (c.env.SHARE_BASE_URL || new URL(c.req.url).origin).replace(/\/+$/, "");
+    return c.json({ token, url: `${base}/s/${token}`, days: SHARE_DAYS });
   });
 
   // Stop sharing: only the install that shared it can delete it.

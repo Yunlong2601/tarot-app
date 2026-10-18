@@ -1,0 +1,58 @@
+---
+import "../styles/site.css";
+import StoreButtons from "../components/StoreButtons.astro";
+import { BASE } from "../config.ts";
+
+interface Props {
+  title: string;
+  description: string;
+  /** This page's address under the site, e.g. "cards/index.html" ("" = home). */
+  path: string;
+  /** Hide the "Read your own cards" panel (pages that already end with one). */
+  noCta?: boolean;
+}
+const { title, description, path, noCta = false } = Astro.props;
+const canonical = new URL(path, Astro.site).href;
+const base = BASE;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="theme-color" content="#0d0c0a" media="(prefers-color-scheme: dark)" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header>
+      <a class="brand" href={`${base}index.html`}>ShenTarot</a>
+      <nav aria-label="Main">
+        <a href={`${base}cards/index.html`}>Card meanings</a>
+        <a href={`${base}spreads/index.html`}>Spreads</a>
+        <a href={`${base}tools/random-card.html`}>Draw a card</a>
+        <a href={`${base}tools/birth-card.html`}>Birth cards</a>
+      </nav>
+    </header>
+    <main id="main">
+      <slot />
+      {!noCta && (
+        <section class="cta">
+          <h2>Read your own cards</h2>
+          <p>Scan your own Rider-Waite-Smith deck or draw on screen, and get a reading for your question.</p>
+          <StoreButtons />
+        </section>
+      )}
+    </main>
+    <footer>
+      <p>For entertainment and self-reflection only. Card images: Rider-Waite-Smith deck (1909), public domain.</p>
+      <p><a href={`${base}privacy.html`}>Privacy</a> · <a href={`${base}terms.html`}>Terms</a> · <a href={`${base}delete-account.html`}>Delete your data</a></p>
+    </footer>
+  </body>
+</html>

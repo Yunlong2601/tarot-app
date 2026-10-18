@@ -1,0 +1,11 @@
+---
+import { APP_STORE_URL, PLAY_STORE_URL } from "../config.ts";
+---
+{APP_STORE_URL || PLAY_STORE_URL ? (
+  <p>
+    {APP_STORE_URL && <a class="btn" href={APP_STORE_URL}>Download on the App Store</a>}
+    {PLAY_STORE_URL && <a class="btn" href={PLAY_STORE_URL}>Get it on Google Play</a>}
+  </p>
+) : (
+  <p class="muted">Coming soon to the App Store and Google Play.</p>
+)}

@@ -1236,6 +1236,14 @@ describe("shared readings", () => {
     expect((await call(`/s/${token}`)).status).toBe(404);
   });
 
+  it("uses the website's address for links when one is set", async () => {
+    const { call, env } = setup();
+    (env as { SHARE_BASE_URL?: string }).SHARE_BASE_URL = "https://shentarot.example/";
+    const res = await call("/v1/share", { method: "POST", headers: await authHeaders(env), body: JSON.stringify(body) });
+    const { url, token } = (await res.json()) as { url: string; token: string };
+    expect(url).toBe(`https://shentarot.example/s/${token}`);
+  });
+
   it("accepts a long Premium reading", async () => {
     const { call, env } = setup();
     const long = { ...body, reading: `${body.reading}\n\n${"Words of a long reading. ".repeat(220)}`.slice(0, 5900) };

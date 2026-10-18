@@ -1,0 +1,28 @@
+---
+import Base from "../../layouts/Base.astro";
+import { BASE } from "../../config.ts";
+import { SPREADS, plural, slug, spreadIds, titleCase } from "../../lib/data.ts";
+
+const cats = ["classics", "love", "career", "growth"];
+---
+<Base
+  title="Tarot spreads: layouts and what each position means · ShenTarot"
+  description="Tarot spreads for love, career, decisions and yes or no questions, with every position explained."
+  path="spreads/index.html"
+>
+  <h1>Tarot spreads</h1>
+  <p class="muted">What each spread is for and what each position means.</p>
+  {cats.map((cat) => (
+    <>
+      <h2>{titleCase(cat)}</h2>
+      <ul>
+        {spreadIds.filter((id) => SPREADS[id].category === cat).map((id) => (
+          <li>
+            <a href={`${BASE}spreads/${slug(id)}.html`}>{SPREADS[id].name}</a>{" "}
+            <span class="muted">({plural(SPREADS[id].positions.length, "card")})</span>
+          </li>
+        ))}
+      </ul>
+    </>
+  ))}
+</Base>

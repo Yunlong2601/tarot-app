@@ -1,0 +1,32 @@
+---
+import Base from "../../layouts/Base.astro";
+import { BASE } from "../../config.ts";
+import { APP_SPREADS, SPREADS, plural, slug } from "../../lib/data.ts";
+import { TOPICS, type Topic } from "../../lib/topics.ts";
+
+export function getStaticPaths() {
+  return TOPICS.map((t) => ({ params: { slug: t.slug }, props: { t } }));
+}
+const { t } = Astro.props as { t: Topic };
+---
+<Base
+  title={`${t.title}: questions to ask and spreads to use · ShenTarot`}
+  description={`${t.intro} Sample questions and the spreads that suit them.`}
+  path={`topics/${t.slug}.html`}
+>
+  <h1>{t.title}</h1>
+  <p>{t.intro}</p>
+  <h2>Questions people ask</h2>
+  <ul class="questions">{t.questions.map((q) => <li>{q}</li>)}</ul>
+  <p class="muted">In the app, tap a question like these to start your reading, or write your own.</p>
+  <h2>Spreads for {t.name.toLowerCase()} questions</h2>
+  <div class="cards3">
+    {t.spreads.map((id) => (
+      <div class="panel">
+        <h3><a href={`${BASE}spreads/${slug(id)}.html`}>{SPREADS[id].name}</a></h3>
+        <p class="muted">{plural(SPREADS[id].positions.length, "card")}</p>
+        <p>{APP_SPREADS[id].blurb}</p>
+      </div>
+    ))}
+  </div>
+</Base>

@@ -1,0 +1,14 @@
+// Pages are served at their exact .html paths (html_handling "none"), so the
+// addresses match the canonical links and the sitemap.
+// Cloudflare hosting for the static site (no server code). Deploy with
+// `npm run deploy` after `npx wrangler login`. Add the custom domain in the
+// Cloudflare dashboard (Workers > shentarot-site > Settings > Domains).
+{
+  "name": "shentarot-site",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page",
+    "html_handling": "none"
+  }
+}

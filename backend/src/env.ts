@@ -33,6 +33,10 @@ export interface Env {
   /** Store links on shared reading pages (left out when unset). */
   APP_STORE_URL?: string;
   PLAY_STORE_URL?: string;
+  /** The website's address, e.g. https://shentarot.com, when this Worker also
+   * serves that domain's /s/* pages. Share links then use it (so they open
+   * in the app); unset, they use this Worker's own address. */
+  SHARE_BASE_URL?: string;
   /** Local testing only: skips device attestation. Never set in production. */
   ALLOW_UNATTESTED_INSTALLS?: string;
 }

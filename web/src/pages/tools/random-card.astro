@@ -1,0 +1,58 @@
+---
+import Base from "../../layouts/Base.astro";
+import { BASE } from "../../config.ts";
+import { deckForTools } from "../../lib/data.ts";
+---
+<Base
+  title="Random tarot card generator: draw 1 to 10 cards · ShenTarot"
+  description="Draw random tarot cards from the full 78-card Rider-Waite-Smith deck. Tap a card to turn it over and read its meaning."
+  path="tools/random-card.html"
+>
+  <h1>Draw a tarot card</h1>
+  <p class="muted">Shuffled in your browser from all 78 cards. About one card in four comes up reversed.</p>
+  <p>
+    <label>Cards:
+      <select id="n">
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => <option selected={n === 3}>{n}</option>)}
+      </select>
+    </label>
+    <button id="go" type="button">Shuffle and draw</button>
+  </p>
+  <div class="draw" id="out" aria-live="polite"></div>
+  <script is:inline define:vars={{ DECK: deckForTools, BASE }}>
+    const rand = (n) => { const r = new Uint32Array(1); crypto.getRandomValues(r); return r[0] % n; };
+    function draw() {
+      const n = +document.getElementById("n").value;
+      const d = DECK.slice();
+      for (let i = d.length - 1; i > 0; i--) { const j = rand(i + 1); [d[i], d[j]] = [d[j], d[i]]; }
+      const out = document.getElementById("out");
+      out.textContent = "";
+      d.slice(0, n).forEach((c) => {
+        const rev = rand(4) === 0;
+        const slot = document.createElement("div");
+        slot.className = "slot";
+        const back = document.createElement("button");
+        back.className = "back";
+        back.type = "button";
+        back.setAttribute("aria-label", "Turn over this card");
+        back.onclick = () => {
+          slot.textContent = "";
+          const a = document.createElement("a");
+          a.href = `${BASE}cards/${c.slug}.html`;
+          const img = document.createElement("img");
+          img.src = `${BASE}cards/art/${c.id}.jpg`;
+          img.alt = c.name + (rev ? ", reversed" : "");
+          img.className = "card-img" + (rev ? " rev" : "");
+          a.appendChild(img);
+          const t = document.createElement("div");
+          t.textContent = c.name + (rev ? " (reversed)" : "");
+          a.appendChild(t);
+          slot.appendChild(a);
+        };
+        slot.appendChild(back);
+        out.appendChild(slot);
+      });
+    }
+    document.getElementById("go").onclick = draw;
+  </script>
+</Base>
