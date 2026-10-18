@@ -1,6 +1,7 @@
 import 'package:go_router/go_router.dart';
 
 import '../features/you/own_key_screen.dart';
+import '../features/birth/birth_card_screen.dart';
 import '../features/cards/card_detail_screen.dart';
 import '../features/draw/draw_screen.dart';
 import '../features/creator/creator_screen.dart';
@@ -75,6 +76,7 @@ GoRouter buildRouter(AppState state) {
       GoRoute(path: '/photo', builder: (_, _) => const ScanScreen()),
       GoRoute(path: '/digital', builder: (_, _) => const DrawScreen()),
       GoRoute(path: '/daily', builder: (_, _) => const DailyCardScreen()),
+      GoRoute(path: '/birth', builder: (_, _) => const BirthCardScreen()),
       GoRoute(path: '/history', builder: (_, _) => const HistoryScreen()),
       GoRoute(path: '/account', builder: (_, _) => const AccountScreen()),
       GoRoute(path: '/invite', builder: (_, _) => const InviteScreen()),
