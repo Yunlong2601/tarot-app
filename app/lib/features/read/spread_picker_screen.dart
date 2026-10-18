@@ -43,7 +43,7 @@ class _SpreadPickerScreenState extends State<SpreadPickerScreen> {
           Padding(
             padding: const EdgeInsets.fromLTRB(24, 0, 24, 12),
             child: Align(
-              alignment: Alignment.centerLeft,
+              alignment: AlignmentDirectional.centerStart,
               child: Text(
                 q.isEmpty ? tr('General reading (no question)') : q,
                 style: Theme.of(context).textTheme.titleMedium,

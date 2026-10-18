@@ -120,8 +120,8 @@ class _HistoryScreenState extends State<HistoryScreen> {
                         key: ValueKey(r.id),
                         direction: DismissDirection.endToStart,
                         background: Container(
-                          alignment: Alignment.centerRight,
-                          padding: const EdgeInsets.only(right: 20),
+                          alignment: AlignmentDirectional.centerEnd,
+                          padding: const EdgeInsetsDirectional.only(end: 20),
                           color: Colors.red.shade900,
                           child: const Icon(Icons.delete_outline),
                         ),

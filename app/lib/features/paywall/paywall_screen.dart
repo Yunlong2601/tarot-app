@@ -470,7 +470,7 @@ class _CreditPacksCard extends StatelessWidget {
           SizedBox(height: 8),
           if (packs.isEmpty)
             Align(
-              alignment: Alignment.centerRight,
+              alignment: AlignmentDirectional.centerEnd,
               child: OutlinedButton(
                 onPressed: null,
                 child: Text(tr('Coming soon')),

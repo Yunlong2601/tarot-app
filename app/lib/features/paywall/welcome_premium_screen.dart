@@ -96,7 +96,7 @@ class _WelcomePremiumScreenState extends State<WelcomePremiumScreen>
         child: Column(
           children: [
             Align(
-              alignment: Alignment.centerLeft,
+              alignment: AlignmentDirectional.centerStart,
               child: IconButton(
                 tooltip: tr('Close'),
                 icon: const Icon(Icons.close),

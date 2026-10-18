@@ -268,7 +268,7 @@ class _JournalState extends State<_Journal> {
           ),
         ),
         Align(
-          alignment: Alignment.centerRight,
+          alignment: AlignmentDirectional.centerEnd,
           child: FilledButton(
             onPressed: () {
               state.setNote(widget.reading.id, _controller.text);
