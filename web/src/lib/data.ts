@@ -51,6 +51,21 @@ export const deckForTools = cardIds.map((id) => ({
   n: CARDS[id].number,
 }));
 
+const SIGN_ELEMENT: Record<string, string> = {
+  Aries: "Fire", Leo: "Fire", Sagittarius: "Fire",
+  Taurus: "Earth", Virgo: "Earth", Capricorn: "Earth",
+  Gemini: "Air", Libra: "Air", Aquarius: "Air",
+  Cancer: "Water", Scorpio: "Water", Pisces: "Water",
+};
+/** A card's element: its suit's, or for a Major Arcana card the element of its
+ * zodiac sign or element attribution. Cards attributed to a planet get null. */
+export function elementOf(id: CardId): string | null {
+  const c = CARDS[id];
+  if (c.element) return c.element;
+  const a = c.association ?? "";
+  return ["Fire", "Water", "Air", "Earth"].includes(a) ? a : (SIGN_ELEMENT[a] ?? null);
+}
+
 /** The deck with the short meanings the reading tools show. */
 export const readerDeck = cardIds.map((id) => {
   const c = CARDS[id];
@@ -65,6 +80,7 @@ export const readerDeck = cardIds.map((id) => {
     rev: c.reversed,
     upQ: c.k?.upright.question ?? "",
     revQ: c.k?.reversed.question ?? "",
+    el: elementOf(id),
   };
 });
 export type ReaderCard = (typeof readerDeck)[number];

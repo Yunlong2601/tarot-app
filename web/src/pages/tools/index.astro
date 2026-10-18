@@ -5,6 +5,8 @@ import { BASE } from "../../config.ts";
 const tools = [
   { href: "tools/yes-no", title: "Yes or No tarot", text: "Three cards and a lean for a yes or no question.", art: ["major_19_sun", "major_10_wheel_of_fortune", "major_18_moon"] },
   { href: "tools/daily-card", title: "Card of the day", text: "One card, its meaning and a question to reflect on.", art: ["major_17_star", "major_19_sun", "cups_ace"] },
+  { href: "tools/combinations", title: "Card combinations", text: "Pick two cards and see how they read together.", art: ["major_06_lovers", "cups_two", "major_16_tower"] },
+  { href: "tools/elements", title: "Elemental dignities", text: "See which cards strengthen or weaken each other.", art: ["wands_ace", "cups_ace", "swords_ace"] },
   { href: "spreads", title: "Read any spread", text: "Pick from 15 spreads, draw the cards and read every position.", art: ["swords_two", "major_07_chariot", "wands_three"] },
   { href: "tools/random-card", title: "Draw random cards", text: "Shuffle the full deck and turn over one to ten cards.", art: ["major_10_wheel_of_fortune", "cups_ace", "major_18_moon"] },
   { href: "tools/birth-card", title: "Birth card calculator", text: "Your birth cards and your card for this year.", art: ["major_03_empress", "major_21_world", "major_04_emperor"] },
@@ -12,8 +14,8 @@ const tools = [
 ];
 ---
 <Base
-  title="Free tarot tools: yes or no, daily card, spreads · ShenTarot"
-  description="Free tarot tools in your browser: a yes or no reading, your card of the day, any spread with every position explained, random cards and birth cards."
+  title="Free tarot tools: yes or no, daily card, combinations · ShenTarot"
+  description="Free tarot tools in your browser: a yes or no reading, your card of the day, card combinations, elemental dignities, any spread with every position explained, random cards and birth cards."
   path="tools"
   crumbs={[["Free tools", "tools"]]}
 >
