@@ -1,0 +1,78 @@
+---
+import Base from "../../../layouts/Base.astro";
+import Linked from "../../../components/Linked.astro";
+import { plain } from "../../../lib/learn.ts";
+import { LEARN_SLUGS, fill, i18n, langPathsFor, type Locale } from "../../../i18n/index.ts";
+
+export function getStaticPaths() {
+  return langPathsFor(LEARN_SLUGS.map((slug) => ({ params: { slug }, props: { slug } })));
+}
+const { slug, lang } = Astro.props as { slug: (typeof LEARN_SLUGS)[number]; lang: Locale };
+const L = i18n(lang);
+const u = L.url;
+const ix = L.learn.index;
+const pg = L.learn.page;
+const g = L.learn.guides[slug];
+const i = LEARN_SLUGS.indexOf(slug);
+const prev = LEARN_SLUGS[i - 1];
+const next = LEARN_SLUGS[i + 1];
+const page = new URL(u(`learn/${slug}`), Astro.site).href;
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: g.h1,
+    description: g.description,
+    inLanguage: L.tag,
+    url: page,
+    mainEntityOfPage: page,
+    image: new URL("og.png", Astro.site).href,
+    author: { "@type": "Organization", name: "ShenTech" },
+    publisher: { "@type": "Organization", name: "ShenTech", logo: { "@type": "ImageObject", url: new URL("icon.png", Astro.site).href } },
+    isPartOf: { "@type": "Course", name: ix.h1, url: new URL(u("learn"), Astro.site).href },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    inLanguage: L.tag,
+    mainEntity: g.faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: plain(f.a) } })),
+  },
+];
+---
+<Base title={fill(pg.title, { title: g.title })} description={g.description} path={`learn/${slug}`} crumbs={[[ix.crumb, "learn"], [g.h1, `learn/${slug}`]]} jsonLd={jsonLd} lang={lang}>
+  <article class="legal guide">
+    <p class="eyebrow">{fill(ix.step, { n: i + 1 })} · {fill(ix.minutes, { n: g.minutes })}</p>
+    <h1>{g.h1}</h1>
+    <p class="lead">{g.answer}</p>
+    <nav class="toc" aria-label={pg.inThis}>
+      <h2>{pg.inThis}</h2>
+      <ol>{g.sections.map((s, n) => <li><a href={`#s${n + 1}`}>{s.h}</a></li>)}</ol>
+    </nav>
+    {g.sections.map((s, n) => (
+      <section>
+        <h2 id={`s${n + 1}`}>{s.h}</h2>
+        {s.p.map((p) => <Linked text={p} lang={lang} />)}
+      </section>
+    ))}
+    <aside class="panel practice">
+      <h2>{pg.practiceTitle}</h2>
+      <p>{pg.practiceText}</p>
+      <p><a class="btn btn-gold" href={u("tools/random-card")}>{pg.practiceLink}</a></p>
+    </aside>
+    <section>
+      <h2>{pg.faqTitle}</h2>
+      <div class="faq">
+        {g.faq.map((f) => (
+          <details>
+            <summary>{f.q}</summary>
+            <Linked text={f.a} lang={lang} />
+          </details>
+        ))}
+      </div>
+    </section>
+    <nav class="lesson-nav">
+      {prev ? <a href={u(`learn/${prev}`)}>← {pg.previous}: {L.learn.guides[prev].h1}</a> : <span />}
+      {next ? <a href={u(`learn/${next}`)}>{pg.next}: {L.learn.guides[next].h1} →</a> : <a href={u("learn")}>{pg.all} →</a>}
+    </nav>
+  </article>
+</Base>

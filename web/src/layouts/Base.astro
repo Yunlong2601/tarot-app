@@ -38,6 +38,7 @@ const t = L.t;
 const nav = [
   [t("nav.cards"), "cards"],
   [t("nav.spreads"), "spreads"],
+  [L.learn.nav, "learn"],
   [t("nav.yesNo"), "tools/yes-no"],
   [t("nav.tools"), "tools"],
 ];
@@ -132,6 +133,7 @@ const ld = (o: unknown) => JSON.stringify(o).replace(/</g, "\\u003c");
             <ul>
               <li><a href={u("cards")}>{t("footer.cards")}</a></li>
               <li><a href={u("spreads")}>{t("footer.spreads")}</a></li>
+              <li><a href={u("learn")}>{L.learn.footer}</a></li>
               <li><a href={u("tools/yes-no")}>{t("footer.yesNo")}</a></li>
               <li><a href={u("tools/daily-card")}>{t("footer.daily")}</a></li>
               <li><a href={u("tools/combinations")}>{t("footer.combinations")}</a></li>

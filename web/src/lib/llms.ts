@@ -2,7 +2,8 @@
 // answer engines (https://llmstxt.org). Built from the same English text as the
 // pages, so they never disagree.
 import { SITE_URL } from "../config.ts";
-import { i18n, joinAnd, LOCALES, LOCALE_INFO, prefix } from "../i18n/index.ts";
+import { i18n, joinAnd, LEARN_SLUGS, LOCALES, LOCALE_INFO, prefix } from "../i18n/index.ts";
+import { plain } from "./learn.ts";
 import { CARDS, cardIds, slug, spreadIds, type CardId } from "./data.ts";
 import { QUESTION_GUIDES } from "./questions.ts";
 import { TOPICS } from "./topics.ts";
@@ -58,6 +59,10 @@ export function llmsTxt() {
       return `- [${c.question}](${link(`questions/${g.slug}`)}): ${c.answer}`;
     }),
     "",
+    "## Learn tarot",
+    "",
+    ...LEARN_SLUGS.map((s) => `- [${L.learn.guides[s].h1}](${link(`learn/${s}`)}): ${L.learn.guides[s].answer}`),
+    "",
     "## Free tools",
     "",
     ...TOOLS.map((k) => `- [${t(`tools.list.${k}.title`)}](${link(`tools/${k}`)}): ${t(`tools.list.${k}.text`)}`),
@@ -106,5 +111,20 @@ export function llmsFullTxt() {
     `Card images: Rider-Waite-Smith deck (1909), public domain. Shorter index: ${link("llms.txt")}`,
     "",
     ...GROUPS.flatMap((g) => [`## ${L.group(g)}`, "", ...inGroup(g).flatMap(card)]),
+    "## Learn tarot",
+    "",
+    ...LEARN_SLUGS.flatMap((s) => {
+      const g = L.learn.guides[s];
+      return [
+        `### ${g.h1}`,
+        "",
+        `Source: ${link(`learn/${s}`)}`,
+        "",
+        g.answer,
+        "",
+        ...g.sections.flatMap((x) => [`#### ${x.h}`, "", ...x.p.flatMap((p) => [plain(p), ""])]),
+        ...g.faq.flatMap((f) => [`Q: ${f.q}`, `A: ${plain(f.a)}`, ""]),
+      ];
+    }),
   ].join("\n");
 }

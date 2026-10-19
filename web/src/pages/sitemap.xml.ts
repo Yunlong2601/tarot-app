@@ -3,7 +3,7 @@ import { SITE_URL } from "../config.ts";
 import { cardIds, slug, spreadIds } from "../lib/data.ts";
 import { QUESTION_GUIDES } from "../lib/questions.ts";
 import { TOPICS } from "../lib/topics.ts";
-import { LOCALES, LOCALE_INFO, prefix } from "../i18n/index.ts";
+import { LEARN_SLUGS, LOCALES, LOCALE_INFO, prefix } from "../i18n/index.ts";
 
 export const GET: APIRoute = () => {
   const paths = [
@@ -11,6 +11,8 @@ export const GET: APIRoute = () => {
     "about",
     "cards",
     "spreads",
+    "learn",
+    ...LEARN_SLUGS.map((s) => `learn/${s}`),
     "tools",
     "tools/yes-no",
     "tools/daily-card",

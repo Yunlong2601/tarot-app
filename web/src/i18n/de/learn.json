@@ -1,0 +1,404 @@
+{
+ "nav": "Lernen",
+ "footer": "Tarot lernen",
+ "index": {
+  "title": "Tarot lernen: kostenlose Anfängerleitfäden · ShenTarot",
+  "description": "Kostenlose Tarot-Lektionen für Anfänger: wie du Tarotkarten liest, die Große und Kleine Arkana, die vier Farben, Zahlen, Hofkarten, umgekehrte Karten und wie du eine gute Frage stellst.",
+  "eyebrow": "Kostenloser Tarot-Kurs",
+  "h1": "Tarot lernen",
+  "lead": "Sieben kurze Leitfäden führen dich vom ersten Mischen bis zu einer vollständigen Legung, die du allein deutest. Lies sie der Reihe nach oder spring direkt zu dem, den du gerade brauchst.",
+  "crumb": "Tarot lernen",
+  "read": "Zum Leitfaden",
+  "minutes": "{n} Min. Lesezeit",
+  "step": "Lektion {n}"
+ },
+ "page": {
+  "title": "{title} · ShenTarot",
+  "inThis": "In diesem Leitfaden",
+  "next": "Nächste Lektion",
+  "previous": "Vorherige Lektion",
+  "all": "Alle Tarot-Lektionen",
+  "faqTitle": "Häufige Fragen",
+  "practiceTitle": "Jetzt üben",
+  "practiceText": "Zieh auf der Seite eine Karte und deute sie mit dem, was du gerade gelernt hast.",
+  "practiceLink": "Eine Karte ziehen"
+ },
+ "guides": {
+  "how-to-read-tarot": {
+   "title": "Tarotkarten lesen: ein Leitfaden für Anfänger",
+   "description": "Tarotkarten lesen Schritt für Schritt: eine klare Frage stellen, mischen, eine Legung auslegen, jede Karte an ihrer Position deuten und die Karten zu einer Geschichte verbinden.",
+   "h1": "Tarotkarten lesen",
+   "answer": "Um Tarot zu lesen, stellst du eine klare Frage, mischst, legst die Karten in einer Legung aus, deutest jede Karte an ihrer Position und schaust dann, wie die Karten zusammenhängen.",
+   "minutes": 6,
+   "sections": [
+    {
+     "h": "Was eine Tarot-Deutung ist",
+     "p": [
+      "Ein Tarotdeck hat 78 Karten. Jede Karte zeigt eine typische menschliche Situation: einen Neubeginn, einen Verlust, eine Entscheidung, ein Fest. In einer Deutung ziehst du ein paar Karten und nutzt sie als Denkanstöße, um deine Frage aus neuen Blickwinkeln zu betrachten.",
+      "Die meisten Menschen lesen Tarot heute zur Selbstreflexion und nicht, um die Zukunft vorherzusagen. Die Karten entscheiden nichts für dich. Sie helfen dir zu bemerken, was du ohnehin fühlst, und darüber nachzudenken, was du als Nächstes tun könntest."
+     ]
+    },
+    {
+     "h": "Schritt 1: Stell eine klare Frage",
+     "p": [
+      "Gute Deutungen beginnen mit guten Fragen. Offene Fragen zu dir selbst funktionieren am besten, zum Beispiel „Was muss ich in Bezug auf meinen Job verstehen?“ statt „Werde ich entlassen?“. In unserem Leitfaden zu [Fragen ans Tarot](learn/asking-questions) siehst du, wie du aus einer Sorge eine Frage machst, auf die die Karten antworten können."
+     ]
+    },
+    {
+     "h": "Schritt 2: Mischen und ziehen",
+     "p": [
+      "Misch auf eine Weise, die sich für dich natürlich anfühlt, und denk dabei an deine Frage. Wenn du bereit bist, hörst du auf und ziehst Karten von oben, oder du hebst das Deck ab und ziehst von der Stelle, an der es sich teilt. Es gibt keine einzig richtige Methode. Such dir eine aus und bleib dabei."
+     ]
+    },
+    {
+     "h": "Schritt 3: Eine Legung auslegen",
+     "p": [
+      "Eine Legung ist ein Muster, in dem jede Position eine eigene Bedeutung hat. Anfängern gelingt der Einstieg gut mit der [Eine-Karte-Legung](spreads/single) als Tagesimpuls oder mit der [Dreierlegung](spreads/three) für Vergangenheit, Gegenwart und Zukunft. Wenn dir diese leichtfallen, probier das [Keltische Kreuz](spreads/celtic)."
+     ]
+    },
+    {
+     "h": "Schritt 4: Jede Karte an ihrer Position deuten",
+     "p": [
+      "Schau dir zuerst das Bild an. Wer ist darauf zu sehen, was tut die Person, und wie wirkt das auf dich? Lies dann die Bedeutung auf der [Kartenseite](cards) und überlege, wie sie zur Position passt. Die Fünf der Kelche an der Position „Vergangenheit“ weist auf einen Verlust hin, den du erlebt hast, während sie an der Position „Rat“ dich einlädt, dich dem zuzuwenden, was geblieben ist.",
+      "Wenn eine Karte auf dem Kopf liegt, kannst du sie umgekehrt deuten. In unserem [Leitfaden zu umgekehrten Karten](learn/reversed-cards) erfährst du einfache Wege dazu."
+     ]
+    },
+    {
+     "h": "Schritt 5: Die Karten zu einer Geschichte verbinden",
+     "p": [
+      "Tritt jetzt einen Schritt zurück. Sind viele Karten aus einer Farbe dabei? Viele [Kelche](learn/tarot-suits) rücken die Gefühle in den Mittelpunkt, und viele Karten der Großen Arkana deuten auf ein großes Lebensthema. Steigen oder wiederholen sich die Zahlen? Schauen die Figuren einander an oder wenden sie sich ab? Solche Verbindungen machen aus einzelnen Bedeutungen eine zusammenhängende Geschichte.",
+      "Fass die Deutung zum Schluss in ein oder zwei Sätzen zusammen und schreib sie auf. Alte Deutungen später noch einmal anzuschauen, ist einer der schnellsten Wege zum Lernen."
+     ]
+    },
+    {
+     "h": "So übst du",
+     "p": [
+      "Zieh jeden Morgen eine Karte und überlege, wie sie sich in deinem Tag zeigen könnte. Am Abend schaust du, was daraus geworden ist. Das Tool [Tageskarte](tools/daily-card) nimmt dir das Ziehen ab, und nach ein paar Wochen kennst du die meisten Karten, ohne etwas nachschlagen zu müssen."
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "Kann jeder Tarot lesen?",
+     "a": "Ja. Tarot zu lesen ist eine Fähigkeit, die du durch Üben mit den Bildern und Bedeutungen lernst. Du brauchst dafür keine besondere Gabe."
+    },
+    {
+     "q": "Muss ich alle 78 Karten auswendig lernen?",
+     "a": "Nein. Fang mit den 22 Karten der Großen Arkana an und lerne die Bedeutung der vier Farben und der Zahlen. Damit kannst du dir die meisten Karten der Kleinen Arkana selbst erschließen."
+    },
+    {
+     "q": "Wie viele Karten sollte ein Anfänger ziehen?",
+     "a": "Eine bis drei. Eine einzelne Karte oder eine Dreierlegung lässt sich gut in der Tiefe deuten, und du lernst mehr von drei Karten, die du in Ruhe liest, als von zehn, die du schnell überfliegst."
+    }
+   ]
+  },
+  "major-and-minor-arcana": {
+   "title": "Große und Kleine Arkana: die zwei Teile des Tarotdecks",
+   "description": "Der Unterschied zwischen Großer und Kleiner Arkana: 22 Karten der Großen Arkana für große Lebensthemen und 56 Karten der Kleinen Arkana in vier Farben für alltägliche Ereignisse.",
+   "h1": "Die Große und die Kleine Arkana",
+   "answer": "Die 22 Karten der Großen Arkana zeigen große Lebensthemen und Wendepunkte, die 56 Karten der Kleinen Arkana zeigen alltägliche Ereignisse, Gefühle und Entscheidungen.",
+   "minutes": 4,
+   "sections": [
+    {
+     "h": "Zwei Teile eines Decks",
+     "p": [
+      "Jedes gängige Tarotdeck hat 78 Karten in zwei Teilen. „Arkana“ bedeutet Geheimnisse. Die Große Arkana enthält die großen Geheimnisse, die Kleine Arkana die kleinen."
+     ]
+    },
+    {
+     "h": "Die Große Arkana: 22 Lebenslektionen",
+     "p": [
+      "Die Große Arkana reicht vom [Narren](cards/major-00-fool) mit der Nummer 0 bis zur [Welt](cards/major-21-world) mit der Nummer 21. In der Reihenfolge gelesen, erzählen sie die Reise des Narren: Er bricht mit nichts auf, begegnet Lehrern und Prüfungen, erlebt Verlust und Wandel im [Tod](cards/major-13-death) und im [Turm](cards/major-16-tower), findet im [Stern](cards/major-17-star) neue Hoffnung und kommt schließlich bei der Vollendung an.",
+      "Wenn in einer Deutung eine Karte der Großen Arkana erscheint, gib ihr mehr Gewicht. Sie weist auf ein Thema hin, das größer ist als ein einzelner Tag oder eine einzelne Entscheidung."
+     ]
+    },
+    {
+     "h": "Die Kleine Arkana: 56 Karten für den Alltag",
+     "p": [
+      "Die Kleine Arkana teilt sich in vier [Farben](learn/tarot-suits): Stäbe, Kelche, Schwerter und Münzen. Jede Farbe hat zehn Zahlenkarten vom Ass bis zur Zehn und vier [Hofkarten](learn/court-cards): Bube, Ritter, Königin und König.",
+      "Diese Karten beschreiben den Alltag: einen Streit, eine Gehaltserhöhung, eine neue Schwärmerei, eine anstrengende Woche. Sie ändern sich schneller als die Themen der Großen Arkana."
+     ]
+    },
+    {
+     "h": "Was die Mischung in einer Deutung verrät",
+     "p": [
+      "Zähl die Karten der Großen Arkana in deiner Legung. Wenn mehr als die Hälfte dazugehört, ist die Situation ein Wendepunkt, und größere Kräfte sind im Spiel. Wenn fast alle zur Kleinen Arkana gehören, liegt die Sache eher in deiner Hand im Alltag und ist vielleicht schneller vorbei."
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "Wie viele Karten hat die Große Arkana?",
+     "a": "Die Große Arkana hat 22 Karten, nummeriert von 0 (Der Narr) bis 21 (Die Welt)."
+    },
+    {
+     "q": "Sind Karten der Großen Arkana wichtiger?",
+     "a": "Sie haben mehr Gewicht, weil sie langfristige Themen zeigen, aber auch eine Karte der Kleinen Arkana kann der Schlüssel zu einer Deutung sein."
+    },
+    {
+     "q": "Kann ich nur mit der Großen Arkana lesen?",
+     "a": "Ja. Viele Anfänger beginnen nur mit den 22 Karten der Großen Arkana und nehmen die Kleine Arkana dazu, sobald ihnen die große vertraut ist."
+    }
+   ]
+  },
+  "tarot-suits": {
+   "title": "Die vier Tarotfarben: Stäbe, Kelche, Schwerter und Münzen",
+   "description": "Was die vier Tarotfarben bedeuten: Stäbe für Energie und Ehrgeiz, Kelche für Gefühle und Liebe, Schwerter für Gedanken und Konflikte, Münzen für Geld, Arbeit und Körper.",
+   "h1": "Die vier Tarotfarben",
+   "answer": "Stäbe stehen für Energie und Ehrgeiz, Kelche für Gefühle und Beziehungen, Schwerter für Gedanken und Konflikte, Münzen für Geld, Arbeit und Körper.",
+   "minutes": 5,
+   "sections": [
+    {
+     "h": "Warum die Farben wichtig sind",
+     "p": [
+      "Jede der 56 Karten der Kleinen Arkana gehört zu einer von vier Farben. Wenn du weißt, worum es in einer Farbe geht, kennst du schon die Hälfte jeder Karte darin. Die andere Hälfte kommt von ihrer [Zahl](learn/tarot-numbers) oder ihrem [Rang als Hofkarte](learn/court-cards)."
+     ]
+    },
+    {
+     "h": "Stäbe: Feuer, Energie und Antrieb",
+     "p": [
+      "Stäbe gehören zum Element Feuer. Es geht um Leidenschaft, Ehrgeiz, Kreativität und Handeln. Eine Stäbe-Karte fragt oft, was du willst und wie weit du dafür gehen möchtest. Fang am besten mit dem [Ass der Stäbe](cards/wands-ace) an, einem Funken neuer Energie."
+     ]
+    },
+    {
+     "h": "Kelche: Wasser, Gefühle und Liebe",
+     "p": [
+      "Kelche gehören zum Wasser. Sie stehen für Emotionen, Liebe, Freundschaft, Intuition und Träume. Eine Legung voller Kelche bedeutet, dass das Herz im Zentrum deiner Frage steht. Die [Zwei der Kelche](cards/cups-two) ist die klassische Karte einer engen Verbindung."
+     ]
+    },
+    {
+     "h": "Schwerter: Luft, Gedanken und Konflikte",
+     "p": [
+      "Schwerter gehören zur Luft. Es geht um den Verstand: Ideen, Worte, Entscheidungen, Wahrheit, aber auch Stress und Streit. Schwerter-Karten können hart wirken, zeigen aber oft Klarheit nach einer schwierigen Wahrheit. Schau dir das [Ass der Schwerter](cards/swords-ace) an, eine Karte für den Durchbruch einer Idee."
+     ]
+    },
+    {
+     "h": "Münzen: Erde, Geld und Körper",
+     "p": [
+      "Münzen, manchmal auch Pentakel genannt, gehören zur Erde. Sie stehen für Arbeit, Geld, Zuhause, Gesundheit und alles Langsame und Greifbare. Die [Zehn der Münzen](cards/pentacles-ten) zeigt eine Sicherheit, die über lange Zeit gewachsen ist."
+     ]
+    },
+    {
+     "h": "Das Gleichgewicht der Farben lesen",
+     "p": [
+      "Achte in einer Legung darauf, welche Farbe am häufigsten vorkommt und welche fehlt. Viele Schwerter und keine Kelche können bedeuten, dass du viel über etwas nachdenkst, was du dir noch nicht zu fühlen erlaubt hast. Unser Tool [Elementarwürden](tools/elements) zeigt, wie Karten verschiedener Elemente einander stärken oder schwächen."
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "Welche Farbe steht für die Liebe?",
+     "a": "Die Kelche sind die Farbe der Liebe und der Gefühle, auch wenn eine Liebesdeutung jede Farbe enthalten kann."
+    },
+    {
+     "q": "Welche Farbe steht für Geld?",
+     "a": "Die Münzen sind die Farbe von Geld, Arbeit, Zuhause und materieller Sicherheit."
+    },
+    {
+     "q": "Sind Schwerter schlechte Karten?",
+     "a": "Nein. Schwerter stehen für den Verstand, also auch für Sorgen und Konflikte, aber ebenso für Ehrlichkeit, klares Denken und gute Entscheidungen."
+    }
+   ]
+  },
+  "tarot-numbers": {
+   "title": "Zahlen im Tarot: was Ass bis Zehn bedeuten",
+   "description": "Tarot-Numerologie für Anfänger: was jede Zahl vom Ass bis zur Zehn in der Kleinen Arkana bedeutet und wie du eine Zahl mit ihrer Farbe verbindest, um jede Karte zu deuten.",
+   "h1": "Zahlen im Tarot",
+   "answer": "Im Tarot zeigen Zahlen eine Phase der Geschichte: Asse beginnen, Fünfen bringen Ärger, Neunen sind fast am Ziel und Zehnen schließen den Kreis.",
+   "minutes": 5,
+   "sections": [
+    {
+     "h": "Zahl plus Farbe ergibt die Karte",
+     "p": [
+      "Jede Farbe zählt vom Ass bis zur Zehn, und jede Zahl steht in jeder Farbe für eine ähnliche Phase. Verbinde die Zahl mit der [Farbe](learn/tarot-suits), und du kannst die Bedeutung einer Karte erschließen, bevor du sie nachschlägst. Eine Fünf ist eine Herausforderung, und Kelche stehen für Gefühle, also ist die [Fünf der Kelche](cards/cups-five) ein emotionaler Rückschlag."
+     ]
+    },
+    {
+     "h": "Ass bis Zehn",
+     "p": [
+      "Ass: ein neuer Anfang, ein Geschenk oder eine rohe Chance.",
+      "Zwei: eine Wahl, eine Partnerschaft oder ein Gleichgewicht, das du halten sollst.",
+      "Drei: erstes Wachstum, Teamarbeit oder Ergebnisse.",
+      "Vier: Stabilität, Ruhe oder Festhalten.",
+      "Fünf: Konflikt, Verlust oder eine Prüfung.",
+      "Sechs: Erholung, Harmonie und Geben und Nehmen.",
+      "Sieben: Nachdenken, Herausforderung oder für sich einstehen.",
+      "Acht: Bewegung, Einsatz und Veränderung.",
+      "Neun: kurz vor dem Abschluss, entweder Erfüllung oder Sorge vor dem Ende.",
+      "Zehn: das Ende eines Kreislaufs, sein voller Lohn oder seine volle Last."
+     ]
+    },
+    {
+     "h": "Zahlen in einer Legung lesen",
+     "p": [
+      "Wiederholte Zahlen sind einen zweiten Blick wert. Drei Asse deuten auf viele neue Anfänge zugleich hin, mehrere Zehnen darauf, dass sich Kapitel schließen. Niedrige Zahlen sagen, dass eine Sache noch am Anfang steht, hohe, dass sie fast abgeschlossen ist.",
+      "Auch die Große Arkana hat Zahlen, von 0 bis 21. Deine [Geburtskarte](tools/birth-card) und deine [Jahreskarte](tools/year-card) berechnest du, indem du die Ziffern eines Datums so lange addierst, bis du bei einer Zahl der Großen Arkana ankommst."
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "Was bedeutet ein Ass im Tarot?",
+     "a": "Ein Ass ist der reine Beginn seiner Farbe: eine neue Chance bei Energie (Stäbe), Gefühlen (Kelche), Ideen (Schwerter) oder Geld und Arbeit (Münzen)."
+    },
+    {
+     "q": "Warum sind Fünfen schwierige Karten?",
+     "a": "Die Fünf folgt auf die Stabilität der Vier und bricht diese Ruhe auf. Jede Fünf zeigt eine Herausforderung oder einen Verlust, der die Dinge in Bewegung bringt."
+    },
+    {
+     "q": "Haben Hofkarten Zahlen?",
+     "a": "Meistens nicht. Buben, Ritter, Königinnen und Könige werden stattdessen nach Rang und Farbe gedeutet. Manche Leser zählen sie als 11 bis 14."
+    }
+   ]
+  },
+  "court-cards": {
+   "title": "Tarot-Hofkarten: Buben, Ritter, Königinnen und Könige",
+   "description": "So liest du Tarot-Hofkarten: was Buben, Ritter, Königinnen und Könige bedeuten und ob eine Hofkarte einen Menschen, eine Seite von dir oder eine Art zu handeln zeigt.",
+   "h1": "Tarot-Hofkarten",
+   "answer": "Hofkarten zeigen Menschen oder Arten zu handeln: Buben lernen, Ritter handeln, Königinnen nähren von innen und Könige führen nach außen.",
+   "minutes": 5,
+   "sections": [
+    {
+     "h": "Sechzehn Personen im Deck",
+     "p": [
+      "Jede Farbe hat vier Hofkarten, zusammen sind es also 16. Für Anfänger sind sie oft die schwierigsten Karten, denn eine Hofkarte kann einen Menschen in deinem Leben meinen, eine Seite deines eigenen Charakters oder eine Haltung, die die Situation braucht."
+     ]
+    },
+    {
+     "h": "Die vier Ränge",
+     "p": [
+      "Buben sind Lernende und Boten. Sie bringen Neuigkeiten, Neugier und einen Anfängergeist.",
+      "Ritter sind in Bewegung. Sie jagen einem Ziel nach, manchmal zu schnell, und zeigen die Energie der Farbe in ihrer extremsten Form.",
+      "Königinnen tragen die Eigenschaften der Farbe in sich. Sie sind fürsorglich, weise und beständig.",
+      "Könige setzen die Eigenschaften der Farbe in der Außenwelt ein. Sie führen, entscheiden und übernehmen Verantwortung."
+     ]
+    },
+    {
+     "h": "Rang plus Farbe",
+     "p": [
+      "Verbinde den Rang mit der [Farbe](learn/tarot-suits). Der [Ritter der Stäbe](cards/wands-knight) stürmt dem Abenteuer entgegen, während die [Königin der Kelche](cards/cups-queen) mit tiefem Mitgefühl zuhört. Der [König der Münzen](cards/pentacles-king) ist ein verlässlicher Versorger."
+     ]
+    },
+    {
+     "h": "Mensch, Teil von dir oder Rat?",
+     "p": [
+      "Frag dich, was am besten passt. Wenn dir sofort jemand einfällt, geht es vielleicht um diese Person. Wenn nicht, überlege, wo du dich selbst so verhältst wie diese Figur oder wo es dir helfen könnte, mehr wie sie zu handeln.",
+      "Neugierig, welche Hofkarte zu dir passt? Probier das Quiz [Welche Karte bist du?](tools/which-card-are-you) aus."
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "Bedeuten Hofkarten immer einen Menschen?",
+     "a": "Nein. Sie können eine andere Person zeigen, einen Teil deiner eigenen Persönlichkeit oder eine Haltung, die die Situation verlangt."
+    },
+    {
+     "q": "Steht ein König für einen Mann und eine Königin für eine Frau?",
+     "a": "Nicht unbedingt. Die meisten Leser verstehen die Ränge als Arten von Energie, die Menschen jedes Geschlechts zeigen können."
+    },
+    {
+     "q": "Wie viele Hofkarten hat ein Tarotdeck?",
+     "a": "Es gibt 16 Hofkarten: Bube, Ritter, Königin und König in jeder der vier Farben."
+    }
+   ]
+  },
+  "reversed-cards": {
+   "title": "Umgekehrte Tarotkarten: was Karten auf dem Kopf bedeuten",
+   "description": "So liest du umgekehrte Tarotkarten: blockierte oder nach innen gerichtete Energie, zu viel oder zu wenig von der aufrechten Bedeutung und ob du Umkehrungen überhaupt nutzen musst.",
+   "h1": "Umgekehrte Tarotkarten",
+   "answer": "Eine umgekehrte Karte zeigt meist die aufrechte Bedeutung blockiert, nach innen gewendet, verzögert oder aus dem Gleichgewicht, nicht einfach ihr Gegenteil.",
+   "minutes": 4,
+   "sections": [
+    {
+     "h": "Was eine Umkehrung ist",
+     "p": [
+      "Eine Karte ist umgekehrt, wenn sie auf dem Kopf liegt. Manche Leser nutzen Umkehrungen, andere nicht. Beides ist in Ordnung, solange du dich vor dem Mischen entscheidest."
+     ]
+    },
+    {
+     "h": "Vier Wege, eine Umkehrung zu lesen",
+     "p": [
+      "Blockiert: Die Energie der Karte ist da, kann aber nicht fließen. Das umgekehrte [Ass der Stäbe](cards/wands-ace) ist ein kreativer Funke, der nicht zündet.",
+      "Nach innen: Die Bedeutung spielt sich in dir ab und nicht um dich herum. Der umgekehrte [Eremit](cards/major-09-hermit) kann Einsamkeit statt gewählter Zurückgezogenheit bedeuten.",
+      "Zu viel oder zu wenig: Die Eigenschaft der Karte ist aus dem Gleichgewicht. Die umgekehrte [Kraft](cards/major-08-strength) kann Selbstzweifel sein oder zu festes Festhalten.",
+      "Verzögert: Was die Karte verspricht, kommt, nur langsamer."
+     ]
+    },
+    {
+     "h": "Eine Umkehrung ist nicht immer schlecht",
+     "p": [
+      "Schwierige Karten werden umgekehrt oft milder. Der umgekehrte [Turm](cards/major-16-tower) kann eine abgewendete Krise bedeuten oder eine Veränderung, die du schon hinter dir hast, und die umgekehrte [Zehn der Schwerter](cards/swords-ten) zeigt Erholung, nachdem das Schlimmste vorbei ist.",
+      "Jede Kartenseite auf dieser Website nennt die aufrechte und die umgekehrte Bedeutung, sodass du beide vergleichen kannst."
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "Muss ich umgekehrte Karten lesen?",
+     "a": "Nein. Viele Leser drehen jede Karte aufrecht und lesen nur aufrechte Bedeutungen. Wähle einen Ansatz und bleib dabei."
+    },
+    {
+     "q": "Ist eine umgekehrte Karte immer negativ?",
+     "a": "Nein. Eine Umkehrung kann eine schwere Karte mildern und zeigt oft eine Lektion, die innerlich oder langsamer verläuft, statt schlecht zu sein."
+    },
+    {
+     "q": "Wie bekomme ich beim Mischen umgekehrte Karten?",
+     "a": "Dreh beim Mischen einen Teil des Decks um, oder breite die Karten auf einem Tisch aus und mische sie in kreisenden Bewegungen."
+    }
+   ]
+  },
+  "asking-questions": {
+   "title": "Wie du dem Tarot eine Frage stellst (mit Beispielen)",
+   "description": "Wie du Tarotfragen stellst, die klare Deutungen ergeben: offene Fragen zu dir selbst, Beispiele für Liebe, Beruf und Entscheidungen und Fragen, die du besser vermeidest.",
+   "h1": "Wie du dem Tarot eine Frage stellst",
+   "answer": "Stell offene Fragen zu dir selbst, etwa „Was kann ich tun, um …“ oder „Was sollte ich verstehen über …“, statt Ja-oder-Nein-Fragen zu anderen Menschen.",
+   "minutes": 4,
+   "sections": [
+    {
+     "h": "Warum die Frage wichtig ist",
+     "p": [
+      "Die Karten antworten auf die Frage, die du tatsächlich stellst. Eine vage oder angstvolle Frage ergibt meist eine verwirrende Deutung, und eine klare Frage gibt dir etwas, womit du arbeiten kannst."
+     ]
+    },
+    {
+     "h": "Drei Regeln für gute Fragen",
+     "p": [
+      "Bezieh sie auf dich. Du kannst ändern, was du tust, nicht, was jemand anderes tut. Frag „Wie kann ich es mit meinem Partner besser machen?“ statt „Liebt er mich noch?“.",
+      "Halte sie offen. „Was“- und „Wie“-Fragen liefern reichere Antworten als „Werde ich“-Fragen. Wenn du wirklich ein Ja oder Nein brauchst, nutze den [Ja-oder-Nein-Leser](tools/yes-no).",
+      "Frag immer nur eins. Teile „Soll ich umziehen und den Job wechseln?“ in zwei Deutungen auf."
+     ]
+    },
+    {
+     "h": "Beispielfragen",
+     "p": [
+      "Liebe: „Was sollte ich gerade über diese Beziehung wissen?“",
+      "Beruf: „Welche Stärken kann ich nutzen, um bei der Arbeit voranzukommen?“",
+      "Entscheidung: „Was bringt mir jede Möglichkeit?“ Probier es mit der [Entscheidungslegung](spreads/three-decision).",
+      "Wachstum: „Was hält mich zurück, und was hilft mir, darüber hinauszukommen?“",
+      "Viele weitere findest du in unseren [Leitfäden zu Tarotfragen](questions)."
+     ]
+    },
+    {
+     "h": "Fragen, die du Fachleuten überlässt",
+     "p": [
+      "Tarot dient der Reflexion und der Unterhaltung. Bei Entscheidungen zu Gesundheit, Recht oder Geld sprich mit einer Ärztin oder einem Arzt, einer Anwältin oder einem Anwalt oder einer Beratung. Mit den Karten kannst du trotzdem erkunden, wie du dich in der Situation fühlst."
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "Kann ich dem Tarot Ja-oder-Nein-Fragen stellen?",
+     "a": "Ja, mit einer einzelnen Karte oder einer Ja-oder-Nein-Legung. Offene Fragen liefern aber meist hilfreichere Hinweise."
+    },
+    {
+     "q": "Kann ich nach einer anderen Person fragen?",
+     "a": "Ja, aber die Deutungen werden klarer, wenn du nach deinem Anteil fragst, etwa wie du auf die Person zugehen kannst oder was du dir von der Verbindung wünschst."
+    },
+    {
+     "q": "Kann ich dieselbe Frage zweimal stellen?",
+     "a": "Am besten wiederholst du eine Frage nicht gleich. Lass die erste Antwort wirken und frag erneut, wenn sich etwas verändert hat."
+    }
+   ]
+  }
+ }
+}

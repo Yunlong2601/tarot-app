@@ -448,3 +448,16 @@ input:focus, select:focus { outline: none; border-color: var(--gold); box-shadow
 .share-row:not(.center){justify-content:flex-start}
 .share-row[hidden]{display:none}
 .share-status{font-size:.85rem}
+
+/* Learn tarot guides */
+.lessons { list-style: none; padding: 0; margin: 0; }
+.lessons li { display: flex; }
+.lessons .panel { width: 100%; }
+.lessons .count { flex: none; }
+.guide .toc { margin: 1.6rem 0 0.4rem; padding: 1rem 1.3rem; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
+.guide .toc h2 { font-size: 1.15rem; margin: 0 0 0.4rem; }
+.guide .toc ol { margin: 0; padding-left: 1.2rem; }
+.guide .practice { margin: 2.4rem 0 0; padding: 1.3rem 1.5rem; }
+.guide .practice h2 { margin-top: 0; }
+.guide h2[id] { scroll-margin-top: 5rem; }
+.lesson-nav { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-top: 2.4rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }

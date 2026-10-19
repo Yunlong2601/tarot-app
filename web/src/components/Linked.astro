@@ -1,0 +1,13 @@
+---
+// A paragraph of guide text with its [words](path) links made real.
+import { pieces } from "../lib/learn.ts";
+import { i18n, type Locale } from "../i18n/index.ts";
+
+interface Props {
+  text: string;
+  lang: Locale;
+}
+const { text, lang } = Astro.props;
+const u = i18n(lang).url;
+---
+<p>{pieces(text).map((p) => (typeof p === "string" ? p : <a href={u(p.path)}>{p.text}</a>))}</p>

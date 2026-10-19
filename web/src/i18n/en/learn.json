@@ -1,0 +1,404 @@
+{
+ "nav": "Learn",
+ "footer": "Learn tarot",
+ "index": {
+  "title": "Learn tarot: free beginner guides · ShenTarot",
+  "description": "Free tarot lessons for beginners: how to read tarot cards, the Major and Minor Arcana, the four suits, numbers, court cards, reversals and how to ask a good question.",
+  "eyebrow": "Free tarot course",
+  "h1": "Learn tarot",
+  "lead": "Seven short guides take you from your first shuffle to reading a full spread on your own. Read them in order, or jump to the one you need.",
+  "crumb": "Learn tarot",
+  "read": "Read the guide",
+  "minutes": "{n} min read",
+  "step": "Lesson {n}"
+ },
+ "page": {
+  "title": "{title} · ShenTarot",
+  "inThis": "In this guide",
+  "next": "Next lesson",
+  "previous": "Previous lesson",
+  "all": "All tarot lessons",
+  "faqTitle": "Common questions",
+  "practiceTitle": "Practise now",
+  "practiceText": "Draw a card on the site and read it with what you just learned.",
+  "practiceLink": "Draw a card"
+ },
+ "guides": {
+  "how-to-read-tarot": {
+   "title": "How to read tarot cards: a beginner's guide",
+   "description": "How to read tarot cards step by step: ask a clear question, shuffle, lay out a spread, read each card in its position and link the cards into one story.",
+   "h1": "How to read tarot cards",
+   "answer": "To read tarot, ask one clear question, shuffle, lay the cards in a spread, read each card in its position, then look at how the cards connect.",
+   "minutes": 6,
+   "sections": [
+    {
+     "h": "What a tarot reading is",
+     "p": [
+      "A tarot deck has 78 cards. Each card is a picture of a common human situation: a new start, a loss, a choice, a celebration. In a reading you draw a few cards and use them as prompts to look at your question from new angles.",
+      "Most people today read tarot for reflection rather than prediction. The cards don't decide anything for you. They help you notice what you already feel and think about what you could do next."
+     ]
+    },
+    {
+     "h": "Step 1: ask one clear question",
+     "p": [
+      "Good readings start with good questions. Open questions about you work best, such as \"What do I need to understand about my job?\" rather than \"Will I get fired?\". Our guide to [asking tarot questions](learn/asking-questions) shows how to turn a worry into a question the cards can answer."
+     ]
+    },
+    {
+     "h": "Step 2: shuffle and draw",
+     "p": [
+      "Shuffle in any way that feels natural while you think about your question. When you feel ready, stop and draw cards from the top, or cut the deck and draw from where it splits. There is no single correct method, so pick one and keep using it."
+     ]
+    },
+    {
+     "h": "Step 3: lay out a spread",
+     "p": [
+      "A spread is a pattern in which each position has a meaning. Beginners do well with a [single card](spreads/single) for a daily focus, or the [three-card spread](spreads/three) for past, present and future. Once these feel easy, try the [Celtic Cross](spreads/celtic)."
+     ]
+    },
+    {
+     "h": "Step 4: read each card in its position",
+     "p": [
+      "Look at the picture first. Who is in it, what are they doing, and how does it feel? Then read the card's meaning on its [card page](cards) and ask how it fits the position. The Five of Cups in a \"past\" position points to a loss you have been through, while in an \"advice\" position it asks you to turn toward what remains.",
+      "If a card lands upside down, you can read it reversed. Our [guide to reversals](learn/reversed-cards) explains the simple ways to do that."
+     ]
+    },
+    {
+     "h": "Step 5: link the cards into one story",
+     "p": [
+      "Now step back. Are there many cards of one suit? Lots of [Cups](learn/tarot-suits) put feelings at the centre, and lots of Major Arcana mean a big life theme. Do the numbers rise or repeat? Do the figures face toward or away from each other? These links turn single meanings into one story.",
+      "Finish by summing up the reading in one or two sentences, and write it down. Coming back to old readings is one of the fastest ways to learn."
+     ]
+    },
+    {
+     "h": "How to practise",
+     "p": [
+      "Draw one card each morning and guess how it might show up in your day. Check in the evening. The [card of the day](tools/daily-card) tool does this for you, and after a few weeks you will know most of the deck without looking anything up."
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "Can anyone read tarot?",
+     "a": "Yes. Reading tarot is a skill you learn by practising with the pictures and meanings. You don't need any special gift."
+    },
+    {
+     "q": "Do I need to memorise all 78 cards?",
+     "a": "No. Start by learning the 22 Major Arcana and the meaning of the four suits and the numbers. With those, you can work out most Minor Arcana cards on your own."
+    },
+    {
+     "q": "How many cards should a beginner draw?",
+     "a": "One to three. A single card or a three-card spread is easy to read in depth, and you learn more from three cards read well than ten read quickly."
+    }
+   ]
+  },
+  "major-and-minor-arcana": {
+   "title": "Major and Minor Arcana: the two parts of the tarot deck",
+   "description": "The difference between the Major and Minor Arcana: 22 Major Arcana cards for big life themes, and 56 Minor Arcana cards in four suits for everyday events.",
+   "h1": "The Major and Minor Arcana",
+   "answer": "The 22 Major Arcana cards show big life themes and turning points, and the 56 Minor Arcana cards show everyday events, feelings and choices.",
+   "minutes": 4,
+   "sections": [
+    {
+     "h": "Two parts of one deck",
+     "p": [
+      "Every standard tarot deck has 78 cards in two parts. \"Arcana\" means secrets. The Major Arcana are the big secrets and the Minor Arcana are the small ones."
+     ]
+    },
+    {
+     "h": "The Major Arcana: 22 life lessons",
+     "p": [
+      "The Major Arcana run from [The Fool](cards/major-00-fool), numbered 0, to [The World](cards/major-21-world), numbered 21. Read in order, they tell the story of the Fool's journey: setting out with nothing, meeting teachers and tests, going through loss and change in [Death](cards/major-13-death) and [The Tower](cards/major-16-tower), finding hope again in [The Star](cards/major-17-star), and arriving at completion.",
+      "When a Major Arcana card appears in a reading, give it extra weight. It points to a theme bigger than one day or one decision."
+     ]
+    },
+    {
+     "h": "The Minor Arcana: 56 everyday cards",
+     "p": [
+      "The Minor Arcana are split into four [suits](learn/tarot-suits): Wands, Cups, Swords and Pentacles. Each suit has ten numbered cards, Ace to Ten, and four [court cards](learn/court-cards): Page, Knight, Queen and King.",
+      "These cards describe the day-to-day: an argument, a pay rise, a new crush, a tiring week. They change more quickly than Major Arcana themes."
+     ]
+    },
+    {
+     "h": "What the mix in a reading tells you",
+     "p": [
+      "Count the Major Arcana in your spread. If more than half are Major, the situation is a turning point and bigger forces are at work. If almost all are Minor, the matter is more in your everyday control and may pass sooner."
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "How many Major Arcana cards are there?",
+     "a": "There are 22 Major Arcana cards, numbered 0 (The Fool) to 21 (The World)."
+    },
+    {
+     "q": "Are Major Arcana cards more important?",
+     "a": "They carry more weight because they show long-term themes, but a Minor Arcana card can still be the key to a reading."
+    },
+    {
+     "q": "Can I read with only the Major Arcana?",
+     "a": "Yes. Many beginners start with just the 22 Major Arcana, then add the Minor Arcana once those feel familiar."
+    }
+   ]
+  },
+  "tarot-suits": {
+   "title": "The four tarot suits: Wands, Cups, Swords and Pentacles",
+   "description": "What the four tarot suits mean: Wands for energy and ambition, Cups for feelings and love, Swords for thoughts and conflict, Pentacles for money, work and the body.",
+   "h1": "The four tarot suits",
+   "answer": "Wands stand for energy and ambition, Cups for feelings and relationships, Swords for thoughts and conflict, and Pentacles for money, work and the body.",
+   "minutes": 5,
+   "sections": [
+    {
+     "h": "Why the suits matter",
+     "p": [
+      "Each of the 56 Minor Arcana cards belongs to one of four suits. If you know what a suit is about, you already know half of every card in it. The other half comes from its [number](learn/tarot-numbers) or [court rank](learn/court-cards)."
+     ]
+    },
+    {
+     "h": "Wands: fire, energy and drive",
+     "p": [
+      "Wands are linked with the element of Fire. They are about passion, ambition, creativity and action. A Wands card often asks what you want and how hard you are willing to go after it. Start with the [Ace of Wands](cards/wands-ace), a spark of new energy."
+     ]
+    },
+    {
+     "h": "Cups: water, feelings and love",
+     "p": [
+      "Cups are linked with Water. They cover emotions, love, friendship, intuition and dreams. A spread full of Cups means the heart is at the centre of the question. The [Two of Cups](cards/cups-two) is the classic card of a close bond."
+     ]
+    },
+    {
+     "h": "Swords: air, thoughts and conflict",
+     "p": [
+      "Swords are linked with Air. They are about the mind: ideas, words, decisions, truth and also stress and arguments. Swords cards can look harsh, but they often show clarity after a hard truth. See the [Ace of Swords](cards/swords-ace) for a breakthrough idea."
+     ]
+    },
+    {
+     "h": "Pentacles: earth, money and the body",
+     "p": [
+      "Pentacles, sometimes called Coins, are linked with Earth. They cover work, money, home, health and everything slow and solid. The [Ten of Pentacles](cards/pentacles-ten) shows lasting security built over time."
+     ]
+    },
+    {
+     "h": "Reading the suit balance",
+     "p": [
+      "In a spread, notice which suit appears most and which is missing. Many Swords and no Cups can mean you are thinking a lot about something you have not let yourself feel. Our [elemental dignities](tools/elements) tool shows how cards of different elements support or weaken each other."
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "Which suit is about love?",
+     "a": "Cups are the suit of love and feelings, though a love reading can include any suit."
+    },
+    {
+     "q": "Which suit is about money?",
+     "a": "Pentacles are the suit of money, work, home and material security."
+    },
+    {
+     "q": "Are Swords bad cards?",
+     "a": "No. Swords show the mind, so they include worry and conflict, but also honesty, clear thinking and good decisions."
+    }
+   ]
+  },
+  "tarot-numbers": {
+   "title": "Numbers in tarot: what Ace to Ten mean",
+   "description": "Tarot numerology for beginners: what each number from Ace to Ten means in the Minor Arcana, and how to combine a number with its suit to read any card.",
+   "h1": "Numbers in tarot",
+   "answer": "In tarot, numbers show a stage of a story: Aces begin, Fives bring trouble, Nines nearly finish and Tens complete the cycle.",
+   "minutes": 5,
+   "sections": [
+    {
+     "h": "Number plus suit gives the card",
+     "p": [
+      "Each suit counts from Ace to Ten, and every number means a similar stage in every suit. Combine the number with the [suit](learn/tarot-suits) and you can work out a card's meaning before you look it up. A Five is a challenge, and Cups are feelings, so the [Five of Cups](cards/cups-five) is an emotional setback."
+     ]
+    },
+    {
+     "h": "Ace to Ten",
+     "p": [
+      "Ace: a new beginning, a gift or a raw chance.",
+      "Two: a choice, a partnership or a balance to keep.",
+      "Three: first growth, teamwork or results.",
+      "Four: stability, rest or holding on.",
+      "Five: conflict, loss or a test.",
+      "Six: recovery, harmony and give-and-take.",
+      "Seven: reflection, challenge or standing your ground.",
+      "Eight: movement, effort and change.",
+      "Nine: near completion, either fulfilment or worry before the end.",
+      "Ten: the end of a cycle, its full reward or its full weight."
+     ]
+    },
+    {
+     "h": "Reading numbers in a spread",
+     "p": [
+      "Repeated numbers are worth noticing. Three Aces suggest many new beginnings at once, and several Tens suggest chapters closing. Low numbers mean a matter is early on, and high numbers mean it is nearly done.",
+      "The Major Arcana have numbers too, from 0 to 21. Your [birth card](tools/birth-card) and your [card for the year](tools/year-card) are worked out by adding the digits of a date until you reach a Major Arcana number."
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "What does an Ace mean in tarot?",
+     "a": "An Ace is the pure start of its suit: a new chance in energy (Wands), feelings (Cups), ideas (Swords) or money and work (Pentacles)."
+    },
+    {
+     "q": "Why are Fives difficult cards?",
+     "a": "Five comes after the stability of Four, so it breaks that calm. Every Five shows a challenge or loss that pushes things forward."
+    },
+    {
+     "q": "Do court cards have numbers?",
+     "a": "Not usually. Pages, Knights, Queens and Kings are read by rank and suit instead. Some readers count them as 11 to 14."
+    }
+   ]
+  },
+  "court-cards": {
+   "title": "Tarot court cards: Pages, Knights, Queens and Kings",
+   "description": "How to read tarot court cards: what Pages, Knights, Queens and Kings mean, and whether a court card shows a person, a side of you or a way to act.",
+   "h1": "Tarot court cards",
+   "answer": "Court cards show people or ways of acting: Pages learn, Knights act, Queens nurture from within and Kings lead from outside.",
+   "minutes": 5,
+   "sections": [
+    {
+     "h": "Sixteen people in the deck",
+     "p": [
+      "Each suit has four court cards, so there are 16 in all. They are often the hardest cards for beginners, because a court card can mean a person in your life, a side of your own character, or an approach the situation needs."
+     ]
+    },
+    {
+     "h": "The four ranks",
+     "p": [
+      "Pages are students and messengers. They bring news, curiosity and a beginner's mind.",
+      "Knights are in motion. They chase a goal, sometimes too fast, and show the suit's energy at its most extreme.",
+      "Queens hold the suit's qualities inside. They are caring, wise and steady.",
+      "Kings use the suit's qualities in the outside world. They lead, decide and take responsibility."
+     ]
+    },
+    {
+     "h": "Rank plus suit",
+     "p": [
+      "Mix the rank with the [suit](learn/tarot-suits). The [Knight of Wands](cards/wands-knight) rushes toward adventure, while the [Queen of Cups](cards/cups-queen) listens with deep empathy. The [King of Pentacles](cards/pentacles-king) is a reliable provider."
+     ]
+    },
+    {
+     "h": "Person, part of you or advice?",
+     "p": [
+      "Ask yourself which fits best. If someone comes to mind straight away, the card may be about them. If not, ask where you act like this figure, or where acting more like them could help.",
+      "Curious which court card matches you? Try the [which card are you](tools/which-card-are-you) quiz."
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "Do court cards always mean a person?",
+     "a": "No. They can show another person, part of your own personality, or an attitude the situation calls for."
+    },
+    {
+     "q": "Does a King mean a man and a Queen mean a woman?",
+     "a": "Not necessarily. Most readers treat the ranks as styles of energy that anyone of any gender can show."
+    },
+    {
+     "q": "How many court cards are in a tarot deck?",
+     "a": "There are 16 court cards: a Page, Knight, Queen and King in each of the four suits."
+    }
+   ]
+  },
+  "reversed-cards": {
+   "title": "Reversed tarot cards: what upside-down cards mean",
+   "description": "How to read reversed tarot cards: blocked or inner energy, too much or too little of the upright meaning, and whether you need to use reversals at all.",
+   "h1": "Reversed tarot cards",
+   "answer": "A reversed card usually shows the upright meaning blocked, turned inward, delayed or out of balance, not simply its opposite.",
+   "minutes": 4,
+   "sections": [
+    {
+     "h": "What a reversal is",
+     "p": [
+      "A card is reversed when it lands upside down. Some readers use reversals and some don't. Both ways are fine, as long as you decide before you shuffle."
+     ]
+    },
+    {
+     "h": "Four ways to read a reversal",
+     "p": [
+      "Blocked: the card's energy is there but can't flow. The reversed [Ace of Wands](cards/wands-ace) is a creative spark that won't catch.",
+      "Inward: the meaning is happening inside you rather than around you. The reversed [Hermit](cards/major-09-hermit) can mean loneliness rather than chosen solitude.",
+      "Too much or too little: the card's quality is out of balance. The reversed [Strength](cards/major-08-strength) can be self-doubt, or holding on too hard.",
+      "Delayed: what the card promises is coming, but more slowly."
+     ]
+    },
+    {
+     "h": "A reversal is not always bad",
+     "p": [
+      "Difficult cards often soften when reversed. The reversed [Tower](cards/major-16-tower) can mean a crisis avoided or a change you are already through, and the reversed [Ten of Swords](cards/swords-ten) shows recovery after the worst has passed.",
+      "Every card page on this site gives both the upright and reversed meaning, so you can compare them."
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "Do I have to read reversed cards?",
+     "a": "No. Many readers turn every card upright and read only upright meanings. Choose one approach and keep it."
+    },
+    {
+     "q": "Is a reversed card always negative?",
+     "a": "No. A reversal can soften a hard card, and often shows a lesson that is inward or slower rather than bad."
+    },
+    {
+     "q": "How do I get reversed cards when shuffling?",
+     "a": "Turn part of the deck around as you shuffle, or spread the cards on a table and mix them in circles."
+    }
+   ]
+  },
+  "asking-questions": {
+   "title": "How to ask tarot a question (with examples)",
+   "description": "How to ask tarot questions that give clear readings: open questions about you, examples for love, career and decisions, and questions to avoid.",
+   "h1": "How to ask tarot a question",
+   "answer": "Ask open questions about yourself, such as \"What can I do to…\" or \"What should I understand about…\", rather than yes-or-no questions about other people.",
+   "minutes": 4,
+   "sections": [
+    {
+     "h": "Why the question matters",
+     "p": [
+      "The cards answer the question you actually ask. A vague or fearful question usually gives a confusing reading, and a clear question gives you something to act on."
+     ]
+    },
+    {
+     "h": "Three rules for good questions",
+     "p": [
+      "Make it about you. You can change what you do, not what someone else does. Ask \"How can I improve things with my partner?\" rather than \"Does he still love me?\".",
+      "Keep it open. \"What\" and \"how\" questions give richer answers than \"will\" questions. If you really need a yes or no, use the [yes or no reader](tools/yes-no).",
+      "Ask one thing at a time. Split \"Should I move and change jobs?\" into two readings."
+     ]
+    },
+    {
+     "h": "Example questions",
+     "p": [
+      "Love: \"What do I need to know about this relationship right now?\"",
+      "Career: \"What strengths can I use to move forward at work?\"",
+      "Decision: \"What will each option bring me?\" Try it with the [decision spread](spreads/three-decision).",
+      "Growth: \"What is holding me back, and what helps me move past it?\"",
+      "You'll find many more in our [tarot question guides](questions)."
+     ]
+    },
+    {
+     "h": "Questions to leave to professionals",
+     "p": [
+      "Tarot is for reflection and entertainment. For health, legal or money decisions, talk to a doctor, lawyer or adviser. You can still use the cards to explore how you feel about the situation."
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "Can I ask tarot yes or no questions?",
+     "a": "Yes, with a single card or a yes or no spread. Open questions usually give more useful guidance, though."
+    },
+    {
+     "q": "Can I ask about another person?",
+     "a": "You can, but readings are clearer when you ask about your part, such as how to approach them or what you need from the connection."
+    },
+    {
+     "q": "Can I ask the same question twice?",
+     "a": "It's best not to repeat a question straight away. Sit with the first answer and ask again when something has changed."
+    }
+   ]
+  }
+ }
+}
