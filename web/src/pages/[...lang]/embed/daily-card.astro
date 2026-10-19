@@ -30,6 +30,7 @@ const deck = cardIds.map((id) => ({ id, href: new URL(L.url(`cards/${slug(id)}`)
       h1 { font: 600 26px/1.1 "Cormorant Garamond", Georgia, serif; margin: 4px 0 6px; }
       span { display: block; font-size: 13px; line-height: 1.4; color: #d6cebf; }
       small { display: block; margin-top: 8px; font-size: 11px; color: #a39a8a; }
+      small.note { margin-top: 2px; font-size: 10px; }
       small b { color: #f3dca0; font-weight: 600; }
     </style>
   </head>
@@ -41,6 +42,7 @@ const deck = cardIds.map((id) => ({ id, href: new URL(L.url(`cards/${slug(id)}`)
         <h1 data-name></h1>
         <span data-text></span>
         <small><b>ShenTarot</b> · shentarot.com</small>
+        <small class="note">{L.contexts.ui.disclaimer}</small>
       </div>
     </a>
     <script is:inline define:vars={{ deck, base: new URL(BASE, SITE_URL).href }}>
