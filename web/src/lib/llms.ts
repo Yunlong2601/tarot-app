@@ -4,6 +4,8 @@
 import { SITE_URL } from "../config.ts";
 import { i18n, joinAnd, LEARN_SLUGS, LOCALES, LOCALE_INFO, prefix } from "../i18n/index.ts";
 import { plain } from "./learn.ts";
+import { BIRTH } from "./birth.ts";
+import { SIGNS } from "./zodiac.ts";
 import { CARDS, cardIds, slug, spreadIds, type CardId } from "./data.ts";
 import { QUESTION_GUIDES } from "./questions.ts";
 import { TOPICS } from "./topics.ts";
@@ -14,6 +16,7 @@ const link = (path = "") => new URL(path, SITE_URL).href.replace(/\/$/, "") || S
 const TOOLS = ["yes-no", "daily-card", "weekly-draw", "random-card", "combinations", "elements", "birth-card", "year-card", "love-compatibility", "zodiac-tarot", "life-path", "which-card-are-you", "reading-sheet"];
 const GROUPS = ["major", "wands", "cups", "swords", "pentacles"] as const;
 const inGroup = (g: (typeof GROUPS)[number]) => cardIds.filter((id) => (g === "major" ? CARDS[id].arcana === "major" : CARDS[id].suit === g));
+const ctx = (id: CardId) => L.contexts.cards[id as keyof typeof L.contexts.cards];
 const keywords = (id: CardId) => joinAnd("en", L.cards[id]!.keywords);
 
 function header() {
@@ -63,6 +66,14 @@ export function llmsTxt() {
     "",
     ...LEARN_SLUGS.map((s) => `- [${L.learn.guides[s].h1}](${link(`learn/${s}`)}): ${L.learn.guides[s].answer}`),
     "",
+    "## Zodiac signs and their tarot cards",
+    "",
+    ...SIGNS.map((s) => `- [${L.content.signs[s.slug as keyof typeof L.content.signs].name} tarot card](${link(`zodiac/${s.slug}`)}): ${L.cards[s.major]!.name}. ${L.zodiac.signs[s.slug as keyof typeof L.zodiac.signs].intro.split(". ")[0]}.`),
+    "",
+    "## Birth cards",
+    "",
+    ...BIRTH.map((id) => `- [${L.cards[id]!.name} as a birth card](${link(`birth-cards/${slug(id)}`)})`),
+    "",
     "## Free tools",
     "",
     ...TOOLS.map((k) => `- [${t(`tools.list.${k}.title`)}](${link(`tools/${k}`)}): ${t(`tools.list.${k}.text`)}`),
@@ -101,6 +112,16 @@ export function llmsFullTxt() {
             `Reversed: ${k.reversed.core} ${k.reversed.modes.join(" ")}`,
             "",
             `Questions to reflect on: ${k.upright.question} Reversed: ${k.reversed.question}`,
+            "",
+            `In love: ${ctx(id).love.up} Reversed: ${ctx(id).love.rev}`,
+            "",
+            `Career and money: ${ctx(id).career.up} Reversed: ${ctx(id).career.rev}`,
+            "",
+            `As feelings: ${ctx(id).feelings.up} Reversed: ${ctx(id).feelings.rev}`,
+            "",
+            `Yes or no: ${ctx(id).yesno.up} Reversed: ${ctx(id).yesno.rev}`,
+            "",
+            `Advice: ${ctx(id).advice.up} Reversed: ${ctx(id).advice.rev}`,
           ]
         : [`Upright: ${tr.upright}`, "", `Reversed: ${tr.reversed}`]),
       "",

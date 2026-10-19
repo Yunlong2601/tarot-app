@@ -4,7 +4,7 @@ import Tabs from "../../../components/Tabs.astro";
 import { BASE } from "../../../config.ts";
 import { slug, type CardId } from "../../../lib/data.ts";
 import { PLANET_CARD, SIGNS, SUIT_OF } from "../../../lib/zodiac.ts";
-import { i18n, langPaths, type Locale } from "../../../i18n/index.ts";
+import { fill, i18n, langPaths, type Locale } from "../../../i18n/index.ts";
 
 export const getStaticPaths = langPaths;
 const { lang } = Astro.props as { lang: Locale };
@@ -51,6 +51,7 @@ const sep = t("card.listSep");
           </a>
         </div>
         <p class="muted">{before}{s.decans.map((d, i) => <>{i > 0 && sep}<a href={u(`cards/${slug(d)}`)}>{card(d).name}</a></>)}{after}</p>
+        <p><a class="link-arrow" href={u(`zodiac/${s.slug}`)}>{fill(L.zodiac.ui.readMore, { sign: name })}</a></p>
       </section>
     );
   })}

@@ -1,0 +1,2086 @@
+{
+ "ui": {
+  "eyebrow": "Tarot card meaning",
+  "upright": "Upright",
+  "reversed": "Reversed",
+  "yes": "Leans yes",
+  "no": "Leans no",
+  "maybe": "Maybe or not yet",
+  "advice": "Advice",
+  "adviceRev": "Reversed: {text}",
+  "reflect": "A question to reflect on",
+  "reflectRev": "Reversed: {text}",
+  "faqTitle": "{name}: common questions",
+  "faqAdvice": "What advice does {name} give?",
+  "other": "Other meanings of {name}",
+  "tryText": "Draw your own cards and ask the question on your mind. It's free and nothing you type leaves your device.",
+  "tryCta": "Ask the cards",
+  "tabs": {
+   "meaning": "Full meaning",
+   "love": "Love",
+   "career": "Career and money",
+   "feelings": "As feelings",
+   "yesno": "Yes or no"
+  },
+  "pages": {
+   "love": {
+    "title": "{name} in love: upright and reversed tarot meaning · ShenTarot",
+    "description": "{name} in a love reading, for couples and singles. {first}",
+    "h1": "{name} in love",
+    "faqUp": "What does {name} mean in love?",
+    "faqRev": "What does {name} reversed mean in love?"
+   },
+   "career": {
+    "title": "{name} career and money meaning: upright and reversed · ShenTarot",
+    "description": "{name} in a career, study or money reading. {first}",
+    "h1": "{name} for career and money",
+    "faqUp": "What does {name} mean for my career?",
+    "faqRev": "What does {name} reversed mean for work and money?"
+   },
+   "feelings": {
+    "title": "{name} as feelings: how do they feel about you? · ShenTarot",
+    "description": "What {name} says about how someone feels about you, upright and reversed. {first}",
+    "h1": "{name} as feelings",
+    "faqUp": "What does {name} mean as feelings?",
+    "faqRev": "What does {name} reversed mean as feelings?"
+   },
+   "yesno": {
+    "title": "Is {name} a yes or no card? Upright and reversed · ShenTarot",
+    "description": "{name} as a yes or no answer in tarot. {first}",
+    "h1": "{name}: yes or no?",
+    "faqUp": "Is {name} a yes or no?",
+    "faqRev": "Is {name} reversed a yes or no?"
+   }
+  }
+ },
+ "cards": {
+  "major_00_fool": {
+   "love": {
+    "up": "The Fool suggests meeting someone or something new without a script. If you are single, it leans towards saying yes to an unplanned invitation and letting curiosity lead. In a relationship, it points to a fresh, playful step together, taken lightly and honestly.",
+    "rev": "Reversed, the Fool points to hesitating at the cliff edge or leaping without looking. Single, you may be avoiding openness or chasing a rush. In a relationship, it suggests pausing to talk about what each of you actually expects before the next big step."
+   },
+   "career": {
+    "up": "A new project, course or change of direction may be calling, and the Fool leans towards starting before you feel qualified. Travel light and accept being a beginner. For money, it suggests small, curious experiments rather than one big bet.",
+    "rev": "Reversed, the Fool suggests either stalling at the edge of a decision or jumping in with no plan. Check the ground first: gather the basics, read the terms, ask someone who has done it. Money choices deserve extra care and a little patience now."
+   },
+   "feelings": {
+    "up": "The other person may feel drawn to you with open, almost boyish enthusiasm. They are curious, a little nervous, and perhaps unsure how to say it. Their feelings seem light and sincere, though not yet carefully thought through.",
+    "rev": "The other person may be unsure of their own feelings, or acting on impulse without thinking of the consequences. Interest could be real but scattered, or held back by fear of making it real. Their behaviour may not match their words yet."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. The Fool leans towards going ahead, with trust and a light pack. Expect to be clumsy at first, and keep your eyes open as you step.",
+    "rev": "Maybe. The Fool reversed suggests you are either holding back or rushing. Look at the ground before you decide, then the answer may become clearer."
+   },
+   "advice": {
+    "up": "Take the first step, even if it is small. Travel light, keep your sense of humour, and let yourself be a beginner. Trust your instinct, as the little dog at your heel does.",
+    "rev": "Pause and check the ground before you move. If you have been preparing forever, choose one small action today. If you have been rushing, slow down and tell someone your plan."
+   }
+  },
+  "major_01_magician": {
+   "love": {
+    "up": "The Magician suggests that you already have what you need to build connection: attention, honesty and a willingness to act. If single, show up and say what you want. In a relationship, it points to making your intentions visible through small, deliberate gestures.",
+    "rev": "Reversed, the Magician points to charm without sincerity, or to feelings you know but have not voiced. Single, you may be performing rather than being yourself. In a relationship, it suggests checking that your words and actions truly match."
+   },
+   "career": {
+    "up": "Your skills and resources are enough to begin. The Magician leans towards focusing on one clear aim and acting on it with intent. A pitch, a launch or a negotiation may go well when you prepare. For money, it suggests using what you have wisely.",
+    "rev": "Reversed, the Magician suggests scattered effort, unused talent or promising more than you can deliver. Choose one task and finish it. Be honest about what you can do, and be wary of any money scheme that relies on clever talk."
+   },
+   "feelings": {
+    "up": "The other person may be actively interested and willing to take the first step. They seem focused, confident and eager to impress you, perhaps with real effort. Their feelings lean towards purposeful rather than passive.",
+    "rev": "The other person may be saying what you want to hear without full sincerity, or holding their feelings back behind a front. It could also be that they simply have not decided what to do. Watch whether actions follow words."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. The Magician suggests you have the tools and the focus to make it happen. It leans towards acting with clear intent rather than waiting.",
+    "rev": "Maybe. Reversed, the Magician points to scattered energy or tricks without follow-through. The answer may depend on whether you can focus and be honest about it."
+   },
+   "advice": {
+    "up": "Gather your tools, pick one aim, and act on it today. Use your skills openly and keep your word. You probably have more to work with than you think.",
+    "rev": "Gather your attention before you start more things. Finish one thing, tell the truth about what you can offer, and use a talent you have been keeping private."
+   }
+  },
+  "major_02_high_priestess": {
+   "love": {
+    "up": "The High Priestess suggests that what is unspoken between two people matters more than what is said. In a relationship, it points to listening and quiet closeness. If single, it leans towards patience and trusting your sense of who feels right.",
+    "rev": "Reversed, the High Priestess points to feelings kept hidden, even from yourself, or to reading too much into small signs. In a relationship, it suggests gently naming what you have not said. Single, quiet the noise and notice what you actually feel."
+   },
+   "career": {
+    "up": "Stillness before a decision serves you. The High Priestess leans towards watching, listening and gathering information before you commit. Study and research go well. For money, it suggests waiting until you understand the whole picture.",
+    "rev": "Reversed, busyness may be drowning out your inner voice, or you may be sitting on information too long. Make time to think quietly, then act. Be careful about overanalysing; not every small sign carries meaning."
+   },
+   "feelings": {
+    "up": "The other person may feel a lot and say little. Their interest seems deep, private and cautious, shown through attention rather than words. They may be waiting to see whether it is safe to speak.",
+    "rev": "The other person may be hiding their feelings, or unsure what they are. Mixed signals could come from secrecy rather than disinterest. It suggests asking kindly rather than guessing from small clues."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     0
+    ],
+    "up": "Maybe. The High Priestess asks for stillness first. The answer is not fully spoken yet, so listen to what you sense beneath the surface.",
+    "rev": "Not yet. Reversed, she suggests you are not hearing your own answer, or that something is still hidden. Wait until the noise settles."
+   },
+   "advice": {
+    "up": "Be still and listen. Sit with the question before you act, and trust what you sense before you can explain it. Keep some things private until you are sure.",
+    "rev": "Turn down the noise and ask what you already know. Name a feeling you have hidden, and avoid reading too much into small signs."
+   }
+  },
+  "major_03_empress": {
+   "love": {
+    "up": "The Empress suggests warmth, affection and enjoyment of one another. In a relationship, it leans towards tenderness, shared meals and tending what you have built. If single, it points to nurturing yourself and the friendships around you; love grows where it is cared for.",
+    "rev": "Reversed, the Empress points to smothering, over-giving or neglecting your own needs. In a relationship, it suggests checking whether care flows both ways. Single, it asks you to be as kind to yourself as you are to others."
+   },
+   "career": {
+    "up": "Creative work and steady care are favoured. The Empress leans towards growth that comes from patient tending: a project, a team, a skill. For money, it suggests comfortable abundance built gradually, enjoyed without excess.",
+    "rev": "Reversed, a creative dry spell, overwork or caring for everyone but yourself may be at play. Rest and feed your imagination. For money, watch overspending as comfort and neglecting your own security."
+   },
+   "feelings": {
+    "up": "The other person may feel warm, generous and protective towards you. Their feelings seem affectionate and sensual, with a wish to care for you and enjoy time together. It leans towards comfort rather than drama.",
+    "rev": "The other person may be giving too much, or becoming possessive, or perhaps withdrawing care because they feel drained. Their feelings could be real but tangled up with their own needs."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. The Empress leans towards growth when you tend it well. Care, patience and enjoyment support this.",
+    "rev": "Maybe. Reversed, she suggests care is blocked or overdone. Look at whether your own needs are being met before you decide."
+   },
+   "advice": {
+    "up": "Tend what you love and let yourself enjoy it. Cook, make, plant or rest. Generosity works best when you include yourself.",
+    "rev": "Put your own needs back on the list. If you are over-giving, step back; if you feel creatively stuck, go outside and rest your mind."
+   }
+  },
+  "major_04_emperor": {
+   "love": {
+    "up": "The Emperor suggests steadiness, commitment and clear boundaries. In a relationship, it leans towards reliability and agreeing how you will look after each other. If single, it points to knowing what you want and standing by your standards.",
+    "rev": "Reversed, the Emperor points to control, stubbornness or an absence of boundaries. In a relationship, it suggests asking where firmness has turned into rigidity. Single, you may be too guarded, or too willing to bend."
+   },
+   "career": {
+    "up": "Structure and leadership serve you well. The Emperor leans towards planning, setting clear limits and taking responsibility. Authority figures and systems matter here. For money, it suggests budgets, savings habits and steady foundations.",
+    "rev": "Reversed, rigid rules, an overbearing boss or a lack of any plan may be the issue. Look at where you control too tightly or where there is no structure. Flexibility with some limits can help."
+   },
+   "feelings": {
+    "up": "The other person may feel protective, serious and committed, showing care through reliability rather than words. Their feelings seem steady and responsible, though perhaps reserved. They want to build something lasting.",
+    "rev": "The other person may be controlling, emotionally closed or uneasy with the weight of responsibility. Their feelings could be real but expressed through rules and distance. It suggests clear, calm talk."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. The Emperor leans towards a plan with clear structure and firm footing. Set your terms and proceed steadily.",
+    "rev": "Maybe. Reversed, he points to rigidity or missing structure. The answer may depend on loosening control or building a proper plan."
+   },
+   "advice": {
+    "up": "Make a plan, set clear boundaries and take responsibility. Lead calmly. Order is useful when it protects what matters to you.",
+    "rev": "Check where firmness has become stubbornness, or where you have no plan at all. Loosen your grip a little, or build the structure that is missing."
+   }
+  },
+  "major_05_hierophant": {
+   "love": {
+    "up": "The Hierophant suggests commitment, shared values and the support of a community. In a relationship, it leans towards rituals, family ties and deepening trust. If single, it points to meeting someone through shared circles and valuing common ground.",
+    "rev": "Reversed, the Hierophant points to questioning expectations about how a relationship should look. It suggests finding your own way, whether that means breaking from convention or from family pressure. Single, you may resist labels or a set script."
+   },
+   "career": {
+    "up": "Learning the established way first serves you. The Hierophant leans towards mentors, formal training, qualifications and respect for proven methods. A team or institution may support you. For money, it suggests conventional, trusted routes.",
+    "rev": "Reversed, rules that no longer fit may feel stifling, or you may refuse advice you need. Ask which conventions still help and which are just habit. Be careful of dogma at work and of blindly following others on money."
+   },
+   "feelings": {
+    "up": "The other person may feel respectful, sincere and serious about you, wanting a proper, committed path. Their feelings lean towards loyalty and shared values rather than a passing thing. They may care what family and friends think.",
+    "rev": "The other person may feel pulled between what they are expected to do and what they want. Their feelings could be real but held back by convention, or they may reject the usual path altogether."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. The Hierophant leans towards what is well established, trusted and supported by others. Guidance is available if you ask.",
+    "rev": "Maybe. Reversed, he suggests the usual route may not fit. Think about whether you are following a rule or your own values."
+   },
+   "advice": {
+    "up": "Learn from someone who has walked this path. Join the group, honour the tradition that fits, and commit to the basics before you change them.",
+    "rev": "Question the rule that no longer fits, then find your own way to meaning. Stay open to learning from others even if you reject the form."
+   }
+  },
+  "major_06_lovers": {
+   "love": {
+    "up": "The Lovers suggests a bond that asks for honesty and a choice made from your values. In a relationship, it leans towards deeper commitment and open talk. If single, it points to a meaningful connection, or to choosing what you truly want over pleasing someone.",
+    "rev": "Reversed, the Lovers points to misalignment, drifting apart or putting off a decision. In a relationship, it suggests checking whether your actions match what you value. Single, you may be torn or choosing to please others."
+   },
+   "career": {
+    "up": "A meaningful choice at work reflects your values. The Lovers leans towards partnerships and collaborations that suit you, and towards picking the path that feels aligned. For money, it suggests choosing in line with what you believe matters.",
+    "rev": "Reversed, indecision or mismatched values may be holding you back. A partnership may be out of tune. Ask which option you would choose if nobody was watching, and avoid leaning too hard on another person's view."
+   },
+   "feelings": {
+    "up": "The other person may feel a real pull and a wish for honest connection. Their feelings seem sincere, warm and aimed at commitment, with attraction and values lining up. They may be weighing a meaningful choice about you.",
+    "rev": "The other person may be unsure, torn between options, or feeling a distance growing. Their feelings could be real but not matched by action. It suggests an honest talk about what each of you wants."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. The Lovers leans towards a choice that fits your values and a connection that is honest. Choose what you can stand behind.",
+    "rev": "Maybe. Reversed, the Lovers points to a choice delayed or values out of tune. The answer may wait until you are honest with yourself."
+   },
+   "advice": {
+    "up": "Choose in line with your values and tell the truth about what you want. Let a connection be honest and mutual rather than a performance.",
+    "rev": "Stop putting off the decision. Check whether your actions match what you say you value, and speak openly with the person involved."
+   }
+  },
+  "major_07_chariot": {
+   "love": {
+    "up": "The Chariot suggests driving towards what you want in love, with focus and steadiness. In a relationship, it leans towards a shared direction and working through competing pulls together. If single, it points to taking active steps and not waiting.",
+    "rev": "Reversed, the Chariot points to pulling in different directions, forcing things or feeling stuck without a plan. In a relationship, it suggests slowing down and agreeing where you are heading. Single, you may be rushing or standing still."
+   },
+   "career": {
+    "up": "Determination and discipline move you forward. The Chariot leans towards a clear goal, momentum and keeping competing demands in line. Exams, competitions and travel for work may feature. For money, it suggests focused, steady effort.",
+    "rev": "Reversed, drive may be scattered, stalled or pushed too hard. Pause to choose a direction before you speed up. Watch that ambition does not run over colleagues, and avoid forcing a money decision."
+   },
+   "feelings": {
+    "up": "The other person may feel determined to win you or to move things forward. Their feelings seem strong and purposeful, with confidence in showing them. They may be keen to take charge.",
+    "rev": "The other person may be pulled two ways, unsure of direction, or pushing too hard and too fast. Their feelings might be real but turned into pressure or control. It suggests asking for space and clarity."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. The Chariot leans towards forward movement when you hold your focus. Keep the reins steady and keep going.",
+    "rev": "Maybe. Reversed, it points to scattered drive or force without direction. The answer may depend on choosing a clear course first."
+   },
+   "advice": {
+    "up": "Pick a direction and commit to it. Hold your competing pulls in line with discipline, and keep moving at a steady pace.",
+    "rev": "Stop and ask where you are heading. Ease off the force, resolve the two-way pull inside you, and then move again."
+   }
+  },
+  "major_08_strength": {
+   "love": {
+    "up": "Strength suggests patience, tenderness and quiet courage in love. In a relationship, it leans towards meeting difficult feelings with kindness rather than a fight. If single, it points to self-compassion and the confidence to be gentle and open.",
+    "rev": "Reversed, Strength points to self-doubt, burnout or trying to tame a feeling by force. In a relationship, it suggests rest and honest sharing of your limits. Single, be kind to yourself and rebuild confidence in small steps."
+   },
+   "career": {
+    "up": "Calm resilience handles what force cannot. Strength leans towards patience with a difficult colleague or task and steady confidence. Persistence pays off here. For money, it suggests staying composed and not acting from fear.",
+    "rev": "Reversed, you may be running on empty, doubting yourself or pushing through by sheer will. Rest, ask for support and rebuild with small wins. Be careful of forcing results or acting from anxiety around money."
+   },
+   "feelings": {
+    "up": "The other person may feel gentle, loyal and patient with you. Their feelings seem steady and compassionate, shown through kindness and calm support rather than grand gestures. They may admire your courage.",
+    "rev": "The other person may feel insecure, drained or unable to show how much they care. Their feelings might be present but buried under self-doubt or tension. Patience and gentleness from you may help."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. Strength leans towards success through patience and gentle persistence. You can do this without a fight.",
+    "rev": "Maybe. Reversed, it points to low energy or self-doubt. The answer may depend on rest and rebuilding confidence first."
+   },
+   "advice": {
+    "up": "Meet the difficulty calmly and kindly. Be patient with yourself and with others, and let courage be quiet rather than loud.",
+    "rev": "Rest and rebuild your confidence in small steps. Do not try to force a feeling away; give it space and speak to yourself kindly."
+   }
+  },
+  "major_09_hermit": {
+   "love": {
+    "up": "The Hermit suggests that time apart can clarify what you want. In a relationship, it leans towards quiet, honest reflection and perhaps some space. If single, it points to enjoying your own company and waiting for a connection that feels true.",
+    "rev": "Reversed, the Hermit points to withdrawing too far or being unable to sit alone with yourself. In a relationship, it suggests reaching out before distance hardens. Single, balance solitude with warm company."
+   },
+   "career": {
+    "up": "Stepping back to think serves you. The Hermit leans towards focused study, research or work done alone, and towards a mentor's guidance. For money, it suggests reviewing your situation quietly before you decide.",
+    "rev": "Reversed, isolation or restlessness may be getting in the way. Do not cut yourself off from help, and do not avoid the question you need to face. Reconnect with a trusted colleague, then return to your plan."
+   },
+   "feelings": {
+    "up": "The other person may feel reflective and serious, taking time to understand their feelings before sharing them. They seem thoughtful and sincere, though quiet. They may need space, which is not the same as disinterest.",
+    "rev": "The other person may be withdrawing, avoiding the subject or unable to settle with their own thoughts. Their feelings might be real but hidden behind distance. They may be slowly coming back towards people."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     0
+    ],
+    "up": "Maybe. The Hermit asks you to step back and think. The answer lies in your own quiet judgement, not outside noise.",
+    "rev": "Not yet. Reversed, it suggests you are avoiding the question or withdrawing too far. Reconnect, then think again."
+   },
+   "advice": {
+    "up": "Take time alone to think. Turn down outside voices, light your own lamp and decide what matters to you.",
+    "rev": "Do not retreat further. Reach out to someone you trust, and if you cannot be still, notice what you are avoiding."
+   }
+  },
+  "major_10_wheel_of_fortune": {
+   "love": {
+    "up": "The Wheel suggests that things are turning, and love may be entering a new chapter. In a relationship, it leans towards change you can meet together. If single, it points to timing shifting in your favour, or an unexpected meeting.",
+    "rev": "Reversed, the Wheel points to a repeating pattern or resisting a change. In a relationship, it suggests naming the loop you keep re-entering. Single, you may feel stuck, but a cycle is winding down."
+   },
+   "career": {
+    "up": "Circumstances shift, and a new chapter may open. The Wheel leans towards adapting well to change and using good timing. For money, it suggests that things fluctuate, so stay flexible and keep perspective.",
+    "rev": "Reversed, you may feel stuck in a loop or resisting a change that is already under way. Look at what you can influence and let go of what you cannot. Avoid rash money moves based on a hunch about luck."
+   },
+   "feelings": {
+    "up": "The other person may feel that something is shifting and be open to change with you. Their feelings seem to be moving in a good direction, helped by timing. They may sense this as fated or fortunate.",
+    "rev": "The other person may be going through a change of their own, or repeating an old pattern. Their feelings might be in flux, hard to read right now. Give it time and watch what remains steady."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. The Wheel leans towards a favourable turn and good timing. Be ready to adapt as things move.",
+    "rev": "Maybe. Reversed, the Wheel points to delays or a repeating loop. The timing may not be right yet."
+   },
+   "advice": {
+    "up": "Accept that cycles turn and ride this one with an open mind. Look for what the change offers, and make the most of good timing.",
+    "rev": "Notice the pattern you keep repeating and choose one thing within your control. Let a winding-down cycle end rather than resisting it."
+   }
+  },
+  "major_11_justice": {
+   "love": {
+    "up": "Justice suggests honesty, fairness and clear agreements in love. In a relationship, it leans towards balanced give and take, and owning your part in things. If single, it points to being truthful about what you want and what you can offer.",
+    "rev": "Reversed, Justice points to unfairness, blame or avoiding responsibility. In a relationship, it suggests checking whether the scales are tipped, including against yourself. Single, be careful of harsh judgement of others or yourself."
+   },
+   "career": {
+    "up": "Fair dealing and honest facts favour you. Justice leans towards contracts, evaluations and decisions made on the evidence. Accountability is rewarded. For money, it suggests reading the details and keeping accurate records.",
+    "rev": "Reversed, bias, dodged responsibility or an unfair process may be at play. Review the facts again and own your share. Be careful of harsh judgement, and check any agreement carefully before relying on it."
+   },
+   "feelings": {
+    "up": "The other person may feel that they want things to be honest and fair between you. Their feelings seem considered, sincere and based on a clear view of the situation. They may value truth over comfort.",
+    "rev": "The other person may be avoiding responsibility, judging harshly or seeing things one-sidedly. Their feelings could be real but clouded by bias or by fear of consequences. A calm, factual conversation may help."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. Justice leans towards a fair outcome when you look at the facts honestly. Weigh them clearly and own your part.",
+    "rev": "Maybe. Reversed, bias or avoided responsibility may cloud things. The answer depends on seeing the situation fairly."
+   },
+   "advice": {
+    "up": "Weigh the facts honestly, including your own role. Make fair choices, keep your word and accept the consequences.",
+    "rev": "Look for bias, in others and in yourself. Take responsibility where it is yours and ease up on harsh self-judgement."
+   }
+  },
+  "major_12_hanged_man": {
+   "love": {
+    "up": "The Hanged Man suggests a pause that shows you something new. In a relationship, it leans towards letting go of a fixed view and seeing your partner's side. If single, it points to waiting without forcing, and viewing love from another angle.",
+    "rev": "Reversed, the Hanged Man points to stalling or playing the martyr. In a relationship, it suggests asking whether waiting still helps either of you. Single, you may be putting life on hold for someone who is not choosing you."
+   },
+   "career": {
+    "up": "A deliberate pause lets you see the problem differently. The Hanged Man leans towards delays that turn out useful, and towards new perspectives. For money, it suggests holding off on big decisions until you see more clearly.",
+    "rev": "Reversed, the pause may have become delay, or a sacrifice that serves no one. Decide whether waiting is still wise. If you are ready to move, make a plan and act, rather than staying suspended."
+   },
+   "feelings": {
+    "up": "The other person may be in a thoughtful pause, reconsidering what they want. Their feelings seem real but not yet resolved, and they may be seeing things from a new angle. They are not rushing.",
+    "rev": "The other person may be stalling, undecided, or making a sacrifice they resent. Their feelings might be real but stuck. They may also be getting ready to move after a long wait."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     0
+    ],
+    "up": "Maybe. The Hanged Man suggests waiting and looking again. The answer may come once you see it differently.",
+    "rev": "Not yet. Reversed, it points to stalling without purpose. Ask whether waiting still helps, then choose."
+   },
+   "advice": {
+    "up": "Pause on purpose and look at the situation from the other side. Let go of the need to force it, and be patient.",
+    "rev": "Ask whether waiting is still useful. If it is not, stop sacrificing and decide, or let the pause end."
+   }
+  },
+  "major_13_death": {
+   "love": {
+    "up": "Death suggests an ending in love that has already begun. In a relationship, it leans towards letting an old pattern or phase finish so something truer can start. If single, it points to closing a past chapter and clearing space.",
+    "rev": "Reversed, Death points to clinging to something that has finished, or an ending dragged out because nobody names it. In a relationship, it suggests honestly saying what is over. Single, you may be reluctant to let a past person go."
+   },
+   "career": {
+    "up": "A role, habit or belief has run its course. Death leans towards clearing out the old, which may bring relief alongside grief. A change of job or direction is possible. For money, it suggests closing what no longer works.",
+    "rev": "Reversed, you may be resisting a needed ending or only partly accepting it. Holding on may cost more than letting go. Name what is over, and take your time to adjust rather than forcing a fresh start."
+   },
+   "feelings": {
+    "up": "The other person may feel that something between you has ended or changed, and be ready to move on or begin again. Their feelings seem to be in transition. It could be closure or a transformation rather than a simple goodbye.",
+    "rev": "The other person may be unable to let go, or quietly knowing it is over without saying so. Their feelings may be dragging on because nobody names them. It suggests gentle honesty."
+   },
+   "yesno": {
+    "verdict": [
+     -1,
+     0
+    ],
+    "up": "No. Death suggests that this chapter is closing, so the answer leans away from keeping things as they are. Something new can follow.",
+    "rev": "Maybe. Reversed, an ending is being resisted or only half accepted. The answer may become clear once you let go."
+   },
+   "advice": {
+    "up": "Let go of what has run its course. Mark the ending, grieve if you need to, and clear space for what comes next.",
+    "rev": "Name what is already finished instead of clinging to it. Take small steps towards acceptance, and be gentle with yourself."
+   }
+  },
+  "major_14_temperance": {
+   "love": {
+    "up": "Temperance suggests patience, balance and blending differences. In a relationship, it leans towards compromise and a calm, steady pace. If single, it points to letting love develop gradually and keeping a middle path between extremes.",
+    "rev": "Reversed, Temperance points to imbalance, impatience or extremes. In a relationship, it suggests one of you giving or taking too much. Single, you may want results now, or struggle to find a middle way."
+   },
+   "career": {
+    "up": "Measured, patient work blends opposing demands. Temperance leans towards teamwork, steady progress and moderation. Combine ideas rather than choosing sides. For money, it suggests balancing spending and saving and a steady pace.",
+    "rev": "Reversed, overdoing it, impatience or things pulling out of balance may be a problem. Look for where you are at an extreme and aim for a calmer rhythm. Avoid hasty money decisions."
+   },
+   "feelings": {
+    "up": "The other person may feel calm, kind and willing to meet you halfway. Their feelings seem steady and patient, and they may prefer a gradual, balanced pace. They are careful rather than dramatic.",
+    "rev": "The other person may be impatient, going to extremes or struggling to find a middle way. Their feelings might be real but erratic, or they may be avoiding commitment. Steadiness from you may help."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. Temperance leans towards a good result through patience and balance. Go at a steady, measured pace.",
+    "rev": "Maybe. Reversed, imbalance or impatience may get in the way. The answer may depend on moderating things."
+   },
+   "advice": {
+    "up": "Blend opposing needs patiently. Take measured steps, aim for the middle path and let things combine over time.",
+    "rev": "Find where you are out of balance and ease it. Slow down, avoid extremes and stop expecting instant results."
+   }
+  },
+  "major_15_devil": {
+   "love": {
+    "up": "The Devil suggests noticing what holds you in love: an attachment, a pattern or a fear. In a relationship, it leans towards honest talk about dependency or habit. If single, it points to naming desires without shame and seeing how much choice you really have.",
+    "rev": "Reversed, the Devil points to a hold loosening, or to denial. In a relationship, it suggests slowly breaking an unhelpful pattern. Single, you may be quietly aware of what binds you and not yet ready to act."
+   },
+   "career": {
+    "up": "You may be tied to a job, habit or belief more tightly than you need to be. The Devil leans towards honest reckoning with what keeps you there, such as money, status or fear. Naming it is the first step towards choice.",
+    "rev": "Reversed, you may be slipping out of an old grip, or avoiding seeing it. Notice small chains you could loosen. For money, be honest about habits and debts, and seek professional support if you need it."
+   },
+   "feelings": {
+    "up": "The other person may feel a strong attraction or attachment that is hard to resist. Their feelings seem intense, perhaps tangled up with habit or fear. It could be passion, or it could be a hold they do not fully choose.",
+    "rev": "The other person may be stepping back from an unhealthy pull, or in denial about it. Their feelings might be loosening, or quietly questioned. They may be aware but not yet acting."
+   },
+   "yesno": {
+    "verdict": [
+     -1,
+     0
+    ],
+    "up": "No. The Devil leans towards caution, as something may hold you more than you admit. Look at your real choices first.",
+    "rev": "Maybe. Reversed, a hold is loosening. The answer may improve as you see clearly and act."
+   },
+   "advice": {
+    "up": "Name the habit, attachment or fear that holds you. See how loosely the chains hang, and choose honestly. Support from others can help.",
+    "rev": "Awareness is the first step. Take one small action to loosen the grip, and be honest about what you have been avoiding."
+   }
+  },
+  "major_16_tower": {
+   "love": {
+    "up": "The Tower suggests a sudden shake-up that reveals what was not stable. In a relationship, it leans towards a hard truth coming out and a chance to rebuild more honestly. If single, it points to an old illusion falling and clearing ground.",
+    "rev": "Reversed, the Tower points to avoiding a truth or living in the aftermath of one. In a relationship, it suggests facing a slow-burning problem rather than waiting. Single, you may be quietly recovering from a private crisis."
+   },
+   "career": {
+    "up": "Something built on shaky ground may come down, such as a plan, role or structure. The Tower leans towards a sudden change that, though unsettling, clears space for something more honest. For money, it suggests preparing for surprises.",
+    "rev": "Reversed, you may be resisting something already coming apart, or watching a slow unravelling. Face it rather than wait. Take stock of what remains standing and build from there at a sensible pace."
+   },
+   "feelings": {
+    "up": "The other person may be going through an upheaval, or a sudden realisation about you or themselves. Their feelings could swing sharply, with truths coming out. It suggests honesty and patience while the dust settles.",
+    "rev": "The other person may be avoiding a shock, or recovering from one. Their feelings might be guarded or in turmoil. A private crisis could be affecting how they behave towards you."
+   },
+   "yesno": {
+    "verdict": [
+     -1,
+     0
+    ],
+    "up": "No. The Tower suggests that the current plan is on shaky ground. Expect disruption, and consider what would be more solid.",
+    "rev": "Maybe. Reversed, the worst may be passing, or a problem is slowly emerging. Face the facts before you decide."
+   },
+   "advice": {
+    "up": "Let what is false fall. Stay safe, be honest, and use the clear ground to build something more solid.",
+    "rev": "Do not wait for the problem to grow. Face it now, take stock of what is still standing, and move gently through the aftermath."
+   }
+  },
+  "major_17_star": {
+   "love": {
+    "up": "The Star suggests gentle hope and healing after a hard stretch. In a relationship, it leans towards honest, tender closeness and renewed trust. If single, it points to being open and kind to yourself, and to quiet optimism about love.",
+    "rev": "Reversed, the Star points to dimming hope or doubt. In a relationship, it suggests feeling detached or discouraged, and needing small acts of care. Single, keep small hopes alive without forcing anything."
+   },
+   "career": {
+    "up": "Recovery and renewal are favoured. The Star leans towards slowly regaining confidence after a difficult period, with inspiration and clear purpose. For money, it suggests steady, modest progress and trust in a gradual recovery.",
+    "rev": "Reversed, low motivation or doubt may be in the way. Be kind to yourself, rest, and take small, concrete steps rather than waiting for a sign. Avoid wishing without acting, and keep money expectations realistic."
+   },
+   "feelings": {
+    "up": "The other person may feel hopeful, sincere and gently drawn to you. Their feelings seem honest, calm and healing, perhaps after a hard time. They may see something good in you and in the future.",
+    "rev": "The other person may be feeling discouraged, detached or unsure of the future. Their feelings might be real but dimmed by doubt. They may need patience and small reassurance rather than big promises."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. The Star leans towards hope and a slow, steady recovery. Trust it, and keep going gently.",
+    "rev": "Maybe. Reversed, hope is dim or vague. The answer may improve once you rest and keep small hopes alive."
+   },
+   "advice": {
+    "up": "Rest, breathe and trust a slow recovery. Be honest, keep your hopes quiet and clear, and pour kindness back into yourself.",
+    "rev": "Be gentle with yourself. Keep one small hope alive and take one small action, rather than waiting for a sign."
+   }
+  },
+  "major_18_moon": {
+   "love": {
+    "up": "The Moon suggests that feelings are strong but not yet clear. In a relationship, it leans towards uncertainty, projection or unspoken fears worth naming. If single, it points to waiting for more light before trusting a mood or an attraction.",
+    "rev": "Reversed, the Moon points to fog lifting, or to anxiety spiralling. In a relationship, it suggests that what was unclear is becoming visible, or that a hidden fear needs grounding. Single, take things slowly and check facts."
+   },
+   "career": {
+    "up": "Things are not fully clear at work. The Moon leans towards moving carefully, gathering more information and noticing your instincts without letting fear decide. For money, it suggests avoiding big commitments until the picture is clearer.",
+    "rev": "Reversed, confusion may be lifting, or worry may be growing. Ground yourself with facts and routines. Check what you assumed, and ask direct questions. Wait for clearer information before committing money."
+   },
+   "feelings": {
+    "up": "The other person may feel uncertain or confused about their own feelings, or be hiding part of them. Their emotions seem deep but changeable, shaped by imagination and fear. Things may not be as they appear yet.",
+    "rev": "The other person may be starting to see more clearly, or may be anxious and hiding a worry. Their feelings could be coming into focus. Try to ask gently and avoid filling gaps with guesses."
+   },
+   "yesno": {
+    "verdict": [
+     -1,
+     0
+    ],
+    "up": "No. The Moon suggests the picture is unclear and fear may be colouring it. Wait for more light before you decide.",
+    "rev": "Maybe. Reversed, the fog is lifting, or worry is deepening. The answer may become clear soon."
+   },
+   "advice": {
+    "up": "Move carefully, notice your fears and instincts, and gather more light before you decide. Do not mistake a mood for a fact.",
+    "rev": "Ground yourself in facts and routines. Speak a hidden fear aloud, and let what is becoming clear settle before you act."
+   }
+  },
+  "major_19_sun": {
+   "love": {
+    "up": "The Sun suggests warmth, openness and simple joy in love. In a relationship, it leans towards honest affection, laughter and ease together. If single, it points to confidence, being yourself and attracting warmth.",
+    "rev": "Reversed, the Sun points to a dimmed mood or forced cheer. In a relationship, it suggests not hiding tiredness behind positivity. Single, look for small sources of light, and avoid overconfidence or ignoring complications."
+   },
+   "career": {
+    "up": "Clarity, vitality and recognition are favoured. The Sun leans towards confident, open work and visible success. Enjoy what is going well. For money, it suggests a clear, positive picture, though keep paying attention to the details.",
+    "rev": "Reversed, enthusiasm may be dimmed, or ego may be getting in the way. Rest, and look for small sources of light. Avoid forced positivity or overlooking complexity, especially with money."
+   },
+   "feelings": {
+    "up": "The other person may feel happy, open and wholehearted about you. Their feelings seem warm, honest and uncomplicated. They enjoy your company and are not hiding it.",
+    "rev": "The other person may be tired, or putting on a cheerful front. Their feelings might be real but dimmed by clouds of their own. They may be overconfident or not showing the whole picture."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     1
+    ],
+    "up": "Yes. The Sun leans strongly towards a clear, positive answer. Warmth and openness support it.",
+    "rev": "Yes. Reversed, the Sun still leans towards a good outcome, though it may take more effort or time. Check you are not forcing optimism."
+   },
+   "advice": {
+    "up": "Enjoy what is going well. Be open, share your warmth, and let things be plain and simple.",
+    "rev": "Rest if you are tired, and look for small sources of light. Avoid forced positivity and let yourself be honest."
+   }
+  },
+  "major_20_judgement": {
+   "love": {
+    "up": "Judgement suggests an honest review and a call to begin again. In a relationship, it leans towards forgiveness, clearing old hurts and renewing commitment. If single, it points to hearing what you truly want and answering it.",
+    "rev": "Reversed, Judgement points to harsh self-criticism or ignoring a call you hear. In a relationship, it suggests not letting old mistakes define you both. Single, avoid replaying the past and avoid putting off an honest decision."
+   },
+   "career": {
+    "up": "A moment of honest review may bring a sense of calling. Judgement leans towards reassessing your path, forgiving past mistakes and answering what feels purposeful. For money, it suggests an honest look at the whole picture.",
+    "rev": "Reversed, self-doubt may be loud, or you may be ignoring what you already know. Be fair with yourself about the past. Stop avoiding a necessary decision, and review your money with kindness, not blame."
+   },
+   "feelings": {
+    "up": "The other person may feel a reawakening, perhaps reconsidering you with fresh eyes. Their feelings seem reflective, forgiving and sincere, with a wish for a clean start. They may be answering an inner call.",
+    "rev": "The other person may be judging themselves or you harshly, or avoiding a decision about you. Their feelings could be real but weighed down by regret. They may be having a private reckoning."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. Judgement leans towards a fresh start after honest reflection. Answer the call you have been hearing.",
+    "rev": "Maybe. Reversed, self-criticism or avoidance may be holding you back. The answer may wait until you decide."
+   },
+   "advice": {
+    "up": "Review the past honestly, forgive what you can, and answer your inner call. Allow a new beginning.",
+    "rev": "Be fair, not harsh, with yourself. Stop ignoring what you hear inside, and make the decision you have been putting off."
+   }
+  },
+  "major_21_world": {
+   "love": {
+    "up": "The World suggests completion and wholeness in love. In a relationship, it leans towards a satisfying milestone and feeling at home together, with the next cycle waiting. If single, it points to feeling complete in yourself and ready for what is next.",
+    "rev": "Reversed, the World points to loose ends or a last step still missing. In a relationship, it suggests finishing an unresolved conversation. Single, you may not be quite ready to let go of the past, though closure is near."
+   },
+   "career": {
+    "up": "A cycle completes, and you can take stock of how far you have come. The World leans towards finishing a project, graduating or reaching a goal, with integration and satisfaction. For money, it suggests a steady, rounded position.",
+    "rev": "Reversed, you may be almost there but one step short. Find the missing piece and finish it. You may be reluctant to move on. Avoid leaving loose ends, especially with accounts, contracts or deadlines."
+   },
+   "feelings": {
+    "up": "The other person may feel content and fulfilled with you. Their feelings seem whole, settled and satisfied, with a sense that things fit. They may be ready for the next stage.",
+    "rev": "The other person may feel that something between you is almost complete but not quite settled. Their feelings could be real but unfinished, or they may not be ready to let go. A last conversation might help."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. The World leans towards completion and a satisfying result. Finish what you started.",
+    "rev": "Not yet. Reversed, one last step remains. The answer is close, but something needs finishing first."
+   },
+   "advice": {
+    "up": "Take stock of how far you have come and enjoy it. Finish what you started, then look towards the next cycle.",
+    "rev": "Find the last loose end and tie it up. Allow yourself to finish, and do not hold on once it is done."
+   }
+  },
+  "wands_ace": {
+   "love": {
+    "up": "A spark of attraction or a fresh wave of enthusiasm leans your way. In a relationship, it suggests a new project or adventure that reignites warmth. If you are single, the card points to a bold, lively first meeting. Follow the flame, but let it grow at a natural pace.",
+    "rev": "The spark feels dim or slow to catch. In a relationship, it can point to routine smothering enthusiasm, or a good idea that has not been voiced. If you are single, you may be hesitating before a promising connection. Tend the embers gently and do not force heat."
+   },
+   "career": {
+    "up": "A new venture, role or idea is offering you a burst of drive. The single flame in the hand suggests the energy is real but needs direction to become something. Money questions lean towards a promising opening, not a guarantee. Start small and see what catches.",
+    "rev": "The idea is there, but motivation stalls, or you start in the wrong place. Work or study may feel blocked by delay, doubt or poor timing. Money matters call for patience rather than a rushed leap. Name what you actually want before spending more effort."
+   },
+   "feelings": {
+    "up": "This person feels a real spark towards you: excitement, interest and a wish to act on it. They may be keen to start something, or to say something bold. The feeling is fresh and energetic rather than settled, so it asks for a response.",
+    "rev": "Their interest flickers, or they are unsure whether to act on it. The spark may be real but delayed by doubt, timing or distraction. They could also be putting their energy into something else for now."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. The Ace of Wands is a clear starting signal: energy and opportunity are on offer, and a spark of inspiration is in your hand. Act on it while it is fresh.",
+    "rev": "Maybe. The spark is there but delayed or doubted, so the timing is uncertain. Nurture the idea a little longer and see whether the energy returns."
+   },
+   "advice": {
+    "up": "Take the first bold step now, however small. Light the idea before you plan every detail, and let your enthusiasm show you the next move.",
+    "rev": "Do not rush the flame. Protect the idea, work out what it needs and wait until the energy feels honest. A short pause now may save you from a false start."
+   }
+  },
+  "wands_two": {
+   "love": {
+    "up": "You stand at a threshold, holding the world in one hand and a choice in the other. In a relationship, it asks whether you will grow together or stay comfortable. If you are single, it suggests looking beyond the familiar for what you want. Decide what you are aiming for.",
+    "rev": "Fear of leaving the known keeps things small. In a relationship, plans for the future may stay unspoken, or one of you hesitates at the next step. If you are single, comfort may be holding you back from looking wider. Say aloud what you really want."
+   },
+   "career": {
+    "up": "You have achieved a good start and now look to the horizon. The figure on the battlement with a globe suggests planning, ambition and a decision between staying and expanding. Money and study choices lean towards thinking bigger. Choose a direction and make a plan.",
+    "rev": "Plans stay on paper, or fear of leaving a secure post keeps you in place. Work or study may stall from over-planning or avoiding risk. Money decisions need a firmer outline before any move. Pick one realistic next step and take it."
+   },
+   "feelings": {
+    "up": "They are weighing what they feel against what is comfortable. They may be thinking about you in terms of a bigger future, and wondering whether to commit. Their interest is real, but it comes with a decision still to make.",
+    "rev": "They hesitate, fearing change or the unknown, and may keep things as they are. Their plans may not include you yet, or they are unsure what they want. Their feelings are present but held back by caution."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. You have the vision and a solid starting point, and the card faces outward to wider horizons. Choose your aim and commit to the plan.",
+    "rev": "Maybe. Fear or indecision keeps the plan unfinished. Clarify what you want before you decide, and the answer will firm up."
+   },
+   "advice": {
+    "up": "Look at the whole map, then choose a direction. Write down your plan, and be willing to step beyond what feels safe.",
+    "rev": "Stop circling the plan. Name what scares you, shrink it into one small action and begin, or admit honestly that you prefer to stay."
+   }
+  },
+  "wands_three": {
+   "love": {
+    "up": "You have set something in motion and now watch the horizon for what returns. In a relationship, it points to growth and looking ahead together, perhaps a longer-distance plan. If you are single, a connection may come from further afield. Be patient and keep your outlook wide.",
+    "rev": "Delays or a narrow view slow things down. In a relationship, plans may stall, or one of you looks only at the present. If you are single, you may wait too passively for someone to arrive. Widen your world rather than watching the empty sea."
+   },
+   "career": {
+    "up": "Your early efforts are moving, and ships you sent out are heading back. The figure on the cliff looks out over the sea, suggesting vision, collaboration and expansion. Work, study and money lean towards steady progress. Keep going and think a step further ahead.",
+    "rev": "Plans are delayed or do not leave the harbour. Work or study may be limited by a narrow outlook or slow replies. Money prospects need patience and a broader view. Check whether the plan is too small, or whether you are simply waiting for others."
+   },
+   "feelings": {
+    "up": "They are looking ahead and imagining what could grow between you. Their interest is thoughtful and forward-looking, and they may be waiting to see how things develop. They may also be at a distance, in place or in attention.",
+    "rev": "Their feelings are slow to take shape, or held up by distance or timing. They may not be looking at a future with you yet. The interest may lean towards the present, with no wider plans made."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. Your efforts are underway and ships are on the horizon, so the outlook is promising. Allow time for results to arrive.",
+    "rev": "Maybe. Delays or a narrow view keep the answer unclear. Widen your outlook and the situation may move."
+   },
+   "advice": {
+    "up": "Keep your eyes on the horizon and trust the work you have already done. Think bigger, and give your plans time to return to you.",
+    "rev": "Do not stand idle by the shore. Look at what is holding things back, widen your view and send out new effort."
+   }
+  },
+  "wands_four": {
+   "love": {
+    "up": "A moment of joy and togetherness after effort. The garlands and canopy suggest celebration, a stable home and shared milestones. In a relationship, it points to harmony, perhaps an engagement or moving in together. If you are single, a happy social scene may bring someone warm. Enjoy it.",
+    "rev": "Unease at home or a celebration that feels hollow. In a relationship, tension may sit under a cheerful surface, or commitment feels uncertain. If you are single, you may feel left out of other people's celebrations. Look at what would make home feel secure."
+   },
+   "career": {
+    "up": "You reach a stable, celebrated point after real effort. The canopy of wands and cheering figures suggest a team milestone, a secure position or a job that feels like home. Work, study and money lean towards stability. Pause to mark the achievement.",
+    "rev": "Stability feels shaky, or the achievement feels hollow. Work or study may involve tension in the team, or you may be unsure you belong. Money matters need a closer look at what is solid. Rest and celebrate only when it is real."
+   },
+   "feelings": {
+    "up": "They feel warm, settled and glad to share good times with you. Their feelings lean towards belonging and a stable bond, perhaps with friends or family involved. They enjoy the connection and want to keep it comfortable.",
+    "rev": "They feel uneasy or unsure about commitment, or the mood around you feels forced. They may be pulled away from home or social life. The warmth is present but not fully secure."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. The Four of Wands is a card of rest, celebration and a firm foundation. Things stand on stable ground.",
+    "rev": "Maybe. The foundations feel shaky or the celebration feels forced. Check what needs shoring up first."
+   },
+   "advice": {
+    "up": "Celebrate how far you have come and share the joy with people you trust. Build on this stable ground before moving on.",
+    "rev": "Look closely at what feels hollow or unsettled at home. Strengthen your base before you throw the party."
+   }
+  },
+  "wands_five": {
+   "love": {
+    "up": "Clashing wills in a relationship, with each person holding their stick and pushing for their way. Handled well, friendly friction clears the air and keeps things lively. If you are single, there may be competition for someone's attention. Keep it playful rather than combative.",
+    "rev": "Conflict is avoided, or tension turns inward and goes quiet. In a relationship, unspoken resentment can build where honest disagreement is needed. If you are single, rivalry or fear of competing may hold you back. Say what you need plainly."
+   },
+   "career": {
+    "up": "Competing ideas and egos crowd the room, which can be messy but productive. Work and study lean towards debate, rivalry and many people pulling in different directions. Money matters may involve competition. Stay open to being sharpened, and agree on a shared aim.",
+    "rev": "Conflict fades, is avoided, or becomes quiet tension in the team. Work or study may suffer from unspoken disagreements or a refusal to compete. Money questions need clear terms. Decide whether to engage or step away honestly."
+   },
+   "feelings": {
+    "up": "They feel stirred up, competitive or conflicted about you. Their feelings may be mixed with rivalry, or with ideas that clash with yours. There is energy and interest, but also friction to work through.",
+    "rev": "They avoid the conflict, and their feelings stay hidden under tension. They may be unsure how to bring up what bothers them. Interest may cool rather than clear."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     -1
+    ],
+    "up": "Maybe. Many forces are at play and the outcome depends on how the friction is handled. Competition could sharpen you or scatter you.",
+    "rev": "No. Avoided conflict or inward tension leaves things unresolved. The answer is not favourable until it is spoken about."
+   },
+   "advice": {
+    "up": "Bring your ideas to the table and let them be tested. Compete in good spirit and keep your aim in sight.",
+    "rev": "Do not bury the disagreement. Speak calmly, choose your battles, and step away if the fight no longer serves you."
+   }
+  },
+  "wands_six": {
+   "love": {
+    "up": "Recognition and pride in a relationship: you feel seen and celebrated, perhaps as a couple others admire. The rider with a laurel wreath suggests a confident, well-received connection. If you are single, confidence makes you attractive. Let your self-assurance show kindly.",
+    "rev": "Self-doubt or a need for praise shadows the relationship. In a relationship, one of you may seek approval, or achievements are not shared. If you are single, low confidence keeps you from being noticed. Build trust in yourself first."
+   },
+   "career": {
+    "up": "Your efforts are noticed and you ride through the crowd with a victory wreath. Work, study and money lean towards recognition, promotion, good results or praise. The success is visible to others. Accept it, and thank those who helped you.",
+    "rev": "Success is delayed, or praise feels hollow. Work or study may bring a setback to your confidence or credit given elsewhere. Money progress is slower than hoped. Measure your success by your own standards, not just applause."
+   },
+   "feelings": {
+    "up": "They admire you and feel proud of you. Their feelings lean towards respect, attraction to your confidence and a wish to be associated with you. They may also want to impress you in return.",
+    "rev": "They feel unsure about their own standing, or find it hard to praise you. Their feelings may be tied up with pride or comparison. Admiration may be there but unspoken."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. The Six of Wands is a card of victory and recognition. Confidence is justified and progress is likely to be seen.",
+    "rev": "Maybe. Success may be delayed, or your confidence shaky. Check what you are seeking, praise or real progress."
+   },
+   "advice": {
+    "up": "Accept recognition with grace. Share credit, and use your confidence to lead others forward.",
+    "rev": "Do not chase applause. Find your own measure of success and keep working without needing to be seen."
+   }
+  },
+  "wands_seven": {
+   "love": {
+    "up": "You defend your ground on the hill, holding out against challengers below. In a relationship, it suggests standing up for your needs or protecting the bond from outside pressure. If you are single, you hold firm about what you want. Stay clear, but do not mistake every question for an attack.",
+    "rev": "You feel worn down, or you give in too quickly. In a relationship, you may drop your needs to keep the peace, or feel outnumbered by pressure. If you are single, doubt may lead you to settle. Rest, and decide what is worth defending."
+   },
+   "career": {
+    "up": "You hold a position under pressure, with competitors or critics below. Work and study lean towards perseverance, defending your ideas and keeping your advantage. Money matters need a firm stance. Stay steady, but check whether every battle needs to be fought.",
+    "rev": "You feel overwhelmed and tempted to give up, or you are already giving way. Work or study may drain you through constant defence. Money pressures may wear down your resolve. Ask for support and choose which fights are worth it."
+   },
+   "feelings": {
+    "up": "They feel challenged, defensive or protective about their feelings, and may be holding their ground against you. They may also be defending the relationship from outsiders. Their feelings are strong, but guarded.",
+    "rev": "They are tired of defending themselves and may give up or back away. Their feelings could be overwhelmed by pressure from others. They may feel they cannot hold the line."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     -1
+    ],
+    "up": "Maybe. You can hold your position, but only with effort and resolve. The outcome depends on how firmly you stand.",
+    "rev": "No. You are overwhelmed or giving way, and the position is hard to keep. Reassess before you push further."
+   },
+   "advice": {
+    "up": "Stand your ground on what matters. Stay confident and do not let others push you off the high point.",
+    "rev": "Do not exhaust yourself fighting everything. Let go of what is not worth defending, and seek allies."
+   }
+  },
+  "wands_eight": {
+   "love": {
+    "up": "Things speed up, with messages and movement flying like wands through the air. In a relationship, it suggests quick developments, news or a rush of contact. If you are single, a fast spark or sudden invitation may arrive. Keep communicating, but check you are not rushing.",
+    "rev": "Delays, crossed wires or things moving faster than you can manage. In a relationship, messages may go astray or the pace feels uneven. If you are single, a quick start may fizzle. Slow down and make sure you are heard."
+   },
+   "career": {
+    "up": "Progress arrives quickly, with news, messages or travel. Work, study and money lean towards fast developments and the need to respond promptly. The wands in clear flight suggest open momentum. Act while the way is clear, and keep communication open.",
+    "rev": "Delays, scattered effort or things moving too fast. Work or study may involve missed messages, stalled plans or overload. Money matters may need a pause. Regroup before you act."
+   },
+   "feelings": {
+    "up": "They are moving fast with their feelings, eager to reach out or make plans. Their interest is quick and energetic, and they may want to act soon. Expect messages and a sense of momentum.",
+    "rev": "Their feelings are mixed up with delay or confusion, and communication gets crossed. They may be moving too fast, or going quiet. Their interest is uncertain at this pace."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. Things are in motion and the way is open, so act promptly. Movement is on your side.",
+    "rev": "Maybe. Delays or crossed wires hold things up. Wait for clarity and the answer may come quickly."
+   },
+   "advice": {
+    "up": "Move while the path is clear. Reply, travel, act, and keep your messages open.",
+    "rev": "Slow down and check your direction. Gather scattered effort before you let it fly."
+   }
+  },
+  "wands_nine": {
+   "love": {
+    "up": "Weary but still standing, you guard your heart after past hurts. In a relationship, it suggests resilience through a hard time and a need for trust to heal. If you are single, you may be cautious about letting someone in. Soften your guard when you feel safe.",
+    "rev": "Exhaustion, or defences that no longer protect. In a relationship, distrust or stubbornness may keep the other person out. If you are single, old wounds may block a new start. Rest and let someone help."
+   },
+   "career": {
+    "up": "You are nearly there after a long struggle, bandaged and still holding your staff. Work, study and money lean towards one last effort before relief. Resilience is the strength here. Keep boundaries, and finish what you started.",
+    "rev": "Burnout or stubbornness. Work or study may demand rest more than another push. Money strain may call for a calmer approach and honest limits. Take a break before you break."
+   },
+   "feelings": {
+    "up": "They have been through hard times and are cautious about being hurt again. Their feelings may be real but guarded, and they need time to trust you. They are tired, but still standing.",
+    "rev": "They are worn out and may have given up on opening up. Their defences are high, or no longer working. They may need space and rest before they can feel much."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     -1
+    ],
+    "up": "Maybe. You are close, but it will take one more effort and some resilience. The answer comes with fatigue.",
+    "rev": "No. You are exhausted, and pushing on may not help. Rest first, then reconsider."
+   },
+   "advice": {
+    "up": "Hold on a little longer. Draw on your resilience, protect your boundaries and finish the last stretch.",
+    "rev": "Stop and rest. Admit you are tired, drop the armour that no longer helps and let others support you."
+   }
+  },
+  "wands_ten": {
+   "love": {
+    "up": "You carry a heavy load, bundled wands blocking the view ahead. In a relationship, it suggests one of you takes on too much, or duties crowd out closeness. If you are single, you may be too busy with responsibilities to meet anyone. Share the weight honestly.",
+    "rev": "You put down the burden, or struggle to ask for help. In a relationship, resentment may peak, or you finally share the load. If you are single, letting go of obligations could make room for someone new. Be honest about what you can carry."
+   },
+   "career": {
+    "up": "You are carrying more than you were meant to, bent beneath the bundle. Work, study and money lean towards overload, heavy responsibility and little room to breathe. The goal is close, but the load is too much. Delegate, prioritise and put something down.",
+    "rev": "You drop the burden or collapse under it. Work or study may reach breaking point, or relief arrives as you hand things off. Money duties may need renegotiating. Ask for help before you reach the limit."
+   },
+   "feelings": {
+    "up": "They feel overburdened and distracted, and may have little energy for the relationship. Their feelings are not absent but buried under duty. They may need support more than romance.",
+    "rev": "They are overwhelmed or have put the load down, and are re-examining what they take on. Their feelings may return as pressure eases. They may struggle to ask you for help."
+   },
+   "yesno": {
+    "verdict": [
+     -1,
+     0
+    ],
+    "up": "No. The load is too heavy for easy progress. Lighten what you carry before you ask for more.",
+    "rev": "Maybe. Setting down the burden may change things, but it is not simple. Ask for help and see what remains."
+   },
+   "advice": {
+    "up": "Share the load, say no to extra duties and set down what is not yours to carry.",
+    "rev": "Ask for help now, rather than waiting to collapse. Let go of what you can and rebuild your strength."
+   }
+  },
+  "wands_page": {
+   "love": {
+    "up": "A lively, curious beginning, with someone eager to explore and try new things. In a relationship, it suggests playful experimentation or a fresh idea to share. If you are single, a message or an adventurous new acquaintance may appear. Stay open and enjoy the discovery.",
+    "rev": "Impatience or half-finished projects make things hard to rely on. In a relationship, enthusiasm for shared plans fades quickly. If you are single, someone may show exciting early interest and lose focus. Look for steadiness behind the sparkle."
+   },
+   "career": {
+    "up": "A new interest or an opportunity beckons, and you are happy to be a beginner. The Page holding a wand in the desert suggests curiosity, a message or a chance to try something unproven. Work, study and money lean towards learning and exploring. Follow your interest.",
+    "rev": "Scattered interest, dropped projects or enthusiasm without direction. Work or study may start well and fizzle when it gets hard. Money ideas need more grounding. Pick one project and see it through."
+   },
+   "feelings": {
+    "up": "They feel excited and curious about you, and may be eager to know you better. Their interest is playful and spirited, perhaps young at heart. They may send a message or make a bold gesture.",
+    "rev": "Their enthusiasm is shallow or short-lived, and they may lose interest quickly. Their feelings lack direction or follow-through. They may be more excited by the chase than the person."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. Curiosity and fresh energy are on your side. Try the new thing.",
+    "rev": "Maybe. The spark exists but may fizzle without direction. Decide what you want to finish."
+   },
+   "advice": {
+    "up": "Explore what interests you and ask questions without fear of being clumsy. Follow your curiosity.",
+    "rev": "Choose one idea and stay with it. Don't abandon your plans at the first difficulty."
+   }
+  },
+  "wands_knight": {
+   "love": {
+    "up": "A bold, charging energy that sweeps in with passion. In a relationship, it suggests adventure, excitement and perhaps restlessness. If you are single, a charismatic, quick-moving person may appear. The question is whether the speed is aimed at anything lasting.",
+    "rev": "Energy is stalled, rushed or scattered. In a relationship, impatience or frustration may flare, or one of you pulls away. If you are single, mixed signals and short-lived flings are possible. Slow down and look at where you are heading."
+   },
+   "career": {
+    "up": "Drive and adventure rush you forward on a rearing horse. Work, study and money lean towards fast action, bold plans and travel or change. There is a question over whether the speed leads anywhere. Channel the energy into something specific.",
+    "rev": "Plans stall, rush or scatter in several directions. Work or study may suffer from impatience or burnout. Money decisions made in haste may not hold. Think before you leap, and finish one thing first."
+   },
+   "feelings": {
+    "up": "They feel strong passion and want to act, perhaps with a dramatic gesture. Their interest is intense, but may be quick to burn out. They may be exciting company, but not yet steady.",
+    "rev": "Their feelings are mixed with impatience, or they pull away and lose focus. Their interest may run hot and cold. They may be restless rather than committed."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     -1
+    ],
+    "up": "Maybe. The energy is strong, but where it leads is uncertain. Choose a direction before you charge ahead.",
+    "rev": "No. Rushing or stalling makes the outcome unreliable. Pause and think before you act."
+   },
+   "advice": {
+    "up": "Act boldly, but set a target. Use your drive for something you care about, then see it through.",
+    "rev": "Slow down and check where you are going. Don't leap before you have looked."
+   }
+  },
+  "wands_queen": {
+   "love": {
+    "up": "Warm, confident and magnetic, with a sunflower and a black cat at her side. In a relationship, it suggests generosity, loyalty and a lively spark. If you are single, your own confidence draws people towards you. Be yourself and let others do the same.",
+    "rev": "Insecurity, jealousy or a need to be the centre of attention. In a relationship, warmth may turn possessive or controlling. If you are single, doubt may dim your natural glow. Reconnect with what you love about yourself."
+   },
+   "career": {
+    "up": "Confident, welcoming and driven, you lead by inspiring. Work, study and money lean towards charisma, networking and creative leadership. The sunflower suggests warmth and growth. Back yourself, support others and stay true to your own vision.",
+    "rev": "Confidence wavers, or warmth turns controlling. Work or study may involve jealousy, self-doubt or a struggle for attention. Money decisions need honest self-trust. Rediscover what excites you."
+   },
+   "feelings": {
+    "up": "They feel warmth, admiration and confidence towards you. Their feelings are open and generous, and they want you to shine alongside them. They may be affectionate and loyal.",
+    "rev": "They feel insecure or jealous, and their warmth may turn controlling. Their feelings may be mixed with a need for attention. They need reassurance."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. Confidence, warmth and drive favour you. Act from what you know about yourself.",
+    "rev": "Maybe. Self-doubt or jealousy clouds the answer. Rebuild your confidence first."
+   },
+   "advice": {
+    "up": "Be generous with your warmth and show who you are. Lead by inspiring others.",
+    "rev": "Don't let insecurity or jealousy run you. Reconnect with your own spark before you reach for others."
+   }
+  },
+  "wands_king": {
+   "love": {
+    "up": "A confident, passionate partner or presence with a clear vision. In a relationship, it suggests leadership, loyalty and shared ambition. If you are single, someone charismatic and decisive may appear. Look for strength paired with respect.",
+    "rev": "Leadership slips into control, or big promises lack follow-through. In a relationship, one of you may dominate decisions or lose patience. If you are single, a charming person may be better at talking than doing. Value listening alongside vision."
+   },
+   "career": {
+    "up": "A natural leader who sees where things are going and has the will to lead. Work, study and money lean towards bold decisions, entrepreneurship and taking charge. The salamander and flowing cloak suggest mastery of fire. Lead with clarity and let others contribute.",
+    "rev": "Leadership becomes domineering, or vision lacks follow-through. Work or study may suffer from impatience with details or people. Money plans need more practical groundwork. Listen before you command."
+   },
+   "feelings": {
+    "up": "They feel respect and desire, and see you as a partner in a larger vision. Their interest is bold and decisive. They may take the lead in showing it.",
+    "rev": "They may be controlling or too proud to show feelings. Their interest could outrun their follow-through. They may be impatient with how you feel."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. You have vision and the will to lead it. Make your decision and commit.",
+    "rev": "Maybe. Control or poor follow-through casts doubt. Check the details before you commit."
+   },
+   "advice": {
+    "up": "Lead with clarity and courage, and share your vision. Take responsibility for the direction.",
+    "rev": "Loosen your grip. Pay attention to the details and to other people before you push on."
+   }
+  },
+  "cups_ace": {
+   "love": {
+    "up": "An opening of the heart, with a cup overflowing with water. In a relationship, it suggests renewed tenderness, a deeper bond or a new beginning. If you are single, it points to a heartfelt new connection. Welcome kindness, including towards yourself.",
+    "rev": "Feelings are held in, blocked or poured out unseen. In a relationship, emotions may go unspoken or unreceived. If you are single, old hurt may keep your heart closed. Allow yourself to feel, gently."
+   },
+   "career": {
+    "up": "A new emotional beginning in your work: creativity, fulfilment or a role that matters to you. Work and study lean towards meaningful, compassionate or creative paths. Money questions lean towards offers that feel right as well as practical. Follow what moves you.",
+    "rev": "Creativity or enthusiasm for work is blocked or unacknowledged. Work or study may feel emotionally empty. Money decisions made from numbness need a second look. Listen to what you actually care about."
+   },
+   "feelings": {
+    "up": "They feel an opening of the heart towards you, with warmth, compassion and affection. The feeling is new and sincere. They may be ready to express it.",
+    "rev": "They hold their feelings back or do not know how to express them. Their emotions may be blocked or overwhelming. They may need time to open up."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. Love, compassion and a new emotional start are offered. Accept what flows to you.",
+    "rev": "Maybe. Feelings are blocked or unacknowledged. Listen to your own heart before answering."
+   },
+   "advice": {
+    "up": "Open your heart to what is being offered. Let kindness flow in and out.",
+    "rev": "Notice what you are holding back. Allow your feelings to be seen, gently and without rush."
+   }
+  },
+  "cups_two": {
+   "love": {
+    "up": "A meeting of equals, with two people exchanging cups under the caduceus. In a relationship, it suggests mutual respect, honesty and shared feeling. If you are single, a balanced, reciprocal connection may appear. Cherish a bond where both give and receive.",
+    "rev": "Imbalance, miscommunication or a bond drifting apart. In a relationship, one person may give more than the other, or words are misunderstood. If you are single, you may idealise someone who has not shown the same care. Talk plainly about what each of you needs."
+   },
+   "career": {
+    "up": "A partnership built on mutual respect, such as a collaboration, a deal or a good working relationship. Work, study and money lean towards agreements that work for both sides. Teamwork thrives where trust is shared. Seek fairness.",
+    "rev": "A partnership is uneven or communication falters. Work or study may involve misunderstandings or a collaboration that drifts. Money agreements need clearer terms. Clarify expectations on both sides."
+   },
+   "feelings": {
+    "up": "They feel a real connection and respect for you, wanting an equal bond. Their feelings are mutual and sincere. They are open to sharing and listening.",
+    "rev": "Their feelings are unequal, or confusion makes them pull back. They may not see the connection as you do. Talk to find out where they are."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. A balanced, mutual bond supports your question. Mutual agreement is likely.",
+    "rev": "Maybe. Imbalance or miscommunication clouds the answer. Clear things up before you decide."
+   },
+   "advice": {
+    "up": "Meet the other person as an equal. Listen, share honestly and build trust.",
+    "rev": "Address the imbalance directly. Say what you need and listen to what they need."
+   }
+  },
+  "cups_three": {
+   "love": {
+    "up": "Joy shared with friends, three figures raising their cups. In a relationship, it suggests happy social times and friends who support you as a couple. If you are single, connections often come through friendship and community. Celebrate together.",
+    "rev": "Overindulgence, gossip or feeling left out. In a relationship, social life may crowd the closeness, or a third person causes tension. If you are single, loneliness may show up at gatherings. Seek a few real friends rather than a big crowd."
+   },
+   "career": {
+    "up": "Teamwork and shared celebration. Work, study and money lean towards collaboration, group success and a friendly workplace. The raised cups suggest mutual support and joy in shared effort. Celebrate wins together.",
+    "rev": "Cliques, gossip or too much partying may distract from work. Work or study may feel isolating or the team turns sour. Money may be spent too freely on socialising. Keep a healthy balance."
+   },
+   "feelings": {
+    "up": "They feel friendly warmth and enjoy your company. Their feelings may start in friendship and shared fun. They value the community you share.",
+    "rev": "Their interest is more social than romantic, or they feel left out. They may be distracted by others. The mood may be indulgent more than intimate."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. Joy, friendship and support from others favour you. Celebrate and share the plan.",
+    "rev": "Maybe. Gossip, excess or isolation may cloud the answer. Check who truly supports you."
+   },
+   "advice": {
+    "up": "Spend time with people who lift you up. Share your happiness and accept their help.",
+    "rev": "Step back from gossip and excess. Look for real company over a loud crowd."
+   }
+  },
+  "cups_four": {
+   "love": {
+    "up": "You sit under a tree, arms folded, unaware of the cup being offered. In a relationship, it suggests boredom, withdrawal or missing small gestures of love. If you are single, you may be turning away from opportunities. Ask what you truly want.",
+    "rev": "You wake up to something you ignored. In a relationship, interest returns and you notice what was offered. If you are single, you open to new invitations after a dull patch. Or you may sink further into apathy if you do not act."
+   },
+   "career": {
+    "up": "Boredom or apathy at work or study makes you overlook what is on offer. The cloud-offered cup suggests an unnoticed opportunity. Money questions lean towards reviewing options. Pause, reflect and ask what truly interests you.",
+    "rev": "You notice an opportunity you dismissed and are ready to engage. Work or study may revive after a flat period. Money options deserve another look. Take action on what you now see."
+   },
+   "feelings": {
+    "up": "They feel bored, withdrawn or unsure what they want. Their feelings may be turned inward, and they may overlook what you offer. They need time to reflect.",
+    "rev": "They wake up to their feelings or to what you offer. Interest may return after a distant spell. They may also remain stuck if nothing changes."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     1
+    ],
+    "up": "Maybe. You may be missing what is offered, and the answer is not clear. Reflect before you decide.",
+    "rev": "Yes. You see the offer you ignored and are ready to accept it. Act on it."
+   },
+   "advice": {
+    "up": "Take time to reflect, but look up. Check whether boredom is hiding an offer.",
+    "rev": "Take hold of the cup you have noticed. Move from reflection to action."
+   }
+  },
+  "cups_five": {
+   "love": {
+    "up": "Grief and regret over spilled cups, while two still stand behind. In a relationship, it suggests mourning a loss or a rift, and focusing on what went wrong. If you are single, past heartbreak may colour how you see the present. Allow the grief, then turn around.",
+    "rev": "You begin to move on, forgive and turn towards what remains. In a relationship, healing and reconciliation are possible. If you are single, recovery from loss opens a little room for new love. Be kind to yourself as you turn."
+   },
+   "career": {
+    "up": "Disappointment over a loss or failure at work, study or money. The black cloak and spilled cups suggest regret, while the standing cups point to what is left. Dwell for a moment, then assess what remains. Look for the cups still full.",
+    "rev": "You recover from a setback and begin to see options again. Work or study improves as you let go of regret. Money matters recover slowly. Move forward with what you have learned."
+   },
+   "feelings": {
+    "up": "They feel sadness, regret or disappointment, perhaps about the relationship. Their feelings are tied to loss, and they find it hard to see what remains. They may need comfort.",
+    "rev": "They begin to heal and let go of resentment. Their feelings turn towards what is still good. They may be open to a fresh start."
+   },
+   "yesno": {
+    "verdict": [
+     -1,
+     0
+    ],
+    "up": "No. Loss and regret colour this moment, so the answer is not favourable now. Remember that some cups still stand.",
+    "rev": "Maybe. Healing has started and a better answer may come. Move on gently."
+   },
+   "advice": {
+    "up": "Let yourself grieve, then look at the two cups still standing. Don't stay in blame.",
+    "rev": "Forgive where you can, and slowly turn to what remains. Healing takes time."
+   }
+  },
+  "cups_six": {
+   "love": {
+    "up": "Warm memories and gentle generosity, with children offering flowers in a cup. In a relationship, it suggests old affection, shared history or simple kindness. If you are single, someone from your past or a familiar, comforting person may return. Treasure the sweetness without living in it.",
+    "rev": "Stuck in the past, or looking back instead of ahead. In a relationship, nostalgia can hide present problems, or old issues resurface. If you are single, an ex or old ideal may block new love. Let the past be a memory."
+   },
+   "career": {
+    "up": "Familiar surroundings, old colleagues or a return to earlier work or study. Money questions lean towards simple generosity, gifts or inheritance from the past. The card suggests kindness and warmth in your environment. Draw on what you learned before.",
+    "rev": "You cling to old ways and avoid change. Work or study may hold you in what is comfortable but outdated. Money habits from the past may need updating. Honour memories, then move forward."
+   },
+   "feelings": {
+    "up": "They feel fondness, nostalgia and tenderness towards you. Their feelings may be rooted in shared history or sweet memories. They are gentle and kind.",
+    "rev": "They are caught in the past or comparing you to someone from it. Their feelings may rely too much on memory. They may need to let go of what was."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. Warmth, memory and kindness favour you. Look to what has worked before.",
+    "rev": "Maybe. The past may be holding you back, so look forward before you decide."
+   },
+   "advice": {
+    "up": "Revisit happy memories and act with simple kindness. Reconnect with someone from your past if it feels right.",
+    "rev": "Do not live in yesterday. Let the memories rest and look at what is in front of you."
+   }
+  },
+  "cups_seven": {
+   "love": {
+    "up": "Many dreams float in clouds, each cup holding a different promise. In a relationship, it suggests idealising or imagining more than is there. If you are single, you may have many options but no clear choice. Sort fantasy from what is real.",
+    "rev": "Clarity arrives, or choices overwhelm. In a relationship, illusions fade and you see things as they are. If you are single, you may finally choose one thing, or feel lost in options. Focus on what you truly want."
+   },
+   "career": {
+    "up": "A wealth of options and daydreams, calling for clear sorting. Work, study and money lean towards many ideas and little commitment. The shrouded figure faces cups of treasure, jewels and a dragon, hinting at illusion. Choose one realistic plan.",
+    "rev": "The fog clears and you see which options are real. Work or study may focus once you stop daydreaming. Money choices improve with clearer facts. Or you may be lost in fantasy and decide nothing."
+   },
+   "feelings": {
+    "up": "They have many feelings and fantasies, and may not know what they want. Their interest may be more imaginary than real. They may be unclear about you.",
+    "rev": "They see things more clearly, or are overwhelmed by options. Their illusions about you are fading. They may finally decide what they want."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     0
+    ],
+    "up": "Maybe. Many possibilities and some illusion cloud the answer. Sort the real from the imagined first.",
+    "rev": "Maybe. The fog is lifting, but you must still choose. Check facts before you decide."
+   },
+   "advice": {
+    "up": "Write down your options and test which ones are real. Pick one and take a step.",
+    "rev": "Clear the fog. Face the facts and make a decision, rather than drifting in daydreams."
+   }
+  },
+  "cups_eight": {
+   "love": {
+    "up": "Walking away from something that looks fine but no longer satisfies. In a relationship, it suggests leaving, or an emotional distance that is growing. If you are single, you may be leaving a pattern that did not nourish you. Seek what you truly need.",
+    "rev": "Staying out of fear, or leaving without a plan. In a relationship, you may linger in a hollow bond, or leave without facing why. If you are single, aimless drifting may delay real connection. Be honest about what you want."
+   },
+   "career": {
+    "up": "You leave a stack of cups behind and head for the mountains under the moon. Work, study and money lean towards leaving a role that no longer fits, in search of meaning. It takes courage to walk away from the comfortable. Plan the journey.",
+    "rev": "You stay in an unfulfilling job out of fear, or leave in a rush. Work or study may stall in aimless drifting. Money risks need a plan. Decide whether to stay or go with open eyes."
+   },
+   "feelings": {
+    "up": "They are drawn to leave or withdraw, searching for something more. Their feelings may have cooled or they feel unfulfilled. They may be walking away, even if it is hard.",
+    "rev": "They linger out of fear, or leave without saying why. Their feelings are mixed and unspoken. They may hesitate between staying and going."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     -1
+    ],
+    "up": "Maybe. Walking away may serve you, but it is not an easy yes. Ask what is truly missing.",
+    "rev": "No. Fear or drifting makes the move unwise as it stands. Make a plan or face why you are stuck."
+   },
+   "advice": {
+    "up": "Be honest about what no longer fills you. Leave with care and carry the lessons.",
+    "rev": "Don't run, and don't hide. Face why you want to go, then choose to stay or leave on purpose."
+   }
+  },
+  "cups_nine": {
+   "love": {
+    "up": "Contentment and a wish fulfilled, the figure seated before their cups. In a relationship, it suggests satisfaction, enjoyment and gratitude for each other. If you are single, you are happy in your own company, which makes you open to love. Savour what you have.",
+    "rev": "Smugness or a wish that is not as satisfying as expected. In a relationship, dissatisfaction may hide behind a pleasant surface. If you are single, getting what you wanted may feel empty. Look at what you truly need."
+   },
+   "career": {
+    "up": "Satisfaction with what you have worked for, as your cups line up behind you. Work, study and money lean towards a job well done, comfort and enjoying your results. Gratitude suits this card. Enjoy it, and share it.",
+    "rev": "Dissatisfaction despite having what you wanted, or showing off. Work or study may fall short of the reward you imagined. Money gains may feel hollow. Ask what would truly fulfil you."
+   },
+   "feelings": {
+    "up": "They feel content and happy with you. Their feelings are warm and satisfied. They enjoy the connection and are grateful for it.",
+    "rev": "They feel unsatisfied even though things look fine, or are complacent. Their feelings may be shallow or smug. They may want more than they have."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. The Nine of Cups is the wish card: contentment and satisfaction are on offer. Enjoy it.",
+    "rev": "Maybe. Getting what you wanted may not feel as good as hoped. Check what you truly want."
+   },
+   "advice": {
+    "up": "Appreciate what you have and enjoy it without guilt. Thank those who helped you.",
+    "rev": "Look beyond the surface. If satisfaction feels empty, ask what you actually want."
+   }
+  },
+  "cups_ten": {
+   "love": {
+    "up": "A picture of a happy home beneath a rainbow of cups. In a relationship, it suggests emotional fulfilment, family bonds and shared contentment. If you are single, belonging and a loving community may shape your future. Cherish the people you love.",
+    "rev": "Strain in a family or group, or an ideal out of reach. In a relationship, values may not line up, or the picture looks better than it feels. If you are single, you may long for a perfect picture. Talk honestly about what each of you wants."
+   },
+   "career": {
+    "up": "Emotional fulfilment in a team or workplace that feels like family. Work, study and money lean towards harmony, shared success and security at home. The rainbow suggests lasting reward. Seek work that matches your values.",
+    "rev": "Tension in a team, or an ideal that hides real issues. Work or study may clash with your values or home life. Money matters may strain family harmony. Address the cracks rather than the picture."
+   },
+   "feelings": {
+    "up": "They feel deep affection and may imagine a shared home or family life with you. Their feelings are warm, loyal and committed. They value belonging.",
+    "rev": "Their feelings are tied to an ideal that does not fit reality. They may feel strain with family or values. Honest conversation is needed."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. Harmony, belonging and emotional fulfilment support your question. It looks happy.",
+    "rev": "Maybe. Strained bonds or an idealised picture cast doubt. Address the issues first."
+   },
+   "advice": {
+    "up": "Nurture the bonds you value and share your happiness. Make your home a place of warmth.",
+    "rev": "Be honest about the issues behind the ideal. Work on communication and shared values."
+   }
+  },
+  "cups_page": {
+   "love": {
+    "up": "A tender, creative message arrives, as a fish pops from the cup. In a relationship, it suggests sweet gestures, playful surprise and softness. If you are single, a gentle, imaginative person or a message of interest may appear. Listen to your feelings.",
+    "rev": "Feelings are held back or become melodrama. In a relationship, moodiness or immaturity may cause trouble. If you are single, daydreams may stand in for real contact. Name your feelings honestly and calmly."
+   },
+   "career": {
+    "up": "A creative impulse or a gentle message about work, study or money. The card suggests being open to surprise and trusting your imagination. Opportunities may come through intuition or the arts. Follow a small, heartfelt idea.",
+    "rev": "Creative blocks, moodiness or escape into daydreams. Work or study may suffer from oversensitivity or unrealistic hopes. Money decisions are best made when calm. Ground your ideas."
+   },
+   "feelings": {
+    "up": "They feel tender, shy and a little dreamy about you. Their feelings may arrive as a small gift, message or kind gesture. They are sincere, if still learning how to say it.",
+    "rev": "They hold back or feel moody about their feelings. Their interest may be mixed with daydreams or immaturity. They may need time to grow up emotionally."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. A gentle, hopeful message supports your question. Trust your feelings.",
+    "rev": "Maybe. Moodiness or unclear feelings blur the answer. Wait until you feel calm."
+   },
+   "advice": {
+    "up": "Follow your gentle impulses and be creative. Listen to what your feelings tell you.",
+    "rev": "Don't let moods run you. Ground your dreams with one practical step."
+   }
+  },
+  "cups_knight": {
+   "love": {
+    "up": "A romantic, charming figure on a calm horse, offering a cup. In a relationship, it suggests romance, an invitation or a gesture of devotion. If you are single, a dreamy, courteous person may approach. Enjoy the romance, and check it is real.",
+    "rev": "Charm without substance, or a retreat from feeling. In a relationship, promises may outrun reality, or someone pulls away. If you are single, mixed signals or an idealised crush may mislead you. Look for consistency."
+   },
+   "career": {
+    "up": "An offer or invitation arrives that moves you. Work, study and money lean towards creative, idealistic paths and pursuing what you care about. The Knight carries his cup with care. Weigh the offer against practical needs.",
+    "rev": "Unrealistic ideas or mixed signals. Work or study may suffer from daydreaming or unkept promises. Money offers need checking. Look past the charm to the details."
+   },
+   "feelings": {
+    "up": "They feel romantic and idealistic about you, and may offer a heartfelt gesture. Their feelings are sincere, though perhaps dreamy. They may be courting you in their own gentle style.",
+    "rev": "Their charm is stronger than their commitment, or they retreat from feeling. Their promises may outrun reality. Their intentions may be unclear."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. An offer or romantic gesture supports your question. Follow your heart with open eyes.",
+    "rev": "Maybe. Mixed signals or unrealistic hopes cast doubt. Check what is real."
+   },
+   "advice": {
+    "up": "Follow your heart and accept the invitation, with your feet still on the ground.",
+    "rev": "Don't be swept off by charm alone. Ask for consistent actions, not just words."
+   }
+  },
+  "cups_queen": {
+   "love": {
+    "up": "Deep feeling held with care, the Queen gazing at an ornate cup. In a relationship, it suggests empathy, devotion and intuitive understanding. If you are single, a caring, sensitive connection may come. Look after your own heart as well.",
+    "rev": "Empathy tips into over-giving, or feelings are shut away. In a relationship, one of you may absorb the other's moods or lose boundaries. If you are single, you may protect yourself too much. Care for yourself as well as others."
+   },
+   "career": {
+    "up": "Empathy and intuition guide your work, study and money choices. Caring professions, creative or counselling roles may suit. The Queen sits at the water's edge, suggesting emotional depth. Trust your instincts, with sensible limits.",
+    "rev": "Emotional overwhelm or neglecting your own needs. Work or study may drain you as you take on others' feelings. Money decisions made from sympathy may need care. Set boundaries."
+   },
+   "feelings": {
+    "up": "They feel deep care, empathy and affection towards you. Their feelings are gentle, intuitive and sincere. They want to understand and support you.",
+    "rev": "They feel overwhelmed or hold back to protect themselves. Their care may turn into over-giving, or they shut down. They need space to look after themselves."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. Compassion and intuition support you. Trust your inner sense.",
+    "rev": "Maybe. Emotional overwhelm clouds your judgement. Care for your own needs first."
+   },
+   "advice": {
+    "up": "Trust your intuition and care for others, including yourself. Be gentle but keep your boundaries.",
+    "rev": "Stop over-giving. Step back, rest and attend to your own feelings."
+   }
+  },
+  "cups_king": {
+   "love": {
+    "up": "Mature, steady love: calm, kind and emotionally balanced. In a relationship, it suggests patience, diplomacy and a partner who can hold feeling without being ruled by it. If you are single, a thoughtful, grounded person may appear. Seek calm over drama.",
+    "rev": "Suppressed feelings or moodiness hiding behind composure. In a relationship, emotional distance or subtle manipulation may creep in. If you are single, you may guard your heart too tightly. Let some feeling show."
+   },
+   "career": {
+    "up": "Emotional maturity guides your work, study and money matters. Diplomacy, advice and steady leadership suit this card. The King sits on a throne on rough water, calm among motion. Keep your head and be compassionate.",
+    "rev": "Control of feeling hardens into coldness, or composure cracks. Work or study may involve suppressed stress or moodiness. Money decisions may be made from avoidance. Admit what you feel."
+   },
+   "feelings": {
+    "up": "They feel steady, caring affection, and respond with maturity. Their feelings are deep but measured, and they are reliable. They show love through calm support.",
+    "rev": "They hide feelings behind composure or keep their distance. Their emotions may be suppressed or confusing. They may struggle to open up."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. Emotional balance and calm judgement favour your question. Move forward with care.",
+    "rev": "Maybe. Suppressed feelings or moodiness cloud the answer. Be honest about what you feel."
+   },
+   "advice": {
+    "up": "Stay calm under pressure and feel deeply while choosing how to respond. Offer steady care.",
+    "rev": "Don't bury what you feel. Let honest emotion in before it turns cold or breaks out."
+   }
+  },
+  "swords_ace": {
+   "love": {
+    "up": "In a relationship, this suggests a conversation that finally says what has gone unsaid. The sword cuts through mixed signals, so plain, kind honesty helps both of you. If you are single, it points to seeing clearly what you want before you go looking.",
+    "rev": "Reversed, words may come out sharper than intended, or a truth stays swallowed. Partners may talk past each other. If you are single, muddled expectations could be clouding things, so name what you really want before acting."
+   },
+   "career": {
+    "up": "This points to a sharp idea or a clear decision arriving in your work or studies. The crowned sword suggests a breakthrough you can act on once you state the goal plainly. Money choices also lean towards being simple and well reasoned.",
+    "rev": "Your thinking may feel foggy, and a proposal or plan could be unclear or poorly worded. It suggests slowing down and checking facts before you commit. Avoid sending sharp messages to colleagues when you are frustrated."
+   },
+   "feelings": {
+    "up": "This person sees you clearly and wants honesty between you. Their feelings tend to be direct rather than coy, and they may be ready to say where they stand. They value truth and a clean start.",
+    "rev": "This person may be confused about how they feel, or holding back something they know. Their words may come out harsh or not at all. The picture is unclear until someone speaks plainly."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. The raised sword and its crown point to clarity and a decisive step. If the question is plain and you have the facts, the answer leans towards a clear go-ahead.",
+    "rev": "Maybe. The cloud is thick here, so the facts are not yet clear or something is being avoided. Clarify the question before relying on any answer."
+   },
+   "advice": {
+    "up": "Think it through, then say it simply. Write down the one idea that matters and act on it, using words that are honest but not cutting.",
+    "rev": "Pause before you speak or decide. Ask what you are avoiding admitting, and give yourself time to untangle your thoughts before taking them to others."
+   }
+  },
+  "swords_two": {
+   "love": {
+    "up": "A relationship may be at a stalemate, with both of you guarding your hearts behind crossed swords. The blindfold suggests something is not being looked at. Honest talk, when you are ready, can lower the swords. If single, you may be shutting out options to stay safe.",
+    "rev": "Reversed, the blindfold slips and a hidden feeling comes to light, or the standoff drags on with no resolution. Partners may be forced to face a choice. If single, you may finally admit what you really want."
+   },
+   "career": {
+    "up": "You face a choice at work or about money, and you are avoiding it by refusing to look. Equal options can feel impossible to weigh. The card suggests gathering facts, then deciding, rather than staying balanced forever.",
+    "rev": "A decision gets forced, or new information arrives that breaks the deadlock. Alternatively the indecision drags on and costs you time. Look at the facts you have been avoiding and choose."
+   },
+   "feelings": {
+    "up": "This person is guarded and unsure. They may care but are keeping their emotions behind a wall, unwilling to commit to a view. They could be torn between two feelings.",
+    "rev": "This person is starting to see their own feelings more clearly, or is being pushed to decide. Alternatively they are still stuck, and silence continues. Expect some movement, but not necessarily comfort."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     0
+    ],
+    "up": "Not yet. The crossed swords and blindfold suggest the answer is on hold because a choice is being avoided. Get more information before asking again.",
+    "rev": "Maybe. The blindfold is slipping, so something may soon be clear, but the deadlock may also persist. Wait for the new facts."
+   },
+   "advice": {
+    "up": "Take off the blindfold when you are ready. List what you know and what you fear, then make the smallest honest choice you can.",
+    "rev": "Face what you have been avoiding, because it may be forced on you anyway. Gather the missing information and decide on your own terms."
+   }
+  },
+  "swords_three": {
+   "love": {
+    "up": "In a relationship, this suggests a painful truth or a hurt that needs to be felt, perhaps betrayal or a hard conversation. Talking honestly helps more than hiding. If you are single, an old heartbreak may still be sore.",
+    "rev": "Reversed, healing begins and the pain starts to ease, or you may be replaying an old hurt and keeping the wound open. Forgiveness, of yourself or another, may be near. If single, you are slowly opening again."
+   },
+   "career": {
+    "up": "Disappointment at work or study is likely, such as a rejection, a conflict, or bad news about money. The three swords through the heart suggest it stings, but naming it is the first step. Seek support rather than carrying it alone.",
+    "rev": "You are recovering from a setback, and the sting is fading. You may also be dwelling on past criticism or a job lost. Learn what you can from it and move on."
+   },
+   "feelings": {
+    "up": "This person may feel hurt, or may be causing hurt through painful honesty. Their feelings include sorrow or disappointment. Something unsaid is weighing on them.",
+    "rev": "This person is healing from hurt and may be ready to let go of old pain. Alternatively they are still holding onto a grievance. Their feelings are softening slowly."
+   },
+   "yesno": {
+    "verdict": [
+     -1,
+     0
+    ],
+    "up": "No. The heart pierced by three swords suggests sorrow and a hard truth. The honest answer is likely not the one you hope for.",
+    "rev": "Maybe. Pain is easing, and recovery is possible, but old wounds may still colour the answer. Allow time before expecting a clear yes."
+   },
+   "advice": {
+    "up": "Let yourself feel the hurt and speak about it with someone you trust. Honesty with yourself is the first step towards healing.",
+    "rev": "Gently put the pain down. Forgive where you can, and notice whether you are clinging to the hurt out of habit."
+   }
+  },
+  "swords_four": {
+   "love": {
+    "up": "In a relationship, this suggests a quiet pause. You may need rest or space, or time together without demands. If single, a break from dating to recover and recharge is wise. Retreating is healthy, as long as you do not hide for too long.",
+    "rev": "Reversed, restlessness sets in, or one of you jumps back into emotional intensity before you are ready. If you are single, you may rush into dating while still tired. Rest a little longer."
+   },
+   "career": {
+    "up": "Your work or study life asks for a pause. The resting knight on the tomb suggests recovery after strain. Step back from money worries or deadlines to recharge, and plan before you return.",
+    "rev": "You may feel restless, or you are returning to work too soon and risking burnout. Ignoring tiredness can cost you later. Build rest into your routine."
+   },
+   "feelings": {
+    "up": "This person needs space and quiet. They may be withdrawn or recovering, not rejecting you. Their feelings are still there, but they are low on energy.",
+    "rev": "This person is restless or coming back into contact sooner than they should. They may feel pressure to act before they have healed. Give them room."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     0
+    ],
+    "up": "Not yet. The still figure suggests waiting and resting. The answer needs time and a calmer mind.",
+    "rev": "Maybe. You are restless to act, but resting longer may still be wiser. Check you are not rushing."
+   },
+   "advice": {
+    "up": "Rest on purpose. Close the door for a while, recover, and let your mind settle before the next move.",
+    "rev": "Do not rush back. Notice whether your restlessness is energy or avoidance, and take the remaining rest you need."
+   }
+  },
+  "swords_five": {
+   "love": {
+    "up": "In a relationship, this suggests a quarrel where winning costs more than it gains. Pride and point-scoring can leave both people alone. If you are single, watch for old rivalries or defensive habits. Choose which arguments are worth having.",
+    "rev": "Reversed, peace may be made, or you walk away from an argument. Alternatively, resentment lingers long after the fight. An apology could help clear the air."
+   },
+   "career": {
+    "up": "Conflict at work or study is likely, with a hollow win or someone left behind. The smirking figure holds the swords while others walk away in defeat. Think about what a win actually costs, including money and goodwill.",
+    "rev": "Tension is easing, and you may make amends or step back from a rivalry. Some resentment may linger. Repair relationships where you can."
+   },
+   "feelings": {
+    "up": "This person may feel competitive or defensive with you. They could be keeping score, or feeling they lost something. Their feelings are tangled in pride.",
+    "rev": "This person is ready to make peace, or wants to leave the conflict behind. They may also still be bitter. Their feelings lean towards softening."
+   },
+   "yesno": {
+    "verdict": [
+     -1,
+     0
+    ],
+    "up": "No. The scattered swords and departing figures suggest a win that costs too much. Expect conflict or a hollow result.",
+    "rev": "Maybe. The fight may be ending, but resentment may remain. Peace is possible if someone lets go first."
+   },
+   "advice": {
+    "up": "Choose your battles. Ask whether being right is worth the cost, and walk away when the fight is not worth winning.",
+    "rev": "Make amends or let it go. Drop the grudge, and consider whether an honest apology would serve you better than victory."
+   }
+  },
+  "swords_six": {
+   "love": {
+    "up": "In a relationship, this suggests moving together into calmer waters after a difficult time. The boat carries lessons with it, so some old hurt may still need care. If you are single, you are gradually leaving a painful chapter behind and healing.",
+    "rev": "Reversed, you may resist moving on, or old baggage follows you into the new relationship. Passage may be delayed. If single, unresolved feelings for a past partner may be in the way."
+   },
+   "career": {
+    "up": "Work or study moves into a calmer phase, perhaps a change of job, place or approach. The ferry crossing suggests a slow, steady passage away from trouble. Bring your lessons but leave the heaviest worries behind.",
+    "rev": "A move is delayed or you are carrying old problems into the new situation. You may be reluctant to change. Deal with leftover issues before you go."
+   },
+   "feelings": {
+    "up": "This person wants to move on from difficulty and find peace with you. Their feelings are tender and cautious, growing slowly as things calm. They are learning from the past.",
+    "rev": "This person is stuck in the past, or carrying baggage into how they feel about you. They may be reluctant to move forward. Their feelings come with some unfinished business."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. The boat is moving towards calmer water, so the answer leans towards a gentle improvement over time.",
+    "rev": "Maybe. The passage is delayed or old baggage is still in the boat. Progress is possible once you deal with it."
+   },
+   "advice": {
+    "up": "Let yourself move on gradually. Take your lessons, leave what you can, and trust the slow crossing.",
+    "rev": "Look at what you are carrying and what is holding you at the shore. Unpack the baggage so the journey can begin."
+   }
+  },
+  "swords_seven": {
+   "love": {
+    "up": "In a relationship, this suggests secrecy, avoidance or someone not being fully honest. It may also be you holding something back. If single, you might be guarding yourself or playing games. Honest conversation protects trust.",
+    "rev": "Reversed, the truth comes out and someone comes clean, or a hidden plan is caught. This can clear the air or cause a scene. If single, you may stop hiding behind a cautious front."
+   },
+   "career": {
+    "up": "Work or money calls for careful strategy, but the figure sneaking away with swords warns against cutting corners. It may signal someone taking credit or avoiding responsibility. Be honest about the cost of any shortcut.",
+    "rev": "A scheme backfires, or you come clean about a mistake. Being caught out may happen. Taking responsibility now often costs less than hiding."
+   },
+   "feelings": {
+    "up": "This person may be holding something back, or avoiding a direct conversation. Their feelings are hard to read and they may be hiding some of them. Watch how their words match their actions.",
+    "rev": "This person may be ready to be honest about what they feel, or has been caught out in an evasion. The truth is surfacing. Their feelings become clearer."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     -1
+    ],
+    "up": "Maybe. Sneaking off with swords suggests a clever route, but also something hidden. The outcome depends on honesty about the cost.",
+    "rev": "No. The plan is likely to unravel or be discovered. A direct approach would serve you better."
+   },
+   "advice": {
+    "up": "Be strategic, but do not be sly. If you take an indirect route, ask what you are not saying and who it may affect.",
+    "rev": "Come clean before you are found out. Take responsibility and look for a more honest way forward."
+   }
+  },
+  "swords_eight": {
+   "love": {
+    "up": "In a relationship, this suggests feeling trapped or unable to speak, often by fear rather than fact. The binding looks loose. Talk about what you fear. If single, self-doubt may be keeping you from reaching out.",
+    "rev": "Reversed, you slip the ropes and see choices again, perhaps finding your voice in a relationship. If single, you are letting go of limiting stories. Courage is returning."
+   },
+   "career": {
+    "up": "You feel stuck in your work, study or money situation and cannot see options. The blindfold and loose bindings suggest your view is narrower than the reality. List what you can actually change.",
+    "rev": "A way out opens as you take off the blindfold. You begin to see choices and ask for help. Act on the first small option."
+   },
+   "feelings": {
+    "up": "This person feels stuck or afraid of what they feel. They may be unable to act, held back by anxiety or self-doubt. Their feelings are not absent, only bound.",
+    "rev": "This person is starting to find their voice. They may be freeing themselves from fear or an old story. Their feelings become easier to express."
+   },
+   "yesno": {
+    "verdict": [
+     -1,
+     0
+    ],
+    "up": "No. The bound, blindfolded figure suggests feeling trapped, so a clear yes is unlikely right now. Check whether the limits are real.",
+    "rev": "Maybe. The blindfold is coming off and options reappear. The answer may improve once you see more clearly."
+   },
+   "advice": {
+    "up": "Remove the blindfold. Ask what is truly stopping you, then take one small step. The ropes may be looser than they seem.",
+    "rev": "Keep stepping out. Trust that choices exist, and ask someone you trust to help you see them."
+   }
+  },
+  "swords_nine": {
+   "love": {
+    "up": "In a relationship, worry or guilt may haunt the quiet hours, with fears about being left or not being enough. Sharing the worry with your partner often shrinks it. If single, anxious thoughts may be exaggerating the risks of getting close.",
+    "rev": "Reversed, fears begin to ease, or anxiety is so heavy that you need extra support. Talking to a trusted person helps. If single, you may be learning that the night looks worse than the morning."
+   },
+   "career": {
+    "up": "Worries about work, study or money keep you awake. The swords on the wall suggest the fear is louder in your head than in fact. Make a plan, share the load, and check what is truly within your control.",
+    "rev": "Stress is easing, or you are buried under it. Seek support from colleagues, friends or professionals if it feels too heavy."
+   },
+   "feelings": {
+    "up": "This person is anxious and may be lying awake over you or the situation. Their feelings include worry and guilt rather than indifference. They may fear saying the wrong thing.",
+    "rev": "This person is calming down, or is buried in worry and withdrawn. Their feelings are hard to reach until the fear lifts. Offer reassurance."
+   },
+   "yesno": {
+    "verdict": [
+     -1,
+     0
+    ],
+    "up": "No. The night worries suggest fear is clouding the question, so the answer leans no for now. Look again in daylight.",
+    "rev": "Maybe. Fears are easing, and the picture may brighten. Ask again once you are calmer."
+   },
+   "advice": {
+    "up": "Tell someone what keeps you awake. Write the worries down, and separate real problems from fears in the dark.",
+    "rev": "Reach out for support and do not battle alone. Remember that worry often fades by morning."
+   }
+  },
+  "swords_ten": {
+   "love": {
+    "up": "In a relationship, an old pattern or a painful stage reaches its end. It may feel like rock bottom, but it clears the way. If single, you are ending a long hurt and may feel exhausted. Healing begins when you stop fighting the ending.",
+    "rev": "Reversed, recovery slowly begins, or you refuse to let a painful ending go. The dawn is on the horizon. If single, you are rising from old wounds, with gentle steps."
+   },
+   "career": {
+    "up": "A work, study or money chapter ends painfully, such as a loss or a final blow. The ten swords suggest it cannot get worse. Accept the ending and plan for the new start.",
+    "rev": "The worst has passed and recovery begins. You may also cling to the loss or dramatise it. Rebuild gradually."
+   },
+   "feelings": {
+    "up": "This person feels worn out or at the end of something. Their feelings may be heavy with sorrow, or finished. A fresh start is the only way for them.",
+    "rev": "This person is recovering and beginning to look forward. They may also cling to hurt. Their feelings are slowly lifting."
+   },
+   "yesno": {
+    "verdict": [
+     -1,
+     0
+    ],
+    "up": "No. The ten swords and the dark sky suggest an ending. The answer is no, though dawn lies behind it.",
+    "rev": "Maybe. The sun is rising and recovery has begun. A yes may be possible once the old chapter is closed."
+   },
+   "advice": {
+    "up": "Accept the ending. Rest, and let go of what has finished. The only direction left is forward.",
+    "rev": "Stop reliving the pain. Let recovery take its time, and resist the role of victim."
+   }
+  },
+  "swords_page": {
+   "love": {
+    "up": "In a relationship, this suggests curiosity, asking questions and learning about each other. Conversation sparks attraction. If single, a witty, inquisitive new connection may appear, or you are curious about what you want. Keep it honest.",
+    "rev": "Reversed, gossip, careless remarks or scattered thoughts get in the way. Partners may speak before thinking. If single, you may be overthinking or playing mind games."
+   },
+   "career": {
+    "up": "Work or study favours research, questions and fresh ideas. The Page watches the sky with sword raised, suggesting vigilance and a quick mind. Gather facts and learn before you commit.",
+    "rev": "Ideas scatter, gossip distracts, or you act in haste. Focus on one task, check your facts, and watch your words."
+   },
+   "feelings": {
+    "up": "This person is curious about you and keen to learn more. Their feelings are alert and playful, driven by interest. They enjoy talking with you.",
+    "rev": "This person may be gossiping or sending mixed messages. Their feelings are hard to pin down, as thoughts race. They may be using words carelessly."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. The alert Page suggests a bright, curious start. The answer leans yes if you do your homework.",
+    "rev": "Maybe. Scattered thoughts or gossip cloud the picture. Check your facts before deciding."
+   },
+   "advice": {
+    "up": "Ask questions and gather facts. Stay curious, and keep your words honest and kind.",
+    "rev": "Think before you speak. Avoid gossip, and settle on one idea before chasing the next."
+   }
+  },
+  "swords_knight": {
+   "love": {
+    "up": "In a relationship, this suggests a direct, fast-moving energy. Someone charges in with strong opinions, and may not listen. If single, a quick-witted, ambitious connection may rush in. Bluntness can hurt, so slow down and hear each other.",
+    "rev": "Reversed, haste turns to carelessness, or plans stall in overthinking. Partners may argue sharply. If single, you may rush or hold back by overthinking."
+   },
+   "career": {
+    "up": "Work or study moves quickly, with ambition and drive. The Knight gallops into the wind, suggesting speed and focus. Watch for bluntness with colleagues, and check details before charging ahead.",
+    "rev": "You burn out, act without thinking, or stall. A hasty decision about money or work may backfire. Slow down and plan."
+   },
+   "feelings": {
+    "up": "This person is direct and passionate, but may move too quickly. Their feelings come out forcefully, and they may not listen. They want to act.",
+    "rev": "This person is careless or inconsistent with their feelings. They may be impulsive, or stuck thinking. Their words may not match their actions."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     -1
+    ],
+    "up": "Maybe. The Knight is fast and decisive, but speed can overlook details. The answer is yes if you are careful, and no if you rush.",
+    "rev": "No. Haste and carelessness are likely to cause trouble. Slow down before trying again."
+   },
+   "advice": {
+    "up": "Act with focus, but listen as you go. Keep your drive and soften your words.",
+    "rev": "Stop and check the details. Do not push on out of pride, and consider whether you are overthinking."
+   }
+  },
+  "swords_queen": {
+   "love": {
+    "up": "In a relationship, this suggests honest, straight talk grounded in experience. You each say what you mean, kindly. If single, you value independence and clarity, and may seek an equal who is truthful. Hold your boundaries without closing your heart.",
+    "rev": "Reversed, clarity turns cold or critical, or truth is held back. Partners may feel judged. If single, past hurt may be making you guarded."
+   },
+   "career": {
+    "up": "Work and study favour clear thinking, fairness and good judgement. The Queen holds her sword raised, suggesting an honest, independent approach. Communicate plainly and make financial decisions on facts.",
+    "rev": "Criticism may become too harsh, or you distance yourself from colleagues. Soften your tone and share your reasoning."
+   },
+   "feelings": {
+    "up": "This person sees you clearly and values honesty. Their feelings may be reserved but sincere, and they say what they mean. They respect independence.",
+    "rev": "This person may be cold, critical or guarded. They might be hiding feelings behind sharpness. Their feelings are not absent, only protected."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. The Queen's clear sight suggests a considered, honest yes, if you face the facts.",
+    "rev": "Maybe. Coldness or withheld truth blurs the answer. Soften your view and ask again."
+   },
+   "advice": {
+    "up": "Speak the truth kindly. Rely on your experience and keep clear boundaries without cutting people off.",
+    "rev": "Check whether you are being harsh or too distant. Let some warmth in, and say what you have been holding back."
+   }
+  },
+  "swords_king": {
+   "love": {
+    "up": "In a relationship, this suggests fair, steady conversation and clear commitments. You think things through and stand by your word. If single, you may seek a thoughtful, principled partner. Add warmth to reason.",
+    "rev": "Reversed, rigid thinking or cold authority can strain things. Partners may feel judged or controlled. If single, you may be too analytical about love."
+   },
+   "career": {
+    "up": "Work and study favour authority built on reason and fair decisions. The King sits upright with a raised sword, suggesting principle and clear judgement. Be informed and consistent with money and responsibility.",
+    "rev": "Reason turns rigid, or power is misused. You may be stubborn, or your judgement is clouded. Listen to others and adjust."
+   },
+   "feelings": {
+    "up": "This person is thoughtful and principled, and takes their feelings seriously. They show care through reliability and fairness more than emotion. They want things to make sense.",
+    "rev": "This person may be rigid, controlling or emotionally cold. They find it hard to express feelings. Their care may be hidden by logic."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. The King's reasoned, fair judgement suggests a considered yes if the facts support it.",
+    "rev": "Maybe. Rigid thinking or clouded judgement blurs things. Seek another view before you decide."
+   },
+   "advice": {
+    "up": "Think clearly, be fair, and stand by your decisions. Stay open to other views.",
+    "rev": "Soften your stance. Check that you are not using authority or logic to shut people out."
+   }
+  },
+  "pentacles_ace": {
+   "love": {
+    "up": "In a relationship, this suggests a solid new beginning, such as a commitment, moving in together, or a steady bond that can grow. If single, a down-to-earth connection may begin. Nurture it with practical care as well as feeling.",
+    "rev": "Reversed, a chance may be missed or a relationship lacks a foundation. Partners may not be making plans. If single, you may overlook someone steady, or rush without groundwork."
+   },
+   "career": {
+    "up": "A real opportunity in work, study or money is offered, like a job, course or fresh income. The hand from the cloud holds a coin above a garden gate. Plant it carefully and plan ahead.",
+    "rev": "An opportunity slips by or a plan lacks foundation. Money matters may need a better budget. Check the details before committing."
+   },
+   "feelings": {
+    "up": "This person feels a steady, real interest in you. Their feelings are practical and sincere, and they see a future. They may show it by being dependable.",
+    "rev": "This person may not be ready to commit, or their interest lacks substance. They may be missing the chance to say how they feel. Feelings need a firmer base."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. The coin in the open hand suggests a solid start, so the answer leans yes if you act practically.",
+    "rev": "Maybe. A chance may be missed or lack planning. Build the groundwork first."
+   },
+   "advice": {
+    "up": "Take the opportunity, and plant it carefully. Make a realistic plan and take the first practical step.",
+    "rev": "Check your foundations. Do not waste a chance, and find what is missing before moving on."
+   }
+  },
+  "pentacles_two": {
+   "love": {
+    "up": "In a relationship, this suggests juggling time between love and other duties. Flexibility helps you keep a rhythm together. If single, a busy life may leave little room for dating. Make space and keep playful.",
+    "rev": "Reversed, overcommitment leaves little energy, and partners may feel neglected. Plans fall apart. If single, you may be stretched too thin to meet anyone."
+   },
+   "career": {
+    "up": "Work, study and money require juggling several tasks. The figure dances while keeping two coins in the air, suggesting adaptability. Keep a steady rhythm, and plan your budget and time.",
+    "rev": "You overcommit, drop things, or lose organisation. Money may feel stretched. Prioritise, and say no to something."
+   },
+   "feelings": {
+    "up": "This person has a lot going on and is dividing their attention. Their feelings are real but are competing with other demands. They may be hard to pin down.",
+    "rev": "This person is overwhelmed and may be neglecting you. Their feelings are lost in the chaos. They may struggle to commit."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     -1
+    ],
+    "up": "Maybe. The juggling suggests it depends on balance. The answer leans yes if you stay flexible and keep your rhythm.",
+    "rev": "No. Overcommitment makes it unlikely to work for now. Clear some load first."
+   },
+   "advice": {
+    "up": "Keep your rhythm and stay flexible. Choose your priorities, and do not take on more than you can hold.",
+    "rev": "Put something down. Get organised, ask for help, and avoid adding more."
+   }
+  },
+  "pentacles_three": {
+   "love": {
+    "up": "In a relationship, this suggests building something together, with each person bringing skill and effort. Teamwork and respect strengthen the bond. If single, you may meet someone through work or shared projects. Work on it together.",
+    "rev": "Reversed, partners work at cross purposes, or effort is uneven. Communication about shared plans may be poor. If single, you may feel your efforts are not noticed."
+   },
+   "career": {
+    "up": "Work and study favour collaboration, craft and skill that others recognise. The craftsman at the cathedral wall consults with others on the plans. Seek feedback and good money comes from good work.",
+    "rev": "Teamwork is poor or you produce work below your usual standard. Feedback is ignored. Look at the roles and communicate clearly."
+   },
+   "feelings": {
+    "up": "This person respects you and values what you bring. Their feelings grow through shared effort and teamwork. They see you as a partner.",
+    "rev": "This person may feel the connection lacks pride or cooperation. Their feelings are lukewarm, or you are not on the same page. Talk about it."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. Skilled collaboration suggests good work grows from here. The answer leans yes if you work together.",
+    "rev": "Maybe. Poor teamwork or half-hearted effort may spoil things. Improve the plan first."
+   },
+   "advice": {
+    "up": "Work with others and take pride in your craft. Ask for feedback, and build step by step.",
+    "rev": "Check the teamwork and your standards. Listen to advice, and pull in the same direction."
+   }
+  },
+  "pentacles_four": {
+   "love": {
+    "up": "In a relationship, this suggests holding on tightly, from security or fear of loss. Control can protect, but also keeps closeness away. If single, you may guard your heart and your space. Loosen your grip a little.",
+    "rev": "Reversed, tight control loosens, and generosity returns. Alternatively, you swing to the other extreme. If single, you begin to open up to new people."
+   },
+   "career": {
+    "up": "Work and money call for saving and security, but the figure clutching coins warns against clinging. Fear of loss can limit growth. Be prudent, and still allow some risk.",
+    "rev": "You loosen your hold on money or control, or spend without thought. Strike a balance. Review your budget calmly."
+   },
+   "feelings": {
+    "up": "This person is protective of their heart and holds back. Their feelings include fear of loss or need for control. They want security before opening up.",
+    "rev": "This person is opening up or letting go of control. They may also be careless with emotions. Their feelings begin to flow more freely."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     0
+    ],
+    "up": "Not yet. The figure clutching coins suggests holding back. The answer needs more security and less fear.",
+    "rev": "Maybe. The grip loosens, so something may open up, but be careful of swinging to carelessness."
+   },
+   "advice": {
+    "up": "Value what you have, but ask what you are gripping out of fear. Share a little.",
+    "rev": "Loosen your grip, and be generous without being reckless. Notice where control has become a habit."
+   }
+  },
+  "pentacles_five": {
+   "love": {
+    "up": "In a relationship, this suggests a cold patch, feeling left out or shut out. Help is close by, but pride or worry may stop you asking. If single, loneliness may feel heavy. Reach out to someone.",
+    "rev": "Reversed, warmth returns and you begin to recover, or you refuse help and stay outside. If single, you take a step towards connection."
+   },
+   "career": {
+    "up": "Work, study or money feels lean, with worry about security or being overlooked. The figures in snow pass a lit church window. Help exists if you ask, whether advice or support. Seek it early.",
+    "rev": "Recovery begins, and finances improve. Alternatively pride stops you from asking for support. Accept help where it is offered."
+   },
+   "feelings": {
+    "up": "This person may feel left out or struggling, and unable to show care. Their feelings are weighed down by worry. They may need support more than they say.",
+    "rev": "This person is recovering and ready to let you in. Alternatively they refuse help and stay distant. Their feelings are warming slowly."
+   },
+   "yesno": {
+    "verdict": [
+     -1,
+     0
+    ],
+    "up": "No. The snow and the lit window suggest hardship, so a clear yes is unlikely now. Help may be nearby.",
+    "rev": "Maybe. Recovery is starting, and things may soon improve. Be willing to accept support."
+   },
+   "advice": {
+    "up": "Reach out. You are not as alone as you feel, and help is closer than it seems.",
+    "rev": "Accept the help on offer. Let go of pride, and take recovery one step at a time."
+   }
+  },
+  "pentacles_six": {
+   "love": {
+    "up": "In a relationship, this suggests giving and receiving in balance, with fairness and mutual support. Generosity between you builds trust. If single, you may meet someone through kindness or community. Give freely without keeping score.",
+    "rev": "Reversed, giving becomes one-sided, or there are strings attached. One partner may hold more power. If single, watch for unequal exchanges."
+   },
+   "career": {
+    "up": "Work and money favour fair exchange, such as a bonus, a loan repaid or a mentor's help. The merchant weighs coins for the beggars, so notice who gives and who receives. Share resources fairly.",
+    "rev": "Debt, one-sided giving or conditions on help may appear. Check the terms. Be careful about who holds the power."
+   },
+   "feelings": {
+    "up": "This person is generous and fair with you. Their feelings are caring, and they want balance. They like to support you.",
+    "rev": "This person may give with strings attached, or expects something in return. The balance is uneven. Their feelings come with conditions."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. Fair giving and receiving suggest a generous answer, if the exchange is balanced.",
+    "rev": "Maybe. There may be strings attached or an uneven exchange. Read the terms first."
+   },
+   "advice": {
+    "up": "Give and receive with fairness. Share what you can, and accept help without shame.",
+    "rev": "Check for strings attached. Make the exchange fairer, and give without hidden expectations."
+   }
+  },
+  "pentacles_seven": {
+   "love": {
+    "up": "In a relationship, this suggests pausing to see what has grown. Patience is needed, since love takes time to bloom. If single, you may be assessing whether to keep investing in someone. Be patient and check you are happy.",
+    "rev": "Reversed, impatience or doubt about progress strains things. Partners may question whether it is worth the effort. If single, you may give up on someone too early."
+   },
+   "career": {
+    "up": "Work, study and money ask for patience and a pause to assess. The farmer leans on his hoe and looks at his crop. Results take time, so review what you have done and plan what to do next.",
+    "rev": "Frustration at slow growth may tempt you to quit. You doubt your effort. Remember that growth takes time, so reassess before giving up."
+   },
+   "feelings": {
+    "up": "This person is taking a patient look at what is growing between you. Their feelings need time to ripen. They are weighing up whether it is worth it.",
+    "rev": "This person is impatient or doubtful about the relationship. Their feelings are unsure, and they may be thinking of walking away. Give it time."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     0
+    ],
+    "up": "Not yet. The farmer waits to see his crop, so the answer needs more time to grow. Be patient.",
+    "rev": "Maybe. Impatience clouds the picture. Do not give up too early, but reassess what you have put in."
+   },
+   "advice": {
+    "up": "Pause and take stock. Be patient with slow growth, and choose where to spend your effort.",
+    "rev": "Do not quit too soon. Check whether the effort is being used well, and then go on or change course."
+   }
+  },
+  "pentacles_eight": {
+   "love": {
+    "up": "In a relationship, this suggests steady commitment and working at the bond, one patient step at a time. You build trust through effort. If single, you may focus on self-improvement, which can draw the right person. Keep practising.",
+    "rev": "Reversed, perfectionism or routine takes the joy from things. Partners may feel stuck in drudgery. If single, you may bury yourself in work to avoid dating."
+   },
+   "career": {
+    "up": "Work, study and craft benefit from diligent practice. The craftsman carves coin after coin, building skill by repetition. Steady effort leads to mastery, and money follows careful work.",
+    "rev": "Perfectionism, burnout or shoddy work may creep in. The grind loses its purpose. Take a break and refocus on why you do it."
+   },
+   "feelings": {
+    "up": "This person is dedicated and shows care through effort and consistency. Their feelings grow steadily. They take things seriously and work at them.",
+    "rev": "This person may be too busy or distracted by work. Their feelings are lost in routine. They may also be careless."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. Steady, focused work suggests a yes if you put in the practice.",
+    "rev": "Maybe. Perfectionism or burnout may get in the way. Rest, then check your purpose."
+   },
+   "advice": {
+    "up": "Keep practising. Focus on the craft, one repetition at a time, and trust steady work.",
+    "rev": "Check your purpose. Avoid perfectionism and the grind, and give yourself rest."
+   }
+  },
+  "pentacles_nine": {
+   "love": {
+    "up": "In a relationship, this suggests security, comfort and enjoying what you have built. Each of you feels independent and content. If single, you may be happily self-reliant, and a partner is a bonus. Enjoy your own company.",
+    "rev": "Reversed, comfort may feel empty, or one of you is overly dependent. Work may crowd out intimacy. If single, you may be lonely despite what you have."
+   },
+   "career": {
+    "up": "Work and money show rewards from your effort. The woman in a vineyard, with a hooded falcon on her glove, enjoys what she has earned. Take pride in your independence, and enjoy it.",
+    "rev": "Overwork or empty comfort is likely. You may rely on others or feel your success is hollow. Look at what you really value."
+   },
+   "feelings": {
+    "up": "This person is content and independent, and enjoys your company without needing you. Their feelings are secure and calm. They like the life they have built.",
+    "rev": "This person may be dependent, or comfort feels empty to them. Their feelings may be held back by self-sufficiency. They may be lonely."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. The comfortable figure in the garden suggests a reward earned, so the answer leans yes.",
+    "rev": "Maybe. Comfort may feel empty, or overwork has a price. Check what matters before you say yes."
+   },
+   "advice": {
+    "up": "Enjoy what you have built. Rest and take pride in your self-reliance, and share your comforts.",
+    "rev": "Ask what is missing. Do not overwork, and value connection as well as comfort."
+   }
+  },
+  "pentacles_ten": {
+   "love": {
+    "up": "In a relationship, this suggests a lasting bond, family and shared plans. Stability and long-term security are in focus. If single, you may seek a partner with a view of a shared future. Family matters can shape your choices.",
+    "rev": "Reversed, family friction, short-term thinking or instability affects the relationship. Pressure to conform may cause strain. If single, family expectations may be limiting your choices."
+   },
+   "career": {
+    "up": "Work and money lean towards long-term stability, a lasting legacy and shared wealth. The family in the archway shows generations together. Think long-term and build something that lasts.",
+    "rev": "Instability in family or finances is possible. Short-term thinking can hurt. Review plans for the long run."
+   },
+   "feelings": {
+    "up": "This person sees a future with you and values stability and family. Their feelings are deep and lasting. They think long term.",
+    "rev": "This person may feel pressure from family, or is unsure about the future. Their feelings are unsettled. Expectations of others may be in the way."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. Lasting security and family suggest a strong, long-term yes.",
+    "rev": "Maybe. Instability or family friction may complicate it. Think about the long term."
+   },
+   "advice": {
+    "up": "Build for the long term. Value family and community, and think about the legacy you want to leave.",
+    "rev": "Look at where things are unstable. Avoid short-term thinking and mind the family tensions."
+   }
+  },
+  "pentacles_page": {
+   "love": {
+    "up": "In a relationship, this suggests a patient, sincere start, with care and practical gestures. You learn about each other slowly and build trust. If single, a down-to-earth, genuine connection may begin. Take it step by step.",
+    "rev": "Reversed, plans stay dreams, or one partner procrastinates. Effort is misdirected. If single, you may dream about love without acting."
+   },
+   "career": {
+    "up": "Work and study favour learning, practical goals and careful beginnings. The Page studies a single coin held up in a green field. Be a student, start small, and plan your money with care.",
+    "rev": "Procrastination or lack of focus holds you back. Plans remain ideas. Break goals into small tasks and begin."
+   },
+   "feelings": {
+    "up": "This person is sincere and eager to build something real with you. Their feelings are careful and practical. They show it by being thoughtful and reliable.",
+    "rev": "This person is unfocused or all talk and no action. Their feelings may stay as dreams. They need to take a first step."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. The careful student with a coin suggests a solid start, so the answer leans yes if you do the work.",
+    "rev": "Maybe. Plans stay dreams without action. Focus before expecting a yes."
+   },
+   "advice": {
+    "up": "Learn and start small. Take the first practical step, and be patient with your progress.",
+    "rev": "Stop postponing. Choose one goal, make it practical, and begin today."
+   }
+  },
+  "pentacles_knight": {
+   "love": {
+    "up": "In a relationship, this suggests loyalty, reliability and steady effort. Love grows slowly and surely through routine and dependability. If single, you seek stability, and a trustworthy person may appear. Bring a little spontaneity.",
+    "rev": "Reversed, routine becomes a rut, or stubbornness and boredom set in. Partners may feel stuck. If single, you may be too cautious to move."
+   },
+   "career": {
+    "up": "Work, study and money favour persistence and thoroughness. The Knight sits still on a heavy horse, looking at the coin, ready to do the work. Slow and steady wins, so finish what you start.",
+    "rev": "Routine turns into a rut, progress stalls, or perfectionism holds you up. Add variety and be flexible."
+   },
+   "feelings": {
+    "up": "This person is loyal and dependable. Their feelings are steady rather than flashy, and they show care through action. They are committed.",
+    "rev": "This person may be stubborn, bored or stuck. Their feelings are present but stalled. They may resist change."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. The steady Knight suggests a dependable yes, if you are willing to put in the work.",
+    "rev": "Maybe. Progress stalls, but it is not lost. Shake up the routine and try again."
+   },
+   "advice": {
+    "up": "Stay steady and finish the job. Trust routine and reliability, and keep going.",
+    "rev": "Break the rut. Be flexible, and check whether you are stubborn or only careful."
+   }
+  },
+  "pentacles_queen": {
+   "love": {
+    "up": "In a relationship, this suggests warmth, care and practical nurturing, a home that feels good. Each of you looks after the other in small ways. If single, you may be content creating a comfortable life and open to a caring partner. Remember to care for yourself.",
+    "rev": "Reversed, care may become smothering, or you neglect yourself to provide. Partners may feel overlooked. If single, you may give too much to others."
+   },
+   "career": {
+    "up": "Work, study and money favour resourcefulness, a good budget and a warm, practical approach. The Queen sits in a blooming garden with a coin in her lap. Make a life that works, and support others.",
+    "rev": "Overwork or self-neglect is possible, or you smother others with help. Set limits and look after your own needs."
+   },
+   "feelings": {
+    "up": "This person is warm, caring and practical in their feelings. They show love by looking after you. They want you to feel at home.",
+    "rev": "This person may be smothering, or neglecting their own needs. Their feelings may come out as worry or over-giving. They may need care too."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. The nurturing Queen in her garden suggests a warm, practical yes.",
+    "rev": "Maybe. Over-giving or self-neglect may distort it. Look after your own needs first."
+   },
+   "advice": {
+    "up": "Nurture yourself and others, and be practical. Make your home, budget or life work.",
+    "rev": "Do not neglect yourself. Give with care but not too much, and keep your own needs in view."
+   }
+  },
+  "pentacles_king": {
+   "love": {
+    "up": "In a relationship, this suggests steady, generous commitment and security. Your partner or you show love by providing and being reliable. If single, you may seek a stable, established partner. Share warmth, not only provision.",
+    "rev": "Reversed, possessiveness, stubbornness or valuing money over people strains the bond. If single, you may judge people by wealth or status."
+   },
+   "career": {
+    "up": "Work and money favour stability, patience and fair dealing. The King sits among vines and gold, a figure of abundance built over time. Lead steadily, invest wisely and be generous.",
+    "rev": "Security hardens into greed, or resources are mismanaged. You may resist change. Be fair, and value people over profit."
+   },
+   "feelings": {
+    "up": "This person is loyal, generous and stable, and wants to provide for you. Their feelings are steady and mature. They show love through security.",
+    "rev": "This person may be possessive or controlling, or place wealth above feelings. Their feelings are hard to reach. They may resist change."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Yes. The King's secure, abundant seat suggests a confident yes, built on patience.",
+    "rev": "Maybe. Possessiveness or poor management may weaken it. Be fair before you proceed."
+   },
+   "advice": {
+    "up": "Lead steadily and fairly. Build slowly, be generous, and enjoy the stability you have made.",
+    "rev": "Check for greed or rigidity. Value people over things, and manage resources with care."
+   }
+  }
+ }
+}

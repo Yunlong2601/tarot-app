@@ -1,0 +1,327 @@
+{
+ "ui": {
+  "eyebrow": "Zodiac tarot",
+  "title": "{sign} tarot card: {card} and the {sign} decans · ShenTarot",
+  "description": "The tarot card for {sign} is {card}. {first}",
+  "h1": "{sign} tarot card",
+  "lead": "{sign} ({dates}) belongs to {card}. Its element is {element} and its ruling planet is {planet}.",
+  "signCard": "Sign card",
+  "rulerCard": "Ruling planet card",
+  "decansTitle": "The three decans of {sign}",
+  "decanNames": [
+   "First decan",
+   "Second decan",
+   "Third decan"
+  ],
+  "strengths": "Strengths",
+  "challenges": "Challenges",
+  "love": "In love",
+  "work": "At work",
+  "advice": "Advice from the cards",
+  "toolText": "Enter your birthday to find your sign and all of its cards.",
+  "toolCta": "Find your zodiac cards",
+  "other": "Other signs",
+  "readMore": "Read about {sign}",
+  "faqWhich": "What tarot card is {sign}?",
+  "faqWhichA": "{sign} is linked with {card} in the Golden Dawn tradition behind the Rider-Waite-Smith deck. Its ruling planet card is {planet}.",
+  "birth": {
+   "eyebrow": "Birth card",
+   "title": "{card} as your birth card: meaning and personality · ShenTarot",
+   "description": "What it means when {card} is your tarot birth card. {first}",
+   "h1": "{card} as your birth card",
+   "how": "Your birth card comes from your date of birth. Add the year, month and day together, then add the digits of the result until you reach a number from 1 to 22.",
+   "gifts": "Your gifts",
+   "challenges": "Your challenges",
+   "love": "In love",
+   "work": "At work",
+   "advice": "Advice",
+   "pairTitle": "Cards that share your number",
+   "pairText": "Birth cards whose numbers reduce to the same digit are read together, so {card} shares a theme with these cards.",
+   "calcText": "Not sure which card is yours? Work it out from your birthday.",
+   "calcCta": "Find your birth card",
+   "other": "Birth card meanings",
+   "readMore": "Read about {card} as a birth card",
+   "faqWhat": "What does it mean if {card} is my birth card?"
+  }
+ },
+ "signs": {
+  "aries": {
+   "intro": "Aries belongs to The Emperor, the card of structure, authority and stability. It is a Fire sign, and its ruler is Mars, whose card is The Tower. Put those together and you get someone who likes to build something solid, and who will not wait long to begin. The Emperor gives the plan. The Tower reminds you that old walls sometimes need to come down first.",
+   "decans": "The three decans of Aries are the Two of Wands, the Three of Wands and the Four of Wands. Born early in the sign, you might read the Two of Wands: you stand at the edge of the familiar and decide where to aim. Mid-sign may fit the Three of Wands, with early efforts moving and your eyes on the horizon. Late in the sign, the Four of Wands suggests rest and shared joy after effort.",
+   "strengths": "You tend to start things, and you bring energy to a room. People often trust your directness. The Emperor's steadiness helps you turn a bright idea into a plan.",
+   "challenges": "The Emperor can become rigid, and Mars can make you hasty. Ask where firmness has turned into stubbornness, and give other people time to catch up.",
+   "love": "In love you are open and honest, and you like a partner who meets you head on. The Emperor suggests loyalty and a wish to protect. Try listening a little longer before you decide what the other person means.",
+   "work": "You work well when you can lead or at least own a project. Clear goals and room to act suit you. Slow committees may test your patience, so find a few trusted allies who can keep pace.",
+   "advice": "Before you leap, take one breath and ask what a calm leader would do. Then go ahead with confidence."
+  },
+  "taurus": {
+   "intro": "Taurus belongs to The Hierophant, the card of tradition, guidance and belonging. It is an Earth sign, and its ruler is Venus, whose card is The Empress. The Hierophant values what has been tested over time. The Empress adds comfort, care and a love of good things. Together they describe someone who builds a steady, rewarding life.",
+   "decans": "The three decans of Taurus are the Five of Pentacles, the Six of Pentacles and the Seven of Pentacles. Born early in the sign, you might read the Five of Pentacles: a lean time, with help available if you reach for it. Mid-sign may suit the Six of Pentacles, where giving and receiving come into balance. Late in the sign, the Seven of Pentacles asks you to pause, review your efforts and let growth take its time.",
+   "strengths": "You are patient, loyal and practical. You notice quality, and you keep going when others tire. People feel safe around you.",
+   "challenges": "The Hierophant can lean towards habit for its own sake, and comfort can slow you down. Notice when you are holding on simply because it is familiar.",
+   "love": "In love you offer warmth, loyalty and a steady hand. You enjoy small shared rituals, good food and time together. Try saying what you need out loud rather than hoping it is understood.",
+   "work": "You do well in work that rewards care and consistency. You prefer a clear path and fair pay for good effort. Take a look now and then at whether a change might serve you better than staying put.",
+   "advice": "Honour your steady pace, and keep one small thing in your life open to change. Comfort is lovely, and so is a little curiosity."
+  },
+  "gemini": {
+   "intro": "Gemini belongs to The Lovers, the card of choice, connection and alignment. It is an Air sign, and its ruler is Mercury, whose card is The Magician. The Lovers speak of weighing options and being honest about your values. The Magician brings skill with words and ideas. Together they suggest a quick, curious mind that enjoys making connections.",
+   "decans": "The three decans of Gemini are the Eight of Swords, the Nine of Swords and the Ten of Swords. Born early in the sign, you might read the Eight of Swords: you feel stuck, though your options may be more open than they seem. Mid-sign may suit the Nine of Swords, where worry looms large and sharing it helps. Late in the sign, the Ten of Swords marks a painful chapter ending, with the way forward ahead of you.",
+   "strengths": "You are curious, quick and good with people. You can explain an idea in many ways, and you adapt easily. Others enjoy your wit and your interest in them.",
+   "challenges": "A busy mind can spin into worry, and the choice of The Lovers can become indecision. Write your thoughts down, then pick one thing to act on.",
+   "love": "In love you want conversation, humour and a partner who keeps you interested. The Lovers ask for honesty about what you value. Let yourself be known as well as entertaining.",
+   "work": "You shine in work that mixes variety, communication and learning. Writing, teaching, sales and design are common fits, though any role with fresh problems can work. Finish one task before you open the next.",
+   "advice": "When your thoughts race, slow down and speak to one person you trust. A shared worry is often lighter."
+  },
+  "cancer": {
+   "intro": "Cancer belongs to The Chariot, the card of determination, drive and direction. It is a Water sign, and its ruler is the Moon, whose card is The High Priestess. The Chariot shows a gentle shell that can still move with purpose. The High Priestess brings deep feeling and intuition. Together they describe someone who senses a great deal and protects what matters.",
+   "decans": "The three decans of Cancer are the Two of Cups, the Three of Cups and the Four of Cups. Born early in the sign, you might read the Two of Cups: a balanced bond built on respect and shared feeling. Mid-sign may suit the Three of Cups, with joy shared in good company. Late in the sign, the Four of Cups asks what you truly want when things feel flat.",
+   "strengths": "You are caring, perceptive and loyal. You remember what matters to people, and you create a sense of home wherever you go. Your intuition is often a real help.",
+   "challenges": "You may retreat into your shell when hurt, and mood can steer the Chariot. Name the feeling, then decide whether to act on it.",
+   "love": "In love you give devotion and tenderness, and you want a partner who feels like home. Shared joy and quiet closeness both matter to you. Tell your partner what is wrong rather than expecting them to guess.",
+   "work": "You work well in roles that involve care, teaching, hosting or protecting what others have built. Trust and kindness at work matter a great deal to you. Set boundaries so that looking after everyone does not drain you.",
+   "advice": "Make time for rest and for people who feel safe. Then steer with both your heart and your plans."
+  },
+  "leo": {
+   "intro": "Leo belongs to Strength, the card of courage, patience and compassion. It is a Fire sign, and its ruler is the Sun, whose card is The Sun. Strength shows courage that is gentle, not loud. The Sun adds warmth, joy and openness. Together they describe a generous heart that leads by encouraging others.",
+   "decans": "The three decans of Leo are the Five of Wands, the Six of Wands and the Seven of Wands. Born early in the sign, you might read the Five of Wands: clashing ideas that can sharpen you if kept friendly. Mid-sign may suit the Six of Wands, a boost of confidence and recognition for your efforts. Late in the sign, the Seven of Wands suggests holding your ground on what you believe.",
+   "strengths": "You are warm, loyal and brave. You bring light to a group, and you like to see others do well. Your confidence can be contagious.",
+   "challenges": "Pride can make it hard to ask for help, and attention can become a need. Strength's quiet side may serve you better than a show of force.",
+   "love": "In love you are affectionate and generous, and you enjoy celebrating the people you care about. You want to feel appreciated. Let your partner see your soft side as well as your bright one.",
+   "work": "You do well when you can lead, create or perform, and when your effort is noticed. Warm leadership gets the best from your team. Share the credit and you will keep their goodwill.",
+   "advice": "Lead with patience, as Strength does. Let warmth, rather than volume, carry your point."
+  },
+  "virgo": {
+   "intro": "Virgo belongs to The Hermit, the card of solitude, reflection and inner guidance. It is an Earth sign, and its ruler is Mercury, whose card is The Magician. The Hermit carries a lantern and steps back to see clearly. The Magician brings skill and attention to detail. Together they describe a careful mind that improves things quietly.",
+   "decans": "The three decans of Virgo are the Eight of Pentacles, the Nine of Pentacles and the Ten of Pentacles. Born early in the sign, you might read the Eight of Pentacles: steady, focused work that builds skill. Mid-sign may suit the Nine of Pentacles, where you enjoy what your effort has built. Late in the sign, the Ten of Pentacles points to long-term stability, family and shared wealth.",
+   "strengths": "You are thoughtful, reliable and observant. You notice details others miss, and you like to be useful. Your standards help things work well.",
+   "challenges": "The Hermit can slip into isolation, and a sharp eye can turn on yourself. Balance time alone with company, and let good enough be good enough.",
+   "love": "In love you show care through actions, such as remembering, helping and fixing. You take a while to open up, and that is fine. Try saying what you feel as well as doing something about it.",
+   "work": "You thrive in work that rewards accuracy, craft and improvement. Analysis, health, editing and skilled trades are common fits. Share your ideas before they are perfect so that others can help.",
+   "advice": "Be as kind to yourself as you are helpful to others. Take your lantern out into company now and then."
+  },
+  "libra": {
+   "intro": "Libra belongs to Justice, the card of fairness, truth and accountability. It is an Air sign, and its ruler is Venus, whose card is The Empress. Justice weighs the facts honestly. The Empress adds care, beauty and a love of harmony. Together they describe someone who looks for balance and wants things to be fair and gracious.",
+   "decans": "The three decans of Libra are the Two of Swords, the Three of Swords and the Four of Swords. Born early in the sign, you might read the Two of Swords: a hard choice you are avoiding, with the blindfold ready to come off. Mid-sign may suit the Three of Swords, a painful truth acknowledged so it can heal. Late in the sign, the Four of Swords says pause and recharge, because rest is productive.",
+   "strengths": "You are diplomatic, fair-minded and good at seeing both sides. You make people feel heard. You have a good eye for beauty and for what is out of balance.",
+   "challenges": "Seeing every side can leave you stuck, as the Two of Swords shows. Keeping the peace may also mean staying quiet when you should speak.",
+   "love": "In love you want partnership, kindness and equality. You enjoy romance and thoughtful gestures. Say what you need, even when it risks a little disagreement.",
+   "work": "You do well in roles that involve negotiation, design, law, mediation or teamwork. You bring calm to tense rooms. Set a deadline for decisions so that balance does not turn into delay.",
+   "advice": "Weigh things honestly, then choose. A fair decision made today often beats a perfect one made too late."
+  },
+  "scorpio": {
+   "intro": "Scorpio belongs to Death, the card of endings, transition and release. It is a Water sign, and its ruler is Mars, whose card is The Tower. Death is rarely literal. It speaks of chapters closing so that others can begin. With The Tower beside it, the picture is of someone intense, who feels deeply and is not afraid of change.",
+   "decans": "The three decans of Scorpio are the Five of Cups, the Six of Cups and the Seven of Cups. Born early in the sign, you might read the Five of Cups: focus on what is lost, while some cups still stand. Mid-sign may suit the Six of Cups, with memories and gentle generosity. Late in the sign, the Seven of Cups shows many possibilities and some fantasy, so sort the real from the imagined.",
+   "strengths": "You are loyal, focused and brave with difficult feelings. You see through surfaces and you commit fully. People often rely on you in a crisis.",
+   "challenges": "You may hold on to hurt or keep your feelings private for too long. Death's lesson is to let go of what has run its course.",
+   "love": "In love you want depth, trust and honesty. You give a great deal once you feel safe. Try sharing small worries early, before they grow into silences.",
+   "work": "You do well in work that asks for research, focus and depth, such as investigation, healing, finance or strategy. You can see what is hidden in a problem. Delegate and trust others so that you do not carry every load alone.",
+   "advice": "Choose one thing to release this season. Making room is often the first step towards what comes next."
+  },
+  "sagittarius": {
+   "intro": "Sagittarius belongs to Temperance, the card of balance, patience and moderation. It is a Fire sign, and its ruler is Jupiter, whose card is the Wheel of Fortune. Temperance blends opposites with patience, while the Wheel reminds you that things turn in cycles. Together they describe an optimist who looks for meaning and keeps an open mind.",
+   "decans": "The three decans of Sagittarius are the Eight of Wands, the Nine of Wands and the Ten of Wands. Born early in the sign, you might read the Eight of Wands: things move fast, so act promptly and keep communication open. Mid-sign may suit the Nine of Wands, tired but nearly there, drawing on resilience. Late in the sign, the Ten of Wands asks what you are carrying that you could set down.",
+   "strengths": "You are hopeful, adventurous and honest. You like to learn, and you help others see the bigger picture. Your humour lifts a room.",
+   "challenges": "Temperance asks for moderation, which does not always come naturally. You may take on too much, or speak before you think.",
+   "love": "In love you want freedom, laughter and a partner who shares your curiosity. You are honest and warm. Remember that staying present can be its own adventure.",
+   "work": "You thrive in work with variety, learning, travel or teaching. A sense of purpose keeps you going. Pick your projects with care, because the Ten of Wands warns about taking on too many.",
+   "advice": "Aim high, and pace yourself. Steady steps will get you further than a sprint."
+  },
+  "capricorn": {
+   "intro": "Capricorn belongs to The Devil, the card of attachment, habit and shadow. It is an Earth sign, and its ruler is Saturn, whose card is The World. The Devil is about noticing what holds you and how much choice you really have. The World speaks of completing a cycle with patience. Together they describe someone who works steadily towards a goal and learns where duty ends and freedom begins.",
+   "decans": "The three decans of Capricorn are the Two of Pentacles, the Three of Pentacles and the Four of Pentacles. Born early in the sign, you might read the Two of Pentacles: juggling priorities with flexibility and keeping your rhythm. Mid-sign may suit the Three of Pentacles, where skilled collaboration helps good work grow. Late in the sign, the Four of Pentacles asks you to enjoy security while watching for clinging.",
+   "strengths": "You are disciplined, responsible and patient. You plan ahead and you finish what you start. People trust you to keep your word.",
+   "challenges": "The Devil's chains are often habits, such as overwork or fear of failing. You may also be hard on yourself and slow to rest.",
+   "love": "In love you are loyal and show care through commitment and reliability. You may take time to relax into romance. Allow yourself some play and spontaneity, and tell your partner when you feel proud of them.",
+   "work": "You do well when you can build something over time, in business, management, engineering or craft. You respect hard work. Check now and then whether a habit is helping you or simply holding you.",
+   "advice": "Look at one belief about duty that you could loosen. Then give yourself credit for how far you have already come."
+  },
+  "aquarius": {
+   "intro": "Aquarius belongs to The Star, the card of hope, renewal and calm. It is an Air sign, and its ruler is Saturn, whose card is The World. The Star pours water for the land and the pool, which shows giving freely. The World adds a sense of belonging to something larger. Together they describe someone who cares about people as a whole and wants to make things a little better for everyone.",
+   "decans": "The three decans of Aquarius are the Five of Swords, the Six of Swords and the Seven of Swords. Born early in the sign, you might read the Five of Swords: a fight that costs more than it gains, so choose your battles. Mid-sign may suit the Six of Swords, a slow move away from trouble with healing underway. Late in the sign, the Seven of Swords asks you to think carefully and be honest about the cost of a sly approach.",
+   "strengths": "You are original, friendly and open-minded. You see how things could be different, and you support people who are unlike you. You stay calm when others panic.",
+   "challenges": "The Star is gentle, but you may seem distant or stubborn when you feel crowded. You can be so committed to your ideas that you forget to ask people how they feel.",
+   "love": "In love you value friendship, honesty and room to be yourself. You are loyal in your own way. Let your partner in on the quiet moments, not just the ideas.",
+   "work": "You thrive in work that is inventive, collaborative or aimed at a cause, such as technology, science, community work or design. You like to improve systems. Explain your thinking to others, as the best ideas need allies.",
+   "advice": "Keep your hope, and share it with someone near you today. A small warm gesture can matter as much as a grand plan."
+  },
+  "pisces": {
+   "intro": "Pisces belongs to The Moon, the card of uncertainty, dreams and intuition. It is a Water sign, and its ruler is Jupiter, whose card is the Wheel of Fortune. The Moon shows a world that is not fully clear, where instincts and imagination guide you. The Wheel adds a sense of cycles and trust in change. Together they describe someone sensitive and imaginative, who moves with the tide.",
+   "decans": "The three decans of Pisces are the Eight of Cups, the Nine of Cups and the Ten of Cups. Born early in the sign, you might read the Eight of Cups: leaving something that no longer satisfies in search of meaning. Mid-sign may suit the Nine of Cups, a sense of fulfilment and appreciation for what you have. Late in the sign, the Ten of Cups points to emotional fulfilment and belonging.",
+   "strengths": "You are compassionate, creative and intuitive. You feel what others feel, and you can bring comfort. Your imagination makes ordinary things lovely.",
+   "challenges": "The Moon can blur the line between what is real and what is imagined. You may absorb other people's moods or avoid hard conversations.",
+   "love": "In love you are tender, romantic and attentive to moods. You want a bond that feels soulful. Check your hopes against what is actually said and done, and keep a little space of your own.",
+   "work": "You do well in creative, caring or healing work, such as the arts, music, counselling or nursing. You need meaning in what you do. Build in routines and breaks so that your gifts do not wear you out.",
+   "advice": "Trust your instincts, and ground them with one small fact. A quiet walk or a night of sleep can clear the water."
+  }
+ },
+ "birth": {
+  "major_01_magician": {
+   "intro": "The Magician as a birth card means your number is 1. It reflects focus, skill and resourcefulness. It is also the card of 10, so it shares a pair with the Wheel of Fortune, which adds the theme of change and cycles. Birth cards are a reflective idea, not a prediction, and they work best as a prompt for thought.",
+   "gifts": "You can gather your attention and make something happen. You often learn quickly and explain well.",
+   "challenges": "Energy can scatter when you chase too many ideas. Ask what is holding your focus back.",
+   "love": "You bring charm and initiative to love. Be as willing to listen as you are to start the conversation.",
+   "work": "You do well when you can use your tools freely, whether skills, words or ideas. Pick one project and see it through.",
+   "advice": "You already hold more than you think. Choose one thing, and begin."
+  },
+  "major_02_high_priestess": {
+   "intro": "The High Priestess as a birth card means your number is 2. It reflects intuition, stillness and the unspoken. It shares a pair with Justice (11), which adds fairness and honest judgement to your quiet side. Treat it as a prompt for reflection, not a fixed fate.",
+   "gifts": "You notice what sits beneath the surface, and you can be calm in a noisy room. People may confide in you.",
+   "challenges": "You may keep things hidden, even from yourself. Ignoring your inner voice, or not sharing it, can leave you feeling disconnected.",
+   "love": "You offer depth and loyalty in love. Let your partner hear what you are thinking, not only what you are sensing.",
+   "work": "You work well where thoughtfulness is valued, such as research, counselling or creative work. Speak up in meetings when you have noticed something.",
+   "advice": "Make some quiet time each day. Then trust what you hear."
+  },
+  "major_03_empress": {
+   "intro": "The Empress as a birth card means your number is 3. It reflects nurture, abundance and creativity. It shares a pair with The Hanged Man (12), which adds the gift of pausing to see things differently. Think of it as a mirror for reflection, not a forecast.",
+   "gifts": "You help things grow, whether that is people, projects or a home. You enjoy beauty and comfort, and you share them generously.",
+   "challenges": "Caring can tip into smothering, or into neglecting yourself. Creative blocks may appear when you are tired.",
+   "love": "You love warmly and with generosity. Let your partner care for you too.",
+   "work": "You thrive in work that is creative, nurturing or hands-on. Take breaks so that your own energy is fed as well.",
+   "advice": "Tend what you love, including yourself. Growth follows care."
+  },
+  "major_04_emperor": {
+   "intro": "The Emperor as a birth card means your number is 4. It reflects structure, authority and stability. It shares a pair with Death (13), which adds the idea that good structures also need to change when their time has passed. This is a reflective idea, not a promise about your life.",
+   "gifts": "You can plan, organise and keep calm. Others look to you for steadiness and clear boundaries.",
+   "challenges": "Firmness can harden into rigidity or a need to control. Ask where being strong has become being stubborn.",
+   "love": "You offer loyalty and protection in love. Leave room for your partner's way of doing things.",
+   "work": "You are suited to leadership and building lasting systems. Listen before you decide, and delegate when you can.",
+   "advice": "Lead with calm. Let your rules serve people, rather than the other way round."
+  },
+  "major_05_hierophant": {
+   "intro": "The Hierophant as a birth card means your number is 5. It reflects tradition, guidance and belonging. It shares a pair with Temperance (14), which adds patience and balance to your respect for shared wisdom. Use it for reflection and enjoyment, not for fixed answers.",
+   "gifts": "You value learning, community and the wisdom of those who came before. You can be a good teacher and mentor.",
+   "challenges": "You may follow rules that no longer fit you. Questioning them can feel uncomfortable, but it is also how you find your own path to meaning.",
+   "love": "You look for commitment and shared values in love. Respect that your partner may hold different ones.",
+   "work": "You do well in teaching, training, institutions and team settings. Offer guidance without insisting on one right way.",
+   "advice": "Learn from the old, and make room for your own view."
+  },
+  "major_06_lovers": {
+   "intro": "The Lovers as a birth card means your number is 6. It reflects choice, connection and alignment with your values. It shares a pair with The Devil (15), which reminds you to notice habits and attachments in your relationships. It is a reflective idea, not a prediction of any kind.",
+   "gifts": "You connect easily and you care about doing what feels true. You take your choices seriously.",
+   "challenges": "You may struggle with indecision, or act against your own values. Check whether your actions match what you say you want.",
+   "love": "Honesty matters most to you in love. Say what you value, and listen to what your partner values.",
+   "work": "You work well in partnerships and where values matter. Make decisions in good time, even when no option is perfect.",
+   "advice": "When you choose, choose in line with what you value, and say so plainly."
+  },
+  "major_07_chariot": {
+   "intro": "The Chariot as a birth card means your number is 7. It reflects determination, drive and direction. It shares a pair with The Tower (16), which adds the theme of sudden change and rebuilding. Treat it as an idea for reflection and entertainment, not a verdict.",
+   "gifts": "You can hold opposing pulls together and keep moving. Focus and willpower are strengths.",
+   "challenges": "You may push too hard without a plan, or lose direction when a goal changes. Slow down enough to check the route.",
+   "love": "You love with energy and commitment. Make space for your partner to set the pace sometimes.",
+   "work": "You do well in work with clear targets and momentum. Rest between sprints, and celebrate the stages along the way.",
+   "advice": "Hold the reins steady and check where you are headed."
+  },
+  "major_08_strength": {
+   "intro": "Strength as a birth card means your number is 8. It reflects courage, patience and compassion. It shares a pair with The Star (17), which adds calm and hope to your quiet courage. It is a way to reflect on yourself, not a prediction.",
+   "gifts": "You can face hard things gently. Others find you reassuring, and you tend to keep going without fuss.",
+   "challenges": "Self-doubt can creep in, or you may run on empty. Rebuild confidence in small steps.",
+   "love": "You love with patience and warmth. Let yourself be cared for, too.",
+   "work": "You do well in roles that need calm under pressure, such as care, coaching or leadership. Protect your energy.",
+   "advice": "Be gentle with yourself. Small acts of courage add up."
+  },
+  "major_09_hermit": {
+   "intro": "The Hermit as a birth card means your number is 9. It reflects solitude, reflection and inner guidance. It shares a pair with The Moon (18), which adds imagination and intuition to your search for answers. Use it as a prompt for thought, not a rule.",
+   "gifts": "You think deeply and can find your own answers. Time alone refreshes you, and you often have wisdom to share.",
+   "challenges": "You may drift into isolation or avoid reflection by staying busy. Balance solitude with connection.",
+   "love": "You value depth and quiet in love. Let your partner know when you need space and when you want them close.",
+   "work": "You thrive in research, craft and roles that reward focus. Come out of the cave to share what you find.",
+   "advice": "Step back to think, then bring your lantern to others."
+  },
+  "major_10_wheel_of_fortune": {
+   "intro": "The Wheel of Fortune as a birth card means your number is 10, which reduces to 1. That makes you part of a pair with The Magician. It reflects cycles, change and perspective. As ever, this is for reflection and entertainment, not for foretelling.",
+   "gifts": "You adapt, and you can see the wider pattern in events. You often find a way to begin again.",
+   "challenges": "Resisting change can leave you stuck in a loop. Look for what you can influence, and let go of the rest.",
+   "love": "You bring flexibility to love and cope well with changing seasons. Share your plans with your partner so that change feels like a team effort.",
+   "work": "You do well where adaptability is valued. Pair your openness to change with one clear skill, as The Magician suggests.",
+   "advice": "Things turn in cycles. Keep your hands ready for what is next."
+  },
+  "major_11_justice": {
+   "intro": "Justice as a birth card means your number is 11, which reduces to 2. That pairs you with The High Priestess. It reflects fairness, truth and accountability. Treat it as a mirror for reflection, not a forecast.",
+   "gifts": "You weigh facts honestly and care about fairness. People trust your judgement.",
+   "challenges": "Bias or dodging responsibility can creep in, and you may be hard on yourself or others. Check that your view is balanced.",
+   "love": "You value honesty and equality in love. Make room for feelings as well as facts.",
+   "work": "You do well in law, mediation, finance or any role that needs a clear head. Listen to your intuition as well as the evidence.",
+   "advice": "Look at the facts, and at your own part in them. Then choose fairly."
+  },
+  "major_12_hanged_man": {
+   "intro": "The Hanged Man as a birth card means your number is 12, which reduces to 3. That pairs you with The Empress. It reflects pause, surrender and seeing from a new angle. This is a prompt for reflection, never a prediction.",
+   "gifts": "You can wait, and you see what others miss when you look from another side. You are often open-minded and patient.",
+   "challenges": "Stalling without purpose can happen. Ask whether waiting is still helping.",
+   "love": "You give love room and patience. Do not wait so long that your feelings go unspoken.",
+   "work": "You do well in creative and thoughtful work. Choose a moment to move, then act.",
+   "advice": "Pause to see differently, then take the next step."
+  },
+  "major_13_death": {
+   "intro": "Death as a birth card means your number is 13, which reduces to 4. That pairs you with The Emperor. It reflects endings, transition and release, and it is rarely literal. Use it for reflection and enjoyment, not for answers about the future.",
+   "gifts": "You can let go and begin again. You often handle change with courage.",
+   "challenges": "You may cling to the past or fear a needed change. Notice what has run its course.",
+   "love": "You love with honesty about endings and beginnings. Give new things time to settle.",
+   "work": "You do well in work that involves renewal, such as turnarounds, redesign or clearing out. Build a base, as The Emperor suggests.",
+   "advice": "Let one thing go this month, and make room for something new."
+  },
+  "major_14_temperance": {
+   "intro": "Temperance as a birth card means your number is 14, which reduces to 5. That pairs you with The Hierophant. It reflects balance, patience and moderation. Birth cards are for thinking about yourself, not for predicting events.",
+   "gifts": "You blend opposites with patience. You are steady and measured, and others find you easy to be around.",
+   "challenges": "Excess or impatience can appear when things are out of balance. Look for where you are giving too much or too little.",
+   "love": "You bring calm and compromise to love. Say what you need, not only what keeps the peace.",
+   "work": "You do well as a mediator, healer, teacher or team member. Steady, measured steps work best for you.",
+   "advice": "Mix patiently and take your time. Balance is something you keep making."
+  },
+  "major_15_devil": {
+   "intro": "The Devil as a birth card means your number is 15, which reduces to 6. That pairs you with The Lovers. It reflects attachment, habit and shadow. This is a reflective idea and not a judgement of you.",
+   "gifts": "You can see what holds people, including yourself. You often have strong drive and appetite for life.",
+   "challenges": "Habits, beliefs and dependencies can hold tight. Awareness is the first step towards freedom.",
+   "love": "You love with passion. Ask honestly whether a bond is a choice or a habit, as The Lovers suggest.",
+   "work": "You are driven in work and good with money and influence. Watch for overwork and for goals that are not your own.",
+   "advice": "Notice what holds you, and remember how much choice you have."
+  },
+  "major_16_tower": {
+   "intro": "The Tower as a birth card means your number is 16, which reduces to 7. That pairs you with The Chariot. It reflects upheaval, revelation and reset. Treat it as a prompt for reflection and not a prediction.",
+   "gifts": "You can cope when things change quickly, and you are honest about what is not working. Clear ground gives you room to rebuild.",
+   "challenges": "Fear of change can build into a slow-burning problem. Face it sooner rather than later.",
+   "love": "You value truth in love. Be gentle when you deliver it.",
+   "work": "You do well when you can fix, rebuild or lead through change. Steer with purpose, as The Chariot does.",
+   "advice": "Face what is shaky, and build on solid ground."
+  },
+  "major_17_star": {
+   "intro": "The Star as a birth card means your number is 17, which reduces to 8. That pairs you with Strength. It reflects hope, renewal and calm. It is meant for reflection and enjoyment, not for fortune telling.",
+   "gifts": "You bring gentle hope to others. You recover well and you share what you have.",
+   "challenges": "Doubt and low motivation can set in. Be kind to yourself and keep small hopes alive.",
+   "love": "You love with openness and calm. Let your partner see your doubts, too.",
+   "work": "You do well in healing, creative and community work. Pace yourself so you do not run dry.",
+   "advice": "Rest, and trust a slow recovery. Keep one small hope alive."
+  },
+  "major_18_moon": {
+   "intro": "The Moon as a birth card means your number is 18, which reduces to 9. That pairs you with The Hermit. It reflects uncertainty, dreams and intuition. Think of it as an idea to reflect on, not a prediction.",
+   "gifts": "You are imaginative and sensitive, and you notice moods and signs. Your dreams and instincts can feed creative work.",
+   "challenges": "Things are not always clear, and fears can grow in the dark. Move carefully and ground yourself.",
+   "love": "You love with feeling. Check your hopes and fears against what your partner actually says.",
+   "work": "You do well in creative, caring or imaginative work. Take quiet time, as The Hermit does, to sort the real from the imagined.",
+   "advice": "Move carefully when things are unclear. Notice your instincts and your fears."
+  },
+  "major_19_sun": {
+   "intro": "The Sun as a birth card means your number is 19. Add 1 and 9 and you reach 10, then 1, so it links to the Wheel of Fortune and The Magician. It reflects joy, vitality and clarity. Birth cards are for reflection and entertainment, not for promises.",
+   "gifts": "You bring warmth and confidence. You are open and honest, and people feel better near you.",
+   "challenges": "Enthusiasm can dim, or ego can grow too large. Look for small sources of light when things feel flat.",
+   "love": "You love with warmth and play. Share the spotlight with your partner.",
+   "work": "You do well in roles where you can be visible and positive, such as teaching, leading or performing. Share credit.",
+   "advice": "Enjoy what is going well, and let others share it."
+  },
+  "major_20_judgement": {
+   "intro": "Judgement as a birth card means your number is 20, which reduces to 2. That pairs you with The High Priestess. It reflects honest review, forgiveness and an inner call. Use it as a prompt for thought, not a prediction.",
+   "gifts": "You can look back honestly and begin again. You often feel a calling and answer it.",
+   "challenges": "Self-criticism can grow loud, or you may avoid a needed decision. Forgive what you can.",
+   "love": "You love with honesty and forgiveness. Let go of old scores.",
+   "work": "You do well in roles of renewal, such as coaching, healing or reinventing a career. Listen quietly, as The High Priestess does.",
+   "advice": "Review the past kindly. Then answer your call."
+  },
+  "major_21_world": {
+   "intro": "The World as a birth card means your number is 21, which reduces to 3. That pairs you with The Empress. It reflects completion, wholeness and achievement. It is an idea to reflect on, and it makes no promises about your future.",
+   "gifts": "You see the whole picture and finish what you start. You can take stock of how far you have come.",
+   "challenges": "Loose ends can linger, or a finish may feel out of reach. One last step often remains.",
+   "love": "You love with a sense of wholeness. Make room for your partner's growth too.",
+   "work": "You do well in broad roles that connect people or projects, and in work that has a clear finish. Celebrate, then begin the next thing.",
+   "advice": "Take stock of how far you have come, and let yourself celebrate."
+  }
+ }
+}
