@@ -40,7 +40,8 @@
   "delete": "删除你的数据",
   "copyright": "© {year} ShenTech，新加坡。保留所有权利。",
   "images": "牌面图片：莱德-韦特-史密斯塔罗牌（1909年），公有领域。",
-  "inEnglish": "{page}（英文）"
+  "inEnglish": "{page}（英文）",
+  "about": "关于我们"
  },
  "store": {
   "download": "下载于",
@@ -422,7 +423,8 @@
   "faqTitle": "关于{name}的常见问题",
   "moreCards": "更多牌",
   "prev": "上一张牌",
-  "next": "下一张牌"
+  "next": "下一张牌",
+  "answer": "{name}的含义：{keywords}。"
  },
  "cardCount": {
   "one": "{n}张牌",
@@ -915,5 +917,34 @@
   "year": "我的{year}年度塔罗牌",
   "life": "我的生命灵数是{n}",
   "birth": "我的塔罗生日牌"
+ },
+ "about": {
+  "title": "关于 ShenTarot：开发者与牌义来源",
+  "description": "ShenTarot 由谁开发、塔罗牌义和牌阵从何而来，以及 AI 解读如何运作。",
+  "h1": "关于 ShenTarot",
+  "lead": "ShenTarot 是一款适用于 iPhone 和 Android 的塔罗应用。本网站是它的免费配套网站：牌义、牌阵和占卜工具，无需注册即可使用。",
+  "crumb": "关于 ShenTarot",
+  "sections": [
+   {
+    "title": "开发者",
+    "text": "ShenTarot 由新加坡公司 ShenTech 开发。联系我们：{email}。"
+   },
+   {
+    "title": "牌义从何而来",
+    "text": "本网站的牌义与应用及其解读使用的完全相同，因此两者始终一致。牌义依据韦特塔罗（Rider-Waite-Smith，1909 年，公有领域）的牌面图像，以及其背后黄金黎明传统中的元素、行星和星座对应。每张牌的页面都会说明牌面画了什么，以及它为何有这样的含义。"
+   },
+   {
+    "title": "牌阵",
+    "text": "每个牌阵页面都会注明其布局的来源，说明它是传统牌阵还是常见的现代牌阵。"
+   },
+   {
+    "title": "AI 解读如何运作",
+    "text": "在应用中，ShenTarot 会根据你的问题选择牌阵，再根据你抽到的牌、它们的位置以及正逆位写出解读。只有 AI 解读需要登录（使用 Google 或 Apple 账号）。你的牌面照片在手机上识别，绝不会上传。"
+   },
+   {
+    "title": "用途",
+    "text": "ShenTarot 仅供娱乐和自我反思。解读帮助你理清问题，并非预言，也不构成专业建议。"
+   }
+  ]
  }
 }

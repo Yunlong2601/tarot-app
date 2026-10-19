@@ -40,7 +40,8 @@
   "delete": "Eliminar tus datos",
   "copyright": "© {year} ShenTech, Singapur. Todos los derechos reservados.",
   "images": "Imágenes de las cartas: baraja Rider-Waite-Smith (1909), de dominio público.",
-  "inEnglish": "{page} (en inglés)"
+  "inEnglish": "{page} (en inglés)",
+  "about": "Acerca de"
  },
  "store": {
   "download": "Descárgalo en",
@@ -461,7 +462,8 @@
   "faqTitle": "Preguntas sobre {name}",
   "moreCards": "Más cartas",
   "prev": "Carta anterior",
-  "next": "Carta siguiente"
+  "next": "Carta siguiente",
+  "answer": "{name} significa {keywords}."
  },
  "cardCount": {
   "one": "{n} carta",
@@ -954,5 +956,34 @@
   "year": "Mi carta del tarot para {year}",
   "life": "Mi número de camino de vida es el {n}",
   "birth": "Mis cartas natales del tarot"
+ },
+ "about": {
+  "title": "Acerca de ShenTarot: quién lo hace y de dónde vienen los significados",
+  "description": "Quién hace ShenTarot, de dónde vienen los significados de las cartas y las tiradas, y cómo funcionan las lecturas con IA.",
+  "h1": "Acerca de ShenTarot",
+  "lead": "ShenTarot es una app de tarot para iPhone y Android. Esta web es su compañera gratuita: significados de las cartas, tiradas y herramientas de lectura que puedes usar sin cuenta.",
+  "crumb": "Acerca de ShenTarot",
+  "sections": [
+   {
+    "title": "Quién lo hace",
+    "text": "ShenTarot lo hace ShenTech, una empresa de Singapur. Escríbenos a {email}."
+   },
+   {
+    "title": "De dónde vienen los significados",
+    "text": "Los significados de las cartas son los mismos que usan la app y sus lecturas, así que nunca se contradicen. Siguen las imágenes de la baraja Rider-Waite-Smith (1909, de dominio público) y las asociaciones de elementos, planetas y signos de la tradición de la Golden Dawn en la que se basa. Cada página de carta explica qué muestra la carta y por qué significa lo que significa."
+   },
+   {
+    "title": "Tiradas",
+    "text": "Cada página de tirada indica de dónde viene su disposición, ya sea tradicional o una tirada moderna habitual."
+   },
+   {
+    "title": "Cómo funcionan las lecturas con IA",
+    "text": "En la app, ShenTarot elige una tirada para tu pregunta y escribe una lectura a partir de las cartas que sacaste, sus posiciones y si salieron al derecho o invertidas. Solo las lecturas con IA requieren iniciar sesión, con Google o Apple. Las fotos de tus cartas se reconocen en tu teléfono y nunca se suben."
+   },
+   {
+    "title": "Para qué sirve",
+    "text": "ShenTarot es para entretenimiento y reflexión personal. Las lecturas te ayudan a pensar una pregunta; no son predicciones ni consejo profesional."
+   }
+  ]
  }
 }

@@ -3,7 +3,7 @@ import Base from "../../../layouts/Base.astro";
 import Tabs from "../../../components/Tabs.astro";
 import { BASE } from "../../../config.ts";
 import { CARDS, cardIds, slug, type CardId } from "../../../lib/data.ts";
-import { i18n, langPathsFor, type Locale } from "../../../i18n/index.ts";
+import { i18n, joinAnd, langPathsFor, type Locale } from "../../../i18n/index.ts";
 
 export function getStaticPaths() {
   return langPathsFor(cardIds.map((id) => ({ params: { slug: slug(id) }, props: { id } })));
@@ -59,9 +59,25 @@ const faq: [string, string][] = k
       [t("card.faqQuestion", { name }), t("card.faqQuestionA", { up: k.upright.question, rev: k.reversed.question })],
     ]
   : [];
-const jsonLd = faq.length
-  ? [{ "@context": "https://schema.org", "@type": "FAQPage", inLanguage: L.tag, mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) }]
-  : [];
+// One plain sentence that answers "what does this card mean?" first, for
+// readers who skim and for search and AI answers that quote a page.
+const answer = t("card.answer", { name, keywords: joinAnd(L.tag, tr.keywords) });
+const term = {
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  name,
+  description: `${answer} ${k?.essence ?? tr.upright}`,
+  url: new URL(u(`cards/${slug(id)}`), Astro.site).href,
+  image: new URL(`cards/art/${id}.jpg`, Astro.site).href,
+  inLanguage: L.tag,
+  inDefinedTermSet: { "@type": "DefinedTermSet", name: t("cards.crumb"), url: new URL(u("cards"), Astro.site).href },
+};
+const jsonLd = [
+  term,
+  ...(faq.length
+    ? [{ "@context": "https://schema.org", "@type": "FAQPage", inLanguage: L.tag, mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) }]
+    : []),
+];
 ---
 <Base
   title={t("card.title", { name })}
@@ -84,6 +100,7 @@ const jsonLd = faq.length
     <div>
       <p class="meta">{kind}</p>
       <h1>{name}</h1>
+      <p class="answer">{answer}</p>
       {k && <p class="essence">{k.essence}</p>}
       <p class="lead">{tr.upright}</p>
       <ul class="chips">{tr.keywords.map((w) => <li>{w}</li>)}</ul>

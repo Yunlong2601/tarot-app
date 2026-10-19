@@ -49,6 +49,7 @@ const topicName = (title: string) => (lang === "en" ? title.toLowerCase() : titl
     <p class="eyebrow">{count} · {category}</p>
     <h1>{name}</h1>
     <p class="lead">{tr.blurb}</p>
+    <p class="answer">{faq[0]![1]}</p>
   </header>
   <Tabs label={t("spread.about", { name })} tabs={[
     { id: "try", label: t("spread.tabTry") },

@@ -50,6 +50,22 @@ The free tools, the reader and the card pages can save a result as a picture
 (or share it from a phone), drawn in the browser from the card art. Card pages
 also have link-preview images, made by `scripts/og-cards.mjs` before each build.
 
+## Search engines and AI assistants
+
+- `robots.txt` welcomes all crawlers and names the AI search crawlers (GPTBot,
+  ClaudeBot, PerplexityBot and others) explicitly. If Cloudflare's "Block AI
+  bots" setting is on for the domain, it overrides this; turn it off in the
+  Cloudflare dashboard under Security > Bots.
+- `/llms.txt` and `/llms-full.txt` give AI assistants the site in plain
+  Markdown: every card, spread, topic, question guide and tool, and the full
+  card meanings. They are built from the same English text as the pages.
+- Card pages open with a one-line answer ("The Star means hope, renewal and
+  calm.") and carry schema.org `DefinedTerm` and `FAQPage` data. The About page
+  says who makes ShenTarot and where the meanings come from.
+- `npm run deploy` ends with `scripts/indexnow.mjs`, which tells Bing and the
+  other IndexNow search engines about every page. Its key is the public
+  `public/<key>.txt` file. A failed ping is printed and never fails the deploy.
+
 ## Settings
 
 `src/config.ts`:

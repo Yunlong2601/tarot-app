@@ -40,7 +40,8 @@
   "delete": "Delete your data",
   "copyright": "© {year} ShenTech, Singapore. All rights reserved.",
   "images": "Card images: Rider-Waite-Smith deck (1909), public domain.",
-  "inEnglish": "{page} (in English)"
+  "inEnglish": "{page} (in English)",
+  "about": "About"
  },
  "store": {
   "download": "Download on",
@@ -385,7 +386,8 @@
   "faqTitle": "Questions about {name}",
   "moreCards": "More cards",
   "prev": "Previous card",
-  "next": "Next card"
+  "next": "Next card",
+  "answer": "{name} means {keywords}."
  },
  "cardCount": {
   "one": "{n} card",
@@ -878,5 +880,34 @@
   "year": "My tarot card for {year}",
   "life": "My life path number is {n}",
   "birth": "My tarot birth cards"
+ },
+ "about": {
+  "title": "About ShenTarot: who makes it and where the meanings come from",
+  "description": "Who makes ShenTarot, where its tarot card meanings and spreads come from, and how the AI readings work.",
+  "h1": "About ShenTarot",
+  "lead": "ShenTarot is a tarot app for iPhone and Android. This website is its free companion: card meanings, spreads and reading tools you can use without an account.",
+  "crumb": "About ShenTarot",
+  "sections": [
+   {
+    "title": "Who makes it",
+    "text": "ShenTarot is made by ShenTech, a company in Singapore. Write to us at {email}."
+   },
+   {
+    "title": "Where the meanings come from",
+    "text": "The card meanings here are the same ones the app and its readings use, so they never disagree. They follow the pictures of the Rider-Waite-Smith deck (1909, public domain) and the element, planet and star sign associations of the Golden Dawn tradition behind it. Each card page explains what the card shows and why it means what it does."
+   },
+   {
+    "title": "Spreads",
+    "text": "Each spread page says where its layout comes from, whether it is a traditional layout or a common modern one."
+   },
+   {
+    "title": "How the AI readings work",
+    "text": "In the app, ShenTarot picks a spread for your question, then writes a reading from the cards you drew, their positions and whether they are upright or reversed. Only AI readings need you to sign in, with Google or Apple. Photos of your cards are recognised on your phone and never uploaded."
+   },
+   {
+    "title": "What it is for",
+    "text": "ShenTarot is for entertainment and self-reflection. Readings help you think a question through; they are not predictions or professional advice."
+   }
+  ]
  }
 }

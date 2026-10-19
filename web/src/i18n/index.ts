@@ -57,6 +57,10 @@ export const langPaths = () => LOCALES.map((l) => ({ params: { lang: l === DEFAU
 export const langPathsFor = <P extends Record<string, string>, R extends Record<string, unknown>>(items: { params: P; props: R }[]) =>
   LOCALES.flatMap((l) => items.map((i) => ({ params: { ...i.params, lang: l === DEFAULT_LOCALE ? undefined : l }, props: { ...i.props, lang: l } })));
 
+/** "a, b and c" in a language (British English: no comma before "and"). */
+export const joinAnd = (tag: string, items: string[]) =>
+  new Intl.ListFormat(tag === "en" ? "en-GB" : tag, { type: "conjunction" }).format(items);
+
 /** The first sentence of a text, in any of the site's scripts. */
 export const firstSentence = (s: string) => {
   const m = s.match(/^.*?(?:[.!?](?=\s)|[。！？])/);

@@ -40,7 +40,8 @@
   "delete": "Deine Daten löschen",
   "copyright": "© {year} ShenTech, Singapur. Alle Rechte vorbehalten.",
   "images": "Kartenbilder: Rider-Waite-Smith-Deck (1909), gemeinfrei.",
-  "inEnglish": "{page} (auf Englisch)"
+  "inEnglish": "{page} (auf Englisch)",
+  "about": "Über uns"
  },
  "store": {
   "download": "Laden im",
@@ -424,7 +425,8 @@
   "faqTitle": "Fragen zu {name}",
   "moreCards": "Weitere Karten",
   "prev": "Vorherige Karte",
-  "next": "Nächste Karte"
+  "next": "Nächste Karte",
+  "answer": "{name} bedeutet {keywords}."
  },
  "cardCount": {
   "one": "{n} Karte",
@@ -917,5 +919,34 @@
   "year": "Meine Tarotkarte für {year}",
   "life": "Meine Lebenszahl ist {n}",
   "birth": "Meine Tarot-Geburtskarten"
+ },
+ "about": {
+  "title": "Über ShenTarot: wer es macht und woher die Bedeutungen stammen",
+  "description": "Wer ShenTarot macht, woher die Bedeutungen der Tarotkarten und Legesysteme stammen und wie die KI-Deutungen funktionieren.",
+  "h1": "Über ShenTarot",
+  "lead": "ShenTarot ist eine Tarot-App für iPhone und Android. Diese Website ist ihr kostenloser Begleiter: Kartenbedeutungen, Legesysteme und Deutungswerkzeuge, die du ohne Konto nutzen kannst.",
+  "crumb": "Über ShenTarot",
+  "sections": [
+   {
+    "title": "Wer es macht",
+    "text": "ShenTarot wird von ShenTech gemacht, einem Unternehmen in Singapur. Schreib uns an {email}."
+   },
+   {
+    "title": "Woher die Bedeutungen stammen",
+    "text": "Die Kartenbedeutungen hier sind dieselben, die die App und ihre Deutungen verwenden, sodass sie sich nie widersprechen. Sie folgen den Bildern des Rider-Waite-Smith-Decks (1909, gemeinfrei) und den Zuordnungen von Elementen, Planeten und Sternzeichen aus der Golden-Dawn-Tradition, auf der es beruht. Jede Kartenseite erklärt, was die Karte zeigt und warum sie bedeutet, was sie bedeutet."
+   },
+   {
+    "title": "Legesysteme",
+    "text": "Jede Seite eines Legesystems nennt, woher seine Anordnung stammt, ob traditionell oder eine verbreitete moderne Legung."
+   },
+   {
+    "title": "Wie die KI-Deutungen funktionieren",
+    "text": "In der App wählt ShenTarot ein Legesystem für deine Frage und schreibt eine Deutung aus den gezogenen Karten, ihren Positionen und ob sie aufrecht oder umgekehrt liegen. Nur KI-Deutungen erfordern eine Anmeldung, mit Google oder Apple. Fotos deiner Karten werden auf deinem Handy erkannt und nie hochgeladen."
+   },
+   {
+    "title": "Wofür es gedacht ist",
+    "text": "ShenTarot dient der Unterhaltung und Selbstreflexion. Deutungen helfen dir, eine Frage zu durchdenken; sie sind keine Vorhersagen und keine professionelle Beratung."
+   }
+  ]
  }
 }

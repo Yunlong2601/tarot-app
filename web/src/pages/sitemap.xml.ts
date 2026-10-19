@@ -8,6 +8,7 @@ import { LOCALES, LOCALE_INFO, prefix } from "../i18n/index.ts";
 export const GET: APIRoute = () => {
   const paths = [
     "",
+    "about",
     "cards",
     "spreads",
     "tools",

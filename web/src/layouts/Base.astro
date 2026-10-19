@@ -152,6 +152,7 @@ const ld = (o: unknown) => JSON.stringify(o).replace(/</g, "\\u003c");
           <div>
             <h4>{t("footer.company")}</h4>
             <ul>
+              <li><a href={u("about")}>{t("footer.about")}</a></li>
               <li><a href={`mailto:${SUPPORT_EMAIL}`}>{t("footer.support")}</a></li>
               <li><a href={`${base}privacy`}>{legal("footer.privacy")}</a></li>
               <li><a href={`${base}terms`}>{legal("footer.terms")}</a></li>
