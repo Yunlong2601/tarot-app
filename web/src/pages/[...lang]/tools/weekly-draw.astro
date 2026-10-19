@@ -1,0 +1,24 @@
+---
+import Base from "../../../layouts/Base.astro";
+import Reader from "../../../components/Reader.astro";
+import { i18n, langPaths, type Locale } from "../../../i18n/index.ts";
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Locale };
+const L = i18n(lang);
+const { t } = L;
+---
+<Base
+  title={t("weekly.title")}
+  description={t("weekly.description")}
+  path="tools/weekly-draw"
+  crumbs={[[t("toolsCrumb"), "tools"], [t("weekly.crumb"), "tools/weekly-draw"]]}
+  lang={lang}
+>
+  <header class="page-head center">
+    <p class="eyebrow">{t("freeTool")}</p>
+    <h1>{t("weekly.h1")}</h1>
+    <p class="lead">{t("weekly.lead")}</p>
+  </header>
+  <Reader positions={L.list("weekly.days")} button={t("weekly.button")} lang={lang} />
+</Base>

@@ -1,0 +1,127 @@
+---
+import Base from "../../../layouts/Base.astro";
+import Tabs from "../../../components/Tabs.astro";
+import { BASE } from "../../../config.ts";
+import { SPREADS, slug, type CardId } from "../../../lib/data.ts";
+import { QUESTION_GUIDES, type QuestionGuide } from "../../../lib/questions.ts";
+import { recommendSpread } from "../../../lib/recommend.ts";
+import { TOPICS } from "../../../lib/topics.ts";
+import { firstSentence, i18n, langPathsFor, type Locale } from "../../../i18n/index.ts";
+
+export function getStaticPaths() {
+  return langPathsFor(QUESTION_GUIDES.map((g) => ({ params: { slug: g.slug }, props: { g } })));
+}
+const { g, lang } = Astro.props as { g: QuestionGuide; lang: Locale };
+const L = i18n(lang);
+const { t, url: u } = L;
+const tr = L.content.guides[g.slug as keyof typeof L.content.guides];
+const guideQ = (s: string) => L.content.guides[s as keyof typeof L.content.guides].question;
+// The spread is matched on the English wording, so every language suggests the same one.
+const spread = recommendSpread(g.question);
+const s = SPREADS[spread];
+const sp = L.content.spreads[spread as keyof typeof L.content.spreads];
+const count = t("cardCount", { n: s.positions.length });
+const topic = TOPICS.find((tp) => tp.slug === g.topic)!;
+const topicText = L.content.topics[topic.slug as keyof typeof L.content.topics];
+const notes = tr.cards as Record<string, string>;
+const more = QUESTION_GUIDES.filter((x) => x.slug !== g.slug && x.topic === g.topic)
+  .concat(QUESTION_GUIDES.filter((x) => x.topic !== g.topic))
+  .slice(0, 3);
+const href = `${u(`spreads/${slug(spread)}`)}#try`;
+const faq: [string, string][] = [
+  [t("guide.faqCan", { question: tr.question }), tr.answer],
+  [t("guide.faqWhich", { question: tr.question }), t("guide.faqWhichA", { name: sp.name, count, blurb: sp.blurb })],
+  [t("guide.faqWord"), t("guide.faqWordA", { better: tr.better.join(" ") })],
+];
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  inLanguage: L.tag,
+  mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
+};
+---
+<Base
+  title={t("guide.title", { question: tr.question })}
+  description={t("guide.description", { first: firstSentence(tr.answer) })}
+  path={`questions/${g.slug}`}
+  image={`cards/art/${g.cards[0]![0]}.jpg`}
+  crumbs={[[t("questions.crumb"), "questions"], [tr.question, `questions/${g.slug}`]]}
+  jsonLd={[jsonLd]}
+  lang={lang}
+>
+  <header class="page-head">
+    <p class="eyebrow">{t("guide.eyebrow", { topic: topicText.name })}</p>
+    <h1>{tr.question}</h1>
+    <p class="lead">{tr.answer}</p>
+    <p><a class="btn btn-gold" href={href} data-ask-guide={tr.question}>{t("guide.askThis")}</a></p>
+  </header>
+
+  <Tabs label={t("guide.tabsLabel")} tabs={[{ id: "ask", label: t("guide.tabAsk") }, { id: "spread", label: t("guide.tabSpread") }, { id: "cards", label: t("guide.tabCards") }, { id: "note", label: t("guide.tabNote") }, { id: "faq", label: t("guide.tabFaq") }]}>
+  <section data-panel="ask">
+    <h2>{t("guide.tabAsk")}</h2>
+    <p class="muted">{t("guide.askLead")}</p>
+    <ul class="questions">{tr.better.map((q) => <li>{q}</li>)}</ul>
+  </section>
+
+  <section data-panel="spread">
+    <h2>{t("guide.spreadTitle")}</h2>
+    <a class="panel spread-card" href={u(`spreads/${slug(spread)}`)} style="max-width:26rem">
+      <div class="layout" aria-hidden="true">{s.positions.map(() => <i />)}</div>
+      <p class="count">{count}</p>
+      <h3>{sp.name}</h3>
+      <p>{sp.blurb}</p>
+      <span class="link-arrow">{t("spreads.seePositions")}</span>
+    </a>
+  </section>
+
+  <section data-panel="cards">
+    <h2>{t("guide.tabCards")}</h2>
+    <div class="card-notes">
+      {g.cards.map(([id, note]) => (
+        <a class="panel" href={u(`cards/${slug(id)}`)}>
+          <img src={`${BASE}cards/art/${id}.jpg`} alt="" loading="lazy" width="150" height="257" />
+          <span><b>{L.cards[id as CardId]!.name}</b>{notes[id] ?? note}</span>
+        </a>
+      ))}
+    </div>
+    <p class="muted">{t("guide.cardsNote")}</p>
+  </section>
+
+  <section data-panel="note">
+    <h2>{t("guide.noteTitle")}</h2>
+    <p>{tr.tip}</p>
+  </section>
+
+  <section data-panel="faq">
+    <h2 class="center">{t("guide.faqTitle")}</h2>
+    <div class="faq">
+      {faq.map(([q, a]) => (
+        <details>
+          <summary>{q}</summary>
+          <p>{a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  </Tabs>
+  <section class="section">
+    <h2>{t("guide.more")}</h2>
+    <ul class="guide-list">
+      {more.map((x) => <li><a href={u(`questions/${x.slug}`)}>{guideQ(x.slug)}</a></li>)}
+    </ul>
+    <p><a class="link-arrow" href={u(`topics/${topic.slug}`)}>{topicText.title}</a></p>
+  </section>
+</Base>
+
+<script>
+  import { ASK_KEY } from "../../../lib/recommend.ts";
+  // Carry the question to the spread's reader in session storage, never in the address.
+  for (const a of document.querySelectorAll<HTMLAnchorElement>("[data-ask-guide]")) {
+    a.addEventListener("click", () => {
+      try {
+        sessionStorage.setItem(ASK_KEY, a.dataset.askGuide!);
+      } catch {}
+    });
+  }
+</script>

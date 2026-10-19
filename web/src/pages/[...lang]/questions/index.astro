@@ -1,0 +1,40 @@
+---
+import Base from "../../../layouts/Base.astro";
+import { QUESTION_GUIDES } from "../../../lib/questions.ts";
+import { TOPICS } from "../../../lib/topics.ts";
+import { firstSentence, i18n, langPaths, type Locale } from "../../../i18n/index.ts";
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Locale };
+const L = i18n(lang);
+const { t, url: u } = L;
+const guide = (s: string) => L.content.guides[s as keyof typeof L.content.guides];
+const groups = TOPICS.map((tp) => ({ name: L.content.topics[tp.slug as keyof typeof L.content.topics].name, guides: QUESTION_GUIDES.filter((g) => g.topic === tp.slug) })).filter((x) => x.guides.length);
+---
+<Base
+  title={t("questions.title")}
+  description={t("questions.description")}
+  path="questions"
+  crumbs={[[t("questions.crumb"), "questions"]]}
+  lang={lang}
+>
+  <header class="page-head center">
+    <p class="eyebrow">{t("questions.eyebrow")}</p>
+    <h1>{t("questions.h1")}</h1>
+    <p class="lead">{t("questions.lead")}</p>
+  </header>
+  {groups.map(({ name, guides }) => (
+    <section>
+      <h2 class="group-title">{name}</h2>
+      <div class="grid-3">
+        {guides.map((g) => (
+          <a class="panel spread-card" href={u(`questions/${g.slug}`)}>
+            <h3>{guide(g.slug).question}</h3>
+            <p>{firstSentence(guide(g.slug).answer)}</p>
+            <span class="link-arrow">{t("questions.readGuide")}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  ))}
+</Base>

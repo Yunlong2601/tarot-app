@@ -1,0 +1,95 @@
+---
+import Base from "../../../layouts/Base.astro";
+import { meaningDeck } from "../../../lib/data.ts";
+import { i18n, langPaths, type Locale } from "../../../i18n/index.ts";
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Locale };
+const L = i18n(lang);
+const { t } = L;
+
+const config = JSON.stringify({ view: L.view, deck: meaningDeck(L).filter((c) => c.suit === null), t: L.ui.compat, elements: L.ui.elements, share: L.ui.share });
+---
+<Base
+  title={t("compat.title")}
+  description={t("compat.description")}
+  path="tools/love-compatibility"
+  crumbs={[[t("toolsCrumb"), "tools"], [t("compat.crumb"), "tools/love-compatibility"]]}
+  lang={lang}
+>
+  <header class="page-head center">
+    <p class="eyebrow">{t("freeTool")}</p>
+    <h1>{t("compat.h1")}</h1>
+    <p class="lead">{t("compat.lead")}</p>
+  </header>
+  <div data-compat>
+    <script type="application/json" data-config set:html={config.replace(/</g, "\\u003c")} />
+    <div class="panel tool-panel">
+      <label>{t("compat.yours")} <input type="date" data-a /></label>
+      <label>{t("compat.theirs")} <input type="date" data-b /></label>
+      <button class="btn btn-gold" type="button" data-go>{t("compat.button")}</button>
+    </div>
+    <div class="results" data-out aria-live="polite"></div>
+  </div>
+  <section class="section" style="padding-bottom:0">
+    <h2>{t("howItWorks")}</h2>
+    <p>{t("compat.how")}</p>
+    <p class="muted">{t("compat.note")}</p>
+  </section>
+</Base>
+
+<script>
+  import { birthCards, parseDate } from "../../../lib/numerology.ts";
+  import { cardResult, el, readConfig, type View } from "../../../lib/cardView.ts";
+  import { shareButtons, type ShareText } from "../../../lib/share.ts";
+  import type { MeaningCard } from "../../../lib/data.ts";
+  import { fill } from "../../../i18n/fill.ts";
+
+  const relation = (a: string | null, b: string | null) => {
+    if (!a || !b) return "neutral";
+    if (a === b) return "same";
+    const p = [a, b].sort().join("+");
+    return p === "Fire+Water" || p === "Air+Earth" ? "contrary" : "friendly";
+  };
+
+  for (const root of document.querySelectorAll<HTMLElement>("[data-compat]")) {
+    const cfg = readConfig<{ view: View; deck: MeaningCard[]; t: Record<string, string> & { rel: Record<string, string> }; elements: Record<string, string>; share: ShareText & Record<string, string> }>(root);
+    const T = cfg.t;
+    const elName = (e: string) => cfg.elements[e.toLowerCase()] ?? e;
+    const byN = (n: number) => cfg.deck.find((c) => c.n === n)!;
+    const out = root.querySelector<HTMLElement>("[data-out]")!;
+    const today = new Date().toISOString().slice(0, 10);
+    root.querySelectorAll<HTMLInputElement>("input[type=date]").forEach((i) => (i.max = today));
+    root.querySelector<HTMLButtonElement>("[data-go]")!.onclick = () => {
+      const a = parseDate(root.querySelector<HTMLInputElement>("[data-a]")!.value);
+      const b = parseDate(root.querySelector<HTMLInputElement>("[data-b]")!.value);
+      if (!a || !b) {
+        out.replaceChildren(el("p", "center muted", T.pickBoth));
+        return;
+      }
+      const ca = byN(birthCards(...a)[0]!);
+      const cb = byN(birthCards(...b)[0]!);
+      const panel = el("div", "panel summary verdict");
+      const title = ca.id === cb.id ? fill(T.shared!, { name: ca.name }) : fill(T.pair!, { a: ca.name, b: cb.name });
+      panel.append(el("h3", "", title));
+      const ul = el("ul");
+      if (ca.id === cb.id) ul.append(el("li", "", T.sameCard));
+      if (ca.el && cb.el) ul.append(el("li", "", fill(T.elements!, { a: elName(ca.el), b: elName(cb.el) })));
+      ul.append(el("li", "", T.rel[relation(ca.el, cb.el)]!));
+      panel.append(ul);
+      panel.append(shareButtons(() => ({
+        base: cfg.view.base,
+        eyebrow: cfg.share.compat!,
+        title,
+        text: T.rel[relation(ca.el, cb.el)]!,
+        cards: [{ id: ca.id, name: ca.name, label: T.yourCard }, { id: cb.id, name: cb.name, label: T.theirCard }],
+        file: `shentarot-${ca.slug}-${cb.slug}`,
+      }), cfg.share));
+      out.replaceChildren(
+        cardResult(ca, cfg.view, T.yourCard!, ca.love || ca.core),
+        cardResult(cb, cfg.view, T.theirCard!, cb.love || cb.core),
+        panel,
+      );
+    };
+  }
+</script>

@@ -8,11 +8,15 @@ export const el = <K extends keyof HTMLElementTagNameMap>(tag: K, cls?: string, 
   return e;
 };
 
+/** Where card pictures and pages live, and the "Full meaning" link text, in the page's language. */
+export type View = { base: string; cards: string; more: string };
+
 /** A card with its picture, name, keywords and a line of meaning. */
-export function cardResult(c: MeaningCard, base: string, label: string, text: string) {
+export function cardResult(c: MeaningCard, view: View, label: string, text: string) {
+  const base = view.base;
   const box = el("div", "result-card panel");
   const link = el("a");
-  link.href = `${base}cards/${c.slug}`;
+  link.href = `${view.cards}/${c.slug}`;
   const img = el("img");
   img.src = `${base}cards/art/${c.id}.jpg`;
   img.alt = c.name;
@@ -22,7 +26,7 @@ export function cardResult(c: MeaningCard, base: string, label: string, text: st
   const body = el("div");
   body.append(el("p", "pos", label), el("h3", "", c.name), el("p", "kw", c.keywords.join(" · ")));
   if (text) body.append(el("p", "", text));
-  const more = el("a", "link-arrow", "Full meaning");
+  const more = el("a", "link-arrow", view.more);
   more.href = link.href;
   body.append(more);
   box.append(link, body);

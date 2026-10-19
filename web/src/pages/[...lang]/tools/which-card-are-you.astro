@@ -1,0 +1,86 @@
+---
+import Base from "../../../layouts/Base.astro";
+import { meaningDeck } from "../../../lib/data.ts";
+import { i18n, langPaths, type Locale } from "../../../i18n/index.ts";
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Locale };
+const L = i18n(lang);
+const { t } = L;
+
+const courts = meaningDeck(L).filter((c) => c.suit !== null && c.n === null);
+const config = JSON.stringify({ view: L.view, deck: courts, share: L.ui.share, t: { copyLink: t("quiz.copyLink"), copied: t("quiz.copied"), youAre: t("quiz.youAre") } });
+// Each answer scores a suit (element) for the first three questions, then a rank (how you act).
+const VALUES = [["wands", "cups", "swords", "pentacles"], ["page", "knight", "queen", "king"]];
+const questions = L.ui.quiz.q.map((x, i) => ({ q: x.q, opts: x.a.map((label, j) => [VALUES[i < 3 ? 0 : 1]![j]!, label] as const) }));
+---
+<Base
+  title={t("quiz.title")}
+  description={t("quiz.description")}
+  path="tools/which-card-are-you"
+  crumbs={[[t("toolsCrumb"), "tools"], [t("quiz.crumb"), "tools/which-card-are-you"]]}
+  lang={lang}
+>
+  <header class="page-head center">
+    <p class="eyebrow">{t("quiz.eyebrow")}</p>
+    <h1>{t("quiz.h1")}</h1>
+    <p class="lead">{t("quiz.lead")}</p>
+  </header>
+  <form class="quiz" data-quiz style="max-width:40rem;margin:0 auto">
+    <script type="application/json" data-config set:html={config.replace(/</g, "\\u003c")} />
+    {questions.map(({ q, opts }, i) => (
+      <fieldset>
+        <legend>{q}</legend>
+        {opts.map(([v, label]) => <label><input type="radio" name={`q${i}`} value={v} required /> {label}</label>)}
+      </fieldset>
+    ))}
+    <p class="center"><button class="btn btn-gold" type="submit">{t("quiz.submit")}</button></p>
+  </form>
+  <div class="results" data-out aria-live="polite"></div>
+</Base>
+
+<script>
+  import { cardResult, el, readConfig, type View } from "../../../lib/cardView.ts";
+  import { shareButtons, type ShareText } from "../../../lib/share.ts";
+  import type { MeaningCard } from "../../../lib/data.ts";
+
+  const SUITS = ["wands", "cups", "swords", "pentacles"];
+  const RANKS = ["page", "knight", "queen", "king"];
+  const form = document.querySelector<HTMLFormElement>("[data-quiz]")!;
+  const out = document.querySelector<HTMLElement>("[data-out]")!;
+  const cfg = readConfig<{ view: View; deck: MeaningCard[]; share: ShareText & Record<string, string>; t: Record<string, string> }>(form);
+
+  // Ties go to the later answer, so the last question in each half breaks them.
+  const pick = (vals: string[], from: string[]) => {
+    const count = new Map<string, number>();
+    let best = vals[vals.length - 1]!;
+    for (const v of vals) count.set(v, (count.get(v) ?? 0) + 1);
+    for (const v of from) if ((count.get(v) ?? 0) > (count.get(best) ?? 0)) best = v;
+    return best;
+  };
+
+  function show(id: string) {
+    const c = cfg.deck.find((x) => x.id === id);
+    if (!c) return;
+    const share = el("button", "btn btn-ghost btn-sm", cfg.t.copyLink);
+    share.type = "button";
+    const url = new URL(location.href);
+    url.search = `?card=${c.slug}`;
+    share.onclick = () => navigator.clipboard?.writeText(url.href).then(() => (share.textContent = cfg.t.copied!));
+    const p = el("p", "center");
+    p.append(share);
+    const img = shareButtons(() => ({ base: cfg.view.base, eyebrow: cfg.share.quiz!, title: c.name, text: c.core, cards: [{ id: c.id, name: c.name }], file: `shentarot-${c.slug}` }), cfg.share);
+    out.replaceChildren(cardResult(c, cfg.view, cfg.t.youAre!, c.core), img, p);
+    out.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  form.onsubmit = (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const vals = [0, 1, 2, 3, 4, 5].map((i) => String(data.get(`q${i}`)));
+    show(`${pick(vals.slice(0, 3), SUITS)}_${pick(vals.slice(3), RANKS)}`);
+  };
+
+  const shared = new URLSearchParams(location.search).get("card");
+  if (shared) show(shared.replace(/-/g, "_"));
+</script>

@@ -1,0 +1,59 @@
+---
+import Base from "../../../layouts/Base.astro";
+import { BASE } from "../../../config.ts";
+import { SPREADS, slug } from "../../../lib/data.ts";
+import { QUESTION_GUIDES } from "../../../lib/questions.ts";
+import { TOPICS, TOPIC_ART, type Topic } from "../../../lib/topics.ts";
+import { i18n, langPathsFor, type Locale } from "../../../i18n/index.ts";
+
+export function getStaticPaths() {
+  return langPathsFor(TOPICS.map((tp) => ({ params: { slug: tp.slug }, props: { tp } })));
+}
+const { tp, lang } = Astro.props as { tp: Topic; lang: Locale };
+const L = i18n(lang);
+const { t, url: u } = L;
+const c = L.content.topics[tp.slug as keyof typeof L.content.topics];
+const sp = (x: string) => L.content.spreads[x as keyof typeof L.content.spreads];
+const art = TOPIC_ART[tp.slug]!;
+const guides = QUESTION_GUIDES.filter((g) => g.topic === tp.slug);
+---
+<Base
+  title={t("topic.title", { title: c.title })}
+  description={t("topic.description", { intro: c.intro })}
+  path={`topics/${tp.slug}`}
+  image={`cards/art/${art}.jpg`}
+  crumbs={[[c.title, `topics/${tp.slug}`]]}
+  lang={lang}
+>
+  <section class="card-hero" style="padding-top:3rem">
+    <div class="card-frame">
+      <img src={`${BASE}cards/art/${art}.jpg`} alt="" width="300" height="514" fetchpriority="high" />
+    </div>
+    <div>
+      <p class="meta">{t("topic.meta", { name: c.name })}</p>
+      <h1>{c.title}</h1>
+      <p class="lead">{c.intro}</p>
+    </div>
+  </section>
+  <h2>{t("topic.asked")}</h2>
+  <ul class="questions">{c.questions.map((q) => <li>{q}</li>)}</ul>
+  <p class="muted">{t("topic.appNote")}</p>
+  {guides.length > 0 && (
+    <>
+      <h2 style="margin-top:3rem">{t("topic.guides")}</h2>
+      <ul class="guide-list">{guides.map((g) => <li><a href={u(`questions/${g.slug}`)}>{L.content.guides[g.slug as keyof typeof L.content.guides].question}</a></li>)}</ul>
+    </>
+  )}
+  <h2 style="margin-top:3rem">{t("topic.spreadsFor", { name: lang === "en" ? c.name.toLowerCase() : c.name })}</h2>
+  <div class="grid-3" style="margin-top:1.4rem">
+    {tp.spreads.map((id) => (
+      <a class="panel spread-card" href={u(`spreads/${slug(id)}`)}>
+        <div class="layout" aria-hidden="true">{SPREADS[id].positions.map(() => <i />)}</div>
+        <p class="count">{t("cardCount", { n: SPREADS[id].positions.length })}</p>
+        <h3>{sp(id).name}</h3>
+        <p>{sp(id).blurb}</p>
+        <span class="link-arrow">{t("spreads.seePositions")}</span>
+      </a>
+    ))}
+  </div>
+</Base>

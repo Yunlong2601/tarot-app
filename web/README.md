@@ -23,6 +23,49 @@ npm run build    # writes dist/
 npm run check    # type check
 ```
 
+## Languages
+
+The site is in English (at the root) and in Simplified Chinese, Traditional
+Chinese, Spanish, German, Japanese, French and Russian, each under its own
+prefix (`/zh-hans/`, `/zh-hant/`, `/es/`, `/de/`, `/ja/`, `/fr/`, `/ru/`).
+Pages live in `src/pages/[...lang]/`; the privacy, terms and account deletion
+pages stay in English only.
+
+All text is in `src/i18n/<language>/`:
+
+- `cards.json` and `content.json`: card meanings, spreads, topics, question
+  guides, life path numbers and star signs. The English files are generated
+  from the app's data with `npx tsx scripts/extract-i18n.ts`; re-run it when
+  that data changes, then update the translations.
+- `ui.json`: every other piece of page and tool text, written by hand.
+
+`node scripts/check-i18n.mjs` checks that each translation has the same keys,
+list lengths and `{placeholders}` as English. A missing string shows in
+English. The translations were machine-made and are worth a native speaker's
+check.
+
+## Share images
+
+The free tools, the reader and the card pages can save a result as a picture
+(or share it from a phone), drawn in the browser from the card art. Card pages
+also have link-preview images, made by `scripts/og-cards.mjs` before each build.
+
+## Search engines and AI assistants
+
+- `robots.txt` welcomes all crawlers and names the AI search crawlers (GPTBot,
+  ClaudeBot, PerplexityBot and others) explicitly. If Cloudflare's "Block AI
+  bots" setting is on for the domain, it overrides this; turn it off in the
+  Cloudflare dashboard under Security > Bots.
+- `/llms.txt` and `/llms-full.txt` give AI assistants the site in plain
+  Markdown: every card, spread, topic, question guide and tool, and the full
+  card meanings. They are built from the same English text as the pages.
+- Card pages open with a one-line answer ("The Star means hope, renewal and
+  calm.") and carry schema.org `DefinedTerm` and `FAQPage` data. The About page
+  says who makes ShenTarot and where the meanings come from.
+- `npm run deploy` ends with `scripts/indexnow.mjs`, which tells Bing and the
+  other IndexNow search engines about every page. Its key is the public
+  `public/<key>.txt` file. A failed ping is printed and never fails the deploy.
+
 ## Settings
 
 `src/config.ts`:

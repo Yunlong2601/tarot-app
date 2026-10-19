@@ -1,0 +1,123 @@
+---
+import Base from "../../../layouts/Base.astro";
+import Tabs from "../../../components/Tabs.astro";
+import Reader from "../../../components/Reader.astro";
+import { SPREADS, slug, spreadIds, type SpreadId } from "../../../lib/data.ts";
+import { TOPICS } from "../../../lib/topics.ts";
+import { i18n, langPathsFor, type Locale } from "../../../i18n/index.ts";
+
+export function getStaticPaths() {
+  return langPathsFor(spreadIds.map((id) => ({ params: { slug: slug(id) }, props: { id } })));
+}
+const { id, lang } = Astro.props as { id: SpreadId; lang: Locale };
+const L = i18n(lang);
+const { t, url: u } = L;
+const sp = (x: string) => L.content.spreads[x as keyof typeof L.content.spreads];
+const s = SPREADS[id];
+const tr = sp(id);
+const name = tr.name;
+const positions = tr.positions;
+const n = positions.length;
+const count = t("cardCount", { n });
+const category = t(`spreadCats.${s.category}`);
+// The topic pages that suggest this spread, and their sample questions.
+const topics = TOPICS.filter((tp) => tp.spreads.includes(id)).map((tp) => ({ slug: tp.slug, ...L.content.topics[tp.slug as keyof typeof L.content.topics] }));
+const questions = [...new Set(topics.flatMap((tp) => tp.questions))];
+const related = spreadIds.filter((x) => x !== id && SPREADS[x].category === s.category).slice(0, 3);
+const faq: [string, string][] = [
+  [t("spread.faqCount", { name }), t("spread.faqCountA", { count, positions: positions.map((p, i) => `${i + 1}. ${p}`).join(t("spread.positionSep")) })],
+  [t("spread.faqFor", { name }), tr.blurb],
+  ...(questions.length ? [[t("spread.faqQuestions", { name }), questions.join(" ")] as [string, string]] : []),
+];
+const jsonLd = [{ "@context": "https://schema.org", "@type": "FAQPage", inLanguage: L.tag, mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) }];
+const topicName = (title: string) => (lang === "en" ? title.toLowerCase() : title);
+---
+<Base
+  title={t("spread.title", { name, count })}
+  description={t("spread.description", { name, n, blurb: tr.blurb })}
+  path={`spreads/${slug(id)}`}
+  crumbs={[[t("spreads.crumb"), "spreads"], [name, `spreads/${slug(id)}`]]}
+  jsonLd={jsonLd}
+  lang={lang}
+>
+  <ol class="crumbs" style="margin-top:2rem">
+    <li><a href={u()}>{t("card.home")}</a></li>
+    <li><a href={u("spreads")}>{t("spreads.crumb")}</a></li>
+    <li><a href={`${u("spreads")}#${s.category}`}>{category}</a></li>
+  </ol>
+  <header class="page-head" style="padding-top:0">
+    <p class="eyebrow">{count} · {category}</p>
+    <h1>{name}</h1>
+    <p class="lead">{tr.blurb}</p>
+    <p class="answer">{faq[0]![1]}</p>
+  </header>
+  <Tabs label={t("spread.about", { name })} tabs={[
+    { id: "try", label: t("spread.tabTry") },
+    { id: "positions", label: t("spread.tabPositions") },
+    { id: "how", label: t("spread.tabHow") },
+    ...(related.length ? [{ id: "related", label: t("spread.tabRelated") }] : []),
+    { id: "faq", label: t("spread.tabFaq") },
+  ]}>
+    <div data-panel="try">
+  <section>
+    <div class="section-head">
+      <p class="ornament">✦</p>
+      <h2>{t("spread.tryTitle")}</h2>
+      <p>{t("spread.tryLead")}</p>
+    </div>
+    <Reader positions={positions} mode={id === "yes_no" ? "yesno" : "spread"} reversals={id === "yes_no" ? 0.5 : 0.25} lang={lang} />
+  </section>
+    </div>
+    <div data-panel="positions">
+  <h2 class="sr-only">{t("spread.positions")}</h2>
+  <ol class="positions">{positions.map((p) => <li>{p}</li>)}</ol>
+  {tr.source && <p class="muted" style="margin-top:1.5rem">{t("spread.source", { source: tr.source })}</p>}
+  {questions.length > 0 && (
+    <>
+      <h2 style="margin:2rem 0 1rem">{t("spread.bestFor")}</h2>
+      <ul class="questions">{questions.map((q) => <li>{q}</li>)}</ul>
+      <p class="muted">{(() => {
+        const [before, after] = t("spread.from").split("{topics}");
+        return <>{before}{topics.map((tp, i) => <>{i > 0 && (i === topics.length - 1 ? t("spread.and") : t("spread.comma"))}<a href={u(`topics/${tp.slug}`)}>{topicName(tp.title)}</a></>)}{after}</>;
+      })()}</p>
+    </>
+  )}
+    </div>
+    <div data-panel="how">
+  <h2 class="sr-only">{t("spread.tabHow")}</h2>
+  <ol class="steps-list">
+    <li>{id === "yes_no" ? t("spread.how1YesNo") : t("spread.how1")}</li>
+    <li>{n > 1 ? t("spread.how2", { count, n }) : t("spread.how2One", { count })}</li>
+    <li>{n > 1 ? t("spread.how3", { first: positions[0]!, last: positions[n - 1]! }) : t("spread.how3One")}</li>
+    {n > 1 && <li>{t("spread.how4")}</li>}
+  </ol>
+    </div>
+    {related.length > 0 && <div data-panel="related">
+    <section class="section" style="padding-bottom:0">
+      <h2>{t("spread.related")}</h2>
+      <div class="grid-3">
+        {related.map((r) => (
+          <a class="panel spread-card" href={u(`spreads/${slug(r)}`)}>
+            <h3>{sp(r).name}</h3>
+            <p class="muted">{t("cardCount", { n: SPREADS[r].positions.length })}</p>
+            <p>{sp(r).blurb}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+    </div>}
+    <div data-panel="faq">
+  <section class="section" style="padding-bottom:0">
+    <h2 class="center">{t("spread.faqTitle", { name })}</h2>
+    <div class="faq">
+      {faq.map(([q, a]) => (
+        <details>
+          <summary>{q}</summary>
+          <p>{a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+    </div>
+  </Tabs>
+</Base>

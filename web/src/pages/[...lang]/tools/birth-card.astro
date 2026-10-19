@@ -1,0 +1,78 @@
+---
+import Base from "../../../layouts/Base.astro";
+import { BASE } from "../../../config.ts";
+import { deckForTools } from "../../../lib/data.ts";
+import { i18n, langPaths, type Locale } from "../../../i18n/index.ts";
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Locale };
+const L = i18n(lang);
+const { t, url: u } = L;
+
+const majors = deckForTools(L).filter((c) => c.major);
+const T = { pick: t("pickDate"), note: t("notFate"), yours: t("birth.yours"), year: t("birth.year") };
+const CARDS = L.url("cards");
+---
+<Base
+  title={t("birth.title")}
+  description={t("birth.description")}
+  path="tools/birth-card"
+  crumbs={[[t("toolsCrumb"), "tools"], [t("birth.crumb"), "tools/birth-card"]]}
+  lang={lang}
+>
+  <header class="page-head center">
+    <p class="eyebrow">{t("freeTool")}</p>
+    <h1>{t("birth.h1")}</h1>
+    <p class="lead">{t("birth.lead")}</p>
+  </header>
+  <div class="panel tool-panel">
+    <label>{t("birthday")} <input type="date" id="bd" /></label>
+    <button class="btn btn-gold" id="go" type="button">{t("birth.button")}</button>
+  </div>
+  <div id="out" class="center" aria-live="polite" style="margin-top:2rem"></div>
+  <script is:inline define:vars={{ DECK: majors, BASE, CARDS, T }}>
+    document.getElementById("bd").max = new Date().toISOString().slice(0, 10);
+    const digits = (n) => String(n).split("").reduce((s, d) => s + +d, 0);
+    function nums(y, m, d) {
+      let n = y + m + d;
+      while (n > 22) n = digits(n);
+      if (n === 22) return [0, 4];
+      const o = [n];
+      while (n >= 10) { n = digits(n); o.push(n); }
+      return o;
+    }
+    function card(n) {
+      const c = DECK.find((x) => x.n === n);
+      const a = document.createElement("a");
+      a.className = "slot";
+      a.href = `${CARDS}/${c.slug}`;
+      const img = document.createElement("img");
+      img.className = "card-img";
+      img.src = `${BASE}cards/art/${c.id}.jpg`;
+      img.alt = "";
+      const t = document.createElement("div");
+      t.textContent = c.name;
+      a.append(img, t);
+      return a;
+    }
+    function section(title, ns) {
+      const h = document.createElement("h2");
+      h.textContent = title;
+      const row = document.createElement("div");
+      row.className = "draw";
+      row.append(...ns.map(card));
+      return [h, row];
+    }
+    document.getElementById("go").onclick = () => {
+      const v = document.getElementById("bd").value;
+      const out = document.getElementById("out");
+      if (!v) { out.textContent = T.pick; return; }
+      const [y, m, d] = v.split("-").map(Number);
+      const year = new Date().getFullYear();
+      const note = document.createElement("p");
+      note.className = "muted";
+      note.textContent = T.note;
+      out.replaceChildren(...section(T.yours, nums(y, m, d)), ...section(T.year.replace("{year}", year), [nums(year, m, d)[0]]), note);
+    };
+  </script>
+</Base>

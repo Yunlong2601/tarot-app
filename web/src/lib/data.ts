@@ -4,6 +4,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { CARDS } from "../../../backend/src/cards.ts";
 import { SPREADS } from "../../../backend/src/spreads.ts";
+import type { I18n } from "../i18n/index.ts";
 
 export { CARDS, SPREADS };
 export type CardId = keyof typeof CARDS;
@@ -50,14 +51,15 @@ function readAppSpreads(): Record<string, { blurb: string; source: string }> {
 }
 export const APP_SPREADS = readAppSpreads();
 
-/** The deck as the browser tools need it. */
-export const deckForTools = cardIds.map((id) => ({
-  id,
-  slug: slug(id),
-  name: CARDS[id].name,
-  major: CARDS[id].arcana === "major",
-  n: CARDS[id].number,
-}));
+/** The deck as the browser tools need it, in one language. */
+export const deckForTools = (L: I18n) =>
+  cardIds.map((id) => ({
+    id,
+    slug: slug(id),
+    name: L.cards[id]!.name,
+    major: CARDS[id].arcana === "major",
+    n: CARDS[id].number,
+  }));
 
 const SIGN_ELEMENT: Record<string, string> = {
   Aries: "Fire", Leo: "Fire", Sagittarius: "Fire",
@@ -74,39 +76,43 @@ export function elementOf(id: CardId): string | null {
   return ["Fire", "Water", "Air", "Earth"].includes(a) ? a : (SIGN_ELEMENT[a] ?? null);
 }
 
-/** The deck with the short meanings the reading tools show. */
-export const readerDeck = cardIds.map((id) => {
-  const c = CARDS[id];
-  return {
-    id,
-    slug: slug(id),
-    name: c.name,
-    suit: c.suit as string | null,
-    n: c.number as number | null,
-    keywords: c.keywords,
-    up: c.upright,
-    rev: c.reversed,
-    upQ: c.k?.upright.question ?? "",
-    revQ: c.k?.reversed.question ?? "",
-    el: elementOf(id),
-  };
-});
-export type ReaderCard = (typeof readerDeck)[number];
+/** The deck with the short meanings the reading tools show, in one language. */
+export const readerDeck = (L: I18n) =>
+  cardIds.map((id) => {
+    const c = CARDS[id];
+    const tr = L.cards[id]!;
+    return {
+      id,
+      slug: slug(id),
+      name: tr.name,
+      suit: c.suit as string | null,
+      n: c.number as number | null,
+      keywords: tr.keywords,
+      up: tr.upright,
+      rev: tr.reversed,
+      upQ: tr.k?.upright.question ?? "",
+      revQ: tr.k?.reversed.question ?? "",
+      el: elementOf(id),
+    };
+  });
+export type ReaderCard = ReturnType<typeof readerDeck>[number];
 
-/** Card meanings for the birthday, zodiac and quiz tools. */
-export const meaningDeck = cardIds.map((id) => {
-  const c = CARDS[id];
-  return {
-    id,
-    slug: slug(id),
-    name: c.name,
-    suit: c.suit as string | null,
-    n: c.number as number | null,
-    keywords: c.keywords,
-    core: c.k?.upright.core ?? c.upright,
-    love: c.k?.upright.love ?? "",
-    question: c.k?.upright.question ?? "",
-    el: elementOf(id),
-  };
-});
-export type MeaningCard = (typeof meaningDeck)[number];
+/** Card meanings for the birthday, zodiac and quiz tools, in one language. */
+export const meaningDeck = (L: I18n) =>
+  cardIds.map((id) => {
+    const c = CARDS[id];
+    const tr = L.cards[id]!;
+    return {
+      id,
+      slug: slug(id),
+      name: tr.name,
+      suit: c.suit as string | null,
+      n: c.number as number | null,
+      keywords: tr.keywords,
+      core: tr.k?.upright.core ?? tr.upright,
+      love: tr.k?.upright.love ?? "",
+      question: tr.k?.upright.question ?? "",
+      el: elementOf(id),
+    };
+  });
+export type MeaningCard = ReturnType<typeof meaningDeck>[number];

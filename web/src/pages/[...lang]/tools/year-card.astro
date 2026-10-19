@@ -1,0 +1,73 @@
+---
+import Base from "../../../layouts/Base.astro";
+import { meaningDeck } from "../../../lib/data.ts";
+import { i18n, langPaths, type Locale } from "../../../i18n/index.ts";
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Locale };
+const L = i18n(lang);
+const { t, url: u } = L;
+
+const config = JSON.stringify({ view: L.view, deck: meaningDeck(L).filter((c) => c.suit === null), share: L.ui.share, t: { pick: t("pickDate"), cardFor: t("year.cardFor"), question: t("year.question"), next: t("year.next") } });
+const [before, after] = t("year.how").split("{link}");
+---
+<Base
+  title={t("year.title")}
+  description={t("year.description")}
+  path="tools/year-card"
+  crumbs={[[t("toolsCrumb"), "tools"], [t("year.crumb"), "tools/year-card"]]}
+  lang={lang}
+>
+  <header class="page-head center">
+    <p class="eyebrow">{t("freeTool")}</p>
+    <h1>{t("year.h1")}</h1>
+    <p class="lead">{t("year.lead")}</p>
+  </header>
+  <div data-year>
+    <script type="application/json" data-config set:html={config.replace(/</g, "\\u003c")} />
+    <div class="panel tool-panel">
+      <label>{t("birthday")} <input type="date" data-bd /></label>
+      <label>{t("year.yearLabel")} <select data-y></select></label>
+      <button class="btn btn-gold" type="button" data-go>{t("year.button")}</button>
+    </div>
+    <div class="results" data-out aria-live="polite"></div>
+  </div>
+  <section class="section" style="padding-bottom:0">
+    <h2>{t("howItWorks")}</h2>
+    <p>{before}<a href={u("tools/birth-card")}>{t("year.howLink")}</a>{after}</p>
+  </section>
+</Base>
+
+<script>
+  import { parseDate, yearCard } from "../../../lib/numerology.ts";
+  import { cardResult, el, readConfig, type View } from "../../../lib/cardView.ts";
+  import { shareButtons, type ShareText } from "../../../lib/share.ts";
+  import type { MeaningCard } from "../../../lib/data.ts";
+  import { fill } from "../../../i18n/fill.ts";
+
+  for (const root of document.querySelectorAll<HTMLElement>("[data-year]")) {
+    const cfg = readConfig<{ view: View; deck: MeaningCard[]; share: ShareText & Record<string, string>; t: Record<string, string> }>(root);
+    const T = cfg.t;
+    const byN = (n: number) => cfg.deck.find((c) => c.n === n)!;
+    const out = root.querySelector<HTMLElement>("[data-out]")!;
+    const sel = root.querySelector<HTMLSelectElement>("[data-y]")!;
+    const now = new Date().getFullYear();
+    for (let y = now - 1; y <= now + 2; y++) sel.append(new Option(String(y), String(y), false, y === now));
+    root.querySelector<HTMLInputElement>("[data-bd]")!.max = new Date().toISOString().slice(0, 10);
+    root.querySelector<HTMLButtonElement>("[data-go]")!.onclick = () => {
+      const d = parseDate(root.querySelector<HTMLInputElement>("[data-bd]")!.value);
+      if (!d) {
+        out.replaceChildren(el("p", "center muted", T.pick));
+        return;
+      }
+      const year = +sel.value;
+      const c = byN(yearCard(year, d[1], d[2]));
+      const next = byN(yearCard(year + 1, d[1], d[2]));
+      const nodes: Node[] = [cardResult(c, cfg.view, fill(T.cardFor!, { year }), c.core)];
+      if (c.question) nodes.push(el("p", "center quint", fill(T.question!, { q: c.question })));
+      nodes.push(el("p", "center muted", fill(T.next!, { year: year + 1, name: next.name })));
+      nodes.push(shareButtons(() => ({ base: cfg.view.base, eyebrow: fill(cfg.share.year!, { year }), title: c.name, text: c.core, cards: [{ id: c.id, name: c.name }], file: `shentarot-${year}-${c.slug}` }), cfg.share));
+      out.replaceChildren(...nodes);
+    };
+  }
+</script>
