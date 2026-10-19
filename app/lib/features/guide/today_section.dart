@@ -120,23 +120,31 @@ class _Journey extends StatelessWidget {
     }
     final top = counts.entries.toList()
       ..sort((a, b) => b.value.compareTo(a.value));
-    final first = h
-        .map((r) => r.createdAt)
-        .reduce((a, b) => a.isBefore(b) ? a : b);
     Widget stat(String value, String label) => Expanded(
-      child: Column(
-        children: [
-          Text(
-            value,
-            style: Theme.of(context).textTheme.titleLarge
-                ?.copyWith(color: AppColors.gold),
-          ),
-          Text(
-            tr(label),
-            textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 12, color: AppColors.textMuted),
-          ),
-        ],
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 8),
+        decoration: BoxDecoration(
+          color: AppColors.goldTint,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Column(
+          children: [
+            Text(
+              value,
+              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                color: AppColors.gold,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            const SizedBox(height: 2),
+            Text(
+              tr(label),
+              textAlign: TextAlign.center,
+              maxLines: 2,
+              style: const TextStyle(fontSize: 13, color: AppColors.textMuted),
+            ),
+          ],
+        ),
       ),
     );
     return Card(
@@ -153,23 +161,34 @@ class _Journey extends StatelessWidget {
             Row(
               children: [
                 stat('${h.length}', h.length == 1 ? 'reading' : 'readings'),
+                const SizedBox(width: 12),
                 stat('${counts.length}', 'different cards'),
-                stat(
-                  MaterialLocalizations.of(context).formatShortDate(first),
-                  'first reading',
-                ),
               ],
             ),
             if (top.isNotEmpty && top.first.value > 1) ...[
-              const SizedBox(height: 12),
-              Text(
-                tr(
-                  tr(
-                    'The card that keeps appearing: {0} ({1} times). What might it be asking of you?',
+              const SizedBox(height: 14),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(top: 2),
+                    child: Icon(
+                      Icons.auto_awesome,
+                      size: 18,
+                      color: AppColors.gold,
+                    ),
                   ),
-                  [top.first.key, top.first.value],
-                ),
-                style: const TextStyle(color: AppColors.textMuted),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      tr(
+                        'The card that keeps appearing: {0} ({1} times). What might it be asking of you?',
+                        [top.first.key, top.first.value],
+                      ),
+                      style: const TextStyle(color: AppColors.textMuted),
+                    ),
+                  ),
+                ],
               ),
             ],
           ],
