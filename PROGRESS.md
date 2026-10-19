@@ -1,8 +1,10 @@
 # PROGRESS
 
-Last updated: 2026-10-17. Update this file at the end of every phase.
+Last updated: 2026-10-19. Update this file at the end of every phase.
 
 Primary working copy: the owner's local Mac folder. This repo is the backup and hand-off point.
+
+**2026-10-19: website growth pages (not deployed).** Each of the 78 cards now has love, career, feelings and yes-or-no pages (`cards/<slug>/<context>`), plus 12 zodiac sign pages (`zodiac/<sign>`) and 21 birth-card pages (`birth-cards/<slug>`), all in 8 languages. A card-of-the-day widget for other sites lives at `/widget` (iframe `embed/daily-card`). 78 Pinterest pins are in `web/public/pins/`; the posting sheet and launch/outreach texts are in the project's `website-redesign/marketing/`. Translations are machine-made by Claude and want a native-speaker check.
 
 **2026-10-17: subscriptions stay on RevenueCat.** The owner tried Qonversion the same day, then chose RevenueCat. The Qonversion code was reverted; the credit-pack refund handler now listens for RevenueCat `CANCELLATION` of a credit-pack product, and the TRANSFER credit move on reinstall is back. A Qonversion project "ShenTarot" exists but is unused (can be deleted). The App Store In-App Purchase key ZJ84C2Q9M7 was made for it and can be reused in RevenueCat if the .p8 file is still at hand.
 

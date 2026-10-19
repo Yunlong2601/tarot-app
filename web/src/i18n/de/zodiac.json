@@ -1,0 +1,327 @@
+{
+ "ui": {
+  "eyebrow": "Sternzeichen-Tarot",
+  "title": "Tarotkarte für {sign}: {card} und die Dekaden des Zeichens {sign} · ShenTarot",
+  "description": "Die Tarotkarte für {sign} ist {card}. {first}",
+  "h1": "Tarotkarte für {sign}",
+  "lead": "{sign} ({dates}) gehört zur Karte {card}. Das Element ist {element}, der Herrscherplanet ist {planet}.",
+  "signCard": "Zeichenkarte",
+  "rulerCard": "Karte des Herrscherplaneten",
+  "decansTitle": "Die drei Dekaden des Zeichens {sign}",
+  "decanNames": [
+   "Erste Dekade",
+   "Zweite Dekade",
+   "Dritte Dekade"
+  ],
+  "strengths": "Stärken",
+  "challenges": "Herausforderungen",
+  "love": "In der Liebe",
+  "work": "Im Beruf",
+  "advice": "Rat der Karten",
+  "toolText": "Gib deinen Geburtstag ein und finde dein Sternzeichen mit all seinen Karten.",
+  "toolCta": "Deine Sternzeichen-Karten finden",
+  "other": "Weitere Sternzeichen",
+  "readMore": "Mehr zum Sternzeichen {sign}",
+  "faqWhich": "Welche Tarotkarte gehört zu {sign}?",
+  "faqWhichA": "{sign} wird in der Tradition des Golden Dawn, auf der das Rider-Waite-Smith-Deck beruht, mit der Karte {card} verbunden. Die Karte des Herrscherplaneten ist {planet}.",
+  "birth": {
+   "eyebrow": "Geburtskarte",
+   "title": "{card} als Geburtskarte: Bedeutung und Persönlichkeit · ShenTarot",
+   "description": "Was es bedeutet, wenn {card} deine Tarot-Geburtskarte ist. {first}",
+   "h1": "{card} als Geburtskarte",
+   "how": "Deine Geburtskarte ergibt sich aus deinem Geburtsdatum. Zähle Jahr, Monat und Tag zusammen und bilde dann so lange die Quersumme, bis du eine Zahl von 1 bis 22 erreichst.",
+   "gifts": "Deine Gaben",
+   "challenges": "Deine Herausforderungen",
+   "love": "In der Liebe",
+   "work": "Im Beruf",
+   "advice": "Rat",
+   "pairTitle": "Karten, die deine Zahl teilen",
+   "pairText": "Geburtskarten, deren Zahlen auf dieselbe Ziffer reduziert werden, werden zusammen gelesen. {card} teilt daher ein Thema mit diesen Karten.",
+   "calcText": "Du weißt nicht, welche Karte deine ist? Berechne sie aus deinem Geburtstag.",
+   "calcCta": "Deine Geburtskarte finden",
+   "other": "Bedeutungen der Geburtskarten",
+   "readMore": "Mehr zu {card} als Geburtskarte",
+   "faqWhat": "Was bedeutet es, wenn {card} meine Geburtskarte ist?"
+  }
+ },
+ "signs": {
+  "aries": {
+   "intro": "Die Karte des Widders ist Der Herrscher, die Karte für Struktur, Autorität und Stabilität. Der Widder ist ein Feuerzeichen, sein Herrscher ist Mars, dessen Karte Der Turm ist. Zusammen ergibt das einen Menschen, der gern etwas Solides aufbaut und mit dem Anfangen nicht lange wartet. Der Herrscher liefert den Plan. Der Turm erinnert dich daran, dass manchmal erst alte Mauern fallen müssen.",
+   "decans": "Die drei Dekaden des Widders sind die Zwei der Stäbe, die Drei der Stäbe und die Vier der Stäbe. Wurdest du am Anfang des Zeichens geboren, passt vielleicht die Zwei der Stäbe: Du stehst am Rand des Vertrauten und entscheidest, wohin du zielst. Aus der Mitte des Zeichens kann die Drei der Stäbe zu dir passen, mit ersten Unternehmungen in Bewegung und dem Blick am Horizont. Am Ende des Zeichens deutet die Vier der Stäbe auf Ruhe und gemeinsame Freude nach getaner Mühe hin.",
+   "strengths": "Du fängst gern Dinge an und bringst Energie in jeden Raum. Viele Menschen schätzen deine Direktheit. Die Beständigkeit des Herrschers hilft dir, aus einer guten Idee einen Plan zu machen.",
+   "challenges": "Der Herrscher kann starr werden, und Mars macht dich manchmal voreilig. Frag dich, wo aus Entschlossenheit Sturheit geworden ist, und gib anderen Zeit, mitzukommen.",
+   "love": "In der Liebe bist du offen und ehrlich und magst ein Gegenüber, das dir direkt begegnet. Der Herrscher steht für Treue und den Wunsch, zu beschützen. Versuche, ein wenig länger zuzuhören, bevor du entscheidest, was der andere meint.",
+   "work": "Du arbeitest gut, wenn du führen oder zumindest ein Projekt ganz verantworten kannst. Klare Ziele und Handlungsspielraum liegen dir. Langsame Gremien können deine Geduld auf die Probe stellen, such dir also ein paar vertraute Verbündete, die mithalten.",
+   "advice": "Bevor du losspringst, atme einmal durch und frag dich, was ein ruhiger Anführer tun würde. Dann geh mit Zuversicht los."
+  },
+  "taurus": {
+   "intro": "Die Karte des Stiers ist Der Hierophant, die Karte für Tradition, Führung und Zugehörigkeit. Der Stier ist ein Erdzeichen, sein Herrscher ist Venus, deren Karte Die Herrscherin ist. Der Hierophant schätzt, was sich über die Zeit bewährt hat. Die Herrscherin fügt Behaglichkeit, Fürsorge und die Freude an schönen Dingen hinzu. Zusammen beschreiben sie einen Menschen, der sich ein beständiges, erfüllendes Leben aufbaut.",
+   "decans": "Die drei Dekaden des Stiers sind die Fünf der Münzen, die Sechs der Münzen und die Sieben der Münzen. Wurdest du am Anfang des Zeichens geboren, passt vielleicht die Fünf der Münzen: eine karge Zeit, in der Hilfe da ist, wenn du die Hand ausstreckst. Aus der Mitte des Zeichens kann die Sechs der Münzen zu dir passen, in der Geben und Nehmen ins Gleichgewicht kommen. Am Ende des Zeichens bittet dich die Sieben der Münzen, innezuhalten, deine Mühe zu überprüfen und dem Wachstum seine Zeit zu lassen.",
+   "strengths": "Du bist geduldig, treu und praktisch. Du bemerkst Qualität und machst weiter, wenn andere müde werden. Menschen fühlen sich bei dir sicher.",
+   "challenges": "Der Hierophant neigt manchmal zur Gewohnheit um ihrer selbst willen, und Bequemlichkeit kann dich bremsen. Achte darauf, wann du nur festhältst, weil es vertraut ist.",
+   "love": "In der Liebe schenkst du Wärme, Treue und eine ruhige Hand. Du magst kleine gemeinsame Rituale, gutes Essen und Zeit zu zweit. Versuche, laut zu sagen, was du brauchst, statt zu hoffen, dass es verstanden wird.",
+   "work": "Du blühst in Arbeit auf, die Sorgfalt und Beständigkeit belohnt. Du magst einen klaren Weg und faire Bezahlung für gute Leistung. Prüfe ab und zu, ob eine Veränderung dir nicht besser dienen würde als das Bleiben.",
+   "advice": "Ehre dein stetiges Tempo und halte eine kleine Sache in deinem Leben offen für Veränderung. Behaglichkeit ist schön, und ein bisschen Neugier ist es auch."
+  },
+  "gemini": {
+   "intro": "Die Karte der Zwillinge ist Die Liebenden, die Karte für Entscheidung, Verbindung und Übereinstimmung. Die Zwillinge sind ein Luftzeichen, ihr Herrscher ist Merkur, dessen Karte Der Magier ist. Die Liebenden sprechen davon, Möglichkeiten abzuwägen und ehrlich zu den eigenen Werten zu sein. Der Magier bringt Geschick mit Worten und Ideen. Zusammen deuten sie auf einen schnellen, neugierigen Geist hin, der gern Verbindungen herstellt.",
+   "decans": "Die drei Dekaden der Zwillinge sind die Acht der Schwerter, die Neun der Schwerter und die Zehn der Schwerter. Wurdest du am Anfang des Zeichens geboren, passt vielleicht die Acht der Schwerter: Du fühlst dich festgefahren, doch deine Möglichkeiten sind vielleicht offener, als sie scheinen. Aus der Mitte des Zeichens kann die Neun der Schwerter zu dir passen, in der die Sorge groß wirkt und es hilft, sie zu teilen. Am Ende des Zeichens steht die Zehn der Schwerter für das schmerzhafte Ende eines Kapitels, mit dem Weg nach vorn vor dir.",
+   "strengths": "Du bist neugierig, schnell und gut im Umgang mit Menschen. Du kannst eine Idee auf viele Arten erklären und stellst dich leicht um. Andere schätzen deinen Witz und dein Interesse an ihnen.",
+   "challenges": "Ein unruhiger Geist kann sich in Sorgen verlieren, und die Wahl der Liebenden kann zur Unentschlossenheit werden. Schreib deine Gedanken auf und such dir dann eine Sache aus, die du angehst.",
+   "love": "In der Liebe wünschst du dir Gespräche, Humor und ein Gegenüber, das dich fesselt. Die Liebenden verlangen Ehrlichkeit darüber, was dir wichtig ist. Lass dich nicht nur unterhaltsam, sondern auch wirklich kennenlernen.",
+   "work": "Du glänzt in Arbeit, die Abwechslung, Kommunikation und Lernen verbindet. Schreiben, Unterrichten, Verkauf und Design passen oft gut, aber jede Aufgabe mit neuen Problemen kann funktionieren. Bring eine Aufgabe zu Ende, bevor du die nächste aufmachst.",
+   "advice": "Wenn deine Gedanken rasen, werde langsamer und sprich mit einem Menschen, dem du vertraust. Eine geteilte Sorge ist oft leichter."
+  },
+  "cancer": {
+   "intro": "Die Karte des Krebses ist Der Wagen, die Karte für Entschlossenheit, Antrieb und Richtung. Der Krebs ist ein Wasserzeichen, sein Herrscher ist der Mond, dessen Karte Die Hohepriesterin ist. Der Wagen zeigt eine sanfte Schale, die sich dennoch zielstrebig bewegen kann. Die Hohepriesterin bringt tiefes Gefühl und Intuition. Zusammen beschreiben sie einen Menschen, der sehr viel wahrnimmt und schützt, was zählt.",
+   "decans": "Die drei Dekaden des Krebses sind die Zwei der Kelche, die Drei der Kelche und die Vier der Kelche. Wurdest du am Anfang des Zeichens geboren, passt vielleicht die Zwei der Kelche: eine ausgewogene Verbindung, die auf Respekt und gemeinsamem Gefühl beruht. Aus der Mitte des Zeichens kann die Drei der Kelche zu dir passen, mit geteilter Freude in guter Gesellschaft. Am Ende des Zeichens fragt dich die Vier der Kelche, was du wirklich willst, wenn sich alles flach anfühlt.",
+   "strengths": "Du bist fürsorglich, feinfühlig und treu. Du merkst dir, was Menschen wichtig ist, und schaffst überall ein Gefühl von Zuhause. Deine Intuition ist oft eine echte Hilfe.",
+   "challenges": "Wenn du verletzt bist, ziehst du dich vielleicht in deine Schale zurück, und die Stimmung kann den Wagen lenken. Benenne das Gefühl und entscheide dann, ob du danach handeln willst.",
+   "love": "In der Liebe schenkst du Hingabe und Zärtlichkeit und wünschst dir ein Gegenüber, bei dem du dich zu Hause fühlst. Geteilte Freude und stille Nähe sind dir beide wichtig. Sag deinem Partner, was dich bedrückt, statt zu erwarten, dass er es errät.",
+   "work": "Du arbeitest gut in Aufgaben, bei denen es um Fürsorge, Lehren, Gastgeben oder den Schutz dessen geht, was andere aufgebaut haben. Vertrauen und Freundlichkeit im Job bedeuten dir viel. Setze Grenzen, damit die Sorge für alle dich nicht auslaugt.",
+   "advice": "Nimm dir Zeit für Ruhe und für Menschen, bei denen du dich sicher fühlst. Dann steuere mit Herz und Plan."
+  },
+  "leo": {
+   "intro": "Die Karte des Löwen ist Die Kraft, die Karte für Mut, Geduld und Mitgefühl. Der Löwe ist ein Feuerzeichen, sein Herrscher ist die Sonne, deren Karte Die Sonne ist. Die Kraft zeigt einen Mut, der sanft statt laut ist. Die Sonne fügt Wärme, Freude und Offenheit hinzu. Zusammen beschreiben sie ein großzügiges Herz, das führt, indem es andere ermutigt.",
+   "decans": "Die drei Dekaden des Löwen sind die Fünf der Stäbe, die Sechs der Stäbe und die Sieben der Stäbe. Wurdest du am Anfang des Zeichens geboren, passt vielleicht die Fünf der Stäbe: aufeinanderprallende Ideen, die dich schärfen können, wenn sie freundlich bleiben. Aus der Mitte des Zeichens kann die Sechs der Stäbe zu dir passen, ein Schub an Selbstvertrauen und Anerkennung für deine Mühe. Am Ende des Zeichens legt dir die Sieben der Stäbe nahe, an dem festzuhalten, woran du glaubst.",
+   "strengths": "Du bist warmherzig, treu und mutig. Du bringst Licht in eine Gruppe und freust dich, wenn es anderen gut geht. Dein Selbstvertrauen kann ansteckend sein.",
+   "challenges": "Stolz kann es schwer machen, um Hilfe zu bitten, und Aufmerksamkeit kann zum Bedürfnis werden. Die stille Seite der Kraft dient dir vielleicht besser als Kraftgehabe.",
+   "love": "In der Liebe bist du liebevoll und großzügig und feierst gern die Menschen, die dir wichtig sind. Du möchtest dich geschätzt fühlen. Lass dein Gegenüber auch deine weiche Seite sehen, nicht nur die strahlende.",
+   "work": "Du blühst auf, wenn du führen, gestalten oder auftreten kannst und wenn deine Mühe bemerkt wird. Warmherzige Führung holt das Beste aus deinem Team heraus. Teile die Anerkennung, dann behältst du das Wohlwollen der anderen.",
+   "advice": "Führe mit Geduld, so wie Die Kraft es zeigt. Lass Wärme statt Lautstärke deinen Standpunkt tragen."
+  },
+  "virgo": {
+   "intro": "Die Karte der Jungfrau ist Der Eremit, die Karte für Rückzug, Besinnung und innere Führung. Die Jungfrau ist ein Erdzeichen, ihr Herrscher ist Merkur, dessen Karte Der Magier ist. Der Eremit trägt eine Laterne und tritt zurück, um klar zu sehen. Der Magier bringt Geschick und Blick für Details. Zusammen beschreiben sie einen sorgfältigen Geist, der Dinge leise verbessert.",
+   "decans": "Die drei Dekaden der Jungfrau sind die Acht der Münzen, die Neun der Münzen und die Zehn der Münzen. Wurdest du am Anfang des Zeichens geboren, passt vielleicht die Acht der Münzen: stetige, konzentrierte Arbeit, die Können aufbaut. Aus der Mitte des Zeichens kann die Neun der Münzen zu dir passen, in der du genießt, was deine Mühe geschaffen hat. Am Ende des Zeichens weist die Zehn der Münzen auf langfristige Stabilität, Familie und gemeinsamen Wohlstand hin.",
+   "strengths": "Du bist nachdenklich, zuverlässig und aufmerksam. Du bemerkst Details, die andere übersehen, und bist gern nützlich. Deine Maßstäbe sorgen dafür, dass Dinge gut funktionieren.",
+   "challenges": "Der Eremit kann in die Isolation abrutschen, und ein scharfer Blick kann sich gegen dich selbst richten. Verbinde Zeit allein mit Gesellschaft und lass gut genug auch gut genug sein.",
+   "love": "In der Liebe zeigst du Fürsorge durch Taten: dir etwas merken, helfen, reparieren. Du brauchst eine Weile, um dich zu öffnen, und das ist in Ordnung. Versuche, auszusprechen, was du fühlst, und nicht nur etwas dafür zu tun.",
+   "work": "Du blühst in Arbeit auf, die Genauigkeit, Handwerk und Verbesserung belohnt. Analyse, Gesundheit, Lektorat und qualifizierte Handwerksberufe passen oft gut. Teile deine Ideen, bevor sie perfekt sind, damit andere helfen können.",
+   "advice": "Sei so freundlich zu dir selbst, wie du hilfsbereit zu anderen bist. Nimm deine Laterne ab und zu mit in Gesellschaft."
+  },
+  "libra": {
+   "intro": "Die Karte der Waage ist Die Gerechtigkeit, die Karte für Fairness, Wahrheit und Verantwortung. Die Waage ist ein Luftzeichen, ihr Herrscher ist Venus, deren Karte Die Herrscherin ist. Die Gerechtigkeit wägt die Tatsachen ehrlich ab. Die Herrscherin fügt Fürsorge, Schönheit und die Liebe zur Harmonie hinzu. Zusammen beschreiben sie einen Menschen, der nach Ausgleich sucht und möchte, dass es fair und freundlich zugeht.",
+   "decans": "Die drei Dekaden der Waage sind die Zwei der Schwerter, die Drei der Schwerter und die Vier der Schwerter. Wurdest du am Anfang des Zeichens geboren, passt vielleicht die Zwei der Schwerter: eine schwere Entscheidung, die du vermeidest, während die Augenbinde bereit ist, abgenommen zu werden. Aus der Mitte des Zeichens kann die Drei der Schwerter zu dir passen, eine schmerzhafte Wahrheit, die anerkannt wird, damit sie heilen kann. Am Ende des Zeichens sagt die Vier der Schwerter: Halte inne und lade dich auf, denn Ruhe ist produktiv.",
+   "strengths": "Du bist diplomatisch, gerecht und gut darin, beide Seiten zu sehen. Du gibst Menschen das Gefühl, gehört zu werden. Du hast ein gutes Auge für Schönheit und für das, was aus dem Gleichgewicht geraten ist.",
+   "challenges": "Alle Seiten zu sehen kann dich festhalten, wie die Zwei der Schwerter zeigt. Frieden zu bewahren kann auch bedeuten, zu schweigen, wo du sprechen solltest.",
+   "love": "In der Liebe wünschst du dir Partnerschaft, Freundlichkeit und Gleichberechtigung. Du magst Romantik und aufmerksame Gesten. Sag, was du brauchst, auch wenn es ein wenig Widerspruch riskiert.",
+   "work": "Du bist gut in Aufgaben, bei denen es um Verhandeln, Gestalten, Recht, Vermitteln oder Teamarbeit geht. Du bringst Ruhe in angespannte Runden. Setze dir eine Frist für Entscheidungen, damit aus Ausgleich keine Verzögerung wird.",
+   "advice": "Wäge ehrlich ab und entscheide dann. Eine faire Entscheidung heute ist oft besser als eine perfekte, die zu spät kommt."
+  },
+  "scorpio": {
+   "intro": "Die Karte des Skorpions ist Der Tod, die Karte für Enden, Übergang und Loslassen. Der Skorpion ist ein Wasserzeichen, sein Herrscher ist Mars, dessen Karte Der Turm ist. Der Tod ist nur selten wörtlich gemeint. Er spricht davon, dass Kapitel enden, damit andere beginnen können. Mit dem Turm an seiner Seite entsteht das Bild eines intensiven Menschen, der tief fühlt und vor Veränderung keine Angst hat.",
+   "decans": "Die drei Dekaden des Skorpions sind die Fünf der Kelche, die Sechs der Kelche und die Sieben der Kelche. Wurdest du am Anfang des Zeichens geboren, passt vielleicht die Fünf der Kelche: der Blick auf das Verlorene, während einige Kelche noch stehen. Aus der Mitte des Zeichens kann die Sechs der Kelche zu dir passen, mit Erinnerungen und sanfter Großzügigkeit. Am Ende des Zeichens zeigt die Sieben der Kelche viele Möglichkeiten und etwas Fantasie, sortiere also Echtes von Eingebildetem.",
+   "strengths": "Du bist treu, konzentriert und mutig im Umgang mit schwierigen Gefühlen. Du siehst hinter die Oberfläche und legst dich ganz fest. Menschen verlassen sich in einer Krise oft auf dich.",
+   "challenges": "Vielleicht hältst du an Verletzungen fest oder behältst deine Gefühle zu lange für dich. Die Lehre des Todes ist, loszulassen, was seine Zeit gehabt hat.",
+   "love": "In der Liebe wünschst du dir Tiefe, Vertrauen und Ehrlichkeit. Du gibst sehr viel, sobald du dich sicher fühlst. Versuche, kleine Sorgen früh zu teilen, bevor sie zu Schweigen werden.",
+   "work": "Du bist gut in Arbeit, die Recherche, Konzentration und Tiefe verlangt, etwa Ermittlung, Heilen, Finanzen oder Strategie. Du erkennst, was in einem Problem verborgen liegt. Gib Aufgaben ab und vertraue anderen, damit du nicht jede Last allein trägst.",
+   "advice": "Such dir etwas aus, das du in dieser Jahreszeit loslässt. Platz zu schaffen ist oft der erste Schritt zu dem, was als Nächstes kommt."
+  },
+  "sagittarius": {
+   "intro": "Die Karte des Schützen ist Die Mäßigkeit, die Karte für Ausgleich, Geduld und Maß. Der Schütze ist ein Feuerzeichen, sein Herrscher ist Jupiter, dessen Karte Das Rad des Schicksals ist. Die Mäßigkeit mischt Gegensätze mit Geduld, während das Rad daran erinnert, dass sich die Dinge in Zyklen drehen. Zusammen beschreiben sie einen Optimisten, der nach Sinn sucht und offen bleibt.",
+   "decans": "Die drei Dekaden des Schützen sind die Acht der Stäbe, die Neun der Stäbe und die Zehn der Stäbe. Wurdest du am Anfang des Zeichens geboren, passt vielleicht die Acht der Stäbe: Die Dinge bewegen sich schnell, handle also zügig und halte die Kommunikation offen. Aus der Mitte des Zeichens kann die Neun der Stäbe zu dir passen, müde, aber fast am Ziel, mit Kraft aus deiner Widerstandsfähigkeit. Am Ende des Zeichens fragt die Zehn der Stäbe, was du trägst, das du ablegen könntest.",
+   "strengths": "Du bist hoffnungsvoll, abenteuerlustig und ehrlich. Du lernst gern und hilfst anderen, das große Ganze zu sehen. Dein Humor hellt jeden Raum auf.",
+   "challenges": "Die Mäßigkeit verlangt Maß, und das fällt dir nicht immer leicht. Vielleicht nimmst du dir zu viel vor oder sprichst, bevor du nachdenkst.",
+   "love": "In der Liebe wünschst du dir Freiheit, Lachen und ein Gegenüber, das deine Neugier teilt. Du bist ehrlich und warmherzig. Denk daran, dass auch im Hierbleiben ein Abenteuer liegen kann.",
+   "work": "Du blühst in Arbeit mit Abwechslung, Lernen, Reisen oder Lehren auf. Ein Gefühl von Sinn hält dich in Gang. Such deine Projekte sorgfältig aus, denn die Zehn der Stäbe warnt davor, zu viele zu übernehmen.",
+   "advice": "Ziel hoch und teile deine Kräfte ein. Stetige Schritte bringen dich weiter als ein Sprint."
+  },
+  "capricorn": {
+   "intro": "Die Karte des Steinbocks ist Der Teufel, die Karte für Bindung, Gewohnheit und Schatten. Der Steinbock ist ein Erdzeichen, sein Herrscher ist Saturn, dessen Karte Die Welt ist. Beim Teufel geht es darum, zu bemerken, was dich festhält und wie viel Wahl du wirklich hast. Die Welt spricht davon, einen Zyklus geduldig abzuschließen. Zusammen beschreiben sie einen Menschen, der stetig auf ein Ziel hinarbeitet und lernt, wo Pflicht endet und Freiheit beginnt.",
+   "decans": "Die drei Dekaden des Steinbocks sind die Zwei der Münzen, die Drei der Münzen und die Vier der Münzen. Wurdest du am Anfang des Zeichens geboren, passt vielleicht die Zwei der Münzen: Prioritäten flexibel jonglieren und deinen Rhythmus halten. Aus der Mitte des Zeichens kann die Drei der Münzen zu dir passen, in der gekonnte Zusammenarbeit gute Arbeit wachsen lässt. Am Ende des Zeichens bittet dich die Vier der Münzen, Sicherheit zu genießen und dabei auf Klammern zu achten.",
+   "strengths": "Du bist diszipliniert, verantwortungsbewusst und geduldig. Du planst voraus und bringst zu Ende, was du beginnst. Menschen vertrauen darauf, dass du dein Wort hältst.",
+   "challenges": "Die Ketten des Teufels sind oft Gewohnheiten, etwa Überarbeitung oder Angst vor dem Scheitern. Vielleicht bist du auch hart zu dir selbst und gönnst dir nur langsam Ruhe.",
+   "love": "In der Liebe bist du treu und zeigst Fürsorge durch Verbindlichkeit und Verlässlichkeit. Vielleicht brauchst du Zeit, um dich in die Romantik fallen zu lassen. Erlaube dir etwas Spiel und Spontaneität und sag deinem Partner, wenn du stolz auf ihn bist.",
+   "work": "Du bist gut, wenn du über die Zeit etwas aufbauen kannst, in Unternehmen, Management, Technik oder Handwerk. Du respektierst harte Arbeit. Prüfe ab und zu, ob eine Gewohnheit dir hilft oder dich nur festhält.",
+   "advice": "Schau dir eine Überzeugung über Pflicht an, die du lockern könntest. Dann würdige, wie weit du schon gekommen bist."
+  },
+  "aquarius": {
+   "intro": "Die Karte des Wassermanns ist Der Stern, die Karte für Hoffnung, Erneuerung und Ruhe. Der Wassermann ist ein Luftzeichen, sein Herrscher ist Saturn, dessen Karte Die Welt ist. Der Stern gießt Wasser auf das Land und in den Teich, ein Bild für freies Geben. Die Welt fügt das Gefühl hinzu, zu etwas Größerem zu gehören. Zusammen beschreiben sie einen Menschen, dem die Menschheit als Ganzes am Herzen liegt und der es für alle ein bisschen besser machen möchte.",
+   "decans": "Die drei Dekaden des Wassermanns sind die Fünf der Schwerter, die Sechs der Schwerter und die Sieben der Schwerter. Wurdest du am Anfang des Zeichens geboren, passt vielleicht die Fünf der Schwerter: ein Streit, der mehr kostet, als er einbringt, such dir also deine Kämpfe aus. Aus der Mitte des Zeichens kann die Sechs der Schwerter zu dir passen, ein langsames Weggehen von Schwierigkeiten, während die Heilung beginnt. Am Ende des Zeichens bittet dich die Sieben der Schwerter, sorgfältig nachzudenken und ehrlich zu sein, was ein listiges Vorgehen kostet.",
+   "strengths": "Du bist originell, freundlich und aufgeschlossen. Du siehst, wie Dinge anders sein könnten, und unterstützt Menschen, die anders sind als du. Du bleibst ruhig, wenn andere in Panik geraten.",
+   "challenges": "Der Stern ist sanft, doch du wirkst vielleicht distanziert oder stur, wenn du dich bedrängt fühlst. Du kannst so sehr an deinen Ideen hängen, dass du vergisst, Menschen nach ihren Gefühlen zu fragen.",
+   "love": "In der Liebe schätzt du Freundschaft, Ehrlichkeit und Raum, du selbst zu sein. Du bist treu auf deine eigene Art. Lass deinen Partner an den stillen Momenten teilhaben, nicht nur an den Ideen.",
+   "work": "Du blühst in Arbeit auf, die erfinderisch, gemeinschaftlich oder auf ein Anliegen ausgerichtet ist, etwa Technik, Wissenschaft, Gemeinwesen oder Design. Du verbesserst gern Systeme. Erkläre anderen dein Denken, denn die besten Ideen brauchen Verbündete.",
+   "advice": "Bewahre deine Hoffnung und teile sie heute mit jemandem in deiner Nähe. Eine kleine warme Geste kann so viel bedeuten wie ein großer Plan."
+  },
+  "pisces": {
+   "intro": "Die Karte der Fische ist Der Mond, die Karte für Ungewissheit, Träume und Intuition. Die Fische sind ein Wasserzeichen, ihr Herrscher ist Jupiter, dessen Karte Das Rad des Schicksals ist. Der Mond zeigt eine Welt, die nicht ganz klar ist, in der Instinkt und Fantasie dich leiten. Das Rad fügt das Gefühl für Zyklen und Vertrauen in den Wandel hinzu. Zusammen beschreiben sie einen sensiblen, fantasievollen Menschen, der mit den Gezeiten geht.",
+   "decans": "Die drei Dekaden der Fische sind die Acht der Kelche, die Neun der Kelche und die Zehn der Kelche. Wurdest du am Anfang des Zeichens geboren, passt vielleicht die Acht der Kelche: etwas verlassen, das nicht mehr erfüllt, auf der Suche nach Sinn. Aus der Mitte des Zeichens kann die Neun der Kelche zu dir passen, ein Gefühl von Erfüllung und Wertschätzung für das, was du hast. Am Ende des Zeichens weist die Zehn der Kelche auf seelische Erfüllung und Zugehörigkeit hin.",
+   "strengths": "Du bist mitfühlend, kreativ und intuitiv. Du spürst, was andere fühlen, und kannst Trost spenden. Deine Fantasie macht Gewöhnliches schön.",
+   "challenges": "Der Mond kann die Grenze zwischen Wirklichem und Eingebildetem verwischen. Vielleicht nimmst du die Stimmungen anderer auf oder weichst schwierigen Gesprächen aus.",
+   "love": "In der Liebe bist du zärtlich, romantisch und aufmerksam für Stimmungen. Du wünschst dir eine Verbindung, die sich seelenvoll anfühlt. Gleiche deine Hoffnungen mit dem ab, was tatsächlich gesagt und getan wird, und bewahre dir etwas eigenen Raum.",
+   "work": "Du bist gut in kreativer, fürsorglicher oder heilender Arbeit, etwa in Kunst, Musik, Beratung oder Pflege. Du brauchst Sinn in dem, was du tust. Baue Routinen und Pausen ein, damit deine Gaben dich nicht erschöpfen.",
+   "advice": "Vertraue deinen Instinkten und erde sie mit einer kleinen Tatsache. Ein ruhiger Spaziergang oder eine Nacht Schlaf kann das Wasser klären."
+  }
+ },
+ "birth": {
+  "major_01_magician": {
+   "intro": "Der Magier als Geburtskarte bedeutet, dass deine Zahl die 1 ist. Er steht für Fokus, Geschick und Einfallsreichtum. Er ist auch die Karte der 10 und bildet daher ein Paar mit dem Rad des Schicksals, das das Thema von Wandel und Zyklen hinzufügt. Geburtskarten sind eine Anregung zum Nachdenken, keine Vorhersage, und wirken am besten als Denkanstoß.",
+   "gifts": "Du kannst deine Aufmerksamkeit bündeln und etwas in Gang bringen. Oft lernst du schnell und erklärst gut.",
+   "challenges": "Deine Energie kann sich zerstreuen, wenn du zu vielen Ideen nachjagst. Frag dich, was deinen Fokus zurückhält.",
+   "love": "Du bringst Charme und Initiative in die Liebe. Sei genauso bereit zuzuhören, wie du bereit bist, das Gespräch zu beginnen.",
+   "work": "Du bist gut, wenn du deine Werkzeuge frei einsetzen kannst, seien es Fähigkeiten, Worte oder Ideen. Such dir ein Projekt aus und bring es zu Ende.",
+   "advice": "Du hältst schon mehr in den Händen, als du denkst. Wähle eine Sache und fang an."
+  },
+  "major_02_high_priestess": {
+   "intro": "Die Hohepriesterin als Geburtskarte bedeutet, dass deine Zahl die 2 ist. Sie steht für Intuition, Stille und das Unausgesprochene. Sie bildet ein Paar mit der Gerechtigkeit (11), was deiner stillen Seite Fairness und ehrliches Urteilen hinzufügt. Sieh sie als Anstoß zum Nachdenken, nicht als festes Schicksal.",
+   "gifts": "Du bemerkst, was unter der Oberfläche liegt, und kannst in einem lauten Raum ruhig bleiben. Menschen vertrauen sich dir vielleicht an.",
+   "challenges": "Du hältst Dinge vielleicht verborgen, sogar vor dir selbst. Deine innere Stimme zu überhören oder nicht mitzuteilen, kann dich abgeschnitten fühlen lassen.",
+   "love": "Du schenkst Tiefe und Treue in der Liebe. Lass dein Gegenüber hören, was du denkst, und nicht nur, was du spürst.",
+   "work": "Du arbeitest gut dort, wo Nachdenklichkeit geschätzt wird, etwa in Forschung, Beratung oder kreativer Arbeit. Melde dich in Besprechungen zu Wort, wenn dir etwas aufgefallen ist.",
+   "advice": "Gönn dir jeden Tag etwas stille Zeit. Dann vertrau dem, was du hörst."
+  },
+  "major_03_empress": {
+   "intro": "Die Herrscherin als Geburtskarte bedeutet, dass deine Zahl die 3 ist. Sie steht für Fürsorge, Fülle und Kreativität. Sie bildet ein Paar mit dem Gehängten (12), was die Gabe hinzufügt, innezuhalten und die Dinge anders zu sehen. Betrachte sie als Spiegel zum Nachdenken, nicht als Prognose.",
+   "gifts": "Du hilfst Dingen beim Wachsen, seien es Menschen, Projekte oder ein Zuhause. Du magst Schönheit und Behaglichkeit und teilst sie großzügig.",
+   "challenges": "Fürsorge kann in Überbehütung kippen oder darin, dich selbst zu vernachlässigen. Kreative Blockaden können auftauchen, wenn du müde bist.",
+   "love": "Du liebst warm und großzügig. Lass dich von deinem Gegenüber auch umsorgen.",
+   "work": "Du blühst in Arbeit auf, die kreativ, fürsorglich oder praktisch ist. Mach Pausen, damit auch deine eigene Energie genährt wird.",
+   "advice": "Pflege, was du liebst, dich selbst eingeschlossen. Wachstum folgt auf Fürsorge."
+  },
+  "major_04_emperor": {
+   "intro": "Der Herrscher als Geburtskarte bedeutet, dass deine Zahl die 4 ist. Er steht für Struktur, Autorität und Stabilität. Er bildet ein Paar mit dem Tod (13), was den Gedanken hinzufügt, dass auch gute Strukturen sich ändern müssen, wenn ihre Zeit vorbei ist. Das ist ein Gedanke zum Nachdenken, kein Versprechen über dein Leben.",
+   "gifts": "Du kannst planen, organisieren und ruhig bleiben. Andere suchen bei dir Beständigkeit und klare Grenzen.",
+   "challenges": "Festigkeit kann zu Starrheit oder zum Bedürfnis nach Kontrolle werden. Frag dich, wo aus Stärke Sturheit geworden ist.",
+   "love": "Du schenkst Treue und Schutz in der Liebe. Lass Raum für die Art, wie dein Gegenüber Dinge angeht.",
+   "work": "Du bist für Führung und den Aufbau dauerhafter Systeme geeignet. Hör zu, bevor du entscheidest, und gib Aufgaben ab, wo du kannst.",
+   "advice": "Führe mit Ruhe. Lass deine Regeln den Menschen dienen und nicht umgekehrt."
+  },
+  "major_05_hierophant": {
+   "intro": "Der Hierophant als Geburtskarte bedeutet, dass deine Zahl die 5 ist. Er steht für Tradition, Führung und Zugehörigkeit. Er bildet ein Paar mit der Mäßigkeit (14), was deinem Respekt vor gemeinsamer Weisheit Geduld und Ausgleich hinzufügt. Nutze ihn zum Nachdenken und zur Freude, nicht für feste Antworten.",
+   "gifts": "Du schätzt Lernen, Gemeinschaft und die Weisheit derer, die vor dir kamen. Du kannst ein guter Lehrer und Mentor sein.",
+   "challenges": "Vielleicht folgst du Regeln, die nicht mehr zu dir passen. Sie zu hinterfragen kann sich unangenehm anfühlen, ist aber auch der Weg zu deinem eigenen Sinn.",
+   "love": "Du suchst in der Liebe Verbindlichkeit und gemeinsame Werte. Respektiere, dass dein Gegenüber vielleicht andere hat.",
+   "work": "Du bist gut in Lehre, Ausbildung, Institutionen und Teamarbeit. Gib Orientierung, ohne auf einem einzigen richtigen Weg zu bestehen.",
+   "advice": "Lerne vom Alten und lass Raum für deine eigene Sicht."
+  },
+  "major_06_lovers": {
+   "intro": "Die Liebenden als Geburtskarte bedeuten, dass deine Zahl die 6 ist. Sie stehen für Entscheidung, Verbindung und Übereinstimmung mit deinen Werten. Sie bilden ein Paar mit dem Teufel (15), was dich daran erinnert, Gewohnheiten und Bindungen in deinen Beziehungen zu bemerken. Es ist ein Gedanke zum Nachdenken, keine Vorhersage irgendeiner Art.",
+   "gifts": "Du knüpfst leicht Verbindungen und willst das tun, was sich wahr anfühlt. Du nimmst deine Entscheidungen ernst.",
+   "challenges": "Vielleicht tust du dich mit Unentschlossenheit schwer oder handelst gegen deine eigenen Werte. Prüfe, ob dein Handeln zu dem passt, was du dir wünschst.",
+   "love": "In der Liebe ist dir Ehrlichkeit am wichtigsten. Sag, was dir wichtig ist, und hör zu, was deinem Gegenüber wichtig ist.",
+   "work": "Du arbeitest gut in Partnerschaften und dort, wo Werte zählen. Entscheide rechtzeitig, auch wenn keine Option perfekt ist.",
+   "advice": "Wenn du wählst, wähle im Einklang mit deinen Werten und sprich es klar aus."
+  },
+  "major_07_chariot": {
+   "intro": "Der Wagen als Geburtskarte bedeutet, dass deine Zahl die 7 ist. Er steht für Entschlossenheit, Antrieb und Richtung. Er bildet ein Paar mit dem Turm (16), was das Thema plötzlicher Veränderung und des Neuaufbaus hinzufügt. Betrachte ihn als Gedanken zum Nachdenken und zur Unterhaltung, nicht als Urteil.",
+   "gifts": "Du kannst gegensätzliche Kräfte zusammenhalten und in Bewegung bleiben. Fokus und Willenskraft sind deine Stärken.",
+   "challenges": "Vielleicht drängst du zu stark ohne Plan oder verlierst die Richtung, wenn sich ein Ziel ändert. Werde langsam genug, um die Route zu prüfen.",
+   "love": "Du liebst mit Energie und Hingabe. Gib deinem Gegenüber manchmal Raum, das Tempo zu bestimmen.",
+   "work": "Du bist gut in Arbeit mit klaren Zielen und Schwung. Ruh dich zwischen den Sprints aus und feiere die Etappen auf dem Weg.",
+   "advice": "Halte die Zügel ruhig und prüfe, wohin du unterwegs bist."
+  },
+  "major_08_strength": {
+   "intro": "Die Kraft als Geburtskarte bedeutet, dass deine Zahl die 8 ist. Sie steht für Mut, Geduld und Mitgefühl. Sie bildet ein Paar mit dem Stern (17), was deinem stillen Mut Ruhe und Hoffnung hinzufügt. Sie ist eine Möglichkeit, über dich nachzudenken, keine Vorhersage.",
+   "gifts": "Du kannst Schwierigem sanft begegnen. Andere finden dich beruhigend, und du machst meist ohne großes Aufheben weiter.",
+   "challenges": "Selbstzweifel können sich einschleichen, oder du läufst auf Reserve. Baue dein Selbstvertrauen in kleinen Schritten wieder auf.",
+   "love": "Du liebst mit Geduld und Wärme. Lass dich auch selbst umsorgen.",
+   "work": "Du bist gut in Aufgaben, die Ruhe unter Druck verlangen, etwa Pflege, Coaching oder Führung. Schütze deine Energie.",
+   "advice": "Sei sanft zu dir selbst. Kleine Akte von Mut summieren sich."
+  },
+  "major_09_hermit": {
+   "intro": "Der Eremit als Geburtskarte bedeutet, dass deine Zahl die 9 ist. Er steht für Rückzug, Besinnung und innere Führung. Er bildet ein Paar mit dem Mond (18), was deiner Suche nach Antworten Fantasie und Intuition hinzufügt. Nutze ihn als Denkanstoß, nicht als Regel.",
+   "gifts": "Du denkst tief und kannst deine eigenen Antworten finden. Zeit allein erfrischt dich, und oft hast du Weisheit zu teilen.",
+   "challenges": "Du driftest vielleicht in die Isolation oder weichst der Besinnung aus, indem du beschäftigt bleibst. Verbinde Rückzug mit Kontakt.",
+   "love": "Du schätzt Tiefe und Ruhe in der Liebe. Lass dein Gegenüber wissen, wann du Raum brauchst und wann du Nähe willst.",
+   "work": "Du blühst in Forschung, Handwerk und Aufgaben auf, die Konzentration belohnen. Komm aus der Höhle, um zu teilen, was du findest.",
+   "advice": "Tritt zurück, um nachzudenken, und bring dann deine Laterne zu anderen."
+  },
+  "major_10_wheel_of_fortune": {
+   "intro": "Das Rad des Schicksals als Geburtskarte bedeutet, dass deine Zahl die 10 ist, die sich auf 1 reduziert. Damit bildest du ein Paar mit dem Magier. Es steht für Zyklen, Wandel und Perspektive. Wie immer ist das zum Nachdenken und zur Unterhaltung gedacht, nicht zum Vorhersagen.",
+   "gifts": "Du passt dich an und siehst das größere Muster hinter Ereignissen. Oft findest du einen Weg, neu anzufangen.",
+   "challenges": "Wer sich gegen Veränderung sträubt, kann in einer Schleife festhängen. Such, was du beeinflussen kannst, und lass den Rest los.",
+   "love": "Du bringst Flexibilität in die Liebe und kommst gut mit wechselnden Zeiten zurecht. Teile deine Pläne mit deinem Gegenüber, damit sich Veränderung wie ein gemeinsames Werk anfühlt.",
+   "work": "Du bist gut dort, wo Anpassungsfähigkeit geschätzt wird. Verbinde deine Offenheit für Wandel mit einer klaren Fähigkeit, wie Der Magier es nahelegt.",
+   "advice": "Die Dinge drehen sich in Zyklen. Halte deine Hände bereit für das, was als Nächstes kommt."
+  },
+  "major_11_justice": {
+   "intro": "Die Gerechtigkeit als Geburtskarte bedeutet, dass deine Zahl die 11 ist, die sich auf 2 reduziert. Das verbindet dich mit der Hohepriesterin. Sie steht für Fairness, Wahrheit und Verantwortung. Betrachte sie als Spiegel zum Nachdenken, nicht als Prognose.",
+   "gifts": "Du wägst Tatsachen ehrlich ab und legst Wert auf Fairness. Menschen vertrauen deinem Urteil.",
+   "challenges": "Voreingenommenheit oder das Ausweichen vor Verantwortung können sich einschleichen, und du bist vielleicht hart zu dir oder anderen. Prüfe, ob deine Sicht ausgewogen ist.",
+   "love": "Du schätzt Ehrlichkeit und Gleichberechtigung in der Liebe. Lass neben den Fakten auch Gefühlen Raum.",
+   "work": "Du bist gut in Recht, Vermittlung, Finanzen oder jeder Aufgabe, die einen klaren Kopf braucht. Höre neben den Belegen auch auf deine Intuition.",
+   "advice": "Schau auf die Tatsachen und auf deinen eigenen Anteil daran. Dann entscheide fair."
+  },
+  "major_12_hanged_man": {
+   "intro": "Der Gehängte als Geburtskarte bedeutet, dass deine Zahl die 12 ist, die sich auf 3 reduziert. Das verbindet dich mit der Herrscherin. Er steht für Innehalten, Hingabe und den Blick aus einem neuen Winkel. Das ist ein Anstoß zum Nachdenken, niemals eine Vorhersage.",
+   "gifts": "Du kannst warten, und du siehst, was andere übersehen, wenn du von einer anderen Seite schaust. Oft bist du aufgeschlossen und geduldig.",
+   "challenges": "Es kann vorkommen, dass du ohne Ziel stillstehst. Frag dich, ob das Warten noch hilft.",
+   "love": "Du gibst der Liebe Raum und Geduld. Warte nicht so lange, dass deine Gefühle unausgesprochen bleiben.",
+   "work": "Du bist gut in kreativer und nachdenklicher Arbeit. Wähle einen Moment, um dich zu bewegen, und handle dann.",
+   "advice": "Halte inne, um anders zu sehen, und mach dann den nächsten Schritt."
+  },
+  "major_13_death": {
+   "intro": "Der Tod als Geburtskarte bedeutet, dass deine Zahl die 13 ist, die sich auf 4 reduziert. Das verbindet dich mit dem Herrscher. Er steht für Enden, Übergang und Loslassen und ist nur selten wörtlich gemeint. Nutze ihn zum Nachdenken und zur Freude, nicht für Antworten über die Zukunft.",
+   "gifts": "Du kannst loslassen und neu beginnen. Oft gehst du mutig mit Veränderung um.",
+   "challenges": "Vielleicht klammerst du dich an die Vergangenheit oder fürchtest eine nötige Veränderung. Bemerke, was sich überlebt hat.",
+   "love": "Du liebst mit Ehrlichkeit über Enden und Anfänge. Gib Neuem Zeit, sich zu setzen.",
+   "work": "Du bist gut in Arbeit, bei der es um Erneuerung geht, etwa Neuausrichtung, Umgestaltung oder Aufräumen. Baue dir eine Basis auf, wie Der Herrscher es nahelegt.",
+   "advice": "Lass diesen Monat eine Sache los und schaffe Platz für etwas Neues."
+  },
+  "major_14_temperance": {
+   "intro": "Die Mäßigkeit als Geburtskarte bedeutet, dass deine Zahl die 14 ist, die sich auf 5 reduziert. Das verbindet dich mit dem Hierophanten. Sie steht für Ausgleich, Geduld und Maß. Geburtskarten dienen dazu, über sich selbst nachzudenken, nicht dazu, Ereignisse vorherzusagen.",
+   "gifts": "Du mischst Gegensätze mit Geduld. Du bist ausgeglichen und maßvoll, und andere sind gern in deiner Nähe.",
+   "challenges": "Übermaß oder Ungeduld können auftauchen, wenn etwas aus dem Gleichgewicht ist. Schau, wo du zu viel oder zu wenig gibst.",
+   "love": "Du bringst Ruhe und Kompromissbereitschaft in die Liebe. Sag, was du brauchst, und nicht nur, was den Frieden wahrt.",
+   "work": "Du bist gut als Vermittler, Heiler, Lehrer oder Teammitglied. Stetige, maßvolle Schritte passen am besten zu dir.",
+   "advice": "Mische geduldig und nimm dir Zeit. Ausgleich ist etwas, das man immer wieder neu herstellt."
+  },
+  "major_15_devil": {
+   "intro": "Der Teufel als Geburtskarte bedeutet, dass deine Zahl die 15 ist, die sich auf 6 reduziert. Das verbindet dich mit den Liebenden. Er steht für Bindung, Gewohnheit und Schatten. Das ist ein Gedanke zum Nachdenken und kein Urteil über dich.",
+   "gifts": "Du erkennst, was Menschen festhält, dich selbst eingeschlossen. Oft hast du starken Antrieb und Lust aufs Leben.",
+   "challenges": "Gewohnheiten, Überzeugungen und Abhängigkeiten können fest halten. Bewusstsein ist der erste Schritt zur Freiheit.",
+   "love": "Du liebst leidenschaftlich. Frag ehrlich, ob eine Bindung eine Wahl oder eine Gewohnheit ist, wie Die Liebenden es nahelegen.",
+   "work": "Du bist ehrgeizig im Beruf und gut mit Geld und Einfluss. Achte auf Überarbeitung und auf Ziele, die nicht deine eigenen sind.",
+   "advice": "Bemerke, was dich festhält, und erinnere dich, wie viel Wahl du hast."
+  },
+  "major_16_tower": {
+   "intro": "Der Turm als Geburtskarte bedeutet, dass deine Zahl die 16 ist, die sich auf 7 reduziert. Das verbindet dich mit dem Wagen. Er steht für Umbruch, Erkenntnis und Neuanfang. Sieh ihn als Anstoß zum Nachdenken und nicht als Vorhersage.",
+   "gifts": "Du kommst zurecht, wenn sich Dinge schnell ändern, und bist ehrlich darüber, was nicht funktioniert. Freier Boden gibt dir Raum zum Wiederaufbau.",
+   "challenges": "Angst vor Veränderung kann sich zu einem schwelenden Problem auswachsen. Stell dich ihr lieber früher als später.",
+   "love": "Du schätzt Wahrheit in der Liebe. Sei sanft, wenn du sie aussprichst.",
+   "work": "Du bist gut, wenn du reparieren, wiederaufbauen oder durch Veränderung führen kannst. Steure mit Zielstrebigkeit, wie Der Wagen es tut.",
+   "advice": "Stell dich dem, was wackelt, und baue auf festem Grund."
+  },
+  "major_17_star": {
+   "intro": "Der Stern als Geburtskarte bedeutet, dass deine Zahl die 17 ist, die sich auf 8 reduziert. Das verbindet dich mit der Kraft. Er steht für Hoffnung, Erneuerung und Ruhe. Er ist zum Nachdenken und zur Freude gedacht, nicht zum Wahrsagen.",
+   "gifts": "Du schenkst anderen sanfte Hoffnung. Du erholst dich gut und teilst, was du hast.",
+   "challenges": "Zweifel und Antriebslosigkeit können sich einstellen. Sei freundlich zu dir und halte kleine Hoffnungen am Leben.",
+   "love": "Du liebst offen und ruhig. Lass dein Gegenüber auch deine Zweifel sehen.",
+   "work": "Du bist gut in heilender, kreativer und gemeinschaftlicher Arbeit. Teile dir deine Kräfte ein, damit du nicht versiegst.",
+   "advice": "Ruhe dich aus und vertraue einer langsamen Erholung. Halte eine kleine Hoffnung am Leben."
+  },
+  "major_18_moon": {
+   "intro": "Der Mond als Geburtskarte bedeutet, dass deine Zahl die 18 ist, die sich auf 9 reduziert. Das verbindet dich mit dem Eremiten. Er steht für Ungewissheit, Träume und Intuition. Sieh ihn als Gedanken zum Nachdenken, nicht als Vorhersage.",
+   "gifts": "Du bist fantasievoll und sensibel und bemerkst Stimmungen und Zeichen. Deine Träume und Instinkte können kreative Arbeit nähren.",
+   "challenges": "Nicht immer ist alles klar, und Ängste können im Dunkeln wachsen. Geh vorsichtig vor und erde dich.",
+   "love": "Du liebst mit Gefühl. Gleiche deine Hoffnungen und Ängste mit dem ab, was dein Gegenüber tatsächlich sagt.",
+   "work": "Du bist gut in kreativer, fürsorglicher oder fantasievoller Arbeit. Nimm dir stille Zeit, wie Der Eremit es tut, um Wirkliches von Eingebildetem zu trennen.",
+   "advice": "Geh vorsichtig vor, wenn Dinge unklar sind. Bemerke deine Instinkte und deine Ängste."
+  },
+  "major_19_sun": {
+   "intro": "Die Sonne als Geburtskarte bedeutet, dass deine Zahl die 19 ist. Addierst du 1 und 9, kommst du auf 10 und dann auf 1, sie verbindet sich also mit dem Rad des Schicksals und Der Magier. Sie steht für Freude, Lebenskraft und Klarheit. Geburtskarten dienen dem Nachdenken und der Unterhaltung, nicht Versprechen.",
+   "gifts": "Du bringst Wärme und Selbstvertrauen mit. Du bist offen und ehrlich, und Menschen fühlen sich in deiner Nähe wohler.",
+   "challenges": "Begeisterung kann nachlassen, oder das Ego kann zu groß werden. Such kleine Lichtquellen, wenn sich alles flach anfühlt.",
+   "love": "Du liebst mit Wärme und Spielfreude. Teile das Rampenlicht mit deinem Gegenüber.",
+   "work": "Du bist gut in Aufgaben, in denen du sichtbar und positiv sein kannst, etwa Lehren, Führen oder Auftreten. Teile die Anerkennung.",
+   "advice": "Genieße, was gut läuft, und lass andere daran teilhaben."
+  },
+  "major_20_judgement": {
+   "intro": "Das Gericht als Geburtskarte bedeutet, dass deine Zahl die 20 ist, die sich auf 2 reduziert. Das verbindet dich mit der Hohepriesterin. Es steht für ehrliche Rückschau, Vergebung und einen inneren Ruf. Nutze es als Denkanstoß, nicht als Vorhersage.",
+   "gifts": "Du kannst ehrlich zurückblicken und neu anfangen. Oft spürst du eine Berufung und folgst ihr.",
+   "challenges": "Selbstkritik kann laut werden, oder du weichst einer nötigen Entscheidung aus. Vergib, was du kannst.",
+   "love": "Du liebst mit Ehrlichkeit und Vergebung. Lass alte Rechnungen los.",
+   "work": "Du bist gut in Aufgaben der Erneuerung, etwa Coaching, Heilen oder einer beruflichen Neuerfindung. Höre still zu, wie Die Hohepriesterin es tut.",
+   "advice": "Blicke freundlich auf die Vergangenheit zurück. Dann folge deinem Ruf."
+  },
+  "major_21_world": {
+   "intro": "Die Welt als Geburtskarte bedeutet, dass deine Zahl die 21 ist, die sich auf 3 reduziert. Das verbindet dich mit der Herrscherin. Sie steht für Vollendung, Ganzheit und Erfolg. Sie ist ein Gedanke zum Nachdenken und macht keine Versprechen über deine Zukunft.",
+   "gifts": "Du siehst das ganze Bild und bringst zu Ende, was du beginnst. Du kannst Bilanz ziehen, wie weit du gekommen bist.",
+   "challenges": "Lose Enden können liegen bleiben, oder ein Abschluss scheint unerreichbar. Oft fehlt nur noch ein letzter Schritt.",
+   "love": "Du liebst mit einem Gefühl von Ganzheit. Lass auch dem Wachstum deines Gegenübers Raum.",
+   "work": "Du bist gut in breit angelegten Aufgaben, die Menschen oder Projekte verbinden, und in Arbeit mit klarem Abschluss. Feiere und fang dann das Nächste an.",
+   "advice": "Zieh Bilanz, wie weit du gekommen bist, und gönn dir das Feiern."
+  }
+ }
+}

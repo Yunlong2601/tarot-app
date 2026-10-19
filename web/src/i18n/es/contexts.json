@@ -1,0 +1,2086 @@
+{
+ "ui": {
+  "eyebrow": "Significado de la carta de tarot",
+  "upright": "Al derecho",
+  "reversed": "Invertida",
+  "yes": "Tiende al sí",
+  "no": "Tiende al no",
+  "maybe": "Quizá o todavía no",
+  "advice": "Consejo",
+  "adviceRev": "Invertida: {text}",
+  "reflect": "Una pregunta para reflexionar",
+  "reflectRev": "Invertida: {text}",
+  "faqTitle": "{name}: preguntas frecuentes",
+  "faqAdvice": "¿Qué consejo da {name}?",
+  "other": "Otros significados de la carta {name}",
+  "tryText": "Saca tus propias cartas y haz la pregunta que llevas en la cabeza. Es gratis y nada de lo que escribas sale de tu dispositivo.",
+  "tryCta": "Pregunta a las cartas",
+  "tabs": {
+   "meaning": "Significado completo",
+   "love": "Amor",
+   "career": "Trabajo y dinero",
+   "feelings": "Como sentimientos",
+   "yesno": "Sí o no"
+  },
+  "pages": {
+   "love": {
+    "title": "{name} en el amor: significado al derecho e invertida · ShenTarot",
+    "description": "{name} en una lectura de amor, para parejas y solteros. {first}",
+    "h1": "{name} en el amor",
+    "faqUp": "¿Qué significa {name} en el amor?",
+    "faqRev": "¿Qué significa {name} invertida en el amor?"
+   },
+   "career": {
+    "title": "{name} en el trabajo y el dinero: significado al derecho e invertida · ShenTarot",
+    "description": "{name} en una lectura de trabajo, estudios o dinero. {first}",
+    "h1": "{name} en el trabajo y el dinero",
+    "faqUp": "¿Qué significa {name} para mi trabajo?",
+    "faqRev": "¿Qué significa {name} invertida para el trabajo y el dinero?"
+   },
+   "feelings": {
+    "title": "{name} como sentimientos: ¿qué siente esa persona por ti? · ShenTarot",
+    "description": "Lo que {name} dice sobre lo que alguien siente por ti, al derecho e invertida. {first}",
+    "h1": "{name} como sentimientos",
+    "faqUp": "¿Qué significa {name} como sentimientos?",
+    "faqRev": "¿Qué significa {name} invertida como sentimientos?"
+   },
+   "yesno": {
+    "title": "¿{name} es un sí o un no? Al derecho e invertida · ShenTarot",
+    "description": "{name} como respuesta de sí o no en el tarot. {first}",
+    "h1": "{name}: ¿sí o no?",
+    "faqUp": "¿{name} es un sí o un no?",
+    "faqRev": "¿{name} invertida es un sí o un no?"
+   }
+  }
+ },
+ "cards": {
+  "major_00_fool": {
+   "love": {
+    "up": "El Loco sugiere conocer a alguien o algo nuevo sin guion. Si estás soltero o soltera, tiende a decir que sí a una invitación inesperada y a dejar que te guíe la curiosidad. En pareja, apunta a un paso nuevo y juguetón que dais juntos, con ligereza y sinceridad.",
+    "rev": "Invertido, el Loco apunta a dudar al borde del precipicio o a saltar sin mirar. Si estás soltero o soltera, quizá evitas abrirte o persigues la emoción del momento. En pareja, sugiere pararos a hablar de lo que cada uno espera de verdad antes del siguiente gran paso."
+   },
+   "career": {
+    "up": "Puede que te llame un proyecto nuevo, un curso o un cambio de rumbo, y el Loco tiende a empezar antes de sentirte preparado o preparada. Viaja ligero y acepta ser principiante. Con el dinero, sugiere pequeños experimentos curiosos en lugar de una gran apuesta.",
+    "rev": "Invertido, el Loco sugiere quedarte parado al borde de una decisión o lanzarte sin ningún plan. Comprueba primero el terreno: reúne lo básico, lee las condiciones, pregunta a alguien que ya lo haya hecho. Las decisiones de dinero piden ahora más cuidado y algo de paciencia."
+   },
+   "feelings": {
+    "up": "Es posible que la otra persona se sienta atraída por ti con un entusiasmo abierto, casi infantil. Siente curiosidad, un poco de nervios y quizá no sepa cómo decirlo. Sus sentimientos parecen ligeros y sinceros, aunque todavía poco meditados.",
+    "rev": "Es posible que la otra persona no tenga claros sus propios sentimientos o que actúe por impulso sin pensar en las consecuencias. El interés puede ser real pero disperso, o frenado por el miedo a que se haga real. Su comportamiento quizá aún no case con sus palabras."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. El Loco tiende a seguir adelante, con confianza y poco equipaje. Espera ser torpe al principio y mantén los ojos abiertos mientras das el paso.",
+    "rev": "Quizá. El Loco invertido sugiere que o te estás frenando o te estás precipitando. Mira dónde pisas antes de decidir y entonces la respuesta puede aclararse."
+   },
+   "advice": {
+    "up": "Da el primer paso, aunque sea pequeño. Viaja ligero, conserva el sentido del humor y permítete ser principiante. Confía en tu instinto, como el perrito que va pegado a tus talones.",
+    "rev": "Haz una pausa y comprueba el terreno antes de moverte. Si llevas siglos preparándote, elige hoy una acción pequeña. Si has ido con prisas, afloja el ritmo y cuéntale tu plan a alguien."
+   }
+  },
+  "major_01_magician": {
+   "love": {
+    "up": "El Mago sugiere que ya tienes lo que necesitas para crear conexión: atención, sinceridad y ganas de actuar. Si estás soltero o soltera, déjate ver y di lo que quieres. En pareja, apunta a hacer visibles tus intenciones con pequeños gestos deliberados.",
+    "rev": "Invertido, el Mago apunta a un encanto sin sinceridad o a sentimientos que conoces pero no has expresado. Si estás soltero o soltera, quizá estés actuando en lugar de ser tú. En pareja, sugiere comprobar que tus palabras y tus actos coinciden de verdad."
+   },
+   "career": {
+    "up": "Tus habilidades y recursos bastan para empezar. El Mago tiende a centrarte en un objetivo claro y a actuar con intención. Una presentación, un lanzamiento o una negociación pueden ir bien si te preparas. Con el dinero, sugiere usar sabiamente lo que tienes.",
+    "rev": "Invertido, el Mago sugiere esfuerzo disperso, talento sin usar o prometer más de lo que puedes cumplir. Elige una tarea y termínala. Sé honesto u honesta sobre lo que sabes hacer y desconfía de cualquier plan de dinero que se apoye en palabras bonitas."
+   },
+   "feelings": {
+    "up": "Es posible que la otra persona esté interesada de forma activa y dispuesta a dar el primer paso. Parece centrada, segura y con ganas de impresionarte, quizá con un esfuerzo real. Sus sentimientos tienden a ser decididos más que pasivos.",
+    "rev": "Es posible que la otra persona te diga lo que quieres oír sin sinceridad total, o que esconda sus sentimientos tras una fachada. También puede que simplemente no haya decidido qué hacer. Fíjate en si los hechos siguen a las palabras."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. El Mago sugiere que tienes las herramientas y la concentración para lograrlo. Tiende a actuar con intención clara en lugar de esperar.",
+    "rev": "Quizá. Invertido, el Mago apunta a energía dispersa o a trucos sin continuidad. La respuesta puede depender de que logres concentrarte y ser sincero o sincera contigo."
+   },
+   "advice": {
+    "up": "Reúne tus herramientas, elige un objetivo y actúa hoy mismo. Usa tus habilidades con transparencia y cumple tu palabra. Probablemente tienes más con lo que trabajar de lo que crees.",
+    "rev": "Reúne tu atención antes de empezar más cosas. Termina una, di la verdad sobre lo que puedes ofrecer y usa ese talento que has estado guardando en privado."
+   }
+  },
+  "major_02_high_priestess": {
+   "love": {
+    "up": "La Sacerdotisa sugiere que lo no dicho entre dos personas importa más que lo que se dice. En pareja, apunta a escuchar y a una cercanía tranquila. Si estás soltero o soltera, tiende a la paciencia y a confiar en tu sensación de quién te encaja.",
+    "rev": "Invertida, la Sacerdotisa apunta a sentimientos ocultos, incluso para ti, o a leer demasiado en señales pequeñas. En pareja, sugiere nombrar con suavidad lo que no habéis dicho. Si estás soltero o soltera, baja el ruido y fíjate en lo que sientes de verdad."
+   },
+   "career": {
+    "up": "Te conviene la calma antes de decidir. La Sacerdotisa tiende a observar, escuchar y reunir información antes de comprometerte. El estudio y la investigación van bien. Con el dinero, sugiere esperar hasta entender el panorama completo.",
+    "rev": "Invertida, puede que el ajetreo esté ahogando tu voz interior, o que lleves demasiado tiempo sentado sobre información. Haz hueco para pensar en silencio y luego actúa. Cuidado con darle demasiadas vueltas: no toda señal pequeña tiene significado."
+   },
+   "feelings": {
+    "up": "Es posible que la otra persona sienta mucho y diga poco. Su interés parece hondo, privado y cauteloso, y se muestra con atención más que con palabras. Quizá esté esperando a ver si es seguro hablar.",
+    "rev": "Es posible que la otra persona esconda sus sentimientos o no sepa bien cuáles son. Las señales mezcladas pueden venir del secretismo y no del desinterés. Sugiere preguntar con cariño en lugar de adivinar a partir de pequeños indicios."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     0
+    ],
+    "up": "Quizá. La Sacerdotisa pide primero quietud. La respuesta aún no está del todo dicha, así que escucha lo que percibes bajo la superficie.",
+    "rev": "Aún no. Invertida, sugiere que no estás oyendo tu propia respuesta o que algo sigue oculto. Espera a que se asiente el ruido."
+   },
+   "advice": {
+    "up": "Quédate quieto o quieta y escucha. Dale vueltas a la pregunta antes de actuar y confía en lo que intuyes antes de poder explicarlo. Guarda algunas cosas para ti hasta estar seguro o segura.",
+    "rev": "Baja el ruido y pregúntate lo que ya sabes. Nombra un sentimiento que has escondido y evita leer demasiado en señales pequeñas."
+   }
+  },
+  "major_03_empress": {
+   "love": {
+    "up": "La Emperatriz sugiere calidez, cariño y disfrutar el uno del otro. En pareja, tiende a la ternura, a las comidas compartidas y a cuidar lo que habéis construido. Si estás soltero o soltera, apunta a cuidarte a ti y a las amistades que te rodean: el amor crece donde se cuida.",
+    "rev": "Invertida, la Emperatriz apunta a agobiar, a dar demasiado o a descuidar tus propias necesidades. En pareja, sugiere comprobar si el cuidado fluye en las dos direcciones. Si estás soltero o soltera, te pide ser tan amable contigo como lo eres con los demás."
+   },
+   "career": {
+    "up": "Favorece el trabajo creativo y el cuidado constante. La Emperatriz tiende a un crecimiento que nace de atender con paciencia: un proyecto, un equipo, una habilidad. Con el dinero, sugiere una abundancia cómoda construida poco a poco y disfrutada sin excesos.",
+    "rev": "Invertida, puede haber una sequía creativa, exceso de trabajo o cuidar de todos menos de ti. Descansa y alimenta tu imaginación. Con el dinero, vigila el gasto como consuelo y el descuidar tu propia seguridad."
+   },
+   "feelings": {
+    "up": "Es posible que la otra persona sienta calidez, generosidad y deseo de protegerte. Sus sentimientos parecen cariñosos y sensuales, con ganas de cuidarte y disfrutar del tiempo juntos. Tiende a la comodidad más que al drama.",
+    "rev": "Es posible que la otra persona esté dando demasiado, que se vuelva posesiva o que retire su cuidado porque se siente agotada. Sus sentimientos pueden ser reales pero estar enredados con sus propias necesidades."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. La Emperatriz tiende al crecimiento cuando lo cuidas bien. El cariño, la paciencia y el disfrute lo respaldan.",
+    "rev": "Quizá. Invertida, sugiere que el cuidado está bloqueado o es excesivo. Mira si tus propias necesidades están cubiertas antes de decidir."
+   },
+   "advice": {
+    "up": "Cuida lo que amas y permítete disfrutarlo. Cocina, crea, planta o descansa. La generosidad funciona mejor cuando te incluyes a ti.",
+    "rev": "Vuelve a poner tus necesidades en la lista. Si das demasiado, da un paso atrás; si te sientes bloqueado o bloqueada creativamente, sal a la calle y descansa la mente."
+   }
+  },
+  "major_04_emperor": {
+   "love": {
+    "up": "El Emperador sugiere estabilidad, compromiso y límites claros. En pareja, tiende a la fiabilidad y a acordar cómo cuidaros. Si estás soltero o soltera, apunta a saber lo que quieres y mantener tus criterios.",
+    "rev": "Invertido, el Emperador apunta a control, terquedad o falta de límites. En pareja, sugiere preguntarte dónde la firmeza se ha vuelto rigidez. Si estás soltero o soltera, quizá estés demasiado a la defensiva, o demasiado dispuesto o dispuesta a ceder."
+   },
+   "career": {
+    "up": "Te sirven la estructura y el liderazgo. El Emperador tiende a planificar, poner límites claros y asumir responsabilidad. Las figuras de autoridad y los sistemas cuentan aquí. Con el dinero, sugiere presupuestos, hábitos de ahorro y bases firmes.",
+    "rev": "Invertido, el problema puede ser unas reglas rígidas, un jefe autoritario o la falta total de plan. Mira dónde controlas demasiado o dónde falta estructura. Algo de flexibilidad con ciertos límites puede ayudar."
+   },
+   "feelings": {
+    "up": "Es posible que la otra persona se sienta protectora, seria y comprometida, y muestre su cariño con fiabilidad más que con palabras. Sus sentimientos parecen firmes y responsables, aunque quizá reservados. Quiere construir algo duradero.",
+    "rev": "Es posible que la otra persona sea controladora, esté cerrada emocionalmente o se sienta incómoda con el peso de la responsabilidad. Sus sentimientos pueden ser reales pero expresarse con normas y distancia. Sugiere hablar con claridad y calma."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. El Emperador tiende a un plan con estructura clara y suelo firme. Pon tus condiciones y avanza con constancia.",
+    "rev": "Quizá. Invertido, apunta a rigidez o a falta de estructura. La respuesta puede depender de soltar el control o de construir un plan en condiciones."
+   },
+   "advice": {
+    "up": "Haz un plan, pon límites claros y asume tu responsabilidad. Lidera con calma. El orden es útil cuando protege lo que te importa.",
+    "rev": "Mira dónde la firmeza se ha vuelto terquedad, o dónde no tienes plan alguno. Afloja un poco el agarre o construye la estructura que falta."
+   }
+  },
+  "major_05_hierophant": {
+   "love": {
+    "up": "El Hierofante sugiere compromiso, valores compartidos y el apoyo de una comunidad. En pareja, tiende a los rituales, los lazos familiares y a profundizar la confianza. Si estás soltero o soltera, apunta a conocer a alguien a través de círculos comunes y a valorar lo que compartís.",
+    "rev": "Invertido, el Hierofante apunta a cuestionar las expectativas sobre cómo debe ser una relación. Sugiere buscar tu propio camino, ya sea rompiendo con lo convencional o con la presión familiar. Si estás soltero o soltera, quizá te resistas a las etiquetas o a un guion fijo."
+   },
+   "career": {
+    "up": "Te sirve aprender primero a la manera establecida. El Hierofante tiende a los mentores, la formación reglada, los títulos y el respeto por los métodos probados. Un equipo o una institución pueden apoyarte. Con el dinero, sugiere caminos convencionales y de confianza.",
+    "rev": "Invertido, quizá te asfixien unas reglas que ya no encajan, o rechaces un consejo que necesitas. Pregúntate qué convenciones aún ayudan y cuáles son pura costumbre. Cuidado con el dogma en el trabajo y con seguir a ciegas a otros con el dinero."
+   },
+   "feelings": {
+    "up": "Es posible que la otra persona sienta respeto, sinceridad y seriedad contigo, y quiera un camino formal y comprometido. Sus sentimientos tienden a la lealtad y a los valores compartidos, no a algo pasajero. Puede que le importe lo que piensen la familia y los amigos.",
+    "rev": "Es posible que la otra persona se sienta dividida entre lo que se espera de ella y lo que desea. Sus sentimientos pueden ser reales pero frenados por las convenciones, o puede que rechace del todo el camino habitual."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. El Hierofante tiende a lo bien establecido, de confianza y respaldado por otros. Hay orientación disponible si la pides.",
+    "rev": "Quizá. Invertido, sugiere que el camino habitual puede no encajar. Piensa si sigues una regla o tus propios valores."
+   },
+   "advice": {
+    "up": "Aprende de alguien que ya ha recorrido este camino. Únete al grupo, honra la tradición que encaje y comprométete con lo básico antes de cambiarlo.",
+    "rev": "Cuestiona la regla que ya no encaja y luego encuentra tu propio camino hacia el sentido. Mantente abierto o abierta a aprender de los demás aunque rechaces la forma."
+   }
+  },
+  "major_06_lovers": {
+   "love": {
+    "up": "Los Enamorados sugieren un vínculo que pide sinceridad y una elección hecha desde tus valores. En pareja, tienden a un compromiso más hondo y a hablar con franqueza. Si estás soltero o soltera, apuntan a una conexión con sentido, o a elegir lo que de verdad quieres en lugar de complacer a alguien.",
+    "rev": "Invertidos, Los Enamorados apuntan a desajuste, a distanciamiento o a aplazar una decisión. En pareja, sugieren comprobar si tus actos coinciden con lo que valoras. Si estás soltero o soltera, quizá estés dividido o dividida, o eligiendo para agradar a otros."
+   },
+   "career": {
+    "up": "Una elección con sentido en el trabajo refleja tus valores. Los Enamorados tienden a las alianzas y colaboraciones que te convienen, y a elegir el camino que sientes alineado. Con el dinero, sugieren decidir según lo que crees que importa.",
+    "rev": "Invertidos, la indecisión o los valores que no encajan pueden estar frenándote. Una colaboración puede estar desafinada. Pregúntate qué elegirías si nadie te mirara y evita apoyarte demasiado en la opinión de otra persona."
+   },
+   "feelings": {
+    "up": "Es posible que la otra persona sienta una atracción real y ganas de una conexión sincera. Sus sentimientos parecen auténticos, cálidos y orientados al compromiso, con la atracción y los valores en sintonía. Puede que esté sopesando una elección importante que te incluye.",
+    "rev": "Es posible que la otra persona esté insegura, dividida entre opciones o sintiendo que crece una distancia. Sus sentimientos pueden ser reales pero sin acciones que los acompañen. Sugiere una charla sincera sobre lo que quiere cada uno."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. Los Enamorados tienden a una elección que encaja con tus valores y a una conexión sincera. Elige aquello que puedas defender.",
+    "rev": "Quizá. Invertidos, apuntan a una decisión aplazada o a valores desafinados. La respuesta puede esperar hasta que seas sincero o sincera contigo."
+   },
+   "advice": {
+    "up": "Elige de acuerdo con tus valores y di la verdad sobre lo que quieres. Que una conexión sea sincera y mutua, y no una actuación.",
+    "rev": "Deja de aplazar la decisión. Comprueba si tus actos coinciden con lo que dices valorar y habla con claridad con la persona implicada."
+   }
+  },
+  "major_07_chariot": {
+   "love": {
+    "up": "El Carro sugiere avanzar hacia lo que quieres en el amor, con enfoque y firmeza. En pareja, tiende a una dirección compartida y a resolver juntos los tirones opuestos. Si estás soltero o soltera, apunta a dar pasos activos en lugar de esperar.",
+    "rev": "Invertido, el Carro apunta a tirar en direcciones distintas, a forzar las cosas o a sentirte atascado sin plan. En pareja, sugiere ir más despacio y acordar hacia dónde vais. Si estás soltero o soltera, quizá vayas con prisa o te hayas quedado parado."
+   },
+   "career": {
+    "up": "La determinación y la disciplina te hacen avanzar. El Carro tiende a una meta clara, a tener impulso y a mantener a raya las exigencias que compiten. Pueden aparecer exámenes, competiciones y viajes de trabajo. Con el dinero, sugiere un esfuerzo enfocado y constante.",
+    "rev": "Invertido, el impulso puede estar disperso, detenido o forzado en exceso. Haz una pausa para elegir dirección antes de acelerar. Cuida que la ambición no pase por encima de tus compañeros y evita forzar una decisión de dinero."
+   },
+   "feelings": {
+    "up": "Es posible que la otra persona esté decidida a conquistarte o a hacer avanzar las cosas. Sus sentimientos parecen fuertes y con propósito, y los muestra con seguridad. Puede que quiera tomar las riendas.",
+    "rev": "Es posible que la otra persona se sienta tirada en dos direcciones, sin rumbo claro, o que presione demasiado y demasiado rápido. Sus sentimientos pueden ser reales pero convertirse en presión o control. Sugiere pedir espacio y claridad."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. El Carro tiende a avanzar si mantienes el enfoque. Sujeta las riendas con firmeza y sigue adelante.",
+    "rev": "Quizá. Invertido, apunta a un impulso disperso o a fuerza sin dirección. La respuesta puede depender de elegir antes un rumbo claro."
+   },
+   "advice": {
+    "up": "Elige una dirección y comprométete con ella. Mantén a raya tus tirones opuestos con disciplina y sigue avanzando a ritmo constante.",
+    "rev": "Detente y pregúntate hacia dónde vas. Suaviza la fuerza, resuelve el tira y afloja que llevas dentro y luego vuelve a moverte."
+   }
+  },
+  "major_08_strength": {
+   "love": {
+    "up": "La Fuerza sugiere paciencia, ternura y un valor tranquilo en el amor. En pareja, tiende a recibir los sentimientos difíciles con amabilidad y no con pelea. Si estás soltero o soltera, apunta a la compasión contigo y a la confianza para ser suave y abierto o abierta.",
+    "rev": "Invertida, la Fuerza apunta a dudas sobre ti, agotamiento o intentar domar un sentimiento a la fuerza. En pareja, sugiere descansar y compartir con sinceridad tus límites. Si estás soltero o soltera, sé amable contigo y recupera la confianza paso a paso."
+   },
+   "career": {
+    "up": "La resiliencia serena logra lo que la fuerza no puede. La Fuerza tiende a la paciencia con un compañero o una tarea difíciles y a una confianza constante. Aquí la perseverancia da fruto. Con el dinero, sugiere mantener la calma y no actuar desde el miedo.",
+    "rev": "Invertida, quizá vayas sin energía, dudes de ti o te empujes a base de pura voluntad. Descansa, pide apoyo y reconstruye con pequeños logros. Cuidado con forzar resultados o actuar desde la ansiedad con el dinero."
+   },
+   "feelings": {
+    "up": "Es posible que la otra persona se sienta suave, leal y paciente contigo. Sus sentimientos parecen firmes y compasivos, y se muestran con amabilidad y apoyo tranquilo más que con grandes gestos. Puede que admire tu valentía.",
+    "rev": "Es posible que la otra persona se sienta insegura, agotada o incapaz de mostrar cuánto le importas. Sus sentimientos pueden estar ahí pero enterrados bajo la duda o la tensión. Tu paciencia y suavidad pueden ayudar."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. La Fuerza tiende al éxito mediante la paciencia y la persistencia suave. Puedes lograrlo sin pelear.",
+    "rev": "Quizá. Invertida, apunta a poca energía o a dudas sobre ti. La respuesta puede depender de descansar y recuperar antes la confianza."
+   },
+   "advice": {
+    "up": "Afronta la dificultad con calma y amabilidad. Ten paciencia contigo y con los demás, y deja que el valor sea silencioso y no ruidoso.",
+    "rev": "Descansa y reconstruye tu confianza paso a paso. No intentes echar un sentimiento a la fuerza; dale espacio y háblate con cariño."
+   }
+  },
+  "major_09_hermit": {
+   "love": {
+    "up": "El Ermitaño sugiere que el tiempo a solas puede aclarar lo que quieres. En pareja, tiende a una reflexión tranquila y sincera y quizá a algo de espacio. Si estás soltero o soltera, apunta a disfrutar de tu propia compañía y a esperar una conexión que se sienta verdadera.",
+    "rev": "Invertido, el Ermitaño apunta a retirarte demasiado o a no soportar estar a solas contigo. En pareja, sugiere acercarte antes de que la distancia se endurezca. Si estás soltero o soltera, equilibra la soledad con compañía cálida."
+   },
+   "career": {
+    "up": "Te sirve dar un paso atrás para pensar. El Ermitaño tiende al estudio concentrado, la investigación o el trabajo en solitario, y a la guía de un mentor. Con el dinero, sugiere revisar tu situación en calma antes de decidir.",
+    "rev": "Invertido, el aislamiento o la inquietud pueden estar estorbando. No te cierres a la ayuda ni evites la pregunta que necesitas afrontar. Retoma el contacto con un compañero de confianza y luego vuelve a tu plan."
+   },
+   "feelings": {
+    "up": "Es posible que la otra persona esté reflexiva y seria, y se tome su tiempo para entender sus sentimientos antes de compartirlos. Parece pensativa y sincera, aunque callada. Quizá necesite espacio, lo cual no es lo mismo que desinterés.",
+    "rev": "Es posible que la otra persona se esté retirando, evitando el tema o sin lograr asentarse con sus propios pensamientos. Sus sentimientos pueden ser reales pero estar ocultos tras la distancia. Puede que poco a poco esté volviendo hacia la gente."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     0
+    ],
+    "up": "Quizá. El Ermitaño te pide dar un paso atrás y pensar. La respuesta está en tu propio juicio sereno, no en el ruido de fuera.",
+    "rev": "Aún no. Invertido, sugiere que evitas la pregunta o te retiras demasiado. Vuelve a conectar y luego piensa de nuevo."
+   },
+   "advice": {
+    "up": "Tómate un tiempo a solas para pensar. Baja el volumen de las voces de fuera, enciende tu propia lámpara y decide qué te importa.",
+    "rev": "No te retires más. Acércate a alguien de confianza y, si no logras estar en calma, fíjate en lo que estás evitando."
+   }
+  },
+  "major_10_wheel_of_fortune": {
+   "love": {
+    "up": "La Rueda sugiere que las cosas están girando y que el amor puede entrar en un capítulo nuevo. En pareja, tiende a un cambio que podéis afrontar juntos. Si estás soltero o soltera, apunta a que el momento se inclina a tu favor, o a un encuentro inesperado.",
+    "rev": "Invertida, la Rueda apunta a un patrón que se repite o a resistirte a un cambio. En pareja, sugiere nombrar el bucle al que seguís volviendo. Si estás soltero o soltera, quizá te sientas estancado o estancada, pero un ciclo se está cerrando."
+   },
+   "career": {
+    "up": "Las circunstancias cambian y puede abrirse un capítulo nuevo. La Rueda tiende a adaptarte bien al cambio y a aprovechar un buen momento. Con el dinero, sugiere que las cosas fluctúan, así que sé flexible y mantén la perspectiva.",
+    "rev": "Invertida, quizá te sientas atrapado en un bucle o te resistas a un cambio que ya está en marcha. Mira lo que puedes influir y suelta lo que no. Evita movimientos de dinero precipitados basados en una corazonada sobre la suerte."
+   },
+   "feelings": {
+    "up": "Es posible que la otra persona sienta que algo está cambiando y esté abierta a cambiar contigo. Sus sentimientos parecen ir en buena dirección, ayudados por el momento. Quizá lo viva como algo del destino o de buena suerte.",
+    "rev": "Es posible que la otra persona esté pasando por un cambio propio o repitiendo un patrón antiguo. Sus sentimientos pueden estar en movimiento y ser difíciles de leer ahora. Dale tiempo y fíjate en lo que se mantiene estable."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. La Rueda tiende a un giro favorable y a un buen momento. Prepárate para adaptarte a medida que las cosas se mueven.",
+    "rev": "Quizá. Invertida, la Rueda apunta a retrasos o a un bucle que se repite. Puede que aún no sea el momento."
+   },
+   "advice": {
+    "up": "Acepta que los ciclos giran y vive este con la mente abierta. Busca lo que te ofrece el cambio y aprovecha el buen momento.",
+    "rev": "Fíjate en el patrón que repites y elige una cosa que dependa de ti. Deja que un ciclo que se acaba termine en lugar de resistirte."
+   }
+  },
+  "major_11_justice": {
+   "love": {
+    "up": "La Justicia sugiere sinceridad, equidad y acuerdos claros en el amor. En pareja, tiende a un dar y recibir equilibrado, y a asumir tu parte en las cosas. Si estás soltero o soltera, apunta a ser sincero o sincera sobre lo que quieres y lo que puedes ofrecer.",
+    "rev": "Invertida, la Justicia apunta a injusticia, culpas o a evitar responsabilidades. En pareja, sugiere comprobar si la balanza está inclinada, también contra ti. Si estás soltero o soltera, cuidado con juzgar con dureza a otros o a ti."
+   },
+   "career": {
+    "up": "El trato justo y los hechos honestos te favorecen. La Justicia tiende a los contratos, las evaluaciones y las decisiones basadas en pruebas. Se premia la responsabilidad. Con el dinero, sugiere leer los detalles y llevar registros precisos.",
+    "rev": "Invertida, puede haber sesgo, responsabilidad esquivada o un proceso injusto. Revisa los hechos de nuevo y asume tu parte. Cuidado con juzgar con dureza y revisa bien cualquier acuerdo antes de fiarte de él."
+   },
+   "feelings": {
+    "up": "Es posible que la otra persona quiera que las cosas entre vosotros sean sinceras y justas. Sus sentimientos parecen meditados, sinceros y basados en una visión clara de la situación. Puede que valore la verdad por encima de la comodidad.",
+    "rev": "Es posible que la otra persona esté evitando responsabilidades, juzgando con dureza o viendo las cosas de forma parcial. Sus sentimientos pueden ser reales pero estar nublados por prejuicios o por miedo a las consecuencias. Una conversación tranquila y basada en hechos puede ayudar."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. La Justicia tiende a un resultado justo cuando miras los hechos con honestidad. Sopésalos con claridad y asume tu parte.",
+    "rev": "Quizá. Invertida, el sesgo o la responsabilidad evitada pueden nublar las cosas. La respuesta depende de ver la situación con justicia."
+   },
+   "advice": {
+    "up": "Sopesa los hechos con honestidad, incluido tu propio papel. Toma decisiones justas, cumple tu palabra y acepta las consecuencias.",
+    "rev": "Busca sesgos, en los demás y en ti. Asume la responsabilidad donde sea tuya y afloja el juicio severo hacia ti."
+   }
+  },
+  "major_12_hanged_man": {
+   "love": {
+    "up": "El Colgado sugiere una pausa que te enseña algo nuevo. En pareja, tiende a soltar una visión fija y a ver el lado de tu pareja. Si estás soltero o soltera, apunta a esperar sin forzar y a mirar el amor desde otro ángulo.",
+    "rev": "Invertido, el Colgado apunta a quedarte parado o a hacerte el mártir. En pareja, sugiere preguntar si esperar sigue ayudando a alguno de los dos. Si estás soltero o soltera, quizá pongas tu vida en pausa por alguien que no te está eligiendo."
+   },
+   "career": {
+    "up": "Una pausa deliberada te deja ver el problema de otra manera. El Colgado tiende a retrasos que resultan útiles y a nuevas perspectivas. Con el dinero, sugiere aplazar las grandes decisiones hasta ver con más claridad.",
+    "rev": "Invertido, la pausa puede haberse vuelto demora, o un sacrificio que no sirve a nadie. Decide si esperar sigue siendo sensato. Si estás listo o lista para moverte, haz un plan y actúa en lugar de seguir en suspenso."
+   },
+   "feelings": {
+    "up": "Es posible que la otra persona esté en una pausa reflexiva, replanteándose lo que quiere. Sus sentimientos parecen reales pero aún sin resolver, y quizá esté viendo las cosas desde otro ángulo. No tiene prisa.",
+    "rev": "Es posible que la otra persona esté estancada, indecisa o haciendo un sacrificio que le genera resentimiento. Sus sentimientos pueden ser reales pero estar bloqueados. También puede estar preparándose para moverse tras una larga espera."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     0
+    ],
+    "up": "Quizá. El Colgado sugiere esperar y volver a mirar. La respuesta puede llegar cuando lo veas de otra manera.",
+    "rev": "Aún no. Invertido, apunta a quedarte parado sin propósito. Pregúntate si esperar sigue ayudando y luego elige."
+   },
+   "advice": {
+    "up": "Haz una pausa a propósito y mira la situación desde el otro lado. Suelta la necesidad de forzarlo y ten paciencia.",
+    "rev": "Pregúntate si esperar sigue siendo útil. Si no lo es, deja de sacrificarte y decide, o deja que la pausa termine."
+   }
+  },
+  "major_13_death": {
+   "love": {
+    "up": "La Muerte sugiere un final en el amor que ya ha empezado. En pareja, tiende a dejar que termine un patrón o una etapa antiguos para que empiece algo más verdadero. Si estás soltero o soltera, apunta a cerrar un capítulo del pasado y despejar espacio.",
+    "rev": "Invertida, la Muerte apunta a aferrarte a algo que ya terminó, o a un final que se alarga porque nadie lo nombra. En pareja, sugiere decir con honestidad qué se ha acabado. Si estás soltero o soltera, quizá te cueste soltar a alguien del pasado."
+   },
+   "career": {
+    "up": "Un puesto, un hábito o una creencia ha cumplido su ciclo. La Muerte tiende a despejar lo viejo, lo que puede traer alivio junto con duelo. Es posible un cambio de trabajo o de rumbo. Con el dinero, sugiere cerrar lo que ya no funciona.",
+    "rev": "Invertida, quizá te resistas a un final necesario o lo aceptes solo a medias. Aferrarte puede costar más que soltar. Nombra lo que se ha acabado y tómate tu tiempo para adaptarte en lugar de forzar un nuevo comienzo."
+   },
+   "feelings": {
+    "up": "Es posible que la otra persona sienta que algo entre vosotros ha terminado o cambiado, y esté lista para seguir adelante o para empezar de nuevo. Sus sentimientos parecen estar en transición. Podría ser un cierre o una transformación más que una simple despedida.",
+    "rev": "Es posible que la otra persona no pueda soltar, o que sepa en silencio que se acabó sin decirlo. Sus sentimientos pueden arrastrarse porque nadie los nombra. Sugiere una honestidad amable."
+   },
+   "yesno": {
+    "verdict": [
+     -1,
+     0
+    ],
+    "up": "No. La Muerte sugiere que este capítulo se cierra, así que la respuesta se aleja de mantener las cosas como están. Algo nuevo puede venir después.",
+    "rev": "Quizá. Invertida, hay un final al que te resistes o que aceptas a medias. La respuesta puede aclararse cuando sueltes."
+   },
+   "advice": {
+    "up": "Suelta lo que ya ha cumplido su ciclo. Marca el final, haz el duelo si lo necesitas y despeja espacio para lo que viene.",
+    "rev": "Nombra lo que ya terminó en lugar de aferrarte a ello. Da pasos pequeños hacia la aceptación y sé amable contigo."
+   }
+  },
+  "major_14_temperance": {
+   "love": {
+    "up": "La Templanza sugiere paciencia, equilibrio y mezclar diferencias. En pareja, tiende al acuerdo y a un ritmo tranquilo y constante. Si estás soltero o soltera, apunta a dejar que el amor se desarrolle poco a poco y a mantener un camino medio entre los extremos.",
+    "rev": "Invertida, la Templanza apunta a desequilibrio, impaciencia o extremos. En pareja, sugiere que uno de los dos da o toma demasiado. Si estás soltero o soltera, quizá quieras resultados ya, o te cueste encontrar un punto medio."
+   },
+   "career": {
+    "up": "El trabajo mesurado y paciente armoniza exigencias opuestas. La Templanza tiende al trabajo en equipo, al progreso constante y a la moderación. Combina ideas en lugar de elegir bando. Con el dinero, sugiere equilibrar gasto y ahorro y mantener un ritmo estable.",
+    "rev": "Invertida, el problema puede ser pasarte de la raya, la impaciencia o cosas que se desequilibran. Busca dónde estás en un extremo y apunta a un ritmo más sereno. Evita decisiones de dinero precipitadas."
+   },
+   "feelings": {
+    "up": "Es posible que la otra persona se sienta tranquila, amable y dispuesta a encontrarse contigo a medio camino. Sus sentimientos parecen firmes y pacientes, y quizá prefiera un ritmo gradual y equilibrado. Es cuidadosa, no dramática.",
+    "rev": "Es posible que la otra persona sea impaciente, vaya a extremos o le cueste hallar un punto medio. Sus sentimientos pueden ser reales pero erráticos, o puede estar evitando el compromiso. Tu serenidad puede ayudar."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. La Templanza tiende a un buen resultado con paciencia y equilibrio. Avanza a un ritmo constante y mesurado.",
+    "rev": "Quizá. Invertida, el desequilibrio o la impaciencia pueden interponerse. La respuesta puede depender de moderar las cosas."
+   },
+   "advice": {
+    "up": "Mezcla con paciencia necesidades opuestas. Da pasos medidos, busca el camino medio y deja que las cosas se combinen con el tiempo.",
+    "rev": "Descubre dónde estás desequilibrado o desequilibrada y suavízalo. Baja el ritmo, evita los extremos y deja de esperar resultados inmediatos."
+   }
+  },
+  "major_15_devil": {
+   "love": {
+    "up": "El Diablo sugiere fijarte en lo que te ata en el amor: un apego, un patrón o un miedo. En pareja, tiende a hablar con franqueza de dependencia o de costumbre. Si estás soltero o soltera, apunta a nombrar tus deseos sin vergüenza y a ver cuánta elección tienes de verdad.",
+    "rev": "Invertido, el Diablo apunta a que una atadura se afloja, o a la negación. En pareja, sugiere romper poco a poco un patrón que no ayuda. Si estás soltero o soltera, quizá seas consciente en silencio de lo que te ata y aún no estés listo o lista para actuar."
+   },
+   "career": {
+    "up": "Puede que estés atado a un trabajo, un hábito o una creencia con más fuerza de la necesaria. El Diablo tiende a un ajuste de cuentas honesto con lo que te mantiene ahí, como el dinero, el estatus o el miedo. Nombrarlo es el primer paso hacia poder elegir.",
+    "rev": "Invertido, quizá te estés soltando de un agarre antiguo, o evitando verlo. Fíjate en las pequeñas cadenas que podrías aflojar. Con el dinero, sé honesto u honesta sobre tus hábitos y deudas, y busca apoyo profesional si lo necesitas."
+   },
+   "feelings": {
+    "up": "Es posible que la otra persona sienta una atracción o un apego fuerte y difícil de resistir. Sus sentimientos parecen intensos, quizá enredados con la costumbre o el miedo. Podría ser pasión, o podría ser una atadura que no elige del todo.",
+    "rev": "Es posible que la otra persona se esté alejando de una atracción poco sana, o que la niegue. Sus sentimientos pueden estar aflojándose, o cuestionándose en silencio. Quizá sea consciente pero todavía no actúe."
+   },
+   "yesno": {
+    "verdict": [
+     -1,
+     0
+    ],
+    "up": "No. El Diablo tiende a la cautela, porque algo puede atarte más de lo que admites. Mira primero tus opciones reales.",
+    "rev": "Quizá. Invertido, una atadura se afloja. La respuesta puede mejorar a medida que veas con claridad y actúes."
+   },
+   "advice": {
+    "up": "Nombra el hábito, el apego o el miedo que te ata. Fíjate en lo sueltas que cuelgan las cadenas y elige con honestidad. El apoyo de otras personas puede ayudar.",
+    "rev": "Ser consciente es el primer paso. Haz una pequeña acción para aflojar el agarre y sé honesto u honesta sobre lo que has estado evitando."
+   }
+  },
+  "major_16_tower": {
+   "love": {
+    "up": "La Torre sugiere una sacudida repentina que revela lo que no era estable. En pareja, tiende a que salga a la luz una verdad dura y a la oportunidad de reconstruir con más honestidad. Si estás soltero o soltera, apunta a que cae una vieja ilusión y despeja el terreno.",
+    "rev": "Invertida, la Torre apunta a evitar una verdad o a vivir las secuelas de una. En pareja, sugiere afrontar un problema que arde despacio en lugar de esperar. Si estás soltero o soltera, quizá te estés recuperando en silencio de una crisis privada."
+   },
+   "career": {
+    "up": "Algo construido sobre terreno inestable, como un plan, un puesto o una estructura, puede venirse abajo. La Torre tiende a un cambio repentino que, aunque inquieta, despeja espacio para algo más honesto. Con el dinero, sugiere prepararte para sorpresas.",
+    "rev": "Invertida, quizá te resistas a algo que ya se está deshaciendo, o observes un desmoronamiento lento. Afróntalo en lugar de esperar. Haz inventario de lo que sigue en pie y construye desde ahí a un ritmo sensato."
+   },
+   "feelings": {
+    "up": "Es posible que la otra persona esté pasando por una convulsión, o por un darse cuenta repentino sobre ti o sobre sí misma. Sus sentimientos pueden oscilar bruscamente, con verdades que salen a la luz. Sugiere honestidad y paciencia mientras baja el polvo.",
+    "rev": "Es posible que la otra persona evite un golpe, o se esté recuperando de uno. Sus sentimientos pueden estar a la defensiva o en plena confusión. Una crisis privada podría afectar a cómo se comporta contigo."
+   },
+   "yesno": {
+    "verdict": [
+     -1,
+     0
+    ],
+    "up": "No. La Torre sugiere que el plan actual está sobre terreno inestable. Espera alteraciones y piensa qué sería más sólido.",
+    "rev": "Quizá. Invertida, lo peor puede estar pasando, o un problema está aflorando poco a poco. Afronta los hechos antes de decidir."
+   },
+   "advice": {
+    "up": "Deja caer lo que es falso. Mantente a salvo, sé honesto u honesta y usa el terreno despejado para construir algo más sólido.",
+    "rev": "No esperes a que el problema crezca. Afróntalo ya, haz inventario de lo que sigue en pie y avanza con suavidad por las secuelas."
+   }
+  },
+  "major_17_star": {
+   "love": {
+    "up": "La Estrella sugiere una esperanza suave y sanación después de una racha dura. En pareja, tiende a una cercanía sincera y tierna y a una confianza renovada. Si estás soltero o soltera, apunta a ser abierto o abierta y amable contigo, y a un optimismo tranquilo sobre el amor.",
+    "rev": "Invertida, la Estrella apunta a una esperanza que se apaga o a dudas. En pareja, sugiere sentirte distante o desanimado y necesitar pequeños gestos de cuidado. Si estás soltero o soltera, mantén vivas pequeñas esperanzas sin forzar nada."
+   },
+   "career": {
+    "up": "Favorece la recuperación y la renovación. La Estrella tiende a recobrar poco a poco la confianza tras un periodo difícil, con inspiración y un propósito claro. Con el dinero, sugiere un progreso constante y modesto, y confianza en una recuperación gradual.",
+    "rev": "Invertida, la falta de motivación o la duda pueden estar en medio. Sé amable contigo, descansa y da pasos pequeños y concretos en lugar de esperar una señal. Evita desear sin actuar y mantén realistas tus expectativas de dinero."
+   },
+   "feelings": {
+    "up": "Es posible que la otra persona se sienta esperanzada, sincera y suavemente atraída por ti. Sus sentimientos parecen honestos, serenos y sanadores, quizá tras una época difícil. Puede que vea algo bueno en ti y en el futuro.",
+    "rev": "Es posible que la otra persona se sienta desanimada, distante o insegura sobre el futuro. Sus sentimientos pueden ser reales pero estar apagados por la duda. Quizá necesite paciencia y pequeñas muestras de confianza más que grandes promesas."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. La Estrella tiende a la esperanza y a una recuperación lenta y constante. Confía en ella y sigue adelante con suavidad.",
+    "rev": "Quizá. Invertida, la esperanza es tenue o vaga. La respuesta puede mejorar cuando descanses y mantengas vivas pequeñas esperanzas."
+   },
+   "advice": {
+    "up": "Descansa, respira y confía en una recuperación lenta. Sé honesto u honesta, mantén tus esperanzas en silencio y con claridad, y devuélvete amabilidad a ti.",
+    "rev": "Sé suave contigo. Mantén viva una pequeña esperanza y haz una pequeña acción, en lugar de esperar una señal."
+   }
+  },
+  "major_18_moon": {
+   "love": {
+    "up": "La Luna sugiere que los sentimientos son fuertes pero aún no están claros. En pareja, tiende a la incertidumbre, la proyección o los miedos no dichos que conviene nombrar. Si estás soltero o soltera, apunta a esperar más luz antes de fiarte de un estado de ánimo o de una atracción.",
+    "rev": "Invertida, la Luna apunta a que la niebla se levanta, o a que la ansiedad se dispara. En pareja, sugiere que lo que no estaba claro se hace visible, o que un miedo oculto necesita los pies en la tierra. Si estás soltero o soltera, ve despacio y comprueba los hechos."
+   },
+   "career": {
+    "up": "En el trabajo las cosas no están del todo claras. La Luna tiende a moverte con cuidado, a reunir más información y a escuchar tu instinto sin dejar que decida el miedo. Con el dinero, sugiere evitar grandes compromisos hasta que el panorama esté más claro.",
+    "rev": "Invertida, la confusión puede estar despejándose, o la preocupación puede estar creciendo. Pisa tierra con hechos y rutinas. Revisa lo que diste por supuesto y haz preguntas directas. Espera a tener información más clara antes de comprometer dinero."
+   },
+   "feelings": {
+    "up": "Es posible que la otra persona esté insegura o confusa sobre sus propios sentimientos, o que oculte parte de ellos. Sus emociones parecen hondas pero cambiantes, moldeadas por la imaginación y el miedo. Puede que las cosas aún no sean lo que parecen.",
+    "rev": "Es posible que la otra persona empiece a ver con más claridad, o que esté ansiosa y esconda una preocupación. Sus sentimientos podrían estar enfocándose. Intenta preguntar con suavidad y evita rellenar los huecos con suposiciones."
+   },
+   "yesno": {
+    "verdict": [
+     -1,
+     0
+    ],
+    "up": "No. La Luna sugiere que el panorama no está claro y que el miedo puede estar tiñéndolo. Espera a tener más luz antes de decidir.",
+    "rev": "Quizá. Invertida, la niebla se levanta, o la preocupación se hace más honda. La respuesta puede aclararse pronto."
+   },
+   "advice": {
+    "up": "Avanza con cuidado, fíjate en tus miedos y en tu instinto, y reúne más luz antes de decidir. No confundas un estado de ánimo con un hecho.",
+    "rev": "Pisa tierra con hechos y rutinas. Di en voz alta un miedo oculto y deja que se asiente lo que se va aclarando antes de actuar."
+   }
+  },
+  "major_19_sun": {
+   "love": {
+    "up": "El Sol sugiere calidez, apertura y alegría sencilla en el amor. En pareja, tiende a un cariño sincero, a la risa y a la facilidad de estar juntos. Si estás soltero o soltera, apunta a la confianza, a ser tú mismo o misma y a atraer calidez.",
+    "rev": "Invertido, el Sol apunta a un ánimo apagado o a una alegría forzada. En pareja, sugiere no esconder el cansancio tras la positividad. Si estás soltero o soltera, busca pequeñas fuentes de luz y evita el exceso de confianza o ignorar las complicaciones."
+   },
+   "career": {
+    "up": "Favorece la claridad, la vitalidad y el reconocimiento. El Sol tiende a un trabajo seguro y abierto y a un éxito visible. Disfruta de lo que va bien. Con el dinero, sugiere un panorama claro y positivo, aunque sigue atento o atenta a los detalles.",
+    "rev": "Invertido, el entusiasmo puede estar apagado, o el ego puede estar estorbando. Descansa y busca pequeñas fuentes de luz. Evita la positividad forzada o pasar por alto la complejidad, sobre todo con el dinero."
+   },
+   "feelings": {
+    "up": "Es posible que la otra persona se sienta feliz, abierta y entregada contigo. Sus sentimientos parecen cálidos, honestos y sin complicaciones. Disfruta de tu compañía y no lo esconde.",
+    "rev": "Es posible que la otra persona esté cansada o aparente alegría. Sus sentimientos pueden ser reales pero estar apagados por sus propias nubes. Puede que sea demasiado confiada o que no muestre el cuadro completo."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     1
+    ],
+    "up": "Sí. El Sol tiende con fuerza a una respuesta clara y positiva. La calidez y la apertura la respaldan.",
+    "rev": "Sí. Invertido, el Sol sigue tendiendo a un buen resultado, aunque puede costar más esfuerzo o tiempo. Comprueba que no estás forzando el optimismo."
+   },
+   "advice": {
+    "up": "Disfruta de lo que va bien. Sé abierto o abierta, comparte tu calidez y deja que las cosas sean claras y sencillas.",
+    "rev": "Descansa si estás cansado o cansada y busca pequeñas fuentes de luz. Evita la positividad forzada y permítete ser honesto u honesta."
+   }
+  },
+  "major_20_judgement": {
+   "love": {
+    "up": "El Juicio sugiere una revisión honesta y una llamada a empezar de nuevo. En pareja, tiende al perdón, a limpiar viejas heridas y a renovar el compromiso. Si estás soltero o soltera, apunta a escuchar lo que de verdad quieres y a responderle.",
+    "rev": "Invertido, el Juicio apunta a una autocrítica dura o a ignorar una llamada que oyes. En pareja, sugiere no dejar que los errores viejos os definan a los dos. Si estás soltero o soltera, evita repasar el pasado una y otra vez y no pospongas una decisión honesta."
+   },
+   "career": {
+    "up": "Un momento de revisión honesta puede traer una sensación de vocación. El Juicio tiende a replantear tu camino, perdonar errores pasados y responder a lo que sientes con propósito. Con el dinero, sugiere mirar con honestidad el panorama completo.",
+    "rev": "Invertido, la duda sobre ti puede sonar fuerte, o puede que ignores lo que ya sabes. Sé justo o justa contigo sobre el pasado. Deja de evitar una decisión necesaria y revisa tu dinero con cariño, no con reproches."
+   },
+   "feelings": {
+    "up": "Es posible que la otra persona sienta un despertar y quizá te vuelva a considerar con otros ojos. Sus sentimientos parecen reflexivos, indulgentes y sinceros, con deseo de un comienzo limpio. Puede que esté respondiendo a una llamada interior.",
+    "rev": "Es posible que la otra persona se juzgue con dureza a sí misma o a ti, o que evite una decisión sobre ti. Sus sentimientos pueden ser reales pero cargados de arrepentimiento. Puede que esté haciendo un ajuste de cuentas privado."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. El Juicio tiende a un nuevo comienzo tras una reflexión honesta. Responde a la llamada que llevas tiempo oyendo.",
+    "rev": "Quizá. Invertido, la autocrítica o la evasión pueden estar frenándote. La respuesta puede esperar hasta que decidas."
+   },
+   "advice": {
+    "up": "Repasa el pasado con honestidad, perdona lo que puedas y responde a tu llamada interior. Permite un nuevo comienzo.",
+    "rev": "Sé justo o justa, no duro o dura, contigo. Deja de ignorar lo que oyes por dentro y toma la decisión que llevas tiempo aplazando."
+   }
+  },
+  "major_21_world": {
+   "love": {
+    "up": "El Mundo sugiere plenitud y sensación de totalidad en el amor. En pareja, tiende a un hito satisfactorio y a sentiros en casa juntos, con el siguiente ciclo esperando. Si estás soltero o soltera, apunta a sentirte completo o completa por ti y listo o lista para lo que viene.",
+    "rev": "Invertido, el Mundo apunta a cabos sueltos o a un último paso que aún falta. En pareja, sugiere terminar una conversación pendiente. Si estás soltero o soltera, quizá aún no estés del todo listo o lista para soltar el pasado, aunque el cierre está cerca."
+   },
+   "career": {
+    "up": "Un ciclo se completa y puedes hacer balance de lo lejos que has llegado. El Mundo tiende a terminar un proyecto, graduarte o alcanzar una meta, con integración y satisfacción. Con el dinero, sugiere una situación estable y redondeada.",
+    "rev": "Invertido, quizá estés casi allí pero te falte un paso. Encuentra la pieza que falta y termínala. Puede que te cueste pasar página. Evita dejar cabos sueltos, sobre todo con cuentas, contratos o plazos."
+   },
+   "feelings": {
+    "up": "Es posible que la otra persona se sienta contenta y plena contigo. Sus sentimientos parecen enteros, asentados y satisfechos, con la sensación de que todo encaja. Puede que esté lista para la siguiente etapa.",
+    "rev": "Es posible que la otra persona sienta que algo entre vosotros está casi completo pero aún no del todo asentado. Sus sentimientos pueden ser reales pero inacabados, o puede que no esté lista para soltar. Una última conversación podría ayudar."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. El Mundo tiende a la culminación y a un resultado satisfactorio. Termina lo que empezaste.",
+    "rev": "Aún no. Invertido, queda un último paso. La respuesta está cerca, pero antes hay que terminar algo."
+   },
+   "advice": {
+    "up": "Haz balance de lo lejos que has llegado y disfrútalo. Termina lo que empezaste y mira después hacia el siguiente ciclo.",
+    "rev": "Encuentra el último cabo suelto y átalo. Permítete terminar y no te aferres cuando ya esté hecho."
+   }
+  },
+  "wands_ace": {
+   "love": {
+    "up": "Una chispa de atracción o una nueva ola de entusiasmo se inclina hacia ti. En pareja, sugiere un proyecto o una aventura nuevos que reavivan la calidez. Si estás soltero o soltera, la carta apunta a un primer encuentro atrevido y lleno de vida. Sigue la llama, pero deja que crezca a su ritmo natural.",
+    "rev": "La chispa se siente tenue o tarda en prender. En pareja, puede apuntar a una rutina que ahoga el entusiasmo, o a una buena idea que no se ha dicho en voz alta. Si estás soltero o soltera, quizá dudes ante una conexión prometedora. Atiende las brasas con suavidad y no fuerces el calor."
+   },
+   "career": {
+    "up": "Una nueva aventura, un puesto o una idea te ofrece un impulso de energía. La única llama en la mano sugiere que la energía es real pero necesita dirección para convertirse en algo. Las preguntas de dinero tienden a una apertura prometedora, no a una garantía. Empieza poco a poco y mira qué prende.",
+    "rev": "La idea está ahí, pero la motivación se estanca, o empiezas por el lugar equivocado. El trabajo o el estudio pueden sentirse bloqueados por retrasos, dudas o mal momento. Con el dinero hace falta paciencia más que un salto apresurado. Nombra lo que de verdad quieres antes de gastar más esfuerzo."
+   },
+   "feelings": {
+    "up": "Esta persona siente una chispa real hacia ti: emoción, interés y ganas de actuar. Puede que esté deseando empezar algo o decir algo atrevido. El sentimiento es fresco y enérgico, no asentado, así que pide una respuesta.",
+    "rev": "Su interés titila, o no está segura de si actuar. La chispa puede ser real pero estar retrasada por dudas, por el momento o por distracciones. También puede que ponga su energía en otra cosa por ahora."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. El As de Bastos es una señal clara de salida: te ofrecen energía y oportunidad, y tienes una chispa de inspiración en la mano. Actúa mientras está fresca.",
+    "rev": "Quizá. La chispa está ahí pero retrasada o puesta en duda, así que el momento es incierto. Cuida la idea un poco más y mira si vuelve la energía."
+   },
+   "advice": {
+    "up": "Da ahora el primer paso atrevido, por pequeño que sea. Enciende la idea antes de planificar cada detalle y deja que tu entusiasmo te muestre el siguiente movimiento.",
+    "rev": "No apresures la llama. Protege la idea, averigua qué necesita y espera a que la energía se sienta honesta. Una breve pausa ahora puede ahorrarte un falso comienzo."
+   }
+  },
+  "wands_two": {
+   "love": {
+    "up": "Estás en un umbral, con el mundo en una mano y una elección en la otra. En pareja, pregunta si vais a crecer juntos o a quedaros cómodos. Si estás soltero o soltera, sugiere mirar más allá de lo familiar para encontrar lo que quieres. Decide a qué apuntas.",
+    "rev": "El miedo a dejar lo conocido mantiene las cosas pequeñas. En pareja, los planes de futuro pueden quedar sin decir, o uno de los dos duda ante el siguiente paso. Si estás soltero o soltera, la comodidad puede impedirte mirar más lejos. Di en voz alta lo que de verdad quieres."
+   },
+   "career": {
+    "up": "Has logrado un buen comienzo y ahora miras al horizonte. La figura en la muralla con un globo sugiere planificación, ambición y una decisión entre quedarse y expandirse. Las decisiones de dinero y estudios tienden a pensar en grande. Elige una dirección y haz un plan.",
+    "rev": "Los planes se quedan en el papel, o el miedo a dejar un puesto seguro te mantiene en tu sitio. El trabajo o el estudio pueden estancarse por planificar en exceso o evitar riesgos. Las decisiones de dinero necesitan un esquema más firme antes de moverte. Elige un siguiente paso realista y dalo."
+   },
+   "feelings": {
+    "up": "Sopesa lo que siente frente a lo que le resulta cómodo. Puede que piense en ti dentro de un futuro más grande y se pregunte si comprometerse. Su interés es real, pero viene con una decisión aún por tomar.",
+    "rev": "Duda, por miedo al cambio o a lo desconocido, y puede que deje las cosas como están. Es posible que sus planes aún no te incluyan, o que no sepa lo que quiere. Sus sentimientos están ahí pero frenados por la cautela."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. Tienes la visión y un punto de partida sólido, y la carta mira hacia fuera, a horizontes más amplios. Elige tu objetivo y comprométete con el plan.",
+    "rev": "Quizá. El miedo o la indecisión dejan el plan sin terminar. Aclara lo que quieres antes de decidir y la respuesta se afirmará."
+   },
+   "advice": {
+    "up": "Mira el mapa entero y luego elige una dirección. Escribe tu plan y atrévete a salir de lo que parece seguro.",
+    "rev": "Deja de dar vueltas al plan. Nombra lo que te asusta, redúcelo a una pequeña acción y empieza, o reconoce con honestidad que prefieres quedarte."
+   }
+  },
+  "wands_three": {
+   "love": {
+    "up": "Has puesto algo en marcha y ahora vigilas el horizonte por si regresa. En pareja, apunta a crecimiento y a mirar adelante juntos, quizá con un plan a mayor distancia. Si estás soltero o soltera, una conexión puede llegar de más lejos. Ten paciencia y mantén amplia tu mirada.",
+    "rev": "Los retrasos o una mirada estrecha frenan las cosas. En pareja, los planes pueden estancarse, o uno de los dos solo mira el presente. Si estás soltero o soltera, quizá esperes con demasiada pasividad a que llegue alguien. Amplía tu mundo en lugar de mirar el mar vacío."
+   },
+   "career": {
+    "up": "Tus primeros esfuerzos se mueven y los barcos que enviaste vuelven. La figura en el acantilado mira al mar, lo que sugiere visión, colaboración y expansión. El trabajo, los estudios y el dinero tienden a un progreso constante. Sigue adelante y piensa un paso más allá.",
+    "rev": "Los planes se retrasan o no salen del puerto. El trabajo o el estudio pueden verse limitados por una visión estrecha o respuestas lentas. Las perspectivas de dinero necesitan paciencia y una mirada más amplia. Comprueba si el plan es demasiado pequeño o si simplemente esperas a otros."
+   },
+   "feelings": {
+    "up": "Mira hacia delante e imagina lo que podría crecer entre vosotros. Su interés es meditado y con visión de futuro, y puede que esté esperando a ver cómo evolucionan las cosas. También puede estar a distancia, en el lugar o en la atención.",
+    "rev": "Sus sentimientos tardan en tomar forma, o los retrasa la distancia o el momento. Puede que aún no vea un futuro contigo. El interés puede inclinarse al presente, sin planes más amplios."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. Tus esfuerzos están en marcha y hay barcos en el horizonte, así que el panorama es prometedor. Dale tiempo a que lleguen los resultados.",
+    "rev": "Quizá. Los retrasos o una mirada estrecha dejan la respuesta poco clara. Amplía tu perspectiva y la situación puede moverse."
+   },
+   "advice": {
+    "up": "Mantén los ojos en el horizonte y confía en el trabajo que ya has hecho. Piensa en grande y da tiempo a tus planes para que vuelvan a ti.",
+    "rev": "No te quedes parado en la orilla. Mira qué está frenando las cosas, amplía tu visión y envía nuevo esfuerzo."
+   }
+  },
+  "wands_four": {
+   "love": {
+    "up": "Un momento de alegría y de estar juntos tras el esfuerzo. Las guirnaldas y el dosel sugieren celebración, un hogar estable y hitos compartidos. En pareja, apunta a armonía, quizá un compromiso o una mudanza juntos. Si estás soltero o soltera, un ambiente social alegre puede traerte a alguien cálido. Disfrútalo.",
+    "rev": "Inquietud en casa o una celebración que suena hueca. En pareja, puede haber tensión bajo una superficie alegre, o el compromiso se siente incierto. Si estás soltero o soltera, quizá te sientas excluido de las celebraciones de otros. Mira qué haría que tu hogar se sintiera seguro."
+   },
+   "career": {
+    "up": "Llegas a un punto estable y celebrado tras un esfuerzo real. El dosel de bastones y las figuras que celebran sugieren un hito de equipo, un puesto seguro o un trabajo que se siente como un hogar. El trabajo, los estudios y el dinero tienden a la estabilidad. Haz una pausa para marcar el logro.",
+    "rev": "La estabilidad se siente frágil, o el logro suena hueco. El trabajo o el estudio pueden traer tensión en el equipo, o puede que dudes de si encajas. Con el dinero conviene mirar de cerca qué es sólido. Descansa y celebra solo cuando sea real."
+   },
+   "feelings": {
+    "up": "Se siente cálida, asentada y contenta de compartir buenos momentos contigo. Sus sentimientos tienden a pertenecer y a un vínculo estable, quizá con amigos o familia implicados. Disfruta de la conexión y quiere mantenerla cómoda.",
+    "rev": "Se siente inquieta o insegura sobre el compromiso, o el ambiente a vuestro alrededor se siente forzado. Puede que algo la aparte del hogar o de la vida social. La calidez está presente pero no del todo segura."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. El Cuatro de Bastos es una carta de descanso, celebración y base firme. Las cosas están sobre terreno estable.",
+    "rev": "Quizá. Los cimientos se sienten frágiles o la celebración suena forzada. Mira primero qué necesita refuerzo."
+   },
+   "advice": {
+    "up": "Celebra lo lejos que has llegado y comparte la alegría con personas de confianza. Construye sobre este terreno estable antes de seguir adelante.",
+    "rev": "Mira de cerca qué suena hueco o inestable en casa. Refuerza tu base antes de montar la fiesta."
+   }
+  },
+  "wands_five": {
+   "love": {
+    "up": "Voluntades que chocan en una relación, cada persona con su bastón empujando por su camino. Bien llevada, la fricción amistosa despeja el aire y mantiene todo vivo. Si estás soltero o soltera, puede haber competencia por la atención de alguien. Mantenlo juguetón y no combativo.",
+    "rev": "Se evita el conflicto, o la tensión se vuelve hacia dentro y se queda callada. En pareja, puede acumularse resentimiento sin expresar donde haría falta un desacuerdo honesto. Si estás soltero o soltera, la rivalidad o el miedo a competir pueden frenarte. Di con claridad lo que necesitas."
+   },
+   "career": {
+    "up": "Ideas y egos que compiten llenan la sala, lo que puede ser desordenado pero productivo. El trabajo y el estudio tienden al debate, la rivalidad y mucha gente tirando en direcciones distintas. Los asuntos de dinero pueden implicar competencia. Mantente abierto o abierta a que te pulan y acordad un objetivo común.",
+    "rev": "El conflicto se apaga, se evita o se convierte en tensión callada en el equipo. El trabajo o el estudio pueden resentirse por desacuerdos no dichos o por negarte a competir. Las cuestiones de dinero necesitan condiciones claras. Decide con honestidad si participar o apartarte."
+   },
+   "feelings": {
+    "up": "Se siente agitada, competitiva o dividida respecto a ti. Sus sentimientos pueden mezclarse con rivalidad, o con ideas que chocan con las tuyas. Hay energía e interés, pero también fricción que resolver.",
+    "rev": "Evita el conflicto y sus sentimientos quedan ocultos bajo la tensión. Puede que no sepa cómo sacar lo que le molesta. El interés puede enfriarse en lugar de aclararse."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     -1
+    ],
+    "up": "Quizá. Hay muchas fuerzas en juego y el resultado depende de cómo se maneje la fricción. La competencia podría afilarte o dispersarte.",
+    "rev": "No. El conflicto evitado o la tensión interna dejan las cosas sin resolver. La respuesta no es favorable hasta que se hable de ello."
+   },
+   "advice": {
+    "up": "Pon tus ideas sobre la mesa y deja que se pongan a prueba. Compite con buen espíritu y mantén tu objetivo a la vista.",
+    "rev": "No entierres el desacuerdo. Habla con calma, elige tus batallas y apártate si la pelea ya no te sirve."
+   }
+  },
+  "wands_six": {
+   "love": {
+    "up": "Reconocimiento y orgullo en la relación: te sientes visto o vista y celebrado o celebrada, quizá como una pareja que otros admiran. El jinete con la corona de laurel sugiere una conexión segura y bien recibida. Si estás soltero o soltera, la confianza te hace atractivo o atractiva. Deja que tu seguridad se note con amabilidad.",
+    "rev": "La duda sobre ti o la necesidad de elogios planea sobre la relación. En pareja, uno de los dos puede buscar aprobación, o los logros no se comparten. Si estás soltero o soltera, la poca confianza impide que te noten. Construye primero la confianza en ti."
+   },
+   "career": {
+    "up": "Tus esfuerzos se notan y cabalgas entre la multitud con una corona de victoria. El trabajo, los estudios y el dinero tienden al reconocimiento, al ascenso, a buenos resultados o a elogios. El éxito es visible para los demás. Acéptalo y da las gracias a quienes te ayudaron.",
+    "rev": "El éxito se retrasa, o el elogio suena hueco. El trabajo o el estudio pueden traer un golpe a tu confianza o que el mérito se lo lleve otro. El progreso con el dinero es más lento de lo esperado. Mide tu éxito con tus propios criterios, no solo con aplausos."
+   },
+   "feelings": {
+    "up": "Te admira y se siente orgullosa de ti. Sus sentimientos tienden al respeto, a la atracción por tu seguridad y al deseo de que la asocien contigo. También puede querer impresionarte a su vez.",
+    "rev": "Se siente insegura sobre su propia posición, o le cuesta elogiarte. Sus sentimientos pueden estar ligados al orgullo o a la comparación. La admiración puede estar ahí pero sin decirse."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. El Seis de Bastos es una carta de victoria y reconocimiento. La confianza está justificada y es probable que se vea el progreso.",
+    "rev": "Quizá. El éxito puede retrasarse, o tu confianza flaquear. Comprueba qué buscas, elogios o un progreso real."
+   },
+   "advice": {
+    "up": "Acepta el reconocimiento con elegancia. Comparte el mérito y usa tu confianza para guiar a otros hacia delante.",
+    "rev": "No persigas los aplausos. Encuentra tu propia medida del éxito y sigue trabajando sin necesitar que te vean."
+   }
+  },
+  "wands_seven": {
+   "love": {
+    "up": "Defiendes tu terreno en la colina, resistiendo a los retadores de abajo. En pareja, sugiere defender tus necesidades o proteger el vínculo de presiones externas. Si estás soltero o soltera, te mantienes firme en lo que quieres. Sé claro o clara, pero no tomes cada pregunta por un ataque.",
+    "rev": "Te sientes desgastado o desgastada, o cedes demasiado rápido. En pareja, puedes dejar de lado tus necesidades para mantener la paz, o sentirte superado por la presión. Si estás soltero o soltera, la duda puede llevarte a conformarte. Descansa y decide qué merece la pena defender."
+   },
+   "career": {
+    "up": "Mantienes una posición bajo presión, con competidores o críticos abajo. El trabajo y el estudio tienden a la perseverancia, a defender tus ideas y a conservar tu ventaja. Con el dinero hace falta una postura firme. Mantente firme, pero comprueba si hay que librar cada batalla.",
+    "rev": "Te sientes desbordado o desbordada y tentado o tentada a rendirte, o ya estás cediendo. El trabajo o el estudio pueden agotarte por tener que defenderte constantemente. Las presiones de dinero pueden minar tu determinación. Pide apoyo y elige qué peleas merecen la pena."
+   },
+   "feelings": {
+    "up": "Se siente desafiada, a la defensiva o protectora con sus sentimientos, y puede mantener su posición frente a ti. También puede estar defendiendo la relación de gente de fuera. Sus sentimientos son fuertes, pero cautelosos.",
+    "rev": "Está cansada de defenderse y puede rendirse o echarse atrás. Sus sentimientos pueden estar desbordados por la presión de otros. Puede sentir que no puede mantener la línea."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     -1
+    ],
+    "up": "Quizá. Puedes mantener tu posición, pero solo con esfuerzo y determinación. El resultado depende de lo firme que te mantengas.",
+    "rev": "No. Estás desbordado o desbordada o cediendo, y la posición es difícil de mantener. Reconsidera antes de seguir empujando."
+   },
+   "advice": {
+    "up": "Mantente firme en lo que importa. Conserva la confianza y no dejes que otros te echen del punto más alto.",
+    "rev": "No te agotes peleando contra todo. Suelta lo que no merece defenderse y busca aliados."
+   }
+  },
+  "wands_eight": {
+   "love": {
+    "up": "Las cosas se aceleran, con mensajes y movimiento volando como bastones por el aire. En pareja, sugiere novedades rápidas, noticias o una avalancha de contacto. Si estás soltero o soltera, puede llegar una chispa veloz o una invitación repentina. Sigue comunicándote, pero comprueba que no vas con prisa.",
+    "rev": "Retrasos, cables cruzados o cosas que van más rápido de lo que puedes manejar. En pareja, los mensajes pueden perderse o el ritmo se siente desigual. Si estás soltero o soltera, un comienzo rápido puede quedarse en nada. Ve más despacio y asegúrate de que te escuchan."
+   },
+   "career": {
+    "up": "El progreso llega rápido, con noticias, mensajes o viajes. El trabajo, los estudios y el dinero tienden a novedades rápidas y a la necesidad de responder pronto. Los bastones en vuelo despejado sugieren un impulso abierto. Actúa mientras el camino está libre y mantén abierta la comunicación.",
+    "rev": "Retrasos, esfuerzo disperso o cosas que van demasiado rápido. El trabajo o el estudio pueden traer mensajes perdidos, planes parados o sobrecarga. Con el dinero puede hacer falta una pausa. Reagrúpate antes de actuar."
+   },
+   "feelings": {
+    "up": "Se mueve rápido con sus sentimientos, con ganas de ponerse en contacto o de hacer planes. Su interés es veloz y enérgico, y puede querer actuar pronto. Espera mensajes y sensación de impulso.",
+    "rev": "Sus sentimientos se mezclan con retrasos o confusión, y la comunicación se cruza. Puede ir demasiado rápido, o quedarse en silencio. A este ritmo su interés es incierto."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. Las cosas están en movimiento y el camino está abierto, así que actúa pronto. El movimiento juega a tu favor.",
+    "rev": "Quizá. Los retrasos o los cables cruzados frenan las cosas. Espera a tener claridad y la respuesta puede llegar rápido."
+   },
+   "advice": {
+    "up": "Muévete mientras el camino está libre. Responde, viaja, actúa y mantén abiertos tus mensajes.",
+    "rev": "Ve más despacio y comprueba tu dirección. Reúne el esfuerzo disperso antes de dejarlo volar."
+   }
+  },
+  "wands_nine": {
+   "love": {
+    "up": "Cansado o cansada pero aún en pie, proteges tu corazón tras heridas pasadas. En pareja, sugiere resistencia en una época difícil y necesidad de confianza para sanar. Si estás soltero o soltera, puede que seas cauto o cauta a la hora de dejar entrar a alguien. Baja la guardia cuando te sientas seguro o segura.",
+    "rev": "Agotamiento, o defensas que ya no protegen. En pareja, la desconfianza o la terquedad pueden dejar fuera a la otra persona. Si estás soltero o soltera, las viejas heridas pueden bloquear un nuevo comienzo. Descansa y deja que alguien te ayude."
+   },
+   "career": {
+    "up": "Estás casi al final tras una larga lucha, vendado o vendada y aún sujetando tu bastón. El trabajo, los estudios y el dinero tienden a un último esfuerzo antes del alivio. La resiliencia es la fuerza aquí. Mantén tus límites y termina lo que empezaste.",
+    "rev": "Agotamiento o terquedad. El trabajo o el estudio pueden pedir más descanso que otro empujón. La tensión de dinero puede pedir un enfoque más calmado y límites honestos. Tómate un descanso antes de romperte."
+   },
+   "feelings": {
+    "up": "Ha pasado por momentos duros y es cautelosa ante la posibilidad de que la hieran otra vez. Sus sentimientos pueden ser reales pero reservados, y necesita tiempo para confiar en ti. Está cansada, pero sigue en pie.",
+    "rev": "Está agotada y quizá haya renunciado a abrirse. Sus defensas están altas, o ya no funcionan. Puede que necesite espacio y descanso antes de sentir mucho."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     -1
+    ],
+    "up": "Quizá. Estás cerca, pero hará falta un esfuerzo más y algo de resiliencia. La respuesta llega con cansancio.",
+    "rev": "No. Estás agotado o agotada, y seguir empujando puede no ayudar. Descansa primero y luego reconsidéralo."
+   },
+   "advice": {
+    "up": "Aguanta un poco más. Apóyate en tu resiliencia, protege tus límites y termina el último tramo.",
+    "rev": "Para y descansa. Admite que estás cansado o cansada, suelta la armadura que ya no ayuda y deja que otros te apoyen."
+   }
+  },
+  "wands_ten": {
+   "love": {
+    "up": "Cargas con un peso enorme, con un haz de bastones que tapa la vista. En pareja, sugiere que uno de los dos asume demasiado, o que las obligaciones desplazan la cercanía. Si estás soltero o soltera, quizá estés demasiado ocupado u ocupada con responsabilidades para conocer a alguien. Comparte el peso con honestidad.",
+    "rev": "Dejas la carga, o te cuesta pedir ayuda. En pareja, el resentimiento puede llegar a su punto máximo, o por fin compartís el peso. Si estás soltero o soltera, soltar obligaciones podría hacer sitio a alguien nuevo. Sé honesto u honesta sobre lo que puedes cargar."
+   },
+   "career": {
+    "up": "Cargas con más de lo que te correspondía, doblado o doblada bajo el haz. El trabajo, los estudios y el dinero tienden a la sobrecarga, a una responsabilidad pesada y a poco espacio para respirar. La meta está cerca, pero la carga es demasiada. Delega, prioriza y suelta algo.",
+    "rev": "Sueltas la carga o te desplomas bajo ella. El trabajo o el estudio pueden llegar al límite, o el alivio llega al delegar. Las obligaciones de dinero pueden necesitar renegociarse. Pide ayuda antes de llegar al límite."
+   },
+   "feelings": {
+    "up": "Se siente sobrecargada y distraída, y puede tener poca energía para la relación. Sus sentimientos no están ausentes, sino enterrados bajo el deber. Puede que necesite apoyo más que romance.",
+    "rev": "Está desbordada o ha soltado la carga, y revisa lo que asume. Sus sentimientos pueden volver cuando afloje la presión. Quizá le cueste pedirte ayuda."
+   },
+   "yesno": {
+    "verdict": [
+     -1,
+     0
+    ],
+    "up": "No. La carga es demasiado pesada para avanzar con facilidad. Aligera lo que llevas antes de pedir más.",
+    "rev": "Quizá. Soltar la carga puede cambiar las cosas, pero no es sencillo. Pide ayuda y mira qué queda."
+   },
+   "advice": {
+    "up": "Comparte la carga, di que no a obligaciones extra y suelta lo que no te toca cargar.",
+    "rev": "Pide ayuda ahora, en lugar de esperar a desplomarte. Suelta lo que puedas y recupera tus fuerzas."
+   }
+  },
+  "wands_page": {
+   "love": {
+    "up": "Un comienzo vivo y curioso, con alguien ansioso por explorar y probar cosas nuevas. En pareja, sugiere experimentar con juego o una idea nueva que compartir. Si estás soltero o soltera, puede aparecer un mensaje o un nuevo conocido aventurero. Mantente abierto o abierta y disfruta del descubrimiento.",
+    "rev": "La impaciencia o los proyectos a medias hacen difícil confiar. En pareja, el entusiasmo por los planes compartidos se apaga rápido. Si estás soltero o soltera, alguien puede mostrar un interés inicial emocionante y perder el rumbo. Busca constancia tras el brillo."
+   },
+   "career": {
+    "up": "Te llama un interés nuevo o una oportunidad, y te alegra ser principiante. La Sota con una vara en el desierto sugiere curiosidad, un mensaje o la ocasión de probar algo no comprobado. El trabajo, los estudios y el dinero tienden a aprender y explorar. Sigue tu interés.",
+    "rev": "Interés disperso, proyectos abandonados o entusiasmo sin dirección. El trabajo o el estudio pueden empezar bien y apagarse cuando se complican. Las ideas de dinero necesitan más base. Elige un proyecto y llévalo hasta el final."
+   },
+   "feelings": {
+    "up": "Se siente emocionada y curiosa por ti, y puede querer conocerte mejor. Su interés es juguetón y animado, quizá joven de espíritu. Puede mandarte un mensaje o hacer un gesto atrevido.",
+    "rev": "Su entusiasmo es superficial o breve, y puede perder el interés rápido. Sus sentimientos carecen de dirección o de continuidad. Puede entusiasmarle más la conquista que la persona."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. La curiosidad y la energía fresca están de tu lado. Prueba lo nuevo.",
+    "rev": "Quizá. La chispa existe pero puede apagarse sin dirección. Decide qué quieres terminar."
+   },
+   "advice": {
+    "up": "Explora lo que te interesa y haz preguntas sin miedo a ser torpe. Sigue tu curiosidad.",
+    "rev": "Elige una idea y quédate con ella. No abandones tus planes a la primera dificultad."
+   }
+  },
+  "wands_knight": {
+   "love": {
+    "up": "Una energía audaz y arrolladora que entra con pasión. En pareja, sugiere aventura, emoción y quizá inquietud. Si estás soltero o soltera, puede aparecer una persona carismática y de movimientos rápidos. La cuestión es si esa velocidad apunta a algo duradero.",
+    "rev": "La energía está estancada, apresurada o dispersa. En pareja, la impaciencia o la frustración pueden estallar, o uno de los dos se aparta. Si estás soltero o soltera, son posibles las señales confusas y los romances breves. Ve más despacio y mira hacia dónde te diriges."
+   },
+   "career": {
+    "up": "El impulso y la aventura te lanzan hacia delante sobre un caballo encabritado. El trabajo, los estudios y el dinero tienden a la acción rápida, a planes audaces y a viajes o cambios. Queda la duda de si la velocidad lleva a algún sitio. Canaliza la energía en algo concreto.",
+    "rev": "Los planes se estancan, se aceleran o se dispersan en varias direcciones. El trabajo o el estudio pueden resentirse por la impaciencia o el agotamiento. Las decisiones de dinero tomadas con prisa quizá no se sostengan. Piensa antes de saltar y termina primero una cosa."
+   },
+   "feelings": {
+    "up": "Siente una pasión fuerte y quiere actuar, quizá con un gesto dramático. Su interés es intenso, pero puede quemarse rápido. Puede ser una compañía emocionante, aunque todavía no estable.",
+    "rev": "Sus sentimientos se mezclan con impaciencia, o se aparta y pierde el rumbo. Su interés puede ir de caliente a frío. Puede estar más inquieta que comprometida."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     -1
+    ],
+    "up": "Quizá. La energía es fuerte, pero es incierto adónde lleva. Elige una dirección antes de lanzarte.",
+    "rev": "No. La prisa o el estancamiento hacen poco fiable el resultado. Haz una pausa y piensa antes de actuar."
+   },
+   "advice": {
+    "up": "Actúa con audacia, pero fija una meta. Usa tu impulso para algo que te importe y llévalo hasta el final.",
+    "rev": "Ve más despacio y comprueba adónde vas. No saltes antes de haber mirado."
+   }
+  },
+  "wands_queen": {
+   "love": {
+    "up": "Cálida, segura y magnética, con un girasol y un gato negro a su lado. En pareja, sugiere generosidad, lealtad y una chispa viva. Si estás soltero o soltera, tu propia seguridad atrae a la gente. Sé tú mismo o misma y deja que los demás lo sean.",
+    "rev": "Inseguridad, celos o necesidad de ser el centro de atención. En pareja, la calidez puede volverse posesiva o controladora. Si estás soltero o soltera, la duda puede apagar tu brillo natural. Reconecta con lo que quieres de ti."
+   },
+   "career": {
+    "up": "Segura, acogedora y decidida, lideras inspirando. El trabajo, los estudios y el dinero tienden al carisma, a las relaciones y al liderazgo creativo. El girasol sugiere calidez y crecimiento. Confía en ti, apoya a los demás y sé fiel a tu propia visión.",
+    "rev": "La seguridad vacila, o la calidez se vuelve controladora. El trabajo o el estudio pueden traer celos, dudas sobre ti o una lucha por la atención. Las decisiones de dinero necesitan confianza honesta en ti. Redescubre lo que te entusiasma."
+   },
+   "feelings": {
+    "up": "Siente calidez, admiración y confianza hacia ti. Sus sentimientos son abiertos y generosos, y quiere que brilles a su lado. Puede ser cariñosa y leal.",
+    "rev": "Se siente insegura o celosa, y su calidez puede volverse controladora. Sus sentimientos pueden mezclarse con necesidad de atención. Necesita tranquilidad."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. La confianza, la calidez y el impulso te favorecen. Actúa desde lo que sabes de ti.",
+    "rev": "Quizá. La duda sobre ti o los celos nublan la respuesta. Reconstruye primero tu confianza."
+   },
+   "advice": {
+    "up": "Sé generoso o generosa con tu calidez y muestra quién eres. Lidera inspirando a los demás.",
+    "rev": "No dejes que la inseguridad o los celos te dirijan. Reconecta con tu propia chispa antes de acercarte a los demás."
+   }
+  },
+  "wands_king": {
+   "love": {
+    "up": "Una pareja o una presencia segura, apasionada y con una visión clara. En pareja, sugiere liderazgo, lealtad y ambición compartida. Si estás soltero o soltera, puede aparecer alguien carismático y decidido. Busca fuerza unida al respeto.",
+    "rev": "El liderazgo se desliza hacia el control, o las grandes promesas carecen de continuidad. En pareja, uno de los dos puede dominar las decisiones o perder la paciencia. Si estás soltero o soltera, una persona encantadora puede ser mejor hablando que haciendo. Valora escuchar tanto como la visión."
+   },
+   "career": {
+    "up": "Un líder natural que ve hacia dónde van las cosas y tiene la voluntad de guiarlas. El trabajo, los estudios y el dinero tienden a decisiones audaces, al emprendimiento y a tomar las riendas. La salamandra y la capa ondeante sugieren dominio del fuego. Lidera con claridad y deja que otros aporten.",
+    "rev": "El liderazgo se vuelve autoritario, o la visión carece de continuidad. El trabajo o el estudio pueden resentirse por impaciencia con los detalles o con la gente. Los planes de dinero necesitan una base más práctica. Escucha antes de mandar."
+   },
+   "feelings": {
+    "up": "Siente respeto y deseo, y te ve como compañero o compañera en una visión más grande. Su interés es audaz y decidido. Puede tomar la iniciativa para mostrarlo.",
+    "rev": "Puede ser controlador o demasiado orgulloso para mostrar sus sentimientos. Su interés podría ir más rápido que su constancia. Puede impacientarse con lo que sientes."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. Tienes visión y la voluntad de llevarla adelante. Toma tu decisión y comprométete.",
+    "rev": "Quizá. El control o la poca constancia siembran dudas. Comprueba los detalles antes de comprometerte."
+   },
+   "advice": {
+    "up": "Lidera con claridad y valentía, y comparte tu visión. Asume la responsabilidad de la dirección.",
+    "rev": "Afloja el agarre. Presta atención a los detalles y a las demás personas antes de seguir empujando."
+   }
+  },
+  "cups_ace": {
+   "love": {
+    "up": "Una apertura del corazón, con una copa que rebosa agua. En pareja, sugiere ternura renovada, un vínculo más hondo o un nuevo comienzo. Si estás soltero o soltera, apunta a una conexión nueva y sincera. Acoge la amabilidad, también hacia ti.",
+    "rev": "Los sentimientos se contienen, se bloquean o se vierten sin que nadie los vea. En pareja, las emociones pueden quedar sin decir o sin recibir. Si estás soltero o soltera, una herida antigua puede mantener cerrado tu corazón. Permítete sentir, con suavidad."
+   },
+   "career": {
+    "up": "Un nuevo comienzo emocional en tu trabajo: creatividad, plenitud o un puesto que te importa. El trabajo y el estudio tienden a caminos con sentido, compasivos o creativos. Las preguntas de dinero se inclinan por ofertas que se sientan bien además de prácticas. Sigue lo que te conmueve.",
+    "rev": "La creatividad o el entusiasmo por el trabajo están bloqueados o no se reconocen. El trabajo o el estudio pueden sentirse vacíos emocionalmente. Las decisiones de dinero tomadas desde la apatía merecen una segunda mirada. Escucha lo que de verdad te importa."
+   },
+   "feelings": {
+    "up": "Siente una apertura del corazón hacia ti, con calidez, compasión y cariño. El sentimiento es nuevo y sincero. Puede que esté lista para expresarlo.",
+    "rev": "Se guarda sus sentimientos o no sabe cómo expresarlos. Sus emociones pueden estar bloqueadas o desbordadas. Puede que necesite tiempo para abrirse."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. Te ofrecen amor, compasión y un nuevo comienzo emocional. Acepta lo que fluye hacia ti.",
+    "rev": "Quizá. Los sentimientos están bloqueados o sin reconocer. Escucha a tu propio corazón antes de responder."
+   },
+   "advice": {
+    "up": "Abre tu corazón a lo que se te ofrece. Deja que la amabilidad fluya hacia dentro y hacia fuera.",
+    "rev": "Fíjate en lo que te estás guardando. Permite que se vean tus sentimientos, con suavidad y sin prisa."
+   }
+  },
+  "cups_two": {
+   "love": {
+    "up": "Un encuentro entre iguales, con dos personas intercambiando copas bajo el caduceo. En pareja, sugiere respeto mutuo, sinceridad y sentimiento compartido. Si estás soltero o soltera, puede aparecer una conexión equilibrada y recíproca. Valora un vínculo donde los dos dan y reciben.",
+    "rev": "Desequilibrio, malentendidos o un vínculo que se aleja. En pareja, una persona puede dar más que la otra, o se malinterpretan las palabras. Si estás soltero o soltera, quizá idealices a alguien que no ha mostrado el mismo cuidado. Habla con claridad de lo que necesita cada uno."
+   },
+   "career": {
+    "up": "Una alianza construida sobre el respeto mutuo, como una colaboración, un trato o una buena relación laboral. El trabajo, los estudios y el dinero tienden a acuerdos que funcionan para ambas partes. El trabajo en equipo florece donde se comparte la confianza. Busca la equidad.",
+    "rev": "Una alianza es desigual o la comunicación falla. El trabajo o el estudio pueden traer malentendidos o una colaboración que se va a la deriva. Los acuerdos de dinero necesitan condiciones más claras. Aclara las expectativas de las dos partes."
+   },
+   "feelings": {
+    "up": "Siente una conexión real y respeto hacia ti, y quiere un vínculo entre iguales. Sus sentimientos son mutuos y sinceros. Está abierta a compartir y a escuchar.",
+    "rev": "Sus sentimientos no son iguales, o la confusión la hace retroceder. Puede que no vea la conexión como tú. Habla para saber dónde está."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. Un vínculo equilibrado y mutuo respalda tu pregunta. Es probable que haya acuerdo mutuo.",
+    "rev": "Quizá. El desequilibrio o los malentendidos nublan la respuesta. Aclara las cosas antes de decidir."
+   },
+   "advice": {
+    "up": "Encuentra a la otra persona como a una igual. Escucha, comparte con sinceridad y construye confianza.",
+    "rev": "Aborda el desequilibrio directamente. Di lo que necesitas y escucha lo que necesita la otra persona."
+   }
+  },
+  "cups_three": {
+   "love": {
+    "up": "Alegría compartida con amigos, tres figuras alzando sus copas. En pareja, sugiere ratos sociales felices y amigos que os apoyan como pareja. Si estás soltero o soltera, las conexiones suelen llegar a través de la amistad y la comunidad. Celebradlo juntos.",
+    "rev": "Exceso, chismorreo o sentirse excluido. En pareja, la vida social puede desplazar la cercanía, o una tercera persona causa tensión. Si estás soltero o soltera, la soledad puede notarse en las reuniones. Busca unos pocos amigos de verdad en lugar de una multitud."
+   },
+   "career": {
+    "up": "Trabajo en equipo y celebración compartida. El trabajo, los estudios y el dinero tienden a la colaboración, al éxito de grupo y a un ambiente laboral amistoso. Las copas en alto sugieren apoyo mutuo y alegría en el esfuerzo compartido. Celebrad juntos los logros.",
+    "rev": "Las camarillas, el chismorreo o demasiada fiesta pueden distraerte del trabajo. El trabajo o el estudio pueden sentirse aislantes, o el equipo se agria. Puede que gastes demasiado en vida social. Mantén un equilibrio sano."
+   },
+   "feelings": {
+    "up": "Siente una calidez amistosa y disfruta de tu compañía. Sus sentimientos pueden empezar en la amistad y la diversión compartida. Valora la comunidad que compartís.",
+    "rev": "Su interés es más social que romántico, o se siente excluida. Puede que otras personas la distraigan. El ambiente puede ser más de exceso que de intimidad."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. La alegría, la amistad y el apoyo de otros te favorecen. Celebra y comparte el plan.",
+    "rev": "Quizá. El chismorreo, el exceso o el aislamiento pueden nublar la respuesta. Comprueba quién te apoya de verdad."
+   },
+   "advice": {
+    "up": "Pasa tiempo con quienes te animan. Comparte tu felicidad y acepta su ayuda.",
+    "rev": "Aléjate del chismorreo y del exceso. Busca compañía de verdad en lugar de una multitud ruidosa."
+   }
+  },
+  "cups_four": {
+   "love": {
+    "up": "Te sientas bajo un árbol, con los brazos cruzados, sin darte cuenta de la copa que te ofrecen. En pareja, sugiere aburrimiento, retraimiento o pasar por alto pequeños gestos de cariño. Si no tienes pareja, puede que le des la espalda a las oportunidades. Pregúntate qué quieres de verdad.",
+    "rev": "Despiertas ante algo que habías ignorado. En pareja, el interés vuelve y te das cuenta de lo que se te ofrecía. Si no tienes pareja, te abres a nuevas invitaciones tras una racha gris. O puedes hundirte más en la apatía si no actúas."
+   },
+   "career": {
+    "up": "El aburrimiento o la apatía en el trabajo o los estudios te hacen pasar por alto lo que tienes delante. La copa que ofrece la nube sugiere una oportunidad que no ves. En cuestiones de dinero, tiende a revisar las opciones. Haz una pausa, reflexiona y pregúntate qué te interesa de verdad.",
+    "rev": "Te das cuenta de una oportunidad que habías descartado y te dispones a implicarte. El trabajo o los estudios pueden reavivarse tras una etapa plana. Las opciones de dinero merecen una segunda mirada. Actúa sobre lo que ahora ves."
+   },
+   "feelings": {
+    "up": "Esa persona se siente aburrida, retraída o sin saber qué quiere. Sus sentimientos pueden estar vueltos hacia dentro y quizá pase por alto lo que le ofreces. Necesita tiempo para reflexionar.",
+    "rev": "Esa persona despierta a sus sentimientos o a lo que le ofreces. El interés puede volver tras una etapa de distancia. También puede seguir estancada si nada cambia."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     1
+    ],
+    "up": "Quizá. Puede que estés pasando por alto lo que se te ofrece y la respuesta no está clara. Reflexiona antes de decidir.",
+    "rev": "Sí. Ves la oferta que ignoraste y estás listo para aceptarla. Actúa."
+   },
+   "advice": {
+    "up": "Tómate tiempo para reflexionar, pero levanta la vista. Comprueba si el aburrimiento está escondiendo una oferta.",
+    "rev": "Toma la copa que has notado. Pasa de la reflexión a la acción."
+   }
+  },
+  "cups_five": {
+   "love": {
+    "up": "Pena y arrepentimiento por las copas derramadas, mientras dos siguen en pie detrás. En pareja, sugiere llorar una pérdida o una ruptura y centrarse en lo que salió mal. Si no tienes pareja, un desamor pasado puede teñir cómo ves el presente. Permítete el duelo y luego da la vuelta.",
+    "rev": "Empiezas a seguir adelante, a perdonar y a volverte hacia lo que queda. En pareja, son posibles la sanación y la reconciliación. Si no tienes pareja, recuperarte de la pérdida abre un poco de espacio para un nuevo amor. Sé amable contigo mientras te das la vuelta."
+   },
+   "career": {
+    "up": "Decepción por una pérdida o un fracaso en el trabajo, los estudios o el dinero. La capa negra y las copas derramadas sugieren arrepentimiento, mientras que las copas en pie señalan lo que queda. Detente un momento y luego evalúa lo que te queda. Busca las copas que siguen llenas.",
+    "rev": "Te recuperas de un revés y empiezas a ver opciones otra vez. El trabajo o los estudios mejoran cuando sueltas el arrepentimiento. El dinero se recupera poco a poco. Avanza con lo que has aprendido."
+   },
+   "feelings": {
+    "up": "Esa persona siente tristeza, arrepentimiento o decepción, quizá por la relación. Sus sentimientos están ligados a una pérdida y le cuesta ver lo que queda. Puede que necesite consuelo.",
+    "rev": "Esa persona empieza a sanar y a soltar el resentimiento. Sus sentimientos se vuelven hacia lo que aún es bueno. Puede estar abierta a un nuevo comienzo."
+   },
+   "yesno": {
+    "verdict": [
+     -1,
+     0
+    ],
+    "up": "No. La pérdida y el arrepentimiento tiñen este momento, así que la respuesta no es favorable ahora. Recuerda que aún quedan copas en pie.",
+    "rev": "Quizá. La sanación ha empezado y puede llegar una respuesta mejor. Sigue adelante con suavidad."
+   },
+   "advice": {
+    "up": "Permítete el duelo y luego mira las dos copas que siguen en pie. No te quedes en la culpa.",
+    "rev": "Perdona donde puedas y vuélvete poco a poco hacia lo que queda. Sanar lleva tiempo."
+   }
+  },
+  "cups_six": {
+   "love": {
+    "up": "Recuerdos cálidos y una generosidad suave, con niños que ofrecen flores en una copa. En pareja, sugiere afecto antiguo, historia compartida o simple amabilidad. Si no tienes pareja, alguien de tu pasado o una persona familiar y reconfortante puede volver. Aprecia la dulzura sin vivir en ella.",
+    "rev": "Quedarte atascado en el pasado, o mirar atrás en lugar de adelante. En pareja, la nostalgia puede esconder problemas actuales, o resurgen viejos asuntos. Si no tienes pareja, un ex o un ideal antiguo puede bloquear un nuevo amor. Deja que el pasado sea un recuerdo."
+   },
+   "career": {
+    "up": "Un entorno familiar, antiguos compañeros o la vuelta a un trabajo o estudios anteriores. En cuestiones de dinero, tiende a la generosidad sencilla, los regalos o una herencia del pasado. La carta sugiere amabilidad y calidez en tu entorno. Apóyate en lo que aprendiste antes.",
+    "rev": "Te aferras a las viejas costumbres y evitas el cambio. El trabajo o los estudios pueden retenerte en lo cómodo pero anticuado. Quizá haya que actualizar hábitos de dinero del pasado. Honra los recuerdos y luego sigue adelante."
+   },
+   "feelings": {
+    "up": "Esa persona siente cariño, nostalgia y ternura hacia ti. Sus sentimientos pueden tener raíz en una historia compartida o en recuerdos dulces. Es una persona amable y delicada.",
+    "rev": "Esa persona está atrapada en el pasado o te compara con alguien de él. Sus sentimientos pueden apoyarse demasiado en la memoria. Puede que necesite soltar lo que fue."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. La calidez, la memoria y la amabilidad te favorecen. Mira lo que ya te ha funcionado antes.",
+    "rev": "Quizá. El pasado puede estar frenándote, así que mira hacia delante antes de decidir."
+   },
+   "advice": {
+    "up": "Revisita recuerdos felices y actúa con amabilidad sencilla. Reconecta con alguien de tu pasado si te parece bien.",
+    "rev": "No vivas en el ayer. Deja descansar los recuerdos y mira lo que tienes delante."
+   }
+  },
+  "cups_seven": {
+   "love": {
+    "up": "Muchos sueños flotan entre nubes, cada copa con una promesa distinta. En pareja, sugiere idealizar o imaginar más de lo que hay. Si no tienes pareja, puede que tengas muchas opciones pero ninguna elección clara. Separa la fantasía de lo real.",
+    "rev": "Llega la claridad, o las opciones te abruman. En pareja, las ilusiones se desvanecen y ves las cosas como son. Si no tienes pareja, puede que por fin elijas una cosa, o que te sientas perdido entre opciones. Céntrate en lo que quieres de verdad."
+   },
+   "career": {
+    "up": "Una riqueza de opciones y ensoñaciones que pide una clasificación clara. El trabajo, los estudios y el dinero tienden a muchas ideas y poco compromiso. La figura envuelta mira copas de tesoros, joyas y un dragón, lo que insinúa ilusión. Elige un plan realista.",
+    "rev": "La niebla se despeja y ves qué opciones son reales. El trabajo o los estudios pueden enfocarse cuando dejas de soñar despierto. Las decisiones de dinero mejoran con datos más claros. O puedes perderte en la fantasía y no decidir nada."
+   },
+   "feelings": {
+    "up": "Esa persona tiene muchos sentimientos y fantasías, y puede que no sepa lo que quiere. Su interés puede ser más imaginario que real. Quizá no tenga claro qué siente por ti.",
+    "rev": "Esa persona ve las cosas con más claridad, o las opciones la abruman. Sus ilusiones sobre ti se están disipando. Puede que por fin decida qué quiere."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     0
+    ],
+    "up": "Quizá. Muchas posibilidades y algo de ilusión nublan la respuesta. Antes, separa lo real de lo imaginado.",
+    "rev": "Quizá. La niebla se está levantando, pero aún tienes que elegir. Comprueba los hechos antes de decidir."
+   },
+   "advice": {
+    "up": "Anota tus opciones y comprueba cuáles son reales. Elige una y da un paso.",
+    "rev": "Despeja la niebla. Afronta los hechos y toma una decisión en lugar de dejarte llevar por ensoñaciones."
+   }
+  },
+  "cups_eight": {
+   "love": {
+    "up": "Alejarte de algo que parece estar bien pero ya no satisface. En pareja, sugiere irse o una distancia emocional que crece. Si no tienes pareja, puede que estés dejando un patrón que no te nutría. Busca lo que de verdad necesitas.",
+    "rev": "Quedarte por miedo, o irte sin un plan. En pareja, puede que te demores en un vínculo vacío o te vayas sin afrontar por qué. Si no tienes pareja, vagar sin rumbo puede retrasar una conexión real. Sé honesto sobre lo que quieres."
+   },
+   "career": {
+    "up": "Dejas atrás una pila de copas y te diriges a las montañas bajo la luna. El trabajo, los estudios y el dinero tienden a dejar un puesto que ya no encaja, en busca de sentido. Hace falta valor para alejarse de lo cómodo. Planifica el viaje.",
+    "rev": "Te quedas en un trabajo que no te llena por miedo, o te vas con prisa. El trabajo o los estudios pueden estancarse en un vagar sin rumbo. Los riesgos con el dinero necesitan un plan. Decide con los ojos abiertos si te quedas o te vas."
+   },
+   "feelings": {
+    "up": "Esa persona siente la atracción de irse o de retirarse, en busca de algo más. Sus sentimientos pueden haberse enfriado o se siente insatisfecha. Puede que se esté alejando, aunque le cueste.",
+    "rev": "Esa persona se demora por miedo, o se va sin decir por qué. Sus sentimientos son confusos y no se expresan. Puede dudar entre quedarse e irse."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     -1
+    ],
+    "up": "Quizá. Alejarte puede convenirte, pero no es un sí fácil. Pregúntate qué falta de verdad.",
+    "rev": "No. El miedo o el vagar sin rumbo hacen poco sensato el movimiento tal como está. Haz un plan o afronta por qué estás atascado."
+   },
+   "advice": {
+    "up": "Sé honesto sobre lo que ya no te llena. Vete con cuidado y llévate lo aprendido.",
+    "rev": "No huyas ni te escondas. Afronta por qué quieres irte y luego elige quedarte o marcharte a propósito."
+   }
+  },
+  "cups_nine": {
+   "love": {
+    "up": "Satisfacción y un deseo cumplido, con la figura sentada ante sus copas. En pareja, sugiere contento, disfrute y gratitud mutua. Si no tienes pareja, estás a gusto en tu propia compañía, lo que te abre al amor. Saborea lo que tienes.",
+    "rev": "Autocomplacencia o un deseo que no resulta tan satisfactorio como se esperaba. En pareja, el descontento puede esconderse tras una superficie agradable. Si no tienes pareja, conseguir lo que querías puede sentirse vacío. Mira lo que necesitas de verdad."
+   },
+   "career": {
+    "up": "Satisfacción con aquello por lo que has trabajado, con tus copas alineadas a tu espalda. El trabajo, los estudios y el dinero tienden a un trabajo bien hecho, a la comodidad y a disfrutar de tus resultados. La gratitud le sienta bien a esta carta. Disfrútalo y compártelo.",
+    "rev": "Descontento a pesar de tener lo que querías, o presumir. El trabajo o los estudios pueden quedarse cortos respecto a la recompensa imaginada. Las ganancias de dinero pueden sentirse vacías. Pregúntate qué te llenaría de verdad."
+   },
+   "feelings": {
+    "up": "Esa persona se siente a gusto y feliz contigo. Sus sentimientos son cálidos y satisfechos. Disfruta de la conexión y la agradece.",
+    "rev": "Esa persona se siente insatisfecha aunque todo parezca ir bien, o se ha acomodado. Sus sentimientos pueden ser superficiales o autocomplacientes. Puede querer más de lo que tiene."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. El Nueve de Copas es la carta del deseo: te ofrece contento y satisfacción. Disfrútalo.",
+    "rev": "Quizá. Conseguir lo que querías puede no sentirse tan bien como esperabas. Comprueba qué quieres de verdad."
+   },
+   "advice": {
+    "up": "Aprecia lo que tienes y disfrútalo sin culpa. Da las gracias a quienes te ayudaron.",
+    "rev": "Mira más allá de la superficie. Si la satisfacción se siente vacía, pregúntate qué quieres en realidad."
+   }
+  },
+  "cups_ten": {
+   "love": {
+    "up": "Una imagen de hogar feliz bajo un arcoíris de copas. En pareja, sugiere plenitud emocional, lazos familiares y contento compartido. Si no tienes pareja, la pertenencia y una comunidad cariñosa pueden dar forma a tu futuro. Cuida a las personas que amas.",
+    "rev": "Tensión en una familia o un grupo, o un ideal fuera de alcance. En pareja, puede que los valores no coincidan o que la imagen se vea mejor de lo que se siente. Si no tienes pareja, quizá anheles una imagen perfecta. Hablen con honestidad sobre lo que quiere cada uno."
+   },
+   "career": {
+    "up": "Plenitud emocional en un equipo o lugar de trabajo que se siente como una familia. El trabajo, los estudios y el dinero tienden a la armonía, al éxito compartido y a la seguridad en casa. El arcoíris sugiere una recompensa duradera. Busca un trabajo que encaje con tus valores.",
+    "rev": "Tensión en un equipo, o un ideal que esconde problemas reales. El trabajo o los estudios pueden chocar con tus valores o con tu vida en casa. El dinero puede tensar la armonía familiar. Atiende las grietas en lugar de la imagen."
+   },
+   "feelings": {
+    "up": "Esa persona siente un afecto profundo y puede imaginar un hogar o una vida familiar contigo. Sus sentimientos son cálidos, leales y comprometidos. Valora la pertenencia.",
+    "rev": "Sus sentimientos están ligados a un ideal que no encaja con la realidad. Puede sentir tensión con la familia o con los valores. Hace falta una conversación sincera."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. La armonía, la pertenencia y la plenitud emocional respaldan tu pregunta. Pinta feliz.",
+    "rev": "Quizá. Los vínculos tensos o una imagen idealizada ponen la respuesta en duda. Atiende antes los problemas."
+   },
+   "advice": {
+    "up": "Cuida los vínculos que valoras y comparte tu felicidad. Haz de tu hogar un lugar cálido.",
+    "rev": "Sé honesto sobre los problemas que hay tras el ideal. Trabaja la comunicación y los valores compartidos."
+   }
+  },
+  "cups_page": {
+   "love": {
+    "up": "Llega un mensaje tierno y creativo, como un pez que asoma de la copa. En pareja, sugiere gestos dulces, sorpresas juguetonas y suavidad. Si no tienes pareja, puede aparecer alguien delicado e imaginativo, o un mensaje de interés. Escucha tus sentimientos.",
+    "rev": "Los sentimientos se reprimen o se vuelven melodrama. En pareja, los cambios de humor o la inmadurez pueden causar problemas. Si no tienes pareja, las ensoñaciones pueden ocupar el lugar del contacto real. Pon nombre a lo que sientes con honestidad y calma."
+   },
+   "career": {
+    "up": "Un impulso creativo o un mensaje amable sobre el trabajo, los estudios o el dinero. La carta sugiere abrirte a la sorpresa y confiar en tu imaginación. Las oportunidades pueden llegar por la intuición o el arte. Sigue una idea pequeña que nazca del corazón.",
+    "rev": "Bloqueos creativos, cambios de humor o fuga hacia las ensoñaciones. El trabajo o los estudios pueden resentirse por una sensibilidad excesiva o esperanzas poco realistas. Las decisiones de dinero se toman mejor con calma. Pon los pies en la tierra con tus ideas."
+   },
+   "feelings": {
+    "up": "Esa persona siente ternura, timidez y algo de ensueño hacia ti. Sus sentimientos pueden llegar como un pequeño regalo, un mensaje o un gesto amable. Es sincera, aunque aún esté aprendiendo a decirlo.",
+    "rev": "Esa persona se reprime o tiene altibajos con lo que siente. Su interés puede mezclarse con ensoñaciones o inmadurez. Puede que necesite tiempo para madurar emocionalmente."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. Un mensaje suave y esperanzador respalda tu pregunta. Confía en tus sentimientos.",
+    "rev": "Quizá. Los cambios de humor o los sentimientos poco claros desdibujan la respuesta. Espera a sentirte en calma."
+   },
+   "advice": {
+    "up": "Sigue tus impulsos suaves y sé creativo. Escucha lo que te dicen tus sentimientos.",
+    "rev": "No dejes que el ánimo te gobierne. Ancla tus sueños con un paso práctico."
+   }
+  },
+  "cups_knight": {
+   "love": {
+    "up": "Una figura romántica y encantadora sobre un caballo tranquilo, que ofrece una copa. En pareja, sugiere romance, una invitación o un gesto de entrega. Si no tienes pareja, puede acercarse alguien soñador y cortés. Disfruta del romance y comprueba que es real.",
+    "rev": "Encanto sin fondo, o una retirada ante el sentimiento. En pareja, las promesas pueden ir por delante de la realidad, o alguien se aleja. Si no tienes pareja, las señales confusas o un flechazo idealizado pueden engañarte. Busca coherencia."
+   },
+   "career": {
+    "up": "Llega una oferta o invitación que te conmueve. El trabajo, los estudios y el dinero tienden a caminos creativos e idealistas y a perseguir lo que te importa. El Caballero lleva su copa con cuidado. Sopesa la oferta frente a las necesidades prácticas.",
+    "rev": "Ideas poco realistas o señales confusas. El trabajo o los estudios pueden resentirse por las ensoñaciones o las promesas incumplidas. Las ofertas de dinero necesitan comprobación. Mira más allá del encanto, hacia los detalles."
+   },
+   "feelings": {
+    "up": "Esa persona se siente romántica e idealista contigo y puede ofrecerte un gesto sincero. Sus sentimientos son auténticos, aunque quizá soñadores. Puede estar cortejándote a su suave manera.",
+    "rev": "Su encanto pesa más que su compromiso, o se retira ante el sentimiento. Sus promesas pueden ir por delante de la realidad. Sus intenciones pueden no estar claras."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. Una oferta o un gesto romántico respaldan tu pregunta. Sigue tu corazón con los ojos abiertos.",
+    "rev": "Quizá. Las señales confusas o las esperanzas poco realistas arrojan dudas. Comprueba qué es real."
+   },
+   "advice": {
+    "up": "Sigue tu corazón y acepta la invitación, sin despegar los pies del suelo.",
+    "rev": "No te dejes arrastrar solo por el encanto. Pide acciones coherentes, no solo palabras."
+   }
+  },
+  "cups_queen": {
+   "love": {
+    "up": "Un sentimiento profundo llevado con cuidado, con la Reina contemplando una copa ornamentada. En pareja, sugiere empatía, entrega y comprensión intuitiva. Si no tienes pareja, puede llegar una conexión cariñosa y sensible. Cuida también de tu propio corazón.",
+    "rev": "La empatía se convierte en dar de más, o los sentimientos se guardan bajo llave. En pareja, uno de los dos puede absorber el ánimo del otro o perder los límites. Si no tienes pareja, puede que te protejas demasiado. Cuídate a ti además de a los demás."
+   },
+   "career": {
+    "up": "La empatía y la intuición guían tus decisiones de trabajo, estudios y dinero. Pueden encajar las profesiones de cuidado y los puestos creativos o de acompañamiento. La Reina se sienta a la orilla del agua, lo que sugiere profundidad emocional. Confía en tus instintos, con límites sensatos.",
+    "rev": "Agobio emocional o descuidar tus propias necesidades. El trabajo o los estudios pueden agotarte al cargar con los sentimientos de otros. Las decisiones de dinero tomadas por compasión pueden requerir cuidado. Pon límites."
+   },
+   "feelings": {
+    "up": "Esa persona siente un cuidado, una empatía y un afecto profundos hacia ti. Sus sentimientos son suaves, intuitivos y sinceros. Quiere comprenderte y apoyarte.",
+    "rev": "Esa persona se siente desbordada o se reserva para protegerse. Su cuidado puede convertirse en dar de más, o se cierra. Necesita espacio para cuidarse a sí misma."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. La compasión y la intuición te respaldan. Confía en tu sentido interior.",
+    "rev": "Quizá. El agobio emocional nubla tu juicio. Atiende primero tus propias necesidades."
+   },
+   "advice": {
+    "up": "Confía en tu intuición y cuida de los demás, y también de ti. Sé suave, pero mantén tus límites.",
+    "rev": "Deja de dar de más. Da un paso atrás, descansa y atiende tus propios sentimientos."
+   }
+  },
+  "cups_king": {
+   "love": {
+    "up": "Un amor maduro y firme: tranquilo, amable y emocionalmente equilibrado. En pareja, sugiere paciencia, diplomacia y alguien que sabe sostener el sentimiento sin dejarse gobernar por él. Si no tienes pareja, puede aparecer una persona reflexiva y con los pies en la tierra. Busca calma antes que drama.",
+    "rev": "Sentimientos reprimidos o cambios de humor escondidos tras la compostura. En pareja, puede colarse la distancia emocional o una manipulación sutil. Si no tienes pareja, puede que protejas tu corazón con demasiado celo. Deja que se vea algo de lo que sientes."
+   },
+   "career": {
+    "up": "La madurez emocional guía tu trabajo, tus estudios y tus asuntos de dinero. A esta carta le van la diplomacia, el asesoramiento y el liderazgo sereno. El Rey se sienta en un trono sobre aguas agitadas, en calma en medio del movimiento. Mantén la cabeza fría y sé compasivo.",
+    "rev": "El control de los sentimientos se endurece hasta volverse frialdad, o la compostura se resquebraja. El trabajo o los estudios pueden implicar estrés reprimido o cambios de humor. Las decisiones de dinero pueden tomarse por evitación. Admite lo que sientes."
+   },
+   "feelings": {
+    "up": "Esa persona siente un afecto firme y cuidadoso, y responde con madurez. Sus sentimientos son profundos pero comedidos, y es fiable. Muestra su amor con un apoyo sereno.",
+    "rev": "Esa persona esconde sus sentimientos tras la compostura o mantiene las distancias. Sus emociones pueden estar reprimidas o ser confusas. Quizá le cueste abrirse."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. El equilibrio emocional y el juicio sereno favorecen tu pregunta. Avanza con cuidado.",
+    "rev": "Quizá. Los sentimientos reprimidos o los cambios de humor nublan la respuesta. Sé honesto sobre lo que sientes."
+   },
+   "advice": {
+    "up": "Mantén la calma bajo presión y siente hondo mientras eliges cómo responder. Ofrece un cuidado constante.",
+    "rev": "No entierres lo que sientes. Deja entrar la emoción honesta antes de que se enfríe o estalle."
+   }
+  },
+  "swords_ace": {
+   "love": {
+    "up": "En pareja, sugiere una conversación que por fin dice lo que no se había dicho. La espada corta las señales confusas, así que la honestidad clara y amable os ayuda a los dos. Si no tienes pareja, apunta a ver con claridad lo que quieres antes de salir a buscarlo.",
+    "rev": "Al revés, las palabras pueden salir más afiladas de lo que querías, o una verdad se queda sin decir. La pareja puede hablar sin entenderse. Si no tienes pareja, unas expectativas confusas pueden estar nublando las cosas, así que nombra lo que de verdad quieres antes de actuar."
+   },
+   "career": {
+    "up": "Apunta a una idea aguda o una decisión clara que llega a tu trabajo o tus estudios. La espada coronada sugiere un avance sobre el que puedes actuar en cuanto expreses la meta con claridad. Las decisiones de dinero también tienden a ser sencillas y bien razonadas.",
+    "rev": "Tu pensamiento puede sentirse nublado, y una propuesta o un plan pueden quedar poco claros o mal expresados. Sugiere ir más despacio y comprobar los hechos antes de comprometerte. Evita enviar mensajes cortantes a tus compañeros cuando estés frustrado."
+   },
+   "feelings": {
+    "up": "Esa persona te ve con claridad y quiere honestidad entre ustedes. Sus sentimientos tienden a ser directos y no esquivos, y puede estar lista para decir en qué punto está. Valora la verdad y un comienzo limpio.",
+    "rev": "Esa persona puede estar confundida sobre lo que siente, o callarse algo que sabe. Sus palabras pueden salir duras o no salir. El cuadro sigue poco claro hasta que alguien hable con franqueza."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. La espada en alto y su corona apuntan a claridad y a un paso decidido. Si la pregunta es concreta y tienes los hechos, la respuesta tiende a un claro adelante.",
+    "rev": "Quizá. Aquí la nube es espesa, así que los hechos aún no están claros o se está evitando algo. Aclara la pregunta antes de fiarte de cualquier respuesta."
+   },
+   "advice": {
+    "up": "Piénsalo bien y luego dilo con sencillez. Anota la idea que importa y actúa sobre ella, con palabras honestas pero sin herir.",
+    "rev": "Haz una pausa antes de hablar o decidir. Pregúntate qué evitas admitir y date tiempo para desenredar tus pensamientos antes de llevárselos a otros."
+   }
+  },
+  "swords_two": {
+   "love": {
+    "up": "Una relación puede estar en un punto muerto, con los dos protegiendo el corazón tras las espadas cruzadas. La venda sugiere que algo no se está mirando. Hablar con honestidad, cuando estés listo, puede bajar las espadas. Si no tienes pareja, puede que estés cerrando opciones para sentirte a salvo.",
+    "rev": "Al revés, la venda se desliza y sale a la luz un sentimiento oculto, o el enfrentamiento se alarga sin resolverse. La pareja puede verse obligada a afrontar una elección. Si no tienes pareja, quizá por fin admitas lo que de verdad quieres."
+   },
+   "career": {
+    "up": "Te enfrentas a una elección en el trabajo o con el dinero y la evitas negándote a mirar. Opciones igual de buenas pueden ser imposibles de sopesar. La carta sugiere reunir datos y luego decidir, en lugar de quedarte en equilibrio para siempre.",
+    "rev": "Una decisión se fuerza, o llega información nueva que rompe el bloqueo. O bien la indecisión se alarga y te cuesta tiempo. Mira los hechos que has estado evitando y elige."
+   },
+   "feelings": {
+    "up": "Esa persona está a la defensiva y sin certezas. Puede que sienta cariño, pero guarda sus emociones tras un muro, sin querer comprometerse con una postura. Puede estar dividida entre dos sentimientos.",
+    "rev": "Esa persona empieza a ver sus propios sentimientos con más claridad, o la están empujando a decidir. O bien sigue atascada y continúa el silencio. Espera algo de movimiento, aunque no necesariamente comodidad."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     0
+    ],
+    "up": "Aún no. Las espadas cruzadas y la venda sugieren que la respuesta está en pausa porque se evita una elección. Reúne más información antes de volver a preguntar.",
+    "rev": "Quizá. La venda se desliza, así que pronto algo puede aclararse, pero el bloqueo también puede persistir. Espera a tener nuevos datos."
+   },
+   "advice": {
+    "up": "Quítate la venda cuando estés listo. Haz una lista de lo que sabes y lo que temes, y luego toma la elección honesta más pequeña que puedas.",
+    "rev": "Afronta lo que has estado evitando, porque puede que te lo impongan de todos modos. Reúne la información que falta y decide en tus propios términos."
+   }
+  },
+  "swords_three": {
+   "love": {
+    "up": "En pareja, sugiere una verdad dolorosa o una herida que necesita sentirse, quizá una traición o una conversación difícil. Hablar con honestidad ayuda más que esconderse. Si no tienes pareja, un viejo desamor puede seguir doliendo.",
+    "rev": "Al revés, empieza la sanación y el dolor comienza a ceder, o puede que repitas una vieja herida y mantengas la llaga abierta. El perdón, hacia ti o hacia otra persona, puede estar cerca. Si no tienes pareja, te vas abriendo de nuevo poco a poco."
+   },
+   "career": {
+    "up": "Es probable una decepción en el trabajo o los estudios, como un rechazo, un conflicto o malas noticias sobre el dinero. Las tres espadas atravesando el corazón sugieren que duele, pero ponerle nombre es el primer paso. Busca apoyo en lugar de cargarlo a solas.",
+    "rev": "Te estás recuperando de un revés y el escozor se va apagando. También puedes estar rumiando una crítica pasada o un empleo perdido. Aprende lo que puedas de ello y sigue adelante."
+   },
+   "feelings": {
+    "up": "Esa persona puede sentirse herida, o estar causando dolor con una honestidad dura. Sus sentimientos incluyen pena o decepción. Algo sin decir le pesa.",
+    "rev": "Esa persona se está curando de una herida y puede estar lista para soltar viejos dolores. O bien sigue aferrada a un agravio. Sus sentimientos se suavizan poco a poco."
+   },
+   "yesno": {
+    "verdict": [
+     -1,
+     0
+    ],
+    "up": "No. El corazón atravesado por tres espadas sugiere pena y una verdad dura. Lo más probable es que la respuesta honesta no sea la que esperas.",
+    "rev": "Quizá. El dolor cede y la recuperación es posible, pero las viejas heridas aún pueden teñir la respuesta. Dale tiempo antes de esperar un sí claro."
+   },
+   "advice": {
+    "up": "Permítete sentir el dolor y habla de él con alguien de confianza. La honestidad contigo es el primer paso hacia la sanación.",
+    "rev": "Deja el dolor a un lado con suavidad. Perdona donde puedas y fíjate si te aferras a la herida por costumbre."
+   }
+  },
+  "swords_four": {
+   "love": {
+    "up": "En pareja, sugiere una pausa tranquila. Puede que necesites descanso o espacio, o tiempo juntos sin exigencias. Si no tienes pareja, conviene hacer un descanso de las citas para recuperarte y recargar. Retirarte es sano, siempre que no te escondas demasiado tiempo.",
+    "rev": "Al revés, se instala la inquietud, o uno de los dos vuelve a la intensidad emocional antes de estar listo. Si no tienes pareja, puedes lanzarte a las citas aún cansado. Descansa un poco más."
+   },
+   "career": {
+    "up": "Tu vida laboral o de estudios pide una pausa. El caballero que reposa sobre la tumba sugiere recuperación tras la tensión. Aléjate de las preocupaciones de dinero o de los plazos para recargar, y planifica antes de volver.",
+    "rev": "Puedes sentir inquietud, o vuelves al trabajo demasiado pronto y te arriesgas a quemarte. Ignorar el cansancio puede costarte caro después. Incorpora el descanso a tu rutina."
+   },
+   "feelings": {
+    "up": "Esa persona necesita espacio y silencio. Puede estar retraída o recuperándose, no rechazándote. Sus sentimientos siguen ahí, pero le falta energía.",
+    "rev": "Esa persona está inquieta o vuelve a ponerse en contacto antes de lo que debería. Puede sentir presión para actuar antes de haberse recuperado. Dale espacio."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     0
+    ],
+    "up": "Aún no. La figura inmóvil sugiere esperar y descansar. La respuesta necesita tiempo y una mente más serena.",
+    "rev": "Quizá. Tienes ganas de actuar, pero descansar más aún puede ser más sensato. Comprueba que no te estás precipitando."
+   },
+   "advice": {
+    "up": "Descansa a propósito. Cierra la puerta un tiempo, recupérate y deja que tu mente se asiente antes del siguiente movimiento.",
+    "rev": "No vuelvas con prisa. Fíjate en si tu inquietud es energía o evasión, y toma el descanso que aún te falta."
+   }
+  },
+  "swords_five": {
+   "love": {
+    "up": "En pareja, sugiere una discusión en la que ganar cuesta más de lo que da. El orgullo y el marcar puntos pueden dejar a los dos solos. Si no tienes pareja, vigila las viejas rivalidades o los hábitos defensivos. Elige qué discusiones merecen la pena.",
+    "rev": "Al revés, puede hacerse la paz, o te alejas de una discusión. O bien el resentimiento sigue mucho después de la pelea. Una disculpa podría ayudar a despejar el ambiente."
+   },
+   "career": {
+    "up": "Es probable un conflicto en el trabajo o los estudios, con una victoria vacía o alguien que queda atrás. La figura que sonríe con suficiencia sostiene las espadas mientras otros se van derrotados. Piensa en lo que cuesta realmente ganar, incluido el dinero y la buena voluntad.",
+    "rev": "La tensión cede y puedes reparar el daño o apartarte de una rivalidad. Puede quedar algo de resentimiento. Arregla las relaciones donde puedas."
+   },
+   "feelings": {
+    "up": "Esa persona puede sentirse competitiva o a la defensiva contigo. Puede estar llevando la cuenta, o sentir que perdió algo. Sus sentimientos están enredados con el orgullo.",
+    "rev": "Esa persona está lista para hacer las paces, o quiere dejar atrás el conflicto. También puede seguir amargada. Sus sentimientos tienden a suavizarse."
+   },
+   "yesno": {
+    "verdict": [
+     -1,
+     0
+    ],
+    "up": "No. Las espadas esparcidas y las figuras que se van sugieren una victoria que cuesta demasiado. Espera conflicto o un resultado vacío.",
+    "rev": "Quizá. La pelea puede estar terminando, pero puede quedar resentimiento. La paz es posible si alguien cede primero."
+   },
+   "advice": {
+    "up": "Elige tus batallas. Pregúntate si tener razón merece el precio, y aléjate cuando la pelea no valga la pena ganarla.",
+    "rev": "Repara el daño o déjalo ir. Suelta el rencor y piensa si una disculpa sincera te serviría más que la victoria."
+   }
+  },
+  "swords_six": {
+   "love": {
+    "up": "En pareja, sugiere avanzar juntos hacia aguas más calmadas tras una época difícil. La barca lleva consigo lecciones, así que alguna herida antigua puede necesitar cuidado. Si no tienes pareja, vas dejando atrás poco a poco un capítulo doloroso y te estás curando.",
+    "rev": "Al revés, puedes resistirte a seguir adelante, o el equipaje viejo te sigue a la nueva relación. El paso puede retrasarse. Si no tienes pareja, los sentimientos sin resolver por una expareja pueden estar en medio."
+   },
+   "career": {
+    "up": "El trabajo o los estudios entran en una fase más tranquila, quizá un cambio de empleo, de lugar o de enfoque. La travesía en barca sugiere un paso lento y firme lejos de los problemas. Lleva contigo lo aprendido, pero deja atrás las preocupaciones más pesadas.",
+    "rev": "Un cambio se retrasa o arrastras viejos problemas a la nueva situación. Puede que te resistas a cambiar. Resuelve los asuntos pendientes antes de irte."
+   },
+   "feelings": {
+    "up": "Esa persona quiere superar la dificultad y encontrar paz contigo. Sus sentimientos son tiernos y cautelosos, y crecen despacio a medida que todo se calma. Está aprendiendo del pasado.",
+    "rev": "Esa persona está atascada en el pasado, o carga con equipaje en lo que siente por ti. Puede resistirse a avanzar. Sus sentimientos vienen con algún asunto sin cerrar."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. La barca avanza hacia aguas más calmadas, así que la respuesta tiende a una mejora suave con el tiempo.",
+    "rev": "Quizá. El paso se retrasa o aún hay equipaje viejo en la barca. El progreso es posible cuando lo resuelvas."
+   },
+   "advice": {
+    "up": "Permítete avanzar poco a poco. Llévate lo aprendido, deja lo que puedas y confía en la travesía lenta.",
+    "rev": "Mira lo que cargas y lo que te retiene en la orilla. Deshaz el equipaje para que el viaje pueda empezar."
+   }
+  },
+  "swords_seven": {
+   "love": {
+    "up": "En pareja, sugiere secretismo, evasión o alguien que no es del todo honesto. También puedes ser tú quien se calla algo. Si no tienes pareja, puede que te estés protegiendo o jugando. Una conversación honesta protege la confianza.",
+    "rev": "Al revés, sale la verdad y alguien confiesa, o se descubre un plan oculto. Esto puede despejar el ambiente o provocar una escena. Si no tienes pareja, puede que dejes de esconderte tras una fachada cautelosa."
+   },
+   "career": {
+    "up": "El trabajo o el dinero piden una estrategia cuidadosa, pero la figura que se escabulle con las espadas advierte contra los atajos. Puede señalar a alguien que se atribuye méritos ajenos o evita su responsabilidad. Sé honesto sobre el coste de cualquier atajo.",
+    "rev": "Un plan sale mal, o confiesas un error. Puede que te descubran. Asumir la responsabilidad ahora suele costar menos que esconderse."
+   },
+   "feelings": {
+    "up": "Esa persona puede estar callándose algo o evitando una conversación directa. Sus sentimientos son difíciles de leer y puede estar ocultando parte de ellos. Fíjate en si sus palabras coinciden con sus actos.",
+    "rev": "Esa persona puede estar lista para ser honesta sobre lo que siente, o la han pillado en una evasiva. La verdad está saliendo a la superficie. Sus sentimientos se vuelven más claros."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     -1
+    ],
+    "up": "Quizá. Escabullirse con las espadas sugiere una ruta ingeniosa, pero también algo oculto. El resultado depende de ser honesto sobre el coste.",
+    "rev": "No. Es probable que el plan se deshaga o se descubra. Un enfoque directo te serviría mejor."
+   },
+   "advice": {
+    "up": "Sé estratégico, pero no taimado. Si tomas un camino indirecto, pregúntate qué no estás diciendo y a quién puede afectar.",
+    "rev": "Confiesa antes de que te descubran. Asume la responsabilidad y busca un camino más honesto."
+   }
+  },
+  "swords_eight": {
+   "love": {
+    "up": "En pareja, sugiere sentirte atrapado o incapaz de hablar, a menudo por miedo y no por los hechos. Las ataduras parecen flojas. Habla de lo que temes. Si no tienes pareja, las dudas sobre ti pueden impedirte dar el paso.",
+    "rev": "Al revés, te sueltas de las cuerdas y vuelves a ver opciones, quizá encontrando tu voz en la relación. Si no tienes pareja, estás soltando historias que te limitan. El valor está volviendo."
+   },
+   "career": {
+    "up": "Te sientes atascado en tu trabajo, tus estudios o tu situación de dinero y no ves opciones. La venda y las ataduras flojas sugieren que tu visión es más estrecha que la realidad. Haz una lista de lo que sí puedes cambiar.",
+    "rev": "Se abre una salida cuando te quitas la venda. Empiezas a ver opciones y a pedir ayuda. Actúa sobre la primera opción pequeña."
+   },
+   "feelings": {
+    "up": "Esa persona se siente atascada o tiene miedo de lo que siente. Puede que no sea capaz de actuar, frenada por la ansiedad o las dudas. Sus sentimientos no están ausentes, solo atados.",
+    "rev": "Esa persona empieza a encontrar su voz. Puede estar liberándose del miedo o de una vieja historia. Sus sentimientos se vuelven más fáciles de expresar."
+   },
+   "yesno": {
+    "verdict": [
+     -1,
+     0
+    ],
+    "up": "No. La figura atada y con los ojos vendados sugiere sentirse atrapado, así que un sí claro es improbable ahora. Comprueba si los límites son reales.",
+    "rev": "Quizá. La venda se está quitando y las opciones reaparecen. La respuesta puede mejorar cuando veas con más claridad."
+   },
+   "advice": {
+    "up": "Quítate la venda. Pregúntate qué te detiene de verdad y da un pequeño paso. Las cuerdas pueden estar más flojas de lo que parece.",
+    "rev": "Sigue dando pasos hacia fuera. Confía en que existen opciones y pide a alguien de confianza que te ayude a verlas."
+   }
+  },
+  "swords_nine": {
+   "love": {
+    "up": "En pareja, la preocupación o la culpa pueden rondar las horas tranquilas, con miedos a que te dejen o a no ser suficiente. Compartir la preocupación con tu pareja suele hacerla más pequeña. Si no tienes pareja, los pensamientos ansiosos pueden estar exagerando los riesgos de acercarte.",
+    "rev": "Al revés, los miedos empiezan a aflojar, o la ansiedad pesa tanto que necesitas más apoyo. Hablar con alguien de confianza ayuda. Si no tienes pareja, quizá estés aprendiendo que la noche se ve peor que la mañana."
+   },
+   "career": {
+    "up": "Las preocupaciones por el trabajo, los estudios o el dinero te quitan el sueño. Las espadas en la pared sugieren que el miedo suena más fuerte en tu cabeza que en los hechos. Haz un plan, comparte la carga y comprueba qué depende de verdad de ti.",
+    "rev": "El estrés se alivia, o estás sepultado bajo él. Busca apoyo en compañeros, amigos o profesionales si se siente demasiado pesado."
+   },
+   "feelings": {
+    "up": "Esa persona está ansiosa y puede estar despierta por la noche pensando en ti o en la situación. Sus sentimientos incluyen preocupación y culpa, no indiferencia. Puede temer decir algo equivocado.",
+    "rev": "Esa persona se está calmando, o está sepultada en preocupaciones y retraída. Sus sentimientos son difíciles de alcanzar hasta que se levante el miedo. Ofrécele tranquilidad."
+   },
+   "yesno": {
+    "verdict": [
+     -1,
+     0
+    ],
+    "up": "No. Las preocupaciones nocturnas sugieren que el miedo nubla la pregunta, así que la respuesta tiende al no por ahora. Vuelve a mirar a la luz del día.",
+    "rev": "Quizá. Los miedos aflojan y el panorama puede aclararse. Pregunta de nuevo cuando estés más tranquilo."
+   },
+   "advice": {
+    "up": "Cuéntale a alguien lo que te quita el sueño. Escribe las preocupaciones y separa los problemas reales de los miedos en la oscuridad.",
+    "rev": "Pide apoyo y no luches a solas. Recuerda que la preocupación suele disiparse por la mañana."
+   }
+  },
+  "swords_ten": {
+   "love": {
+    "up": "En pareja, un viejo patrón o una etapa dolorosa llega a su fin. Puede sentirse como tocar fondo, pero despeja el camino. Si no tienes pareja, estás cerrando una herida larga y puede que te sientas agotado. La sanación empieza cuando dejas de pelear con el final.",
+    "rev": "Al revés, la recuperación empieza despacio, o te niegas a soltar un final doloroso. El amanecer está en el horizonte. Si no tienes pareja, te levantas de viejas heridas, con pasos suaves."
+   },
+   "career": {
+    "up": "Un capítulo de trabajo, estudios o dinero termina con dolor, como una pérdida o un golpe final. Las diez espadas sugieren que no puede ir a peor. Acepta el final y planifica el nuevo comienzo.",
+    "rev": "Lo peor ha pasado y empieza la recuperación. También puedes aferrarte a la pérdida o dramatizarla. Reconstruye poco a poco."
+   },
+   "feelings": {
+    "up": "Esa persona se siente agotada o al final de algo. Sus sentimientos pueden estar cargados de pena, o terminados. Un nuevo comienzo es el único camino para ella.",
+    "rev": "Esa persona se está recuperando y empieza a mirar hacia delante. También puede aferrarse al dolor. Sus sentimientos van aliviándose poco a poco."
+   },
+   "yesno": {
+    "verdict": [
+     -1,
+     0
+    ],
+    "up": "No. Las diez espadas y el cielo oscuro sugieren un final. La respuesta es no, aunque tras ella llega el amanecer.",
+    "rev": "Quizá. El sol sale y la recuperación ha empezado. Puede que un sí sea posible cuando se cierre el viejo capítulo."
+   },
+   "advice": {
+    "up": "Acepta el final. Descansa y suelta lo que ha terminado. La única dirección que queda es hacia delante.",
+    "rev": "Deja de revivir el dolor. Deja que la recuperación se tome su tiempo y resiste el papel de víctima."
+   }
+  },
+  "swords_page": {
+   "love": {
+    "up": "En pareja, sugiere curiosidad, hacer preguntas y conoceros mejor. La conversación enciende la atracción. Si no tienes pareja, puede aparecer una conexión ingeniosa y curiosa, o sientes curiosidad por lo que quieres. Mantén la honestidad.",
+    "rev": "Al revés, los chismes, los comentarios descuidados o los pensamientos dispersos se interponen. La pareja puede hablar antes de pensar. Si no tienes pareja, puede que le des demasiadas vueltas o juegues con la cabeza."
+   },
+   "career": {
+    "up": "El trabajo y los estudios favorecen la investigación, las preguntas y las ideas frescas. La Sota vigila el cielo con la espada en alto, lo que sugiere vigilancia y una mente rápida. Reúne datos y aprende antes de comprometerte.",
+    "rev": "Las ideas se dispersan, los chismes distraen o actúas con prisa. Céntrate en una tarea, comprueba los hechos y cuida tus palabras."
+   },
+   "feelings": {
+    "up": "Esa persona siente curiosidad por ti y ganas de saber más. Sus sentimientos están alerta y son juguetones, movidos por el interés. Disfruta hablando contigo.",
+    "rev": "Esa persona puede estar chismorreando o enviando mensajes confusos. Sus sentimientos son difíciles de precisar, porque sus pensamientos van a mil. Puede estar usando las palabras con descuido."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. La Sota alerta sugiere un comienzo brillante y curioso. La respuesta tiende al sí si haces tus deberes.",
+    "rev": "Quizá. Los pensamientos dispersos o los chismes nublan el panorama. Comprueba los hechos antes de decidir."
+   },
+   "advice": {
+    "up": "Haz preguntas y reúne datos. Mantén la curiosidad y que tus palabras sean honestas y amables.",
+    "rev": "Piensa antes de hablar. Evita los chismes y quédate con una idea antes de perseguir la siguiente."
+   }
+  },
+  "swords_knight": {
+   "love": {
+    "up": "En pareja, sugiere una energía directa y veloz. Alguien entra con opiniones fuertes y puede que no escuche. Si no tienes pareja, puede llegar de golpe una conexión ingeniosa y ambiciosa. La franqueza brusca puede doler, así que id más despacio y escuchaos.",
+    "rev": "Al revés, la prisa se vuelve descuido, o los planes se frenan por darles demasiadas vueltas. La pareja puede discutir con aspereza. Si no tienes pareja, puedes apresurarte o frenarte por pensar demasiado."
+   },
+   "career": {
+    "up": "El trabajo o los estudios avanzan deprisa, con ambición e impulso. El Caballero galopa contra el viento, lo que sugiere velocidad y enfoque. Cuidado con la brusquedad con los compañeros, y comprueba los detalles antes de lanzarte.",
+    "rev": "Te quemas, actúas sin pensar o te frenas. Una decisión precipitada sobre dinero o trabajo puede salir mal. Ve más despacio y planifica."
+   },
+   "feelings": {
+    "up": "Esa persona es directa y apasionada, pero puede ir demasiado deprisa. Sus sentimientos salen con fuerza y puede que no escuche. Quiere pasar a la acción.",
+    "rev": "Esa persona es descuidada o inconstante con sus sentimientos. Puede ser impulsiva, o estar atascada pensando. Sus palabras pueden no coincidir con sus actos."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     -1
+    ],
+    "up": "Quizá. El Caballero es rápido y decidido, pero la velocidad puede pasar por alto los detalles. La respuesta es sí si vas con cuidado, y no si te precipitas.",
+    "rev": "No. La prisa y el descuido probablemente causen problemas. Ve más despacio antes de volver a intentarlo."
+   },
+   "advice": {
+    "up": "Actúa con enfoque, pero escucha por el camino. Conserva tu impulso y suaviza tus palabras.",
+    "rev": "Para y comprueba los detalles. No sigas adelante por orgullo y piensa si estás dándole demasiadas vueltas."
+   }
+  },
+  "swords_queen": {
+   "love": {
+    "up": "En pareja, sugiere una conversación honesta y directa, basada en la experiencia. Cada uno dice lo que piensa, con amabilidad. Si no tienes pareja, valoras la independencia y la claridad, y quizá busques a alguien igual de sincero. Mantén tus límites sin cerrar el corazón.",
+    "rev": "Al revés, la claridad se vuelve fría o crítica, o se calla la verdad. La pareja puede sentirse juzgada. Si no tienes pareja, un dolor pasado puede estar poniéndote a la defensiva."
+   },
+   "career": {
+    "up": "El trabajo y los estudios favorecen el pensamiento claro, la equidad y el buen juicio. La Reina sostiene la espada en alto, lo que sugiere un enfoque honesto e independiente. Comunica con claridad y toma las decisiones de dinero basándote en los hechos.",
+    "rev": "La crítica puede volverse demasiado dura, o te distancias de los compañeros. Suaviza el tono y comparte tu razonamiento."
+   },
+   "feelings": {
+    "up": "Esa persona te ve con claridad y valora la honestidad. Sus sentimientos pueden ser reservados pero sinceros, y dice lo que piensa. Respeta la independencia.",
+    "rev": "Esa persona puede ser fría, crítica o estar a la defensiva. Podría esconder sus sentimientos tras la dureza. Sus sentimientos no están ausentes, solo protegidos."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. La mirada clara de la Reina sugiere un sí meditado y honesto, si afrontas los hechos.",
+    "rev": "Quizá. La frialdad o una verdad callada desdibujan la respuesta. Suaviza tu mirada y vuelve a preguntar."
+   },
+   "advice": {
+    "up": "Di la verdad con amabilidad. Apóyate en tu experiencia y mantén límites claros sin cortar a la gente.",
+    "rev": "Fíjate en si estás siendo duro o demasiado distante. Deja entrar algo de calidez y di lo que te has estado guardando."
+   }
+  },
+  "swords_king": {
+   "love": {
+    "up": "En pareja, sugiere una conversación justa y serena y compromisos claros. Lo piensas todo bien y mantienes tu palabra. Si no tienes pareja, puede que busques una persona reflexiva y con principios. Añade calidez a la razón.",
+    "rev": "Al revés, el pensamiento rígido o una autoridad fría pueden tensar las cosas. La pareja puede sentirse juzgada o controlada. Si no tienes pareja, puedes ser demasiado analítico con el amor."
+   },
+   "career": {
+    "up": "El trabajo y los estudios favorecen la autoridad basada en la razón y las decisiones justas. El Rey se sienta erguido con la espada en alto, lo que sugiere principios y juicio claro. Infórmate y sé coherente con el dinero y las responsabilidades.",
+    "rev": "La razón se vuelve rígida, o se abusa del poder. Puedes estar siendo terco, o tu juicio está nublado. Escucha a los demás y ajusta."
+   },
+   "feelings": {
+    "up": "Esa persona es reflexiva y tiene principios, y se toma en serio sus sentimientos. Muestra su cuidado con fiabilidad y justicia más que con emoción. Quiere que las cosas tengan sentido.",
+    "rev": "Esa persona puede ser rígida, controladora o emocionalmente fría. Le cuesta expresar sentimientos. Su cuidado puede quedar oculto tras la lógica."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. El juicio razonado y justo del Rey sugiere un sí meditado, si los hechos lo respaldan.",
+    "rev": "Quizá. El pensamiento rígido o el juicio nublado desdibujan las cosas. Busca otra opinión antes de decidir."
+   },
+   "advice": {
+    "up": "Piensa con claridad, sé justo y mantén tus decisiones. Sigue abierto a otras opiniones.",
+    "rev": "Suaviza tu postura. Comprueba que no estás usando la autoridad o la lógica para dejar a la gente fuera."
+   }
+  },
+  "pentacles_ace": {
+   "love": {
+    "up": "En pareja, sugiere un comienzo nuevo y sólido, como un compromiso, irse a vivir juntos o un vínculo estable que puede crecer. Si no tienes pareja, puede empezar una conexión con los pies en la tierra. Cuídala con atención práctica además de sentimiento.",
+    "rev": "Al revés, puede perderse una oportunidad, o una relación carece de base. La pareja puede no estar haciendo planes. Si no tienes pareja, puedes pasar por alto a alguien estable, o precipitarte sin cimientos."
+   },
+   "career": {
+    "up": "Se te ofrece una oportunidad real en el trabajo, los estudios o el dinero, como un empleo, un curso o un nuevo ingreso. La mano que sale de la nube sostiene una moneda sobre la puerta de un jardín. Plántala con cuidado y planifica con antelación.",
+    "rev": "Una oportunidad se escapa, o un plan carece de cimientos. El dinero puede necesitar un mejor presupuesto. Comprueba los detalles antes de comprometerte."
+   },
+   "feelings": {
+    "up": "Esa persona siente un interés firme y real por ti. Sus sentimientos son prácticos y sinceros, y ve un futuro. Puede mostrarlo siendo alguien con quien se puede contar.",
+    "rev": "Esa persona puede no estar lista para comprometerse, o su interés carece de fondo. Puede estar perdiendo la ocasión de decir lo que siente. Los sentimientos necesitan una base más firme."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. La moneda en la mano abierta sugiere un comienzo sólido, así que la respuesta tiende al sí si actúas con sentido práctico.",
+    "rev": "Quizá. Una oportunidad puede perderse o carecer de planificación. Construye antes los cimientos."
+   },
+   "advice": {
+    "up": "Aprovecha la oportunidad y plántala con cuidado. Haz un plan realista y da el primer paso práctico.",
+    "rev": "Revisa tus cimientos. No desperdicies una ocasión y averigua qué falta antes de seguir."
+   }
+  },
+  "pentacles_two": {
+   "love": {
+    "up": "En pareja, sugiere hacer malabares con el tiempo entre el amor y otras obligaciones. La flexibilidad os ayuda a mantener un ritmo juntos. Si no tienes pareja, una vida muy ocupada puede dejar poco espacio para las citas. Haz hueco y mantén el espíritu juguetón.",
+    "rev": "Al revés, el exceso de compromisos deja poca energía y la pareja puede sentirse desatendida. Los planes se desmoronan. Si no tienes pareja, puedes estar demasiado estirado para conocer a nadie."
+   },
+   "career": {
+    "up": "El trabajo, los estudios y el dinero exigen hacer malabares con varias tareas. La figura baila mientras mantiene dos monedas en el aire, lo que sugiere adaptabilidad. Mantén un ritmo constante y planifica tu presupuesto y tu tiempo.",
+    "rev": "Te comprometes en exceso, se te caen cosas o pierdes la organización. El dinero puede sentirse justo. Prioriza y di que no a algo."
+   },
+   "feelings": {
+    "up": "Esa persona tiene mucho entre manos y divide su atención. Sus sentimientos son reales, pero compiten con otras exigencias. Puede ser difícil de pillar.",
+    "rev": "Esa persona está desbordada y puede estar descuidándote. Sus sentimientos se pierden en el caos. Puede que le cueste comprometerse."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     -1
+    ],
+    "up": "Quizá. Los malabares sugieren que depende del equilibrio. La respuesta tiende al sí si te mantienes flexible y conservas el ritmo.",
+    "rev": "No. El exceso de compromisos hace poco probable que funcione por ahora. Despeja primero algo de carga."
+   },
+   "advice": {
+    "up": "Mantén tu ritmo y sé flexible. Elige tus prioridades y no asumas más de lo que puedes sostener.",
+    "rev": "Suelta algo. Organízate, pide ayuda y evita añadir más."
+   }
+  },
+  "pentacles_three": {
+   "love": {
+    "up": "En pareja, sugiere construir algo juntos, cada uno aportando habilidad y esfuerzo. El trabajo en equipo y el respeto fortalecen el vínculo. Si no tienes pareja, puedes conocer a alguien en el trabajo o en proyectos compartidos. Trabajadlo juntos.",
+    "rev": "Al revés, la pareja rema en direcciones distintas, o el esfuerzo es desigual. La comunicación sobre planes compartidos puede ser pobre. Si no tienes pareja, puedes sentir que tus esfuerzos pasan desapercibidos."
+   },
+   "career": {
+    "up": "El trabajo y los estudios favorecen la colaboración, el oficio y una habilidad que otros reconocen. El artesano junto al muro de la catedral consulta los planos con otros. Busca opiniones y el buen dinero vendrá del buen trabajo.",
+    "rev": "El trabajo en equipo es pobre o produces por debajo de tu nivel habitual. Se ignoran las opiniones. Revisa los papeles de cada uno y comunica con claridad."
+   },
+   "feelings": {
+    "up": "Esa persona te respeta y valora lo que aportas. Sus sentimientos crecen con el esfuerzo compartido y el trabajo en equipo. Te ve como un igual.",
+    "rev": "Esa persona puede sentir que a la conexión le faltan orgullo o cooperación. Sus sentimientos son tibios, o no estáis en la misma página. Hablad de ello."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. La colaboración hábil sugiere que de aquí crece un buen trabajo. La respuesta tiende al sí si trabajáis juntos.",
+    "rev": "Quizá. El mal trabajo en equipo o el esfuerzo a medias pueden estropearlo todo. Mejora antes el plan."
+   },
+   "advice": {
+    "up": "Trabaja con otros y siéntete orgulloso de tu oficio. Pide opinión y construye paso a paso.",
+    "rev": "Revisa el trabajo en equipo y tus estándares. Escucha consejos y tirad en la misma dirección."
+   }
+  },
+  "pentacles_four": {
+   "love": {
+    "up": "En pareja, sugiere agarrarse con fuerza, por seguridad o por miedo a perder. El control puede proteger, pero también mantiene alejada la cercanía. Si no tienes pareja, puede que protejas tu corazón y tu espacio. Afloja un poco el agarre.",
+    "rev": "Al revés, el control férreo se afloja y vuelve la generosidad. O bien te vas al otro extremo. Si no tienes pareja, empiezas a abrirte a gente nueva."
+   },
+   "career": {
+    "up": "El trabajo y el dinero piden ahorro y seguridad, pero la figura que aferra las monedas advierte contra el apego excesivo. El miedo a perder puede limitar el crecimiento. Sé prudente y deja aun así espacio a algo de riesgo.",
+    "rev": "Sueltas el agarre sobre el dinero o el control, o gastas sin pensar. Busca el equilibrio. Revisa tu presupuesto con calma."
+   },
+   "feelings": {
+    "up": "Esa persona protege su corazón y se reserva. Sus sentimientos incluyen miedo a perder o necesidad de control. Quiere seguridad antes de abrirse.",
+    "rev": "Esa persona se está abriendo o soltando el control. También puede ser descuidada con las emociones. Sus sentimientos empiezan a fluir con más libertad."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     0
+    ],
+    "up": "Aún no. La figura que aferra las monedas sugiere contenerse. La respuesta necesita más seguridad y menos miedo.",
+    "rev": "Quizá. El agarre se afloja, así que algo puede abrirse, pero cuidado con irte al extremo del descuido."
+   },
+   "advice": {
+    "up": "Valora lo que tienes, pero pregúntate a qué te aferras por miedo. Comparte un poco.",
+    "rev": "Afloja el agarre y sé generoso sin ser imprudente. Fíjate en dónde el control se ha vuelto una costumbre."
+   }
+  },
+  "pentacles_five": {
+   "love": {
+    "up": "En pareja, sugiere una racha fría, sentirte dejado de lado o excluido. La ayuda está cerca, pero el orgullo o la preocupación pueden impedirte pedirla. Si no tienes pareja, la soledad puede pesar mucho. Acércate a alguien.",
+    "rev": "Al revés, vuelve la calidez y empiezas a recuperarte, o rechazas la ayuda y te quedas fuera. Si no tienes pareja, das un paso hacia la conexión."
+   },
+   "career": {
+    "up": "El trabajo, los estudios o el dinero se sienten escasos, con preocupación por la seguridad o por pasar desapercibido. Las figuras en la nieve pasan junto a la ventana iluminada de una iglesia. Existe ayuda si la pides, sea consejo o apoyo. Búscala pronto.",
+    "rev": "Empieza la recuperación y las finanzas mejoran. O bien el orgullo te impide pedir apoyo. Acepta la ayuda donde se ofrezca."
+   },
+   "feelings": {
+    "up": "Esa persona puede sentirse excluida o pasarlo mal, y no ser capaz de mostrar cariño. Sus sentimientos están cargados de preocupación. Puede necesitar más apoyo del que dice.",
+    "rev": "Esa persona se está recuperando y está lista para dejarte entrar. O bien rechaza la ayuda y se mantiene distante. Sus sentimientos se van calentando despacio."
+   },
+   "yesno": {
+    "verdict": [
+     -1,
+     0
+    ],
+    "up": "No. La nieve y la ventana iluminada sugieren dificultad, así que un sí claro es improbable ahora. La ayuda puede estar cerca.",
+    "rev": "Quizá. La recuperación está empezando y las cosas pueden mejorar pronto. Acepta el apoyo."
+   },
+   "advice": {
+    "up": "Acércate a alguien. No estás tan solo como te sientes, y la ayuda está más cerca de lo que parece.",
+    "rev": "Acepta la ayuda que se te ofrece. Suelta el orgullo y recupérate paso a paso."
+   }
+  },
+  "pentacles_six": {
+   "love": {
+    "up": "En pareja, sugiere dar y recibir en equilibrio, con justicia y apoyo mutuo. La generosidad entre ustedes genera confianza. Si no tienes pareja, puedes conocer a alguien a través de la amabilidad o la comunidad. Da con libertad sin llevar la cuenta.",
+    "rev": "Al revés, dar se vuelve unilateral, o hay condiciones ocultas. Uno de los dos puede tener más poder. Si no tienes pareja, cuidado con los intercambios desiguales."
+   },
+   "career": {
+    "up": "El trabajo y el dinero favorecen el intercambio justo, como una bonificación, un préstamo devuelto o la ayuda de un mentor. El mercader pesa monedas para los mendigos, así que fíjate en quién da y quién recibe. Comparte los recursos con justicia.",
+    "rev": "Pueden aparecer deudas, dar de forma unilateral o condiciones a la ayuda. Revisa los términos. Cuidado con quién tiene el poder."
+   },
+   "feelings": {
+    "up": "Esa persona es generosa y justa contigo. Sus sentimientos son cuidadosos y quiere equilibrio. Le gusta apoyarte.",
+    "rev": "Esa persona puede dar con condiciones, o espera algo a cambio. El equilibrio es desigual. Sus sentimientos vienen con condiciones."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. Dar y recibir con justicia sugiere una respuesta generosa, si el intercambio es equilibrado.",
+    "rev": "Quizá. Puede haber condiciones ocultas o un intercambio desigual. Lee primero los términos."
+   },
+   "advice": {
+    "up": "Da y recibe con justicia. Comparte lo que puedas y acepta ayuda sin vergüenza.",
+    "rev": "Busca condiciones ocultas. Haz el intercambio más justo y da sin expectativas escondidas."
+   }
+  },
+  "pentacles_seven": {
+   "love": {
+    "up": "En pareja, sugiere detenerse a ver qué ha crecido. Hace falta paciencia, porque el amor tarda en florecer. Si no tienes pareja, puede que estés evaluando si seguir invirtiendo en alguien. Ten paciencia y comprueba que estás a gusto.",
+    "rev": "Al revés, la impaciencia o las dudas sobre el progreso tensan las cosas. La pareja puede preguntarse si merece la pena el esfuerzo. Si no tienes pareja, puedes rendirte con alguien demasiado pronto."
+   },
+   "career": {
+    "up": "El trabajo, los estudios y el dinero piden paciencia y una pausa para evaluar. El granjero se apoya en su azada y contempla su cosecha. Los resultados tardan, así que revisa lo que has hecho y planifica lo siguiente.",
+    "rev": "La frustración por el crecimiento lento puede tentarte a dejarlo. Dudas de tu esfuerzo. Recuerda que crecer lleva tiempo, así que reevalúa antes de abandonar."
+   },
+   "feelings": {
+    "up": "Esa persona está observando con paciencia lo que crece entre ustedes. Sus sentimientos necesitan tiempo para madurar. Está sopesando si merece la pena.",
+    "rev": "Esa persona está impaciente o tiene dudas sobre la relación. Sus sentimientos son inseguros y puede estar pensando en irse. Dale tiempo."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     0
+    ],
+    "up": "Aún no. El granjero espera a ver su cosecha, así que la respuesta necesita más tiempo para crecer. Ten paciencia.",
+    "rev": "Quizá. La impaciencia nubla el panorama. No te rindas demasiado pronto, pero reevalúa lo que has puesto de tu parte."
+   },
+   "advice": {
+    "up": "Haz una pausa y evalúa. Ten paciencia con el crecimiento lento y elige dónde gastar tu esfuerzo.",
+    "rev": "No lo dejes demasiado pronto. Comprueba si el esfuerzo está bien empleado y luego continúa o cambia de rumbo."
+   }
+  },
+  "pentacles_eight": {
+   "love": {
+    "up": "En pareja, sugiere un compromiso constante y trabajar el vínculo, un paso paciente cada vez. Construyes confianza con esfuerzo. Si no tienes pareja, puedes centrarte en mejorarte, lo que puede atraer a la persona adecuada. Sigue practicando.",
+    "rev": "Al revés, el perfeccionismo o la rutina le quitan la alegría a las cosas. La pareja puede sentirse atrapada en la monotonía. Si no tienes pareja, puedes enterrarte en el trabajo para evitar las citas."
+   },
+   "career": {
+    "up": "El trabajo, los estudios y el oficio se benefician de la práctica diligente. El artesano talla moneda tras moneda, construyendo habilidad a base de repetición. El esfuerzo constante lleva a la maestría, y el dinero sigue al trabajo cuidadoso.",
+    "rev": "Pueden colarse el perfeccionismo, el agotamiento o el trabajo chapucero. La rutina pierde su propósito. Haz una pausa y vuelve a centrarte en por qué lo haces."
+   },
+   "feelings": {
+    "up": "Esa persona es dedicada y muestra su cariño con esfuerzo y constancia. Sus sentimientos crecen de forma estable. Se toma las cosas en serio y trabaja en ellas.",
+    "rev": "Esa persona puede estar demasiado ocupada o distraída por el trabajo. Sus sentimientos se pierden en la rutina. También puede ser descuidada."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. El trabajo constante y concentrado sugiere un sí si pones la práctica.",
+    "rev": "Quizá. El perfeccionismo o el agotamiento pueden interponerse. Descansa y luego revisa tu propósito."
+   },
+   "advice": {
+    "up": "Sigue practicando. Céntrate en el oficio, una repetición cada vez, y confía en el trabajo constante.",
+    "rev": "Revisa tu propósito. Evita el perfeccionismo y la rutina que desgasta, y date descanso."
+   }
+  },
+  "pentacles_nine": {
+   "love": {
+    "up": "En pareja, sugiere seguridad, comodidad y disfrutar de lo que habéis construido. Cada uno se siente independiente y a gusto. Si no tienes pareja, puedes estar feliz valiéndote por ti, y una pareja sería un extra. Disfruta de tu propia compañía.",
+    "rev": "Al revés, la comodidad puede sentirse vacía, o uno de los dos depende demasiado del otro. El trabajo puede ocupar el lugar de la intimidad. Si no tienes pareja, puedes sentirte solo a pesar de lo que tienes."
+   },
+   "career": {
+    "up": "El trabajo y el dinero muestran las recompensas de tu esfuerzo. La mujer en el viñedo, con un halcón encapuchado en el guante, disfruta de lo que se ha ganado. Siéntete orgulloso de tu independencia y disfrútala.",
+    "rev": "Es probable el exceso de trabajo o una comodidad vacía. Puedes depender de otros o sentir que tu éxito es hueco. Mira qué valoras de verdad."
+   },
+   "feelings": {
+    "up": "Esa persona está a gusto y es independiente, y disfruta de tu compañía sin necesitarte. Sus sentimientos son seguros y tranquilos. Le gusta la vida que ha construido.",
+    "rev": "Esa persona puede ser dependiente, o la comodidad se le hace vacía. Sus sentimientos pueden estar frenados por la autosuficiencia. Puede sentirse sola."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. La figura cómoda en el jardín sugiere una recompensa ganada, así que la respuesta tiende al sí.",
+    "rev": "Quizá. La comodidad puede sentirse vacía, o el exceso de trabajo tiene un precio. Comprueba qué importa antes de decir que sí."
+   },
+   "advice": {
+    "up": "Disfruta de lo que has construido. Descansa, siéntete orgulloso de valerte por ti y comparte tus comodidades.",
+    "rev": "Pregúntate qué falta. No trabajes en exceso y valora la conexión además de la comodidad."
+   }
+  },
+  "pentacles_ten": {
+   "love": {
+    "up": "En pareja, sugiere un vínculo duradero, familia y planes compartidos. La estabilidad y la seguridad a largo plazo están en primer plano. Si no tienes pareja, puede que busques a alguien con una visión de futuro compartido. Los asuntos familiares pueden influir en tus decisiones.",
+    "rev": "Al revés, la fricción familiar, el pensamiento a corto plazo o la inestabilidad afectan a la relación. La presión por encajar puede causar tensión. Si no tienes pareja, las expectativas familiares pueden estar limitando tus opciones."
+   },
+   "career": {
+    "up": "El trabajo y el dinero tienden a la estabilidad a largo plazo, a un legado duradero y a la riqueza compartida. La familia bajo el arco muestra generaciones juntas. Piensa a largo plazo y construye algo que perdure.",
+    "rev": "Es posible la inestabilidad en la familia o en las finanzas. Pensar a corto plazo puede perjudicar. Revisa tus planes con la vista puesta en el largo plazo."
+   },
+   "feelings": {
+    "up": "Esa persona ve un futuro contigo y valora la estabilidad y la familia. Sus sentimientos son profundos y duraderos. Piensa a largo plazo.",
+    "rev": "Esa persona puede sentir presión de su familia, o no tener claro el futuro. Sus sentimientos están revueltos. Las expectativas de otros pueden interponerse."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. La seguridad duradera y la familia sugieren un sí firme y a largo plazo.",
+    "rev": "Quizá. La inestabilidad o la fricción familiar pueden complicarlo. Piensa en el largo plazo."
+   },
+   "advice": {
+    "up": "Construye a largo plazo. Valora la familia y la comunidad, y piensa en el legado que quieres dejar.",
+    "rev": "Mira dónde hay inestabilidad. Evita pensar solo a corto plazo y atiende las tensiones familiares."
+   }
+  },
+  "pentacles_page": {
+   "love": {
+    "up": "En pareja, sugiere un comienzo paciente y sincero, con cuidado y gestos prácticos. Os vais conociendo despacio y construís confianza. Si no tienes pareja, puede empezar una conexión auténtica y con los pies en la tierra. Ve paso a paso.",
+    "rev": "Al revés, los planes se quedan en sueños, o uno de los dos lo va dejando para después. El esfuerzo se dirige mal. Si no tienes pareja, puedes soñar con el amor sin actuar."
+   },
+   "career": {
+    "up": "El trabajo y los estudios favorecen el aprendizaje, las metas prácticas y los comienzos cuidadosos. La Sota estudia una sola moneda alzada en un campo verde. Sé un aprendiz, empieza poco a poco y planifica tu dinero con cuidado.",
+    "rev": "La procrastinación o la falta de enfoque te frenan. Los planes se quedan en ideas. Divide las metas en tareas pequeñas y empieza."
+   },
+   "feelings": {
+    "up": "Esa persona es sincera y tiene ganas de construir algo real contigo. Sus sentimientos son cuidadosos y prácticos. Lo muestra siendo atenta y fiable.",
+    "rev": "Esa persona está dispersa o es de mucho hablar y poco hacer. Sus sentimientos pueden quedarse en sueños. Necesita dar un primer paso."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. La estudiante cuidadosa con su moneda sugiere un comienzo sólido, así que la respuesta tiende al sí si haces el trabajo.",
+    "rev": "Quizá. Sin acción, los planes se quedan en sueños. Enfócate antes de esperar un sí."
+   },
+   "advice": {
+    "up": "Aprende y empieza poco a poco. Da el primer paso práctico y ten paciencia con tu avance.",
+    "rev": "Deja de posponer. Elige una meta, hazla práctica y empieza hoy."
+   }
+  },
+  "pentacles_knight": {
+   "love": {
+    "up": "En pareja, sugiere lealtad, fiabilidad y esfuerzo constante. El amor crece despacio y con seguridad a través de la rutina y la confianza. Si no tienes pareja, buscas estabilidad y puede aparecer alguien de fiar. Añade un poco de espontaneidad.",
+    "rev": "Al revés, la rutina se convierte en un surco, o se instalan la terquedad y el aburrimiento. La pareja puede sentirse atascada. Si no tienes pareja, puedes ser demasiado cauteloso para moverte."
+   },
+   "career": {
+    "up": "El trabajo, los estudios y el dinero favorecen la persistencia y la minuciosidad. El Caballero está quieto sobre un caballo pesado, mirando la moneda, listo para hacer el trabajo. Lento pero seguro gana, así que termina lo que empieces.",
+    "rev": "La rutina se vuelve un surco, el progreso se estanca o el perfeccionismo te retiene. Añade variedad y sé flexible."
+   },
+   "feelings": {
+    "up": "Esa persona es leal y de fiar. Sus sentimientos son firmes más que llamativos, y muestra su cariño con hechos. Está comprometida.",
+    "rev": "Esa persona puede ser terca, estar aburrida o atascada. Sus sentimientos están presentes pero estancados. Puede resistirse al cambio."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. El Caballero constante sugiere un sí fiable, si estás dispuesto a poner el trabajo.",
+    "rev": "Quizá. El progreso se estanca, pero no está perdido. Sacude la rutina y vuelve a intentarlo."
+   },
+   "advice": {
+    "up": "Mantente firme y termina el trabajo. Confía en la rutina y la fiabilidad, y sigue adelante.",
+    "rev": "Rompe el surco. Sé flexible y comprueba si eres terco o solo cuidadoso."
+   }
+  },
+  "pentacles_queen": {
+   "love": {
+    "up": "En pareja, sugiere calidez, cuidado y atención práctica, un hogar donde se está a gusto. Cada uno cuida del otro con pequeños gestos. Si no tienes pareja, puede que estés a gusto creando una vida cómoda y abierto a una pareja cariñosa. Recuerda cuidar también de ti.",
+    "rev": "Al revés, el cuidado puede volverse agobio, o te descuidas para atender a otros. La pareja puede sentirse pasada por alto. Si no tienes pareja, puedes darte demasiado a los demás."
+   },
+   "career": {
+    "up": "El trabajo, los estudios y el dinero favorecen el ingenio, un buen presupuesto y un enfoque cálido y práctico. La Reina se sienta en un jardín en flor con una moneda en el regazo. Haz que tu vida funcione y apoya a los demás.",
+    "rev": "Es posible el exceso de trabajo o el descuido de ti mismo, o agobiar a otros con tu ayuda. Pon límites y atiende tus propias necesidades."
+   },
+   "feelings": {
+    "up": "Esa persona es cálida, cuidadosa y práctica en sus sentimientos. Muestra su amor cuidándote. Quiere que te sientas como en casa.",
+    "rev": "Esa persona puede estar agobiando, o descuidando sus propias necesidades. Sus sentimientos pueden salir como preocupación o como dar de más. Puede que ella también necesite cuidados."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. La Reina que cuida, en su jardín, sugiere un sí cálido y práctico.",
+    "rev": "Quizá. Dar de más o descuidarte pueden distorsionarlo. Atiende primero tus propias necesidades."
+   },
+   "advice": {
+    "up": "Cuídate y cuida a los demás, y sé práctico. Haz que tu hogar, tu presupuesto o tu vida funcionen.",
+    "rev": "No te descuides. Da con cuidado pero sin pasarte, y ten presentes tus propias necesidades."
+   }
+  },
+  "pentacles_king": {
+   "love": {
+    "up": "En pareja, sugiere un compromiso firme y generoso, y seguridad. Tu pareja o tú mostráis amor proveyendo y siendo fiables. Si no tienes pareja, puede que busques a alguien estable y asentado. Comparte calidez, no solo sustento.",
+    "rev": "Al revés, la posesividad, la terquedad o valorar el dinero por encima de las personas tensan el vínculo. Si no tienes pareja, puedes juzgar a la gente por su riqueza o su estatus."
+   },
+   "career": {
+    "up": "El trabajo y el dinero favorecen la estabilidad, la paciencia y el trato justo. El Rey se sienta entre vides y oro, una figura de abundancia construida con el tiempo. Lidera con firmeza, invierte con sensatez y sé generoso.",
+    "rev": "La seguridad se endurece hasta volverse avaricia, o los recursos se gestionan mal. Puedes resistirte al cambio. Sé justo y valora a las personas por encima del beneficio."
+   },
+   "feelings": {
+    "up": "Esa persona es leal, generosa y estable, y quiere cuidar de ti. Sus sentimientos son firmes y maduros. Muestra su amor a través de la seguridad.",
+    "rev": "Esa persona puede ser posesiva o controladora, o poner la riqueza por encima de los sentimientos. Sus sentimientos son difíciles de alcanzar. Puede resistirse al cambio."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Sí. El asiento seguro y abundante del Rey sugiere un sí confiado, construido con paciencia.",
+    "rev": "Quizá. La posesividad o la mala gestión pueden debilitarlo. Sé justo antes de seguir adelante."
+   },
+   "advice": {
+    "up": "Lidera con firmeza y con justicia. Construye despacio, sé generoso y disfruta de la estabilidad que has creado.",
+    "rev": "Busca señales de avaricia o rigidez. Valora a las personas por encima de las cosas y gestiona los recursos con cuidado."
+   }
+  }
+ }
+}

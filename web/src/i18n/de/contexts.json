@@ -1,0 +1,2086 @@
+{
+ "ui": {
+  "eyebrow": "Bedeutung der Tarotkarte",
+  "upright": "Aufrecht",
+  "reversed": "Umgekehrt",
+  "yes": "Tendiert zu Ja",
+  "no": "Tendiert zu Nein",
+  "maybe": "Vielleicht oder noch nicht",
+  "advice": "Rat",
+  "adviceRev": "Umgekehrt: {text}",
+  "reflect": "Eine Frage zum Nachdenken",
+  "reflectRev": "Umgekehrt: {text}",
+  "faqTitle": "{name}: häufige Fragen",
+  "faqAdvice": "Welchen Rat gibt {name}?",
+  "other": "Weitere Bedeutungen von {name}",
+  "tryText": "Zieh deine eigenen Karten und stell die Frage, die dich beschäftigt. Es ist kostenlos, und nichts, was du eingibst, verlässt dein Gerät.",
+  "tryCta": "Die Karten befragen",
+  "tabs": {
+   "meaning": "Gesamtbedeutung",
+   "love": "Liebe",
+   "career": "Beruf und Geld",
+   "feelings": "Als Gefühle",
+   "yesno": "Ja oder Nein"
+  },
+  "pages": {
+   "love": {
+    "title": "{name} in der Liebe: Tarotbedeutung aufrecht und umgekehrt · ShenTarot",
+    "description": "{name} in einer Liebeslegung, für Paare und Singles. {first}",
+    "h1": "{name} in der Liebe",
+    "faqUp": "Was bedeutet {name} in der Liebe?",
+    "faqRev": "Was bedeutet {name} umgekehrt in der Liebe?"
+   },
+   "career": {
+    "title": "{name} Bedeutung für Beruf und Geld: aufrecht und umgekehrt · ShenTarot",
+    "description": "{name} in einer Legung zu Beruf, Studium oder Geld. {first}",
+    "h1": "{name} für Beruf und Geld",
+    "faqUp": "Was bedeutet {name} für meinen Beruf?",
+    "faqRev": "Was bedeutet {name} umgekehrt für Arbeit und Geld?"
+   },
+   "feelings": {
+    "title": "{name} als Gefühle: Was empfindet er oder sie für dich? · ShenTarot",
+    "description": "Was {name} darüber sagt, wie jemand für dich empfindet, aufrecht und umgekehrt. {first}",
+    "h1": "{name} als Gefühle",
+    "faqUp": "Was bedeutet {name} als Gefühle?",
+    "faqRev": "Was bedeutet {name} umgekehrt als Gefühle?"
+   },
+   "yesno": {
+    "title": "Ist {name} eine Ja- oder Nein-Karte? Aufrecht und umgekehrt · ShenTarot",
+    "description": "{name} als Ja-oder-Nein-Antwort im Tarot. {first}",
+    "h1": "{name}: Ja oder Nein?",
+    "faqUp": "Ist {name} ein Ja oder ein Nein?",
+    "faqRev": "Ist {name} umgekehrt ein Ja oder ein Nein?"
+   }
+  }
+ },
+ "cards": {
+  "major_00_fool": {
+   "love": {
+    "up": "Der Narr rät dir, jemandem oder etwas Neuem ohne Drehbuch zu begegnen. Wenn du single bist, spricht er dafür, eine spontane Einladung anzunehmen und der Neugier zu folgen. In einer Beziehung deutet er auf einen frischen, verspielten gemeinsamen Schritt hin, leicht und ehrlich getan.",
+    "rev": "Umgekehrt deutet der Narr darauf hin, am Abgrund zu zögern oder blind loszuspringen. Als Single weichst du vielleicht der Offenheit aus oder jagst dem Kick hinterher. In einer Beziehung rät er, innezuhalten und darüber zu reden, was ihr beide vor dem nächsten großen Schritt tatsächlich erwartet."
+   },
+   "career": {
+    "up": "Vielleicht ruft ein neues Projekt, ein Kurs oder eine neue Richtung, und der Narr rät, anzufangen, bevor du dich qualifiziert fühlst. Reise mit leichtem Gepäck und akzeptiere, Anfänger zu sein. Beim Geld spricht er für kleine, neugierige Experimente statt einer einzigen großen Wette.",
+    "rev": "Umgekehrt rät der Narr entweder davon ab, am Rand einer Entscheidung zu verharren, oder davon, ohne Plan hineinzuspringen. Prüfe zuerst den Boden: Sammle die Grundlagen, lies das Kleingedruckte, frag jemanden, der es schon gemacht hat. Geldentscheidungen verdienen jetzt besondere Sorgfalt und etwas Geduld."
+   },
+   "feelings": {
+    "up": "Die andere Person fühlt sich vielleicht zu dir hingezogen, mit offener, fast jungenhafter Begeisterung. Sie ist neugierig, ein wenig nervös und weiß vielleicht nicht, wie sie es sagen soll. Ihre Gefühle wirken leicht und aufrichtig, aber noch nicht sorgfältig durchdacht.",
+    "rev": "Die andere Person ist sich ihrer Gefühle vielleicht nicht sicher oder handelt impulsiv, ohne an die Folgen zu denken. Das Interesse kann echt, aber unstet sein, oder die Angst bremst sie, es wirklich werden zu lassen. Ihr Verhalten passt womöglich noch nicht zu ihren Worten."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Der Narr neigt dazu, weiterzumachen, mit Vertrauen und leichtem Gepäck. Rechne damit, anfangs ungeschickt zu sein, und halte beim Losgehen die Augen offen.",
+    "rev": "Vielleicht. Der umgekehrte Narr deutet darauf hin, dass du dich entweder zurückhältst oder überstürzt handelst. Schau dir den Boden an, bevor du dich entscheidest, dann wird die Antwort womöglich klarer."
+   },
+   "advice": {
+    "up": "Mach den ersten Schritt, auch wenn er klein ist. Reise mit leichtem Gepäck, bewahre deinen Humor und erlaube dir, Anfänger zu sein. Vertraue deinem Instinkt, so wie der kleine Hund an deiner Ferse.",
+    "rev": "Halte inne und prüfe den Boden, bevor du losgehst. Wenn du ewig vorbereitet hast, wähle heute eine kleine Handlung. Wenn du alles überstürzt hast, werde langsamer und erzähl jemandem von deinem Plan."
+   }
+  },
+  "major_01_magician": {
+   "love": {
+    "up": "Der Magier deutet an, dass du schon alles hast, was du brauchst, um Verbindung aufzubauen: Aufmerksamkeit, Ehrlichkeit und die Bereitschaft zu handeln. Als Single zeig dich und sag, was du willst. In einer Beziehung rät er, deine Absichten durch kleine, bewusste Gesten sichtbar zu machen.",
+    "rev": "Umgekehrt deutet der Magier auf Charme ohne Aufrichtigkeit hin oder auf Gefühle, die du kennst, aber nicht ausgesprochen hast. Als Single spielst du vielleicht eine Rolle, statt du selbst zu sein. In einer Beziehung rät er zu prüfen, ob Worte und Taten wirklich zusammenpassen."
+   },
+   "career": {
+    "up": "Deine Fähigkeiten und Mittel reichen, um zu beginnen. Der Magier rät, dich auf ein klares Ziel zu konzentrieren und mit Absicht darauf hinzuarbeiten. Ein Pitch, ein Start oder eine Verhandlung kann gut laufen, wenn du dich vorbereitest. Beim Geld rät er, das Vorhandene klug zu nutzen.",
+    "rev": "Umgekehrt deutet der Magier auf zersplitterte Kraft, ungenutztes Talent oder Versprechen hin, die du nicht halten kannst. Wähle eine Aufgabe und bring sie zu Ende. Sei ehrlich darüber, was du leisten kannst, und nimm dich vor Geldgeschäften in Acht, die auf klugem Gerede beruhen."
+   },
+   "feelings": {
+    "up": "Die andere Person ist vielleicht aktiv interessiert und bereit, den ersten Schritt zu tun. Sie wirkt fokussiert, selbstsicher und bemüht, dich zu beeindrucken, vielleicht mit echtem Einsatz. Ihre Gefühle sind eher zielgerichtet als passiv.",
+    "rev": "Die andere Person sagt vielleicht, was du hören willst, ohne ganz aufrichtig zu sein, oder verbirgt ihre Gefühle hinter einer Fassade. Es kann auch sein, dass sie sich schlicht noch nicht entschieden hat. Achte darauf, ob auf Worte Taten folgen."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Der Magier deutet an, dass du die Mittel und den Fokus hast, es möglich zu machen. Er rät, mit klarer Absicht zu handeln, statt abzuwarten.",
+    "rev": "Vielleicht. Umgekehrt weist der Magier auf verstreute Energie oder Tricks ohne Durchhaltevermögen hin. Die Antwort hängt womöglich davon ab, ob du dich konzentrieren und ehrlich damit umgehen kannst."
+   },
+   "advice": {
+    "up": "Sammle dein Werkzeug, wähle ein Ziel und geh es heute an. Setze deine Fähigkeiten offen ein und halte dein Wort. Wahrscheinlich hast du mehr zur Verfügung, als du denkst.",
+    "rev": "Sammle deine Aufmerksamkeit, bevor du noch mehr anfängst. Bring eine Sache zu Ende, sei ehrlich darüber, was du anbieten kannst, und nutze ein Talent, das du bisher für dich behalten hast."
+   }
+  },
+  "major_02_high_priestess": {
+   "love": {
+    "up": "Die Hohepriesterin deutet an, dass das Unausgesprochene zwischen zwei Menschen mehr zählt als das Gesagte. In einer Beziehung rät sie zu Zuhören und stiller Nähe. Als Single spricht sie für Geduld und dafür, deinem Gespür zu vertrauen, wer sich richtig anfühlt.",
+    "rev": "Umgekehrt weist die Hohepriesterin auf verborgene Gefühle hin, selbst vor dir, oder darauf, zu viel in kleine Zeichen hineinzulesen. In einer Beziehung rät sie, behutsam auszusprechen, was bisher ungesagt blieb. Als Single: Beruhige den Lärm und nimm wahr, was du tatsächlich fühlst."
+   },
+   "career": {
+    "up": "Stille vor einer Entscheidung tut dir gut. Die Hohepriesterin rät, zu beobachten, zuzuhören und Informationen zu sammeln, bevor du dich festlegst. Lernen und Recherche laufen gut. Beim Geld rät sie zu warten, bis du das ganze Bild verstehst.",
+    "rev": "Umgekehrt übertönt vielleicht Geschäftigkeit deine innere Stimme, oder du hältst Informationen zu lange zurück. Nimm dir Zeit, in Ruhe nachzudenken, und handle dann. Hüte dich vor Zerdenken; nicht jedes kleine Zeichen hat eine Bedeutung."
+   },
+   "feelings": {
+    "up": "Die andere Person fühlt vielleicht viel und sagt wenig. Ihr Interesse wirkt tief, privat und vorsichtig und zeigt sich eher in Aufmerksamkeit als in Worten. Möglicherweise wartet sie ab, ob es sicher ist, etwas zu sagen.",
+    "rev": "Die andere Person verbirgt vielleicht ihre Gefühle oder weiß selbst nicht, was sie empfindet. Widersprüchliche Signale können von Verschlossenheit kommen, nicht von Desinteresse. Die Karte rät, freundlich nachzufragen, statt aus kleinen Hinweisen zu raten."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     0
+    ],
+    "up": "Vielleicht. Die Hohepriesterin verlangt zuerst Stille. Die Antwort ist noch nicht ganz ausgesprochen, also hör auf das, was du unter der Oberfläche spürst.",
+    "rev": "Noch nicht. Umgekehrt deutet sie an, dass du deine eigene Antwort nicht hörst oder dass noch etwas verborgen ist. Warte, bis sich der Lärm gelegt hat."
+   },
+   "advice": {
+    "up": "Sei still und hör zu. Lass die Frage in dir wirken, bevor du handelst, und vertraue dem, was du spürst, noch ehe du es erklären kannst. Behalte manches für dich, bis du sicher bist.",
+    "rev": "Dreh den Lärm leiser und frag dich, was du schon weißt. Benenne ein Gefühl, das du verborgen hast, und lies nicht zu viel in kleine Zeichen hinein."
+   }
+  },
+  "major_03_empress": {
+   "love": {
+    "up": "Die Herrscherin deutet auf Wärme, Zuneigung und Freude aneinander hin. In einer Beziehung rät sie zu Zärtlichkeit, gemeinsamen Mahlzeiten und dazu, das Aufgebaute zu pflegen. Als Single spricht sie dafür, dich selbst und die Freundschaften um dich herum zu nähren; Liebe wächst dort, wo man sich um sie kümmert.",
+    "rev": "Umgekehrt weist die Herrscherin auf Erdrücken, Überengagement oder die Vernachlässigung eigener Bedürfnisse hin. In einer Beziehung rät sie zu prüfen, ob Fürsorge in beide Richtungen fließt. Als Single bittet sie dich, zu dir so freundlich zu sein wie zu anderen."
+   },
+   "career": {
+    "up": "Kreative Arbeit und beständige Fürsorge sind begünstigt. Die Herrscherin rät zu Wachstum durch geduldige Pflege: ein Projekt, ein Team, eine Fähigkeit. Beim Geld deutet sie auf einen behaglichen Wohlstand hin, der allmählich wächst und ohne Übermaß genossen wird.",
+    "rev": "Umgekehrt könnten eine kreative Flaute, Überarbeitung oder Fürsorge für alle außer dich selbst im Spiel sein. Ruh dich aus und nähre deine Fantasie. Beim Geld achte darauf, nicht aus Trost zu viel auszugeben und die eigene Sicherheit zu vernachlässigen."
+   },
+   "feelings": {
+    "up": "Die andere Person fühlt sich dir gegenüber vielleicht warm, großzügig und beschützend. Ihre Gefühle wirken liebevoll und sinnlich, mit dem Wunsch, für dich zu sorgen und Zeit miteinander zu genießen. Es geht eher um Geborgenheit als um Drama.",
+    "rev": "Die andere Person gibt vielleicht zu viel, wird besitzergreifend oder zieht ihre Fürsorge zurück, weil sie sich ausgelaugt fühlt. Ihre Gefühle können echt sein, aber mit eigenen Bedürfnissen verknotet."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Die Herrscherin neigt zu Wachstum, wenn du es gut pflegst. Fürsorge, Geduld und Genuss unterstützen dieses Vorhaben.",
+    "rev": "Vielleicht. Umgekehrt deutet sie an, dass Fürsorge blockiert oder übertrieben ist. Schau, ob deine eigenen Bedürfnisse erfüllt werden, bevor du dich entscheidest."
+   },
+   "advice": {
+    "up": "Pflege, was du liebst, und erlaube dir, es zu genießen. Koch, bastle, pflanze oder ruh dich aus. Großzügigkeit wirkt am besten, wenn du dich selbst einschließt.",
+    "rev": "Setz deine eigenen Bedürfnisse wieder auf die Liste. Wenn du zu viel gibst, tritt zurück; wenn du dich kreativ festgefahren fühlst, geh nach draußen und lass deinen Kopf ruhen."
+   }
+  },
+  "major_04_emperor": {
+   "love": {
+    "up": "Der Herrscher deutet auf Beständigkeit, Verbindlichkeit und klare Grenzen hin. In einer Beziehung rät er zu Verlässlichkeit und dazu, abzusprechen, wie ihr füreinander sorgt. Als Single spricht er dafür, zu wissen, was du willst, und zu deinen Ansprüchen zu stehen.",
+    "rev": "Umgekehrt weist der Herrscher auf Kontrolle, Sturheit oder fehlende Grenzen hin. In einer Beziehung rät er zu fragen, wo aus Festigkeit Starrheit geworden ist. Als Single bist du vielleicht zu verschlossen oder zu schnell bereit nachzugeben."
+   },
+   "career": {
+    "up": "Struktur und Führung tun dir gut. Der Herrscher rät zu Planung, klaren Grenzen und Verantwortung. Autoritätspersonen und Systeme spielen hier eine Rolle. Beim Geld spricht er für Budgets, Sparroutinen und ein stabiles Fundament.",
+    "rev": "Umgekehrt können starre Regeln, ein herrischer Chef oder das völlige Fehlen eines Plans das Problem sein. Schau, wo du zu fest kontrollierst oder wo es keine Struktur gibt. Flexibilität mit ein paar Grenzen kann helfen."
+   },
+   "feelings": {
+    "up": "Die andere Person fühlt sich vielleicht beschützend, ernsthaft und verbindlich und zeigt Fürsorge durch Verlässlichkeit statt durch Worte. Ihre Gefühle wirken stabil und verantwortungsbewusst, vielleicht aber zurückhaltend. Sie möchte etwas Dauerhaftes aufbauen.",
+    "rev": "Die andere Person ist vielleicht kontrollierend, emotional verschlossen oder fühlt sich vom Gewicht der Verantwortung unwohl. Ihre Gefühle können echt sein, äußern sich aber durch Regeln und Distanz. Die Karte rät zu einem klaren, ruhigen Gespräch."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Der Herrscher neigt zu einem Plan mit klarer Struktur und festem Stand. Setz deine Bedingungen und geh gleichmäßig voran.",
+    "rev": "Vielleicht. Umgekehrt weist er auf Starrheit oder fehlende Struktur hin. Die Antwort hängt womöglich davon ab, ob du die Kontrolle lockerst oder einen richtigen Plan aufstellst."
+   },
+   "advice": {
+    "up": "Mach einen Plan, setz klare Grenzen und übernimm Verantwortung. Führe mit Ruhe. Ordnung ist nützlich, wenn sie schützt, was dir wichtig ist.",
+    "rev": "Prüfe, wo aus Festigkeit Sturheit geworden ist oder wo du gar keinen Plan hast. Lockere deinen Griff ein wenig, oder baue die Struktur auf, die fehlt."
+   }
+  },
+  "major_05_hierophant": {
+   "love": {
+    "up": "Der Hierophant deutet auf Verbindlichkeit, gemeinsame Werte und den Rückhalt einer Gemeinschaft hin. In einer Beziehung rät er zu Ritualen, Familienbanden und wachsendem Vertrauen. Als Single spricht er dafür, jemanden über gemeinsame Kreise kennenzulernen und Gemeinsamkeiten zu schätzen.",
+    "rev": "Umgekehrt weist der Hierophant darauf hin, Erwartungen daran zu hinterfragen, wie eine Beziehung auszusehen hat. Er rät, deinen eigenen Weg zu finden, sei es abseits der Konvention oder abseits von Familiendruck. Als Single sträubst du dich vielleicht gegen Etiketten oder ein festes Drehbuch."
+   },
+   "career": {
+    "up": "Es tut dir gut, zuerst den etablierten Weg zu lernen. Der Hierophant rät zu Mentoren, formaler Ausbildung, Abschlüssen und Respekt vor bewährten Methoden. Ein Team oder eine Institution kann dich unterstützen. Beim Geld spricht er für herkömmliche, vertrauenswürdige Wege.",
+    "rev": "Umgekehrt fühlen sich Regeln, die nicht mehr passen, vielleicht einengend an, oder du lehnst einen Rat ab, den du brauchst. Frag dich, welche Konventionen noch helfen und welche nur Gewohnheit sind. Hüte dich bei der Arbeit vor Dogmen und beim Geld davor, anderen blind zu folgen."
+   },
+   "feelings": {
+    "up": "Die andere Person empfindet vielleicht Respekt, Aufrichtigkeit und Ernsthaftigkeit dir gegenüber und wünscht sich einen ordentlichen, verbindlichen Weg. Ihre Gefühle neigen zu Loyalität und gemeinsamen Werten statt zu etwas Flüchtigem. Vielleicht ist ihr wichtig, was Familie und Freunde denken.",
+    "rev": "Die andere Person fühlt sich vielleicht hin- und hergerissen zwischen dem, was von ihr erwartet wird, und dem, was sie will. Ihre Gefühle können echt sein, aber durch Konventionen gebremst, oder sie lehnt den üblichen Weg ganz ab."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Der Hierophant neigt zu dem, was bewährt, vertrauenswürdig und von anderen getragen ist. Wenn du fragst, bekommst du Orientierung.",
+    "rev": "Vielleicht. Umgekehrt deutet er an, dass der übliche Weg nicht passt. Überlege, ob du einer Regel folgst oder deinen eigenen Werten."
+   },
+   "advice": {
+    "up": "Lerne von jemandem, der diesen Weg schon gegangen ist. Schließ dich der Gruppe an, ehre die Tradition, die zu dir passt, und halte dich an die Grundlagen, bevor du sie veränderst.",
+    "rev": "Hinterfrage die Regel, die nicht mehr passt, und finde dann deinen eigenen Weg zu Sinn. Bleib offen dafür, von anderen zu lernen, auch wenn du die Form ablehnst."
+   }
+  },
+  "major_06_lovers": {
+   "love": {
+    "up": "Die Liebenden deuten auf eine Verbindung hin, die Ehrlichkeit verlangt und eine Entscheidung aus deinen Werten heraus. In einer Beziehung rät die Karte zu tieferer Verbindlichkeit und offenen Gesprächen. Als Single spricht sie für eine bedeutsame Verbindung oder dafür, das zu wählen, was du wirklich willst, statt jemandem zu gefallen.",
+    "rev": "Umgekehrt weisen die Liebenden auf Missklang, Auseinanderdriften oder eine aufgeschobene Entscheidung hin. In einer Beziehung rät die Karte zu prüfen, ob dein Handeln zu dem passt, was dir wichtig ist. Als Single bist du vielleicht hin- und hergerissen oder entscheidest dich, um anderen zu gefallen."
+   },
+   "career": {
+    "up": "Eine bedeutsame Entscheidung im Beruf spiegelt deine Werte. Die Liebenden raten zu Partnerschaften und Zusammenarbeit, die zu dir passen, und zu dem Weg, der sich stimmig anfühlt. Beim Geld rät die Karte, so zu wählen, wie es zu dem passt, was du für wichtig hältst.",
+    "rev": "Umgekehrt halten dich vielleicht Unentschlossenheit oder unterschiedliche Werte zurück. Eine Partnerschaft könnte aus dem Takt sein. Frag dich, welche Option du wählen würdest, wenn niemand zusähe, und stütze dich nicht zu sehr auf die Sicht einer anderen Person."
+   },
+   "feelings": {
+    "up": "Die andere Person spürt vielleicht eine echte Anziehung und den Wunsch nach ehrlicher Verbindung. Ihre Gefühle wirken aufrichtig, warm und auf Verbindlichkeit ausgerichtet, mit Anziehung und Werten, die zusammenpassen. Vielleicht wägt sie eine bedeutsame Entscheidung in Bezug auf dich ab.",
+    "rev": "Die andere Person ist vielleicht unsicher, hin- und hergerissen oder spürt, wie sich eine Distanz auftut. Ihre Gefühle können echt sein, aber ohne passende Taten. Die Karte rät zu einem ehrlichen Gespräch darüber, was ihr beide wollt."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Die Liebenden neigen zu einer Entscheidung, die zu deinen Werten passt, und zu einer ehrlichen Verbindung. Wähle, wofür du einstehen kannst.",
+    "rev": "Vielleicht. Umgekehrt weisen die Liebenden auf eine verschobene Entscheidung oder Werte aus dem Takt hin. Die Antwort kommt womöglich erst, wenn du ehrlich zu dir selbst bist."
+   },
+   "advice": {
+    "up": "Entscheide dich im Einklang mit deinen Werten und sag die Wahrheit über das, was du willst. Lass eine Verbindung ehrlich und gegenseitig sein, statt eine Vorstellung.",
+    "rev": "Hör auf, die Entscheidung aufzuschieben. Prüfe, ob dein Handeln zu dem passt, was du als wichtig bezeichnest, und sprich offen mit der betroffenen Person."
+   }
+  },
+  "major_07_chariot": {
+   "love": {
+    "up": "Der Wagen deutet an, in der Liebe mit Fokus und Beständigkeit auf das zuzusteuern, was du willst. In einer Beziehung rät er zu einer gemeinsamen Richtung und dazu, widerstreitende Impulse zusammen zu klären. Als Single spricht er dafür, aktiv Schritte zu tun und nicht zu warten.",
+    "rev": "Umgekehrt weist der Wagen darauf hin, in verschiedene Richtungen zu ziehen, Dinge zu erzwingen oder ohne Plan festzustecken. In einer Beziehung rät er, langsamer zu werden und euch darüber zu einigen, wohin es gehen soll. Als Single überstürzt du vielleicht etwas oder trittst auf der Stelle."
+   },
+   "career": {
+    "up": "Entschlossenheit und Disziplin bringen dich voran. Der Wagen rät zu einem klaren Ziel, Schwung und dazu, konkurrierende Anforderungen im Griff zu behalten. Prüfungen, Wettbewerbe und Dienstreisen können eine Rolle spielen. Beim Geld spricht er für konzentrierte, stetige Anstrengung.",
+    "rev": "Umgekehrt kann dein Antrieb zersplittert, ins Stocken geraten oder zu hart sein. Halte inne und wähle eine Richtung, bevor du Gas gibst. Pass auf, dass Ehrgeiz keine Kollegen überrollt, und erzwinge keine Geldentscheidung."
+   },
+   "feelings": {
+    "up": "Die andere Person ist vielleicht entschlossen, dich zu gewinnen oder die Dinge voranzubringen. Ihre Gefühle wirken stark und zielstrebig, und sie zeigt sie selbstbewusst. Möglicherweise will sie das Steuer übernehmen.",
+    "rev": "Die andere Person wird vielleicht in zwei Richtungen gezogen, ist unsicher über den Kurs oder drängt zu hart und zu schnell. Ihre Gefühle können echt sein, verwandeln sich aber in Druck oder Kontrolle. Die Karte rät, um Raum und Klarheit zu bitten."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Der Wagen neigt zu Fortschritt, wenn du den Fokus hältst. Führe die Zügel ruhig und bleib dran.",
+    "rev": "Vielleicht. Umgekehrt deutet er auf zerstreuten Antrieb oder Kraft ohne Richtung hin. Die Antwort hängt womöglich davon ab, zuerst einen klaren Kurs zu wählen."
+   },
+   "advice": {
+    "up": "Wähle eine Richtung und bleib dabei. Halte widerstreitende Impulse mit Disziplin im Zaum und geh in gleichmäßigem Tempo weiter.",
+    "rev": "Halte an und frag dich, wohin du eigentlich willst. Nimm die Kraft heraus, löse den inneren Zwiespalt und setz dich dann wieder in Bewegung."
+   }
+  },
+  "major_08_strength": {
+   "love": {
+    "up": "Die Kraft deutet in der Liebe auf Geduld, Zärtlichkeit und stillen Mut hin. In einer Beziehung rät sie, schwierigen Gefühlen mit Freundlichkeit statt mit Streit zu begegnen. Als Single spricht sie für Selbstmitgefühl und das Selbstvertrauen, sanft und offen zu sein.",
+    "rev": "Umgekehrt weist die Kraft auf Selbstzweifel, Erschöpfung oder den Versuch hin, ein Gefühl mit Gewalt zu zähmen. In einer Beziehung rät sie zu Ruhe und ehrlichem Mitteilen deiner Grenzen. Als Single sei freundlich zu dir und baue dein Selbstvertrauen in kleinen Schritten wieder auf."
+   },
+   "career": {
+    "up": "Ruhige Widerstandskraft schafft, was Gewalt nicht kann. Die Kraft rät zu Geduld mit einem schwierigen Kollegen oder einer schwierigen Aufgabe und zu stetigem Selbstvertrauen. Beharrlichkeit zahlt sich hier aus. Beim Geld rät sie, gelassen zu bleiben und nicht aus Angst zu handeln.",
+    "rev": "Umgekehrt läufst du vielleicht auf Reserve, zweifelst an dir oder kämpfst dich mit bloßem Willen durch. Ruh dich aus, bitte um Unterstützung und baue mit kleinen Erfolgen wieder auf. Hüte dich davor, Ergebnisse zu erzwingen oder beim Geld aus Angst zu handeln."
+   },
+   "feelings": {
+    "up": "Die andere Person fühlt sich dir gegenüber vielleicht sanft, loyal und geduldig. Ihre Gefühle wirken beständig und mitfühlend und zeigen sich in Freundlichkeit und ruhigem Beistand statt in großen Gesten. Vielleicht bewundert sie deinen Mut.",
+    "rev": "Die andere Person fühlt sich vielleicht unsicher, erschöpft oder kann nicht zeigen, wie viel sie empfindet. Ihre Gefühle sind womöglich da, aber unter Selbstzweifeln oder Anspannung begraben. Geduld und Sanftheit von dir können helfen."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Die Kraft neigt zu Erfolg durch Geduld und sanfte Beharrlichkeit. Du kannst das ohne Kampf schaffen.",
+    "rev": "Vielleicht. Umgekehrt deutet sie auf wenig Energie oder Selbstzweifel hin. Die Antwort hängt womöglich davon ab, dass du dich zuerst erholst und dein Selbstvertrauen wieder aufbaust."
+   },
+   "advice": {
+    "up": "Begegne der Schwierigkeit ruhig und freundlich. Sei geduldig mit dir und mit anderen, und lass den Mut leise statt laut sein.",
+    "rev": "Ruh dich aus und baue dein Selbstvertrauen in kleinen Schritten wieder auf. Versuche nicht, ein Gefühl wegzudrücken; gib ihm Raum und sprich freundlich mit dir."
+   }
+  },
+  "major_09_hermit": {
+   "love": {
+    "up": "Der Eremit deutet an, dass Zeit für dich allein klären kann, was du willst. In einer Beziehung rät er zu stiller, ehrlicher Reflexion und vielleicht etwas Abstand. Als Single spricht er dafür, deine eigene Gesellschaft zu genießen und auf eine Verbindung zu warten, die sich wahr anfühlt.",
+    "rev": "Umgekehrt weist der Eremit darauf hin, sich zu weit zurückzuziehen oder es nicht mit sich allein auszuhalten. In einer Beziehung rät er, die Hand auszustrecken, bevor sich die Distanz verhärtet. Als Single bring Alleinsein und warme Gesellschaft ins Gleichgewicht."
+   },
+   "career": {
+    "up": "Es tut dir gut, einen Schritt zurückzutreten und nachzudenken. Der Eremit rät zu konzentriertem Lernen, Recherche oder Arbeit allein und zum Rat eines Mentors. Beim Geld rät er, deine Lage in Ruhe zu überprüfen, bevor du dich entscheidest.",
+    "rev": "Umgekehrt stehen dir vielleicht Isolation oder Rastlosigkeit im Weg. Schneide dich nicht von Hilfe ab und weich nicht der Frage aus, der du dich stellen musst. Such den Kontakt zu einer vertrauten Kollegin oder einem Kollegen und kehre dann zu deinem Plan zurück."
+   },
+   "feelings": {
+    "up": "Die andere Person ist vielleicht nachdenklich und ernst und nimmt sich Zeit, ihre Gefühle zu verstehen, bevor sie sie teilt. Sie wirkt durchdacht und aufrichtig, aber still. Vielleicht braucht sie Raum, und das ist nicht dasselbe wie Desinteresse.",
+    "rev": "Die andere Person zieht sich vielleicht zurück, weicht dem Thema aus oder findet mit ihren Gedanken keine Ruhe. Ihre Gefühle können echt sein, verbergen sich aber hinter Distanz. Vielleicht kehrt sie langsam wieder zu den Menschen zurück."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     0
+    ],
+    "up": "Vielleicht. Der Eremit bittet dich, einen Schritt zurückzutreten und nachzudenken. Die Antwort liegt in deinem eigenen stillen Urteil, nicht im Lärm von außen.",
+    "rev": "Noch nicht. Umgekehrt deutet er an, dass du der Frage ausweichst oder dich zu weit zurückziehst. Such wieder Kontakt und denk dann noch einmal nach."
+   },
+   "advice": {
+    "up": "Nimm dir Zeit allein zum Nachdenken. Dreh die Stimmen von außen leiser, zünde deine eigene Lampe an und entscheide, was dir wichtig ist.",
+    "rev": "Zieh dich nicht noch weiter zurück. Wende dich an jemanden, dem du vertraust, und wenn du nicht still sein kannst, achte darauf, was du vermeidest."
+   }
+  },
+  "major_10_wheel_of_fortune": {
+   "love": {
+    "up": "Das Rad deutet an, dass sich etwas dreht und die Liebe in ein neues Kapitel eintreten könnte. In einer Beziehung rät es zu Veränderungen, denen ihr gemeinsam begegnen könnt. Als Single spricht es dafür, dass sich das Timing zu deinen Gunsten wendet, oder für eine unerwartete Begegnung.",
+    "rev": "Umgekehrt weist das Rad auf ein sich wiederholendes Muster oder den Widerstand gegen eine Veränderung hin. In einer Beziehung rät es, die Schleife zu benennen, in die ihr immer wieder geratet. Als Single fühlst du dich vielleicht festgefahren, aber ein Zyklus geht zu Ende."
+   },
+   "career": {
+    "up": "Die Umstände verschieben sich, und ein neues Kapitel kann sich öffnen. Das Rad rät, dich gut auf Veränderungen einzustellen und günstiges Timing zu nutzen. Beim Geld deutet es auf Schwankungen hin, also bleib flexibel und behalte den Überblick.",
+    "rev": "Umgekehrt fühlst du dich vielleicht in einer Schleife gefangen oder wehrst dich gegen eine Veränderung, die schon im Gang ist. Schau, was du beeinflussen kannst, und lass los, was du nicht beeinflussen kannst. Vermeide voreilige Geldentscheidungen aufgrund eines Gefühls von Glück."
+   },
+   "feelings": {
+    "up": "Die andere Person spürt vielleicht, dass sich etwas verschiebt, und ist offen für Veränderung mit dir. Ihre Gefühle scheinen sich in eine gute Richtung zu bewegen, begünstigt vom Timing. Vielleicht empfindet sie das als Fügung oder Glück.",
+    "rev": "Die andere Person macht vielleicht selbst eine Veränderung durch oder wiederholt ein altes Muster. Ihre Gefühle sind womöglich im Fluss und im Moment schwer zu lesen. Gib ihr Zeit und achte darauf, was beständig bleibt."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Das Rad neigt zu einer günstigen Wendung und gutem Timing. Sei bereit, dich anzupassen, während sich die Dinge bewegen.",
+    "rev": "Vielleicht. Umgekehrt deutet das Rad auf Verzögerungen oder eine sich wiederholende Schleife hin. Das Timing passt womöglich noch nicht."
+   },
+   "advice": {
+    "up": "Akzeptiere, dass Zyklen sich drehen, und fahre diesen mit offenem Geist mit. Achte darauf, was die Veränderung dir bietet, und nutze das gute Timing.",
+    "rev": "Bemerke das Muster, das du immer wiederholst, und wähle eine Sache, die in deiner Hand liegt. Lass einen auslaufenden Zyklus enden, statt dich dagegen zu wehren."
+   }
+  },
+  "major_11_justice": {
+   "love": {
+    "up": "Die Gerechtigkeit deutet in der Liebe auf Ehrlichkeit, Fairness und klare Vereinbarungen hin. In einer Beziehung rät sie zu einem ausgewogenen Geben und Nehmen und dazu, zum eigenen Anteil zu stehen. Als Single spricht sie dafür, ehrlich darüber zu sein, was du willst und was du bieten kannst.",
+    "rev": "Umgekehrt weist die Gerechtigkeit auf Ungerechtigkeit, Schuldzuweisung oder das Ausweichen vor Verantwortung hin. In einer Beziehung rät sie zu prüfen, ob die Waage aus dem Gleichgewicht ist, auch zu deinen Ungunsten. Als Single hüte dich vor hartem Urteil über andere oder über dich selbst."
+   },
+   "career": {
+    "up": "Faires Handeln und ehrliche Fakten begünstigen dich. Die Gerechtigkeit rät zu Verträgen, Beurteilungen und Entscheidungen auf Grundlage der Tatsachen. Verantwortungsbewusstsein wird belohnt. Beim Geld rät sie, die Details zu lesen und genaue Aufzeichnungen zu führen.",
+    "rev": "Umgekehrt können Voreingenommenheit, vermiedene Verantwortung oder ein unfaires Verfahren im Spiel sein. Prüfe die Fakten noch einmal und steh zu deinem Anteil. Hüte dich vor hartem Urteil, und prüfe jede Vereinbarung genau, bevor du dich auf sie verlässt."
+   },
+   "feelings": {
+    "up": "Die andere Person wünscht sich vielleicht, dass es zwischen euch ehrlich und fair zugeht. Ihre Gefühle wirken überlegt, aufrichtig und auf einem klaren Blick auf die Lage gegründet. Vielleicht ist ihr die Wahrheit wichtiger als Bequemlichkeit.",
+    "rev": "Die andere Person weicht vielleicht der Verantwortung aus, urteilt hart oder sieht die Dinge einseitig. Ihre Gefühle können echt sein, aber durch Voreingenommenheit oder Angst vor Folgen getrübt. Ein ruhiges, sachliches Gespräch kann helfen."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Die Gerechtigkeit neigt zu einem fairen Ergebnis, wenn du die Fakten ehrlich betrachtest. Wäge sie klar ab und steh zu deinem Anteil.",
+    "rev": "Vielleicht. Umgekehrt trüben Voreingenommenheit oder vermiedene Verantwortung vielleicht die Sicht. Die Antwort hängt davon ab, die Lage fair zu sehen."
+   },
+   "advice": {
+    "up": "Wäge die Fakten ehrlich ab, auch deine eigene Rolle. Triff faire Entscheidungen, halte dein Wort und nimm die Folgen an.",
+    "rev": "Such nach Voreingenommenheit, bei anderen und bei dir selbst. Übernimm Verantwortung, wo sie bei dir liegt, und geh mit dir weniger hart ins Gericht."
+   }
+  },
+  "major_12_hanged_man": {
+   "love": {
+    "up": "Der Gehängte deutet auf eine Pause hin, die dir etwas Neues zeigt. In einer Beziehung rät er, eine festgefahrene Sicht loszulassen und die Seite deines Gegenübers zu sehen. Als Single spricht er dafür, ohne Zwang zu warten und die Liebe aus einem anderen Blickwinkel zu betrachten.",
+    "rev": "Umgekehrt weist der Gehängte auf Stillstand oder darauf hin, den Märtyrer zu spielen. In einer Beziehung rät er zu fragen, ob das Warten noch einem von euch hilft. Als Single stellst du dein Leben vielleicht für jemanden auf Eis, der sich nicht für dich entscheidet."
+   },
+   "career": {
+    "up": "Eine bewusste Pause lässt dich das Problem anders sehen. Der Gehängte rät zu Verzögerungen, die sich als nützlich erweisen, und zu neuen Perspektiven. Beim Geld rät er, große Entscheidungen aufzuschieben, bis du klarer siehst.",
+    "rev": "Umgekehrt ist aus der Pause vielleicht eine Verschleppung geworden oder ein Opfer, das niemandem nützt. Entscheide, ob Warten noch klug ist. Wenn du bereit bist loszugehen, mach einen Plan und handle, statt in der Schwebe zu bleiben."
+   },
+   "feelings": {
+    "up": "Die andere Person befindet sich vielleicht in einer nachdenklichen Pause und überdenkt, was sie will. Ihre Gefühle wirken echt, aber noch ungeklärt, und sie sieht die Dinge möglicherweise aus einem neuen Blickwinkel. Sie hat es nicht eilig.",
+    "rev": "Die andere Person zögert vielleicht, ist unentschlossen oder bringt ein Opfer, über das sie sich ärgert. Ihre Gefühle können echt sein, stecken aber fest. Möglicherweise macht sie sich auch nach langem Warten bereit loszugehen."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     0
+    ],
+    "up": "Vielleicht. Der Gehängte rät, zu warten und noch einmal hinzuschauen. Die Antwort kommt womöglich, sobald du es anders siehst.",
+    "rev": "Noch nicht. Umgekehrt weist er auf Stillstand ohne Zweck hin. Frag dich, ob Warten noch hilft, und entscheide dann."
+   },
+   "advice": {
+    "up": "Pausiere mit Absicht und betrachte die Lage von der anderen Seite. Lass das Erzwingen sein und sei geduldig.",
+    "rev": "Frag dich, ob Warten noch nützlich ist. Wenn nicht, hör auf, dich aufzuopfern, und entscheide dich, oder lass die Pause enden."
+   }
+  },
+  "major_13_death": {
+   "love": {
+    "up": "Der Tod deutet in der Liebe auf ein Ende hin, das schon begonnen hat. In einer Beziehung rät er, ein altes Muster oder eine Phase zu beenden, damit etwas Wahreres beginnen kann. Als Single spricht er dafür, ein vergangenes Kapitel abzuschließen und Platz zu schaffen.",
+    "rev": "Umgekehrt weist der Tod darauf hin, an etwas festzuhalten, das vorbei ist, oder ein Ende hinauszuzögern, weil niemand es ausspricht. In einer Beziehung rät er, ehrlich zu sagen, was vorbei ist. Als Single willst du vielleicht eine frühere Person nur ungern loslassen."
+   },
+   "career": {
+    "up": "Eine Rolle, eine Gewohnheit oder eine Überzeugung hat sich überlebt. Der Tod rät, das Alte aufzuräumen, was neben Trauer auch Erleichterung bringen kann. Ein Job- oder Richtungswechsel ist möglich. Beim Geld rät er, abzuschließen, was nicht mehr funktioniert.",
+    "rev": "Umgekehrt wehrst du dich vielleicht gegen ein nötiges Ende oder akzeptierst es nur halb. Festhalten kann mehr kosten als Loslassen. Benenne, was vorbei ist, und nimm dir Zeit, dich einzustellen, statt einen Neustart zu erzwingen."
+   },
+   "feelings": {
+    "up": "Die andere Person spürt vielleicht, dass etwas zwischen euch zu Ende gegangen oder anders geworden ist, und ist bereit weiterzuziehen oder neu zu beginnen. Ihre Gefühle scheinen im Wandel zu sein. Es könnte ein Abschluss oder eine Verwandlung sein, kein schlichter Abschied.",
+    "rev": "Die andere Person kann vielleicht nicht loslassen oder weiß insgeheim, dass es vorbei ist, ohne es zu sagen. Ihre Gefühle schleppen sich womöglich hin, weil niemand sie benennt. Die Karte rät zu behutsamer Ehrlichkeit."
+   },
+   "yesno": {
+    "verdict": [
+     -1,
+     0
+    ],
+    "up": "Nein. Der Tod deutet an, dass dieses Kapitel sich schließt, die Antwort neigt also dazu, die Dinge nicht so zu belassen, wie sie sind. Etwas Neues kann folgen.",
+    "rev": "Vielleicht. Umgekehrt wird ein Ende abgewehrt oder nur halb akzeptiert. Die Antwort wird womöglich klar, sobald du loslässt."
+   },
+   "advice": {
+    "up": "Lass los, was sich überlebt hat. Markiere das Ende, trauere, wenn du es brauchst, und schaffe Platz für das, was kommt.",
+    "rev": "Benenne, was schon zu Ende ist, statt daran zu klammern. Mach kleine Schritte Richtung Akzeptanz und geh behutsam mit dir um."
+   }
+  },
+  "major_14_temperance": {
+   "love": {
+    "up": "Die Mäßigkeit deutet auf Geduld, Balance und das Verbinden von Unterschieden hin. In einer Beziehung rät sie zu Kompromissen und einem ruhigen, stetigen Tempo. Als Single spricht sie dafür, die Liebe allmählich wachsen zu lassen und einen Mittelweg zwischen den Extremen zu halten.",
+    "rev": "Umgekehrt weist die Mäßigkeit auf Ungleichgewicht, Ungeduld oder Extreme hin. In einer Beziehung rät sie, dass einer von euch zu viel gibt oder nimmt. Als Single willst du vielleicht sofort Ergebnisse oder tust dich schwer, einen Mittelweg zu finden."
+   },
+   "career": {
+    "up": "Maßvolle, geduldige Arbeit verbindet gegensätzliche Anforderungen. Die Mäßigkeit rät zu Teamarbeit, stetigem Fortschritt und Mäßigung. Verbinde Ideen, statt Partei zu ergreifen. Beim Geld rät sie, Ausgaben und Sparen auszubalancieren und in ruhigem Tempo vorzugehen.",
+    "rev": "Umgekehrt können Übertreibung, Ungeduld oder aus dem Gleichgewicht geratende Dinge ein Problem sein. Schau, wo du im Extrem bist, und strebe einen ruhigeren Rhythmus an. Vermeide hastige Geldentscheidungen."
+   },
+   "feelings": {
+    "up": "Die andere Person fühlt sich vielleicht ruhig, freundlich und bereit, dir auf halbem Weg entgegenzukommen. Ihre Gefühle wirken beständig und geduldig, und sie bevorzugt womöglich ein allmähliches, ausgewogenes Tempo. Sie ist eher vorsichtig als dramatisch.",
+    "rev": "Die andere Person ist vielleicht ungeduldig, geht in Extreme oder tut sich schwer, einen Mittelweg zu finden. Ihre Gefühle können echt, aber sprunghaft sein, oder sie meidet Verbindlichkeit. Beständigkeit von dir kann helfen."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Die Mäßigkeit neigt zu einem guten Ergebnis durch Geduld und Balance. Geh in gleichmäßigem, maßvollem Tempo vor.",
+    "rev": "Vielleicht. Umgekehrt stehen dir Ungleichgewicht oder Ungeduld womöglich im Weg. Die Antwort hängt davon ab, die Dinge zu mäßigen."
+   },
+   "advice": {
+    "up": "Verbinde gegensätzliche Bedürfnisse mit Geduld. Geh maßvolle Schritte, such den Mittelweg und lass die Dinge mit der Zeit zusammenwachsen.",
+    "rev": "Finde heraus, wo du aus dem Gleichgewicht bist, und gleiche es aus. Werde langsamer, meide Extreme und erwarte keine sofortigen Ergebnisse."
+   }
+  },
+  "major_15_devil": {
+   "love": {
+    "up": "Der Teufel rät, in der Liebe zu bemerken, was dich festhält: eine Bindung, ein Muster oder eine Angst. In einer Beziehung spricht er für ein ehrliches Gespräch über Abhängigkeit oder Gewohnheit. Als Single deutet er darauf hin, Wünsche ohne Scham zu benennen und zu sehen, wie viel Wahl du wirklich hast.",
+    "rev": "Umgekehrt weist der Teufel darauf hin, dass sich ein Griff lockert, oder auf Verleugnung. In einer Beziehung rät er, ein ungesundes Muster langsam zu durchbrechen. Als Single weißt du vielleicht still, was dich bindet, und bist noch nicht bereit zu handeln."
+   },
+   "career": {
+    "up": "Vielleicht bist du fester an einen Job, eine Gewohnheit oder eine Überzeugung gebunden, als nötig. Der Teufel rät zu einer ehrlichen Bestandsaufnahme dessen, was dich dort hält, etwa Geld, Status oder Angst. Es zu benennen ist der erste Schritt zur Wahl.",
+    "rev": "Umgekehrt entschlüpfst du vielleicht einem alten Griff oder weichst dem Blick darauf aus. Achte auf kleine Ketten, die du lockern könntest. Beim Geld sei ehrlich zu Gewohnheiten und Schulden und such professionelle Hilfe, wenn du sie brauchst."
+   },
+   "feelings": {
+    "up": "Die andere Person spürt vielleicht eine starke Anziehung oder Bindung, der sie kaum widerstehen kann. Ihre Gefühle wirken intensiv, vielleicht mit Gewohnheit oder Angst verflochten. Es kann Leidenschaft sein oder ein Bann, den sie nicht ganz frei gewählt hat.",
+    "rev": "Die andere Person tritt vielleicht von einem ungesunden Sog zurück oder leugnet ihn. Ihre Gefühle lockern sich womöglich oder werden still infrage gestellt. Sie ist sich dessen vielleicht bewusst, handelt aber noch nicht."
+   },
+   "yesno": {
+    "verdict": [
+     -1,
+     0
+    ],
+    "up": "Nein. Der Teufel rät zur Vorsicht, denn etwas hält dich vielleicht stärker fest, als du zugibst. Schau dir zuerst deine wirklichen Wahlmöglichkeiten an.",
+    "rev": "Vielleicht. Umgekehrt lockert sich ein Griff. Die Antwort wird womöglich besser, wenn du klar siehst und handelst."
+   },
+   "advice": {
+    "up": "Benenne die Gewohnheit, die Bindung oder die Angst, die dich festhält. Sieh, wie locker die Ketten hängen, und entscheide ehrlich. Unterstützung von anderen kann helfen.",
+    "rev": "Bewusstsein ist der erste Schritt. Tu eine kleine Sache, um den Griff zu lockern, und sei ehrlich darüber, was du bisher vermieden hast."
+   }
+  },
+  "major_16_tower": {
+   "love": {
+    "up": "Der Turm deutet auf eine plötzliche Erschütterung hin, die zeigt, was nicht stabil war. In einer Beziehung rät er, dass eine harte Wahrheit ans Licht kommt, mit der Chance, ehrlicher neu aufzubauen. Als Single spricht er dafür, dass eine alte Illusion fällt und Boden frei wird.",
+    "rev": "Umgekehrt weist der Turm darauf hin, einer Wahrheit auszuweichen oder in den Folgen einer solchen zu leben. In einer Beziehung rät er, ein schwelendes Problem anzugehen, statt abzuwarten. Als Single erholst du dich vielleicht still von einer privaten Krise."
+   },
+   "career": {
+    "up": "Etwas, das auf wackligem Grund gebaut ist, etwa ein Plan, eine Rolle oder eine Struktur, kann einstürzen. Der Turm rät zu einer plötzlichen Veränderung, die zwar verunsichert, aber Platz für etwas Ehrlicheres schafft. Beim Geld rät er, auf Überraschungen vorbereitet zu sein.",
+    "rev": "Umgekehrt wehrst du dich vielleicht gegen etwas, das schon auseinanderfällt, oder siehst einem langsamen Zerfall zu. Stell dich dem, statt zu warten. Mach Bestandsaufnahme von dem, was noch steht, und baue in vernünftigem Tempo darauf auf."
+   },
+   "feelings": {
+    "up": "Die andere Person erlebt vielleicht einen Umbruch oder eine plötzliche Erkenntnis über dich oder sich selbst. Ihre Gefühle können stark schwanken, und Wahrheiten kommen ans Licht. Die Karte rät zu Ehrlichkeit und Geduld, bis sich der Staub gelegt hat.",
+    "rev": "Die andere Person weicht vielleicht einem Schock aus oder erholt sich gerade von einem. Ihre Gefühle sind womöglich verschlossen oder aufgewühlt. Eine private Krise könnte beeinflussen, wie sie sich dir gegenüber verhält."
+   },
+   "yesno": {
+    "verdict": [
+     -1,
+     0
+    ],
+    "up": "Nein. Der Turm deutet an, dass der aktuelle Plan auf wackligem Grund steht. Rechne mit Störungen und überlege, was tragfähiger wäre.",
+    "rev": "Vielleicht. Umgekehrt geht das Schlimmste womöglich vorüber, oder ein Problem zeichnet sich langsam ab. Stell dich den Tatsachen, bevor du dich entscheidest."
+   },
+   "advice": {
+    "up": "Lass fallen, was falsch ist. Bleib in Sicherheit, sei ehrlich und nutze den freien Boden, um etwas Tragfähigeres zu bauen.",
+    "rev": "Warte nicht, bis das Problem wächst. Stell dich ihm jetzt, mach Bestandsaufnahme von dem, was noch steht, und geh behutsam durch die Zeit danach."
+   }
+  },
+  "major_17_star": {
+   "love": {
+    "up": "Der Stern deutet auf sanfte Hoffnung und Heilung nach einer schweren Zeit hin. In einer Beziehung rät er zu ehrlicher, zärtlicher Nähe und neuem Vertrauen. Als Single spricht er dafür, offen und freundlich zu dir selbst zu sein und still optimistisch auf die Liebe zu blicken.",
+    "rev": "Umgekehrt weist der Stern auf schwindende Hoffnung oder Zweifel hin. In einer Beziehung rät er, dass du dich vielleicht distanziert oder entmutigt fühlst und kleine Gesten der Fürsorge brauchst. Als Single halte kleine Hoffnungen am Leben, ohne etwas zu erzwingen."
+   },
+   "career": {
+    "up": "Erholung und Erneuerung sind begünstigt. Der Stern rät dazu, nach einer schwierigen Zeit langsam wieder Zuversicht zu gewinnen, mit Inspiration und klarem Ziel. Beim Geld deutet er auf stetigen, bescheidenen Fortschritt und Vertrauen in eine allmähliche Erholung hin.",
+    "rev": "Umgekehrt stehen dir vielleicht geringe Motivation oder Zweifel im Weg. Sei freundlich zu dir, ruh dich aus und mach kleine, konkrete Schritte, statt auf ein Zeichen zu warten. Wünsche nicht nur, ohne zu handeln, und halte deine Erwartungen beim Geld realistisch."
+   },
+   "feelings": {
+    "up": "Die andere Person fühlt sich vielleicht hoffnungsvoll, aufrichtig und sanft zu dir hingezogen. Ihre Gefühle wirken ehrlich, ruhig und heilend, vielleicht nach einer schweren Zeit. Sie sieht womöglich etwas Gutes in dir und in der Zukunft.",
+    "rev": "Die andere Person fühlt sich vielleicht entmutigt, distanziert oder unsicher, was die Zukunft angeht. Ihre Gefühle können echt sein, aber von Zweifeln gedämpft. Vielleicht braucht sie Geduld und kleine Bestätigungen statt großer Versprechen."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Der Stern neigt zu Hoffnung und einer langsamen, stetigen Erholung. Vertrau darauf und geh sanft weiter.",
+    "rev": "Vielleicht. Umgekehrt ist die Hoffnung schwach oder vage. Die Antwort wird womöglich besser, sobald du dich ausruhst und kleine Hoffnungen am Leben hältst."
+   },
+   "advice": {
+    "up": "Ruh dich aus, atme und vertraue auf eine langsame Erholung. Sei ehrlich, halte deine Hoffnungen leise und klar und schenk dir selbst wieder Freundlichkeit.",
+    "rev": "Sei sanft zu dir. Halte eine kleine Hoffnung am Leben und tu eine kleine Sache, statt auf ein Zeichen zu warten."
+   }
+  },
+  "major_18_moon": {
+   "love": {
+    "up": "Der Mond deutet an, dass die Gefühle stark, aber noch nicht klar sind. In einer Beziehung rät er zu Unsicherheit, Projektionen oder unausgesprochenen Ängsten, die es wert sind, benannt zu werden. Als Single spricht er dafür, auf mehr Licht zu warten, bevor du einer Stimmung oder einer Anziehung traust.",
+    "rev": "Umgekehrt weist der Mond darauf hin, dass sich der Nebel lichtet oder die Angst sich hochschaukelt. In einer Beziehung rät er, dass das Unklare sichtbar wird oder eine verborgene Angst Bodenhaftung braucht. Als Single geh es langsam an und prüfe die Fakten."
+   },
+   "career": {
+    "up": "Bei der Arbeit ist nicht alles klar. Der Mond rät, vorsichtig voranzugehen, mehr Informationen zu sammeln und auf deine Instinkte zu achten, ohne die Angst entscheiden zu lassen. Beim Geld rät er, große Verpflichtungen zu meiden, bis das Bild klarer ist.",
+    "rev": "Umgekehrt lichtet sich die Verwirrung vielleicht, oder die Sorge wächst. Erde dich mit Fakten und Routinen. Prüfe, was du angenommen hast, und stell direkte Fragen. Warte auf klarere Informationen, bevor du dich beim Geld festlegst."
+   },
+   "feelings": {
+    "up": "Die andere Person ist sich ihrer Gefühle vielleicht unsicher oder verwirrt, oder sie verbirgt einen Teil davon. Ihre Emotionen wirken tief, aber wandelbar, geprägt von Fantasie und Angst. Die Dinge sind vielleicht noch nicht so, wie sie scheinen.",
+    "rev": "Die andere Person beginnt vielleicht klarer zu sehen, oder sie ist ängstlich und verbirgt eine Sorge. Ihre Gefühle könnten allmählich Gestalt annehmen. Versuche, behutsam nachzufragen, und füll Lücken nicht mit Vermutungen."
+   },
+   "yesno": {
+    "verdict": [
+     -1,
+     0
+    ],
+    "up": "Nein. Der Mond deutet an, dass das Bild unklar ist und Angst es vielleicht färbt. Warte auf mehr Licht, bevor du dich entscheidest.",
+    "rev": "Vielleicht. Umgekehrt lichtet sich der Nebel, oder die Sorge vertieft sich. Die Antwort wird womöglich bald klar."
+   },
+   "advice": {
+    "up": "Geh vorsichtig voran, achte auf deine Ängste und Instinkte und sammle mehr Licht, bevor du dich entscheidest. Verwechsle keine Stimmung mit einer Tatsache.",
+    "rev": "Erde dich mit Fakten und Routinen. Sprich eine verborgene Angst laut aus und lass das, was klar wird, sich setzen, bevor du handelst."
+   }
+  },
+  "major_19_sun": {
+   "love": {
+    "up": "Die Sonne deutet in der Liebe auf Wärme, Offenheit und schlichte Freude hin. In einer Beziehung rät sie zu ehrlicher Zuneigung, Lachen und Leichtigkeit miteinander. Als Single spricht sie für Selbstvertrauen, dafür, du selbst zu sein und Wärme anzuziehen.",
+    "rev": "Umgekehrt weist die Sonne auf getrübte Stimmung oder aufgesetzte Fröhlichkeit hin. In einer Beziehung rät sie, Müdigkeit nicht hinter Positivität zu verstecken. Als Single such nach kleinen Lichtquellen und hüte dich vor Übermut oder davor, Komplikationen zu übersehen."
+   },
+   "career": {
+    "up": "Klarheit, Vitalität und Anerkennung sind begünstigt. Die Sonne rät zu selbstsicherer, offener Arbeit und sichtbarem Erfolg. Genieße, was gut läuft. Beim Geld deutet sie auf ein klares, positives Bild hin, achte aber weiter auf die Details.",
+    "rev": "Umgekehrt ist die Begeisterung vielleicht gedämpft, oder das Ego steht im Weg. Ruh dich aus und such nach kleinen Lichtquellen. Vermeide erzwungene Positivität und übersieh keine Komplexität, besonders beim Geld."
+   },
+   "feelings": {
+    "up": "Die andere Person ist dir gegenüber vielleicht glücklich, offen und von Herzen zugetan. Ihre Gefühle wirken warm, ehrlich und unkompliziert. Sie genießt deine Gesellschaft und macht keinen Hehl daraus.",
+    "rev": "Die andere Person ist vielleicht müde oder gibt sich nach außen fröhlich. Ihre Gefühle können echt sein, aber von eigenen Wolken getrübt. Sie ist womöglich übermütig oder zeigt nicht das ganze Bild."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     1
+    ],
+    "up": "Ja. Die Sonne neigt deutlich zu einer klaren, positiven Antwort. Wärme und Offenheit unterstützen sie.",
+    "rev": "Ja. Auch umgekehrt neigt die Sonne zu einem guten Ausgang, auch wenn es mehr Mühe oder Zeit kosten kann. Prüfe, ob du den Optimismus nicht erzwingst."
+   },
+   "advice": {
+    "up": "Genieße, was gut läuft. Sei offen, teile deine Wärme und lass die Dinge schlicht und einfach sein.",
+    "rev": "Ruh dich aus, wenn du müde bist, und such nach kleinen Lichtquellen. Vermeide erzwungene Positivität und erlaube dir, ehrlich zu sein."
+   }
+  },
+  "major_20_judgement": {
+   "love": {
+    "up": "Das Gericht deutet auf eine ehrliche Bilanz und den Ruf hin, neu zu beginnen. In einer Beziehung rät es zu Vergebung, dem Klären alter Verletzungen und neuer Verbindlichkeit. Als Single spricht es dafür, zu hören, was du wirklich willst, und darauf zu antworten.",
+    "rev": "Umgekehrt weist das Gericht auf harte Selbstkritik oder darauf hin, einen Ruf zu überhören, den du wahrnimmst. In einer Beziehung rät es, alte Fehler nicht euch beide definieren zu lassen. Als Single vermeide es, die Vergangenheit immer wieder abzuspielen und eine ehrliche Entscheidung aufzuschieben."
+   },
+   "career": {
+    "up": "Ein Moment ehrlicher Bilanz kann ein Gefühl von Berufung bringen. Das Gericht rät, deinen Weg neu zu bewerten, vergangene Fehler zu vergeben und dem zu folgen, was sich sinnvoll anfühlt. Beim Geld rät es zu einem ehrlichen Blick auf das Gesamtbild.",
+    "rev": "Umgekehrt ist der Selbstzweifel vielleicht laut, oder du ignorierst, was du längst weißt. Sei fair zu dir selbst, was die Vergangenheit angeht. Hör auf, einer nötigen Entscheidung auszuweichen, und sieh dein Geld mit Freundlichkeit an, nicht mit Vorwürfen."
+   },
+   "feelings": {
+    "up": "Die andere Person erlebt vielleicht ein Erwachen und sieht dich mit frischen Augen neu. Ihre Gefühle wirken nachdenklich, versöhnlich und aufrichtig, mit dem Wunsch nach einem sauberen Neuanfang. Sie folgt womöglich einem inneren Ruf.",
+    "rev": "Die andere Person urteilt vielleicht hart über sich oder dich oder weicht einer Entscheidung über dich aus. Ihre Gefühle können echt sein, aber von Bedauern beschwert. Vielleicht hält sie gerade im Stillen Abrechnung mit sich."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Das Gericht neigt zu einem Neuanfang nach ehrlicher Reflexion. Folge dem Ruf, den du schon hörst.",
+    "rev": "Vielleicht. Umgekehrt halten dich Selbstkritik oder Vermeidung womöglich zurück. Die Antwort wartet vielleicht, bis du dich entscheidest."
+   },
+   "advice": {
+    "up": "Betrachte die Vergangenheit ehrlich, vergib, was du kannst, und folge deinem inneren Ruf. Erlaube einen Neubeginn.",
+    "rev": "Sei fair, nicht hart zu dir. Hör auf, zu überhören, was du innerlich hörst, und triff die Entscheidung, die du aufgeschoben hast."
+   }
+  },
+  "major_21_world": {
+   "love": {
+    "up": "Die Welt deutet in der Liebe auf Vollendung und Ganzheit hin. In einer Beziehung rät sie zu einem erfüllenden Meilenstein und dem Gefühl, miteinander zu Hause zu sein, während der nächste Zyklus wartet. Als Single spricht sie dafür, dich in dir selbst vollständig zu fühlen und bereit zu sein für das, was kommt.",
+    "rev": "Umgekehrt weist die Welt auf lose Enden oder einen noch fehlenden letzten Schritt hin. In einer Beziehung rät sie, ein ungeklärtes Gespräch zu Ende zu führen. Als Single bist du vielleicht noch nicht ganz bereit, die Vergangenheit loszulassen, obwohl der Abschluss nah ist."
+   },
+   "career": {
+    "up": "Ein Zyklus schließt sich, und du kannst Bilanz ziehen, wie weit du gekommen bist. Die Welt rät, ein Projekt abzuschließen, einen Abschluss zu machen oder ein Ziel zu erreichen, mit Integration und Zufriedenheit. Beim Geld deutet sie auf eine stabile, runde Lage hin.",
+    "rev": "Umgekehrt bist du vielleicht fast am Ziel, aber einen Schritt davor. Finde das fehlende Stück und bring es zu Ende. Vielleicht zögerst du, weiterzuziehen. Lass keine losen Enden liegen, besonders bei Konten, Verträgen oder Fristen."
+   },
+   "feelings": {
+    "up": "Die andere Person fühlt sich mit dir vielleicht zufrieden und erfüllt. Ihre Gefühle wirken ganz, ruhig und zufrieden, mit dem Eindruck, dass alles passt. Sie ist womöglich bereit für die nächste Stufe.",
+    "rev": "Die andere Person hat vielleicht das Gefühl, dass zwischen euch fast alles abgeschlossen, aber noch nicht ganz geklärt ist. Ihre Gefühle können echt, aber unvollendet sein, oder sie ist noch nicht bereit loszulassen. Ein letztes Gespräch kann helfen."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Die Welt neigt zu Vollendung und einem zufriedenstellenden Ergebnis. Bring zu Ende, was du begonnen hast.",
+    "rev": "Noch nicht. Umgekehrt bleibt ein letzter Schritt. Die Antwort ist nah, aber zuerst muss etwas abgeschlossen werden."
+   },
+   "advice": {
+    "up": "Zieh Bilanz, wie weit du gekommen bist, und genieße es. Bring zu Ende, was du begonnen hast, und schau dann auf den nächsten Zyklus.",
+    "rev": "Finde das letzte lose Ende und verknote es. Erlaube dir, abzuschließen, und halte nicht fest, wenn es getan ist."
+   }
+  },
+  "wands_ace": {
+   "love": {
+    "up": "Ein Funke der Anziehung oder eine frische Welle der Begeisterung kommt auf dich zu. In einer Beziehung deutet das auf ein neues Projekt oder Abenteuer hin, das die Wärme neu entfacht. Als Single spricht die Karte für ein mutiges, lebhaftes erstes Treffen. Folge der Flamme, aber lass sie in natürlichem Tempo wachsen.",
+    "rev": "Der Funke wirkt schwach oder will nicht zünden. In einer Beziehung kann das heißen, dass Routine die Begeisterung erstickt oder eine gute Idee nicht ausgesprochen wurde. Als Single zögerst du vielleicht vor einer vielversprechenden Verbindung. Pflege die Glut behutsam und erzwinge keine Hitze."
+   },
+   "career": {
+    "up": "Ein neues Vorhaben, eine neue Rolle oder Idee schenkt dir einen Schub an Antrieb. Die einzelne Flamme in der Hand zeigt, dass die Energie echt ist, aber Richtung braucht, um etwas zu werden. Bei Geldfragen deutet sie auf eine vielversprechende Gelegenheit hin, nicht auf eine Garantie. Fang klein an und schau, was zündet.",
+    "rev": "Die Idee ist da, aber die Motivation hakt, oder du fängst am falschen Ende an. Arbeit oder Studium fühlen sich vielleicht durch Verzögerung, Zweifel oder schlechtes Timing blockiert an. Bei Geldfragen ist Geduld statt eines hastigen Sprungs gefragt. Benenne, was du eigentlich willst, bevor du mehr Mühe investierst."
+   },
+   "feelings": {
+    "up": "Diese Person spürt einen echten Funken für dich: Aufregung, Interesse und den Wunsch, danach zu handeln. Vielleicht will sie etwas beginnen oder etwas Mutiges sagen. Das Gefühl ist frisch und energiegeladen statt gefestigt und verlangt deshalb nach einer Antwort.",
+    "rev": "Das Interesse dieser Person flackert, oder sie weiß nicht, ob sie danach handeln soll. Der Funke kann echt sein, aber durch Zweifel, Timing oder Ablenkung verzögert. Möglicherweise steckt sie ihre Energie gerade in etwas anderes."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Das Ass der Stäbe ist ein klares Startsignal: Energie und Gelegenheit sind im Angebot, und ein Funke der Inspiration liegt in deiner Hand. Handle, solange er frisch ist.",
+    "rev": "Vielleicht. Der Funke ist da, aber verzögert oder angezweifelt, das Timing ist also unsicher. Pflege die Idee noch eine Weile und schau, ob die Energie zurückkehrt."
+   },
+   "advice": {
+    "up": "Mach jetzt den ersten mutigen Schritt, so klein er auch ist. Entzünde die Idee, bevor du jedes Detail planst, und lass dir von deiner Begeisterung den nächsten Zug zeigen.",
+    "rev": "Überstürze die Flamme nicht. Schütze die Idee, finde heraus, was sie braucht, und warte, bis sich die Energie ehrlich anfühlt. Eine kurze Pause jetzt kann dir einen Fehlstart ersparen."
+   }
+  },
+  "wands_two": {
+   "love": {
+    "up": "Du stehst an einer Schwelle, die Welt in der einen Hand und eine Wahl in der anderen. In einer Beziehung fragt die Karte, ob ihr gemeinsam wachsen oder es euch bequem machen wollt. Als Single rät sie, über das Vertraute hinauszuschauen, um zu finden, was du willst. Entscheide, worauf du zielst.",
+    "rev": "Die Angst, das Bekannte zu verlassen, hält alles klein. In einer Beziehung bleiben Zukunftspläne vielleicht unausgesprochen, oder einer von euch zögert vor dem nächsten Schritt. Als Single hält dich vielleicht Bequemlichkeit davon ab, weiter zu schauen. Sprich laut aus, was du wirklich willst."
+   },
+   "career": {
+    "up": "Du hast einen guten Start geschafft und blickst jetzt zum Horizont. Die Gestalt auf der Zinne mit dem Globus steht für Planung, Ehrgeiz und die Entscheidung zwischen Bleiben und Wachsen. Bei Geld- und Studienentscheidungen rät die Karte, größer zu denken. Wähle eine Richtung und mach einen Plan.",
+    "rev": "Pläne bleiben auf dem Papier, oder die Angst, einen sicheren Posten zu verlassen, hält dich fest. Arbeit oder Studium stocken vielleicht durch Überplanung oder Risikoscheu. Bei Geldentscheidungen braucht es einen festeren Umriss, bevor du dich bewegst. Wähle einen realistischen nächsten Schritt und geh ihn."
+   },
+   "feelings": {
+    "up": "Diese Person wägt ab, was sie fühlt und was bequem ist. Vielleicht denkt sie dich in einer größeren Zukunft und fragt sich, ob sie sich festlegen soll. Ihr Interesse ist echt, aber es steht noch eine Entscheidung aus.",
+    "rev": "Diese Person zögert, fürchtet Veränderung oder das Unbekannte und belässt vielleicht alles, wie es ist. Ihre Pläne schließen dich womöglich noch nicht ein, oder sie weiß nicht, was sie will. Ihre Gefühle sind da, aber durch Vorsicht gebremst."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Du hast die Vision und einen soliden Ausgangspunkt, und die Karte blickt nach außen auf weitere Horizonte. Wähle dein Ziel und halte dich an den Plan.",
+    "rev": "Vielleicht. Angst oder Unentschlossenheit lassen den Plan unfertig. Klär, was du willst, bevor du dich entscheidest, dann wird die Antwort fester."
+   },
+   "advice": {
+    "up": "Schau dir die ganze Landkarte an und wähle dann eine Richtung. Schreib deinen Plan auf und sei bereit, über das hinauszugehen, was sich sicher anfühlt.",
+    "rev": "Hör auf, um den Plan zu kreisen. Benenne, was dir Angst macht, verkleinere es zu einer kleinen Handlung und fang an, oder gib ehrlich zu, dass du lieber bleibst."
+   }
+  },
+  "wands_three": {
+   "love": {
+    "up": "Du hast etwas in Bewegung gesetzt und hältst nun am Horizont Ausschau nach dem, was zurückkehrt. In einer Beziehung deutet die Karte auf Wachstum und gemeinsames Vorausschauen hin, vielleicht auf einen Plan mit mehr Entfernung. Als Single kann eine Verbindung aus der Ferne kommen. Sei geduldig und halte deinen Blick weit.",
+    "rev": "Verzögerungen oder ein enger Blick bremsen die Dinge. In einer Beziehung stocken vielleicht die Pläne, oder einer von euch sieht nur die Gegenwart. Als Single wartest du womöglich zu passiv darauf, dass jemand auftaucht. Erweitere deine Welt, statt auf das leere Meer zu starren."
+   },
+   "career": {
+    "up": "Deine ersten Bemühungen sind in Bewegung, und die Schiffe, die du ausgesandt hast, kehren zurück. Die Gestalt auf der Klippe blickt über das Meer, ein Bild für Weitblick, Zusammenarbeit und Ausdehnung. Arbeit, Studium und Geld neigen zu stetigem Fortschritt. Mach weiter und denk einen Schritt weiter voraus.",
+    "rev": "Pläne verzögern sich oder verlassen den Hafen gar nicht. Arbeit oder Studium werden vielleicht durch enge Sicht oder langsame Antworten gebremst. Die Geldaussichten brauchen Geduld und einen weiteren Blick. Prüfe, ob der Plan zu klein ist oder ob du einfach auf andere wartest."
+   },
+   "feelings": {
+    "up": "Diese Person blickt nach vorn und stellt sich vor, was zwischen euch wachsen könnte. Ihr Interesse ist nachdenklich und zukunftsgerichtet, und sie wartet vielleicht ab, wie sich die Dinge entwickeln. Möglicherweise ist sie auch auf Distanz, räumlich oder in ihrer Aufmerksamkeit.",
+    "rev": "Die Gefühle dieser Person nehmen nur langsam Gestalt an oder werden durch Entfernung oder Timing aufgehalten. Vielleicht sieht sie noch keine Zukunft mit dir. Das Interesse gilt womöglich eher der Gegenwart, ohne weitergehende Pläne."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Deine Bemühungen sind im Gang und Schiffe sind am Horizont, die Aussichten sind also vielversprechend. Gib den Ergebnissen Zeit anzukommen.",
+    "rev": "Vielleicht. Verzögerungen oder ein enger Blick lassen die Antwort unklar. Weite deinen Blick, dann kommt vielleicht Bewegung in die Sache."
+   },
+   "advice": {
+    "up": "Behalte den Horizont im Blick und vertraue auf die Arbeit, die du schon geleistet hast. Denk größer und gib deinen Plänen Zeit, zu dir zurückzukehren.",
+    "rev": "Steh nicht untätig am Ufer. Schau, was die Dinge zurückhält, weite deinen Blick und schick neue Anstrengung los."
+   }
+  },
+  "wands_four": {
+   "love": {
+    "up": "Ein Moment der Freude und Gemeinsamkeit nach der Mühe. Die Girlanden und der Baldachin stehen für Feier, ein stabiles Zuhause und gemeinsame Meilensteine. In einer Beziehung deutet die Karte auf Harmonie hin, vielleicht auf eine Verlobung oder ein Zusammenziehen. Als Single kann eine fröhliche Runde jemand Warmherziges bringen. Genieße es.",
+    "rev": "Unbehagen zu Hause oder eine Feier, die sich hohl anfühlt. In einer Beziehung kann unter der heiteren Oberfläche Spannung liegen, oder die Verbindlichkeit wirkt unsicher. Als Single fühlst du dich vielleicht von den Feiern anderer ausgeschlossen. Schau, was sich zu Hause sicher anfühlen ließe."
+   },
+   "career": {
+    "up": "Nach echter Anstrengung erreichst du einen stabilen Punkt, den man feiert. Der Baldachin aus Stäben und die jubelnden Gestalten stehen für einen Meilenstein im Team, eine sichere Position oder einen Job, der sich wie ein Zuhause anfühlt. Arbeit, Studium und Geld neigen zu Stabilität. Halte inne und würdige das Erreichte.",
+    "rev": "Die Stabilität wirkt wackelig, oder das Erreichte fühlt sich hohl an. Bei Arbeit oder Studium kann es Spannungen im Team geben, oder du bist unsicher, ob du dazugehörst. Bei Geldfragen lohnt ein genauerer Blick darauf, was tragfähig ist. Ruh dich aus und feiere erst, wenn es echt ist."
+   },
+   "feelings": {
+    "up": "Diese Person fühlt sich warm und angekommen und teilt gern gute Zeiten mit dir. Ihre Gefühle neigen zu Zugehörigkeit und einer stabilen Bindung, vielleicht mit Freunden oder Familie im Spiel. Sie genießt die Verbindung und möchte sie behaglich halten.",
+    "rev": "Diese Person fühlt sich unwohl oder unsicher, was Verbindlichkeit angeht, oder die Stimmung um euch wirkt gezwungen. Vielleicht zieht es sie weg von Zuhause oder dem sozialen Leben. Die Wärme ist da, aber nicht ganz gesichert."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Die Vier der Stäbe ist eine Karte der Ruhe, der Feier und eines festen Fundaments. Die Dinge stehen auf sicherem Boden.",
+    "rev": "Vielleicht. Das Fundament wirkt wackelig, oder die Feier fühlt sich gezwungen an. Prüfe zuerst, was gestützt werden muss."
+   },
+   "advice": {
+    "up": "Feiere, wie weit du gekommen bist, und teile die Freude mit Menschen, denen du vertraust. Bau auf diesem sicheren Boden auf, bevor du weiterziehst.",
+    "rev": "Schau genau hin, was sich zu Hause hohl oder unruhig anfühlt. Stärke dein Fundament, bevor du die Party schmeißt."
+   }
+  },
+  "wands_five": {
+   "love": {
+    "up": "Willen prallen in einer Beziehung aufeinander, jeder hält seinen Stab und drängt auf seinen Weg. Gut gehandhabt, klärt freundliche Reibung die Luft und hält alles lebendig. Als Single kann es Konkurrenz um die Aufmerksamkeit von jemandem geben. Halte es spielerisch statt kämpferisch.",
+    "rev": "Konflikte werden vermieden, oder die Spannung wendet sich nach innen und wird still. In einer Beziehung kann sich unausgesprochener Groll aufbauen, wo ehrliche Meinungsverschiedenheit nötig wäre. Als Single halten dich vielleicht Rivalität oder die Angst vor Konkurrenz zurück. Sag klar, was du brauchst."
+   },
+   "career": {
+    "up": "Konkurrierende Ideen und Egos füllen den Raum, was chaotisch, aber produktiv sein kann. Arbeit und Studium neigen zu Debatten, Rivalität und vielen, die in verschiedene Richtungen ziehen. Bei Geldfragen kann Konkurrenz im Spiel sein. Bleib offen dafür, geschärft zu werden, und einigt euch auf ein gemeinsames Ziel.",
+    "rev": "Der Konflikt verebbt, wird vermieden oder verwandelt sich in stille Spannung im Team. Arbeit oder Studium leiden vielleicht unter unausgesprochenen Meinungsverschiedenheiten oder der Weigerung, zu konkurrieren. Bei Geldfragen braucht es klare Bedingungen. Entscheide ehrlich, ob du dich einlässt oder dich zurückziehst."
+   },
+   "feelings": {
+    "up": "Diese Person ist aufgewühlt, kämpferisch oder gespalten, was dich angeht. Ihre Gefühle sind vielleicht mit Rivalität oder mit Ideen gemischt, die mit deinen kollidieren. Es gibt Energie und Interesse, aber auch Reibung, die ihr durcharbeiten müsst.",
+    "rev": "Diese Person weicht dem Konflikt aus, und ihre Gefühle bleiben unter der Spannung verborgen. Vielleicht weiß sie nicht, wie sie ansprechen soll, was sie stört. Das Interesse kann eher abkühlen als sich klären."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     -1
+    ],
+    "up": "Vielleicht. Viele Kräfte sind im Spiel, und der Ausgang hängt davon ab, wie mit der Reibung umgegangen wird. Konkurrenz kann dich schärfen oder zerstreuen.",
+    "rev": "Nein. Vermiedener Konflikt oder innere Spannung lässt die Dinge ungeklärt. Die Antwort ist erst günstig, wenn darüber gesprochen wurde."
+   },
+   "advice": {
+    "up": "Bring deine Ideen auf den Tisch und lass sie prüfen. Miss dich im guten Geist und behalte dein Ziel im Blick.",
+    "rev": "Vergrab die Meinungsverschiedenheit nicht. Sprich ruhig, such dir deine Kämpfe aus und tritt zurück, wenn der Streit dir nicht mehr dient."
+   }
+  },
+  "wands_six": {
+   "love": {
+    "up": "Anerkennung und Stolz in einer Beziehung: Du fühlst dich gesehen und gefeiert, vielleicht als Paar, das andere bewundern. Der Reiter mit dem Lorbeerkranz steht für eine selbstsichere, gut aufgenommene Verbindung. Als Single macht Selbstvertrauen dich attraktiv. Lass deine Selbstsicherheit freundlich durchscheinen.",
+    "rev": "Selbstzweifel oder das Bedürfnis nach Lob überschatten die Beziehung. In einer Beziehung sucht vielleicht einer von euch Bestätigung, oder Erfolge werden nicht geteilt. Als Single verhindert geringes Selbstvertrauen, dass man dich bemerkt. Baue zuerst Vertrauen in dich selbst auf."
+   },
+   "career": {
+    "up": "Deine Bemühungen werden bemerkt, und du reitest mit dem Siegeskranz durch die Menge. Arbeit, Studium und Geld neigen zu Anerkennung, Beförderung, guten Ergebnissen oder Lob. Der Erfolg ist für andere sichtbar. Nimm ihn an und danke denen, die dir geholfen haben.",
+    "rev": "Der Erfolg verzögert sich, oder das Lob fühlt sich hohl an. Bei Arbeit oder Studium kann es einen Dämpfer fürs Selbstvertrauen geben oder Anerkennung, die anderswohin geht. Beim Geld geht es langsamer voran als erhofft. Miss deinen Erfolg an deinen eigenen Maßstäben, nicht nur am Applaus."
+   },
+   "feelings": {
+    "up": "Diese Person bewundert dich und ist stolz auf dich. Ihre Gefühle neigen zu Respekt, Anziehung durch dein Selbstvertrauen und dem Wunsch, mit dir verbunden zu werden. Vielleicht will sie auch ihrerseits Eindruck auf dich machen.",
+    "rev": "Diese Person ist unsicher, wo sie selbst steht, oder tut sich schwer damit, dich zu loben. Ihre Gefühle sind womöglich mit Stolz oder Vergleichen verknüpft. Bewunderung kann da sein, bleibt aber unausgesprochen."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Die Sechs der Stäbe ist eine Karte des Sieges und der Anerkennung. Selbstvertrauen ist berechtigt, und Fortschritt wird wahrscheinlich sichtbar.",
+    "rev": "Vielleicht. Der Erfolg verzögert sich womöglich, oder dein Selbstvertrauen wackelt. Prüfe, wonach du suchst: Lob oder echten Fortschritt."
+   },
+   "advice": {
+    "up": "Nimm Anerkennung mit Anmut an. Teile die Anerkennung und nutze dein Selbstvertrauen, um andere voranzubringen.",
+    "rev": "Jage keinem Applaus nach. Finde dein eigenes Maß für Erfolg und arbeite weiter, ohne gesehen werden zu müssen."
+   }
+  },
+  "wands_seven": {
+   "love": {
+    "up": "Du verteidigst deinen Platz auf dem Hügel und hältst gegen Herausforderer von unten stand. In einer Beziehung deutet die Karte darauf hin, für deine Bedürfnisse einzustehen oder die Bindung vor Druck von außen zu schützen. Als Single bleibst du fest bei dem, was du willst. Bleib klar, aber halte nicht jede Frage für einen Angriff.",
+    "rev": "Du fühlst dich zermürbt oder gibst zu schnell nach. In einer Beziehung stellst du vielleicht deine Bedürfnisse zurück, um Frieden zu halten, oder fühlst dich vom Druck überstimmt. Als Single lässt dich Zweifel womöglich Kompromisse zu weit eingehen. Ruh dich aus und entscheide, was die Verteidigung wert ist."
+   },
+   "career": {
+    "up": "Du hältst unter Druck deine Position, mit Konkurrenten oder Kritikern unter dir. Arbeit und Studium neigen zu Durchhalten, dem Verteidigen deiner Ideen und dem Bewahren deines Vorsprungs. Bei Geldfragen braucht es eine feste Haltung. Bleib standhaft, prüfe aber, ob jeder Kampf geführt werden muss.",
+    "rev": "Du fühlst dich überwältigt und bist versucht aufzugeben, oder du weichst schon zurück. Arbeit oder Studium zehren vielleicht durch ständige Verteidigung an dir. Geldsorgen können deine Entschlossenheit zermürben. Bitte um Unterstützung und such dir aus, welche Kämpfe sich lohnen."
+   },
+   "feelings": {
+    "up": "Diese Person fühlt sich herausgefordert, in der Defensive oder schützend, was ihre Gefühle angeht, und hält womöglich gegen dich die Stellung. Vielleicht verteidigt sie auch die Beziehung gegen Außenstehende. Ihre Gefühle sind stark, aber behütet.",
+    "rev": "Diese Person ist es leid, sich zu verteidigen, und gibt vielleicht auf oder zieht sich zurück. Ihre Gefühle sind womöglich vom Druck anderer überwältigt. Sie hat vielleicht das Gefühl, die Linie nicht halten zu können."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     -1
+    ],
+    "up": "Vielleicht. Du kannst deine Position halten, aber nur mit Mühe und Entschlossenheit. Der Ausgang hängt davon ab, wie fest du stehst.",
+    "rev": "Nein. Du bist überwältigt oder gibst nach, und die Position ist schwer zu halten. Überdenke die Lage, bevor du weiter drängst."
+   },
+   "advice": {
+    "up": "Steh für das ein, was zählt. Bleib selbstbewusst und lass dich nicht von der Anhöhe verdrängen.",
+    "rev": "Erschöpfe dich nicht damit, alles zu bekämpfen. Lass los, was die Verteidigung nicht wert ist, und such Verbündete."
+   }
+  },
+  "wands_eight": {
+   "love": {
+    "up": "Die Dinge nehmen Fahrt auf, Nachrichten und Bewegung fliegen wie Stäbe durch die Luft. In einer Beziehung deutet die Karte auf rasche Entwicklungen, Neuigkeiten oder einen Schwall an Kontakt hin. Als Single kann ein schneller Funke oder eine plötzliche Einladung kommen. Bleib im Austausch, aber prüfe, ob du nichts überstürzt.",
+    "rev": "Verzögerungen, Missverständnisse oder Dinge, die schneller laufen, als du sie bewältigen kannst. In einer Beziehung gehen Nachrichten vielleicht verloren, oder das Tempo fühlt sich ungleich an. Als Single kann ein schneller Start verpuffen. Werde langsamer und achte darauf, dass du gehört wirst."
+   },
+   "career": {
+    "up": "Fortschritt kommt schnell, mit Neuigkeiten, Nachrichten oder Reisen. Arbeit, Studium und Geld neigen zu raschen Entwicklungen und dazu, prompt reagieren zu müssen. Die Stäbe im freien Flug stehen für offenen Schwung. Handle, solange der Weg frei ist, und halte die Kommunikation offen.",
+    "rev": "Verzögerungen, zerstreute Kraft oder Dinge, die zu schnell laufen. Bei Arbeit oder Studium kann es verpasste Nachrichten, stockende Pläne oder Überlastung geben. Bei Geldfragen ist vielleicht eine Pause nötig. Sammle dich, bevor du handelst."
+   },
+   "feelings": {
+    "up": "Diese Person ist mit ihren Gefühlen schnell unterwegs und möchte sich melden oder Pläne machen. Ihr Interesse ist rasch und energiegeladen, und sie will vielleicht bald handeln. Rechne mit Nachrichten und einem Gefühl von Schwung.",
+    "rev": "Die Gefühle dieser Person sind mit Verzögerung oder Verwirrung vermischt, und die Kommunikation verheddert sich. Vielleicht geht sie zu schnell vor oder wird still. Ihr Interesse ist in diesem Tempo unsicher."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Die Dinge sind in Bewegung und der Weg ist offen, also handle prompt. Der Schwung ist auf deiner Seite.",
+    "rev": "Vielleicht. Verzögerungen oder Missverständnisse halten die Dinge auf. Warte auf Klarheit, dann kommt die Antwort vielleicht schnell."
+   },
+   "advice": {
+    "up": "Bewege dich, solange der Weg frei ist. Antworte, reise, handle und halte deine Nachrichten offen.",
+    "rev": "Werde langsamer und prüfe deine Richtung. Sammle zerstreute Kraft, bevor du sie fliegen lässt."
+   }
+  },
+  "wands_nine": {
+   "love": {
+    "up": "Müde, aber noch auf den Beinen, bewachst du dein Herz nach früheren Verletzungen. In einer Beziehung deutet die Karte auf Widerstandskraft in einer schweren Zeit hin und darauf, dass Vertrauen heilen muss. Als Single bist du vielleicht vorsichtig, jemanden hereinzulassen. Lass deine Deckung sinken, wenn du dich sicher fühlst.",
+    "rev": "Erschöpfung oder Schutzmauern, die nicht mehr schützen. In einer Beziehung halten Misstrauen oder Sturheit die andere Person vielleicht draußen. Als Single können alte Wunden einen Neuanfang blockieren. Ruh dich aus und lass dir helfen."
+   },
+   "career": {
+    "up": "Nach langem Ringen bist du fast am Ziel, verbunden und den Stab noch in der Hand. Arbeit, Studium und Geld neigen zu einer letzten Anstrengung vor der Erleichterung. Widerstandskraft ist hier die Stärke. Halte deine Grenzen und bring zu Ende, was du begonnen hast.",
+    "rev": "Burnout oder Sturheit. Bei Arbeit oder Studium braucht es vielleicht mehr Ruhe als einen weiteren Anlauf. Geldsorgen verlangen womöglich einen ruhigeren Ansatz und ehrliche Grenzen. Gönn dir eine Pause, bevor du zusammenbrichst."
+   },
+   "feelings": {
+    "up": "Diese Person hat schwere Zeiten hinter sich und ist vorsichtig, nicht noch einmal verletzt zu werden. Ihre Gefühle können echt, aber behütet sein, und sie braucht Zeit, um dir zu vertrauen. Sie ist müde, aber noch auf den Beinen.",
+    "rev": "Diese Person ist erschöpft und hat vielleicht aufgegeben, sich zu öffnen. Ihre Schutzmauern sind hoch oder wirken nicht mehr. Möglicherweise braucht sie Raum und Ruhe, bevor sie viel fühlen kann."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     -1
+    ],
+    "up": "Vielleicht. Du bist nah dran, aber es kostet noch eine Anstrengung und etwas Durchhaltevermögen. Die Antwort kommt mit Müdigkeit.",
+    "rev": "Nein. Du bist erschöpft, und weiterzudrängen hilft vielleicht nicht. Ruh dich zuerst aus und überleg es dir dann noch einmal."
+   },
+   "advice": {
+    "up": "Halte noch ein bisschen durch. Schöpfe aus deiner Widerstandskraft, schütze deine Grenzen und bring die letzte Etappe hinter dich.",
+    "rev": "Halte an und ruh dich aus. Gib zu, dass du müde bist, leg die Rüstung ab, die nicht mehr hilft, und lass dich von anderen unterstützen."
+   }
+  },
+  "wands_ten": {
+   "love": {
+    "up": "Du trägst eine schwere Last, gebündelte Stäbe versperren dir die Sicht nach vorn. In einer Beziehung deutet die Karte darauf hin, dass einer von euch zu viel übernimmt oder Pflichten die Nähe verdrängen. Als Single bist du vielleicht zu beschäftigt mit Verantwortung, um jemanden kennenzulernen. Teile das Gewicht ehrlich.",
+    "rev": "Du legst die Last ab oder tust dich schwer, um Hilfe zu bitten. In einer Beziehung erreicht der Groll vielleicht seinen Höhepunkt, oder ihr teilt die Last endlich. Als Single kann das Loslassen von Verpflichtungen Platz für jemand Neues schaffen. Sei ehrlich darüber, was du tragen kannst."
+   },
+   "career": {
+    "up": "Du trägst mehr, als für dich gedacht war, gebeugt unter dem Bündel. Arbeit, Studium und Geld neigen zu Überlastung, schwerer Verantwortung und wenig Luft zum Atmen. Das Ziel ist nah, aber die Last ist zu groß. Delegiere, setze Prioritäten und leg etwas ab.",
+    "rev": "Du lässt die Last fallen oder brichst darunter zusammen. Bei Arbeit oder Studium kann der Bruchpunkt erreicht sein, oder Erleichterung kommt, wenn du Dinge abgibst. Geldpflichten müssen vielleicht neu verhandelt werden. Bitte um Hilfe, bevor du an die Grenze kommst."
+   },
+   "feelings": {
+    "up": "Diese Person fühlt sich überlastet und abgelenkt und hat vielleicht wenig Energie für die Beziehung. Ihre Gefühle fehlen nicht, sind aber unter Pflichten begraben. Vielleicht braucht sie eher Unterstützung als Romantik.",
+    "rev": "Diese Person ist überwältigt oder hat die Last abgelegt und überdenkt, was sie auf sich nimmt. Ihre Gefühle kehren womöglich zurück, wenn der Druck nachlässt. Es fällt ihr vielleicht schwer, dich um Hilfe zu bitten."
+   },
+   "yesno": {
+    "verdict": [
+     -1,
+     0
+    ],
+    "up": "Nein. Die Last ist zu schwer für leichten Fortschritt. Erleichtere, was du trägst, bevor du um mehr bittest.",
+    "rev": "Vielleicht. Die Last abzulegen kann etwas ändern, ist aber nicht einfach. Bitte um Hilfe und schau, was bleibt."
+   },
+   "advice": {
+    "up": "Teile die Last, sag Nein zu zusätzlichen Pflichten und leg ab, was nicht dir zu tragen gehört.",
+    "rev": "Bitte jetzt um Hilfe, statt zu warten, bis du zusammenbrichst. Lass los, was du kannst, und bau deine Kraft wieder auf."
+   }
+  },
+  "wands_page": {
+   "love": {
+    "up": "Ein lebhafter, neugieriger Anfang mit jemandem, der gern Neues erkundet und ausprobiert. In einer Beziehung deutet die Karte auf spielerisches Experimentieren oder eine frische Idee zum Teilen hin. Als Single kann eine Nachricht oder eine abenteuerlustige neue Bekanntschaft auftauchen. Bleib offen und genieße das Entdecken.",
+    "rev": "Ungeduld oder halbfertige Projekte machen es schwer, sich auf etwas zu verlassen. In einer Beziehung verfliegt die Begeisterung für gemeinsame Pläne schnell. Als Single zeigt jemand vielleicht aufregendes frühes Interesse und verliert dann den Fokus. Such nach Beständigkeit hinter dem Glanz."
+   },
+   "career": {
+    "up": "Ein neues Interesse oder eine Gelegenheit winkt, und du bist gern Anfänger. Der Bube mit dem Stab in der Wüste steht für Neugier, eine Nachricht oder die Chance, etwas Unerprobtes auszuprobieren. Arbeit, Studium und Geld neigen zu Lernen und Erkunden. Folge deinem Interesse.",
+    "rev": "Zerstreutes Interesse, aufgegebene Projekte oder Begeisterung ohne Richtung. Arbeit oder Studium beginnen vielleicht gut und verpuffen, wenn es schwierig wird. Geldideen brauchen mehr Bodenhaftung. Wähle ein Projekt und bring es zu Ende."
+   },
+   "feelings": {
+    "up": "Diese Person ist aufgeregt und neugierig auf dich und möchte dich vielleicht besser kennenlernen. Ihr Interesse ist spielerisch und temperamentvoll, vielleicht jung im Herzen. Sie schickt womöglich eine Nachricht oder macht eine mutige Geste.",
+    "rev": "Die Begeisterung dieser Person ist oberflächlich oder kurzlebig, und sie verliert vielleicht schnell das Interesse. Ihren Gefühlen fehlen Richtung oder Durchhaltevermögen. Womöglich reizt sie die Jagd mehr als der Mensch."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Neugier und frische Energie sind auf deiner Seite. Probier das Neue aus.",
+    "rev": "Vielleicht. Der Funke ist da, kann aber ohne Richtung verpuffen. Entscheide, was du zu Ende bringen willst."
+   },
+   "advice": {
+    "up": "Erkunde, was dich interessiert, und stell Fragen, ohne Angst, ungeschickt zu wirken. Folge deiner Neugier.",
+    "rev": "Wähle eine Idee und bleib dabei. Gib deine Pläne nicht bei der ersten Schwierigkeit auf."
+   }
+  },
+  "wands_knight": {
+   "love": {
+    "up": "Eine kühne, stürmische Energie, die mit Leidenschaft hereinbricht. In einer Beziehung deutet die Karte auf Abenteuer, Aufregung und vielleicht Unruhe hin. Als Single kann eine charismatische, schnelle Person auftauchen. Die Frage ist, ob das Tempo auf etwas Dauerhaftes zielt.",
+    "rev": "Die Energie stockt, überstürzt sich oder zerstreut sich. In einer Beziehung können Ungeduld oder Frust aufflammen, oder einer von euch zieht sich zurück. Als Single sind gemischte Signale und kurze Affären möglich. Werde langsamer und schau, wohin du steuerst."
+   },
+   "career": {
+    "up": "Antrieb und Abenteuerlust treiben dich auf einem sich aufbäumenden Pferd voran. Arbeit, Studium und Geld neigen zu schnellem Handeln, kühnen Plänen und Reisen oder Veränderung. Es bleibt die Frage, ob das Tempo irgendwohin führt. Lenke die Energie auf etwas Bestimmtes.",
+    "rev": "Pläne stocken, überstürzen sich oder zerstreuen sich in mehrere Richtungen. Arbeit oder Studium leiden vielleicht unter Ungeduld oder Burnout. Hastig getroffene Geldentscheidungen halten womöglich nicht. Denk nach, bevor du springst, und bring zuerst eine Sache zu Ende."
+   },
+   "feelings": {
+    "up": "Diese Person empfindet starke Leidenschaft und will handeln, vielleicht mit einer dramatischen Geste. Ihr Interesse ist intensiv, brennt aber womöglich schnell aus. Sie ist vielleicht aufregende Gesellschaft, aber noch nicht beständig.",
+    "rev": "Die Gefühle dieser Person sind mit Ungeduld vermischt, oder sie zieht sich zurück und verliert den Fokus. Ihr Interesse kann mal heiß, mal kalt sein. Sie ist womöglich eher ruhelos als verbindlich."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     -1
+    ],
+    "up": "Vielleicht. Die Energie ist stark, aber wohin sie führt, ist ungewiss. Wähle eine Richtung, bevor du losstürmst.",
+    "rev": "Nein. Überstürzen oder Stocken macht das Ergebnis unzuverlässig. Halte inne und denk nach, bevor du handelst."
+   },
+   "advice": {
+    "up": "Handle mutig, aber setz dir ein Ziel. Nutze deinen Antrieb für etwas, das dir am Herzen liegt, und bring es dann zu Ende.",
+    "rev": "Werde langsamer und prüfe, wohin du gehst. Spring nicht, bevor du hingeschaut hast."
+   }
+  },
+  "wands_queen": {
+   "love": {
+    "up": "Warm, selbstsicher und magnetisch, mit einer Sonnenblume und einer schwarzen Katze an ihrer Seite. In einer Beziehung deutet die Karte auf Großzügigkeit, Treue und einen lebhaften Funken hin. Als Single zieht dein eigenes Selbstvertrauen Menschen an. Sei du selbst und lass andere es auch sein.",
+    "rev": "Unsicherheit, Eifersucht oder das Bedürfnis, im Mittelpunkt zu stehen. In einer Beziehung kann Wärme in Besitzdenken oder Kontrolle umschlagen. Als Single kann Zweifel dein natürliches Strahlen dämpfen. Verbinde dich wieder mit dem, was du an dir magst."
+   },
+   "career": {
+    "up": "Selbstsicher, einladend und zielstrebig führst du, indem du inspirierst. Arbeit, Studium und Geld neigen zu Charisma, Netzwerken und kreativer Führung. Die Sonnenblume steht für Wärme und Wachstum. Steh zu dir, unterstütze andere und bleib deiner eigenen Vision treu.",
+    "rev": "Das Selbstvertrauen wankt, oder Wärme wird kontrollierend. Bei Arbeit oder Studium können Eifersucht, Selbstzweifel oder ein Ringen um Aufmerksamkeit eine Rolle spielen. Geldentscheidungen brauchen ehrliches Selbstvertrauen. Entdecke wieder, was dich begeistert."
+   },
+   "feelings": {
+    "up": "Diese Person empfindet Wärme, Bewunderung und Zuversicht dir gegenüber. Ihre Gefühle sind offen und großzügig, und sie möchte, dass du an ihrer Seite strahlst. Sie ist vielleicht liebevoll und treu.",
+    "rev": "Diese Person fühlt sich unsicher oder eifersüchtig, und ihre Wärme kann kontrollierend werden. Ihre Gefühle sind womöglich mit einem Bedürfnis nach Aufmerksamkeit vermischt. Sie braucht Bestätigung."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Selbstvertrauen, Wärme und Antrieb sind auf deiner Seite. Handle aus dem, was du über dich weißt.",
+    "rev": "Vielleicht. Selbstzweifel oder Eifersucht trüben die Antwort. Baue zuerst dein Selbstvertrauen wieder auf."
+   },
+   "advice": {
+    "up": "Sei großzügig mit deiner Wärme und zeig, wer du bist. Führe, indem du andere inspirierst.",
+    "rev": "Lass dich nicht von Unsicherheit oder Eifersucht lenken. Verbinde dich wieder mit deinem eigenen Funken, bevor du nach anderen greifst."
+   }
+  },
+  "wands_king": {
+   "love": {
+    "up": "Ein selbstsicherer, leidenschaftlicher Partner oder eine solche Präsenz mit klarer Vision. In einer Beziehung deutet die Karte auf Führung, Treue und gemeinsamen Ehrgeiz hin. Als Single kann jemand Charismatisches und Entschlossenes auftauchen. Such nach Stärke, die mit Respekt einhergeht.",
+    "rev": "Führung rutscht in Kontrolle ab, oder große Versprechen werden nicht eingelöst. In einer Beziehung dominiert vielleicht einer von euch die Entscheidungen oder verliert die Geduld. Als Single redet ein charmanter Mensch womöglich besser, als er handelt. Schätze Zuhören ebenso wie Vision."
+   },
+   "career": {
+    "up": "Ein geborener Anführer, der sieht, wohin die Reise geht, und den Willen hat, voranzugehen. Arbeit, Studium und Geld neigen zu mutigen Entscheidungen, Unternehmergeist und dazu, das Ruder zu übernehmen. Der Salamander und der wallende Umhang stehen für die Beherrschung des Feuers. Führe mit Klarheit und lass andere beitragen.",
+    "rev": "Führung wird herrisch, oder der Vision fehlt es an Umsetzung. Arbeit oder Studium leiden vielleicht unter Ungeduld mit Details oder Menschen. Geldpläne brauchen mehr praktische Vorarbeit. Hör zu, bevor du Befehle gibst."
+   },
+   "feelings": {
+    "up": "Diese Person empfindet Respekt und Begehren und sieht dich als Partner in einer größeren Vision. Ihr Interesse ist kühn und entschlossen. Vielleicht ergreift sie die Initiative, es zu zeigen.",
+    "rev": "Diese Person ist vielleicht kontrollierend oder zu stolz, Gefühle zu zeigen. Ihr Interesse kann ihrer Umsetzung davonlaufen. Sie ist womöglich ungeduldig mit dem, was du fühlst."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Du hast Vision und den Willen, sie anzuführen. Triff deine Entscheidung und steh dazu.",
+    "rev": "Vielleicht. Kontrolle oder mangelnde Umsetzung wecken Zweifel. Prüfe die Details, bevor du dich festlegst."
+   },
+   "advice": {
+    "up": "Führe mit Klarheit und Mut und teile deine Vision. Übernimm Verantwortung für die Richtung.",
+    "rev": "Lockere deinen Griff. Achte auf die Details und auf andere Menschen, bevor du weiterdrängst."
+   }
+  },
+  "cups_ace": {
+   "love": {
+    "up": "Ein Öffnen des Herzens, mit einem überfließenden Kelch voll Wasser. In einer Beziehung deutet die Karte auf neue Zärtlichkeit, eine tiefere Bindung oder einen Neuanfang hin. Als Single weist sie auf eine herzliche neue Verbindung hin. Heiße Freundlichkeit willkommen, auch dir selbst gegenüber.",
+    "rev": "Gefühle werden zurückgehalten, blockiert oder ungesehen vergossen. In einer Beziehung bleiben Emotionen vielleicht unausgesprochen oder unbeachtet. Als Single hält alter Schmerz dein Herz vielleicht verschlossen. Erlaube dir, sanft zu fühlen."
+   },
+   "career": {
+    "up": "Ein emotionaler Neubeginn in deiner Arbeit: Kreativität, Erfüllung oder eine Rolle, die dir etwas bedeutet. Arbeit und Studium neigen zu sinnvollen, mitfühlenden oder kreativen Wegen. Bei Geldfragen deutet die Karte auf Angebote hin, die sich ebenso richtig wie praktisch anfühlen. Folge dem, was dich bewegt.",
+    "rev": "Kreativität oder Begeisterung für die Arbeit ist blockiert oder wird nicht anerkannt. Arbeit oder Studium fühlen sich vielleicht emotional leer an. Geldentscheidungen aus einem Gefühl der Taubheit verdienen einen zweiten Blick. Hör darauf, was dir wirklich am Herzen liegt."
+   },
+   "feelings": {
+    "up": "Diese Person spürt, wie sich ihr Herz dir gegenüber öffnet, mit Wärme, Mitgefühl und Zuneigung. Das Gefühl ist neu und aufrichtig. Vielleicht ist sie bereit, es auszudrücken.",
+    "rev": "Diese Person hält ihre Gefühle zurück oder weiß nicht, wie sie sie ausdrücken soll. Ihre Emotionen sind womöglich blockiert oder überwältigend. Sie braucht vielleicht Zeit, sich zu öffnen."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Liebe, Mitgefühl und ein emotionaler Neuanfang werden dir angeboten. Nimm an, was dir zufließt.",
+    "rev": "Vielleicht. Gefühle sind blockiert oder unbeachtet. Hör auf dein eigenes Herz, bevor du antwortest."
+   },
+   "advice": {
+    "up": "Öffne dein Herz für das, was dir angeboten wird. Lass Freundlichkeit ein- und ausströmen.",
+    "rev": "Bemerke, was du zurückhältst. Erlaube deinen Gefühlen, sich zu zeigen, sanft und ohne Eile."
+   }
+  },
+  "cups_two": {
+   "love": {
+    "up": "Eine Begegnung auf Augenhöhe, zwei Menschen tauschen unter dem Heroldstab die Kelche. In einer Beziehung deutet die Karte auf gegenseitigen Respekt, Ehrlichkeit und geteiltes Empfinden hin. Als Single kann eine ausgewogene, wechselseitige Verbindung auftauchen. Schätze eine Bindung, in der beide geben und empfangen.",
+    "rev": "Ungleichgewicht, Missverständnisse oder eine Bindung, die auseinanderdriftet. In einer Beziehung gibt vielleicht einer mehr als der andere, oder Worte werden missverstanden. Als Single idealisierst du womöglich jemanden, der nicht dieselbe Zuwendung gezeigt hat. Sprecht offen darüber, was jeder von euch braucht."
+   },
+   "career": {
+    "up": "Eine Partnerschaft auf Grundlage gegenseitigen Respekts, etwa eine Zusammenarbeit, ein Geschäft oder ein gutes Arbeitsverhältnis. Arbeit, Studium und Geld neigen zu Vereinbarungen, die für beide Seiten funktionieren. Teamarbeit gedeiht dort, wo Vertrauen geteilt wird. Such nach Fairness.",
+    "rev": "Eine Partnerschaft ist ungleich, oder die Kommunikation hakt. Bei Arbeit oder Studium kann es Missverständnisse geben oder eine Zusammenarbeit, die auseinanderdriftet. Geldvereinbarungen brauchen klarere Bedingungen. Klärt die Erwartungen auf beiden Seiten."
+   },
+   "feelings": {
+    "up": "Diese Person spürt eine echte Verbindung und Respekt für dich und wünscht sich eine Bindung auf Augenhöhe. Ihre Gefühle sind gegenseitig und aufrichtig. Sie ist offen fürs Teilen und Zuhören.",
+    "rev": "Die Gefühle dieser Person sind ungleich, oder Verwirrung lässt sie zurückweichen. Vielleicht sieht sie die Verbindung nicht so wie du. Sprich mit ihr, um herauszufinden, wo sie steht."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Eine ausgewogene, gegenseitige Bindung unterstützt deine Frage. Gegenseitiges Einvernehmen ist wahrscheinlich.",
+    "rev": "Vielleicht. Ungleichgewicht oder Missverständnisse trüben die Antwort. Kläre die Dinge, bevor du dich entscheidest."
+   },
+   "advice": {
+    "up": "Begegne der anderen Person auf Augenhöhe. Hör zu, teile ehrlich und baue Vertrauen auf.",
+    "rev": "Sprich das Ungleichgewicht direkt an. Sag, was du brauchst, und hör zu, was die andere Person braucht."
+   }
+  },
+  "cups_three": {
+   "love": {
+    "up": "Freude, die mit Freunden geteilt wird, drei Gestalten heben ihre Kelche. In einer Beziehung deutet die Karte auf fröhliche gemeinsame Zeiten und Freunde hin, die euch als Paar unterstützen. Als Single entstehen Verbindungen oft über Freundschaft und Gemeinschaft. Feiert gemeinsam.",
+    "rev": "Übermaß, Klatsch oder das Gefühl, ausgeschlossen zu sein. In einer Beziehung verdrängt das gesellige Leben vielleicht die Nähe, oder eine dritte Person sorgt für Spannung. Als Single kann sich Einsamkeit auf Treffen zeigen. Such dir ein paar echte Freunde statt einer großen Menge."
+   },
+   "career": {
+    "up": "Teamarbeit und gemeinsames Feiern. Arbeit, Studium und Geld neigen zu Zusammenarbeit, Gruppenerfolg und einem freundlichen Arbeitsumfeld. Die erhobenen Kelche stehen für gegenseitige Unterstützung und Freude an gemeinsamer Anstrengung. Feiert Erfolge zusammen.",
+    "rev": "Cliquen, Klatsch oder zu viel Feiern können von der Arbeit ablenken. Arbeit oder Studium fühlen sich vielleicht isolierend an, oder das Team kippt. Beim Geld wird womöglich zu großzügig für Geselligkeit ausgegeben. Halte ein gesundes Gleichgewicht."
+   },
+   "feelings": {
+    "up": "Diese Person empfindet freundschaftliche Wärme und genießt deine Gesellschaft. Ihre Gefühle beginnen vielleicht in Freundschaft und gemeinsamem Spaß. Sie schätzt die Gemeinschaft, die ihr teilt.",
+    "rev": "Das Interesse dieser Person ist eher gesellig als romantisch, oder sie fühlt sich ausgeschlossen. Vielleicht ist sie von anderen abgelenkt. Die Stimmung ist womöglich eher ausgelassen als vertraut."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Freude, Freundschaft und Unterstützung von anderen sind auf deiner Seite. Feiere und teile den Plan.",
+    "rev": "Vielleicht. Klatsch, Übermaß oder Isolation trüben die Antwort. Prüfe, wer dich wirklich unterstützt."
+   },
+   "advice": {
+    "up": "Verbring Zeit mit Menschen, die dich aufbauen. Teile dein Glück und nimm ihre Hilfe an.",
+    "rev": "Halte dich von Klatsch und Übermaß fern. Such echte Gesellschaft statt einer lauten Menge."
+   }
+  },
+  "cups_four": {
+   "love": {
+    "up": "Du sitzt mit verschränkten Armen unter einem Baum und bemerkst den Kelch nicht, der dir gereicht wird. In einer Beziehung deutet das auf Langeweile, Rückzug oder übersehene kleine Zeichen der Zuneigung hin. Als Single wendest du dich vielleicht von Gelegenheiten ab. Frag dich, was du wirklich willst.",
+    "rev": "Du wachst auf und siehst etwas, das du übersehen hast. In einer Beziehung kehrt das Interesse zurück, und du erkennst, was dir angeboten wurde. Als Single öffnest du dich nach einer faden Phase für neue Einladungen. Oder du versinkst tiefer in der Gleichgültigkeit, wenn du nichts unternimmst."
+   },
+   "career": {
+    "up": "Langeweile oder Gleichgültigkeit im Beruf oder im Studium lässt dich übersehen, was sich bietet. Der Kelch aus der Wolke steht für eine unbemerkte Gelegenheit. Bei Geldfragen geht es eher darum, deine Optionen zu überprüfen. Halte inne, denk nach und frag dich, was dich wirklich interessiert.",
+    "rev": "Du bemerkst eine Gelegenheit, die du abgetan hast, und bist bereit, dich einzulassen. Beruf oder Studium können nach einer flauen Zeit wieder aufleben. Geldoptionen verdienen einen zweiten Blick. Handle nach dem, was du jetzt siehst."
+   },
+   "feelings": {
+    "up": "Die Person ist gelangweilt, zurückgezogen oder unsicher, was sie will. Ihre Gefühle sind vielleicht nach innen gerichtet, und sie übersieht womöglich, was du ihr anbietest. Sie braucht Zeit zum Nachdenken.",
+    "rev": "Die Person wacht auf, was ihre Gefühle oder dein Angebot betrifft. Nach einer distanzierten Zeit kann das Interesse zurückkehren. Sie kann aber auch festsitzen, wenn sich nichts ändert."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     1
+    ],
+    "up": "Vielleicht. Möglicherweise übersiehst du, was dir angeboten wird, und die Antwort ist nicht klar. Denk nach, bevor du dich entscheidest.",
+    "rev": "Ja. Du siehst das Angebot, das du ignoriert hast, und bist bereit, es anzunehmen. Greif zu."
+   },
+   "advice": {
+    "up": "Nimm dir Zeit zum Nachdenken, aber schau auf. Prüfe, ob Langeweile ein Angebot verdeckt.",
+    "rev": "Ergreife den Kelch, den du bemerkt hast. Geh vom Nachdenken zum Handeln über."
+   }
+  },
+  "cups_five": {
+   "love": {
+    "up": "Trauer und Bedauern über verschüttete Kelche, während hinter dir noch zwei stehen. In einer Beziehung deutet das auf Trauer um einen Verlust oder Riss hin und darauf, dass der Blick auf dem liegt, was schiefgelaufen ist. Als Single färbt vielleicht ein früherer Liebeskummer, wie du die Gegenwart siehst. Erlaube dir die Trauer, dann dreh dich um.",
+    "rev": "Du beginnst weiterzugehen, zu vergeben und dich dem zuzuwenden, was bleibt. In einer Beziehung sind Heilung und Versöhnung möglich. Als Single schafft die Erholung von einem Verlust ein wenig Raum für neue Liebe. Sei freundlich zu dir, während du dich umdrehst."
+   },
+   "career": {
+    "up": "Enttäuschung über einen Verlust oder Misserfolg bei Arbeit, Studium oder Geld. Der schwarze Umhang und die verschütteten Kelche stehen für Bedauern, die stehenden Kelche für das, was bleibt. Verweile einen Moment, dann prüfe, was dir noch geblieben ist. Such nach den Kelchen, die noch voll sind.",
+    "rev": "Du erholst dich von einem Rückschlag und siehst wieder Möglichkeiten. Beruf oder Studium bessern sich, wenn du das Bedauern loslässt. Finanzen erholen sich langsam. Geh mit dem weiter, was du gelernt hast."
+   },
+   "feelings": {
+    "up": "Die Person fühlt Traurigkeit, Bedauern oder Enttäuschung, vielleicht wegen der Beziehung. Ihre Gefühle sind mit einem Verlust verbunden, und sie hat es schwer zu sehen, was geblieben ist. Sie braucht vielleicht Trost.",
+    "rev": "Die Person beginnt zu heilen und Groll loszulassen. Ihre Gefühle wenden sich dem zu, was noch gut ist. Sie ist vielleicht offen für einen Neuanfang."
+   },
+   "yesno": {
+    "verdict": [
+     -1,
+     0
+    ],
+    "up": "Nein. Verlust und Bedauern färben diesen Moment, die Antwort fällt jetzt also nicht günstig aus. Denk daran, dass einige Kelche noch stehen.",
+    "rev": "Vielleicht. Die Heilung hat begonnen, und eine bessere Antwort kann kommen. Geh behutsam weiter."
+   },
+   "advice": {
+    "up": "Erlaube dir zu trauern und schau dann auf die zwei Kelche, die noch stehen. Bleib nicht in Schuldzuweisungen stecken.",
+    "rev": "Vergib, wo du kannst, und wende dich langsam dem zu, was bleibt. Heilung braucht Zeit."
+   }
+  },
+  "cups_six": {
+   "love": {
+    "up": "Warme Erinnerungen und sanfte Großzügigkeit: Kinder reichen Blumen in einem Kelch. In einer Beziehung deutet das auf alte Zuneigung, gemeinsame Geschichte oder schlichte Freundlichkeit hin. Als Single kehrt vielleicht jemand aus deiner Vergangenheit oder ein vertrauter, tröstlicher Mensch zurück. Genieße die Süße, ohne in ihr zu leben.",
+    "rev": "Feststecken in der Vergangenheit oder Zurückschauen statt Vorausblicken. In einer Beziehung kann Nostalgie gegenwärtige Probleme verdecken, oder alte Konflikte tauchen wieder auf. Als Single kann ein Ex oder ein altes Ideal neuer Liebe im Weg stehen. Lass die Vergangenheit eine Erinnerung sein."
+   },
+   "career": {
+    "up": "Vertraute Umgebung, frühere Kollegen oder eine Rückkehr zu früherer Arbeit oder einem früheren Studium. Bei Geldfragen geht es eher um schlichte Großzügigkeit, Geschenke oder ein Erbe aus der Vergangenheit. Die Karte deutet auf Freundlichkeit und Wärme in deinem Umfeld hin. Greife auf zurück, was du früher gelernt hast.",
+    "rev": "Du hältst an alten Wegen fest und meidest Veränderung. Beruf oder Studium halten dich vielleicht im Bequemen, aber Überholten fest. Geldgewohnheiten aus der Vergangenheit brauchen womöglich ein Update. Ehre die Erinnerungen und geh dann weiter."
+   },
+   "feelings": {
+    "up": "Die Person empfindet Zuneigung, Nostalgie und Zärtlichkeit für dich. Ihre Gefühle wurzeln vielleicht in gemeinsamer Geschichte oder schönen Erinnerungen. Sie ist sanft und freundlich.",
+    "rev": "Die Person steckt in der Vergangenheit fest oder vergleicht dich mit jemandem aus ihr. Ihre Gefühle stützen sich vielleicht zu sehr auf Erinnerung. Sie muss womöglich loslassen, was war."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Wärme, Erinnerung und Freundlichkeit sprechen für dich. Schau darauf, was sich früher bewährt hat.",
+    "rev": "Vielleicht. Die Vergangenheit hält dich womöglich zurück, schau also nach vorn, bevor du dich entscheidest."
+   },
+   "advice": {
+    "up": "Besuche glückliche Erinnerungen und handle mit schlichter Freundlichkeit. Melde dich bei jemandem aus deiner Vergangenheit, wenn es sich richtig anfühlt.",
+    "rev": "Lebe nicht im Gestern. Lass die Erinnerungen ruhen und schau auf das, was vor dir liegt."
+   }
+  },
+  "cups_seven": {
+   "love": {
+    "up": "Viele Träume schweben in Wolken, jeder Kelch birgt ein anderes Versprechen. In einer Beziehung deutet das auf Idealisieren hin oder darauf, mehr zu sehen, als da ist. Als Single hast du vielleicht viele Optionen, aber keine klare Wahl. Trenne Fantasie von dem, was wirklich ist.",
+    "rev": "Klarheit kommt, oder die Auswahl überwältigt. In einer Beziehung verblassen Illusionen, und du siehst die Dinge, wie sie sind. Als Single wählst du endlich eine Sache, oder du fühlst dich verloren zwischen den Optionen. Konzentriere dich darauf, was du wirklich willst."
+   },
+   "career": {
+    "up": "Eine Fülle von Optionen und Tagträumen, die nach klarem Sortieren verlangt. Bei Arbeit, Studium und Geld geht es eher um viele Ideen und wenig Verbindlichkeit. Die verhüllte Gestalt steht vor Kelchen mit Schätzen, Juwelen und einem Drachen, ein Hinweis auf Illusion. Wähle einen realistischen Plan.",
+    "rev": "Der Nebel lichtet sich, und du siehst, welche Optionen echt sind. Beruf oder Studium können sich konzentrieren, sobald du aufhörst zu tagträumen. Geldentscheidungen werden mit klareren Fakten besser. Oder du verlierst dich in Fantasien und entscheidest nichts."
+   },
+   "feelings": {
+    "up": "Die Person hat viele Gefühle und Fantasien und weiß vielleicht nicht, was sie will. Ihr Interesse ist womöglich eher eingebildet als echt. Sie ist sich über dich vielleicht unklar.",
+    "rev": "Die Person sieht klarer oder ist von den Möglichkeiten überfordert. Ihre Illusionen über dich verblassen. Sie entscheidet vielleicht endlich, was sie will."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     0
+    ],
+    "up": "Vielleicht. Viele Möglichkeiten und etwas Illusion trüben die Antwort. Trenne zuerst Echtes von Eingebildetem.",
+    "rev": "Vielleicht. Der Nebel lichtet sich, aber du musst dich noch entscheiden. Prüfe die Fakten, bevor du dich festlegst."
+   },
+   "advice": {
+    "up": "Schreib deine Optionen auf und prüfe, welche echt sind. Wähle eine und tu einen Schritt.",
+    "rev": "Lichte den Nebel. Sieh den Tatsachen ins Auge und entscheide dich, statt in Tagträumen zu treiben."
+   }
+  },
+  "cups_eight": {
+   "love": {
+    "up": "Du gehst von etwas weg, das gut aussieht, aber nicht mehr erfüllt. In einer Beziehung deutet das auf Gehen oder wachsende emotionale Distanz hin. Als Single verlässt du vielleicht ein Muster, das dich nicht genährt hat. Such, was du wirklich brauchst.",
+    "rev": "Aus Angst bleiben oder ohne Plan gehen. In einer Beziehung verharrst du vielleicht in einer hohlen Bindung oder gehst, ohne dich zu fragen, warum. Als Single kann ziellose Unruhe echte Verbindung verzögern. Sei ehrlich, was du willst."
+   },
+   "career": {
+    "up": "Du lässt einen Stapel Kelche zurück und gehst unter dem Mond in die Berge. Bei Arbeit, Studium und Geld geht es eher darum, eine Aufgabe zu verlassen, die nicht mehr passt, auf der Suche nach Sinn. Es braucht Mut, das Bequeme zu verlassen. Plane die Reise.",
+    "rev": "Du bleibst aus Angst in einem unerfüllenden Job oder gehst überstürzt. Beruf oder Studium können in ziellosem Treiben stocken. Geldrisiken brauchen einen Plan. Entscheide mit offenen Augen, ob du bleibst oder gehst."
+   },
+   "feelings": {
+    "up": "Die Person fühlt sich hingezogen zu gehen oder sich zurückzuziehen, auf der Suche nach mehr. Ihre Gefühle sind vielleicht abgekühlt, oder sie fühlt sich unerfüllt. Sie geht womöglich weg, auch wenn es schwerfällt.",
+    "rev": "Die Person zögert aus Angst oder geht, ohne zu sagen, warum. Ihre Gefühle sind gemischt und unausgesprochen. Sie schwankt vielleicht zwischen Bleiben und Gehen."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     -1
+    ],
+    "up": "Vielleicht. Wegzugehen kann dir guttun, aber es ist kein einfaches Ja. Frag dich, was wirklich fehlt.",
+    "rev": "Nein. Angst oder Treiben machen den Schritt so, wie es jetzt ist, unklug. Mach einen Plan oder stell dich der Frage, warum du feststeckst."
+   },
+   "advice": {
+    "up": "Sei ehrlich, was dich nicht mehr erfüllt. Geh mit Sorgfalt und nimm die Lehren mit.",
+    "rev": "Lauf nicht davon und versteck dich nicht. Stell dich der Frage, warum du gehen willst, und entscheide dann bewusst, ob du bleibst oder gehst."
+   }
+  },
+  "cups_nine": {
+   "love": {
+    "up": "Zufriedenheit und ein erfüllter Wunsch: die Gestalt sitzt vor ihren Kelchen. In einer Beziehung deutet das auf Zufriedenheit, Freude aneinander und Dankbarkeit hin. Als Single fühlst du dich in deiner eigenen Gesellschaft wohl, und das macht dich offen für Liebe. Genieße, was du hast.",
+    "rev": "Selbstgefälligkeit oder ein Wunsch, der nicht so befriedigend ist wie erwartet. In einer Beziehung kann sich Unzufriedenheit hinter einer angenehmen Oberfläche verbergen. Als Single fühlt sich das Erreichte vielleicht leer an. Schau, was du wirklich brauchst."
+   },
+   "career": {
+    "up": "Zufriedenheit mit dem, wofür du gearbeitet hast, während sich deine Kelche hinter dir aufreihen. Bei Arbeit, Studium und Geld geht es eher um gut getane Arbeit, Wohlstand und den Genuss deiner Ergebnisse. Dankbarkeit passt zu dieser Karte. Genieße es und teile es.",
+    "rev": "Unzufriedenheit trotz dessen, was du wolltest, oder Angeberei. Beruf oder Studium bleiben womöglich hinter der erhofften Belohnung zurück. Geldgewinne fühlen sich vielleicht hohl an. Frag dich, was dich wirklich erfüllen würde."
+   },
+   "feelings": {
+    "up": "Die Person fühlt sich zufrieden und glücklich mit dir. Ihre Gefühle sind warm und erfüllt. Sie genießt die Verbindung und ist dankbar dafür.",
+    "rev": "Die Person ist unzufrieden, obwohl alles gut aussieht, oder selbstgefällig. Ihre Gefühle sind vielleicht oberflächlich oder selbstzufrieden. Sie möchte womöglich mehr, als sie hat."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Die Neun der Kelche ist die Wunschkarte: Zufriedenheit und Erfüllung sind in Reichweite. Genieße es.",
+    "rev": "Vielleicht. Das Erreichte fühlt sich womöglich nicht so gut an wie erhofft. Prüfe, was du wirklich willst."
+   },
+   "advice": {
+    "up": "Schätze, was du hast, und genieße es ohne Schuldgefühle. Danke denen, die dir geholfen haben.",
+    "rev": "Schau hinter die Oberfläche. Wenn sich Zufriedenheit leer anfühlt, frag dich, was du eigentlich willst."
+   }
+  },
+  "cups_ten": {
+   "love": {
+    "up": "Das Bild eines glücklichen Zuhauses unter einem Regenbogen aus Kelchen. In einer Beziehung deutet das auf seelische Erfüllung, familiäre Bande und gemeinsame Zufriedenheit hin. Als Single prägen vielleicht Zugehörigkeit und eine liebevolle Gemeinschaft deine Zukunft. Schätze die Menschen, die du liebst.",
+    "rev": "Spannung in einer Familie oder Gruppe, oder ein Ideal außer Reichweite. In einer Beziehung passen Werte vielleicht nicht zusammen, oder das Bild sieht besser aus, als es sich anfühlt. Als Single sehnst du dich womöglich nach einem perfekten Bild. Sprecht ehrlich darüber, was jeder von euch will."
+   },
+   "career": {
+    "up": "Seelische Erfüllung in einem Team oder an einem Arbeitsplatz, der sich wie eine Familie anfühlt. Bei Arbeit, Studium und Geld geht es eher um Harmonie, gemeinsamen Erfolg und Sicherheit zu Hause. Der Regenbogen steht für dauerhafte Belohnung. Such Arbeit, die zu deinen Werten passt.",
+    "rev": "Spannung in einem Team oder ein Ideal, das echte Probleme verdeckt. Beruf oder Studium können mit deinen Werten oder deinem Zuhause kollidieren. Geldfragen belasten womöglich die Harmonie in der Familie. Kümmere dich um die Risse statt um das Bild."
+   },
+   "feelings": {
+    "up": "Die Person empfindet tiefe Zuneigung und stellt sich vielleicht ein gemeinsames Zuhause oder Familienleben mit dir vor. Ihre Gefühle sind warm, treu und verbindlich. Zugehörigkeit ist ihr wichtig.",
+    "rev": "Die Gefühle der Person hängen an einem Ideal, das nicht zur Wirklichkeit passt. Sie spürt vielleicht Spannung mit Familie oder Werten. Ein ehrliches Gespräch ist nötig."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Harmonie, Zugehörigkeit und seelische Erfüllung unterstützen deine Frage. Es sieht glücklich aus.",
+    "rev": "Vielleicht. Belastete Bindungen oder ein idealisiertes Bild lassen Zweifel aufkommen. Kläre zuerst die Probleme."
+   },
+   "advice": {
+    "up": "Pflege die Bindungen, die dir wichtig sind, und teile dein Glück. Mach dein Zuhause zu einem Ort der Wärme.",
+    "rev": "Sei ehrlich über die Probleme hinter dem Ideal. Arbeite an Kommunikation und gemeinsamen Werten."
+   }
+  },
+  "cups_page": {
+   "love": {
+    "up": "Eine zärtliche, kreative Botschaft trifft ein, so wie ein Fisch aus dem Kelch springt. In einer Beziehung deutet das auf süße Gesten, spielerische Überraschungen und Weichheit hin. Als Single taucht vielleicht ein sanfter, fantasievoller Mensch oder eine Nachricht voller Interesse auf. Hör auf deine Gefühle.",
+    "rev": "Gefühle werden zurückgehalten oder werden zum Drama. In einer Beziehung können Launenhaftigkeit oder Unreife Ärger machen. Als Single ersetzen vielleicht Tagträume echten Kontakt. Benenne deine Gefühle ehrlich und ruhig."
+   },
+   "career": {
+    "up": "Ein kreativer Impuls oder eine sanfte Botschaft zu Arbeit, Studium oder Geld. Die Karte rät, offen für Überraschungen zu sein und deiner Fantasie zu vertrauen. Chancen kommen vielleicht durch Intuition oder Kunst. Folge einer kleinen Idee, die von Herzen kommt.",
+    "rev": "Kreative Blockaden, Launenhaftigkeit oder Flucht in Tagträume. Beruf oder Studium leiden womöglich unter Überempfindlichkeit oder unrealistischen Hoffnungen. Geldentscheidungen triffst du am besten in Ruhe. Erde deine Ideen."
+   },
+   "feelings": {
+    "up": "Die Person fühlt sich zärtlich, schüchtern und ein wenig verträumt dir gegenüber. Ihre Gefühle kommen vielleicht als kleines Geschenk, Nachricht oder freundliche Geste. Sie meint es aufrichtig, auch wenn sie noch lernt, es auszudrücken.",
+    "rev": "Die Person hält sich zurück oder ist launisch, was ihre Gefühle angeht. Ihr Interesse mischt sich vielleicht mit Tagträumen oder Unreife. Sie braucht womöglich Zeit, um emotional zu reifen."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Eine sanfte, hoffnungsvolle Botschaft unterstützt deine Frage. Vertrau deinen Gefühlen.",
+    "rev": "Vielleicht. Launenhaftigkeit oder unklare Gefühle verwischen die Antwort. Warte, bis du dich ruhig fühlst."
+   },
+   "advice": {
+    "up": "Folge deinen sanften Impulsen und sei kreativ. Hör darauf, was deine Gefühle dir sagen.",
+    "rev": "Lass dich nicht von Launen lenken. Erde deine Träume mit einem praktischen Schritt."
+   }
+  },
+  "cups_knight": {
+   "love": {
+    "up": "Eine romantische, charmante Gestalt auf einem ruhigen Pferd bietet einen Kelch an. In einer Beziehung deutet das auf Romantik, eine Einladung oder eine Geste der Hingabe hin. Als Single nähert sich vielleicht ein verträumter, höflicher Mensch. Genieße die Romantik und prüfe, ob sie echt ist.",
+    "rev": "Charme ohne Substanz oder ein Rückzug vor dem Gefühl. In einer Beziehung eilen Versprechen vielleicht der Wirklichkeit voraus, oder jemand zieht sich zurück. Als Single können widersprüchliche Signale oder ein idealisierter Schwarm in die Irre führen. Achte auf Beständigkeit."
+   },
+   "career": {
+    "up": "Ein Angebot oder eine Einladung trifft ein, die dich bewegt. Bei Arbeit, Studium und Geld geht es eher um kreative, idealistische Wege und darum, dem nachzugehen, was dir am Herzen liegt. Der Ritter trägt seinen Kelch mit Sorgfalt. Wäge das Angebot gegen praktische Bedürfnisse ab.",
+    "rev": "Unrealistische Ideen oder widersprüchliche Signale. Beruf oder Studium leiden womöglich unter Tagträumen oder gebrochenen Versprechen. Geldangebote müssen geprüft werden. Schau hinter den Charme auf die Details."
+   },
+   "feelings": {
+    "up": "Die Person fühlt sich romantisch und idealistisch dir gegenüber und macht vielleicht eine Geste von Herzen. Ihre Gefühle sind aufrichtig, wenn auch vielleicht verträumt. Sie wirbt auf ihre eigene sanfte Art um dich.",
+    "rev": "Ihr Charme ist stärker als ihre Verbindlichkeit, oder sie zieht sich vor dem Gefühl zurück. Ihre Versprechen eilen der Wirklichkeit womöglich voraus. Ihre Absichten sind vielleicht unklar."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Ein Angebot oder eine romantische Geste unterstützt deine Frage. Folge deinem Herzen mit offenen Augen.",
+    "rev": "Vielleicht. Widersprüchliche Signale oder unrealistische Hoffnungen lassen Zweifel aufkommen. Prüfe, was echt ist."
+   },
+   "advice": {
+    "up": "Folge deinem Herzen und nimm die Einladung an, mit beiden Füßen auf dem Boden.",
+    "rev": "Lass dich nicht allein von Charme mitreißen. Achte auf beständiges Handeln, nicht nur auf Worte."
+   }
+  },
+  "cups_queen": {
+   "love": {
+    "up": "Tiefes Gefühl, behutsam gehalten: die Königin betrachtet einen kunstvollen Kelch. In einer Beziehung deutet das auf Einfühlung, Hingabe und intuitives Verstehen hin. Als Single kann eine fürsorgliche, sensible Verbindung kommen. Achte auch gut auf dein eigenes Herz.",
+    "rev": "Einfühlung kippt ins Zuviel-Geben, oder Gefühle werden weggesperrt. In einer Beziehung nimmt einer von euch vielleicht die Stimmungen des anderen auf oder verliert die Grenzen. Als Single schützt du dich womöglich zu sehr. Sorge für dich selbst ebenso wie für andere."
+   },
+   "career": {
+    "up": "Einfühlung und Intuition leiten deine Entscheidungen bei Arbeit, Studium und Geld. Pflegende, kreative oder beratende Berufe können passen. Die Königin sitzt am Wasser, ein Hinweis auf emotionale Tiefe. Vertrau deinem Instinkt, mit vernünftigen Grenzen.",
+    "rev": "Emotionale Überforderung oder das Vernachlässigen der eigenen Bedürfnisse. Beruf oder Studium zehren womöglich an dir, weil du die Gefühle anderer übernimmst. Geldentscheidungen aus Mitgefühl brauchen Sorgfalt. Setze Grenzen."
+   },
+   "feelings": {
+    "up": "Die Person empfindet tiefe Fürsorge, Einfühlung und Zuneigung für dich. Ihre Gefühle sind sanft, intuitiv und aufrichtig. Sie möchte dich verstehen und unterstützen.",
+    "rev": "Die Person fühlt sich überwältigt oder hält sich zum Selbstschutz zurück. Ihre Fürsorge kippt vielleicht ins Zuviel-Geben, oder sie macht dicht. Sie braucht Raum, um für sich zu sorgen."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Mitgefühl und Intuition unterstützen dich. Vertrau deinem inneren Gespür.",
+    "rev": "Vielleicht. Emotionale Überforderung trübt dein Urteil. Sorge zuerst für deine eigenen Bedürfnisse."
+   },
+   "advice": {
+    "up": "Vertrau deiner Intuition und sorge für andere, dich selbst eingeschlossen. Sei sanft, aber halte deine Grenzen.",
+    "rev": "Hör auf, zu viel zu geben. Tritt zurück, ruh dich aus und kümmere dich um deine eigenen Gefühle."
+   }
+  },
+  "cups_king": {
+   "love": {
+    "up": "Reife, beständige Liebe: ruhig, freundlich und emotional ausgeglichen. In einer Beziehung deutet das auf Geduld, Diplomatie und ein Gegenüber hin, das Gefühl halten kann, ohne von ihm beherrscht zu werden. Als Single taucht vielleicht ein nachdenklicher, geerdeter Mensch auf. Such Ruhe statt Drama.",
+    "rev": "Unterdrückte Gefühle oder Launen hinter einer ruhigen Fassade. In einer Beziehung können emotionale Distanz oder feine Manipulation sich einschleichen. Als Single bewachst du dein Herz womöglich zu streng. Lass etwas Gefühl zu."
+   },
+   "career": {
+    "up": "Emotionale Reife leitet deine Arbeit, dein Studium und deine Geldfragen. Diplomatie, Beratung und beständige Führung passen zu dieser Karte. Der König sitzt auf einem Thron über rauem Wasser, ruhig inmitten der Bewegung. Bewahre einen kühlen Kopf und sei mitfühlend.",
+    "rev": "Gefühlskontrolle verhärtet sich zu Kälte, oder die Fassung bröckelt. Beruf oder Studium bringen vielleicht unterdrückten Stress oder Launen mit sich. Geldentscheidungen entstehen womöglich aus Vermeidung. Gib zu, was du fühlst."
+   },
+   "feelings": {
+    "up": "Die Person empfindet beständige, fürsorgliche Zuneigung und reagiert reif. Ihre Gefühle sind tief, aber maßvoll, und sie ist verlässlich. Sie zeigt Liebe durch ruhige Unterstützung.",
+    "rev": "Die Person verbirgt Gefühle hinter Fassung oder hält Abstand. Ihre Emotionen sind vielleicht unterdrückt oder verwirrend. Es fällt ihr womöglich schwer, sich zu öffnen."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Emotionales Gleichgewicht und ruhiges Urteil sprechen für deine Frage. Geh mit Sorgfalt voran.",
+    "rev": "Vielleicht. Unterdrückte Gefühle oder Launen trüben die Antwort. Sei ehrlich, was du fühlst."
+   },
+   "advice": {
+    "up": "Bleib unter Druck ruhig, fühle tief und wähle zugleich, wie du reagierst. Biete beständige Fürsorge an.",
+    "rev": "Vergrab nicht, was du fühlst. Lass ehrliche Gefühle zu, bevor sie erkalten oder ausbrechen."
+   }
+  },
+  "swords_ace": {
+   "love": {
+    "up": "In einer Beziehung deutet das auf ein Gespräch hin, das endlich ausspricht, was unausgesprochen blieb. Das Schwert schneidet durch widersprüchliche Signale, schlichte, freundliche Ehrlichkeit hilft euch also beiden. Als Single weist es darauf hin, klar zu sehen, was du willst, bevor du dich auf die Suche machst.",
+    "rev": "Umgekehrt kommen Worte vielleicht schärfer heraus als gewollt, oder eine Wahrheit bleibt verschluckt. Paare reden womöglich aneinander vorbei. Als Single trüben vielleicht diffuse Erwartungen den Blick, benenne also, was du wirklich willst, bevor du handelst."
+   },
+   "career": {
+    "up": "Das weist auf eine scharfe Idee oder eine klare Entscheidung hin, die in deiner Arbeit oder deinem Studium eintrifft. Das gekrönte Schwert steht für einen Durchbruch, den du nutzen kannst, sobald du das Ziel schlicht benennst. Auch bei Geldentscheidungen geht es eher um Einfachheit und gute Begründung.",
+    "rev": "Dein Denken fühlt sich vielleicht benebelt an, und ein Vorschlag oder Plan ist unklar oder schlecht formuliert. Die Karte rät, langsamer zu werden und Fakten zu prüfen, bevor du dich festlegst. Vermeide scharfe Nachrichten an Kollegen, wenn du frustriert bist."
+   },
+   "feelings": {
+    "up": "Diese Person sieht dich klar und wünscht sich Ehrlichkeit zwischen euch. Ihre Gefühle sind eher direkt als kokett, und sie ist vielleicht bereit zu sagen, wo sie steht. Sie schätzt Wahrheit und einen sauberen Neuanfang.",
+    "rev": "Diese Person ist vielleicht verwirrt, was sie fühlt, oder hält etwas zurück, das sie weiß. Ihre Worte kommen hart oder gar nicht. Das Bild bleibt unklar, bis jemand offen spricht."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Das erhobene Schwert und seine Krone stehen für Klarheit und einen entschlossenen Schritt. Ist die Frage eindeutig und kennst du die Fakten, deutet die Antwort auf ein klares Go hin.",
+    "rev": "Vielleicht. Die Wolke ist hier dicht, die Fakten sind noch nicht klar, oder etwas wird vermieden. Kläre die Frage, bevor du dich auf eine Antwort verlässt."
+   },
+   "advice": {
+    "up": "Denk es durch und sag es dann schlicht. Schreib die eine Idee auf, die zählt, und handle danach, mit Worten, die ehrlich, aber nicht verletzend sind.",
+    "rev": "Halte inne, bevor du sprichst oder entscheidest. Frag dich, was du dir nicht eingestehen willst, und gib dir Zeit, deine Gedanken zu ordnen, bevor du sie zu anderen trägst."
+   }
+  },
+  "swords_two": {
+   "love": {
+    "up": "Eine Beziehung steckt vielleicht in einer Pattsituation, beide bewacht ihr euer Herz hinter gekreuzten Schwertern. Die Augenbinde deutet an, dass etwas nicht angeschaut wird. Ehrliches Reden, wenn ihr bereit seid, kann die Schwerter senken. Als Single schließt du vielleicht Möglichkeiten aus, um sicher zu bleiben.",
+    "rev": "Umgekehrt rutscht die Augenbinde, und ein verborgenes Gefühl kommt ans Licht, oder die Pattsituation zieht sich ohne Lösung hin. Paare müssen sich vielleicht einer Entscheidung stellen. Als Single gestehst du dir endlich ein, was du wirklich willst."
+   },
+   "career": {
+    "up": "Du stehst vor einer Entscheidung bei der Arbeit oder beim Geld und vermeidest sie, indem du nicht hinschaust. Gleichwertige Optionen scheinen unmöglich abzuwägen. Die Karte rät, Fakten zu sammeln und dann zu entscheiden, statt ewig im Gleichgewicht zu verharren.",
+    "rev": "Eine Entscheidung wird erzwungen, oder neue Informationen brechen die Blockade. Oder die Unentschlossenheit zieht sich hin und kostet dich Zeit. Schau auf die Fakten, die du gemieden hast, und wähle."
+   },
+   "feelings": {
+    "up": "Diese Person ist zurückhaltend und unsicher. Vielleicht liegt ihr etwas an dir, doch sie hält ihre Gefühle hinter einer Mauer und legt sich nicht fest. Sie ist womöglich hin- und hergerissen zwischen zwei Gefühlen.",
+    "rev": "Diese Person beginnt, ihre eigenen Gefühle klarer zu sehen, oder wird zu einer Entscheidung gedrängt. Oder sie steckt noch fest, und das Schweigen hält an. Rechne mit etwas Bewegung, aber nicht unbedingt mit Behagen."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     0
+    ],
+    "up": "Noch nicht. Die gekreuzten Schwerter und die Augenbinde deuten an, dass die Antwort wartet, weil eine Entscheidung vermieden wird. Hol mehr Informationen ein, bevor du erneut fragst.",
+    "rev": "Vielleicht. Die Augenbinde rutscht, bald wird also etwas klar, aber die Blockade kann auch bleiben. Warte auf die neuen Fakten."
+   },
+   "advice": {
+    "up": "Nimm die Augenbinde ab, wenn du bereit bist. Liste auf, was du weißt und was du fürchtest, und triff dann die kleinste ehrliche Entscheidung, die dir möglich ist.",
+    "rev": "Stell dich dem, was du gemieden hast, denn es könnte dir ohnehin aufgezwungen werden. Sammle die fehlenden Informationen und entscheide zu deinen eigenen Bedingungen."
+   }
+  },
+  "swords_three": {
+   "love": {
+    "up": "In einer Beziehung deutet das auf eine schmerzhafte Wahrheit oder eine Verletzung hin, die gefühlt werden muss, vielleicht Verrat oder ein hartes Gespräch. Ehrlich zu reden hilft mehr als Verstecken. Als Single schmerzt vielleicht ein alter Liebeskummer noch.",
+    "rev": "Umgekehrt beginnt die Heilung, und der Schmerz lässt nach, oder du spielst eine alte Verletzung immer wieder durch und hältst die Wunde offen. Vergebung, dir selbst oder anderen gegenüber, ist vielleicht nah. Als Single öffnest du dich langsam wieder."
+   },
+   "career": {
+    "up": "Enttäuschung bei Arbeit oder Studium ist wahrscheinlich, etwa eine Absage, ein Konflikt oder schlechte Nachrichten beim Geld. Die drei Schwerter durch das Herz deuten an, dass es wehtut, doch es zu benennen ist der erste Schritt. Such Unterstützung, statt es allein zu tragen.",
+    "rev": "Du erholst dich von einem Rückschlag, und der Stich lässt nach. Vielleicht grübelst du auch über alte Kritik oder einen verlorenen Job. Lerne, was du daraus lernen kannst, und geh weiter."
+   },
+   "feelings": {
+    "up": "Diese Person fühlt sich vielleicht verletzt oder verletzt andere durch schmerzhafte Ehrlichkeit. Ihre Gefühle schließen Kummer oder Enttäuschung ein. Etwas Unausgesprochenes lastet auf ihr.",
+    "rev": "Diese Person heilt von einer Verletzung und ist vielleicht bereit, alten Schmerz loszulassen. Oder sie hält noch an einem Groll fest. Ihre Gefühle werden langsam weicher."
+   },
+   "yesno": {
+    "verdict": [
+     -1,
+     0
+    ],
+    "up": "Nein. Das von drei Schwertern durchbohrte Herz deutet auf Kummer und eine harte Wahrheit hin. Die ehrliche Antwort ist wahrscheinlich nicht die, die du dir wünschst.",
+    "rev": "Vielleicht. Der Schmerz lässt nach, und Erholung ist möglich, aber alte Wunden färben die Antwort womöglich noch. Gib dir Zeit, bevor du ein klares Ja erwartest."
+   },
+   "advice": {
+    "up": "Erlaube dir, die Verletzung zu fühlen, und sprich mit jemandem, dem du vertraust, darüber. Ehrlichkeit mit dir selbst ist der erste Schritt zur Heilung.",
+    "rev": "Leg den Schmerz behutsam ab. Vergib, wo du kannst, und prüfe, ob du aus Gewohnheit an der Verletzung festhältst."
+   }
+  },
+  "swords_four": {
+   "love": {
+    "up": "In einer Beziehung deutet das auf eine stille Pause hin. Vielleicht brauchst du Ruhe oder Raum, oder Zeit zu zweit ohne Erwartungen. Als Single ist eine Dating-Pause zum Erholen und Aufladen klug. Rückzug ist gesund, solange du dich nicht zu lange versteckst.",
+    "rev": "Umgekehrt stellt sich Unruhe ein, oder einer von euch stürzt sich zu früh wieder in emotionale Intensität. Als Single wirfst du dich vielleicht müde ins Dating. Ruh dich noch ein wenig länger aus."
+   },
+   "career": {
+    "up": "Dein Arbeits- oder Studienleben verlangt eine Pause. Der ruhende Ritter auf dem Grab steht für Erholung nach Anstrengung. Tritt von Geldsorgen oder Fristen zurück, um aufzutanken, und plane, bevor du zurückkehrst.",
+    "rev": "Du fühlst dich vielleicht unruhig oder kehrst zu früh zur Arbeit zurück und riskierst Burnout. Müdigkeit zu ignorieren kann dich später etwas kosten. Baue Ruhe in deinen Alltag ein."
+   },
+   "feelings": {
+    "up": "Diese Person braucht Raum und Ruhe. Sie ist vielleicht zurückgezogen oder erholt sich, sie weist dich nicht ab. Ihre Gefühle sind noch da, aber ihr fehlt die Energie.",
+    "rev": "Diese Person ist unruhig oder meldet sich früher wieder, als sie sollte. Sie fühlt sich vielleicht gedrängt zu handeln, bevor sie geheilt ist. Gib ihr Raum."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     0
+    ],
+    "up": "Noch nicht. Die stille Gestalt deutet auf Warten und Ruhen hin. Die Antwort braucht Zeit und einen ruhigeren Kopf.",
+    "rev": "Vielleicht. Du bist unruhig und willst handeln, aber längere Ruhe ist vielleicht klüger. Prüfe, ob du nicht hetzt."
+   },
+   "advice": {
+    "up": "Ruh dich bewusst aus. Schließ eine Weile die Tür, erhole dich und lass deine Gedanken zur Ruhe kommen, bevor du den nächsten Schritt machst.",
+    "rev": "Eile nicht zurück. Bemerke, ob deine Unruhe Energie oder Vermeidung ist, und nimm dir die Ruhe, die du noch brauchst."
+   }
+  },
+  "swords_five": {
+   "love": {
+    "up": "In einer Beziehung deutet das auf einen Streit hin, bei dem das Gewinnen mehr kostet, als es einbringt. Stolz und Punktezählen können beide allein zurücklassen. Als Single achte auf alte Rivalitäten oder Abwehrmuster. Wähle, welche Auseinandersetzungen es wert sind.",
+    "rev": "Umgekehrt wird vielleicht Frieden geschlossen, oder du gehst aus einem Streit weg. Oder der Groll hält lange nach dem Streit an. Eine Entschuldigung könnte die Luft reinigen."
+   },
+   "career": {
+    "up": "Konflikt bei Arbeit oder Studium ist wahrscheinlich, mit einem hohlen Sieg oder jemandem, der zurückbleibt. Die grinsende Gestalt hält die Schwerter, während andere geschlagen davongehen. Überlege, was ein Sieg wirklich kostet, auch an Geld und Wohlwollen.",
+    "rev": "Die Spannung lässt nach, und du machst vielleicht etwas wieder gut oder trittst von einer Rivalität zurück. Etwas Groll kann bleiben. Bring Beziehungen in Ordnung, wo du kannst."
+   },
+   "feelings": {
+    "up": "Diese Person fühlt sich dir gegenüber vielleicht konkurrierend oder defensiv. Sie führt womöglich Buch oder glaubt, etwas verloren zu haben. Ihre Gefühle sind mit Stolz verwoben.",
+    "rev": "Diese Person ist bereit, Frieden zu schließen, oder will den Konflikt hinter sich lassen. Sie ist vielleicht aber auch noch verbittert. Ihre Gefühle neigen zum Weicherwerden."
+   },
+   "yesno": {
+    "verdict": [
+     -1,
+     0
+    ],
+    "up": "Nein. Die verstreuten Schwerter und die davongehenden Gestalten stehen für einen Sieg, der zu viel kostet. Rechne mit Konflikt oder einem hohlen Ergebnis.",
+    "rev": "Vielleicht. Der Streit geht womöglich zu Ende, doch Groll kann bleiben. Frieden ist möglich, wenn jemand zuerst loslässt."
+   },
+   "advice": {
+    "up": "Such dir deine Kämpfe aus. Frag dich, ob Recht zu haben den Preis wert ist, und geh, wenn sich der Streit nicht lohnt.",
+    "rev": "Mach es wieder gut oder lass es los. Lege den Groll ab und überlege, ob eine ehrliche Entschuldigung dir mehr nützt als ein Sieg."
+   }
+  },
+  "swords_six": {
+   "love": {
+    "up": "In einer Beziehung deutet das auf ein gemeinsames Hinübergleiten in ruhigere Gewässer nach einer schwierigen Zeit hin. Das Boot trägt Lehren mit sich, daher braucht manche alte Verletzung vielleicht noch Fürsorge. Als Single lässt du allmählich ein schmerzhaftes Kapitel hinter dir und heilst.",
+    "rev": "Umgekehrt sträubst du dich vielleicht, weiterzugehen, oder altes Gepäck folgt dir in die neue Beziehung. Die Überfahrt verzögert sich womöglich. Als Single stehen ungeklärte Gefühle für einen früheren Partner vielleicht im Weg."
+   },
+   "career": {
+    "up": "Arbeit oder Studium geht in eine ruhigere Phase über, vielleicht mit einem Wechsel von Job, Ort oder Ansatz. Die Fährüberfahrt steht für ein langsames, stetiges Fortkommen weg von Schwierigkeiten. Nimm deine Lehren mit, aber lass die schwersten Sorgen zurück.",
+    "rev": "Ein Wechsel verzögert sich, oder du trägst alte Probleme in die neue Situation. Vielleicht widerstrebt dir Veränderung. Kümmere dich um Altlasten, bevor du gehst."
+   },
+   "feelings": {
+    "up": "Diese Person will Schwierigkeiten hinter sich lassen und mit dir Frieden finden. Ihre Gefühle sind zärtlich und vorsichtig und wachsen langsam, während sich die Lage beruhigt. Sie lernt aus der Vergangenheit.",
+    "rev": "Diese Person steckt in der Vergangenheit fest oder trägt Gepäck in ihre Gefühle für dich. Es widerstrebt ihr vielleicht, voranzugehen. Ihre Gefühle bringen noch unerledigte Dinge mit."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Das Boot bewegt sich auf ruhigeres Wasser zu, die Antwort deutet also auf eine sanfte Besserung mit der Zeit hin.",
+    "rev": "Vielleicht. Die Überfahrt verzögert sich, oder altes Gepäck ist noch im Boot. Fortschritt ist möglich, sobald du dich darum kümmerst."
+   },
+   "advice": {
+    "up": "Lass dich allmählich weiterziehen. Nimm deine Lehren mit, lass zurück, was du kannst, und vertraue der langsamen Überfahrt.",
+    "rev": "Schau, was du trägst und was dich am Ufer hält. Pack das Gepäck aus, damit die Reise beginnen kann."
+   }
+  },
+  "swords_seven": {
+   "love": {
+    "up": "In einer Beziehung deutet das auf Heimlichkeit, Ausweichen oder jemanden hin, der nicht ganz ehrlich ist. Es kann auch sein, dass du etwas zurückhältst. Als Single schützt du dich vielleicht oder spielst Spielchen. Ein ehrliches Gespräch schützt das Vertrauen.",
+    "rev": "Umgekehrt kommt die Wahrheit heraus und jemand legt ein Geständnis ab, oder ein verborgener Plan fliegt auf. Das kann die Luft reinigen oder eine Szene auslösen. Als Single hörst du vielleicht auf, dich hinter einer vorsichtigen Fassade zu verstecken."
+   },
+   "career": {
+    "up": "Arbeit oder Geld verlangt sorgfältige Strategie, doch die Gestalt, die mit den Schwertern davonschleicht, warnt davor, Abkürzungen zu nehmen. Es kann bedeuten, dass jemand sich Verdienste aneignet oder Verantwortung scheut. Sei ehrlich über den Preis jeder Abkürzung.",
+    "rev": "Ein Plan schlägt fehl, oder du gestehst einen Fehler ein. Ein Ertapptwerden ist möglich. Jetzt Verantwortung zu übernehmen kostet oft weniger als Verstecken."
+   },
+   "feelings": {
+    "up": "Diese Person hält vielleicht etwas zurück oder meidet ein direktes Gespräch. Ihre Gefühle sind schwer zu lesen, und sie verbirgt womöglich einen Teil davon. Achte darauf, wie ihre Worte zu ihren Taten passen.",
+    "rev": "Diese Person ist vielleicht bereit, ehrlich zu sagen, was sie fühlt, oder wurde bei einem Ausweichen ertappt. Die Wahrheit kommt an die Oberfläche. Ihre Gefühle werden klarer."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     -1
+    ],
+    "up": "Vielleicht. Das Davonschleichen mit den Schwertern deutet auf einen klugen Weg hin, aber auch auf etwas Verborgenes. Das Ergebnis hängt davon ab, wie ehrlich du über den Preis bist.",
+    "rev": "Nein. Der Plan wird wahrscheinlich auffliegen oder entdeckt werden. Ein direkter Weg würde dir besser dienen."
+   },
+   "advice": {
+    "up": "Sei strategisch, aber nicht hinterhältig. Wenn du einen indirekten Weg gehst, frag dich, was du nicht sagst und wen es treffen könnte.",
+    "rev": "Gestehe, bevor du ertappt wirst. Übernimm Verantwortung und such einen ehrlicheren Weg nach vorn."
+   }
+  },
+  "swords_eight": {
+   "love": {
+    "up": "In einer Beziehung deutet das auf das Gefühl hin, gefangen zu sein oder nicht sprechen zu können, oft aus Angst und nicht wegen der Tatsachen. Die Fesseln sehen locker aus. Sprich darüber, was du fürchtest. Als Single hält dich vielleicht Selbstzweifel davon ab, auf andere zuzugehen.",
+    "rev": "Umgekehrt streifst du die Seile ab und siehst wieder Möglichkeiten, findest vielleicht in einer Beziehung deine Stimme. Als Single lässt du einschränkende Geschichten los. Der Mut kehrt zurück."
+   },
+   "career": {
+    "up": "Du fühlst dich in deiner Arbeit, deinem Studium oder deiner Geldlage festgefahren und siehst keine Optionen. Die Augenbinde und die lockeren Fesseln deuten an, dass dein Blick enger ist als die Wirklichkeit. Liste auf, was du tatsächlich ändern kannst.",
+    "rev": "Ein Ausweg öffnet sich, wenn du die Augenbinde abnimmst. Du beginnst, Möglichkeiten zu sehen und um Hilfe zu bitten. Handle nach der ersten kleinen Option."
+   },
+   "feelings": {
+    "up": "Diese Person fühlt sich festgefahren oder hat Angst vor dem, was sie fühlt. Sie kann vielleicht nicht handeln, gehalten von Angst oder Selbstzweifel. Ihre Gefühle fehlen nicht, sie sind nur gefesselt.",
+    "rev": "Diese Person beginnt, ihre Stimme zu finden. Sie befreit sich womöglich von Angst oder einer alten Geschichte. Ihre Gefühle lassen sich leichter ausdrücken."
+   },
+   "yesno": {
+    "verdict": [
+     -1,
+     0
+    ],
+    "up": "Nein. Die gefesselte Gestalt mit verbundenen Augen steht für das Gefühl, gefangen zu sein, ein klares Ja ist daher jetzt unwahrscheinlich. Prüfe, ob die Grenzen echt sind.",
+    "rev": "Vielleicht. Die Augenbinde kommt ab, und Möglichkeiten tauchen wieder auf. Die Antwort kann besser werden, sobald du klarer siehst."
+   },
+   "advice": {
+    "up": "Nimm die Augenbinde ab. Frag dich, was dich wirklich aufhält, und tu dann einen kleinen Schritt. Die Seile sind vielleicht lockerer, als sie scheinen.",
+    "rev": "Geh weiter hinaus. Vertrau darauf, dass es Möglichkeiten gibt, und bitte jemanden, dem du vertraust, dir zu helfen, sie zu sehen."
+   }
+  },
+  "swords_nine": {
+   "love": {
+    "up": "In einer Beziehung können Sorgen oder Schuldgefühle die stillen Stunden heimsuchen, mit der Angst, verlassen zu werden oder nicht zu genügen. Die Sorge mit deinem Gegenüber zu teilen, lässt sie oft schrumpfen. Als Single übertreiben ängstliche Gedanken vielleicht die Risiken, jemandem nahezukommen.",
+    "rev": "Umgekehrt lassen die Ängste allmählich nach, oder die Angst ist so schwer, dass du zusätzliche Unterstützung brauchst. Mit einem vertrauten Menschen zu sprechen hilft. Als Single lernst du vielleicht, dass die Nacht schlimmer aussieht als der Morgen."
+   },
+   "career": {
+    "up": "Sorgen um Arbeit, Studium oder Geld halten dich wach. Die Schwerter an der Wand deuten an, dass die Angst in deinem Kopf lauter ist als in der Wirklichkeit. Mach einen Plan, teile die Last und prüfe, was wirklich in deiner Hand liegt.",
+    "rev": "Der Stress lässt nach, oder du bist unter ihm begraben. Such Unterstützung bei Kollegen, Freunden oder Fachleuten, wenn es zu schwer wird."
+   },
+   "feelings": {
+    "up": "Diese Person ist ängstlich und liegt vielleicht wegen dir oder der Lage wach. Ihre Gefühle bestehen aus Sorge und Schuld, nicht aus Gleichgültigkeit. Sie fürchtet vielleicht, das Falsche zu sagen.",
+    "rev": "Diese Person beruhigt sich, oder sie ist in Sorgen begraben und zieht sich zurück. Ihre Gefühle sind schwer zu erreichen, bis die Angst nachlässt. Biete Beruhigung an."
+   },
+   "yesno": {
+    "verdict": [
+     -1,
+     0
+    ],
+    "up": "Nein. Die Sorgen der Nacht deuten an, dass Angst die Frage trübt, die Antwort neigt also vorerst zum Nein. Schau bei Tageslicht noch einmal hin.",
+    "rev": "Vielleicht. Die Ängste lassen nach, und das Bild kann heller werden. Frag erneut, sobald du ruhiger bist."
+   },
+   "advice": {
+    "up": "Erzähl jemandem, was dich wach hält. Schreib die Sorgen auf und trenne echte Probleme von Ängsten im Dunkeln.",
+    "rev": "Such Unterstützung und kämpfe nicht allein. Denk daran, dass Sorgen am Morgen oft verblassen."
+   }
+  },
+  "swords_ten": {
+   "love": {
+    "up": "In einer Beziehung geht ein altes Muster oder eine schmerzhafte Phase zu Ende. Es fühlt sich vielleicht wie der tiefste Punkt an, doch es macht den Weg frei. Als Single beendest du eine lange Verletzung und fühlst dich vielleicht erschöpft. Heilung beginnt, wenn du aufhörst, gegen das Ende zu kämpfen.",
+    "rev": "Umgekehrt beginnt langsam die Erholung, oder du weigerst dich, ein schmerzhaftes Ende loszulassen. Die Dämmerung zeigt sich am Horizont. Als Single erhebst du dich mit sanften Schritten von alten Wunden."
+   },
+   "career": {
+    "up": "Ein Kapitel bei Arbeit, Studium oder Geld endet schmerzhaft, etwa durch einen Verlust oder einen letzten Schlag. Die zehn Schwerter deuten an, dass es nicht schlimmer werden kann. Akzeptiere das Ende und plane den Neuanfang.",
+    "rev": "Das Schlimmste ist vorbei, und die Erholung beginnt. Vielleicht klammerst du dich auch an den Verlust oder dramatisierst ihn. Baue allmählich wieder auf."
+   },
+   "feelings": {
+    "up": "Diese Person fühlt sich erschöpft oder am Ende von etwas. Ihre Gefühle sind vielleicht schwer vor Kummer oder abgeschlossen. Ein Neuanfang ist der einzige Weg für sie.",
+    "rev": "Diese Person erholt sich und beginnt, nach vorn zu schauen. Vielleicht hält sie auch an der Verletzung fest. Ihre Gefühle hellen sich langsam auf."
+   },
+   "yesno": {
+    "verdict": [
+     -1,
+     0
+    ],
+    "up": "Nein. Die zehn Schwerter und der dunkle Himmel stehen für ein Ende. Die Antwort ist Nein, auch wenn dahinter die Dämmerung liegt.",
+    "rev": "Vielleicht. Die Sonne geht auf, und die Erholung hat begonnen. Ein Ja kann möglich sein, sobald das alte Kapitel abgeschlossen ist."
+   },
+   "advice": {
+    "up": "Akzeptiere das Ende. Ruh dich aus und lass los, was vorbei ist. Die einzige Richtung, die bleibt, ist vorwärts.",
+    "rev": "Hör auf, den Schmerz noch einmal zu durchleben. Lass der Erholung ihre Zeit und widerstehe der Opferrolle."
+   }
+  },
+  "swords_page": {
+   "love": {
+    "up": "In einer Beziehung deutet das auf Neugier, Fragen und das Kennenlernen hin. Gespräche entfachen Anziehung. Als Single taucht vielleicht eine witzige, wissbegierige neue Verbindung auf, oder du bist neugierig, was du willst. Bleib ehrlich.",
+    "rev": "Umgekehrt kommen Klatsch, unbedachte Bemerkungen oder zerstreute Gedanken in die Quere. Paare sprechen vielleicht, bevor sie denken. Als Single zerdenkst du womöglich alles oder spielst Psychospielchen."
+   },
+   "career": {
+    "up": "Arbeit und Studium begünstigen Recherche, Fragen und frische Ideen. Der Bube beobachtet den Himmel mit erhobenem Schwert, ein Zeichen für Wachsamkeit und einen schnellen Verstand. Sammle Fakten und lerne, bevor du dich festlegst.",
+    "rev": "Ideen zerstreuen sich, Klatsch lenkt ab, oder du handelst überstürzt. Konzentriere dich auf eine Aufgabe, prüfe deine Fakten und achte auf deine Worte."
+   },
+   "feelings": {
+    "up": "Diese Person ist neugierig auf dich und möchte mehr erfahren. Ihre Gefühle sind wach und verspielt, getragen von Interesse. Sie unterhält sich gern mit dir.",
+    "rev": "Diese Person klatscht vielleicht oder sendet widersprüchliche Signale. Ihre Gefühle sind schwer zu fassen, weil die Gedanken rasen. Sie geht womöglich achtlos mit Worten um."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Der wache Bube steht für einen hellen, neugierigen Anfang. Die Antwort neigt zum Ja, wenn du deine Hausaufgaben machst.",
+    "rev": "Vielleicht. Zerstreute Gedanken oder Klatsch trüben das Bild. Prüfe deine Fakten, bevor du entscheidest."
+   },
+   "advice": {
+    "up": "Stell Fragen und sammle Fakten. Bleib neugierig und halte deine Worte ehrlich und freundlich.",
+    "rev": "Denk, bevor du sprichst. Meide Klatsch und entscheide dich für eine Idee, bevor du der nächsten nachjagst."
+   }
+  },
+  "swords_knight": {
+   "love": {
+    "up": "In einer Beziehung deutet das auf eine direkte, rasche Energie hin. Jemand stürmt mit starken Meinungen herein und hört vielleicht nicht zu. Als Single stürmt vielleicht eine schlagfertige, ehrgeizige Verbindung herein. Unverblümtheit kann verletzen, werdet also langsamer und hört einander zu.",
+    "rev": "Umgekehrt wird Eile zu Nachlässigkeit, oder Pläne bleiben im Zerdenken stecken. Paare streiten vielleicht scharf. Als Single drängst du oder hältst dich durch Zerdenken zurück."
+   },
+   "career": {
+    "up": "Arbeit oder Studium kommen schnell voran, mit Ehrgeiz und Antrieb. Der Ritter galoppiert in den Wind, ein Zeichen für Tempo und Fokus. Achte auf Unverblümtheit gegenüber Kollegen und prüfe Details, bevor du losstürmst.",
+    "rev": "Du brennst aus, handelst ohne nachzudenken oder stockst. Eine übereilte Entscheidung über Geld oder Arbeit kann nach hinten losgehen. Werde langsamer und plane."
+   },
+   "feelings": {
+    "up": "Diese Person ist direkt und leidenschaftlich, geht aber vielleicht zu schnell vor. Ihre Gefühle brechen kraftvoll hervor, und sie hört vielleicht nicht zu. Sie will handeln.",
+    "rev": "Diese Person ist nachlässig oder unbeständig mit ihren Gefühlen. Sie ist vielleicht impulsiv oder im Denken gefangen. Ihre Worte passen womöglich nicht zu ihrem Handeln."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     -1
+    ],
+    "up": "Vielleicht. Der Ritter ist schnell und entschlossen, doch Tempo kann Details übersehen. Die Antwort ist Ja, wenn du sorgfältig bist, und Nein, wenn du hetzt.",
+    "rev": "Nein. Eile und Nachlässigkeit führen wahrscheinlich zu Ärger. Werde langsamer, bevor du es erneut versuchst."
+   },
+   "advice": {
+    "up": "Handle mit Fokus, aber hör unterwegs zu. Behalte deinen Antrieb und mildere deine Worte.",
+    "rev": "Halte an und prüfe die Details. Mach nicht aus Stolz weiter und überlege, ob du zu viel grübelst."
+   }
+  },
+  "swords_queen": {
+   "love": {
+    "up": "In einer Beziehung deutet das auf ehrliches, klares Reden hin, das auf Erfahrung beruht. Ihr sagt beide freundlich, was ihr meint. Als Single schätzt du Unabhängigkeit und Klarheit und suchst vielleicht ein ebenbürtiges, wahrhaftiges Gegenüber. Halte deine Grenzen, ohne dein Herz zu verschließen.",
+    "rev": "Umgekehrt wird Klarheit kalt oder kritisch, oder Wahrheit wird zurückgehalten. Paare fühlen sich womöglich beurteilt. Als Single macht dich alter Schmerz vielleicht vorsichtig."
+   },
+   "career": {
+    "up": "Arbeit und Studium begünstigen klares Denken, Fairness und gutes Urteil. Die Königin hält ihr Schwert erhoben, ein Zeichen für einen ehrlichen, unabhängigen Ansatz. Kommuniziere schlicht und triff finanzielle Entscheidungen auf Grundlage von Fakten.",
+    "rev": "Kritik wird womöglich zu scharf, oder du gehst auf Abstand zu Kollegen. Mildere deinen Ton und teile deine Überlegungen."
+   },
+   "feelings": {
+    "up": "Diese Person sieht dich klar und schätzt Ehrlichkeit. Ihre Gefühle sind vielleicht zurückhaltend, aber aufrichtig, und sie sagt, was sie meint. Sie respektiert Unabhängigkeit.",
+    "rev": "Diese Person ist vielleicht kalt, kritisch oder zurückhaltend. Sie verbirgt womöglich Gefühle hinter Schärfe. Ihre Gefühle fehlen nicht, sie sind nur geschützt."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Der klare Blick der Königin deutet auf ein überlegtes, ehrliches Ja hin, wenn du den Tatsachen ins Auge siehst.",
+    "rev": "Vielleicht. Kälte oder zurückgehaltene Wahrheit verwischt die Antwort. Mildere deine Sicht und frag erneut."
+   },
+   "advice": {
+    "up": "Sprich die Wahrheit freundlich aus. Verlass dich auf deine Erfahrung und halte klare Grenzen, ohne Menschen abzuschneiden.",
+    "rev": "Prüfe, ob du zu hart oder zu distanziert bist. Lass etwas Wärme zu und sag, was du zurückgehalten hast."
+   }
+  },
+  "swords_king": {
+   "love": {
+    "up": "In einer Beziehung deutet das auf faire, ruhige Gespräche und klare Zusagen hin. Du denkst die Dinge durch und stehst zu deinem Wort. Als Single suchst du vielleicht ein nachdenkliches, prinzipientreues Gegenüber. Füge der Vernunft Wärme hinzu.",
+    "rev": "Umgekehrt können starres Denken oder kalte Autorität belasten. Paare fühlen sich womöglich beurteilt oder kontrolliert. Als Single bist du in der Liebe vielleicht zu analytisch."
+   },
+   "career": {
+    "up": "Arbeit und Studium begünstigen Autorität, die auf Vernunft und fairen Entscheidungen beruht. Der König sitzt aufrecht mit erhobenem Schwert, ein Zeichen für Prinzipien und klares Urteil. Sei informiert und beständig bei Geld und Verantwortung.",
+    "rev": "Vernunft wird starr, oder Macht wird missbraucht. Du bist vielleicht stur, oder dein Urteil ist getrübt. Hör anderen zu und passe dich an."
+   },
+   "feelings": {
+    "up": "Diese Person ist nachdenklich und prinzipientreu und nimmt ihre Gefühle ernst. Sie zeigt Fürsorge eher durch Verlässlichkeit und Fairness als durch Gefühlsäußerungen. Sie möchte, dass die Dinge Sinn ergeben.",
+    "rev": "Diese Person ist vielleicht starr, kontrollierend oder emotional kalt. Es fällt ihr schwer, Gefühle auszudrücken. Ihre Fürsorge ist womöglich hinter Logik verborgen."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Das vernünftige, faire Urteil des Königs deutet auf ein überlegtes Ja hin, wenn die Fakten dafür sprechen.",
+    "rev": "Vielleicht. Starres Denken oder getrübtes Urteil verwischt die Dinge. Hol eine zweite Sicht ein, bevor du entscheidest."
+   },
+   "advice": {
+    "up": "Denk klar, sei fair und steh zu deinen Entscheidungen. Bleib offen für andere Sichtweisen.",
+    "rev": "Mildere deine Haltung. Prüfe, ob du Autorität oder Logik benutzt, um Menschen auszuschließen."
+   }
+  },
+  "pentacles_ace": {
+   "love": {
+    "up": "In einer Beziehung deutet das auf einen soliden Neuanfang hin, etwa eine Verbindlichkeit, ein Zusammenziehen oder eine stetige Bindung, die wachsen kann. Als Single beginnt vielleicht eine bodenständige Verbindung. Pflege sie mit praktischer Fürsorge ebenso wie mit Gefühl.",
+    "rev": "Umgekehrt wird eine Chance vielleicht verpasst, oder einer Beziehung fehlt das Fundament. Paare machen womöglich keine Pläne. Als Single übersiehst du vielleicht jemand Beständigen oder stürzt dich ohne Vorbereitung hinein."
+   },
+   "career": {
+    "up": "Eine echte Gelegenheit bei Arbeit, Studium oder Geld bietet sich an, etwa ein Job, ein Kurs oder ein neues Einkommen. Die Hand aus der Wolke hält eine Münze über einem Gartentor. Pflanze sie sorgfältig ein und plane voraus.",
+    "rev": "Eine Gelegenheit zieht vorüber, oder einem Plan fehlt das Fundament. Bei Geldfragen braucht es vielleicht ein besseres Budget. Prüfe die Details, bevor du dich festlegst."
+   },
+   "feelings": {
+    "up": "Diese Person empfindet ein stetiges, echtes Interesse an dir. Ihre Gefühle sind praktisch und aufrichtig, und sie sieht eine Zukunft. Sie zeigt es vielleicht dadurch, dass sie verlässlich ist.",
+    "rev": "Diese Person ist vielleicht nicht bereit, sich zu binden, oder ihr Interesse hat wenig Substanz. Sie verpasst womöglich die Chance zu sagen, was sie fühlt. Die Gefühle brauchen eine festere Basis."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Die Münze in der offenen Hand deutet auf einen soliden Start hin, die Antwort neigt also zum Ja, wenn du praktisch handelst.",
+    "rev": "Vielleicht. Eine Chance wird womöglich verpasst oder ist schlecht geplant. Schaffe zuerst die Grundlage."
+   },
+   "advice": {
+    "up": "Ergreife die Gelegenheit und pflanze sie sorgfältig ein. Mach einen realistischen Plan und tu den ersten praktischen Schritt.",
+    "rev": "Prüfe dein Fundament. Verschwende keine Chance und finde heraus, was fehlt, bevor du weitergehst."
+   }
+  },
+  "pentacles_two": {
+   "love": {
+    "up": "In einer Beziehung deutet das auf das Jonglieren von Zeit zwischen Liebe und anderen Pflichten hin. Flexibilität hilft euch, einen gemeinsamen Rhythmus zu halten. Als Single lässt ein volles Leben wenig Raum fürs Dating. Schaffe Platz und bleib verspielt.",
+    "rev": "Umgekehrt lässt Überlastung wenig Energie, und Partner fühlen sich vernachlässigt. Pläne fallen auseinander. Als Single bist du vielleicht zu dünn gespannt, um jemanden kennenzulernen."
+   },
+   "career": {
+    "up": "Arbeit, Studium und Geld verlangen, mehrere Aufgaben zu jonglieren. Die Gestalt tanzt und hält dabei zwei Münzen in der Luft, ein Zeichen für Anpassungsfähigkeit. Halte einen stetigen Rhythmus und plane Budget und Zeit.",
+    "rev": "Du nimmst dir zu viel vor, lässt Dinge fallen oder verlierst die Ordnung. Das Geld fühlt sich vielleicht knapp an. Setze Prioritäten und sag zu etwas Nein."
+   },
+   "feelings": {
+    "up": "Diese Person hat viel um die Ohren und teilt ihre Aufmerksamkeit. Ihre Gefühle sind echt, konkurrieren aber mit anderen Anforderungen. Sie ist vielleicht schwer zu fassen.",
+    "rev": "Diese Person ist überfordert und vernachlässigt dich womöglich. Ihre Gefühle gehen im Chaos unter. Es fällt ihr vielleicht schwer, sich zu binden."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     -1
+    ],
+    "up": "Vielleicht. Das Jonglieren deutet an, dass es auf Gleichgewicht ankommt. Die Antwort neigt zum Ja, wenn du flexibel bleibst und deinen Rhythmus hältst.",
+    "rev": "Nein. Überlastung macht es vorerst unwahrscheinlich, dass es klappt. Schaffe zuerst etwas Last ab."
+   },
+   "advice": {
+    "up": "Halte deinen Rhythmus und bleib flexibel. Wähle deine Prioritäten und nimm nicht mehr auf, als du halten kannst.",
+    "rev": "Leg etwas ab. Organisiere dich, bitte um Hilfe und lade nichts weiter auf."
+   }
+  },
+  "pentacles_three": {
+   "love": {
+    "up": "In einer Beziehung deutet das darauf hin, gemeinsam etwas aufzubauen, wobei jeder Können und Einsatz einbringt. Teamarbeit und Respekt stärken die Bindung. Als Single lernst du vielleicht jemanden über die Arbeit oder gemeinsame Projekte kennen. Arbeitet gemeinsam daran.",
+    "rev": "Umgekehrt arbeiten Partner gegeneinander, oder der Einsatz ist ungleich verteilt. Die Kommunikation über gemeinsame Pläne ist womöglich schlecht. Als Single fühlst du dich vielleicht übersehen in deinem Bemühen."
+   },
+   "career": {
+    "up": "Arbeit und Studium begünstigen Zusammenarbeit, Handwerk und Können, das andere anerkennen. Der Handwerker an der Kathedralenwand bespricht die Pläne mit anderen. Hol dir Rückmeldung, denn gutes Geld entsteht aus guter Arbeit.",
+    "rev": "Die Teamarbeit ist schlecht, oder du lieferst Arbeit unter deinem üblichen Niveau. Rückmeldungen werden ignoriert. Schau auf die Rollen und kommuniziere klar."
+   },
+   "feelings": {
+    "up": "Diese Person respektiert dich und schätzt, was du einbringst. Ihre Gefühle wachsen durch gemeinsame Mühe und Teamarbeit. Sie sieht dich als Partner.",
+    "rev": "Dieser Person fehlt in der Verbindung vielleicht Stolz oder Zusammenarbeit. Ihre Gefühle sind lau, oder ihr seid nicht auf derselben Seite. Sprecht darüber."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Gekonnte Zusammenarbeit deutet darauf hin, dass daraus gute Arbeit erwächst. Die Antwort neigt zum Ja, wenn ihr zusammenarbeitet.",
+    "rev": "Vielleicht. Schlechte Teamarbeit oder halbherziger Einsatz kann die Sache verderben. Verbessere zuerst den Plan."
+   },
+   "advice": {
+    "up": "Arbeite mit anderen und sei stolz auf dein Handwerk. Hol dir Rückmeldung und baue Schritt für Schritt auf.",
+    "rev": "Prüfe die Teamarbeit und deine Ansprüche. Hör auf Rat und zieht an einem Strang."
+   }
+  },
+  "pentacles_four": {
+   "love": {
+    "up": "In einer Beziehung deutet das auf festes Klammern hin, aus Sicherheitsbedürfnis oder Verlustangst. Kontrolle kann schützen, hält aber auch Nähe fern. Als Single bewachst du vielleicht dein Herz und deinen Raum. Lockere deinen Griff ein wenig.",
+    "rev": "Umgekehrt lockert sich die strenge Kontrolle, und Großzügigkeit kehrt zurück. Oder du schlägst ins andere Extrem aus. Als Single öffnest du dich allmählich für neue Menschen."
+   },
+   "career": {
+    "up": "Arbeit und Geld verlangen Sparen und Sicherheit, doch die Gestalt, die ihre Münzen umklammert, warnt vor dem Klammern. Verlustangst kann Wachstum begrenzen. Sei vorsichtig und erlaube dir trotzdem etwas Risiko.",
+    "rev": "Du lockerst deinen Griff um Geld oder Kontrolle, oder du gibst gedankenlos aus. Finde ein Gleichgewicht. Überprüfe dein Budget in Ruhe."
+   },
+   "feelings": {
+    "up": "Diese Person schützt ihr Herz und hält sich zurück. Ihre Gefühle schließen Verlustangst oder Kontrollbedürfnis ein. Sie will Sicherheit, bevor sie sich öffnet.",
+    "rev": "Diese Person öffnet sich oder lässt Kontrolle los. Sie geht womöglich auch achtlos mit Gefühlen um. Ihre Gefühle beginnen freier zu fließen."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     0
+    ],
+    "up": "Noch nicht. Die Gestalt, die ihre Münzen umklammert, steht für Zurückhaltung. Die Antwort braucht mehr Sicherheit und weniger Angst.",
+    "rev": "Vielleicht. Der Griff lockert sich, etwas kann sich also öffnen, doch hüte dich davor, ins Unbedachte zu kippen."
+   },
+   "advice": {
+    "up": "Schätze, was du hast, aber frag dich, woran du aus Angst festhältst. Teile ein wenig.",
+    "rev": "Lockere deinen Griff und sei großzügig, ohne leichtsinnig zu werden. Bemerke, wo Kontrolle zur Gewohnheit geworden ist."
+   }
+  },
+  "pentacles_five": {
+   "love": {
+    "up": "In einer Beziehung deutet das auf eine kalte Phase hin, auf das Gefühl, ausgeschlossen zu sein. Hilfe ist nah, aber Stolz oder Sorge halten dich vielleicht vom Fragen ab. Als Single kann sich Einsamkeit schwer anfühlen. Streck die Hand nach jemandem aus.",
+    "rev": "Umgekehrt kehrt Wärme zurück, und du beginnst dich zu erholen, oder du lehnst Hilfe ab und bleibst draußen. Als Single machst du einen Schritt auf Verbindung zu."
+   },
+   "career": {
+    "up": "Arbeit, Studium oder Geld fühlen sich knapp an, mit Sorge um Sicherheit oder darum, übersehen zu werden. Die Gestalten im Schnee gehen an einem erleuchteten Kirchenfenster vorbei. Hilfe gibt es, wenn du fragst, ob Rat oder Unterstützung. Such sie früh.",
+    "rev": "Die Erholung beginnt, und die Finanzen bessern sich. Oder Stolz hält dich davon ab, um Unterstützung zu bitten. Nimm Hilfe an, wo sie angeboten wird."
+   },
+   "feelings": {
+    "up": "Diese Person fühlt sich vielleicht ausgeschlossen oder kämpft und kann ihre Fürsorge nicht zeigen. Ihre Gefühle sind von Sorge beschwert. Sie braucht womöglich mehr Unterstützung, als sie sagt.",
+    "rev": "Diese Person erholt sich und ist bereit, dich hereinzulassen. Oder sie lehnt Hilfe ab und bleibt distanziert. Ihre Gefühle werden langsam wärmer."
+   },
+   "yesno": {
+    "verdict": [
+     -1,
+     0
+    ],
+    "up": "Nein. Der Schnee und das erleuchtete Fenster deuten auf Not hin, ein klares Ja ist jetzt daher unwahrscheinlich. Hilfe ist vielleicht in der Nähe.",
+    "rev": "Vielleicht. Die Erholung beginnt, und bald kann es besser werden. Sei bereit, Unterstützung anzunehmen."
+   },
+   "advice": {
+    "up": "Streck die Hand aus. Du bist nicht so allein, wie du dich fühlst, und Hilfe ist näher, als es scheint.",
+    "rev": "Nimm die angebotene Hilfe an. Lass den Stolz los und geh die Erholung Schritt für Schritt an."
+   }
+  },
+  "pentacles_six": {
+   "love": {
+    "up": "In einer Beziehung deutet das auf Geben und Nehmen im Gleichgewicht hin, mit Fairness und gegenseitiger Unterstützung. Großzügigkeit zwischen euch schafft Vertrauen. Als Single lernst du jemanden vielleicht durch Freundlichkeit oder Gemeinschaft kennen. Gib frei, ohne Buch zu führen.",
+    "rev": "Umgekehrt wird das Geben einseitig, oder es sind Bedingungen daran geknüpft. Ein Partner hat womöglich mehr Macht. Als Single achte auf ungleichen Austausch."
+   },
+   "career": {
+    "up": "Arbeit und Geld begünstigen fairen Austausch, etwa einen Bonus, ein zurückgezahltes Darlehen oder die Hilfe eines Mentors. Der Kaufmann wiegt Münzen für die Bettler ab, achte also darauf, wer gibt und wer empfängt. Teile Ressourcen fair.",
+    "rev": "Schulden, einseitiges Geben oder Bedingungen für Hilfe können auftauchen. Prüfe die Konditionen. Sei vorsichtig, wer die Macht hat."
+   },
+   "feelings": {
+    "up": "Diese Person ist großzügig und fair zu dir. Ihre Gefühle sind fürsorglich, und sie wünscht sich Ausgleich. Sie unterstützt dich gern.",
+    "rev": "Diese Person gibt vielleicht mit Hintergedanken oder erwartet etwas zurück. Das Gleichgewicht ist ungleich. Ihre Gefühle sind an Bedingungen geknüpft."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Faires Geben und Nehmen deutet auf eine großzügige Antwort hin, wenn der Austausch ausgewogen ist.",
+    "rev": "Vielleicht. Es können Bedingungen daran hängen, oder der Austausch ist ungleich. Lies zuerst das Kleingedruckte."
+   },
+   "advice": {
+    "up": "Gib und nimm mit Fairness. Teile, was du kannst, und nimm Hilfe ohne Scham an.",
+    "rev": "Prüfe, ob Bedingungen daran hängen. Mach den Austausch fairer und gib ohne versteckte Erwartungen."
+   }
+  },
+  "pentacles_seven": {
+   "love": {
+    "up": "In einer Beziehung deutet das darauf hin, innezuhalten und zu sehen, was gewachsen ist. Geduld ist nötig, denn Liebe braucht Zeit zum Blühen. Als Single prüfst du vielleicht, ob du weiter in jemanden investieren willst. Sei geduldig und prüfe, ob du glücklich bist.",
+    "rev": "Umgekehrt belasten Ungeduld oder Zweifel am Fortschritt die Beziehung. Paare fragen sich womöglich, ob sich die Mühe lohnt. Als Single gibst du vielleicht zu früh jemanden auf."
+   },
+   "career": {
+    "up": "Arbeit, Studium und Geld verlangen Geduld und eine Pause zur Bestandsaufnahme. Der Bauer stützt sich auf seine Hacke und betrachtet seine Ernte. Ergebnisse brauchen Zeit, prüfe also, was du getan hast, und plane, was als Nächstes kommt.",
+    "rev": "Frust über langsames Wachstum verleitet dich vielleicht aufzugeben. Du zweifelst an deinem Einsatz. Denk daran, dass Wachstum Zeit braucht, und überdenke deine Lage, bevor du aufgibst."
+   },
+   "feelings": {
+    "up": "Diese Person betrachtet geduldig, was zwischen euch wächst. Ihre Gefühle brauchen Zeit zum Reifen. Sie wägt ab, ob es sich lohnt.",
+    "rev": "Diese Person ist ungeduldig oder zweifelt an der Beziehung. Ihre Gefühle sind unsicher, und sie denkt vielleicht ans Gehen. Gib es Zeit."
+   },
+   "yesno": {
+    "verdict": [
+     0,
+     0
+    ],
+    "up": "Noch nicht. Der Bauer wartet darauf, seine Ernte zu sehen, die Antwort braucht also mehr Zeit zum Wachsen. Sei geduldig.",
+    "rev": "Vielleicht. Ungeduld trübt das Bild. Gib nicht zu früh auf, aber überdenke, was du investiert hast."
+   },
+   "advice": {
+    "up": "Halte inne und zieh Bilanz. Hab Geduld mit langsamem Wachstum und wähle, wohin du deine Mühe lenkst.",
+    "rev": "Gib nicht zu früh auf. Prüfe, ob die Mühe gut eingesetzt ist, und mach dann weiter oder ändere den Kurs."
+   }
+  },
+  "pentacles_eight": {
+   "love": {
+    "up": "In einer Beziehung deutet das auf stetige Verbindlichkeit hin und darauf, an der Bindung zu arbeiten, ein geduldiger Schritt nach dem anderen. Du baust Vertrauen durch Einsatz auf. Als Single konzentrierst du dich vielleicht auf Selbstverbesserung, die den richtigen Menschen anziehen kann. Übe weiter.",
+    "rev": "Umgekehrt nehmen Perfektionismus oder Routine den Dingen die Freude. Paare fühlen sich womöglich in Plackerei gefangen. Als Single vergräbst du dich vielleicht in Arbeit, um dem Dating auszuweichen."
+   },
+   "career": {
+    "up": "Arbeit, Studium und Handwerk profitieren von fleißigem Üben. Der Handwerker schnitzt Münze um Münze und baut durch Wiederholung Können auf. Stetiger Einsatz führt zur Meisterschaft, und Geld folgt sorgfältiger Arbeit.",
+    "rev": "Perfektionismus, Burnout oder schlampige Arbeit können sich einschleichen. Die Mühle verliert ihren Sinn. Mach eine Pause und besinne dich darauf, warum du es tust."
+   },
+   "feelings": {
+    "up": "Diese Person ist engagiert und zeigt Fürsorge durch Einsatz und Beständigkeit. Ihre Gefühle wachsen stetig. Sie nimmt die Dinge ernst und arbeitet daran.",
+    "rev": "Diese Person ist vielleicht zu beschäftigt oder von der Arbeit abgelenkt. Ihre Gefühle gehen in der Routine unter. Sie ist womöglich auch nachlässig."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Stetige, konzentrierte Arbeit deutet auf ein Ja hin, wenn du die Übung investierst.",
+    "rev": "Vielleicht. Perfektionismus oder Burnout kann im Weg stehen. Ruh dich aus und prüfe dann deinen Zweck."
+   },
+   "advice": {
+    "up": "Übe weiter. Konzentriere dich auf das Handwerk, Wiederholung für Wiederholung, und vertraue stetiger Arbeit.",
+    "rev": "Prüfe deinen Zweck. Meide Perfektionismus und die Mühle und gönn dir Ruhe."
+   }
+  },
+  "pentacles_nine": {
+   "love": {
+    "up": "In einer Beziehung deutet das auf Sicherheit, Behaglichkeit und den Genuss dessen hin, was ihr aufgebaut habt. Ihr fühlt euch beide unabhängig und zufrieden. Als Single bist du vielleicht glücklich auf dich selbst gestellt, und ein Partner wäre ein Bonus. Genieße deine eigene Gesellschaft.",
+    "rev": "Umgekehrt fühlt sich Behaglichkeit leer an, oder einer von euch ist zu abhängig. Arbeit verdrängt womöglich Intimität. Als Single bist du trotz allem, was du hast, vielleicht einsam."
+   },
+   "career": {
+    "up": "Arbeit und Geld zeigen Lohn für deine Mühe. Die Frau im Weinberg, mit einem Falken mit Haube auf dem Handschuh, genießt, was sie sich verdient hat. Sei stolz auf deine Unabhängigkeit und genieße sie.",
+    "rev": "Überarbeitung oder leerer Komfort ist wahrscheinlich. Vielleicht verlässt du dich auf andere oder dein Erfolg fühlt sich hohl an. Schau, was dir wirklich wichtig ist."
+   },
+   "feelings": {
+    "up": "Diese Person ist zufrieden und unabhängig und genießt deine Gesellschaft, ohne dich zu brauchen. Ihre Gefühle sind sicher und ruhig. Sie mag das Leben, das sie sich aufgebaut hat.",
+    "rev": "Diese Person ist vielleicht abhängig, oder Komfort fühlt sich für sie leer an. Ihre Gefühle werden womöglich von Selbstgenügsamkeit zurückgehalten. Sie ist vielleicht einsam."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Die behagliche Gestalt im Garten steht für einen verdienten Lohn, die Antwort neigt also zum Ja.",
+    "rev": "Vielleicht. Behaglichkeit kann sich leer anfühlen, oder Überarbeitung hat ihren Preis. Prüfe, was zählt, bevor du Ja sagst."
+   },
+   "advice": {
+    "up": "Genieße, was du aufgebaut hast. Ruh dich aus, sei stolz auf deine Selbstständigkeit und teile deinen Komfort.",
+    "rev": "Frag dich, was fehlt. Arbeite nicht zu viel und schätze Verbindung ebenso wie Behaglichkeit."
+   }
+  },
+  "pentacles_ten": {
+   "love": {
+    "up": "In einer Beziehung deutet das auf eine dauerhafte Bindung, Familie und gemeinsame Pläne hin. Stabilität und langfristige Sicherheit stehen im Mittelpunkt. Als Single suchst du vielleicht ein Gegenüber mit Blick auf eine gemeinsame Zukunft. Familienangelegenheiten können deine Entscheidungen prägen.",
+    "rev": "Umgekehrt belasten Reibung in der Familie, kurzfristiges Denken oder Instabilität die Beziehung. Anpassungsdruck kann Spannung erzeugen. Als Single schränken vielleicht Erwartungen der Familie deine Wahl ein."
+   },
+   "career": {
+    "up": "Arbeit und Geld neigen zu langfristiger Stabilität, einem bleibenden Erbe und gemeinsamem Wohlstand. Die Familie im Torbogen zeigt Generationen beisammen. Denk langfristig und baue etwas, das Bestand hat.",
+    "rev": "Instabilität in Familie oder Finanzen ist möglich. Kurzfristiges Denken kann schaden. Überprüfe deine Pläne auf lange Sicht."
+   },
+   "feelings": {
+    "up": "Diese Person sieht eine Zukunft mit dir und schätzt Stabilität und Familie. Ihre Gefühle sind tief und beständig. Sie denkt langfristig.",
+    "rev": "Diese Person spürt vielleicht Druck von der Familie oder ist unsicher über die Zukunft. Ihre Gefühle sind unruhig. Erwartungen anderer stehen womöglich im Weg."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Dauerhafte Sicherheit und Familie deuten auf ein starkes, langfristiges Ja hin.",
+    "rev": "Vielleicht. Instabilität oder Familienreibung kann es verkomplizieren. Denk an die lange Sicht."
+   },
+   "advice": {
+    "up": "Baue für die lange Sicht. Schätze Familie und Gemeinschaft und denk daran, welches Erbe du hinterlassen willst.",
+    "rev": "Schau, wo es instabil ist. Meide kurzfristiges Denken und achte auf die Spannungen in der Familie."
+   }
+  },
+  "pentacles_page": {
+   "love": {
+    "up": "In einer Beziehung deutet das auf einen geduldigen, aufrichtigen Anfang hin, mit Fürsorge und praktischen Gesten. Ihr lernt euch langsam kennen und baut Vertrauen auf. Als Single beginnt vielleicht eine bodenständige, echte Verbindung. Geh es Schritt für Schritt an.",
+    "rev": "Umgekehrt bleiben Pläne Träume, oder ein Partner schiebt auf. Die Mühe ist fehlgeleitet. Als Single träumst du vielleicht von Liebe, ohne zu handeln."
+   },
+   "career": {
+    "up": "Arbeit und Studium begünstigen Lernen, praktische Ziele und sorgfältige Anfänge. Der Bube betrachtet eine einzelne Münze, die er auf einem grünen Feld hochhält. Sei Lernender, fang klein an und plane dein Geld mit Sorgfalt.",
+    "rev": "Aufschieberei oder fehlender Fokus hält dich zurück. Pläne bleiben Ideen. Zerlege Ziele in kleine Aufgaben und fang an."
+   },
+   "feelings": {
+    "up": "Diese Person ist aufrichtig und möchte etwas Echtes mit dir aufbauen. Ihre Gefühle sind sorgfältig und praktisch. Sie zeigt es durch Aufmerksamkeit und Verlässlichkeit.",
+    "rev": "Diese Person ist unfokussiert oder redet viel und tut wenig. Ihre Gefühle bleiben vielleicht Träume. Sie muss einen ersten Schritt machen."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Der sorgfältige Lernende mit der Münze steht für einen soliden Start, die Antwort neigt also zum Ja, wenn du die Arbeit machst.",
+    "rev": "Vielleicht. Pläne bleiben ohne Handeln Träume. Sammle dich, bevor du ein Ja erwartest."
+   },
+   "advice": {
+    "up": "Lerne und fang klein an. Tu den ersten praktischen Schritt und sei geduldig mit deinem Fortschritt.",
+    "rev": "Hör auf zu verschieben. Wähle ein Ziel, mach es praktisch und fang heute an."
+   }
+  },
+  "pentacles_knight": {
+   "love": {
+    "up": "In einer Beziehung deutet das auf Treue, Verlässlichkeit und stetigen Einsatz hin. Liebe wächst langsam und sicher durch Alltag und Zuverlässigkeit. Als Single suchst du Stabilität, und ein vertrauenswürdiger Mensch taucht vielleicht auf. Bring ein wenig Spontaneität mit.",
+    "rev": "Umgekehrt wird Routine zur Rille, oder Sturheit und Langeweile stellen sich ein. Paare fühlen sich womöglich festgefahren. Als Single bist du vielleicht zu vorsichtig, um dich zu bewegen."
+   },
+   "career": {
+    "up": "Arbeit, Studium und Geld begünstigen Ausdauer und Gründlichkeit. Der Ritter sitzt still auf einem schweren Pferd, betrachtet die Münze und ist bereit zu arbeiten. Langsam und stetig gewinnt, bring also zu Ende, was du beginnst.",
+    "rev": "Routine wird zur Rille, der Fortschritt stockt, oder Perfektionismus hält dich auf. Bring Abwechslung hinein und sei flexibel."
+   },
+   "feelings": {
+    "up": "Diese Person ist treu und verlässlich. Ihre Gefühle sind eher beständig als auffällig, und sie zeigt Fürsorge durch Taten. Sie ist verbindlich.",
+    "rev": "Diese Person ist vielleicht stur, gelangweilt oder festgefahren. Ihre Gefühle sind da, aber ins Stocken geraten. Sie sträubt sich womöglich gegen Veränderung."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Der beständige Ritter steht für ein verlässliches Ja, wenn du bereit bist, die Arbeit zu investieren.",
+    "rev": "Vielleicht. Der Fortschritt stockt, ist aber nicht verloren. Rüttle die Routine auf und versuche es erneut."
+   },
+   "advice": {
+    "up": "Bleib beständig und bring die Sache zu Ende. Vertrau auf Routine und Verlässlichkeit und mach weiter.",
+    "rev": "Durchbrich die Rille. Sei flexibel und prüfe, ob du stur oder nur vorsichtig bist."
+   }
+  },
+  "pentacles_queen": {
+   "love": {
+    "up": "In einer Beziehung deutet das auf Wärme, Fürsorge und praktisches Umsorgen hin, ein Zuhause, in dem man sich wohlfühlt. Ihr kümmert euch auf kleine Weise umeinander. Als Single bist du vielleicht zufrieden damit, dir ein behagliches Leben zu schaffen, und offen für ein fürsorgliches Gegenüber. Denk daran, auch für dich zu sorgen.",
+    "rev": "Umgekehrt wird Fürsorge vielleicht erdrückend, oder du vernachlässigst dich selbst, um zu versorgen. Partner fühlen sich womöglich übersehen. Als Single gibst du vielleicht zu viel an andere."
+   },
+   "career": {
+    "up": "Arbeit, Studium und Geld begünstigen Einfallsreichtum, ein gutes Budget und eine warme, praktische Haltung. Die Königin sitzt in einem blühenden Garten mit einer Münze im Schoß. Gestalte ein Leben, das funktioniert, und unterstütze andere.",
+    "rev": "Überarbeitung oder Selbstvernachlässigung ist möglich, oder du erdrückst andere mit Hilfe. Setze Grenzen und sorge für deine eigenen Bedürfnisse."
+   },
+   "feelings": {
+    "up": "Diese Person ist in ihren Gefühlen warm, fürsorglich und praktisch. Sie zeigt Liebe, indem sie für dich sorgt. Sie möchte, dass du dich zu Hause fühlst.",
+    "rev": "Diese Person erdrückt vielleicht oder vernachlässigt ihre eigenen Bedürfnisse. Ihre Gefühle zeigen sich womöglich als Sorge oder Zuviel-Geben. Auch sie braucht vielleicht Fürsorge."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Die fürsorgliche Königin in ihrem Garten steht für ein warmes, praktisches Ja.",
+    "rev": "Vielleicht. Zuviel-Geben oder Selbstvernachlässigung kann es verzerren. Sorge zuerst für deine eigenen Bedürfnisse."
+   },
+   "advice": {
+    "up": "Sorge für dich und andere und sei praktisch. Sorge dafür, dass dein Zuhause, dein Budget oder dein Leben funktioniert.",
+    "rev": "Vernachlässige dich nicht. Gib mit Sorgfalt, aber nicht zu viel, und behalte deine eigenen Bedürfnisse im Blick."
+   }
+  },
+  "pentacles_king": {
+   "love": {
+    "up": "In einer Beziehung deutet das auf beständige, großzügige Verbindlichkeit und Sicherheit hin. Du oder dein Gegenüber zeigt Liebe durch Versorgen und Verlässlichkeit. Als Single suchst du vielleicht ein stabiles, gefestigtes Gegenüber. Teile Wärme, nicht nur Versorgung.",
+    "rev": "Umgekehrt belasten Besitzdenken, Sturheit oder die Wertschätzung von Geld über Menschen die Bindung. Als Single beurteilst du Menschen vielleicht nach Reichtum oder Status."
+   },
+   "career": {
+    "up": "Arbeit und Geld begünstigen Stabilität, Geduld und faires Handeln. Der König sitzt zwischen Reben und Gold, ein Bild von Fülle, die über die Zeit gewachsen ist. Führe beständig, investiere klug und sei großzügig.",
+    "rev": "Sicherheit verhärtet sich zu Gier, oder Ressourcen werden schlecht verwaltet. Du sträubst dich vielleicht gegen Veränderung. Sei fair und stelle Menschen über Gewinn."
+   },
+   "feelings": {
+    "up": "Diese Person ist treu, großzügig und stabil und möchte für dich sorgen. Ihre Gefühle sind beständig und reif. Sie zeigt Liebe durch Sicherheit.",
+    "rev": "Diese Person ist vielleicht besitzergreifend oder kontrollierend oder stellt Reichtum über Gefühle. Ihre Gefühle sind schwer zu erreichen. Sie sträubt sich womöglich gegen Veränderung."
+   },
+   "yesno": {
+    "verdict": [
+     1,
+     0
+    ],
+    "up": "Ja. Der sichere, reiche Sitz des Königs steht für ein zuversichtliches Ja, das auf Geduld beruht.",
+    "rev": "Vielleicht. Besitzdenken oder schlechte Verwaltung kann es schwächen. Sei fair, bevor du fortfährst."
+   },
+   "advice": {
+    "up": "Führe beständig und fair. Baue langsam, sei großzügig und genieße die Stabilität, die du geschaffen hast.",
+    "rev": "Achte auf Gier oder Starrheit. Stelle Menschen über Dinge und verwalte Ressourcen mit Sorgfalt."
+   }
+  }
+ }
+}
