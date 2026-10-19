@@ -202,7 +202,7 @@ void main() {
       await tester.tap(find.text('Get started'));
       await tester.pumpAndSettle();
       // The Today tab, with the 5-tab bar and the Scan button in the middle.
-      expect(find.text('Draw digitally'), findsOneWidget);
+      expect(find.text('Draw today\'s card'), findsOneWidget);
       expect(find.text('Scan'), findsOneWidget);
     });
 

@@ -8,6 +8,7 @@ import '../../data/models.dart';
 import '../reading/start_reading.dart';
 import '../spreads/spread_layout.dart';
 import 'orientation_dialog.dart';
+import 'spread_photo.dart';
 import '../../app/i18n.dart';
 
 /// Starts a reading by scanning with the camera (Phase C), picking manually,
@@ -53,6 +54,12 @@ class _ScanScreenState extends State<ScanScreen> {
       '/scan-camera',
       extra: _spread.cardCount,
     );
+    if (cards == null || !mounted) return;
+    _startReading(cards);
+  }
+
+  Future<void> _photoOfSpread() async {
+    final cards = await scanWholeSpread(context, _spread);
     if (cards == null || !mounted) return;
     _startReading(cards);
   }
@@ -110,18 +117,37 @@ class _ScanScreenState extends State<ScanScreen> {
                     'Shuffle your deck while you hold your question, draw one card, then scan it.',
                   )
                 : tr(
-                    'Shuffle your deck while you hold your question, draw {0} cards, lay them out as shown, then scan them one at a time.',
+                    'Shuffle your deck while you hold your question, draw {0} cards and lay them out as shown. Then take one photo of the whole spread, or scan the cards one at a time.',
                     [_spread.cardCount],
                   ),
             textAlign: TextAlign.center,
             style: const TextStyle(color: AppColors.textMuted),
           ),
           const SizedBox(height: 16),
-          FilledButton.icon(
-            onPressed: _scanWithCamera,
-            icon: const Icon(Icons.camera_alt),
-            label: Text(tr('Scan with camera')),
-          ),
+          if (_spread.cardCount > 1) ...[
+            FilledButton.icon(
+              style: FilledButton.styleFrom(
+                minimumSize: const Size.fromHeight(52),
+              ),
+              onPressed: _photoOfSpread,
+              icon: const Icon(Icons.photo_camera),
+              label: Text(tr('Photo of the whole spread')),
+            ),
+            const SizedBox(height: 8),
+            OutlinedButton.icon(
+              style: OutlinedButton.styleFrom(
+                minimumSize: const Size.fromHeight(48),
+              ),
+              onPressed: _scanWithCamera,
+              icon: const Icon(Icons.camera_alt),
+              label: Text(tr('Scan one card at a time')),
+            ),
+          ] else
+            FilledButton.icon(
+              onPressed: _scanWithCamera,
+              icon: const Icon(Icons.camera_alt),
+              label: Text(tr('Scan with camera')),
+            ),
           if (kDebugMode) ...[
             const SizedBox(height: 8),
             OutlinedButton(

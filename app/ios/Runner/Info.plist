@@ -2,14 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>ITSAppUsesNonExemptEncryption</key>
-	<false/>
-	<key>NSCameraUsageDescription</key>
-	<string>Used to recognise the tarot card you hold up. Photos are never saved or uploaded.</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Only used if you choose a screenshot to send us (Creator program). ShenTarot does not read your photos otherwise.</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>ShenTarot never records audio. This is listed only because the camera library can; it is never switched on.</string>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>
@@ -32,8 +24,16 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Used to recognise the tarot cards you photograph. Single-card scans stay on your phone. A photo of a whole spread, only if you choose it, is sent once to name the cards and then deleted.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>ShenTarot never records audio. This is listed only because the camera library can; it is never switched on.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Only used if you choose a screenshot to send us (Creator program). ShenTarot does not read your photos otherwise.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

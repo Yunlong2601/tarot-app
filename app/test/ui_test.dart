@@ -62,7 +62,7 @@ void main() {
   ) async {
     final s = AppState(deck: deck, onboarded: true);
     await start(t, s);
-    expect(find.text('Draw digitally'), findsOneWidget);
+    expect(find.text('Draw today\'s card'), findsOneWidget);
     expect(find.byType(LensCardIcon), findsOneWidget);
     await t.tap(find.text('Draw').last);
     await t.pumpAndSettle();
@@ -115,7 +115,7 @@ void main() {
     // Back from the reading lands on the Today tab, not the draw screen.
     await t.tap(find.byTooltip('Back'));
     await t.pumpAndSettle();
-    expect(find.text('Draw digitally'), findsOneWidget);
+    expect(find.text('Draw today\'s card'), findsOneWidget);
   });
 
   testWidgets('look first: the typed impression goes with the reading', (
@@ -170,7 +170,7 @@ void main() {
     ); // a 7-card spread: the one free trial
   });
 
-  testWidgets('library: mode toggle switches between scan and digital', (
+  testWidgets('library: a spread asks scan or draw, then starts that way', (
     t,
   ) async {
     final s = AppState(deck: deck, onboarded: true);
@@ -180,12 +180,13 @@ void main() {
     await t.tap(find.text('Spreads'));
     await t.pumpAndSettle();
     expect(s.readMode, ReadMode.photo);
+    await tapVisible(t, find.text('Past, Present, Future'));
+    expect(find.text('Scan my cards'), findsOneWidget);
     await t.tap(find.text('Draw digitally'));
     await t.pumpAndSettle();
     expect(s.readMode, ReadMode.digital);
-    await t.tap(find.text('Draw').last);
-    await t.pumpAndSettle();
-    expect(find.text('Digital card reading'), findsOneWidget);
+    expect(s.selectedSpread, SpreadType.threeCard);
+    expect(find.text('Your question'), findsOneWidget);
   });
 
   testWidgets('library: spreads by category, Classics first', (t) async {
@@ -223,6 +224,8 @@ void main() {
     await t.pumpAndSettle();
     await tapVisible(t, find.text('Classics'));
     await tapVisible(t, find.text('Past, Present, Future'));
+    await t.tap(find.text('Scan my cards'));
+    await t.pumpAndSettle();
     expect(s.selectedSpread, SpreadType.threeCard);
     expect(find.text('Your question'), findsOneWidget);
   });

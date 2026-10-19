@@ -22,7 +22,8 @@ class ApiReadingService
         AccountBackend,
         ReferralBackend,
         CreditBackend,
-        CreatorBackend {
+        CreatorBackend,
+        SpreadIdentifier {
   ApiReadingService(
     this.baseUrl, {
     HttpClient Function()? clientFactory,
@@ -325,6 +326,41 @@ class ApiReadingService
     } finally {
       client.close();
     }
+  }
+
+  @override
+  Future<SpreadScan> identifySpread(List<int> jpegBytes) async {
+    var res = await _post('/v1/scan/spread', {
+      'image': base64Encode(jpegBytes),
+      'mediaType': 'image/jpeg',
+    }, auth: true);
+    if (res.status == 401) {
+      _token = null;
+      res = await _post('/v1/scan/spread', {
+        'image': base64Encode(jpegBytes),
+        'mediaType': 'image/jpeg',
+      }, auth: true);
+    }
+    if (res.status == 429 && res.json['error'] == 'daily_limit') {
+      throw ReadingException(
+        ReadingErrorKind.dailyLimit,
+        tr(
+          'You have used today\'s spread photos. Scan one card at a time, or pick the cards.',
+        ),
+      );
+    }
+    if (res.status != 200) {
+      throw ReadingException(
+        ReadingErrorKind.failed,
+        tr('The service is busy. Please try again in a minute.'),
+      );
+    }
+    final list = (res.json['cards'] as List? ?? const []);
+    return SpreadScan([
+      for (final c in list)
+        if (c is Map && c['id'] is String)
+          (id: c['id'] as String, reversed: c['reversed'] == true),
+    ], unsure: res.json['unsure'] == true);
   }
 
   Future<String> _ensureToken() async {

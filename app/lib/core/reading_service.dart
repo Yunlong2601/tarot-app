@@ -88,3 +88,17 @@ class UnconfiguredReadingService implements ReadingService {
 }
 
 String spreadWireName(SpreadType s) => s.wire;
+
+/// Names the cards in one photo of a whole spread (the server asks Claude's
+/// vision model; the photo is not stored). Ids in reading order.
+abstract class SpreadIdentifier {
+  Future<SpreadScan> identifySpread(List<int> jpegBytes);
+}
+
+class SpreadScan {
+  const SpreadScan(this.cards, {required this.unsure});
+  final List<({String id, bool reversed})> cards;
+
+  /// Some cards could not be read; ask the user to check.
+  final bool unsure;
+}

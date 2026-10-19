@@ -5,6 +5,7 @@ Single source for the privacy policy, Apple privacy labels and Google Data safet
 | Data | Collected? | Where it goes | Why | Linked to a person? | Retention |
 |---|---|---|---|---|---|
 | Card photo (camera) | Processed only | Device memory; temp file deleted right after recognition | Identify the card | No | Never stored or uploaded |
+| Whole-spread photo (camera, opt-in, asked once) | Sent once, not stored | Our Worker and Anthropic for one request; never written to storage or logs (only token counts are kept) | Name the cards in a laid-out spread | No | Never stored; up to 10 a day per install |
 | Card IDs + orientation + spread | Yes | App -> our server -> Anthropic (LLM), or OpenAI as fallback / when the user's own key is OpenAI | Generate the reading | Not stored by us | Not stored by us; Anthropic's retention applies (verify current policy) |
 | Optional question text | Yes, only if typed | App -> our server -> Anthropic | Generate the reading | Not stored by us | Not stored by us; Anthropic's retention applies |
 | Optional "Look first" note (what the user notices in the cards) | Yes, only if typed | App -> our server -> Anthropic | Personalise the reading | Not stored by us | Not stored by us; Anthropic's retention applies |

@@ -179,7 +179,7 @@ void main() {
     await t.tap(find.text('Continue with Google'));
     await t.pumpAndSettle();
     expect(s.account?.id, 'acct-1');
-    expect(find.text('Draw digitally'), findsOneWidget);
+    expect(find.text('Draw today\'s card'), findsOneWidget);
   });
 
   testWidgets('no sign-in step when accounts are off', (t) async {
@@ -193,6 +193,6 @@ void main() {
     await t.pumpAndSettle();
     await t.tap(find.text('Get started'));
     await t.pumpAndSettle();
-    expect(find.text('Draw digitally'), findsOneWidget);
+    expect(find.text('Draw today\'s card'), findsOneWidget);
   });
 }

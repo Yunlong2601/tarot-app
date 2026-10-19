@@ -54,7 +54,7 @@ class _GuideScreenState extends State<GuideScreen> {
     (
       Icons.center_focus_strong,
       'Scan a card',
-      'On the Read tab choose Photo reading. Hold one card inside the gold frame, in good light, and tap Scan card. Your photo is read on your phone and is never saved or uploaded. Confirm the card ShenTarot shows, and say if it is upright or reversed.',
+      'Tap the gold Scan button in the middle of the tab bar. For one card, hold it inside the gold frame in good light; that photo is read on your phone and never saved or uploaded. For a bigger spread you can take one photo of all the cards instead, which is sent once to name them and then deleted. Always check the cards ShenTarot shows before your reading.',
     ),
     (
       Icons.search,
@@ -64,7 +64,7 @@ class _GuideScreenState extends State<GuideScreen> {
     (
       Icons.auto_awesome,
       'No deck with you?',
-      'Tap the arrows next to the main button to switch to Digital card reading. Think of your question, then tap each face-down card to turn it over.',
+      'Open the Draw tab and tap Digital card reading. Think of your question, then tap each face-down card to turn it over.',
     ),
     (
       Icons.dashboard_customize_outlined,
