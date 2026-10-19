@@ -38,6 +38,9 @@ All text is in `src/i18n/<language>/`:
   from the app's data with `npx tsx scripts/extract-i18n.ts`; re-run it when
   that data changes, then update the translations.
 - `ui.json`: every other piece of page and tool text, written by hand.
+- `learn.json`: the Learn tarot guides (`/learn`), written by hand. Links
+  inside the text are `[words](path)`, with the English path, and each
+  translation keeps the same paths.
 
 `node scripts/check-i18n.mjs` checks that each translation has the same keys,
 list lengths and `{placeholders}` as English. A missing string shows in
