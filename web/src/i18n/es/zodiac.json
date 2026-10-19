@@ -1,0 +1,335 @@
+{
+ "ui": {
+  "eyebrow": "Tarot y zodiaco",
+  "title": "Carta del tarot de {sign}: {card} y los decanatos de {sign} · ShenTarot",
+  "description": "La carta del tarot de {sign} es {card}. {first}",
+  "h1": "Carta del tarot de {sign}",
+  "lead": "{sign} ({dates}) pertenece a {card}. Su elemento es {element} y su planeta regente es {planet}.",
+  "signCard": "Carta del signo",
+  "rulerCard": "Carta del planeta regente",
+  "decansTitle": "Los tres decanatos de {sign}",
+  "decanNames": [
+   "Primer decanato",
+   "Segundo decanato",
+   "Tercer decanato"
+  ],
+  "strengths": "Fortalezas",
+  "challenges": "Retos",
+  "love": "En el amor",
+  "work": "En el trabajo",
+  "advice": "Consejo de las cartas",
+  "toolText": "Introduce tu fecha de cumpleaños para descubrir tu signo y todas sus cartas.",
+  "toolCta": "Encuentra tus cartas del zodiaco",
+  "other": "Otros signos",
+  "readMore": "Lee sobre {sign}",
+  "faqWhich": "¿Qué carta del tarot es {sign}?",
+  "faqWhichA": "{sign} está vinculado con {card} en la tradición de la Golden Dawn en la que se basa la baraja Rider-Waite-Smith. La carta de su planeta regente es {planet}.",
+  "birth": {
+   "eyebrow": "Carta natal",
+   "title": "{card} como tu carta natal: significado y personalidad · ShenTarot",
+   "description": "Qué significa que {card} sea tu carta natal del tarot. {first}",
+   "h1": "{card} como tu carta natal",
+   "how": "Tu carta natal sale de tu fecha de nacimiento. Suma todas sus cifras y luego suma las cifras del resultado hasta llegar a un número del 1 al 21.",
+   "gifts": "Tus dones",
+   "challenges": "Tus retos",
+   "love": "En el amor",
+   "work": "En el trabajo",
+   "advice": "Consejo",
+   "pairTitle": "Cartas que comparten tu número",
+   "pairText": "Las cartas natales cuyos números se reducen a la misma cifra se leen juntas, así que {card} comparte un tema con estas cartas.",
+   "calcText": "¿No sabes cuál es la tuya? Calcúlala a partir de tu fecha de nacimiento.",
+   "calcCta": "Encuentra tu carta natal",
+   "other": "Otras cartas natales",
+   "readMore": "Lee sobre {card} como carta natal",
+   "faqWhat": "¿Qué significa que {card} sea mi carta natal?"
+  }
+ },
+ "signs": {
+  "aries": {
+   "intro": "Aries pertenece a El Emperador, la carta de la estructura, la autoridad y la estabilidad. Es un signo de Fuego y su regente es Marte, cuya carta es La Torre. Si lo juntas todo, te sale alguien a quien le gusta construir algo sólido y que no espera mucho para empezar. El Emperador pone el plan. La Torre te recuerda que a veces hay que derribar primero los muros viejos.",
+   "decans": "Los tres decanatos de Aries son el Dos de Bastos, el Tres de Bastos y el Cuatro de Bastos. Si naciste al principio del signo, puedes leer el Dos de Bastos: estás en el borde de lo conocido y decides hacia dónde apuntar. La mitad del signo encaja con el Tres de Bastos, con los primeros esfuerzos en marcha y la vista en el horizonte. Al final del signo, el Cuatro de Bastos sugiere descanso y alegría compartida tras el esfuerzo.",
+   "strengths": "Sueles ser quien empieza las cosas y llevas energía allá donde vas. La gente suele confiar en tu franqueza. La firmeza de El Emperador te ayuda a convertir una buena idea en un plan.",
+   "challenges": "El Emperador puede volverse rígido y Marte puede hacerte precipitado. Pregúntate dónde la firmeza se ha convertido en terquedad y dale tiempo a los demás para que te alcancen.",
+   "love": "En el amor eres abierto y sincero, y te gusta que tu pareja te mire de frente. El Emperador sugiere lealtad y ganas de proteger. Prueba a escuchar un poco más antes de decidir qué quiere decir la otra persona.",
+   "work": "Trabajas bien cuando puedes liderar o, al menos, hacerte cargo de un proyecto. Te van los objetivos claros y el margen para actuar. Los comités lentos pueden poner a prueba tu paciencia, así que busca a algunos aliados de confianza que puedan seguirte el ritmo.",
+   "advice": "Antes de lanzarte, respira una vez y pregúntate qué haría un líder tranquilo. Después adelante, con confianza."
+  },
+  "taurus": {
+   "intro": "Tauro pertenece a El Hierofante, la carta de la tradición, la guía y la pertenencia. Es un signo de Tierra y su regente es Venus, cuya carta es La Emperatriz. El Hierofante valora lo que ha resistido el paso del tiempo. La Emperatriz añade comodidad, cuidado y amor por las cosas buenas. Juntos describen a alguien que construye una vida estable y gratificante.",
+   "decans": "Los tres decanatos de Tauro son el Cinco de Oros, el Seis de Oros y el Siete de Oros. Si naciste al principio del signo, puedes leer el Cinco de Oros: una época de escasez, con ayuda disponible si la buscas. La mitad del signo puede encajar con el Seis de Oros, donde dar y recibir se equilibran. Al final del signo, el Siete de Oros te pide que hagas una pausa, revises tus esfuerzos y dejes que el crecimiento lleve su ritmo.",
+   "strengths": "Eres paciente, leal y práctico. Te fijas en la calidad y sigues adelante cuando otros se cansan. La gente se siente segura a tu lado.",
+   "challenges": "El Hierofante puede inclinarse por la costumbre por la costumbre, y la comodidad puede frenarte. Fíjate en cuándo te aferras a algo solo porque te resulta familiar.",
+   "love": "En el amor ofreces calidez, lealtad y una mano firme. Disfrutas de los pequeños rituales compartidos, de la buena comida y del tiempo juntos. Intenta decir en voz alta lo que necesitas en lugar de esperar a que lo entiendan solos.",
+   "work": "Te va bien en trabajos que premian el cuidado y la constancia. Prefieres un camino claro y una paga justa por un buen esfuerzo. De vez en cuando mira si un cambio podría convenirte más que quedarte donde estás.",
+   "advice": "Respeta tu ritmo tranquilo y deja una pequeña parcela de tu vida abierta al cambio. La comodidad es agradable, y un poco de curiosidad también."
+  },
+  "gemini": {
+   "intro": "Géminis pertenece a Los Enamorados, la carta de la elección, la conexión y la coherencia. Es un signo de Aire y su regente es Mercurio, cuya carta es El Mago. Los Enamorados hablan de sopesar opciones y ser honesto con tus valores. El Mago aporta habilidad con las palabras y las ideas. Juntos sugieren una mente rápida y curiosa a la que le encanta establecer conexiones.",
+   "decans": "Los tres decanatos de Géminis son el Ocho de Espadas, el Nueve de Espadas y el Diez de Espadas. Si naciste al principio del signo, puedes leer el Ocho de Espadas: te sientes atascado, aunque tus opciones quizá estén más abiertas de lo que parece. La mitad del signo puede encajar con el Nueve de Espadas, donde la preocupación pesa mucho y compartirla ayuda. Al final del signo, el Diez de Espadas marca el final doloroso de un capítulo, con el camino por delante.",
+   "strengths": "Eres curioso, rápido y bueno con la gente. Sabes explicar una idea de muchas maneras y te adaptas con facilidad. A los demás les gusta tu ingenio y el interés que muestras por ellos.",
+   "challenges": "Una mente ocupada puede dar vueltas hasta convertirse en preocupación, y la elección de Los Enamorados puede volverse indecisión. Escribe tus pensamientos y luego elige una cosa para actuar.",
+   "love": "En el amor quieres conversación, humor y una pareja que mantenga vivo tu interés. Los Enamorados piden honestidad sobre lo que valoras. Deja que te conozcan, además de entretener.",
+   "work": "Brillas en trabajos que combinan variedad, comunicación y aprendizaje. Escribir, enseñar, vender y diseñar son encajes habituales, aunque cualquier puesto con problemas nuevos puede servirte. Termina una tarea antes de abrir la siguiente.",
+   "advice": "Cuando tus pensamientos se aceleren, ve más despacio y habla con una persona de confianza. Una preocupación compartida suele pesar menos."
+  },
+  "cancer": {
+   "intro": "Cáncer pertenece a El Carro, la carta de la determinación, el impulso y el rumbo. Es un signo de Agua y su regente es la Luna, cuya carta es La Sacerdotisa. El Carro muestra un caparazón amable que aun así puede avanzar con propósito. La Sacerdotisa aporta sentimiento profundo e intuición. Juntos describen a alguien que percibe mucho y protege lo que importa.",
+   "decans": "Los tres decanatos de Cáncer son el Dos de Copas, el Tres de Copas y el Cuatro de Copas. Si naciste al principio del signo, puedes leer el Dos de Copas: un vínculo equilibrado, basado en el respeto y el sentimiento compartido. La mitad del signo puede encajar con el Tres de Copas, con la alegría compartida en buena compañía. Al final del signo, el Cuatro de Copas te pregunta qué quieres de verdad cuando todo se siente apagado.",
+   "strengths": "Eres cariñoso, perceptivo y leal. Recuerdas lo que importa a las personas y creas sensación de hogar allá donde vas. Tu intuición suele ser una ayuda real.",
+   "challenges": "Puedes esconderte en tu caparazón cuando te hieren, y el estado de ánimo puede acabar guiando El Carro. Ponle nombre a lo que sientes y luego decide si actúas según ello.",
+   "love": "En el amor te entregas con devoción y ternura, y quieres una pareja que se sienta como un hogar. Te importan tanto la alegría compartida como la cercanía tranquila. Dile a tu pareja qué te pasa en lugar de esperar que lo adivine.",
+   "work": "Trabajas bien en puestos de cuidado, enseñanza, hospitalidad o de protección de lo que otros han construido. La confianza y la amabilidad en el trabajo te importan mucho. Pon límites para que cuidar de todos no te agote.",
+   "advice": "Haz tiempo para descansar y para las personas con las que te sientes a salvo. Luego conduce guiándote tanto por el corazón como por tus planes."
+  },
+  "leo": {
+   "intro": "Leo pertenece a La Fuerza, la carta del coraje, la paciencia y la compasión. Es un signo de Fuego y su regente es el Sol, cuya carta es El Sol. La Fuerza muestra un coraje suave, no estruendoso. El Sol añade calidez, alegría y apertura. Juntos describen un corazón generoso que lidera animando a los demás.",
+   "decans": "Los tres decanatos de Leo son el Cinco de Bastos, el Seis de Bastos y el Siete de Bastos. Si naciste al principio del signo, puedes leer el Cinco de Bastos: ideas que chocan y que pueden afilarte si se mantienen en buen tono. La mitad del signo puede encajar con el Seis de Bastos, un impulso de confianza y reconocimiento por tu esfuerzo. Al final del signo, el Siete de Bastos sugiere mantenerte firme en lo que crees.",
+   "strengths": "Eres cálido, leal y valiente. Llevas luz a un grupo y te gusta ver cómo les va bien a los demás. Tu confianza puede contagiarse.",
+   "challenges": "El orgullo puede hacer que te cueste pedir ayuda, y la atención puede convertirse en una necesidad. El lado tranquilo de La Fuerza puede servirte mejor que una exhibición de poder.",
+   "love": "En el amor eres cariñoso y generoso, y disfrutas celebrando a las personas que quieres. Quieres sentirte apreciado. Deja que tu pareja vea también tu lado tierno, no solo el brillante.",
+   "work": "Te va bien cuando puedes liderar, crear o actuar, y cuando se nota tu esfuerzo. Un liderazgo cálido saca lo mejor de tu equipo. Comparte el mérito y conservarás su buena voluntad.",
+   "advice": "Lidera con paciencia, como hace La Fuerza. Que sea la calidez, y no el volumen, la que sostenga lo que dices."
+  },
+  "virgo": {
+   "intro": "Virgo pertenece a El Ermitaño, la carta de la soledad, la reflexión y la guía interior. Es un signo de Tierra y su regente es Mercurio, cuya carta es El Mago. El Ermitaño lleva una linterna y se aparta para ver con claridad. El Mago aporta habilidad y atención al detalle. Juntos describen una mente cuidadosa que mejora las cosas en silencio.",
+   "decans": "Los tres decanatos de Virgo son el Ocho de Oros, el Nueve de Oros y el Diez de Oros. Si naciste al principio del signo, puedes leer el Ocho de Oros: un trabajo constante y concentrado que va construyendo habilidad. La mitad del signo puede encajar con el Nueve de Oros, donde disfrutas de lo que tu esfuerzo ha construido. Al final del signo, el Diez de Oros apunta a la estabilidad a largo plazo, la familia y la riqueza compartida.",
+   "strengths": "Eres reflexivo, fiable y observador. Notas detalles que otros pasan por alto y te gusta ser útil. Tu nivel de exigencia ayuda a que las cosas funcionen bien.",
+   "challenges": "El Ermitaño puede caer en el aislamiento, y un ojo agudo puede volverse contra ti mismo. Equilibra el tiempo a solas con la compañía y deja que lo suficientemente bueno sea suficiente.",
+   "love": "En el amor muestras cariño con hechos, como recordar, ayudar y arreglar. Tardas un tiempo en abrirte, y está bien. Intenta decir lo que sientes además de hacer algo al respecto.",
+   "work": "Prosperas en trabajos que premian la precisión, el oficio y la mejora. El análisis, la salud, la edición y los oficios especializados son encajes habituales. Comparte tus ideas antes de que sean perfectas para que otros puedan ayudarte.",
+   "advice": "Sé tan amable contigo como eres de útil con los demás. Saca tu linterna a la compañía de vez en cuando."
+  },
+  "libra": {
+   "intro": "Libra pertenece a La Justicia, la carta de la equidad, la verdad y la responsabilidad. Es un signo de Aire y su regente es Venus, cuya carta es La Emperatriz. La Justicia sopesa los hechos con honestidad. La Emperatriz añade cuidado, belleza y amor por la armonía. Juntas describen a alguien que busca el equilibrio y quiere que las cosas sean justas y amables.",
+   "decans": "Los tres decanatos de Libra son el Dos de Espadas, el Tres de Espadas y el Cuatro de Espadas. Si naciste al principio del signo, puedes leer el Dos de Espadas: una elección difícil que estás evitando, con la venda a punto de caer. La mitad del signo puede encajar con el Tres de Espadas, una verdad dolorosa reconocida para que pueda sanar. Al final del signo, el Cuatro de Espadas dice que hagas una pausa y recargues, porque descansar también es productivo.",
+   "strengths": "Eres diplomático, justo y bueno viendo los dos lados. Haces que la gente se sienta escuchada. Tienes buen ojo para la belleza y para lo que está desequilibrado.",
+   "challenges": "Ver todos los lados puede dejarte atascado, como muestra el Dos de Espadas. Mantener la paz también puede significar callar cuando deberías hablar.",
+   "love": "En el amor buscas compañerismo, amabilidad e igualdad. Disfrutas del romanticismo y de los gestos atentos. Di lo que necesitas, aunque corras el riesgo de algún desacuerdo.",
+   "work": "Te va bien en puestos de negociación, diseño, derecho, mediación o trabajo en equipo. Llevas calma a las salas tensas. Ponte una fecha límite para decidir, de modo que el equilibrio no se convierta en demora.",
+   "advice": "Sopesa las cosas con honestidad y luego elige. Una decisión justa tomada hoy suele valer más que una perfecta tomada demasiado tarde."
+  },
+  "scorpio": {
+   "intro": "Escorpio pertenece a La Muerte, la carta de los finales, la transición y el desprendimiento. Es un signo de Agua y su regente es Marte, cuya carta es La Torre. Rara vez La Muerte es literal. Habla de capítulos que se cierran para que otros puedan empezar. Con La Torre a su lado, la imagen es la de alguien intenso, que siente hondo y no teme al cambio.",
+   "decans": "Los tres decanatos de Escorpio son el Cinco de Copas, el Seis de Copas y el Siete de Copas. Si naciste al principio del signo, puedes leer el Cinco de Copas: el foco en lo perdido, mientras algunas copas siguen en pie. La mitad del signo puede encajar con el Seis de Copas, con recuerdos y una generosidad suave. Al final del signo, el Siete de Copas muestra muchas posibilidades y algo de fantasía, así que separa lo real de lo imaginado.",
+   "strengths": "Eres leal, enfocado y valiente con los sentimientos difíciles. Ves más allá de las apariencias y te comprometes a fondo. La gente suele contar contigo en una crisis.",
+   "challenges": "Puedes aferrarte al dolor o guardarte lo que sientes durante demasiado tiempo. La lección de La Muerte es soltar lo que ya ha cumplido su ciclo.",
+   "love": "En el amor buscas profundidad, confianza y honestidad. Te entregas mucho cuando te sientes a salvo. Prueba a compartir pequeñas preocupaciones pronto, antes de que se conviertan en silencios.",
+   "work": "Te va bien en trabajos que piden investigación, concentración y profundidad, como la investigación, la sanación, las finanzas o la estrategia. Ves lo que está oculto en un problema. Delega y confía en los demás para no cargar tú solo con todo.",
+   "advice": "Elige una cosa que soltar esta temporada. Hacer sitio suele ser el primer paso hacia lo que viene."
+  },
+  "sagittarius": {
+   "intro": "Sagitario pertenece a La Templanza, la carta del equilibrio, la paciencia y la moderación. Es un signo de Fuego y su regente es Júpiter, cuya carta es La Rueda de la Fortuna. La Templanza mezcla opuestos con paciencia, mientras que La Rueda te recuerda que las cosas giran en ciclos. Juntas describen a un optimista que busca sentido y mantiene la mente abierta.",
+   "decans": "Los tres decanatos de Sagitario son el Ocho de Bastos, el Nueve de Bastos y el Diez de Bastos. Si naciste al principio del signo, puedes leer el Ocho de Bastos: las cosas van rápido, así que actúa sin demora y mantén abierta la comunicación. La mitad del signo puede encajar con el Nueve de Bastos, cansado pero casi en la meta, recurriendo a la resiliencia. Al final del signo, el Diez de Bastos te pregunta qué llevas encima que podrías dejar.",
+   "strengths": "Eres esperanzado, aventurero y honesto. Te gusta aprender y ayudas a los demás a ver el panorama completo. Tu humor anima cualquier sala.",
+   "challenges": "La Templanza pide moderación, y a ti no siempre te sale de forma natural. Puedes asumir demasiado o hablar antes de pensar.",
+   "love": "En el amor buscas libertad, risas y una pareja que comparta tu curiosidad. Eres honesto y cálido. Recuerda que estar presente también puede ser una aventura.",
+   "work": "Prosperas en trabajos con variedad, aprendizaje, viajes o enseñanza. Sentir que tienes un propósito te mantiene en marcha. Elige tus proyectos con cuidado, porque el Diez de Bastos advierte contra cargar con demasiados.",
+   "advice": "Apunta alto y dosifica tus fuerzas. Los pasos firmes te llevarán más lejos que una carrera de velocidad."
+  },
+  "capricorn": {
+   "intro": "Capricornio pertenece a El Diablo, la carta del apego, el hábito y la sombra. Es un signo de Tierra y su regente es Saturno, cuya carta es El Mundo. El Diablo trata de notar qué te retiene y cuánta elección tienes en realidad. El Mundo habla de completar un ciclo con paciencia. Juntos describen a alguien que trabaja con constancia hacia una meta y aprende dónde termina el deber y empieza la libertad.",
+   "decans": "Los tres decanatos de Capricornio son el Dos de Oros, el Tres de Oros y el Cuatro de Oros. Si naciste al principio del signo, puedes leer el Dos de Oros: hacer malabares con las prioridades con flexibilidad y sin perder tu ritmo. La mitad del signo puede encajar con el Tres de Oros, donde la colaboración hábil hace crecer el buen trabajo. Al final del signo, el Cuatro de Oros te pide que disfrutes de la seguridad sin dejar de vigilar el apego excesivo.",
+   "strengths": "Eres disciplinado, responsable y paciente. Planificas con antelación y terminas lo que empiezas. La gente confía en que cumplirás tu palabra.",
+   "challenges": "Las cadenas de El Diablo suelen ser hábitos, como trabajar en exceso o temer al fracaso. También puedes ser duro contigo y tardar en descansar.",
+   "love": "En el amor eres leal y muestras cariño con compromiso y fiabilidad. Puede que te cueste relajarte en el romance. Permítete algo de juego y espontaneidad, y dile a tu pareja cuándo te sientes orgulloso de ella.",
+   "work": "Te va bien cuando puedes construir algo con el tiempo, en el negocio, la dirección, la ingeniería o el oficio. Respetas el trabajo duro. De vez en cuando comprueba si un hábito te ayuda o simplemente te retiene.",
+   "advice": "Mira una creencia sobre el deber que podrías aflojar. Luego reconócete lo lejos que ya has llegado."
+  },
+  "aquarius": {
+   "intro": "Acuario pertenece a La Estrella, la carta de la esperanza, la renovación y la calma. Es un signo de Aire y su regente es Saturno, cuya carta es El Mundo. La Estrella vierte agua sobre la tierra y sobre el estanque, lo que muestra dar con libertad. El Mundo añade la sensación de pertenecer a algo más grande. Juntos describen a alguien que se preocupa por la gente en su conjunto y quiere mejorar un poco las cosas para todos.",
+   "decans": "Los tres decanatos de Acuario son el Cinco de Espadas, el Seis de Espadas y el Siete de Espadas. Si naciste al principio del signo, puedes leer el Cinco de Espadas: una pelea que cuesta más de lo que da, así que elige tus batallas. La mitad del signo puede encajar con el Seis de Espadas, un alejamiento lento de los problemas con la recuperación en marcha. Al final del signo, el Siete de Espadas te pide que pienses con cuidado y seas sincero sobre el coste de un enfoque astuto.",
+   "strengths": "Eres original, amistoso y de mente abierta. Ves cómo las cosas podrían ser distintas y apoyas a personas que no se parecen a ti. Mantienes la calma cuando otros entran en pánico.",
+   "challenges": "La Estrella es suave, pero puedes parecer distante o terco cuando te sientes agobiado. Puedes estar tan comprometido con tus ideas que olvidas preguntar a la gente cómo se siente.",
+   "love": "En el amor valoras la amistad, la honestidad y el espacio para ser tú mismo. Eres leal a tu manera. Deja que tu pareja participe en los momentos tranquilos, no solo en las ideas.",
+   "work": "Prosperas en trabajos inventivos, colaborativos o dirigidos a una causa, como la tecnología, la ciencia, el trabajo comunitario o el diseño. Te gusta mejorar los sistemas. Explica tu forma de pensar a los demás, porque las mejores ideas necesitan aliados.",
+   "advice": "Conserva tu esperanza y compártela hoy con alguien cercano. Un pequeño gesto cálido puede importar tanto como un gran plan."
+  },
+  "pisces": {
+   "intro": "Piscis pertenece a La Luna, la carta de la incertidumbre, los sueños y la intuición. Es un signo de Agua y su regente es Júpiter, cuya carta es La Rueda de la Fortuna. La Luna muestra un mundo que no está del todo claro, donde te guían el instinto y la imaginación. La Rueda añade la sensación de los ciclos y la confianza en el cambio. Juntas describen a alguien sensible e imaginativo, que se mueve con la marea.",
+   "decans": "Los tres decanatos de Piscis son el Ocho de Copas, el Nueve de Copas y el Diez de Copas. Si naciste al principio del signo, puedes leer el Ocho de Copas: dejar atrás algo que ya no te satisface en busca de sentido. La mitad del signo puede encajar con el Nueve de Copas, una sensación de plenitud y aprecio por lo que tienes. Al final del signo, el Diez de Copas apunta a la plenitud emocional y a la pertenencia.",
+   "strengths": "Eres compasivo, creativo e intuitivo. Sientes lo que sienten los demás y sabes dar consuelo. Tu imaginación hace bonitas las cosas corrientes.",
+   "challenges": "La Luna puede difuminar la línea entre lo real y lo imaginado. Puedes absorber el ánimo de los demás o evitar las conversaciones difíciles.",
+   "love": "En el amor eres tierno, romántico y atento a los estados de ánimo. Quieres un vínculo que se sienta profundo. Contrasta tus esperanzas con lo que realmente se dice y se hace, y guarda un poco de espacio propio.",
+   "work": "Te va bien en el trabajo creativo, de cuidado o de sanación, como el arte, la música, el acompañamiento o la enfermería. Necesitas sentido en lo que haces. Incorpora rutinas y descansos para que tus dones no te agoten.",
+   "advice": "Confía en tu instinto y ánclalo con un pequeño dato. Un paseo tranquilo o una noche de sueño pueden aclarar las aguas."
+  }
+ },
+ "birth": {
+  "major_01_magician": {
+   "intro": "El Mago como carta natal significa que tu número es el 1. Refleja enfoque, habilidad e ingenio. También es la carta del 10, así que forma pareja con La Rueda de la Fortuna, que añade el tema del cambio y los ciclos. Las cartas natales son una idea para reflexionar, no una predicción, y funcionan mejor como punto de partida para pensar.",
+   "gifts": "Sabes reunir tu atención y hacer que las cosas pasen. A menudo aprendes rápido y explicas bien.",
+   "challenges": "La energía puede dispersarse cuando persigues demasiadas ideas. Pregúntate qué frena tu enfoque.",
+   "love": "Aportas encanto e iniciativa al amor. Ten tantas ganas de escuchar como de empezar la conversación.",
+   "work": "Te va bien cuando puedes usar tus herramientas con libertad, sean habilidades, palabras o ideas. Elige un proyecto y llévalo hasta el final.",
+   "advice": "Ya tienes más de lo que crees. Elige una cosa y empieza."
+  },
+  "major_02_high_priestess": {
+   "intro": "La Sacerdotisa como carta natal significa que tu número es el 2. Refleja intuición, quietud y lo no dicho. Forma pareja con La Justicia (11), que añade equidad y juicio honesto a tu lado más callado. Tómala como un punto de partida para reflexionar, no como un destino fijo.",
+   "gifts": "Percibes lo que hay bajo la superficie y puedes mantener la calma en una sala ruidosa. Es posible que la gente se confíe a ti.",
+   "challenges": "Puede que guardes las cosas ocultas, incluso para ti mismo. Ignorar tu voz interior, o no compartirla, puede hacerte sentir desconectado.",
+   "love": "En el amor ofreces profundidad y lealtad. Deja que tu pareja oiga lo que piensas, y no solo lo que intuyes.",
+   "work": "Trabajas bien donde se valora la reflexión, como la investigación, el acompañamiento o el trabajo creativo. Habla en las reuniones cuando hayas notado algo.",
+   "advice": "Haz un rato de silencio cada día. Luego confía en lo que oigas."
+  },
+  "major_03_empress": {
+   "intro": "La Emperatriz como carta natal significa que tu número es el 3. Refleja cuidado, abundancia y creatividad. Forma pareja con El Colgado (12), que añade el don de detenerse para ver las cosas de otra manera. Piénsala como un espejo para reflexionar, no como un pronóstico.",
+   "gifts": "Ayudas a que las cosas crezcan, sean personas, proyectos o un hogar. Disfrutas de la belleza y la comodidad, y las compartes con generosidad.",
+   "challenges": "Cuidar puede pasar a ser agobiar, o descuidarte a ti mismo. Pueden aparecer bloqueos creativos cuando estás cansado.",
+   "love": "Amas con calidez y generosidad. Deja que tu pareja también te cuide.",
+   "work": "Prosperas en trabajos creativos, de cuidado o manuales. Haz pausas para que también se alimente tu propia energía.",
+   "advice": "Cuida lo que amas, a ti incluido. El crecimiento sigue al cuidado."
+  },
+  "major_04_emperor": {
+   "intro": "El Emperador como carta natal significa que tu número es el 4. Refleja estructura, autoridad y estabilidad. Forma pareja con La Muerte (13), que añade la idea de que las buenas estructuras también deben cambiar cuando pasa su tiempo. Es una idea para reflexionar, no una promesa sobre tu vida.",
+   "gifts": "Sabes planificar, organizar y mantener la calma. Los demás buscan en ti firmeza y límites claros.",
+   "challenges": "La firmeza puede endurecerse en rigidez o en necesidad de controlar. Pregúntate dónde ser fuerte se ha vuelto ser terco.",
+   "love": "En el amor ofreces lealtad y protección. Deja espacio para la manera de hacer las cosas de tu pareja.",
+   "work": "Estás hecho para el liderazgo y para construir sistemas duraderos. Escucha antes de decidir y delega cuando puedas.",
+   "advice": "Lidera con calma. Que tus normas sirvan a las personas, y no al revés."
+  },
+  "major_05_hierophant": {
+   "intro": "El Hierofante como carta natal significa que tu número es el 5. Refleja tradición, guía y pertenencia. Forma pareja con La Templanza (14), que añade paciencia y equilibrio a tu respeto por la sabiduría compartida. Úsala para reflexionar y disfrutar, no para buscar respuestas fijas.",
+   "gifts": "Valoras el aprendizaje, la comunidad y la sabiduría de quienes vinieron antes. Puedes ser un buen maestro y mentor.",
+   "challenges": "Puede que sigas normas que ya no te encajan. Cuestionarlas puede resultar incómodo, pero también es como encuentras tu propio camino hacia el sentido.",
+   "love": "En el amor buscas compromiso y valores compartidos. Respeta que tu pareja pueda tener otros distintos.",
+   "work": "Te va bien en la enseñanza, la formación, las instituciones y los entornos de equipo. Ofrece orientación sin insistir en una única manera correcta.",
+   "advice": "Aprende de lo antiguo y deja sitio a tu propia mirada."
+  },
+  "major_06_lovers": {
+   "intro": "Los Enamorados como carta natal significa que tu número es el 6. Refleja elección, conexión y coherencia con tus valores. Forma pareja con El Diablo (15), que te recuerda que repares en los hábitos y apegos de tus relaciones. Es una idea para reflexionar, no una predicción de ningún tipo.",
+   "gifts": "Conectas con facilidad y te importa hacer lo que se siente verdadero. Te tomas en serio tus decisiones.",
+   "challenges": "Puede que te cueste decidirte o que actúes en contra de tus valores. Comprueba si tus actos coinciden con lo que dices querer.",
+   "love": "En el amor, lo que más te importa es la honestidad. Di lo que valoras y escucha lo que valora tu pareja.",
+   "work": "Trabajas bien en colaboración y donde importan los valores. Decide a tiempo, aunque ninguna opción sea perfecta.",
+   "advice": "Cuando elijas, elige de acuerdo con lo que valoras y dilo con claridad."
+  },
+  "major_07_chariot": {
+   "intro": "El Carro como carta natal significa que tu número es el 7. Refleja determinación, impulso y rumbo. Forma pareja con La Torre (16), que añade el tema del cambio repentino y la reconstrucción. Tómala como una idea para reflexionar y entretenerte, no como un veredicto.",
+   "gifts": "Sabes mantener juntas fuerzas opuestas y seguir avanzando. El enfoque y la fuerza de voluntad son tus puntos fuertes.",
+   "challenges": "Puede que empujes demasiado sin un plan o que pierdas el rumbo cuando cambia una meta. Ve más despacio lo justo para comprobar la ruta.",
+   "love": "Amas con energía y compromiso. Deja a veces que tu pareja marque el ritmo.",
+   "work": "Te va bien en trabajos con objetivos claros e impulso. Descansa entre un esfuerzo y otro y celebra las etapas del camino.",
+   "advice": "Sujeta las riendas con firmeza y comprueba hacia dónde vas."
+  },
+  "major_08_strength": {
+   "intro": "La Fuerza como carta natal significa que tu número es el 8. Refleja coraje, paciencia y compasión. Forma pareja con La Estrella (17), que añade calma y esperanza a tu valentía callada. Es una manera de reflexionar sobre ti, no una predicción.",
+   "gifts": "Sabes afrontar lo difícil con suavidad. Los demás te encuentran tranquilizador y sueles seguir adelante sin hacer ruido.",
+   "challenges": "Pueden colarse las dudas sobre ti mismo, o puedes seguir adelante sin fuerzas. Recupera la confianza con pasos pequeños.",
+   "love": "Amas con paciencia y calidez. Permítete también que te cuiden.",
+   "work": "Te va bien en puestos que piden calma bajo presión, como el cuidado, el coaching o el liderazgo. Protege tu energía.",
+   "advice": "Sé amable contigo. Los pequeños actos de valentía se van sumando."
+  },
+  "major_09_hermit": {
+   "intro": "El Ermitaño como carta natal significa que tu número es el 9. Refleja soledad, reflexión y guía interior. Forma pareja con La Luna (18), que añade imaginación e intuición a tu búsqueda de respuestas. Úsala como punto de partida para pensar, no como una regla.",
+   "gifts": "Piensas con profundidad y sabes encontrar tus propias respuestas. El tiempo a solas te renueva y a menudo tienes sabiduría que compartir.",
+   "challenges": "Puedes derivar hacia el aislamiento o evitar la reflexión manteniéndote ocupado. Equilibra la soledad con la conexión.",
+   "love": "En el amor valoras la profundidad y la calma. Haz saber a tu pareja cuándo necesitas espacio y cuándo la quieres cerca.",
+   "work": "Prosperas en la investigación, el oficio y los trabajos que premian la concentración. Sal de la cueva para compartir lo que encuentres.",
+   "advice": "Aléjate para pensar y luego lleva tu linterna a los demás."
+  },
+  "major_10_wheel_of_fortune": {
+   "intro": "La Rueda de la Fortuna como carta natal significa que tu número es el 10, que se reduce a 1. Eso te hace parte de una pareja con El Mago. Refleja ciclos, cambio y perspectiva. Como siempre, es para reflexionar y entretenerse, no para adivinar el futuro.",
+   "gifts": "Te adaptas y sabes ver el patrón más amplio de los acontecimientos. A menudo encuentras la manera de volver a empezar.",
+   "challenges": "Resistirte al cambio puede dejarte atrapado en un bucle. Busca lo que sí puedes influir y suelta el resto.",
+   "love": "Aportas flexibilidad al amor y llevas bien el cambio de estaciones. Comparte tus planes con tu pareja para que el cambio se sienta como cosa de dos.",
+   "work": "Te va bien donde se valora la adaptabilidad. Combina tu apertura al cambio con una habilidad clara, como sugiere El Mago.",
+   "advice": "Las cosas giran en ciclos. Ten las manos listas para lo que venga."
+  },
+  "major_11_justice": {
+   "intro": "La Justicia como carta natal significa que tu número es el 11, que se reduce a 2. Eso te empareja con La Sacerdotisa. Refleja equidad, verdad y responsabilidad. Tómala como un espejo para reflexionar, no como un pronóstico.",
+   "gifts": "Sopesas los hechos con honestidad y te importa la equidad. La gente confía en tu criterio.",
+   "challenges": "Pueden colarse los prejuicios o el esquivar responsabilidades, y puedes ser duro contigo o con los demás. Comprueba que tu mirada sea equilibrada.",
+   "love": "En el amor valoras la honestidad y la igualdad. Haz sitio a los sentimientos además de a los hechos.",
+   "work": "Te va bien en el derecho, la mediación, las finanzas o cualquier puesto que pida la cabeza fría. Escucha tu intuición además de las pruebas.",
+   "advice": "Mira los hechos y tu propia parte en ellos. Luego elige con justicia."
+  },
+  "major_12_hanged_man": {
+   "intro": "El Colgado como carta natal significa que tu número es el 12, que se reduce a 3. Eso te empareja con La Emperatriz. Refleja pausa, entrega y ver desde un ángulo nuevo. Es un punto de partida para reflexionar, nunca una predicción.",
+   "gifts": "Sabes esperar y ves lo que otros pasan por alto cuando miras desde el otro lado. A menudo tienes la mente abierta y eres paciente.",
+   "challenges": "Puedes quedarte parado sin un propósito. Pregúntate si esperar sigue ayudándote.",
+   "love": "Das al amor espacio y paciencia. No esperes tanto que tus sentimientos se queden sin decir.",
+   "work": "Te va bien en el trabajo creativo y reflexivo. Elige un momento para moverte y luego actúa.",
+   "advice": "Haz una pausa para ver de otra manera y luego da el siguiente paso."
+  },
+  "major_13_death": {
+   "intro": "La Muerte como carta natal significa que tu número es el 13, que se reduce a 4. Eso te empareja con El Emperador. Refleja finales, transición y desprendimiento, y rara vez es literal. Úsala para reflexionar y disfrutar, no para buscar respuestas sobre el futuro.",
+   "gifts": "Sabes soltar y volver a empezar. A menudo afrontas el cambio con valentía.",
+   "challenges": "Puede que te aferres al pasado o temas un cambio necesario. Fíjate en lo que ya ha cumplido su ciclo.",
+   "love": "Amas con honestidad sobre los finales y los comienzos. Dale tiempo a lo nuevo para asentarse.",
+   "work": "Te va bien en trabajos de renovación, como reflotar, rediseñar o despejar. Construye una base, como sugiere El Emperador.",
+   "advice": "Suelta una cosa este mes y haz sitio para algo nuevo."
+  },
+  "major_14_temperance": {
+   "intro": "La Templanza como carta natal significa que tu número es el 14, que se reduce a 5. Eso te empareja con El Hierofante. Refleja equilibrio, paciencia y moderación. Las cartas natales sirven para pensar en uno mismo, no para predecir sucesos.",
+   "gifts": "Mezclas los opuestos con paciencia. Eres firme y mesurado, y a los demás les resulta fácil estar contigo.",
+   "challenges": "El exceso o la impaciencia pueden aparecer cuando las cosas se desequilibran. Busca dónde das demasiado o demasiado poco.",
+   "love": "Aportas calma y capacidad de ceder al amor. Di lo que necesitas, y no solo lo que mantiene la paz.",
+   "work": "Te va bien como mediador, sanador, maestro o miembro de un equipo. Los pasos constantes y medidos son los que mejor te funcionan.",
+   "advice": "Mezcla con paciencia y tómate tu tiempo. El equilibrio es algo que se rehace una y otra vez."
+  },
+  "major_15_devil": {
+   "intro": "El Diablo como carta natal significa que tu número es el 15, que se reduce a 6. Eso te empareja con Los Enamorados. Refleja apego, hábito y sombra. Es una idea para reflexionar y no un juicio sobre ti.",
+   "gifts": "Ves lo que retiene a las personas, a ti incluido. A menudo tienes mucho impulso y apetito de vida.",
+   "challenges": "Los hábitos, las creencias y las dependencias pueden apretar fuerte. Ser consciente es el primer paso hacia la libertad.",
+   "love": "Amas con pasión. Pregúntate con honestidad si un vínculo es una elección o un hábito, como sugieren Los Enamorados.",
+   "work": "Tienes impulso en el trabajo y se te dan bien el dinero y la influencia. Cuidado con el exceso de trabajo y con las metas que no son tuyas.",
+   "advice": "Fíjate en lo que te retiene y recuerda cuánta elección tienes."
+  },
+  "major_16_tower": {
+   "intro": "La Torre como carta natal significa que tu número es el 16, que se reduce a 7. Eso te empareja con El Carro. Refleja trastorno, revelación y reinicio. Tómala como un punto de partida para reflexionar y no como una predicción.",
+   "gifts": "Sabes sobrellevar los cambios rápidos y eres honesto sobre lo que no funciona. El terreno despejado te da espacio para reconstruir.",
+   "challenges": "El miedo al cambio puede crecer hasta ser un problema que arde a fuego lento. Afróntalo cuanto antes.",
+   "love": "En el amor valoras la verdad. Sé suave al decirla.",
+   "work": "Te va bien cuando puedes arreglar, reconstruir o liderar a través del cambio. Conduce con propósito, como hace El Carro.",
+   "advice": "Afronta lo que se tambalea y construye sobre suelo firme."
+  },
+  "major_17_star": {
+   "intro": "La Estrella como carta natal significa que tu número es el 17, que se reduce a 8. Eso te empareja con La Fuerza. Refleja esperanza, renovación y calma. Está pensada para reflexionar y disfrutar, no para echar la buenaventura.",
+   "gifts": "Llevas una esperanza suave a los demás. Te recuperas bien y compartes lo que tienes.",
+   "challenges": "Pueden instalarse la duda y la falta de motivación. Sé amable contigo y mantén vivas las pequeñas esperanzas.",
+   "love": "Amas con apertura y calma. Deja que tu pareja vea también tus dudas.",
+   "work": "Te va bien en el trabajo de sanación, creativo y comunitario. Dosifica tus fuerzas para no quedarte seco.",
+   "advice": "Descansa y confía en una recuperación lenta. Mantén viva una pequeña esperanza."
+  },
+  "major_18_moon": {
+   "intro": "La Luna como carta natal significa que tu número es el 18, que se reduce a 9. Eso te empareja con El Ermitaño. Refleja incertidumbre, sueños e intuición. Piénsala como una idea para reflexionar, no como una predicción.",
+   "gifts": "Eres imaginativo y sensible, y notas los estados de ánimo y las señales. Tus sueños e instintos pueden alimentar el trabajo creativo.",
+   "challenges": "Las cosas no siempre están claras y los miedos pueden crecer en la oscuridad. Avanza con cuidado y mantén los pies en la tierra.",
+   "love": "Amas con sentimiento. Contrasta tus esperanzas y tus miedos con lo que tu pareja dice de verdad.",
+   "work": "Te va bien en el trabajo creativo, de cuidado o imaginativo. Tómate ratos de calma, como hace El Ermitaño, para separar lo real de lo imaginado.",
+   "advice": "Avanza con cuidado cuando las cosas no estén claras. Fíjate en tus instintos y en tus miedos."
+  },
+  "major_19_sun": {
+   "intro": "El Sol como carta natal significa que tu número es el 19. Suma 1 y 9 y llegas a 10, y luego a 1, así que se enlaza con La Rueda de la Fortuna y El Mago. Refleja alegría, vitalidad y claridad. Las cartas natales son para reflexionar y entretenerse, no para hacer promesas.",
+   "gifts": "Aportas calidez y confianza. Eres abierto y honesto, y la gente se siente mejor a tu lado.",
+   "challenges": "El entusiasmo puede apagarse, o el ego puede crecer demasiado. Busca pequeñas fuentes de luz cuando todo se sienta plano.",
+   "love": "Amas con calidez y juego. Comparte el protagonismo con tu pareja.",
+   "work": "Te va bien en puestos donde puedes ser visible y positivo, como enseñar, liderar o actuar. Comparte el mérito.",
+   "advice": "Disfruta de lo que va bien y deja que otros lo compartan."
+  },
+  "major_20_judgement": {
+   "intro": "El Juicio como carta natal significa que tu número es el 20, que se reduce a 2. Eso te empareja con La Sacerdotisa. Refleja revisión honesta, perdón y una llamada interior. Úsala como punto de partida para pensar, no como una predicción.",
+   "gifts": "Sabes mirar atrás con honestidad y volver a empezar. A menudo sientes una vocación y respondes a ella.",
+   "challenges": "La autocrítica puede hacerse ruidosa, o puedes evitar una decisión necesaria. Perdona lo que puedas.",
+   "love": "Amas con honestidad y perdón. Deja atrás las viejas cuentas pendientes.",
+   "work": "Te va bien en puestos de renovación, como el coaching, la sanación o reinventar una carrera. Escucha en silencio, como hace La Sacerdotisa.",
+   "advice": "Revisa el pasado con amabilidad. Luego responde a tu llamada."
+  },
+  "major_21_world": {
+   "intro": "El Mundo como carta natal significa que tu número es el 21, que se reduce a 3. Eso te empareja con La Emperatriz. Refleja plenitud, integridad y logro. Es una idea para reflexionar y no promete nada sobre tu futuro.",
+   "gifts": "Ves el cuadro completo y terminas lo que empiezas. Sabes hacer balance de lo lejos que has llegado.",
+   "challenges": "Pueden quedar cabos sueltos, o un final puede parecer fuera de alcance. A menudo falta un último paso.",
+   "love": "Amas con una sensación de plenitud. Deja también espacio para el crecimiento de tu pareja.",
+   "work": "Te va bien en puestos amplios que conectan personas o proyectos, y en trabajos con un final claro. Celebra y luego empieza lo siguiente.",
+   "advice": "Haz balance de lo lejos que has llegado y permítete celebrarlo."
+  },
+  "major_00_fool": {
+   "intro": "El Loco como carta natal significa que tu suma dio 22, el último número antes de que el ciclo vuelva a empezar. Refleja los comienzos, la confianza y la curiosidad. Forma pareja con El Emperador (4), que añade la idea de que un espíritu libre también necesita algo de estructura donde aterrizar. Es una idea para reflexionar, no una promesa sobre tu vida.",
+   "gifts": "Recibes lo nuevo con la mente abierta y el corazón ligero. Tu sentido de lo posible se contagia.",
+   "challenges": "La apertura puede volverse descuido o la costumbre de irte cuando las cosas se ponen difíciles. Pregúntate qué te pierdes al empezar siempre de cero.",
+   "love": "Aportas espontaneidad y asombro al amor. Recuerda que tu pareja quizá necesite planes y promesas, además de sorpresas.",
+   "work": "Te va bien en proyectos nuevos, viajes y todo lo que exija aprender rápido. Combina tus ideas con alguien que sepa terminar las cosas.",
+   "advice": "Di que sí a la próxima buena aventura y mira bien dónde pisas."
+  }
+ }
+}

@@ -1,0 +1,62 @@
+---
+// A small card-of-the-day box other sites can show in an iframe. The card
+// changes each day in the reader's own time zone, with no tracking or cookies.
+import { BASE, SITE_URL } from "../../../config.ts";
+import { cardIds, slug } from "../../../lib/data.ts";
+import { i18n, langPaths, type Locale } from "../../../i18n/index.ts";
+import "@fontsource/cormorant-garamond/latin-600.css";
+import "@fontsource-variable/inter";
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Locale };
+const L = i18n(lang);
+const deck = cardIds.map((id) => ({ id, href: new URL(L.url(`cards/${slug(id)}`), SITE_URL).href, name: L.cards[id]!.name, text: L.cards[id]!.k?.essence ?? L.cards[id]!.upright }));
+---
+<!doctype html>
+<html lang={L.tag}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>{L.t("daily.crumb")} · ShenTarot</title>
+    <style>
+      * { box-sizing: border-box; margin: 0; }
+      html, body { height: 100%; }
+      body { font-family: "Inter Variable", system-ui, sans-serif; background: #09080f; color: #f4efe6; }
+      a { color: inherit; text-decoration: none; }
+      .box { height: 100%; display: flex; gap: 14px; align-items: center; padding: 14px; border: 1px solid rgba(226, 200, 140, 0.3); border-radius: 14px; background: radial-gradient(260px 160px at 20% 30%, rgba(217, 181, 106, 0.18), transparent 70%), #09080f; }
+      img { width: 84px; height: 144px; border-radius: 8px; object-fit: cover; flex: none; }
+      p { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #d9b56a; font-weight: 600; }
+      h1 { font: 600 26px/1.1 "Cormorant Garamond", Georgia, serif; margin: 4px 0 6px; }
+      span { display: block; font-size: 13px; line-height: 1.4; color: #d6cebf; }
+      small { display: block; margin-top: 8px; font-size: 11px; color: #a39a8a; }
+      small.note { margin-top: 2px; font-size: 10px; }
+      small b { color: #f3dca0; font-weight: 600; }
+    </style>
+  </head>
+  <body>
+    <a class="box" target="_blank" rel="noopener" data-link href={SITE_URL}>
+      <img data-img alt="" width="84" height="144" />
+      <div>
+        <p>{L.t("daily.crumb")}</p>
+        <h1 data-name></h1>
+        <span data-text></span>
+        <small><b>ShenTarot</b> · shentarot.com</small>
+        <small class="note">{L.contexts.ui.disclaimer}</small>
+      </div>
+    </a>
+    <script is:inline define:vars={{ deck, base: new URL(BASE, SITE_URL).href }}>
+      // Same card for everyone on the same calendar day.
+      const d = new Date();
+      const key = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
+      let h = 2166136261;
+      for (const ch of key) h = Math.imul(h ^ ch.charCodeAt(0), 16777619) >>> 0;
+      const c = deck[h % deck.length];
+      document.querySelector("[data-link]").href = c.href;
+      document.querySelector("[data-img]").src = `${base}cards/art/${c.id}.jpg`;
+      document.querySelector("[data-img]").alt = c.name;
+      document.querySelector("[data-name]").textContent = c.name;
+      document.querySelector("[data-text]").textContent = c.text;
+    </script>
+  </body>
+</html>

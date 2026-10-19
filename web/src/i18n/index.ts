@@ -7,6 +7,8 @@ import enCards from "./en/cards.json";
 import enContent from "./en/content.json";
 import enUi from "./en/ui.json";
 import enLearn from "./en/learn.json";
+import enContexts from "./en/contexts.json";
+import enZodiac from "./en/zodiac.json";
 
 export const LOCALES = ["en", "zh-hans", "zh-hant", "es", "de", "ja", "fr", "ru"] as const;
 export type Locale = (typeof LOCALES)[number];
@@ -28,6 +30,8 @@ type CardText = (typeof enCards)[keyof typeof enCards];
 type Content = typeof enContent;
 type Ui = typeof enUi;
 type Learn = typeof enLearn;
+type Contexts = typeof enContexts;
+type Zodiac = typeof enZodiac;
 
 /** The Learn tarot guides, in reading order. */
 export const LEARN_SLUGS = Object.keys(enLearn.guides) as (keyof Learn["guides"])[];
@@ -83,6 +87,8 @@ function build(loc: Locale) {
   const cards = load<Record<string, CardText>>(loc, "cards", enCards);
   const content = load<Content>(loc, "content", enContent);
   const learn = load<Learn>(loc, "learn", enLearn);
+  const contexts = load<Contexts>(loc, "contexts", enContexts);
+  const zodiac = load<Zodiac>(loc, "zodiac", enZodiac);
   const rules = new Intl.PluralRules(LOCALE_INFO[loc].tag);
   /** Looks up a dotted key in ui.json ("card.related") and fills placeholders. */
   const t = (key: string, vars?: Record<string, string | number>): string => {
@@ -110,6 +116,6 @@ function build(loc: Locale) {
   };
   /** What the browser tools need to link a card in this language (see lib/cardView.ts). */
   const view = { base: BASE, cards: url("cards"), more: ui.reader.fullMeaning };
-  return { loc, tag: LOCALE_INFO[loc].tag, ui, t, list, url, cards, content, learn, group, assoc, view };
+  return { loc, tag: LOCALE_INFO[loc].tag, ui, t, list, url, cards, content, learn, contexts, zodiac, group, assoc, view };
 }
 export type I18n = ReturnType<typeof i18n>;

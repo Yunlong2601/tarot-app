@@ -3,7 +3,8 @@ import Base from "../../../layouts/Base.astro";
 import Tabs from "../../../components/Tabs.astro";
 import { BASE } from "../../../config.ts";
 import { CARDS, cardIds, slug, type CardId } from "../../../lib/data.ts";
-import { i18n, joinAnd, langPathsFor, type Locale } from "../../../i18n/index.ts";
+import { CONTEXTS, CONTEXT_KEY } from "../../../lib/contexts.ts";
+import { fill, i18n, joinAnd, langPathsFor, type Locale } from "../../../i18n/index.ts";
 
 export function getStaticPaths() {
   return langPathsFor(cardIds.map((id) => ({ params: { slug: slug(id) }, props: { id } })));
@@ -105,6 +106,9 @@ const jsonLd = [
       <p class="lead">{tr.upright}</p>
       <ul class="chips">{tr.keywords.map((w) => <li>{w}</li>)}</ul>
       {facts && <p class="muted">{facts}</p>}
+      <nav class="ctx-links" aria-label={fill(L.contexts.ui.other, { name })}>
+        {CONTEXTS.map((c) => <a href={u(`cards/${slug(id)}/${c}`)}>{L.contexts.ui.tabs[CONTEXT_KEY[c]]}</a>)}
+      </nav>
       <div data-share-card>
         <script type="application/json" data-config set:html={JSON.stringify({ share: L.ui.share, image: { base: BASE, eyebrow: t("share.card"), title: name, text: k?.essence ?? tr.upright, cards: [{ id, name }], file: `shentarot-${slug(id)}` } }).replace(/</g, "\\u003c")} />
       </div>

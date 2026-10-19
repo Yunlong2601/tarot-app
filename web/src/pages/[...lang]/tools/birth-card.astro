@@ -2,6 +2,8 @@
 import Base from "../../../layouts/Base.astro";
 import { BASE } from "../../../config.ts";
 import { deckForTools } from "../../../lib/data.ts";
+import { slug } from "../../../lib/data.ts";
+import { BIRTH } from "../../../lib/birth.ts";
 import { i18n, langPaths, type Locale } from "../../../i18n/index.ts";
 
 export const getStaticPaths = langPaths;
@@ -30,6 +32,12 @@ const CARDS = L.url("cards");
     <button class="btn btn-gold" id="go" type="button">{t("birth.button")}</button>
   </div>
   <div id="out" class="center" aria-live="polite" style="margin-top:2rem"></div>
+  <section class="section center">
+    <h2>{L.zodiac.ui.birth.other}</h2>
+    <nav class="ctx-links" style="justify-content:center" aria-label={L.zodiac.ui.birth.other}>
+      {BIRTH.map((x) => <a href={u(`birth-cards/${slug(x)}`)}>{L.cards[x]!.name}</a>)}
+    </nav>
+  </section>
   <script is:inline define:vars={{ DECK: majors, BASE, CARDS, T }}>
     document.getElementById("bd").max = new Date().toISOString().slice(0, 10);
     const digits = (n) => String(n).split("").reduce((s, d) => s + +d, 0);

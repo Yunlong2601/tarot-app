@@ -461,3 +461,13 @@ input:focus, select:focus { outline: none; border-color: var(--gold); box-shadow
 .guide .practice h2 { margin-top: 0; }
 .guide h2[id] { scroll-margin-top: 5rem; }
 .lesson-nav { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-top: 2.4rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
+
+/* Card pages for love, career, feelings and yes or no */
+.ctx-links { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+.ctx-links a { font-size: 0.9rem; padding: 0.4rem 0.8rem; border-radius: 999px; border: 1px solid var(--line); text-decoration: none; color: #cfc8ba; }
+.ctx-links a:hover, .ctx-links a[aria-current="page"] { color: var(--fg); background: var(--surface-2); border-color: var(--line-strong); }
+.verdict { font-size: 1.05rem; margin: 0 0 0.8rem; }
+.verdict b { font-weight: 600; }
+.verdict b.yes { color: var(--gold-2); }
+.verdict b.no { color: #e89a9a; }
+.code { white-space: pre-wrap; word-break: break-all; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 0.9rem 1rem; font-size: 0.82rem; color: #d6cebf; }
