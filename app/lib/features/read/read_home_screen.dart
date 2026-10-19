@@ -6,12 +6,11 @@ import '../../app/app_state.dart';
 import '../../app/brand.dart';
 import '../../app/theme.dart';
 import '../paywall/annual_upgrade_card.dart';
-import '../today/today_screen.dart';
 import 'hero_background.dart';
 import '../../app/i18n.dart';
 
 /// The Draw tab: a digital reading with cards drawn on screen. Scanning your
-/// own deck is the middle tab button (and a link here).
+/// own deck is the middle tab button.
 class ReadHomeScreen extends StatelessWidget {
   const ReadHomeScreen({super.key});
 
@@ -66,11 +65,6 @@ class ReadHomeScreen extends StatelessWidget {
                                   },
                                 ),
                                 const SizedBox(height: 12),
-                                TextButton.icon(
-                                  onPressed: () => startPhotoReading(context),
-                                  icon: const Icon(Icons.camera, size: 18),
-                                  label: Text(tr('Scan your own cards')),
-                                ),
                                 Text(
                                   state.creditLine,
                                   style: const TextStyle(

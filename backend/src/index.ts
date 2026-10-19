@@ -34,6 +34,7 @@ import {
 } from "./creator";
 import { isFreeSpread } from "./spreads";
 import { isUuid, parseFollowupRequest, parseReadingRequest } from "./validate";
+import { MAX_SPREAD_IMAGE_B64, SPREAD_PROMPT, SPREAD_SCANS_PER_DAY, callVision, isImageB64, parseSpread, type VisionFn } from "./spreadscan";
 import { appleTokenKey, exchangeCode, revokeToken, siwaConfigured } from "./applesignin";
 import { AttestError, b64ToBytes, bytesToB64, clientDataFor, verifyAssertion, verifyAttestation, type AttestedKey } from "./appattest";
 
@@ -58,6 +59,8 @@ export interface Deps {
   appAttestRoot?: string;
   /** Tests only: replaces fetch for calls to Apple's token endpoints. */
   appleFetch?: typeof fetch;
+  /** Names the cards in a spread photo (Claude vision). */
+  vision?: VisionFn;
   /** Sends an owner alert (ALERT_WEBHOOK_URL). Optional so tests can capture it. */
   alert?: (message: string, env: Env) => Promise<void>;
 }
@@ -320,6 +323,40 @@ export function createApp(deps: Deps = defaultDeps) {
     }
     const token = await signToken(installId, c.env.JWT_SECRET, Math.floor(deps.now() / 1000));
     return c.json({ token });
+  });
+
+  // A photo of a whole spread: Claude names the cards. The image goes to the
+  // model once and is never stored or logged; no reading credit is used.
+  app.post("/v1/scan/spread", async (c) => {
+    const now = deps.now();
+    const installId = await installFrom(c.req.header("authorization"), c.env, now);
+    if (!installId) return c.json({ error: "unauthorized" }, 401);
+    const who = await identity(c.env, installId);
+    if (!(await allowWithinMinute(c.env.KV, `burst:${who.installHash}`, BURST_PER_MINUTE, now))) {
+      return c.json({ error: "rate_limited" }, 429);
+    }
+    const body = (await readJson(c.req.raw, MAX_SPREAD_IMAGE_B64 + 200)) as { image?: unknown; mediaType?: unknown } | null;
+    const mediaType = body?.mediaType === "image/png" ? "image/png" : "image/jpeg";
+    if (!body || !isImageB64(body.image)) return c.json({ error: "invalid_request" }, 400);
+    const day = utcDay(now);
+    const capKey = `spread:${who.usageKey}:${day}`;
+    const done = Number((await c.env.KV.get(capKey)) ?? "0");
+    if (done >= SPREAD_SCANS_PER_DAY) return c.json({ error: "daily_limit", limit: SPREAD_SCANS_PER_DAY }, 429);
+    const targets = serverTargets(c.env).filter((t) => t.provider === "anthropic");
+    if (targets.length === 0) return c.json({ error: "service_busy" }, 503);
+    const usage = deps.usage(c.env);
+    const cap = Number(c.env.GLOBAL_DAILY_TOKEN_CAP ?? DEFAULT_GLOBAL_DAILY_TOKEN_CAP);
+    if ((await usage.tokensToday(day)) >= cap) return c.json({ error: "service_busy" }, 503);
+    await c.env.KV.put(capKey, String(done + 1), { expirationTtl: 2 * 86_400 });
+    const slot = await usage.reserve(who.usageKey, day, "spread_scan", "single", targets[0]!.model);
+    try {
+      const r = await (deps.vision ?? callVision)(body.image, mediaType, SPREAD_PROMPT, targets[0]!.apiKey, targets[0]!.model);
+      await usage.finalize(slot, r.inputTokens, r.outputTokens);
+      return c.json(parseSpread(r.text));
+    } catch {
+      await usage.release(slot);
+      return c.json({ error: "service_busy" }, 503);
+    }
   });
 
   app.post("/v1/reading", async (c) => {

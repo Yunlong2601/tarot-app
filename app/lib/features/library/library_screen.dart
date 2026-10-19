@@ -87,31 +87,6 @@ class _SpreadsListState extends State<_SpreadsList> {
     ];
     return Column(
       children: [
-        // Same setting as the Read tab's main button: scan a physical deck or
-        // draw on screen. The spread you tap starts in this mode.
-        Padding(
-          padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
-          child: SizedBox(
-            width: double.infinity,
-            child: SegmentedButton<ReadMode>(
-              segments: [
-                ButtonSegment(
-                  value: ReadMode.photo,
-                  icon: Icon(Icons.center_focus_strong_outlined),
-                  label: Text(tr('Scan my cards')),
-                ),
-                ButtonSegment(
-                  value: ReadMode.digital,
-                  icon: Icon(Icons.style_outlined),
-                  label: Text(tr('Draw digitally')),
-                ),
-              ],
-              selected: {state.readMode},
-              showSelectedIcon: false,
-              onSelectionChanged: (m) => state.setReadMode(m.first),
-            ),
-          ),
-        ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Wrap(
@@ -139,8 +114,7 @@ class _SpreadsListState extends State<_SpreadsList> {
                         context.push('/paywall');
                         return;
                       }
-                      state.selectSpread(t);
-                      context.push('/ask', extra: true);
+                      _startSpread(context, state, t);
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(14),
@@ -191,4 +165,38 @@ class _SpreadsListState extends State<_SpreadsList> {
       ],
     );
   }
+}
+
+/// A spread from Learn: ask whether to scan your own cards or draw on screen.
+Future<void> _startSpread(
+  BuildContext context,
+  AppState state,
+  SpreadType t,
+) async {
+  final mode = await showModalBottomSheet<ReadMode>(
+    context: context,
+    showDragHandle: true,
+    builder: (ctx) => SafeArea(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          ListTile(
+            leading: const Icon(Icons.camera, color: AppColors.gold),
+            title: Text(tr('Scan my cards')),
+            onTap: () => Navigator.pop(ctx, ReadMode.photo),
+          ),
+          ListTile(
+            leading: const Icon(Icons.auto_awesome, color: AppColors.gold),
+            title: Text(tr('Draw digitally')),
+            onTap: () => Navigator.pop(ctx, ReadMode.digital),
+          ),
+          const SizedBox(height: 8),
+        ],
+      ),
+    ),
+  );
+  if (mode == null || !context.mounted) return;
+  state.setReadMode(mode);
+  state.selectSpread(t);
+  context.push('/ask', extra: true);
 }

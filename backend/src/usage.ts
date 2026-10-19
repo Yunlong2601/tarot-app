@@ -5,7 +5,7 @@ import type { Spread } from "./validate";
  * in-memory in tests. */
 /** "off_topic": a reading the model turned away. Its tokens stay counted in
  * the global budget, but it is not a reading (no daily use, no trial). */
-export type UsageKind = "reading" | "followup" | "off_topic";
+export type UsageKind = "reading" | "followup" | "off_topic" | "spread_scan";
 
 export interface UsageStore {
   /** Requests of this kind counted for this install today (including in-flight ones). */

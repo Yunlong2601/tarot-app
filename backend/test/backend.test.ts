@@ -18,6 +18,7 @@ import { NEW_INSTALLS_PER_IP_PER_DAY, alertTokenUsage, allowNewInstall, grantRef
 import { allowWithinMinute } from "../src/usage";
 import { cleanQuestion, parseFollowupRequest, parseReadingRequest, type Spread } from "../src/validate";
 import { isFreeSpread } from "../src/spreads";
+import { SPREAD_SCANS_PER_DAY, parseSpread } from "../src/spreadscan";
 
 class FakeKV {
   m = new Map<string, string>();
@@ -1316,5 +1317,43 @@ describe("guest reading limit", () => {
     expect((await read(s, h)).status).toBe(200);
     expect((await read(s, h)).status).toBe(200);
     expect((await read(s, h)).status).toBe(429);
+  });
+});
+
+describe("whole-spread photo", () => {
+  const IMG = "A".repeat(400);
+  const scan = async (s: ReturnType<typeof setup>, body: unknown = { image: IMG, mediaType: "image/jpeg" }) =>
+    s.call("/v1/scan/spread", { method: "POST", headers: await authHeaders(s.env), body: JSON.stringify(body) });
+
+  it("names the cards, keeps reading order, drops unknown names and duplicates", () => {
+    expect(parseSpread('{"cards":[{"name":"The Moon","reversed":true},{"name":"five of cups","reversed":false}],"unsure":false}'))
+      .toEqual({ cards: [{ id: "major_18_moon", reversed: true }, { id: "cups_five", reversed: false }], unsure: false });
+    expect(parseSpread('Here: {"cards":[{"name":"Moon"},{"name":"The Moon"},{"name":"Joker"}]}'))
+      .toEqual({ cards: [{ id: "major_18_moon", reversed: false }], unsure: true });
+    expect(parseSpread("no json")).toEqual({ cards: [], unsure: true });
+  });
+
+  it("returns the cards, counts tokens, and stops after 10 a day", async () => {
+    const s = setup();
+    let prompts = 0;
+    s.deps.vision = async () => {
+      prompts++;
+      return { text: '{"cards":[{"name":"The Sun","reversed":false}],"unsure":false}', inputTokens: 1500, outputTokens: 40 };
+    };
+    const res = await scan(s);
+    expect(res.status).toBe(200);
+    expect(await res.json()).toEqual({ cards: [{ id: "major_19_sun", reversed: false }], unsure: false });
+    for (let i = 1; i < SPREAD_SCANS_PER_DAY; i++) expect((await scan(s)).status).toBe(200);
+    expect((await scan(s)).status).toBe(429);
+    expect(prompts).toBe(SPREAD_SCANS_PER_DAY);
+  });
+
+  it("rejects a missing or non-base64 image without calling the model", async () => {
+    const s = setup();
+    let called = false;
+    s.deps.vision = async () => { called = true; return { text: "{}", inputTokens: 0, outputTokens: 0 }; };
+    expect((await scan(s, { image: "not base64!" })).status).toBe(400);
+    expect((await scan(s, {})).status).toBe(400);
+    expect(called).toBe(false);
   });
 });

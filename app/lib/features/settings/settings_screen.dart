@@ -199,11 +199,6 @@ class SettingsScreen extends StatelessWidget {
               title: Text(tr('Sign out')),
               onTap: state.signOut,
             ),
-            ListTile(
-              leading: const Icon(Icons.person_remove_outlined),
-              title: Text(tr('Delete account')),
-              onTap: () => context.push('/account'),
-            ),
           ],
           ListTile(
             leading: const Icon(Icons.delete_outline),

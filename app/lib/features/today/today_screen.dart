@@ -10,7 +10,7 @@ import '../guide/today_section.dart';
 import '../paywall/annual_upgrade_card.dart';
 
 /// The Today tab, the daily home: Card of the Day, your journey, a reading
-/// to look back on, and quick ways into a photo or digital reading.
+/// to look back on. Readings start from the Draw tab and the Scan button.
 class TodayScreen extends StatelessWidget {
   const TodayScreen({super.key});
 
@@ -38,33 +38,7 @@ class TodayScreen extends StatelessWidget {
               const SizedBox(height: 12),
             ],
             const TodaySection(),
-            const SizedBox(height: 20),
-            Row(
-              children: [
-                Expanded(
-                  child: FilledButton.icon(
-                    style: FilledButton.styleFrom(
-                      minimumSize: const Size(0, 52),
-                    ),
-                    onPressed: () => startPhotoReading(context),
-                    icon: const Icon(Icons.camera),
-                    label: Text(tr('Scan card')),
-                  ),
-                ),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: OutlinedButton.icon(
-                    style: OutlinedButton.styleFrom(
-                      minimumSize: const Size(0, 52),
-                    ),
-                    onPressed: () => context.go('/read'),
-                    icon: const Icon(Icons.auto_awesome),
-                    label: Text(tr('Draw digitally')),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 16),
             Text(
               state.creditLine,
               textAlign: TextAlign.center,
