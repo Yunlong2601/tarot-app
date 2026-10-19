@@ -1,46 +1,53 @@
 ---
-import Base from "../../layouts/Base.astro";
-import { BASE } from "../../config.ts";
-import { meaningDeck } from "../../lib/data.ts";
+import Base from "../../../layouts/Base.astro";
+import { meaningDeck } from "../../../lib/data.ts";
+import { i18n, langPaths, type Locale } from "../../../i18n/index.ts";
 
-const config = JSON.stringify({ base: BASE, deck: meaningDeck.filter((c) => c.suit === null) });
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Locale };
+const L = i18n(lang);
+const { t, url: u } = L;
+
+const config = JSON.stringify({ view: L.view, deck: meaningDeck(L).filter((c) => c.suit === null), share: L.ui.share, t: { pick: t("pickDate"), cardFor: t("year.cardFor"), question: t("year.question"), next: t("year.next") } });
+const [before, after] = t("year.how").split("{link}");
 ---
 <Base
-  title="Tarot year card calculator: your card for the year · ShenTarot"
-  description="Find your personal tarot year card from your birthday, for this year or the next, with what it means and a question to carry through the year."
+  title={t("year.title")}
+  description={t("year.description")}
   path="tools/year-card"
-  crumbs={[["Free tools", "tools"], ["Year card", "tools/year-card"]]}
+  crumbs={[[t("toolsCrumb"), "tools"], [t("year.crumb"), "tools/year-card"]]}
+  lang={lang}
 >
   <header class="page-head center">
-    <p class="eyebrow">Free tool</p>
-    <h1>Your tarot year card</h1>
-    <p class="lead">
-      Add your birth month and day to the year you want to look at, then reduce the total to a Major Arcana card.
-      That card is a theme for your year. Worked out in your browser; nothing is sent.
-    </p>
+    <p class="eyebrow">{t("freeTool")}</p>
+    <h1>{t("year.h1")}</h1>
+    <p class="lead">{t("year.lead")}</p>
   </header>
   <div data-year>
     <script type="application/json" data-config set:html={config.replace(/</g, "\\u003c")} />
     <div class="panel tool-panel">
-      <label>Your birthday <input type="date" data-bd /></label>
-      <label>Year <select data-y></select></label>
-      <button class="btn btn-gold" type="button" data-go>Find my card</button>
+      <label>{t("birthday")} <input type="date" data-bd /></label>
+      <label>{t("year.yearLabel")} <select data-y></select></label>
+      <button class="btn btn-gold" type="button" data-go>{t("year.button")}</button>
     </div>
     <div class="results" data-out aria-live="polite"></div>
   </div>
   <section class="section" style="padding-bottom:0">
-    <h2>How it works</h2>
-    <p>Add your birth month, your birth day and the year, then add the digits of the total until it is 22 or less. 22 is The Fool. The card changes each year, so it is worth looking again at every birthday. Your <a href={`${BASE}tools/birth-card`}>birth cards</a> use your birth year instead and stay the same for life.</p>
+    <h2>{t("howItWorks")}</h2>
+    <p>{before}<a href={u("tools/birth-card")}>{t("year.howLink")}</a>{after}</p>
   </section>
 </Base>
 
 <script>
-  import { parseDate, yearCard } from "../../lib/numerology.ts";
-  import { cardResult, el, readConfig } from "../../lib/cardView.ts";
-  import type { MeaningCard } from "../../lib/data.ts";
+  import { parseDate, yearCard } from "../../../lib/numerology.ts";
+  import { cardResult, el, readConfig, type View } from "../../../lib/cardView.ts";
+  import { shareButtons, type ShareText } from "../../../lib/share.ts";
+  import type { MeaningCard } from "../../../lib/data.ts";
+  import { fill } from "../../../i18n/fill.ts";
 
   for (const root of document.querySelectorAll<HTMLElement>("[data-year]")) {
-    const cfg = readConfig<{ base: string; deck: MeaningCard[] }>(root);
+    const cfg = readConfig<{ view: View; deck: MeaningCard[]; share: ShareText & Record<string, string>; t: Record<string, string> }>(root);
+    const T = cfg.t;
     const byN = (n: number) => cfg.deck.find((c) => c.n === n)!;
     const out = root.querySelector<HTMLElement>("[data-out]")!;
     const sel = root.querySelector<HTMLSelectElement>("[data-y]")!;
@@ -50,15 +57,16 @@ const config = JSON.stringify({ base: BASE, deck: meaningDeck.filter((c) => c.su
     root.querySelector<HTMLButtonElement>("[data-go]")!.onclick = () => {
       const d = parseDate(root.querySelector<HTMLInputElement>("[data-bd]")!.value);
       if (!d) {
-        out.replaceChildren(el("p", "center muted", "Pick your birthday first."));
+        out.replaceChildren(el("p", "center muted", T.pick));
         return;
       }
       const year = +sel.value;
       const c = byN(yearCard(year, d[1], d[2]));
       const next = byN(yearCard(year + 1, d[1], d[2]));
-      const nodes: Node[] = [cardResult(c, cfg.base, `Your card for ${year}`, c.core)];
-      if (c.question) nodes.push(el("p", "center quint", `A question for the year: ${c.question}`));
-      nodes.push(el("p", "center muted", `Next, in ${year + 1}: ${next.name}.`));
+      const nodes: Node[] = [cardResult(c, cfg.view, fill(T.cardFor!, { year }), c.core)];
+      if (c.question) nodes.push(el("p", "center quint", fill(T.question!, { q: c.question })));
+      nodes.push(el("p", "center muted", fill(T.next!, { year: year + 1, name: next.name })));
+      nodes.push(shareButtons(() => ({ base: cfg.view.base, eyebrow: fill(cfg.share.year!, { year }), title: c.name, text: c.core, cards: [{ id: c.id, name: c.name }], file: `shentarot-${year}-${c.slug}` }), cfg.share));
       out.replaceChildren(...nodes);
     };
   }

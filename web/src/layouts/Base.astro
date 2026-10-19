@@ -42,6 +42,8 @@ const nav = [
   [t("nav.tools"), "tools"],
 ];
 const year = new Date().getFullYear();
+// The legal pages exist in English only, and say so in other languages.
+const legal = (key: string) => (lang === "en" ? t(key) : t("footer.inEnglish", { page: t(key) }));
 const here = (loc: Locale) => new URL(`${prefix(loc)}${path}`.replace(/\/$/, ""), Astro.site).href;
 const canonical = here(lang);
 const imageUrl = new URL(image, Astro.site).href;
@@ -151,9 +153,9 @@ const ld = (o: unknown) => JSON.stringify(o).replace(/</g, "\\u003c");
             <h4>{t("footer.company")}</h4>
             <ul>
               <li><a href={`mailto:${SUPPORT_EMAIL}`}>{t("footer.support")}</a></li>
-              <li><a href={`${base}privacy`}>{t("footer.privacy")}</a></li>
-              <li><a href={`${base}terms`}>{t("footer.terms")}</a></li>
-              <li><a href={`${base}delete-account`}>{t("footer.delete")}</a></li>
+              <li><a href={`${base}privacy`}>{legal("footer.privacy")}</a></li>
+              <li><a href={`${base}terms`}>{legal("footer.terms")}</a></li>
+              <li><a href={`${base}delete-account`}>{legal("footer.delete")}</a></li>
             </ul>
           </div>
         </div>

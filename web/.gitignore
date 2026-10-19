@@ -4,3 +4,4 @@ dist/
 .wrangler/
 public/cards/art/
 public/icon.png
+public/og/

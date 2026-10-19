@@ -23,6 +23,33 @@ npm run build    # writes dist/
 npm run check    # type check
 ```
 
+## Languages
+
+The site is in English (at the root) and in Simplified Chinese, Traditional
+Chinese, Spanish, German, Japanese, French and Russian, each under its own
+prefix (`/zh-hans/`, `/zh-hant/`, `/es/`, `/de/`, `/ja/`, `/fr/`, `/ru/`).
+Pages live in `src/pages/[...lang]/`; the privacy, terms and account deletion
+pages stay in English only.
+
+All text is in `src/i18n/<language>/`:
+
+- `cards.json` and `content.json`: card meanings, spreads, topics, question
+  guides, life path numbers and star signs. The English files are generated
+  from the app's data with `npx tsx scripts/extract-i18n.ts`; re-run it when
+  that data changes, then update the translations.
+- `ui.json`: every other piece of page and tool text, written by hand.
+
+`node scripts/check-i18n.mjs` checks that each translation has the same keys,
+list lengths and `{placeholders}` as English. A missing string shows in
+English. The translations were machine-made and are worth a native speaker's
+check.
+
+## Share images
+
+The free tools, the reader and the card pages can save a result as a picture
+(or share it from a phone), drawn in the browser from the card art. Card pages
+also have link-preview images, made by `scripts/og-cards.mjs` before each build.
+
 ## Settings
 
 `src/config.ts`:

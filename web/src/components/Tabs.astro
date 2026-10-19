@@ -33,7 +33,13 @@ const { tabs, label } = Astro.props;
         t.setAttribute("aria-selected", String(on));
         t.tabIndex = on ? 0 : -1;
         if (on && focus) t.focus();
-        if (on) t.scrollIntoView({ block: "nearest", inline: "nearest" });
+        // Bring the tab into view inside the tab row only; scrolling the page
+        // here jumped phones down to the tabs on load.
+        if (on) {
+          const row = t.parentElement!.getBoundingClientRect();
+          const r = t.getBoundingClientRect();
+          if (r.left < row.left || r.right > row.right) t.parentElement!.scrollBy({ left: r.left - row.left - 16 });
+        }
       }
       for (const p of panels) p.hidden = p.id !== id;
     };

@@ -1,38 +1,45 @@
 ---
-import Base from "../../layouts/Base.astro";
-import { SPREADS, spreadIds } from "../../lib/data.ts";
+import Base from "../../../layouts/Base.astro";
+import { spreadIds } from "../../../lib/data.ts";
+import { i18n, langPaths, type Locale } from "../../../i18n/index.ts";
 
-const sheets = spreadIds.map((id) => ({ id, name: SPREADS[id].name, positions: SPREADS[id].positions }));
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Locale };
+const L = i18n(lang);
+const { t } = L;
+
+const sheets = spreadIds.map((id) => ({ id, ...L.content.spreads[id as keyof typeof L.content.spreads] }));
 ---
 <Base
-  title="Printable tarot reading sheet for any spread · ShenTarot"
-  description="Print a free tarot reading sheet for any of our 15 spreads, with every position labelled and space to write your cards and notes."
+  title={t("sheet.title")}
+  description={t("sheet.description")}
   path="tools/reading-sheet"
-  crumbs={[["Free tools", "tools"], ["Printable reading sheet", "tools/reading-sheet"]]}
+  crumbs={[[t("toolsCrumb"), "tools"], [t("sheet.crumb"), "tools/reading-sheet"]]}
+  lang={lang}
 >
   <header class="page-head center no-print">
-    <p class="eyebrow">Free tool</p>
-    <h1>Printable reading sheet</h1>
-    <p class="lead">Pick a spread and print a sheet for your journal, with each position labelled and room for your cards and notes.</p>
+    <p class="eyebrow">{t("freeTool")}</p>
+    <h1>{t("sheet.h1")}</h1>
+    <p class="lead">{t("sheet.lead")}</p>
   </header>
   <div class="panel tool-panel no-print">
-    <label>Spread
+    <label>{t("sheet.spread")}
       <select data-sheet-pick>
         {sheets.map((s) => <option value={s.id} selected={s.id === "three"}>{s.name} ({s.positions.length})</option>)}
       </select>
     </label>
-    <button class="btn btn-gold" type="button" data-print>Print</button>
+    <button class="btn btn-gold" type="button" data-print>{t("sheet.print")}</button>
   </div>
   {sheets.map((s) => (
     <section class="sheet" data-sheet={s.id} hidden={s.id !== "three"}>
       <h2>{s.name}</h2>
-      <p class="sheet-line">Date: <span></span> Question: <span></span></p>
+      <p class="sheet-line">{t("sheet.date")} <span></span> {t("sheet.question")} <span></span></p>
       <ol>
         {s.positions.map((p) => (
-          <li><b>{p}</b><span class="sheet-line">Card: <span></span></span><span class="sheet-lines"></span></li>
+          <li><b>{p}</b><span class="sheet-line">{t("sheet.card")} <span></span></span><span class="sheet-lines"></span></li>
         ))}
       </ol>
-      <p><b>What I take from this reading</b></p>
+      <p><b>{t("sheet.takeaway")}</b></p>
       <span class="sheet-lines"></span>
       <p class="sheet-foot">shentarot.com</p>
     </section>

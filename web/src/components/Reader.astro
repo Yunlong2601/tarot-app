@@ -18,7 +18,7 @@ const { positions, mode = "spread", reversals = 0.25, lang = "en" } = Astro.prop
 const L = i18n(lang);
 const { t } = L;
 const button = Astro.props.button ?? t("reader.draw");
-const config = JSON.stringify({ positions, mode, reversals, base: BASE, cards: L.url("cards"), deck: readerDeck(L), t: L.ui.reader, suits: L.ui.suits, sense: L.ui.suitSense, date: L.tag });
+const config = JSON.stringify({ positions, mode, reversals, base: BASE, cards: L.url("cards"), deck: readerDeck(L), t: L.ui.reader, share: L.ui.share, suits: L.ui.suits, sense: L.ui.suitSense, date: L.tag });
 ---
 <div class="reader" data-reader>
   <script type="application/json" data-config set:html={config.replace(/</g, "\\u003c")} />
@@ -47,9 +47,10 @@ const config = JSON.stringify({ positions, mode, reversals, base: BASE, cards: L
 
 <script>
   import { ASK_KEY } from "../lib/recommend.ts";
+  import { shareButtons, type ShareText } from "../lib/share.ts";
 
   type Card = { id: string; slug: string; name: string; suit: string | null; n: number | null; keywords: string[]; up: string; rev: string; upQ: string; revQ: string };
-  type Config = { positions: string[]; mode: "spread" | "yesno" | "daily"; reversals: number; base: string; cards: string; deck: Card[]; t: Record<string, string>; suits: Record<string, string>; sense: Record<string, string>; date: string };
+  type Config = { positions: string[]; mode: "spread" | "yesno" | "daily"; reversals: number; base: string; cards: string; deck: Card[]; t: Record<string, string>; share: ShareText & Record<string, string>; suits: Record<string, string>; sense: Record<string, string>; date: string };
   const fill = (s: string, v: Record<string, string | number>) => s.replace(/\{(\w+)\}/g, (m, k: string) => (k in v ? String(v[k]) : m));
   type Drawn = { card: Card; reversed: boolean; open: boolean };
 
@@ -77,6 +78,20 @@ const config = JSON.stringify({ positions, mode, reversals, base: BASE, cards: L
     const copy = root.querySelector<HTMLButtonElement>("[data-copy]")!;
     const question = root.querySelector<HTMLInputElement>("[data-question]");
     let drawn: Drawn[] = [];
+    // A share image for a day's card or a short reading (longer spreads don't fit one picture).
+    const shareRow = shareButtons(() => {
+      const one = drawn.length === 1;
+      const nameOf = (d: Drawn) => (d.reversed ? fill(T.nameReversed!, { name: d.card.name }) : d.card.name);
+      return {
+        base: cfg.base,
+        eyebrow: cfg.mode === "daily" ? cfg.share.daily! : cfg.share.reading!,
+        title: drawn.map(nameOf).join(" · "),
+        text: one ? (drawn[0]!.reversed ? drawn[0]!.card.rev : drawn[0]!.card.up) : drawn.map((d) => d.card.keywords[0]).join(" · "),
+        cards: drawn.map((d, i) => ({ id: d.card.id, name: d.card.name, reversed: d.reversed, label: one ? undefined : cfg.positions[i] })),
+        file: `shentarot-${drawn.map((d) => d.card.slug).join("-")}`,
+      };
+    }, cfg.share);
+    foot.append(shareRow);
 
     function shuffle(): Drawn[] {
       const d = cfg.deck.slice();
@@ -136,6 +151,7 @@ const config = JSON.stringify({ positions, mode, reversals, base: BASE, cards: L
       foot.hidden = drawn.length === 0;
       revealAll.hidden = allOpen || drawn.length < 2;
       copy.hidden = !allOpen;
+      shareRow.hidden = !(allOpen && drawn.length <= 3);
       leanBox.hidden = !(allOpen && cfg.mode === "yesno");
       if (allOpen && cfg.mode === "yesno") showLean();
       summary.hidden = !(allOpen && drawn.length >= 3);

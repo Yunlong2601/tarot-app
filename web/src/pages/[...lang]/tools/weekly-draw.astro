@@ -6,7 +6,7 @@ import { i18n, langPaths, type Locale } from "../../../i18n/index.ts";
 export const getStaticPaths = langPaths;
 const { lang } = Astro.props as { lang: Locale };
 const L = i18n(lang);
-const { t, url: u } = L;
+const { t } = L;
 ---
 <Base
   title={t("weekly.title")}

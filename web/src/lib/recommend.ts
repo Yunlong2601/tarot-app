@@ -43,7 +43,8 @@ export function recommendSpread(question: string, kw: Keywords = EN_KEYWORDS): S
 
 /** A question worded for a yes or no answer ("Should I...", "Will it..."). */
 export function looksYesNo(question: string, kw: Keywords = EN_KEYWORDS) {
-  const q = question.trim().toLowerCase();
+  // Spanish opens a question with ¿, which is not part of its first word.
+  const q = question.trim().toLowerCase().replace(/^[¿¡"«“„]+/u, "");
   const bare = q.replace(/[?？!！。.\s]+$/u, "");
   const first = q.split(/[\s,]+/u)[0] ?? "";
   return (

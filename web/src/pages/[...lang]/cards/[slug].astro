@@ -67,7 +67,7 @@ const jsonLd = faq.length
   title={t("card.title", { name })}
   description={t("card.description", { name, keywords: tr.keywords.join(sep), essence: k?.essence ?? tr.upright })}
   path={`cards/${slug(id)}`}
-  image={`cards/art/${id}.jpg`}
+  image={`og/cards/${id}.jpg`}
   crumbs={[[t("cards.crumb"), "cards"], [name, `cards/${slug(id)}`]]}
   jsonLd={jsonLd}
   lang={lang}
@@ -88,6 +88,9 @@ const jsonLd = faq.length
       <p class="lead">{tr.upright}</p>
       <ul class="chips">{tr.keywords.map((w) => <li>{w}</li>)}</ul>
       {facts && <p class="muted">{facts}</p>}
+      <div data-share-card>
+        <script type="application/json" data-config set:html={JSON.stringify({ share: L.ui.share, image: { base: BASE, eyebrow: t("share.card"), title: name, text: k?.essence ?? tr.upright, cards: [{ id, name }], file: `shentarot-${slug(id)}` } }).replace(/</g, "\\u003c")} />
+      </div>
     </div>
   </section>
   <Tabs label={t("card.about", { name })} tabs={[
@@ -202,3 +205,14 @@ const jsonLd = faq.length
     </a>
   </nav>
 </Base>
+
+<script>
+  import { readConfig } from "../../../lib/cardView.ts";
+  import { shareButtons, type ShareImage, type ShareText } from "../../../lib/share.ts";
+  for (const root of document.querySelectorAll<HTMLElement>("[data-share-card]")) {
+    const cfg = readConfig<{ share: ShareText; image: ShareImage }>(root);
+    const row = shareButtons(() => cfg.image, cfg.share);
+    row.classList.remove("center");
+    root.append(row);
+  }
+</script>

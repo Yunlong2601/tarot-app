@@ -34,12 +34,14 @@ const load = <T>(loc: Locale, name: string, en: T): T => {
   return f ? (merge(en, f) as T) : en;
 };
 /** English with the translation laid over it, so a gap shows English, not nothing. */
-function merge(en: unknown, tr: unknown): unknown {
-  if (Array.isArray(en)) return Array.isArray(tr) && tr.length === en.length ? en.map((v, i) => merge(v, tr[i])) : en;
+function merge(en: unknown, tr: unknown, path = ""): unknown {
+  // Keyword lists for matching questions are each language's own, of any length.
+  if (path.startsWith(".recommend.")) return Array.isArray(tr) ? tr : en;
+  if (Array.isArray(en)) return Array.isArray(tr) && tr.length === en.length ? en.map((v, i) => merge(v, tr[i], path)) : en;
   if (en && typeof en === "object") {
     const t = (tr && typeof tr === "object" ? tr : {}) as Record<string, unknown>;
     const out: Record<string, unknown> = { ...t };
-    for (const [k, v] of Object.entries(en)) out[k] = merge(v, t[k]);
+    for (const [k, v] of Object.entries(en)) out[k] = merge(v, t[k], `${path}.${k}`);
     return out;
   }
   return typeof tr === typeof en && tr !== "" ? tr : en;
@@ -61,9 +63,8 @@ export const firstSentence = (s: string) => {
   return m ? m[0] : s;
 };
 
-/** Fills {name} placeholders. */
-export const fill = (s: string, vars: Record<string, string | number> = {}) =>
-  s.replace(/\{(\w+)\}/g, (m, k: string) => (k in vars ? String(vars[k]) : m));
+import { fill } from "./fill.ts";
+export { fill };
 
 const cache = new Map<Locale, ReturnType<typeof build>>();
 export const i18n = (loc: Locale) => cache.get(loc) ?? (cache.set(loc, build(loc)), cache.get(loc)!);
@@ -97,6 +98,8 @@ function build(loc: Locale) {
     const k = a.toLowerCase();
     return (ui.elements as Record<string, string>)[k] ?? (ui.planets as Record<string, string>)[k] ?? a;
   };
-  return { loc, tag: LOCALE_INFO[loc].tag, ui, t, list, url, cards, content, group, assoc };
+  /** What the browser tools need to link a card in this language (see lib/cardView.ts). */
+  const view = { base: BASE, cards: url("cards"), more: ui.reader.fullMeaning };
+  return { loc, tag: LOCALE_INFO[loc].tag, ui, t, list, url, cards, content, group, assoc, view };
 }
 export type I18n = ReturnType<typeof i18n>;

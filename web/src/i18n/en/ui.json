@@ -35,11 +35,12 @@
   "questions": "Tarot questions",
   "company": "Company",
   "support": "Support",
-  "privacy": "Privacy (English)",
-  "terms": "Terms (English)",
-  "delete": "Delete your data (English)",
+  "privacy": "Privacy",
+  "terms": "Terms",
+  "delete": "Delete your data",
   "copyright": "© {year} ShenTech, Singapore. All rights reserved.",
-  "images": "Card images: Rider-Waite-Smith deck (1909), public domain."
+  "images": "Card images: Rider-Waite-Smith deck (1909), public domain.",
+  "inEnglish": "{page} (in English)"
  },
  "store": {
   "download": "Download on",
@@ -632,5 +633,250 @@
   "someStrong": "{name} is somewhat strengthened by one supporting neighbour.",
   "neither": "{name} is neither helped nor hindered by its neighbours.",
   "bridge": "{l} and {r} oppose each other, but {m} gets on with both: it can bridge the two."
+ },
+ "birthday": "Your birthday",
+ "pickDate": "Pick your birthday first.",
+ "notFate": "Themes you may grow into, not a fixed fate.",
+ "birth": {
+  "title": "Tarot birth card calculator: find your birth cards · ShenTarot",
+  "description": "Find your tarot birth cards and your card for this year from your birthday. Worked out in your browser; nothing is sent.",
+  "crumb": "Birth card calculator",
+  "h1": "Tarot birth card calculator",
+  "lead": "A traditional numerology method: add your birth month, day and year, then add the digits until you reach 22 or less. That number is a Major Arcana card (22 is The Fool). A two-digit result also gives the card for the sum of its digits. Worked out in your browser; nothing is sent.",
+  "button": "Find my cards",
+  "yours": "Your birth cards",
+  "year": "Your card for {year}"
+ },
+ "life": {
+  "title": "Life path number calculator with its tarot card · ShenTarot",
+  "description": "Work out your numerology life path number from your birthday, including master numbers 11, 22 and 33, and see the Major Arcana card that goes with it.",
+  "crumb": "Life path number",
+  "h1": "Life path number and tarot card",
+  "lead": "Add up every digit of your birth date and reduce it to one digit, keeping the master numbers 11, 22 and 33. Each number has a Major Arcana card. Worked out in your browser; nothing is sent.",
+  "button": "Find my number",
+  "listTitle": "The numbers and their cards",
+  "note": "Numbers 1 to 9 and 11 match the Major Arcana card with that number. 22 is The Fool, and 33 adds to 6, The Lovers. This is a different sum from the {link}, which adds the month, day and year as whole numbers.",
+  "noteLink": "birth card",
+  "yours": "Your life path number",
+  "cardFor": "The card for {n}"
+ },
+ "howItWorks": "How it works",
+ "year": {
+  "title": "Tarot year card calculator: your card for the year · ShenTarot",
+  "description": "Find your personal tarot year card from your birthday, for this year or the next, with what it means and a question to carry through the year.",
+  "crumb": "Year card",
+  "h1": "Your tarot year card",
+  "lead": "Add your birth month and day to the year you want to look at, then reduce the total to a Major Arcana card. That card is a theme for your year. Worked out in your browser; nothing is sent.",
+  "yearLabel": "Year",
+  "button": "Find my card",
+  "how": "Add your birth month, your birth day and the year, then add the digits of the total until it is 22 or less. 22 is The Fool. The card changes each year, so it is worth looking again at every birthday. Your {link} use your birth year instead and stay the same for life.",
+  "howLink": "birth cards",
+  "cardFor": "Your card for {year}",
+  "question": "A question for the year: {q}",
+  "next": "Next, in {year}: {name}."
+ },
+ "compat": {
+  "title": "Tarot love compatibility: compare two birth cards · ShenTarot",
+  "description": "Enter two birthdays to find each person's tarot birth card and see how the two cards and their elements get on. Free, and worked out in your browser.",
+  "crumb": "Love compatibility",
+  "h1": "Tarot love compatibility",
+  "lead": "Each birthday gives a Major Arcana birth card. Compare the two cards and their elements to see where you meet and where you may clash. Worked out in your browser; nothing is sent.",
+  "yours": "Your birthday",
+  "theirs": "Their birthday",
+  "button": "Compare",
+  "how": "Add the month, day and year of a birthday, then add the digits until the total is 22 or less. That number is the person's birth card (22 is The Fool). Then each card's element is compared the way readers compare cards in a spread: the same element strengthens, Fire and Water or Air and Earth pull against each other, and the other pairs support each other. Cards linked to a planet have no single element.",
+  "note": "For fun and reflection. No pair of cards decides whether a relationship works.",
+  "pickBoth": "Pick both birthdays first.",
+  "shared": "You share a birth card: {name}",
+  "pair": "{a} and {b}",
+  "sameCard": "The same card: you may see yourself in each other, strengths and habits alike.",
+  "elements": "Elements: {a} and {b}.",
+  "yourCard": "Your birth card",
+  "theirCard": "Their birth card",
+  "rel": {
+   "same": "Your cards share an element, so you understand each other easily. Watch for having the same blind spots.",
+   "friendly": "Your cards' elements support each other. You bring different things that fit together.",
+   "contrary": "Your cards' elements pull against each other. There is spark and friction; it works when you respect the difference.",
+   "neutral": "One of your cards is linked to a planet rather than an element, so it adapts to the other."
+  }
+ },
+ "zodiac": {
+  "title": "Zodiac tarot cards: the tarot card for every star sign · ShenTarot",
+  "description": "Find the tarot cards for your star sign: its Major Arcana card, its ruling planet's card and the three cards of its decans, from Aries to Pisces.",
+  "crumb": "Zodiac tarot cards",
+  "h1": "Your zodiac tarot cards",
+  "lead": "In the Golden Dawn tradition behind the Rider-Waite-Smith deck, every star sign has its own Major Arcana card, a ruling planet with a card of its own, and three numbered cards for the thirds of the sign.",
+  "button": "Find my sign",
+  "signsLabel": "Star signs",
+  "about": "{element} sign, so its suit is {suit}. Traditional ruler: {ruler}.",
+  "signCard": "The card of {sign}: {keywords}.",
+  "rulerCard": "The card of {ruler}, the sign's ruler: {keywords}.",
+  "decans": "The three thirds of {sign}: {cards}.",
+  "datesNote": "Sign dates move by a day in some years. If you were born on the first or last day of a sign, check both."
+ },
+ "quiz": {
+  "title": "Which tarot card are you? A free six-question quiz · ShenTarot",
+  "description": "Answer six quick questions to find the tarot court card that matches your personality, from the Page of Wands to the King of Pentacles.",
+  "crumb": "Which card are you?",
+  "eyebrow": "Quiz",
+  "h1": "Which tarot card are you?",
+  "lead": "Six quick questions match you to one of the 16 court cards: your suit shows what drives you, and your rank shows how you act. Your answers stay on this page.",
+  "submit": "See my card",
+  "copyLink": "Copy link to my result",
+  "copied": "Link copied",
+  "youAre": "You are",
+  "q": [
+   {
+    "q": "On a free afternoon, you would rather…",
+    "a": [
+     "Start something new",
+     "Spend it with someone close",
+     "Read, plan or debate",
+     "Make or fix something"
+    ]
+   },
+   {
+    "q": "Friends come to you for…",
+    "a": [
+     "Energy and a push",
+     "Comfort and a listening ear",
+     "Honest advice",
+     "Practical help"
+    ]
+   },
+   {
+    "q": "What matters most to you?",
+    "a": [
+     "Passion",
+     "Love",
+     "Truth",
+     "Security"
+    ]
+   },
+   {
+    "q": "When something new comes along, you…",
+    "a": [
+     "Get curious and ask questions",
+     "Jump straight in",
+     "Feel your way in slowly",
+     "Take charge of it"
+    ]
+   },
+   {
+    "q": "In a group, you are usually the one who…",
+    "a": [
+     "Learns and brings fresh ideas",
+     "Gets things moving",
+     "Looks after everyone",
+     "Makes the final call"
+    ]
+   },
+   {
+    "q": "Your biggest strength is…",
+    "a": [
+     "Openness",
+     "Drive",
+     "Understanding",
+     "Steadiness"
+    ]
+   }
+  ]
+ },
+ "sheet": {
+  "title": "Printable tarot reading sheet for any spread · ShenTarot",
+  "description": "Print a free tarot reading sheet for any of our 15 spreads, with every position labelled and space to write your cards and notes.",
+  "crumb": "Printable reading sheet",
+  "h1": "Printable reading sheet",
+  "lead": "Pick a spread and print a sheet for your journal, with each position labelled and room for your cards and notes.",
+  "spread": "Spread",
+  "print": "Print",
+  "date": "Date:",
+  "question": "Question:",
+  "card": "Card:",
+  "takeaway": "What I take from this reading"
+ },
+ "random": {
+  "title": "Random tarot card generator: draw 1 to 10 cards · ShenTarot",
+  "description": "Draw random tarot cards from the full 78-card Rider-Waite-Smith deck. Tap a card to turn it over and read its meaning.",
+  "crumb": "Draw random cards",
+  "h1": "Draw a tarot card",
+  "lead": "Shuffled in your browser from all 78 cards. Tap a card to turn it over. About one card in four comes up reversed.",
+  "howMany": "How many cards",
+  "turnOver": "Turn over this card"
+ },
+ "comb": {
+  "title": "Tarot card combinations: read two cards together · ShenTarot",
+  "description": "Pick any two tarot cards, upright or reversed, and see how they read together: theme and detail, suits, numbers, court cards and elements. Free, in your browser.",
+  "crumb": "Card combinations",
+  "h1": "Tarot card combinations",
+  "lead": "Pick two cards from a reading, or draw two at random, and see what links them: which one sets the theme, what their suits, numbers and elements say, and a question from each card to reflect on.",
+  "slots": [
+   "First card",
+   "Second card"
+  ],
+  "howTitle": "How to read two cards together",
+  "how": [
+   "Read each card on its own first, then ask how one changes the other. The second card often answers or qualifies the first.",
+   "A Major Arcana card carries more weight. When it sits next to a Minor Arcana card, the Major names the theme and the Minor shows how it shows up.",
+   "Try one sentence that holds both meanings. If it feels forced, look at the picture on each card for a detail they share."
+  ],
+  "note": "For entertainment and self-reflection. See also {elements} and {cards}.",
+  "elementsLink": "elemental dignities",
+  "cardsLink": "all 78 card meanings"
+ },
+ "elem": {
+  "title": "Elemental dignities in tarot: free checker · ShenTarot",
+  "description": "Check the elemental dignities of two or three tarot cards. See which cards strengthen or weaken each other by Fire, Water, Air and Earth. Free, in your browser.",
+  "crumb": "Elemental dignities",
+  "h1": "Elemental dignities",
+  "lead": "A method from the Golden Dawn tradition, often used instead of reversals. Each card has an element, and cards next to each other strengthen or weaken one another. Pick a line of two or three cards to check them.",
+  "slots": [
+   "Left card",
+   "Middle card",
+   "Right card"
+  ],
+  "how": [
+   [
+    "Suits:",
+    "Wands are Fire, Cups are Water, Swords are Air and Pentacles are Earth."
+   ],
+   [
+    "Major Arcana",
+    "take the element of their traditional zodiac sign or element. Cards linked to a planet have no single element here and count as neutral."
+   ],
+   [
+    "Same element:",
+    "the cards strengthen each other."
+   ],
+   [
+    "Opposites",
+    "(Fire and Water, Air and Earth) weaken each other."
+   ],
+   [
+    "Other pairs",
+    "support each other. Some readers count Fire with Earth, and Air with Water, as neutral instead."
+   ],
+   [
+    "In a line of three,",
+    "the middle card is judged by both neighbours. A card between two friends is strong; a card between two opposites is weak."
+   ]
+  ],
+  "note": "Each card's element is listed on its {cards}. To read two cards together, try {comb}.",
+  "cardsLink": "meaning page",
+  "combLink": "card combinations"
+ },
+ "share": {
+  "save": "Save image",
+  "share": "Share",
+  "made": "Image saved",
+  "failed": "Could not make the image",
+  "card": "Tarot card meaning",
+  "daily": "My card of the day",
+  "reading": "My tarot reading",
+  "quiz": "Which tarot card am I?",
+  "compat": "Our tarot birth cards",
+  "year": "My tarot card for {year}",
+  "life": "My life path number is {n}",
+  "birth": "My tarot birth cards"
  }
 }
