@@ -322,6 +322,14 @@
    "love": "Tu aimes avec un sentiment de plénitude. Laisse aussi de la place à la croissance de ton ou ta partenaire.",
    "work": "Tu réussis dans les rôles larges qui relient des personnes ou des projets, et dans un travail qui a une fin claire. Célèbre, puis commence la chose suivante.",
    "advice": "Fais le point sur le chemin parcouru, et laisse-toi célébrer."
+  },
+  "major_00_fool": {
+   "intro": "Le Fou comme carte de naissance signifie que ton total est 22, le dernier nombre avant que le cycle ne recommence. Il reflète les nouveaux départs, la confiance et la curiosité. Il forme une paire avec l'Empereur (4), qui ajoute l'idée qu'un esprit libre a aussi besoin d'un peu de structure pour se poser. C'est une piste de réflexion, pas une promesse sur ta vie.",
+   "gifts": "Tu accueilles la nouveauté l'esprit ouvert et le cœur léger. Ton sens du possible est contagieux.",
+   "challenges": "L'ouverture peut virer à l'insouciance ou à l'habitude de partir quand les choses se compliquent. Demande-toi ce que tu manques à toujours recommencer.",
+   "love": "Tu apportes spontanéité et émerveillement en amour. N'oublie pas que l'autre peut aussi avoir besoin de projets et de promesses, pas seulement de surprises.",
+   "work": "Tu t'épanouis dans les nouveaux projets, les voyages et tout ce qui demande d'apprendre vite. Associe tes idées à quelqu'un qui sait finir les choses.",
+   "advice": "Dis oui à la prochaine belle aventure, et regarde où tu poses les pieds."
   }
  }
 }
