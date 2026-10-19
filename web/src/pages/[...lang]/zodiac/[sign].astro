@@ -50,7 +50,7 @@ const sections: [string, string][] = [[z.strengths, text.strengths], [z.challeng
     <div>
       <p class="meta">{z.eyebrow} · {info.dates}</p>
       <h1>{fill(z.h1, vars)}</h1>
-      <p class="answer">{fill(z.lead, vars)}</p>
+      <p class="answer">{fill(z.lead, { ...vars, planet: L.assoc(s.ruler) })}</p>
       <p class="lead">{text.intro}</p>
     </div>
   </section>
