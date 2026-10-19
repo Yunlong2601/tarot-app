@@ -1,0 +1,34 @@
+---
+import Base from "../../../layouts/Base.astro";
+import Reader from "../../../components/Reader.astro";
+import { i18n, langPaths, type Locale } from "../../../i18n/index.ts";
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Locale };
+const L = i18n(lang);
+const { t, url: u } = L;
+const [before, after] = t("yesNo.note").split("{link}");
+---
+<Base
+  title={t("yesNo.title")}
+  description={t("yesNo.description")}
+  path="tools/yes-no"
+  crumbs={[[t("toolsCrumb"), "tools"], [t("yesNo.crumb"), "tools/yes-no"]]}
+  lang={lang}
+>
+  <header class="page-head center">
+    <p class="eyebrow">{t("freeTool")}</p>
+    <h1>{t("yesNo.h1")}</h1>
+    <p class="lead">{t("yesNo.lead")}</p>
+  </header>
+  <Reader positions={L.content.spreads.yes_no.positions} mode="yesno" reversals={0.5} button={t("yesNo.button")} lang={lang} />
+  <section class="narrow" style="margin:3rem auto 0">
+    <h2>{t("yesNo.howTitle")}</h2>
+    <ul>
+      <li>{t("yesNo.how1")}</li>
+      <li>{t("yesNo.how2")}</li>
+      <li>{t("yesNo.how3")}</li>
+    </ul>
+    <p class="muted">{before}<a href={u("spreads/yes-no")}>{t("yesNo.noteLink")}</a>{after}</p>
+  </section>
+</Base>

@@ -2,12 +2,15 @@
 import "@fontsource/cormorant-garamond/latin-500.css";
 import "@fontsource/cormorant-garamond/latin-500-italic.css";
 import "@fontsource/cormorant-garamond/latin-600.css";
+import "@fontsource/cormorant-garamond/cyrillic-500.css";
+import "@fontsource/cormorant-garamond/cyrillic-600.css";
 import "@fontsource-variable/inter";
 import "../styles/site.css";
 import Logo from "../components/Logo.astro";
 import StoreButtons from "../components/StoreButtons.astro";
 import { BASE, SUPPORT_EMAIL } from "../config.ts";
 import { TOPICS } from "../lib/topics.ts";
+import { LOCALES, LOCALE_INFO, i18n, prefix, type Locale } from "../i18n/index.ts";
 
 interface Props {
   title: string;
@@ -24,18 +27,26 @@ interface Props {
   jsonLd?: Record<string, unknown>[];
   /** Let the page lay out its own full-width sections (the home page). */
   bare?: boolean;
+  /** The page's language. */
+  lang?: Locale;
+  /** False for pages that exist in English only (legal pages, 404). */
+  localized?: boolean;
 }
-const { title, description, path, noCta = false, image = "og.png", crumbs = [], jsonLd = [], bare = false } = Astro.props;
+const { title, description, path, noCta = false, image = "og.png", crumbs = [], jsonLd = [], bare = false, lang = "en", localized = true } = Astro.props;
+const L = i18n(lang);
+const t = L.t;
 const nav = [
-  ["Card meanings", "cards"],
-  ["Spreads", "spreads"],
-  ["Yes or No", "tools/yes-no"],
-  ["Free tools", "tools"],
+  [t("nav.cards"), "cards"],
+  [t("nav.spreads"), "spreads"],
+  [t("nav.yesNo"), "tools/yes-no"],
+  [t("nav.tools"), "tools"],
 ];
 const year = new Date().getFullYear();
-const canonical = new URL(path, Astro.site).href;
+const here = (loc: Locale) => new URL(`${prefix(loc)}${path}`.replace(/\/$/, ""), Astro.site).href;
+const canonical = here(lang);
 const imageUrl = new URL(image, Astro.site).href;
 const base = BASE;
+const u = L.url;
 const schema = [...jsonLd];
 if (crumbs.length) {
   schema.push({
@@ -45,7 +56,7 @@ if (crumbs.length) {
       "@type": "ListItem",
       position: i + 1,
       name,
-      item: new URL(p, Astro.site).href,
+      item: new URL(`${prefix(lang)}${p}`.replace(/\/$/, ""), Astro.site).href,
     })),
   });
 }
@@ -53,13 +64,16 @@ if (crumbs.length) {
 const ld = (o: unknown) => JSON.stringify(o).replace(/</g, "\\u003c");
 ---
 <!doctype html>
-<html lang="en">
+<html lang={L.tag}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {localized && LOCALES.map((l) => <link rel="alternate" hreflang={LOCALE_INFO[l].tag} href={here(l)} />)}
+    {localized && <link rel="alternate" hreflang="x-default" href={here("en")} />}
+    <meta property="og:locale" content={LOCALE_INFO[lang].og} />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -73,16 +87,22 @@ const ld = (o: unknown) => JSON.stringify(o).replace(/</g, "\\u003c");
     <meta name="theme-color" content="#09080f" />
   </head>
   <body>
-    <a class="skip" href="#main">Skip to content</a>
+    <a class="skip" href="#main">{t("base.skip")}</a>
     <header class="site-header">
       <div class="wrap">
-        <a class="brand" href={`${base}`} aria-label="ShenTarot home"><Logo />ShenTarot</a>
-        <nav class="site-nav" aria-label="Main">
+        <a class="brand" href={u()} aria-label={t("base.home")}><Logo />ShenTarot</a>
+        <nav class="site-nav" aria-label={t("base.mainNav")}>
           {nav.map(([name, p]) => (
-            <a href={`${base}${p}`} aria-current={path === p || (p !== "tools" && path.startsWith(`${p}/`)) || (p === "tools" && path.startsWith("tools/") && path !== "tools/yes-no") ? "page" : undefined}>{name}</a>
+            <a href={u(p)} aria-current={path === p || (p !== "tools" && path.startsWith(`${p}/`)) || (p === "tools" && path.startsWith("tools/") && path !== "tools/yes-no") ? "page" : undefined}>{name}</a>
           ))}
         </nav>
-        <a class="btn btn-gold btn-sm header-cta" href={`${base}#get-app`}>Get the app</a>
+        <details class="lang-menu">
+          <summary aria-label={t("base.language")}><span aria-hidden="true">🌐</span> {LOCALE_INFO[lang].name}</summary>
+          <ul>
+            {LOCALES.map((l) => <li><a href={localized ? here(l).replace(Astro.site!.origin, "") : `${base}${prefix(l)}`.replace(/\/$/, "") || "/"} hreflang={LOCALE_INFO[l].tag} lang={LOCALE_INFO[l].tag} aria-current={l === lang ? "true" : undefined}>{LOCALE_INFO[l].name}</a></li>)}
+          </ul>
+        </details>
+        <a class="btn btn-gold btn-sm header-cta" href={`${u()}#get-app`}>{t("base.getApp")}</a>
       </div>
     </header>
     <main id="main">
@@ -90,10 +110,10 @@ const ld = (o: unknown) => JSON.stringify(o).replace(/</g, "\\u003c");
       {!noCta && (
         <section class="wrap section" id={bare ? undefined : "get-app"}>
           <div class="cta-band">
-            <p class="eyebrow">ShenTarot for iPhone and Android</p>
-            <h2>Read your own cards</h2>
-            <p>Scan your Rider-Waite-Smith deck or draw on screen, ask your question and get a reading you can keep asking about.</p>
-            <StoreButtons center />
+            <p class="eyebrow">{t("base.ctaEyebrow")}</p>
+            <h2>{t("base.ctaTitle")}</h2>
+            <p>{t("base.ctaText")}</p>
+            <StoreButtons center lang={lang} />
           </div>
         </section>
       )}
@@ -102,44 +122,44 @@ const ld = (o: unknown) => JSON.stringify(o).replace(/</g, "\\u003c");
       <div class="wrap">
         <div class="footer-grid">
           <div>
-            <a class="brand" href={`${base}`}><Logo />ShenTarot</a>
-            <p class="about">AI tarot readings for your own cards, from ShenTech in Singapore. For entertainment and self-reflection only.</p>
+            <a class="brand" href={u()}><Logo />ShenTarot</a>
+            <p class="about">{t("base.about")}</p>
           </div>
           <div>
-            <h4>Explore</h4>
+            <h4>{t("footer.explore")}</h4>
             <ul>
-              <li><a href={`${base}cards`}>Card meanings</a></li>
-              <li><a href={`${base}spreads`}>Tarot spreads</a></li>
-              <li><a href={`${base}tools/yes-no`}>Yes or No tarot</a></li>
-              <li><a href={`${base}tools/daily-card`}>Card of the day</a></li>
-              <li><a href={`${base}tools/combinations`}>Card combinations</a></li>
-              <li><a href={`${base}tools/elements`}>Elemental dignities</a></li>
-              <li><a href={`${base}tools/random-card`}>Draw a card</a></li>
-              <li><a href={`${base}tools/birth-card`}>Birth card calculator</a></li>
-              <li><a href={`${base}tools/love-compatibility`}>Love compatibility</a></li>
-              <li><a href={`${base}tools`}>All free tools</a></li>
+              <li><a href={u("cards")}>{t("footer.cards")}</a></li>
+              <li><a href={u("spreads")}>{t("footer.spreads")}</a></li>
+              <li><a href={u("tools/yes-no")}>{t("footer.yesNo")}</a></li>
+              <li><a href={u("tools/daily-card")}>{t("footer.daily")}</a></li>
+              <li><a href={u("tools/combinations")}>{t("footer.combinations")}</a></li>
+              <li><a href={u("tools/elements")}>{t("footer.elements")}</a></li>
+              <li><a href={u("tools/random-card")}>{t("footer.random")}</a></li>
+              <li><a href={u("tools/birth-card")}>{t("footer.birth")}</a></li>
+              <li><a href={u("tools/love-compatibility")}>{t("footer.compat")}</a></li>
+              <li><a href={u("tools")}>{t("footer.allTools")}</a></li>
             </ul>
           </div>
           <div>
-            <h4>Readings</h4>
+            <h4>{t("footer.readings")}</h4>
             <ul>
-              {TOPICS.map((t) => <li><a href={`${base}topics/${t.slug}`}>{t.title}</a></li>)}
-              <li><a href={`${base}questions`}>Tarot questions</a></li>
+              {TOPICS.map((tp) => <li><a href={u(`topics/${tp.slug}`)}>{L.content.topics[tp.slug as keyof typeof L.content.topics].title}</a></li>)}
+              <li><a href={u("questions")}>{t("footer.questions")}</a></li>
             </ul>
           </div>
           <div>
-            <h4>Company</h4>
+            <h4>{t("footer.company")}</h4>
             <ul>
-              <li><a href={`mailto:${SUPPORT_EMAIL}`}>Support</a></li>
-              <li><a href={`${base}privacy`}>Privacy</a></li>
-              <li><a href={`${base}terms`}>Terms</a></li>
-              <li><a href={`${base}delete-account`}>Delete your data</a></li>
+              <li><a href={`mailto:${SUPPORT_EMAIL}`}>{t("footer.support")}</a></li>
+              <li><a href={`${base}privacy`}>{t("footer.privacy")}</a></li>
+              <li><a href={`${base}terms`}>{t("footer.terms")}</a></li>
+              <li><a href={`${base}delete-account`}>{t("footer.delete")}</a></li>
             </ul>
           </div>
         </div>
         <div class="footer-base">
-          <span>© {year} ShenTech, Singapore. All rights reserved.</span>
-          <span>Card images: Rider-Waite-Smith deck (1909), public domain.</span>
+          <span>{t("footer.copyright", { year })}</span>
+          <span>{t("footer.images")}</span>
         </div>
       </div>
     </footer>

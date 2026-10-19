@@ -1,0 +1,44 @@
+---
+import Base from "../../../layouts/Base.astro";
+import { SPREADS, slug, spreadIds } from "../../../lib/data.ts";
+import { i18n, langPaths, type Locale } from "../../../i18n/index.ts";
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Locale };
+const L = i18n(lang);
+const { t, url: u } = L;
+const cats = ["classics", "love", "career", "growth"];
+const sp = (id: string) => L.content.spreads[id as keyof typeof L.content.spreads];
+---
+<Base
+  title={t("spreads.title")}
+  description={t("spreads.description")}
+  path="spreads"
+  crumbs={[[t("spreads.crumb"), "spreads"]]}
+  lang={lang}
+>
+  <header class="page-head center">
+    <p class="eyebrow">{t("spreads.eyebrow")}</p>
+    <h1>{t("spreads.h1")}</h1>
+    <p class="lead">{t("spreads.lead")}</p>
+  </header>
+  <nav class="pills" style="justify-content:center" aria-label={t("spreads.catsNav")}>
+    {cats.map((cat) => <a href={`#${cat}`}>{t(`spreadCats.${cat}`)}</a>)}
+  </nav>
+  {cats.map((cat) => (
+    <section>
+      <h2 class="group-title" id={cat}>{t(`spreadCats.${cat}`)}</h2>
+      <div class="grid-3">
+        {spreadIds.filter((id) => SPREADS[id].category === cat).map((id) => (
+          <a class="panel spread-card" href={u(`spreads/${slug(id)}`)}>
+            <div class="layout" aria-hidden="true">{SPREADS[id].positions.map(() => <i />)}</div>
+            <p class="count">{t("cardCount", { n: SPREADS[id].positions.length })}</p>
+            <h3>{sp(id).name}</h3>
+            <p>{sp(id).blurb}</p>
+            <span class="link-arrow">{t("spreads.seePositions")}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  ))}
+</Base>

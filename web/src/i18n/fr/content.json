@@ -1,0 +1,441 @@
+{
+ "groups": {
+  "major": "Les grands thèmes et les tournants de la vie",
+  "wands": "Énergie, élan et créativité",
+  "cups": "Sentiments, amour et relations",
+  "swords": "Pensée, conflit et vérité",
+  "pentacles": "Travail, argent et corps"
+ },
+ "spreads": {
+  "single": {
+   "name": "Tirage à une carte",
+   "positions": [
+    "La carte"
+   ],
+   "blurb": "Une question bien posée ; un seul thème à observer.",
+   "source": "Un tirage traditionnel à une carte."
+  },
+  "three": {
+   "name": "Passé, présent, futur",
+   "positions": [
+    "Là où tout a commencé",
+    "Là où en sont les choses",
+    "Là où cela se dirige"
+   ],
+   "blurb": "Un récit concis de la façon dont une situation a évolué.",
+   "source": "Un tirage moderne courant à trois cartes."
+  },
+  "three_decision": {
+   "name": "Situation, défi, piste à suivre",
+   "positions": [
+    "La situation",
+    "Le défi",
+    "Une piste à suivre"
+   ],
+   "blurb": "Pour cadrer une décision : ce qui se passe et comment avancer.",
+   "source": "Un tirage moderne courant à trois cartes."
+  },
+  "yes_no": {
+   "name": "Oui ou non",
+   "positions": [
+    "Première carte",
+    "Le cœur de la question (compte double)",
+    "Troisième carte"
+   ],
+   "blurb": "Une question fermée : de quel côté penchent les cartes, et pourquoi.",
+   "source": "Une méthode courante pour le oui ou non : les cartes à l'endroit penchent vers le oui, les cartes renversées vers le non, et la carte du milieu compte double. Les cartes renversées sont toujours activées pour ce tirage."
+  },
+  "five_cross": {
+   "name": "Croix à cinq cartes",
+   "positions": [
+    "Ce qu'il y a derrière",
+    "La question elle-même",
+    "Ce qui s'annonce",
+    "Ce vers quoi je tends",
+    "Ce qui m'ancre"
+   ],
+   "blurb": "Une question clairement posée, vue sous cinq angles.",
+   "source": "Un tirage traditionnel utilisé par de nombreux tarologues."
+  },
+  "horseshoe": {
+   "name": "Fer à cheval à sept cartes",
+   "positions": [
+    "Passé",
+    "Présent",
+    "Influences cachées",
+    "Obstacles",
+    "Influences autour de moi",
+    "Conseil",
+    "Direction si le schéma se poursuit"
+   ],
+   "blurb": "Une situation précise où plusieurs influences se croisent.",
+   "source": "Un tirage traditionnel utilisé par de nombreux tarologues."
+  },
+  "celtic": {
+   "name": "Croix celtique",
+   "positions": [
+    "Le cœur de la question",
+    "Ce qui la traverse",
+    "Fondation",
+    "Passé récent",
+    "Objectif",
+    "Horizon proche",
+    "Toi",
+    "Entourage",
+    "Espoirs et craintes",
+    "Direction"
+   ],
+   "blurb": "Une situation complexe qui demande une carte complète des influences.",
+   "source": "Adapté du tirage décrit par A. E. Waite dans The Pictorial Key to the Tarot (1910)."
+  },
+  "love_connection": {
+   "name": "Où en sommes-nous ?",
+   "positions": [
+    "Ce que j'apporte",
+    "Le lien lui-même",
+    "Ce qu'il me demande"
+   ],
+   "blurb": "Où en est cette relation, et quelle est ma part dedans ?",
+   "source": "Conçu par ShenTarot pour l'introspection."
+  },
+  "love_bring": {
+   "name": "Cette relation est-elle faite pour moi ?",
+   "positions": [
+    "Ce que j'apporte",
+    "Ce dont j'ai besoin",
+    "Ce que j'évite peut-être"
+   ],
+   "blurb": "Ce que j'apporte, ce dont j'ai besoin et ce que j'évite peut-être.",
+   "source": "Conçu par ShenTarot pour l'introspection."
+  },
+  "love_reconnect": {
+   "name": "Est-ce que mon ex va revenir ?",
+   "positions": [
+    "Ce qui a pris fin",
+    "Ce que je porte encore",
+    "Ce que j'ai besoin de comprendre",
+    "Ce que je peux changer",
+    "Ce qui ne dépend pas de moi",
+    "À quoi pourrait ressembler la guérison",
+    "Une prochaine étape pour moi"
+   ],
+   "blurb": "Les cartes ne peuvent pas dire ce que fera quelqu'un d'autre. Elles peuvent montrer ce que tu portes encore et ce que tu peux changer.",
+   "source": "Conçu par ShenTarot pour l'introspection."
+  },
+  "love_ready": {
+   "name": "Quand vais-je trouver l'amour ?",
+   "positions": [
+    "Ce que je ressens face à l'amour aujourd'hui",
+    "Ce que je porte du passé",
+    "Ce que je veux vraiment",
+    "Ce qui me freine peut-être",
+    "Ce que je peux offrir",
+    "À quoi ressemblerait l'ouverture",
+    "Un pas dans cette direction"
+   ],
+   "blurb": "Es-tu prêt·e pour un nouvel amour, et qu'est-ce qui t'aiderait à t'y ouvrir ?",
+   "source": "Conçu par ShenTarot pour l'introspection."
+  },
+  "career_path": {
+   "name": "Parcours professionnel",
+   "positions": [
+    "Où j'en suis",
+    "Ce qui me freine",
+    "Ce que je pourrais explorer ensuite"
+   ],
+   "blurb": "Où en suis-je dans mon travail, et que pourrais-je explorer ensuite ?",
+   "source": "Conçu par ShenTarot pour l'introspection."
+  },
+  "career_strengths": {
+   "name": "Forces et progression",
+   "positions": [
+    "Ma force",
+    "Mon défi",
+    "Ce que je peux apprendre",
+    "Ce qui me soutient",
+    "Une prochaine étape"
+   ],
+   "blurb": "Quelles sont mes forces au travail, et que puis-je développer ?",
+   "source": "Conçu par ShenTarot pour l'introspection."
+  },
+  "three_hhh": {
+   "name": "Tête, cœur, mains",
+   "positions": [
+    "Ce que je pense",
+    "Ce que je ressens",
+    "Ce que je vais faire"
+   ],
+   "blurb": "Qu'est-ce que je pense, qu'est-ce que je ressens, que vais-je faire ?",
+   "source": "Un tirage moderne d'introspection."
+  },
+  "growth_shadow_light": {
+   "name": "Ombre et lumière",
+   "positions": [
+    "Ma lumière",
+    "Mon ombre",
+    "Les réunir"
+   ],
+   "blurb": "Une force, une face cachée, et comment les réunir.",
+   "source": "Conçu par ShenTarot pour l'introspection."
+  }
+ },
+ "topics": {
+  "love": {
+   "name": "Amour",
+   "title": "Tirage de tarot amour",
+   "intro": "Le tarot ne peut pas te dire ce que pense ou fera quelqu'un d'autre. Il peut t'aider à voir ce que tu apportes, ce dont tu as besoin et ce qu'il t'appartient de changer.",
+   "questions": [
+    "Est-ce que mon ex va revenir ?",
+    "Où en est ma relation ?",
+    "Quand vais-je trouver l'amour ?"
+   ]
+  },
+  "career": {
+   "name": "Travail",
+   "title": "Tirage de tarot travail",
+   "intro": "Utilise les cartes pour voir où tu en es au travail, ce qui te freine et ce que tu pourrais essayer ensuite.",
+   "questions": [
+    "Dois-je accepter cette offre d'emploi ?",
+    "Qu'est-ce qui me freine au travail ?",
+    "Que pourrais-je explorer ensuite dans ma carrière ?"
+   ]
+  },
+  "daily": {
+   "name": "Quotidien",
+   "title": "Tirage de tarot du jour",
+   "intro": "Une carte ou trois pour fixer ton attention sur la journée ou la semaine à venir.",
+   "questions": [
+    "Sur quoi dois-je me concentrer aujourd'hui ?",
+    "Quelle énergie apporter à cette semaine ?"
+   ]
+  },
+  "choices": {
+   "name": "Choix",
+   "title": "Le tarot pour décider",
+   "intro": "Quand tu pèses un choix, les cartes peuvent poser la situation, ce qui fait obstacle et une piste pour avancer.",
+   "questions": [
+    "Dois-je déménager dans une nouvelle ville ?",
+    "Que dois-je savoir avant de décider ?"
+   ]
+  },
+  "growth": {
+   "name": "Évolution",
+   "title": "Le tarot pour l'introspection",
+   "intro": "Des tirages pour mieux te connaître : ce que tu penses, ce que tu ressens et ce que tu répètes sans cesse.",
+   "questions": [
+    "Quelle leçon est-ce que je répète sans cesse ?",
+    "Qu'est-ce que je ne vois pas en moi ?"
+   ]
+  }
+ },
+ "guides": {
+  "does-he-love-me": {
+   "question": "Est-ce qu'il m'aime ?",
+   "answer": "Le tarot ne peut pas lire dans le cœur d'une autre personne, et aucune carte ne prouve ce que quelqu'un ressent. Ce qu'un tirage peut faire, c'est montrer à quoi ressemble le lien de là où tu te trouves : ce que tu donnes, ce que tu reçois en retour et ce que tu espères.",
+   "better": [
+    "Comment est-ce que je me sens dans cette relation ?",
+    "Quel est le lien entre nous en ce moment ?",
+    "De quoi ai-je besoin de sa part que je ne reçois pas ?"
+   ],
+   "cards": {
+    "cups_two": "Un lien réciproque : chacun fait la moitié du chemin vers l'autre.",
+    "major_06_lovers": "Un vrai choix de valeurs et de proximité, pas seulement d'attirance.",
+    "cups_four": "Quelque chose qui est offert passe inaperçu ou est refusé.",
+    "swords_three": "Une blessure qui doit être nommée avant que les choses puissent avancer."
+   },
+   "tip": "Si tu te surprends à tirer encore et encore pour obtenir la même réponse, le tirage te parle de ta propre inquiétude. Ça vaut la peine de l'écouter."
+  },
+  "will-my-ex-come-back": {
+   "question": "Est-ce que mon ex va revenir ?",
+   "answer": "Aucun tirage ne peut promettre que quelqu'un reviendra. Un tirage de retrouvailles examine ce qui a mis fin à la relation, ce qui a changé depuis et ce dont tu aurais besoin pour que ce soit différent cette fois, afin que tu puisses décider si espérer te fait du bien.",
+   "better": [
+    "Qu'est-ce qui a mis fin à notre relation ?",
+    "Qu'est-ce qui a changé en moi depuis notre rupture ?",
+    "Qu'est-ce qui devrait être différent si nous nous remettions ensemble ?"
+   ],
+   "cards": {
+    "cups_six": "La nostalgie et l'attrait du passé, pour le meilleur ou pour le pire.",
+    "swords_ten": "Une fin nette : ce chapitre est terminé.",
+    "major_20_judgement": "Un bilan, et la chance de recommencer les yeux ouverts.",
+    "cups_eight": "S'éloigner de quelque chose qui ne te comble plus."
+   },
+   "tip": "Demande-toi ce que tu veux, pas seulement ce que l'autre fera. Le premier, tu peux agir dessus."
+  },
+  "will-i-meet-someone-new": {
+   "question": "Vais-je rencontrer quelqu'un ?",
+   "answer": "Le tarot ne peut pas te donner une date ni un nom. Un tirage pour une personne célibataire regarde si tu es prêt·e, ce que tu cherches et ce qui te freine peut-être, ce qui compte souvent plus que le moment.",
+   "better": [
+    "Suis-je prêt·e pour une nouvelle relation ?",
+    "Qu'est-ce que je cherche vraiment chez un·e partenaire ?",
+    "Qu'est-ce qui m'empêche de rencontrer quelqu'un ?"
+   ],
+   "cards": {
+    "cups_ace": "Un sentiment nouveau, ou un cœur ouvert prêt à recevoir.",
+    "cups_page": "Un début léger et curieux : un message, un flirt, un premier pas.",
+    "swords_eight": "Se sentir piégé·e par des croyances moins figées qu'elles n'en ont l'air.",
+    "major_17_star": "L'espoir qui revient après une période difficile."
+   },
+   "tip": "Lis d'abord les cartes à propos de toi. Elles en disent généralement plus sur ta disponibilité que sur la personne qui arrive."
+  },
+  "should-i-stay-in-my-relationship": {
+   "question": "Dois-je rester dans ma relation ?",
+   "answer": "C'est ta décision, et les cartes ne devraient pas la prendre à ta place. Un tirage sur la relation peut montrer où vous en êtes, ce que chacun apporte et ce qui n'est pas dit, pour que le choix soit plus clair.",
+   "better": [
+    "Où en est ma relation en ce moment ?",
+    "Qu'est-ce que je ne dis pas à mon ou ma partenaire ?",
+    "Qu'est-ce qui aiderait cette relation à grandir ?"
+   ],
+   "cards": {
+    "cups_ten": "Un bonheur durable et le sentiment partagé d'être chez soi.",
+    "swords_two": "Une impasse : éviter une décision que tu pressens déjà.",
+    "cups_five": "Le chagrin de ce qui a été perdu, alors que quelque chose demeure.",
+    "major_14_temperance": "Patience et équilibre : arranger les choses pas à pas."
+   },
+   "tip": "Si toi ou quelqu'un d'autre n'êtes pas en sécurité, parles-en à une personne de confiance ou à un service d'aide près de chez toi avant tout tirage."
+  },
+  "should-i-change-jobs": {
+   "question": "Dois-je changer de travail ?",
+   "answer": "Le tarot ne peut pas voir le marché de l'emploi ni une lettre d'embauche. Un tirage sur le travail regarde où tu en es, ce qui te freine et ce que tu pourrais essayer ensuite, pour que tu puisses peser ce changement l'esprit plus clair.",
+   "better": [
+    "Qu'est-ce qui me donne envie de quitter mon travail ?",
+    "Que pourrais-je explorer ensuite dans ma carrière ?",
+    "De quoi aurais-je besoin pour qu'un changement fonctionne ?"
+   ],
+   "cards": {
+    "pentacles_eight": "Savoir-faire et travail régulier : tu peux progresser en t'améliorant là où tu es.",
+    "wands_three": "Regarder devant : les projets sont en route et prêts à s'étendre.",
+    "cups_eight": "Laisser derrière soi quelque chose qui ne te comble plus.",
+    "pentacles_four": "S'accrocher fort à la sécurité, peut-être trop fort."
+   },
+   "tip": "Associe le tirage à des démarches concrètes : parle à des personnes qui occupent le poste que tu vises et regarde les chiffres."
+  },
+  "will-i-get-the-job": {
+   "question": "Vais-je obtenir le poste ?",
+   "answer": "La décision appartient aux personnes qui recrutent, et aucune carte ne la connaît. Un tirage peut montrer l'image que tu renvoies, ce que tu apportes et sur quoi te concentrer avant ou après l'entretien, c'est-à-dire la part que tu peux encore changer.",
+   "better": [
+    "Quelles forces dois-je montrer lors de cet entretien ?",
+    "Qu'est-ce qui pourrait me desservir dans cette candidature ?",
+    "Que dois-je savoir sur ce poste ?"
+   ],
+   "cards": {
+    "wands_six": "La reconnaissance et une victoire publique.",
+    "pentacles_three": "Le travail d'équipe et être apprécié·e pour ses compétences.",
+    "swords_seven": "Quelque chose qui n'est pas dit ouvertement : vérifie les détails.",
+    "major_01_magician": "Tu as les outils qu'il te faut. Sers-t'en."
+   },
+   "tip": "Quoi que disent les cartes, prépare-toi comme si tout dépendait de toi. C'est en grande partie le cas."
+  },
+  "should-i-move-to-a-new-city": {
+   "question": "Dois-je déménager dans une nouvelle ville ?",
+   "answer": "Un tirage oui ou non peut servir de petit point rapide, mais un déménagement est un grand choix aux multiples facettes. Fais un tirage court pour voir ce que tu en ressens, puis un tirage de décision pour comparer les options côte à côte.",
+   "better": [
+    "Que dois-je savoir avant de décider de déménager ?",
+    "Qu'est-ce que je gagnerais et à quoi devrais-je renoncer ?",
+    "Qu'est-ce qui m'attire vers cet endroit ?"
+   ],
+   "cards": {
+    "major_00_fool": "Un saut dans l'inconnu, avec confiance.",
+    "swords_six": "Partir vers des eaux plus calmes, une transition qui fait du bien.",
+    "pentacles_ten": "Racines, famille et sécurité à long terme.",
+    "wands_four": "La fête et le sentiment d'être chez soi."
+   },
+   "tip": "Interroge les cartes sur chaque option séparément, puis compare. Un seul tirage pour les deux endroits risque de les mélanger."
+  },
+  "what-do-i-need-to-know-before-i-decide": {
+   "question": "Que dois-je savoir avant de décider ?",
+   "answer": "C'est l'une des meilleures questions à poser au tarot, parce qu'elle demande un éclairage plutôt qu'un verdict. Un tirage de décision examine la situation, ce qui fait obstacle et la piste à suivre, et te laisse le choix.",
+   "better": [
+    "Qu'est-ce que je ne vois pas dans ce choix ?",
+    "Qu'est-ce que chaque option attend de moi ?",
+    "Qu'est-ce qui compte le plus pour moi ici ?"
+   ],
+   "cards": {
+    "swords_two": "Repousser un choix : il est peut-être temps de regarder.",
+    "major_11_justice": "Peser les choses avec équité, et assumer le résultat.",
+    "cups_seven": "Beaucoup d'options et quelques illusions : trie ce qui est réel.",
+    "major_02_high_priestess": "Un savoir silencieux : fais confiance à ce que tu pressens déjà."
+   },
+   "tip": "Note ton choix avant de tirer. Observe ce que tu ressens quand une carte semble aller dans ton sens ou non."
+  },
+  "why-do-i-feel-stuck": {
+   "question": "Pourquoi est-ce que je me sens bloqué·e ?",
+   "answer": "Se sentir bloqué·e est une bonne raison de prendre un moment avec les cartes. Un tirage d'introspection regarde ce que tu penses, ce que tu ressens et ce que tu fais, et là où ces trois éléments tirent dans des directions opposées.",
+   "better": [
+    "Qu'est-ce que je ne vois pas en moi en ce moment ?",
+    "Quelle leçon est-ce que je répète sans cesse ?",
+    "Quel petit pas m'aiderait à avancer ?"
+   ],
+   "cards": {
+    "major_12_hanged_man": "Une pause qui a un sens : voir les choses sous un nouvel angle.",
+    "swords_eight": "Se sentir piégé·e par des croyances moins figées qu'elles n'en ont l'air.",
+    "major_15_devil": "Une habitude ou un attachement qui te tient plus que tu ne le tiens.",
+    "wands_ace": "Une étincelle d'énergie pour un nouveau départ."
+   },
+   "tip": "Si ce sentiment de blocage dure ou devient lourd, parler à un·e ami·e ou à un·e professionnel·le aide plus que n'importe quel tirage."
+  }
+ },
+ "lifePath": {
+  "1": "Indépendance et nouveaux départs. Tu aimes mener et tracer ton propre chemin.",
+  "2": "Partenariat et équilibre. Tu remarques ce que ressentent les autres et tu aides chacun à trouver un terrain d'entente.",
+  "3": "Expression et créativité. Tu penses à voix haute, tu crées et tu rassembles les gens.",
+  "4": "Stabilité et travail. Tu construis des choses qui durent, un pas réfléchi après l'autre.",
+  "5": "Liberté et changement. Tu apprends en essayant, en voyageant et en tentant ta chance.",
+  "6": "Soin et responsabilité. Tu prends soin des gens, des foyers et des communautés.",
+  "7": "Réflexion et quête. Tu as besoin de temps seul·e pour réfléchir et découvrir ce qui est vrai.",
+  "8": "Ambition et résultats. Tu es attiré·e par le travail, l'argent et l'envie de laisser ta marque.",
+  "9": "Compassion et accomplissement. Tu vois la situation dans son ensemble et tu veux rendre ce que tu as reçu.",
+  "11": "Un nombre maître : intuition et inspiration. Tu perçois les choses tôt et tu peux éclairer le chemin des autres.",
+  "22": "Un nombre maître : le maître bâtisseur. Tu peux transformer de grandes idées en quelque chose de concret.",
+  "33": "Un nombre maître : le maître enseignant. Tu guides par la bienveillance et l'exemple."
+ },
+ "signs": {
+  "aries": {
+   "name": "Bélier",
+   "dates": "21 mars au 19 avril"
+  },
+  "taurus": {
+   "name": "Taureau",
+   "dates": "20 avril au 20 mai"
+  },
+  "gemini": {
+   "name": "Gémeaux",
+   "dates": "21 mai au 20 juin"
+  },
+  "cancer": {
+   "name": "Cancer",
+   "dates": "21 juin au 22 juillet"
+  },
+  "leo": {
+   "name": "Lion",
+   "dates": "23 juillet au 22 août"
+  },
+  "virgo": {
+   "name": "Vierge",
+   "dates": "23 août au 22 septembre"
+  },
+  "libra": {
+   "name": "Balance",
+   "dates": "23 septembre au 22 octobre"
+  },
+  "scorpio": {
+   "name": "Scorpion",
+   "dates": "23 octobre au 21 novembre"
+  },
+  "sagittarius": {
+   "name": "Sagittaire",
+   "dates": "22 novembre au 21 décembre"
+  },
+  "capricorn": {
+   "name": "Capricorne",
+   "dates": "22 décembre au 19 janvier"
+  },
+  "aquarius": {
+   "name": "Verseau",
+   "dates": "20 janvier au 18 février"
+  },
+  "pisces": {
+   "name": "Poissons",
+   "dates": "19 février au 20 mars"
+  }
+ }
+}

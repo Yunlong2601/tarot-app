@@ -1,0 +1,204 @@
+---
+import Base from "../../../layouts/Base.astro";
+import Tabs from "../../../components/Tabs.astro";
+import { BASE } from "../../../config.ts";
+import { CARDS, cardIds, slug, type CardId } from "../../../lib/data.ts";
+import { i18n, langPathsFor, type Locale } from "../../../i18n/index.ts";
+
+export function getStaticPaths() {
+  return langPathsFor(cardIds.map((id) => ({ params: { slug: slug(id) }, props: { id } })));
+}
+const { id, lang } = Astro.props as { id: CardId; lang: Locale };
+const L = i18n(lang);
+const { t, url: u } = L;
+const c = CARDS[id];
+const tr = L.cards[id]!;
+const name = tr.name;
+const k = c.k ? tr.k! : undefined;
+const nameOf = (x: CardId) => L.cards[x]!.name;
+const kind = c.arcana === "major" ? t("card.kindMajor", { n: c.number! }) : t("card.kindMinor", { suit: L.group(c.suit) });
+const facts = [c.element && t("card.element", { element: L.assoc(c.element) }), c.association && t("card.association", { assoc: L.assoc(c.association) })]
+  .filter(Boolean)
+  .join(" · ");
+const i = cardIds.indexOf(id);
+const prev = cardIds.at(i - 1)!;
+const next = cardIds.at((i + 1) % cardIds.length)!;
+const group = c.arcana === "major" ? "major" : c.suit!;
+const numberWords = L.list("card.numberWords");
+const RANKS = ["page", "knight", "queen", "king"] as const;
+const rank = RANKS.find((r) => id.endsWith(`_${r}`));
+const digitSum = (n: number) => String(n).split("").reduce((a, d) => a + Number(d), 0);
+const sep = t("card.listSep");
+
+// Cards linked to this one by number or rank, with a line saying how.
+let related: CardId[] = [];
+let relatedNote = "";
+if (c.arcana === "major" && c.number) {
+  const n = c.number > 10 ? digitSum(c.number) : c.number;
+  related = cardIds.filter((x) => CARDS[x].arcana === "minor" && CARDS[x].number === n);
+  relatedNote = c.number > 10
+    ? t("card.relatedSum", { number: c.number, n, digits: String(c.number).split("").join(" + "), word: numberWords[n]! })
+    : t("card.relatedNumber", { n });
+} else if (rank) {
+  related = cardIds.filter((x) => x !== id && x.endsWith(`_${rank}`));
+  relatedNote = t("card.relatedRank", { rank: t(`card.ranks.${rank}`) });
+} else if (c.number) {
+  const major = cardIds.find((x) => CARDS[x].arcana === "major" && CARDS[x].number === c.number);
+  related = [...(major ? [major] : []), ...cardIds.filter((x) => x !== id && CARDS[x].arcana === "minor" && CARDS[x].number === c.number)];
+  relatedNote = major
+    ? t("card.relatedPipMajor", { word: numberWords[c.number]!, major: nameOf(major), n: c.number })
+    : t("card.relatedPip", { word: numberWords[c.number]! });
+}
+
+const faq: [string, string][] = k
+  ? [
+      [t("card.faqMeaning", { name }), t("card.faqMeaningA", { core: k.upright.core, keywords: tr.keywords.join(sep) })],
+      [t("card.faqReversed", { name }), `${k.reversed.core} ${k.reversed.modes.join(" ")}`],
+      [t("card.faqLove", { name }), k.upright.love],
+      [t("card.faqWork", { name }), k.upright.work],
+      [t("card.faqQuestion", { name }), t("card.faqQuestionA", { up: k.upright.question, rev: k.reversed.question })],
+    ]
+  : [];
+const jsonLd = faq.length
+  ? [{ "@context": "https://schema.org", "@type": "FAQPage", inLanguage: L.tag, mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) }]
+  : [];
+---
+<Base
+  title={t("card.title", { name })}
+  description={t("card.description", { name, keywords: tr.keywords.join(sep), essence: k?.essence ?? tr.upright })}
+  path={`cards/${slug(id)}`}
+  image={`cards/art/${id}.jpg`}
+  crumbs={[[t("cards.crumb"), "cards"], [name, `cards/${slug(id)}`]]}
+  jsonLd={jsonLd}
+  lang={lang}
+>
+  <ol class="crumbs" style="margin-top:2rem">
+    <li><a href={u()}>{t("card.home")}</a></li>
+    <li><a href={u("cards")}>{t("cards.crumb")}</a></li>
+    <li><a href={`${u("cards")}#${group}`}>{L.group(c.suit)}</a></li>
+  </ol>
+  <section class="card-hero">
+    <div class="card-frame">
+      <img src={`${BASE}cards/art/${id}.jpg`} alt={t("card.imgAlt", { name })} width="300" height="514" fetchpriority="high" />
+    </div>
+    <div>
+      <p class="meta">{kind}</p>
+      <h1>{name}</h1>
+      {k && <p class="essence">{k.essence}</p>}
+      <p class="lead">{tr.upright}</p>
+      <ul class="chips">{tr.keywords.map((w) => <li>{w}</li>)}</ul>
+      {facts && <p class="muted">{facts}</p>}
+    </div>
+  </section>
+  <Tabs label={t("card.about", { name })} tabs={[
+    { id: "meaning", label: t("card.tabMeaning") },
+    ...(k ? [{ id: "love-work", label: t("card.tabLoveWork") }] : []),
+    { id: "related", label: t("card.tabRelated") },
+    ...(faq.length ? [{ id: "faq", label: t("card.tabFaq") }] : []),
+  ]}>
+    <div data-panel="meaning">
+  {k ? (
+    <>
+      <div class="panel" style="margin-bottom:1rem">
+        <h2>{t("card.shows")}</h2>
+        <p>{k.imagery}</p>
+        <p class="muted">{k.why}</p>
+      </div>
+      <div class="meaning">
+        <div class="panel">
+          <h2><span>▲</span>{t("card.upright")}</h2>
+          <p>{k.upright.core}</p>
+          <div class="dl">
+            <div><b>{t("card.light")}</b>{k.upright.light}</div>
+            <div><b>{t("card.shadow")}</b>{k.upright.shadow}</div>
+            <div><b>{t("card.love")}</b>{k.upright.love}</div>
+            <div><b>{t("card.work")}</b>{k.upright.work}</div>
+          </div>
+          <p class="reflect">{k.upright.question}</p>
+        </div>
+        <div class="panel">
+          <h2><span>▼</span>{t("card.reversed")}</h2>
+          <p>{k.reversed.core}</p>
+          <div class="dl">{k.reversed.modes.map((m) => <div>{m}</div>)}</div>
+          <p class="reflect">{k.reversed.question}</p>
+        </div>
+      </div>
+    </>
+  ) : (
+    <div class="meaning">
+      <div class="panel"><h2><span>▲</span>{t("card.upright")}</h2><p>{tr.upright}</p></div>
+      <div class="panel"><h2><span>▼</span>{t("card.reversed")}</h2><p>{tr.reversed}</p></div>
+    </div>
+  )}
+    </div>
+    {k && <div data-panel="love-work">
+    <section class="section" style="padding-bottom:0">
+      <h2>{t("card.inReading", { name })}</h2>
+      <div class="grid-3">
+        <div class="panel">
+          <h3>{t("card.inLove")}</h3>
+          <p>{k.upright.love}</p>
+          <p class="muted">{t("card.reversedPrefix", { text: k.reversed.core })}</p>
+        </div>
+        <div class="panel">
+          <h3>{t("card.atWork")}</h3>
+          <p>{k.upright.work}</p>
+          <p class="muted">{t("card.shadowSide", { text: k.upright.shadow })}</p>
+        </div>
+        <div class="panel">
+          <h3>{c.arcana === "major" ? t("card.asMajor") : t("card.asSuit", { suit: L.group(c.suit) })}</h3>
+          <p>{L.content.groups[group as keyof typeof L.content.groups]}. {c.arcana === "major" ? t("card.majorNote") : `${c.element ? t("card.suitElement", { element: L.assoc(c.element) }) : ""}${t("card.suitNote")}`}</p>
+          <p><a class="link-arrow" href={`${u("cards")}#${group}`}>{t("card.allOf", { suit: L.group(c.suit) })}</a></p>
+        </div>
+      </div>
+    </section>
+    </div>}
+    <div data-panel="related">
+  {related.length > 0 && (
+    <section class="section" style="padding-bottom:0">
+      <h2>{t("card.related")}</h2>
+      <p class="muted">{relatedNote}</p>
+      <div class="card-row">
+        {related.map((r) => (
+          <a class="tcard" href={u(`cards/${slug(r)}`)}>
+            <img src={`${BASE}cards/art/${r}.jpg`} alt="" loading="lazy" width="150" height="257" />
+            {nameOf(r)}
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+  <section class="section" style="padding-bottom:0">
+    <h2>{t("card.withOthers")}</h2>
+    <div class="grid-3">
+      <a class="panel tool-tile" href={`${u("tools/combinations")}?a=${slug(id)}`}><div><h3>{t("card.combTitle")}</h3><p>{t("card.combText", { name })}</p><span class="link-arrow">{t("card.combCta")}</span></div></a>
+      <a class="panel tool-tile" href={`${u("tools/elements")}?b=${slug(id)}`}><div><h3>{t("card.elTitle")}</h3><p>{t("card.elText", { name })}</p><span class="link-arrow">{t("card.elCta")}</span></div></a>
+      <a class="panel tool-tile" href={u("tools/yes-no")}><div><h3>{t("card.ynTitle")}</h3><p>{t("card.ynText")}</p><span class="link-arrow">{t("card.ynCta")}</span></div></a>
+    </div>
+  </section>
+    </div>
+    {faq.length > 0 && <div data-panel="faq">
+    <section class="section" style="padding-bottom:0">
+      <h2 class="center">{t("card.faqTitle", { name })}</h2>
+      <div class="faq">
+        {faq.map(([q, a]) => (
+          <details>
+            <summary>{q}</summary>
+            <p>{a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+    </div>}
+  </Tabs>
+  <nav class="pager" aria-label={t("card.moreCards")}>
+    <a class="panel" href={u(`cards/${slug(prev)}`)}>
+      <img src={`${BASE}cards/art/${prev}.jpg`} alt="" loading="lazy" width="150" height="257" />
+      <span><small>{t("card.prev")}</small><b>{nameOf(prev)}</b></span>
+    </a>
+    <a class="panel next" href={u(`cards/${slug(next)}`)}>
+      <span><small>{t("card.next")}</small><b>{nameOf(next)}</b></span>
+      <img src={`${BASE}cards/art/${next}.jpg`} alt="" loading="lazy" width="150" height="257" />
+    </a>
+  </nav>
+</Base>

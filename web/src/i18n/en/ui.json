@@ -1,0 +1,636 @@
+{
+ "nav": {
+  "cards": "Card meanings",
+  "spreads": "Spreads",
+  "yesNo": "Yes or No",
+  "tools": "Free tools"
+ },
+ "base": {
+  "skip": "Skip to content",
+  "home": "ShenTarot home",
+  "mainNav": "Main",
+  "language": "Language",
+  "getApp": "Get the app",
+  "ctaEyebrow": "ShenTarot for iPhone and Android",
+  "ctaTitle": "Read your own cards",
+  "ctaText": "Scan your Rider-Waite-Smith deck or draw on screen, ask your question and get a reading you can keep asking about.",
+  "about": "AI tarot readings for your own cards, from ShenTech in Singapore. For entertainment and self-reflection only.",
+  "siteName": "ShenTarot",
+  "titleSuffix": " · ShenTarot",
+  "homeCrumb": "Home"
+ },
+ "footer": {
+  "explore": "Explore",
+  "cards": "Card meanings",
+  "spreads": "Tarot spreads",
+  "yesNo": "Yes or No tarot",
+  "daily": "Card of the day",
+  "combinations": "Card combinations",
+  "elements": "Elemental dignities",
+  "random": "Draw a card",
+  "birth": "Birth card calculator",
+  "compat": "Love compatibility",
+  "allTools": "All free tools",
+  "readings": "Readings",
+  "questions": "Tarot questions",
+  "company": "Company",
+  "support": "Support",
+  "privacy": "Privacy (English)",
+  "terms": "Terms (English)",
+  "delete": "Delete your data (English)",
+  "copyright": "© {year} ShenTech, Singapore. All rights reserved.",
+  "images": "Card images: Rider-Waite-Smith deck (1909), public domain."
+ },
+ "store": {
+  "download": "Download on",
+  "soon": "Coming soon to"
+ },
+ "home": {
+  "title": "ShenTarot: AI Tarot Reading with Your Own Cards",
+  "description": "AI tarot reading app for iPhone and Android. Scan your own deck or draw on screen, ask your question and get a thoughtful reading. Free daily card, and one-tap Google or Apple sign-in for AI readings.",
+  "appDescription": "AI tarot reading app: scan your own deck or draw on screen and get a reading for your question.",
+  "eyebrow": "AI tarot reading app",
+  "h1a": "Ask the cards",
+  "h1b": "anything",
+  "lead": "Scan your own deck or draw on screen. ShenTarot picks a spread for your question and gives you a reading you can keep asking about.",
+  "drawFree": "Or draw a free card now",
+  "trust1": "Free daily card",
+  "trust2": "One-tap sign-in",
+  "trust3": "Photo stays on your phone",
+  "stepsTitle": "A reading in three steps",
+  "stepsLead": "Bring a question. ShenTarot does the rest, with your cards.",
+  "step1": {
+   "title": "Ask your question",
+   "text": "Type what is on your mind, or tap one of the sample questions for love, work and more."
+  },
+  "step2": {
+   "title": "Draw your cards",
+   "text": "Scan the cards from your own deck, or shuffle and draw on screen. ShenTarot suggests the spread."
+  },
+  "step3": {
+   "title": "Read and reflect",
+   "text": "Get a reading card by card, with a summary at the end. Ask a follow-up or keep notes in your journal."
+  },
+  "topicsTitle": "What's on your mind?",
+  "topicsLead": "Questions people ask, and the spreads that suit them.",
+  "whyTitle": "Why ShenTarot",
+  "whyLead": "Thoughtful readings that respect your privacy.",
+  "feature": {
+   "photo": {
+    "title": "Your photo stays on your phone",
+    "text": "Cards are recognised on the device. The photo is never uploaded."
+   },
+   "signin": {
+    "title": "One-tap sign-in for AI readings",
+    "text": "Draw cards and look up meanings without an account. Sign in with Google or Apple for AI readings."
+   },
+   "daily": {
+    "title": "A free card every day",
+    "text": "A Card of the Day, plus free readings with up to three cards each day."
+   },
+   "followup": {
+    "title": "Readings you can question",
+    "text": "Ask a follow-up about your reading, or draw a clarifying card."
+   },
+   "spreads": {
+    "title": "Spreads for your question",
+    "text": "Love, career, decisions, yes or no, and the classic Celtic Cross."
+   },
+   "journal": {
+    "title": "A journal of your readings",
+    "text": "Keep notes on every reading and search your history later."
+   }
+  },
+  "exploreTitle": "Explore tarot",
+  "tabTools": "Free tools",
+  "tabMajors": "The Major Arcana",
+  "tabQuestions": "Questions",
+  "toolsTitle": "Free tarot tools",
+  "toolsLead": "Try them in your browser. Nothing is sent anywhere.",
+  "seeAllTools": "See all tools",
+  "tile": {
+   "yesNo": {
+    "title": "Yes or No tarot",
+    "text": "Three cards and a lean for a yes or no question.",
+    "cta": "Ask now"
+   },
+   "daily": {
+    "title": "Card of the day",
+    "text": "One card, its meaning and a question to reflect on.",
+    "cta": "Draw today's card"
+   },
+   "random": {
+    "title": "Draw a tarot card",
+    "text": "Shuffle the full deck and turn over one to ten cards.",
+    "cta": "Draw now"
+   },
+   "birth": {
+    "title": "Find your birth cards",
+    "text": "Your birth cards and your card for this year, from your birthday.",
+    "cta": "Find yours"
+   }
+  },
+  "majorsLead": "Twenty-two cards for life's big themes. Tap one to read its meaning, upright and reversed.",
+  "allCards": "All 78 card meanings",
+  "getTitle": "Get ShenTarot",
+  "getText": "AI tarot readings for your own cards, on iPhone and Android.",
+  "contact": "Questions?",
+  "faq": {
+   "free": {
+    "q": "Is ShenTarot free?",
+    "a": "Yes, to start. You get a free Card of the Day and free AI readings with up to three cards every day once you sign in. Premium adds more."
+   },
+   "account": {
+    "q": "Do I need an account?",
+    "a": "Only for AI readings. You can draw cards and look up meanings without one. For AI readings, sign in with Google or Apple, so there is no new password to create."
+   },
+   "deck": {
+    "q": "Do I need my own tarot deck?",
+    "a": "No. You can scan your own Rider-Waite-Smith deck with the camera, or draw cards on screen from the full 78-card deck."
+   },
+   "photo": {
+    "q": "Is the photo of my cards uploaded?",
+    "a": "No. Cards are recognised on your phone and the photo is never saved or sent. Only the card names and your question are used to write the reading."
+   },
+   "how": {
+    "q": "How does the AI tarot reading work?",
+    "a": "ShenTarot picks a spread for your question, then writes a reading from the cards you drew, their positions and whether they are upright or reversed. You can ask a follow-up about it."
+   },
+   "predict": {
+    "q": "Can tarot predict the future?",
+    "a": "ShenTarot is for entertainment and self-reflection. Readings help you think through a question; they are not predictions or professional advice."
+   }
+  }
+ },
+ "recommend": {
+  "reconnect": [
+   "ex ",
+   " ex",
+   "reconcil",
+   "get back together",
+   "come back",
+   "heal",
+   "breakup",
+   "broke up"
+  ],
+  "ready": [
+   "single",
+   "dating",
+   "new love",
+   "meet someone"
+  ],
+  "love": [
+   "love",
+   "relationship",
+   "partner",
+   "boyfriend",
+   "girlfriend",
+   "marriage",
+   "crush"
+  ],
+  "career": [
+   "job",
+   "career",
+   "work",
+   "boss",
+   "promotion",
+   "study",
+   "school"
+  ],
+  "decision": [
+   "decide",
+   "decision",
+   "choose",
+   "choice",
+   "option",
+   "whether"
+  ],
+  "growth": [
+   "feel",
+   "anxious",
+   "stuck",
+   "confus",
+   "myself",
+   "growth"
+  ],
+  "yesNoStarts": [
+   "will",
+   "should",
+   "is",
+   "am",
+   "are",
+   "do",
+   "does",
+   "can",
+   "shall",
+   "would"
+  ],
+  "yesNoEnds": []
+ },
+ "ask": {
+  "label": "Your question",
+  "placeholder": "What's on your mind?",
+  "submit": "Find my spread",
+  "try": "Try:"
+ },
+ "reader": {
+  "draw": "Shuffle and draw",
+  "questionLabel": "Your question (optional, stays on this page)",
+  "placeholderYesNo": "Should I take the new job?",
+  "placeholder": "What do I need to know about…",
+  "askNote": "We picked this spread for your question. Shuffle when you're ready.",
+  "revealAll": "Turn all over",
+  "copy": "Copy reading",
+  "altReversed": "{name}, reversed",
+  "nameReversed": "{name} (reversed)",
+  "fullMeaning": "Full meaning",
+  "turnOver": "Turn over card {n}: {pos}",
+  "leanYes": "Leaning yes",
+  "leanNo": "Leaning no",
+  "leanEven": "Not settled",
+  "leanNote": "Upright cards lean yes and reversed cards lean no. With three cards, the middle one counts double. Read it as a tendency, not a fixed answer: the meanings above show what could shift it.",
+  "majorsMany": "{majors} of {n} cards are Major Arcana: big themes and turning points, more than day-to-day events.",
+  "majorsFew": "{majors} of {n} cards are Major Arcana, so this reading is mostly about everyday matters.",
+  "suitLeads": "{suit} lead ({count} cards): the focus is {sense}.",
+  "suitsMissing": "No {suits}: notice what this reading leaves out.",
+  "or": " or ",
+  "noReversed": "No reversed cards.",
+  "reversedCount": "{reversed} reversed: energy that is blocked, delayed or turned inward.",
+  "glance": "At a glance",
+  "quint": "Quintessence card: {card}, the theme underneath the whole reading (the card numbers added and reduced to {total}).",
+  "copyTitle": "ShenTarot reading · {date}",
+  "copyQuestion": "Question: {q}",
+  "copied": "Copied",
+  "copyFailed": "Copy failed"
+ },
+ "suits": {
+  "wands": "Wands",
+  "cups": "Cups",
+  "swords": "Swords",
+  "pentacles": "Pentacles"
+ },
+ "suitSense": {
+  "wands": "drive and action",
+  "cups": "feelings and relationships",
+  "swords": "thoughts and conflict",
+  "pentacles": "work, money and the body"
+ },
+ "groups": {
+  "major": "Major Arcana",
+  "wands": "Wands",
+  "cups": "Cups",
+  "swords": "Swords",
+  "pentacles": "Pentacles"
+ },
+ "elements": {
+  "fire": "Fire",
+  "water": "Water",
+  "air": "Air",
+  "earth": "Earth"
+ },
+ "planets": {
+  "sun": "Sun",
+  "moon": "Moon",
+  "mercury": "Mercury",
+  "venus": "Venus",
+  "mars": "Mars",
+  "jupiter": "Jupiter",
+  "saturn": "Saturn"
+ },
+ "cards": {
+  "title": "Tarot card meanings: all 78 cards · ShenTarot",
+  "description": "Meanings of all 78 Rider-Waite-Smith tarot cards, upright and reversed, with what each card shows and why.",
+  "crumb": "Card meanings",
+  "eyebrow": "The full deck",
+  "h1": "Tarot card meanings",
+  "lead": "All 78 cards of the Rider-Waite-Smith deck, upright and reversed, with what each card shows and why.",
+  "suitsNav": "Suits"
+ },
+ "card": {
+  "title": "{name} tarot card meaning: upright and reversed · ShenTarot",
+  "description": "{name} meaning in tarot, upright and reversed: {keywords}. {essence}",
+  "home": "Home",
+  "kindMajor": "Major Arcana · {n}",
+  "kindMinor": "Minor Arcana · {suit}",
+  "element": "Element: {element}",
+  "association": "Traditional association: {assoc}",
+  "relatedSum": "{number} adds up to {n} ({digits}), the number of the {word}.",
+  "relatedNumber": "The Minor Arcana cards that share the number {n}.",
+  "relatedRank": "The other {rank}: the same kind of person or approach, in another area of life.",
+  "relatedPip": "The other {word}: the same stage of a story in other parts of life.",
+  "relatedPipMajor": "The other {word}, and {major}, Major Arcana card {n}: the same stage of a story in other parts of life.",
+  "numberWords": [
+   "",
+   "aces",
+   "twos",
+   "threes",
+   "fours",
+   "fives",
+   "sixes",
+   "sevens",
+   "eights",
+   "nines",
+   "tens"
+  ],
+  "ranks": {
+   "page": "pages",
+   "knight": "knights",
+   "queen": "queens",
+   "king": "kings"
+  },
+  "faqMeaning": "What does {name} mean in tarot?",
+  "faqMeaningA": "{core} Keywords: {keywords}.",
+  "faqReversed": "What does {name} mean reversed?",
+  "faqLove": "What does {name} mean in love?",
+  "faqWork": "What does {name} mean for work?",
+  "faqQuestion": "What question does {name} ask?",
+  "faqQuestionA": "Upright: {up} Reversed: {rev}",
+  "listSep": ", ",
+  "imgAlt": "{name}, Rider-Waite-Smith deck",
+  "about": "About {name}",
+  "tabMeaning": "Meaning",
+  "tabLoveWork": "Love and work",
+  "tabRelated": "Related cards",
+  "tabFaq": "Questions",
+  "shows": "What the card shows",
+  "upright": "Upright",
+  "reversed": "Reversed",
+  "light": "Light",
+  "shadow": "Shadow",
+  "love": "Love",
+  "work": "Work",
+  "inReading": "{name} in a reading",
+  "inLove": "In love",
+  "atWork": "At work",
+  "reversedPrefix": "Reversed: {text}",
+  "shadowSide": "Its shadow side: {text}.",
+  "asMajor": "As a Major Arcana card",
+  "asSuit": "As one of the {suit}",
+  "majorNote": "A Major Arcana card points to a bigger theme than the everyday cards around it.",
+  "suitElement": "The suit's element is {element}. ",
+  "suitNote": "It shows where in daily life the reading plays out.",
+  "allOf": "All {suit}",
+  "related": "Related cards",
+  "withOthers": "Read it with other cards",
+  "combTitle": "Card combinations",
+  "combText": "Pick a second card and see how {name} reads with it.",
+  "combCta": "Combine",
+  "elTitle": "Elemental dignities",
+  "elText": "See which neighbours strengthen or weaken {name}.",
+  "elCta": "Check",
+  "ynTitle": "Yes or No tarot",
+  "ynText": "Draw three cards for a yes or no question.",
+  "ynCta": "Ask",
+  "faqTitle": "Questions about {name}",
+  "moreCards": "More cards",
+  "prev": "Previous card",
+  "next": "Next card"
+ },
+ "cardCount": {
+  "one": "{n} card",
+  "other": "{n} cards"
+ },
+ "spreadCats": {
+  "classics": "Classics",
+  "love": "Love",
+  "career": "Career",
+  "growth": "Growth"
+ },
+ "spreads": {
+  "title": "Tarot spreads: layouts and what each position means · ShenTarot",
+  "description": "Tarot spreads for love, career, decisions and yes or no questions, with every position explained.",
+  "crumb": "Spreads",
+  "eyebrow": "Layouts",
+  "h1": "Tarot spreads",
+  "lead": "What each spread is for and what every position means, from one card to the Celtic Cross.",
+  "catsNav": "Categories",
+  "seePositions": "See the positions"
+ },
+ "spread": {
+  "title": "{name} tarot spread: {count} · ShenTarot",
+  "description": "{name}: a {n}-card tarot spread. {blurb}",
+  "faqCount": "How many cards are in the {name} spread?",
+  "faqCountA": "{count}: {positions}.",
+  "positionSep": "; ",
+  "faqFor": "What is the {name} spread for?",
+  "faqQuestions": "What questions suit the {name} spread?",
+  "about": "The {name} spread",
+  "tabTry": "Draw the cards",
+  "tabPositions": "Positions",
+  "tabHow": "How to read it",
+  "tabRelated": "Related spreads",
+  "tabFaq": "Questions",
+  "tryTitle": "Try this spread",
+  "tryLead": "Draw the cards here and read each position. Nothing is sent anywhere.",
+  "positions": "The positions",
+  "source": "Source: {source}",
+  "bestFor": "Best for questions like",
+  "from": "From {topics}.",
+  "and": " and ",
+  "comma": ", ",
+  "how1": "Hold one clear question in mind.",
+  "how1YesNo": "Hold one clear question in mind, worded so it can be answered yes or no.",
+  "how2": "Shuffle, then lay out {count} in order, from position 1 to {n}.",
+  "how2One": "Shuffle, then lay out {count}.",
+  "how3": "Read each card for its position: the same card means something different as \"{first}\" than as \"{last}\".",
+  "how3One": "Read the card for its position: the same card means something different as a single answer than inside a bigger spread.",
+  "how4": "Then read the cards together: the story they tell, which suits lead and how many are Major Arcana. The reader below shows this for you.",
+  "related": "Related spreads",
+  "faqTitle": "Questions about the {name} spread"
+ },
+ "topic": {
+  "title": "{title}: questions to ask and spreads to use · ShenTarot",
+  "description": "{intro} Sample questions and the spreads that suit them.",
+  "meta": "{name} readings",
+  "asked": "Questions people ask",
+  "appNote": "In the app, tap a question like these to start your reading, or write your own.",
+  "guides": "Question guides",
+  "spreadsFor": "Spreads for {name} questions"
+ },
+ "questions": {
+  "title": "Tarot questions: what to ask and which spread to use · ShenTarot",
+  "description": "Common tarot questions about love, work and big choices, with better ways to ask them and the spread that suits each one.",
+  "crumb": "Questions",
+  "eyebrow": "Guides",
+  "h1": "Tarot questions",
+  "lead": "The questions people bring to tarot most often, what the cards can and cannot tell you, and the spread to use.",
+  "readGuide": "Read the guide"
+ },
+ "guide": {
+  "title": "{question} Tarot questions and the spread to use · ShenTarot",
+  "description": "{first} Better ways to ask, cards to look out for and the spread that suits it.",
+  "faqCan": "Can tarot answer \"{question}\"",
+  "faqWhich": "Which spread is best for \"{question}\"",
+  "faqWhichA": "The {name} spread ({count}). {blurb}",
+  "faqWord": "How should I word this question?",
+  "faqWordA": "Try asking: {better}",
+  "eyebrow": "{topic} question",
+  "askThis": "Ask this in a reading",
+  "tabsLabel": "This guide",
+  "tabAsk": "Better ways to ask",
+  "tabSpread": "The spread",
+  "tabCards": "Cards to look out for",
+  "tabNote": "Before you draw",
+  "tabFaq": "Questions",
+  "askLead": "Open questions about you tend to give clearer readings than questions about what someone else will do.",
+  "spreadTitle": "The spread to use",
+  "cardsNote": "No single card decides a reading. Read each one in its position and alongside the others.",
+  "noteTitle": "A note before you draw",
+  "faqTitle": "Questions about this reading",
+  "more": "More questions"
+ },
+ "toolsCrumb": "Free tools",
+ "freeTool": "Free tool",
+ "tools": {
+  "title": "Free tarot tools: yes or no, daily card, combinations · ShenTarot",
+  "description": "Free tarot tools in your browser: a yes or no reading, your card of the day, love compatibility, your year card, zodiac cards, a life path calculator, a personality quiz, a weekly draw, printable reading sheets and more.",
+  "eyebrow": "Free, in your browser",
+  "h1": "Tarot tools",
+  "lead": "Everything here runs on this page. Nothing you type or draw is sent anywhere.",
+  "kinds": "Kinds of tool",
+  "open": "Open",
+  "groups": {
+   "readings": "Readings",
+   "birthday": "Birthday and stars",
+   "fun": "Quiz and learning"
+  },
+  "list": {
+   "yes-no": {
+    "title": "Yes or No tarot",
+    "text": "Three cards and a lean for a yes or no question."
+   },
+   "daily-card": {
+    "title": "Card of the day",
+    "text": "One card, its meaning and a question to reflect on."
+   },
+   "combinations": {
+    "title": "Card combinations",
+    "text": "Pick two cards and see how they read together."
+   },
+   "elements": {
+    "title": "Elemental dignities",
+    "text": "See which cards strengthen or weaken each other."
+   },
+   "spreads": {
+    "title": "Read any spread",
+    "text": "Pick from 15 spreads, draw the cards and read every position."
+   },
+   "random-card": {
+    "title": "Draw random cards",
+    "text": "Shuffle the full deck and turn over one to ten cards."
+   },
+   "birth-card": {
+    "title": "Birth card calculator",
+    "text": "Your birth cards and your card for this year."
+   },
+   "love-compatibility": {
+    "title": "Love compatibility",
+    "text": "Compare two birth cards and their elements."
+   },
+   "year-card": {
+    "title": "Your year card",
+    "text": "Your tarot card for this year or the next."
+   },
+   "zodiac-tarot": {
+    "title": "Zodiac tarot cards",
+    "text": "The cards for your star sign, its planet and its decans."
+   },
+   "life-path": {
+    "title": "Life path number",
+    "text": "Your numerology number and its Major Arcana card."
+   },
+   "which-card-are-you": {
+    "title": "Which card are you?",
+    "text": "A six-question quiz that matches you to a court card."
+   },
+   "weekly-draw": {
+    "title": "Weekly draw",
+    "text": "Seven cards, one for each day of the week."
+   },
+   "reading-sheet": {
+    "title": "Printable reading sheet",
+    "text": "Print a sheet for any spread, with space for notes."
+   },
+   "cards": {
+    "title": "Card meanings",
+    "text": "All 78 cards, upright and reversed."
+   }
+  }
+ },
+ "yesNo": {
+  "title": "Yes or No tarot: free three-card reading · ShenTarot",
+  "description": "Ask a yes or no question and draw three tarot cards. Upright cards lean yes, reversed lean no, and the middle card counts double. Free, in your browser.",
+  "crumb": "Yes or No tarot",
+  "h1": "Yes or No tarot",
+  "lead": "Hold a clear yes or no question in mind and draw three cards. Upright cards lean yes, reversed cards lean no, and the middle card counts double. Each card comes up reversed half the time, so neither answer is favoured.",
+  "button": "Draw three cards",
+  "howTitle": "How to ask a good yes or no question",
+  "how1": "Ask about one thing, and about something you can act on: \"Should I apply for the design job?\" works better than \"Will my life get better?\"",
+  "how2": "Ask once. Drawing again for the same question just adds noise.",
+  "how3": "Read the three meanings, not only the lean. They show what could tip the answer the other way.",
+  "note": "For entertainment and self-reflection. For health, money or legal questions, talk to a professional. See also the {link}.",
+  "noteLink": "Yes or No spread"
+ },
+ "daily": {
+  "title": "Daily tarot card: your card of the day · ShenTarot",
+  "description": "Draw your tarot card of the day, with its meaning and a question to reflect on. Your card stays the same until tomorrow. Free, in your browser.",
+  "crumb": "Daily tarot card",
+  "h1": "Your card of the day",
+  "lead": "Take a breath, think about the day ahead and draw one card. Read its meaning in the morning, and come back to the question tonight. Your card stays the same until tomorrow.",
+  "position": "Your card for today",
+  "button": "Draw today's card"
+ },
+ "weekly": {
+  "title": "Weekly tarot reading: one free card for each day · ShenTarot",
+  "description": "Draw seven tarot cards, one for each day of the week, and read what each day may ask of you. Free and drawn in your browser.",
+  "crumb": "Weekly draw",
+  "h1": "Your week in tarot",
+  "lead": "Seven cards, one for each day from Monday to Sunday. Draw at the start of the week, then come back each day to read that day's card. Shuffled in your browser.",
+  "days": [
+   "Monday",
+   "Tuesday",
+   "Wednesday",
+   "Thursday",
+   "Friday",
+   "Saturday",
+   "Sunday"
+  ],
+  "button": "Draw my week"
+ },
+ "pairing": {
+  "none": "None",
+  "choose": "Choose a card",
+  "reversed": "Reversed",
+  "random": "Draw at random",
+  "noElement": "Planet: no single element",
+  "togetherTitle": "Reading them together",
+  "elementsTitle": "Elemental dignities",
+  "reflect": "Questions to reflect on:",
+  "twoMajors": "Two Major Arcana: one big theme seen from two sides. Ask what {a} and {b} have in common, and where they pull apart.",
+  "majorTheme": "{major} sets the theme; {minor} shows where it plays out day to day.",
+  "sameSuit": "Both are {suit}: the whole question sits in {sense}.",
+  "suitsMeet": "{a} meet {b}: {senseA} meets {senseB}.",
+  "sameNumber": "Both are {word}: the same stage of a story is showing up in two parts of life.",
+  "neighbours": "They sit next to each other in the Major Arcana, so one may be the step that leads to the other.",
+  "twoSameRank": "Two {rank}: two people, or two sides of you, acting in a similar way.",
+  "twoCourts": "Two court cards: often two people in the situation, or two ways you could act.",
+  "oneCourt": "{name} often stands for a person, or a way of acting, in the situation the other card describes.",
+  "bothReversed": "Both reversed: the energy of both cards is blocked, delayed or turned inward. Ask what is holding it back.",
+  "oneReversed": "{name} is reversed: one part flows while the other is blocked or turned inward.",
+  "elementsLine": "Elements: {a} ({ea}) and {b} ({eb}) {rel}.",
+  "pairLine": "{a} and {b} {rel}.",
+  "rel": {
+   "same": "share an element, so they strengthen each other",
+   "friendly": "have friendly elements, so they support each other",
+   "contrary": "have opposite elements, so they weaken each other",
+   "neutral": "neither help nor hinder each other, because one has no single element"
+  },
+  "muchWeak": "{name} is much weakened: both neighbours oppose it. Read it lightly, as a smaller influence.",
+  "mixed": "{name} is mixed: one neighbour supports it and one opposes it.",
+  "someWeak": "{name} is somewhat weakened by one opposing neighbour.",
+  "strong": "{name} is strengthened: both neighbours support it. Read it as a strong influence.",
+  "someStrong": "{name} is somewhat strengthened by one supporting neighbour.",
+  "neither": "{name} is neither helped nor hindered by its neighbours.",
+  "bridge": "{l} and {r} oppose each other, but {m} gets on with both: it can bridge the two."
+ }
+}

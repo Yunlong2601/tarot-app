@@ -1,0 +1,46 @@
+---
+import Base from "../../../layouts/Base.astro";
+import { BASE } from "../../../config.ts";
+import { CARDS, cardIds, slug } from "../../../lib/data.ts";
+import { i18n, langPaths, type Locale } from "../../../i18n/index.ts";
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Locale };
+const L = i18n(lang);
+const { t, url: u } = L;
+
+const groups = (["major", "wands", "cups", "swords", "pentacles"] as const).map((g) => ({
+  key: g,
+  title: L.group(g),
+  ids: cardIds.filter((id) => (g === "major" ? CARDS[id].arcana === "major" : CARDS[id].suit === g)),
+}));
+---
+<Base
+  title={t("cards.title")}
+  description={t("cards.description")}
+  path="cards"
+  crumbs={[[t("cards.crumb"), "cards"]]}
+  lang={lang}
+>
+  <header class="page-head center">
+    <p class="eyebrow">{t("cards.eyebrow")}</p>
+    <h1>{t("cards.h1")}</h1>
+    <p class="lead">{t("cards.lead")}</p>
+  </header>
+  <nav class="pills" style="justify-content:center" aria-label={t("cards.suitsNav")}>
+    {groups.map((g) => <a href={`#${g.key}`}>{g.title}</a>)}
+  </nav>
+  {groups.map((g) => (
+    <section>
+      <h2 class="group-title" id={g.key}>{g.title} <small>{L.content.groups[g.key]}</small></h2>
+      <div class="card-grid">
+        {g.ids.map((id) => (
+          <a class="tcard" href={u(`cards/${slug(id)}`)}>
+            <img src={`${BASE}cards/art/${id}.jpg`} alt="" loading="lazy" width="150" height="257" />
+            {L.cards[id]!.name}
+          </a>
+        ))}
+      </div>
+    </section>
+  ))}
+</Base>

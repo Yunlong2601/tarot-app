@@ -4,13 +4,22 @@
 // a line of two or three cards. Nothing leaves the page.
 import { BASE } from "../config.ts";
 import { readerDeck } from "../lib/data.ts";
+import { i18n, type Locale } from "../i18n/index.ts";
 
 interface Props {
   mode: "combine" | "elements";
   slots: string[];
+  lang?: Locale;
 }
-const { mode, slots } = Astro.props;
-const config = JSON.stringify({ mode, slots, base: BASE, deck: readerDeck });
+const { mode, slots, lang = "en" } = Astro.props;
+const L = i18n(lang);
+const { t } = L;
+const deck = readerDeck(L);
+const config = JSON.stringify({
+  mode, slots, base: BASE, cards: L.url("cards"), deck,
+  t: { ...L.ui.pairing, nameReversed: L.ui.reader.nameReversed, altReversed: L.ui.reader.altReversed, fullMeaning: L.ui.reader.fullMeaning },
+  suits: L.ui.suits, sense: L.ui.suitSense, elements: L.ui.elements, numbers: L.ui.card.numberWords, ranks: L.ui.card.ranks,
+});
 ---
 <div class="pairing" data-pairing>
   <script type="application/json" data-config set:html={config.replace(/</g, "\\u003c")} />
@@ -19,15 +28,15 @@ const config = JSON.stringify({ mode, slots, base: BASE, deck: readerDeck });
       <div class="pick">
         <label>{s}
           <select data-card={i}>
-            <option value="">{i === 2 ? "None" : "Choose a card"}</option>
-            {readerDeck.map((c) => <option value={c.slug}>{c.name}</option>)}
+            <option value="">{i === 2 ? t("pairing.none") : t("pairing.choose")}</option>
+            {deck.map((c) => <option value={c.slug}>{c.name}</option>)}
           </select>
         </label>
-        {mode === "combine" && <label class="check"><input type="checkbox" data-rev={i} /> Reversed</label>}
+        {mode === "combine" && <label class="check"><input type="checkbox" data-rev={i} /> {t("pairing.reversed")}</label>}
       </div>
     ))}
     <p class="center actions">
-      <button class="btn btn-gold" type="button" data-random>Draw at random</button>
+      <button class="btn btn-gold" type="button" data-random>{t("pairing.random")}</button>
     </p>
   </div>
   <div data-out aria-live="polite"></div>
@@ -35,7 +44,12 @@ const config = JSON.stringify({ mode, slots, base: BASE, deck: readerDeck });
 
 <script>
   type Card = { id: string; slug: string; name: string; suit: string | null; n: number | null; keywords: string[]; up: string; rev: string; upQ: string; revQ: string; el: string | null };
-  type Config = { mode: "combine" | "elements"; slots: string[]; base: string; deck: Card[] };
+  type Config = {
+    mode: "combine" | "elements"; slots: string[]; base: string; cards: string; deck: Card[];
+    t: Record<string, string> & { rel: Record<string, string> };
+    suits: Record<string, string>; sense: Record<string, string>; elements: Record<string, string>; numbers: string[]; ranks: Record<string, string>;
+  };
+  const fill = (s: string, v: Record<string, string | number>) => s.replace(/\{(\w+)\}/g, (m, k: string) => (k in v ? String(v[k]) : m));
 
   const rand = (n: number) => {
     const r = new Uint32Array(1);
@@ -48,8 +62,6 @@ const config = JSON.stringify({ mode, slots, base: BASE, deck: readerDeck });
     if (text) e.textContent = text;
     return e;
   };
-  const NUMBER_WORD = ["", "Aces", "Twos", "Threes", "Fours", "Fives", "Sixes", "Sevens", "Eights", "Nines", "Tens"];
-  const SUIT_SENSE: Record<string, string> = { wands: "drive and action", cups: "feelings and relationships", swords: "thoughts and conflict", pentacles: "work, money and the body" };
   const COURT = ["page", "knight", "queen", "king"];
   const isCourt = (c: Card) => c.suit !== null && c.n === null;
   const courtRank = (c: Card) => COURT.find((r) => c.id.endsWith(`_${r}`)) ?? "";
@@ -64,12 +76,6 @@ const config = JSON.stringify({ mode, slots, base: BASE, deck: readerDeck });
     const pair = [a, b].sort().join("+");
     return pair === "Fire+Water" || pair === "Air+Earth" ? "contrary" : "friendly";
   }
-  const REL_TEXT: Record<Rel, string> = {
-    same: "share an element, so they strengthen each other",
-    friendly: "have friendly elements, so they support each other",
-    contrary: "have opposite elements, so they weaken each other",
-    neutral: "neither help nor hinder each other, because one has no single element",
-  };
 
   for (const root of document.querySelectorAll<HTMLElement>("[data-pairing]")) {
     const cfg = JSON.parse(root.querySelector("[data-config]")!.textContent!) as Config;
@@ -77,6 +83,9 @@ const config = JSON.stringify({ mode, slots, base: BASE, deck: readerDeck });
     const revs = [...root.querySelectorAll<HTMLInputElement>("[data-rev]")];
     const out = root.querySelector<HTMLElement>("[data-out]")!;
     const bySlug = new Map(cfg.deck.map((c) => [c.slug, c]));
+    const T = cfg.t;
+    const REL_TEXT = T.rel as Record<Rel, string>;
+    const elName = (e: string) => cfg.elements[e.toLowerCase()] ?? e;
 
     function chosen() {
       return selects.map((s, i) => ({ card: bySlug.get(s.value), reversed: !!revs[i]?.checked }));
@@ -87,19 +96,19 @@ const config = JSON.stringify({ mode, slots, base: BASE, deck: readerDeck });
       spot.append(el("p", "pos", label));
       const box = el("div", "face");
       const link = el("a");
-      link.href = `${cfg.base}cards/${card.slug}`;
+      link.href = `${cfg.cards}/${card.slug}`;
       const img = el("img", reversed ? "rev" : "");
       img.src = `${cfg.base}cards/art/${card.id}.jpg`;
-      img.alt = `${card.name}${reversed ? ", reversed" : ""}`;
+      img.alt = reversed ? fill(T.altReversed!, { name: card.name }) : card.name;
       img.width = 300;
       img.height = 514;
       link.append(img);
       const body = el("div", "face-body");
-      body.append(el("b", "", card.name + (reversed ? " (reversed)" : "")));
-      if (cfg.mode === "elements") body.append(el("p", `elem ${(card.el ?? "none").toLowerCase()}`, card.el ?? "Planet: no single element"));
+      body.append(el("b", "", reversed ? fill(T.nameReversed!, { name: card.name }) : card.name));
+      if (cfg.mode === "elements") body.append(el("p", `elem ${(card.el ?? "none").toLowerCase()}`, card.el ? elName(card.el) : T.noElement));
       body.append(el("p", "kw", card.keywords.join(" · ")));
       if (cfg.mode === "combine") body.append(el("p", "", reversed ? card.rev : card.up));
-      const more = el("a", "link-arrow", "Full meaning");
+      const more = el("a", "link-arrow", T.fullMeaning);
       more.href = link.href;
       body.append(more);
       box.append(link, body);
@@ -110,21 +119,21 @@ const config = JSON.stringify({ mode, slots, base: BASE, deck: readerDeck });
     function combineNotes(a: Card, ar: boolean, b: Card, br: boolean) {
       const lines: string[] = [];
       const am = a.suit === null, bm = b.suit === null;
-      if (am && bm) lines.push(`Two Major Arcana: one big theme seen from two sides. Ask what ${a.name} and ${b.name} have in common, and where they pull apart.`);
+      if (am && bm) lines.push(fill(T.twoMajors!, { a: a.name, b: b.name }));
       else if (am || bm) {
         const [m, x] = am ? [a, b] : [b, a];
-        lines.push(`${m.name} sets the theme; ${x.name} shows where it plays out day to day.`);
-      } else if (a.suit === b.suit) lines.push(`Both are ${a.suit}: the whole question sits in ${SUIT_SENSE[a.suit!]}.`);
-      else lines.push(`${a.suit![0]!.toUpperCase()}${a.suit!.slice(1)} meet ${b.suit}: ${SUIT_SENSE[a.suit!]} meets ${SUIT_SENSE[b.suit!]}.`);
-      if (!am && !bm && a.n !== null && a.n === b.n) lines.push(`Both are ${NUMBER_WORD[a.n]}: the same stage of a story is showing up in two parts of life.`);
-      if (am && bm && a.n !== null && b.n !== null && Math.abs(a.n - b.n) === 1) lines.push("They sit next to each other in the Major Arcana, so one may be the step that leads to the other.");
+        lines.push(fill(T.majorTheme!, { major: m.name, minor: x.name }));
+      } else if (a.suit === b.suit) lines.push(fill(T.sameSuit!, { suit: cfg.suits[a.suit!]!, sense: cfg.sense[a.suit!]! }));
+      else lines.push(fill(T.suitsMeet!, { a: cfg.suits[a.suit!]!, b: cfg.suits[b.suit!]!, senseA: cfg.sense[a.suit!]!, senseB: cfg.sense[b.suit!]! }));
+      if (!am && !bm && a.n !== null && a.n === b.n) lines.push(fill(T.sameNumber!, { word: cfg.numbers[a.n]! }));
+      if (am && bm && a.n !== null && b.n !== null && Math.abs(a.n - b.n) === 1) lines.push(T.neighbours!);
       const courts = [a, b].filter(isCourt);
-      if (courts.length === 2) lines.push(courtRank(a) === courtRank(b) ? `Two ${courtRank(a)}s: two people, or two sides of you, acting in a similar way.` : "Two court cards: often two people in the situation, or two ways you could act.");
-      else if (courts.length === 1) lines.push(`${courts[0]!.name} often stands for a person, or a way of acting, in the situation the other card describes.`);
-      if (ar && br) lines.push("Both reversed: the energy of both cards is blocked, delayed or turned inward. Ask what is holding it back.");
-      else if (ar || br) lines.push(`${ar ? a.name : b.name} is reversed: one part flows while the other is blocked or turned inward.`);
+      if (courts.length === 2) lines.push(courtRank(a) === courtRank(b) ? fill(T.twoSameRank!, { rank: cfg.ranks[courtRank(a)]! }) : T.twoCourts!);
+      else if (courts.length === 1) lines.push(fill(T.oneCourt!, { name: courts[0]!.name }));
+      if (ar && br) lines.push(T.bothReversed!);
+      else if (ar || br) lines.push(fill(T.oneReversed!, { name: ar ? a.name : b.name }));
       const r = relation(a.el, b.el);
-      if (a.el && b.el) lines.push(`Elements: ${a.name} (${a.el}) and ${b.name} (${b.el}) ${REL_TEXT[r]}.`);
+      if (a.el && b.el) lines.push(fill(T.elementsLine!, { a: a.name, ea: elName(a.el), b: b.name, eb: elName(b.el), rel: REL_TEXT[r] }));
       return lines;
     }
 
@@ -132,7 +141,7 @@ const config = JSON.stringify({ mode, slots, base: BASE, deck: readerDeck });
       const lines: string[] = [];
       for (let i = 0; i < cards.length - 1; i++) {
         const [x, y] = [cards[i]!, cards[i + 1]!];
-        lines.push(`${x.name} and ${y.name} ${REL_TEXT[relation(x.el, y.el)]}.`);
+        lines.push(fill(T.pairLine!, { a: x.name, b: y.name, rel: REL_TEXT[relation(x.el, y.el)] }));
       }
       if (cards.length === 3) {
         const [l, m, r] = cards as [Card, Card, Card];
@@ -140,15 +149,15 @@ const config = JSON.stringify({ mode, slots, base: BASE, deck: readerDeck });
         const good = rels.filter((x) => x === "same" || x === "friendly").length;
         const bad = rels.filter((x) => x === "contrary").length;
         let verdict: string;
-        if (bad === 2) verdict = `${m.name} is much weakened: both neighbours oppose it. Read it lightly, as a smaller influence.`;
-        else if (bad === 1 && good === 1) verdict = `${m.name} is mixed: one neighbour supports it and one opposes it.`;
-        else if (bad === 1) verdict = `${m.name} is somewhat weakened by one opposing neighbour.`;
-        else if (good === 2) verdict = `${m.name} is strengthened: both neighbours support it. Read it as a strong influence.`;
-        else if (good === 1) verdict = `${m.name} is somewhat strengthened by one supporting neighbour.`;
-        else verdict = `${m.name} is neither helped nor hindered by its neighbours.`;
-        lines.push(verdict);
+        if (bad === 2) verdict = T.muchWeak!;
+        else if (bad === 1 && good === 1) verdict = T.mixed!;
+        else if (bad === 1) verdict = T.someWeak!;
+        else if (good === 2) verdict = T.strong!;
+        else if (good === 1) verdict = T.someStrong!;
+        else verdict = T.neither!;
+        lines.push(fill(verdict, { name: m.name }));
         if (relation(l.el, r.el) === "contrary" && rels.every((x) => x === "friendly" || x === "same")) {
-          lines.push(`${l.name} and ${r.name} oppose each other, but ${m.name} gets on with both: it can bridge the two.`);
+          lines.push(fill(T.bridge!, { l: l.name, r: r.name, m: m.name }));
         }
       }
       return lines;
@@ -172,14 +181,14 @@ const config = JSON.stringify({ mode, slots, base: BASE, deck: readerDeck });
         ? combineNotes(picked[0]!.card, picked[0]!.reversed, picked[1]!.card, picked[1]!.reversed)
         : elementNotes(picked.map((p) => p.card));
       const panel = el("div", "panel summary");
-      panel.append(el("h3", "", cfg.mode === "combine" ? "Reading them together" : "Elemental dignities"));
+      panel.append(el("h3", "", cfg.mode === "combine" ? T.togetherTitle : T.elementsTitle));
       const ul = el("ul");
       for (const l of notes) ul.append(el("li", "", l));
       panel.append(ul);
       if (cfg.mode === "combine") {
         const qs = picked.map((p) => (p.reversed ? p.card.revQ : p.card.upQ)).filter(Boolean);
         if (qs.length) {
-          panel.append(el("p", "quint", "Questions to reflect on:"));
+          panel.append(el("p", "quint", T.reflect));
           const ql = el("ul", "questions-mini");
           for (const q of qs) ql.append(el("li", "", q));
           panel.append(ql);
