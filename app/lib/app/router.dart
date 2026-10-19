@@ -1,5 +1,7 @@
 import 'package:go_router/go_router.dart';
 
+import '../features/today/today_screen.dart';
+
 import '../features/you/own_key_screen.dart';
 import '../features/cards/card_detail_screen.dart';
 import '../features/draw/draw_screen.dart';
@@ -8,7 +10,6 @@ import '../features/invite/invite_screen.dart';
 import '../features/settings/settings_screen.dart';
 import '../features/settings/settings_screens.dart';
 import '../features/you/account_screen.dart';
-import '../features/guide/guide_screen.dart';
 import '../features/history/history_screen.dart';
 import '../features/library/library_screen.dart';
 import '../features/read/ask_screen.dart';
@@ -30,12 +31,12 @@ import 'motion.dart';
 
 GoRouter buildRouter(AppState state) {
   return GoRouter(
-    initialLocation: '/read',
+    initialLocation: '/today',
     refreshListenable: state,
     redirect: (context, routerState) {
       final onOnboarding = routerState.uri.path == '/onboarding';
       if (!state.onboarded && !onOnboarding) return '/onboarding';
-      if (state.onboarded && onOnboarding) return '/read';
+      if (state.onboarded && onOnboarding) return '/today';
       return null;
     },
     routes: [
@@ -45,20 +46,17 @@ GoRouter buildRouter(AppState state) {
         branches: [
           StatefulShellBranch(
             routes: [
+              GoRoute(path: '/today', builder: (_, _) => const TodayScreen()),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
               GoRoute(path: '/read', builder: (_, _) => const ReadHomeScreen()),
             ],
           ),
           StatefulShellBranch(
             routes: [
-              GoRoute(path: '/guide', builder: (_, _) => const GuideScreen()),
-            ],
-          ),
-          StatefulShellBranch(
-            routes: [
-              GoRoute(
-                path: '/library',
-                builder: (_, _) => const LibraryScreen(),
-              ),
+              GoRoute(path: '/learn', builder: (_, _) => const LibraryScreen()),
             ],
           ),
           StatefulShellBranch(
@@ -68,6 +66,8 @@ GoRouter buildRouter(AppState state) {
           ),
         ],
       ),
+      GoRoute(path: '/guide', redirect: (_, _) => '/learn'),
+      GoRoute(path: '/library', redirect: (_, _) => '/learn'),
       GoRoute(
         path: '/ask',
         builder: (_, s) => AskScreen(skipPicker: s.extra == true),

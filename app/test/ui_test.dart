@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:shentarot/features/home/home_shell.dart';
 import 'package:shentarot/app/app_state.dart';
 import 'package:shentarot/core/reading_service.dart';
 import 'package:shentarot/data/deck.dart';
@@ -56,14 +57,22 @@ void main() {
     await t.pumpAndSettle();
   }
 
-  testWidgets('landing shows the tagline and the mode button swaps', (t) async {
-    await start(t, AppState(deck: deck, onboarded: true));
-    expect(find.text('Hold the cards.'), findsOneWidget);
-    expect(find.text('Photo reading'), findsOneWidget);
-    await t.tap(find.byTooltip('Switch to digital card reading'));
+  testWidgets('five tabs: Today first, Draw, the Scan button, Learn, You', (
+    t,
+  ) async {
+    final s = AppState(deck: deck, onboarded: true);
+    await start(t, s);
+    expect(find.text('Draw digitally'), findsOneWidget);
+    expect(find.byType(LensCardIcon), findsOneWidget);
+    await t.tap(find.text('Draw').last);
     await t.pumpAndSettle();
+    expect(find.text('No deck with you?'), findsOneWidget);
     expect(find.text('Digital card reading'), findsOneWidget);
-    expect(find.text('Photo reading'), findsNothing);
+    // The middle button starts a reading with your own cards.
+    await t.tap(find.text('Scan').last);
+    await t.pumpAndSettle();
+    expect(s.readMode, ReadMode.photo);
+    expect(find.text('Skip: general reading'), findsOneWidget);
   });
 
   testWidgets('digital reading: ask, pick, draw into slots, flip, read', (
@@ -72,7 +81,7 @@ void main() {
     final fake = _Fake();
     final s = AppState(deck: deck, onboarded: true, readingService: fake);
     await start(t, s);
-    await t.tap(find.byTooltip('Switch to digital card reading'));
+    await t.tap(find.text('Draw').last);
     await t.pumpAndSettle();
     await t.tap(find.text('Digital card reading'));
     await t.pumpAndSettle();
@@ -103,10 +112,10 @@ void main() {
     expect(find.text('A thoughtful reading.'), findsOneWidget);
     expect(s.history.length, 1);
     expect(s.history.first.question, 'What should I focus on this week?');
-    // Back from the reading lands on the Read tab, not the draw screen.
+    // Back from the reading lands on the Today tab, not the draw screen.
     await t.tap(find.byTooltip('Back'));
     await t.pumpAndSettle();
-    expect(find.text('Hold the cards.'), findsOneWidget);
+    expect(find.text('Draw digitally'), findsOneWidget);
   });
 
   testWidgets('look first: the typed impression goes with the reading', (
@@ -116,7 +125,7 @@ void main() {
     final s = AppState(deck: deck, onboarded: true, readingService: fake)
       ..lookFirst = true;
     await start(t, s);
-    await t.tap(find.byTooltip('Switch to digital card reading'));
+    await t.tap(find.text('Draw').last);
     await t.pumpAndSettle();
     await t.tap(find.text('Digital card reading'));
     await t.pumpAndSettle();
@@ -145,7 +154,7 @@ void main() {
   testWidgets('spread picker recommends by the question', (t) async {
     final s = AppState(deck: deck, onboarded: true);
     await start(t, s);
-    await t.tap(find.text('Photo reading'));
+    await t.tap(find.text('Scan').last);
     await t.pumpAndSettle();
     await t.enterText(
       find.byType(TextField),
@@ -166,13 +175,15 @@ void main() {
   ) async {
     final s = AppState(deck: deck, onboarded: true);
     await start(t, s);
-    await t.tap(find.text('Library').last);
+    await t.tap(find.text('Learn').last);
+    await t.pumpAndSettle();
+    await t.tap(find.text('Spreads'));
     await t.pumpAndSettle();
     expect(s.readMode, ReadMode.photo);
     await t.tap(find.text('Draw digitally'));
     await t.pumpAndSettle();
     expect(s.readMode, ReadMode.digital);
-    await t.tap(find.text('Read').last);
+    await t.tap(find.text('Draw').last);
     await t.pumpAndSettle();
     expect(find.text('Digital card reading'), findsOneWidget);
   });
@@ -180,7 +191,9 @@ void main() {
   testWidgets('library: spreads by category, Classics first', (t) async {
     final s = AppState(deck: deck, onboarded: true);
     await start(t, s);
-    await t.tap(find.text('Library').last);
+    await t.tap(find.text('Learn').last);
+    await t.pumpAndSettle();
+    await t.tap(find.text('Spreads'));
     await t.pumpAndSettle();
     // Classics is the first tab and selected by default.
     expect(find.text('One-Card Reading'), findsOneWidget);
@@ -204,7 +217,9 @@ void main() {
   ) async {
     final s = AppState(deck: deck, onboarded: true);
     await start(t, s);
-    await t.tap(find.text('Library').last);
+    await t.tap(find.text('Learn').last);
+    await t.pumpAndSettle();
+    await t.tap(find.text('Spreads'));
     await t.pumpAndSettle();
     await tapVisible(t, find.text('Classics'));
     await tapVisible(t, find.text('Past, Present, Future'));
@@ -214,12 +229,12 @@ void main() {
 
   testWidgets('guide explains how to use the app', (t) async {
     await start(t, AppState(deck: deck, onboarded: true));
-    await t.tap(find.text('Guide').last);
+    await t.tap(find.text('Learn').last);
     await t.pumpAndSettle();
-    expect(find.text('Start a reading'), findsOneWidget);
+    await t.tap(find.text('Guide'));
+    await t.pumpAndSettle();
     expect(find.text('How ShenTarot works'), findsOneWidget);
     expect(find.text('Scan a card'), findsOneWidget);
-    expect(find.text('Draw today\'s card'), findsOneWidget);
     // A how-to tile opens its details with a shortcut to try it.
     await t.tap(find.text('Scan a card'));
     await t.pumpAndSettle();
@@ -234,7 +249,9 @@ void main() {
 
   testWidgets('guide lessons open and can be marked done', (t) async {
     await start(t, AppState(deck: deck, onboarded: true));
-    await t.tap(find.text('Guide').last);
+    await t.tap(find.text('Learn').last);
+    await t.pumpAndSettle();
+    await t.tap(find.text('Guide'));
     await t.pumpAndSettle();
     await t.scrollUntilVisible(find.text('What tarot is (and is not)'), 400);
     await t.tap(find.text('What tarot is (and is not)'));
@@ -248,7 +265,7 @@ void main() {
     expect(find.textContaining('1 of 12 done'), findsOneWidget);
   });
 
-  testWidgets('guide shows today\'s card and your journey', (t) async {
+  testWidgets('Today shows today\'s card and your journey', (t) async {
     final s = AppState(deck: deck, onboarded: true);
     final r = Reading(
       id: 'a',
@@ -260,8 +277,6 @@ void main() {
     s.history.addAll([r, r]);
     s.drawDailyCard(Random(3), false);
     await start(t, s);
-    await t.tap(find.text('Guide').last);
-    await t.pumpAndSettle();
     expect(find.text('TODAY\'S CARD'), findsOneWidget);
     expect(find.text('Your journey'), findsOneWidget);
     expect(find.textContaining('The Sun (2 times)'), findsOneWidget);

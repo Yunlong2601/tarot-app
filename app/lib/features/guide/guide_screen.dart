@@ -12,7 +12,11 @@ import '../../app/i18n.dart';
 /// Layout: today's card, quick ways to start, how-to tiles (tap for details),
 /// a 12-lesson course with progress kept on this phone, and common myths.
 class GuideScreen extends StatefulWidget {
-  const GuideScreen({super.key});
+  const GuideScreen({super.key, this.embedded = false});
+
+  /// Inside the Learn tab: no app bar, and no Today or Start a reading
+  /// sections (those have their own tabs).
+  final bool embedded;
 
   @override
   State<GuideScreen> createState() => _GuideScreenState();
@@ -364,11 +368,10 @@ class _GuideScreenState extends State<GuideScreen> {
 
     final doneCount = _done.where((i) => i < _lessons.length).length;
 
-    return Scaffold(
-      appBar: AppBar(title: Text(tr('Guide'))),
-      body: ListView(
-        padding: const EdgeInsets.fromLTRB(16, 8, 16, 32),
-        children: [
+    final list = ListView(
+      padding: const EdgeInsets.fromLTRB(16, 8, 16, 32),
+      children: [
+        if (!widget.embedded) ...[
           const TodaySection(),
           header('Start a reading'),
           pairs([
@@ -394,90 +397,97 @@ class _GuideScreenState extends State<GuideScreen> {
               icon: Icons.style_outlined,
               title: tr('All 78 cards'),
               subtitle: tr('Meanings and art'),
-              onTap: () => context.go('/library'),
+              onTap: () => context.go('/learn'),
             ),
           ]),
-          header('How ShenTarot works', tr('Tap a topic for the details.')),
-          pairs([
-            for (var i = 0; i < _howTo.length; i++)
-              _Tile(
-                icon: _howTo[i].$1,
-                title: tr(_howTo[i].$2),
-                onTap: () => _openHowTo(context, i),
-              ),
-          ]),
-          header(
-            'Learn tarot',
-            tr('12 short lessons. {0} of {1} done.', [
-              doneCount,
-              _lessons.length,
-            ]),
-          ),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(4),
-            child: LinearProgressIndicator(
-              value: doneCount / _lessons.length,
-              minHeight: 6,
-              color: AppColors.gold,
-              backgroundColor: AppColors.goldTint,
-              semanticsLabel: tr('Lessons done'),
+        ],
+        header('How ShenTarot works', tr('Tap a topic for the details.')),
+        pairs([
+          for (var i = 0; i < _howTo.length; i++)
+            _Tile(
+              icon: _howTo[i].$1,
+              title: tr(_howTo[i].$2),
+              onTap: () => _openHowTo(context, i),
             ),
+        ]),
+        header(
+          'Learn tarot',
+          tr('12 short lessons. {0} of {1} done.', [
+            doneCount,
+            _lessons.length,
+          ]),
+        ),
+        ClipRRect(
+          borderRadius: BorderRadius.circular(4),
+          child: LinearProgressIndicator(
+            value: doneCount / _lessons.length,
+            minHeight: 6,
+            color: AppColors.gold,
+            backgroundColor: AppColors.goldTint,
+            semanticsLabel: tr('Lessons done'),
           ),
-          const SizedBox(height: 12),
-          Card(
-            clipBehavior: Clip.antiAlias,
-            child: Column(
-              children: [
-                for (var i = 0; i < _lessons.length; i++) ...[
-                  if (i > 0) const Divider(height: 1, indent: 64),
-                  ListTile(
-                    minVerticalPadding: 12,
-                    leading: _LessonNumber(i + 1, done: _done.contains(i)),
-                    title: Text(tr(_lessons[i].$1)),
-                    trailing: const Icon(
-                      Icons.chevron_right,
-                      color: AppColors.textMuted,
+        ),
+        const SizedBox(height: 12),
+        Card(
+          clipBehavior: Clip.antiAlias,
+          child: Column(
+            children: [
+              for (var i = 0; i < _lessons.length; i++) ...[
+                if (i > 0) const Divider(height: 1, indent: 64),
+                ListTile(
+                  minVerticalPadding: 12,
+                  leading: _LessonNumber(i + 1, done: _done.contains(i)),
+                  title: Text(tr(_lessons[i].$1)),
+                  trailing: const Icon(
+                    Icons.chevron_right,
+                    color: AppColors.textMuted,
+                  ),
+                  onTap: () => _openLesson(context, i),
+                ),
+              ],
+            ],
+          ),
+        ),
+        header('Myths and worries'),
+        Card(
+          clipBehavior: Clip.antiAlias,
+          child: Column(
+            children: [
+              for (var i = 0; i < _myths.length; i++) ...[
+                if (i > 0) const Divider(height: 1),
+                ExpansionTile(
+                  shape: const Border(),
+                  collapsedShape: const Border(),
+                  title: Text(tr(_myths[i].$1)),
+                  childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                  expandedAlignment: Alignment.centerLeft,
+                  children: [
+                    Text(
+                      tr(_myths[i].$2),
+                      style: const TextStyle(color: AppColors.textMuted),
                     ),
-                    onTap: () => _openLesson(context, i),
-                  ),
-                ],
+                  ],
+                ),
               ],
-            ),
+            ],
           ),
-          header('Myths and worries'),
-          Card(
-            clipBehavior: Clip.antiAlias,
-            child: Column(
-              children: [
-                for (var i = 0; i < _myths.length; i++) ...[
-                  if (i > 0) const Divider(height: 1),
-                  ExpansionTile(
-                    shape: const Border(),
-                    collapsedShape: const Border(),
-                    title: Text(tr(_myths[i].$1)),
-                    childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-                    expandedAlignment: Alignment.centerLeft,
-                    children: [
-                      Text(
-                        tr(_myths[i].$2),
-                        style: const TextStyle(color: AppColors.textMuted),
-                      ),
-                    ],
-                  ),
-                ],
-              ],
-            ),
-          ),
+        ),
+        if (!widget.embedded) ...[
           const SizedBox(height: 20),
           OutlinedButton(
             style: OutlinedButton.styleFrom(
               minimumSize: const Size.fromHeight(48),
             ),
-            onPressed: () => context.go('/library'),
+            onPressed: () => context.go('/learn'),
             child: Text(tr('Browse all 78 cards')),
           ),
         ],
-      ),
+      ],
+    );
+    if (widget.embedded) return list;
+    return Scaffold(
+      appBar: AppBar(title: Text(tr('Guide'))),
+      body: list,
     );
   }
 }

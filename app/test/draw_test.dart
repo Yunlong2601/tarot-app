@@ -24,7 +24,7 @@ void main() {
       ShenTarotApp(initialState: AppState(deck: deck, onboarded: true)),
     );
     await t.pumpAndSettle();
-    await t.tap(find.byTooltip('Switch to digital card reading'));
+    await t.tap(find.text('Draw').last);
     await t.pumpAndSettle();
     await t.tap(find.text('Digital card reading'));
     await t.pumpAndSettle();

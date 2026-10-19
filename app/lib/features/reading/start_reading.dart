@@ -63,7 +63,7 @@ Future<void> startReading(
   // Back from the reading goes to the Read tab, not through the question and
   // spread screens again.
   final router = GoRouter.of(context);
-  router.go('/read');
+  router.go('/today');
   router.push('/reading/$id');
 }
 

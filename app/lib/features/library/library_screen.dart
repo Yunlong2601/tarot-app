@@ -6,9 +6,12 @@ import '../../app/app_state.dart';
 import '../../app/theme.dart';
 import '../../data/models.dart';
 import '../cards/cards_browser.dart';
+import '../guide/guide_screen.dart';
 import '../spreads/spread_layout.dart';
 import '../../app/i18n.dart';
 
+/// The Learn tab: the 78 cards, the spreads and the guide (lessons, how-to,
+/// myths).
 class LibraryScreen extends StatefulWidget {
   const LibraryScreen({super.key});
 
@@ -17,37 +20,53 @@ class LibraryScreen extends StatefulWidget {
 }
 
 class _LibraryScreenState extends State<LibraryScreen> {
-  bool _showCards = false;
+  _LearnPart _part = _LearnPart.cards;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(tr('Library'))),
+      appBar: AppBar(title: Text(tr('Learn'))),
       body: Column(
         children: [
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
             child: SizedBox(
               width: double.infinity,
-              child: SegmentedButton<bool>(
+              child: SegmentedButton<_LearnPart>(
                 showSelectedIcon: false,
                 segments: [
-                  ButtonSegment(value: false, label: Text(tr('Spreads'))),
-                  ButtonSegment(value: true, label: Text(tr('Cards'))),
+                  ButtonSegment(
+                    value: _LearnPart.cards,
+                    label: Text(tr('Cards')),
+                  ),
+                  ButtonSegment(
+                    value: _LearnPart.spreads,
+                    label: Text(tr('Spreads')),
+                  ),
+                  ButtonSegment(
+                    value: _LearnPart.guide,
+                    label: Text(tr('Guide')),
+                  ),
                 ],
-                selected: {_showCards},
-                onSelectionChanged: (s) => setState(() => _showCards = s.first),
+                selected: {_part},
+                onSelectionChanged: (s) => setState(() => _part = s.first),
               ),
             ),
           ),
           Expanded(
-            child: _showCards ? const CardsBrowser() : const _SpreadsList(),
+            child: switch (_part) {
+              _LearnPart.cards => const CardsBrowser(),
+              _LearnPart.spreads => const _SpreadsList(),
+              _LearnPart.guide => const GuideScreen(embedded: true),
+            },
           ),
         ],
       ),
     );
   }
 }
+
+enum _LearnPart { cards, spreads, guide }
 
 class _SpreadsList extends StatefulWidget {
   const _SpreadsList();

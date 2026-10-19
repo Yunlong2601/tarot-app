@@ -121,7 +121,7 @@ void main() {
       final s = AppState(deck: deck, onboarded: true);
       await t.pumpWidget(ShenTarotApp(initialState: s));
       await t.pumpAndSettle();
-      await t.tap(find.textContaining('Card of the Day'));
+      await t.tap(find.text('Draw today\'s card'));
       await t.pumpAndSettle();
       expect(find.text('Go deeper: reading for this card'), findsNothing);
       await t.tap(find.bySemanticsLabel(RegExp('Face-down card')));
@@ -140,7 +140,7 @@ void main() {
       );
       await t.pumpWidget(ShenTarotApp(initialState: s));
       await t.pumpAndSettle();
-      await t.tap(find.byTooltip('Switch to digital card reading'));
+      await t.tap(find.text('Draw').last);
       await t.pumpAndSettle();
       await t.tap(find.text('Digital card reading'));
       await t.pumpAndSettle();

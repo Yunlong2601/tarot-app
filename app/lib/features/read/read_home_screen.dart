@@ -6,19 +6,18 @@ import '../../app/app_state.dart';
 import '../../app/brand.dart';
 import '../../app/theme.dart';
 import '../paywall/annual_upgrade_card.dart';
+import '../today/today_screen.dart';
 import 'hero_background.dart';
 import '../../app/i18n.dart';
 
-/// The landing screen (Read tab): artwork, tagline and one big button that
-/// either scans a physical deck ("Photo reading") or draws cards on screen
-/// ("Digital card reading"). The arrows swap the mode.
+/// The Draw tab: a digital reading with cards drawn on screen. Scanning your
+/// own deck is the middle tab button (and a link here).
 class ReadHomeScreen extends StatelessWidget {
   const ReadHomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     final state = AppScope.of(context);
-    final photo = state.readMode == ReadMode.photo;
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
@@ -41,7 +40,8 @@ class ReadHomeScreen extends StatelessWidget {
                             child: Column(
                               children: [
                                 Text(
-                                  tr('Hold the cards.'),
+                                  tr('No deck with you?'),
+                                  textAlign: TextAlign.center,
                                   style: Theme.of(context)
                                       .textTheme
                                       .headlineLarge
@@ -49,42 +49,28 @@ class ReadHomeScreen extends StatelessWidget {
                                 ),
                                 const SizedBox(height: 6),
                                 Text(
-                                  tr('We explain them.'),
+                                  tr(
+                                    'Take a breath and hold your question in mind.',
+                                  ),
+                                  textAlign: TextAlign.center,
                                   style: TextStyle(
                                     color: AppColors.textMuted,
                                     fontSize: 16,
                                   ),
                                 ),
                                 const SizedBox(height: 24),
-                                _ModeButton(
-                                  photo: photo,
-                                  onMain: () => context.push('/ask'),
-                                  onSwap: () => state.setReadMode(
-                                    photo ? ReadMode.digital : ReadMode.photo,
-                                  ),
+                                _DrawButton(
+                                  onTap: () {
+                                    state.setReadMode(ReadMode.digital);
+                                    context.push('/ask');
+                                  },
                                 ),
                                 const SizedBox(height: 12),
                                 TextButton.icon(
-                                  onPressed: () => context.push('/daily'),
-                                  icon: const Icon(
-                                    Icons.wb_sunny_outlined,
-                                    size: 18,
-                                  ),
-                                  label: Text(
-                                    state.dailyCardIfDrawn == null
-                                        ? tr('Card of the Day (free)')
-                                        : "Today's card: ${state.dailyCardIfDrawn!.card.name}",
-                                  ),
+                                  onPressed: () => startPhotoReading(context),
+                                  icon: const Icon(Icons.camera, size: 18),
+                                  label: Text(tr('Scan your own cards')),
                                 ),
-                                if (state.dueRevisit case final due?)
-                                  TextButton.icon(
-                                    onPressed: () =>
-                                        context.push('/reading/${due.id}'),
-                                    icon: const Icon(Icons.history, size: 18),
-                                    label: Text(
-                                      tr('Look back at last week\'s reading'),
-                                    ),
-                                  ),
                                 Text(
                                   state.creditLine,
                                   style: const TextStyle(
@@ -111,70 +97,19 @@ class ReadHomeScreen extends StatelessWidget {
   }
 }
 
-class _ModeButton extends StatelessWidget {
-  const _ModeButton({
-    required this.photo,
-    required this.onMain,
-    required this.onSwap,
-  });
-  final bool photo;
-  final VoidCallback onMain;
-  final VoidCallback onSwap;
+class _DrawButton extends StatelessWidget {
+  const _DrawButton({required this.onTap});
+  final VoidCallback onTap;
 
   @override
-  Widget build(BuildContext context) {
-    final label = photo ? tr('Photo reading') : tr('Digital card reading');
-    return Material(
-      color: AppColors.gold,
-      borderRadius: BorderRadius.circular(32),
-      clipBehavior: Clip.antiAlias,
-      child: IntrinsicHeight(
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Flexible(
-              child: InkWell(
-                onTap: onMain,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 22,
-                    vertical: 16,
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Icon(
-                        photo ? Icons.center_focus_strong : Icons.auto_awesome,
-                        color: AppColors.onGold,
-                      ),
-                      const SizedBox(width: 10),
-                      Flexible(
-                        child: Text(
-                          label,
-                          style: const TextStyle(
-                            color: AppColors.onGold,
-                            fontWeight: FontWeight.w700,
-                            fontSize: 17,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            const VerticalDivider(width: 1, color: Color(0x33000000)),
-            IconButton(
-              tooltip: photo
-                  ? tr('Switch to digital card reading')
-                  : tr('Switch to photo reading'),
-              onPressed: onSwap,
-              icon: const Icon(Icons.swap_horiz, color: AppColors.onGold),
-              padding: const EdgeInsets.symmetric(horizontal: 14),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+  Widget build(BuildContext context) => FilledButton.icon(
+    style: FilledButton.styleFrom(
+      minimumSize: const Size(0, 56),
+      padding: const EdgeInsets.symmetric(horizontal: 28),
+      textStyle: const TextStyle(fontWeight: FontWeight.w700, fontSize: 17),
+    ),
+    onPressed: onTap,
+    icon: const Icon(Icons.auto_awesome),
+    label: Text(tr('Digital card reading')),
+  );
 }

@@ -1,10 +1,11 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-/// Read tab -> "Photo reading" -> skip the question -> the recommended spread
+/// The middle Scan button -> skip the question -> the recommended spread
 /// (Past, Present, Future for a blank question) -> the photo reading screen.
 Future<void> goPhoto(WidgetTester t) async {
-  await tapVisible(t, find.text('Photo reading'));
+  await t.tap(find.text('Scan').last);
+  await t.pumpAndSettle();
   await tapVisible(t, find.text('Skip: general reading'));
   await tapVisible(t, find.text('Start reading'));
 }

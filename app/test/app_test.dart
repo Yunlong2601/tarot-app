@@ -201,7 +201,9 @@ void main() {
       await tester.pumpAndSettle();
       await tester.tap(find.text('Get started'));
       await tester.pumpAndSettle();
-      expect(find.text('Photo reading'), findsOneWidget);
+      // The Today tab, with the 5-tab bar and the Scan button in the middle.
+      expect(find.text('Draw digitally'), findsOneWidget);
+      expect(find.text('Scan'), findsOneWidget);
     });
 
     testWidgets('the paywall shows the required links', (tester) async {
@@ -240,7 +242,7 @@ void main() {
         ShenTarotApp(initialState: AppState(deck: deck, onboarded: true)),
       );
       await tester.pumpAndSettle();
-      await tester.tap(find.text('Library').last);
+      await tester.tap(find.text('Learn').last);
       await tester.pumpAndSettle();
       await tester.tap(find.text('Cards').first);
       await tester.pumpAndSettle();

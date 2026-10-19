@@ -150,14 +150,14 @@ void main() {
   Future<void> open(WidgetTester t, AppState s, String tab) async {
     await t.pumpWidget(ShenTarotApp(initialState: s));
     await t.pumpAndSettle();
-    if (tab != 'Read') {
+    if (tab != 'Today') {
       await t.tap(find.text(tab).last);
       await t.pumpAndSettle();
     }
   }
 
   group('largest text size, small phone: nothing overflows', () {
-    for (final tab in ['Read', 'Guide', 'Library', 'You']) {
+    for (final tab in ['Today', 'Draw', 'Learn', 'You']) {
       testWidgets(tab, (t) async {
         phone(t, scale: 2.0);
         await open(t, state(premium: true), tab);
@@ -174,7 +174,7 @@ void main() {
 
     testWidgets('reading with ten cards', (t) async {
       phone(t, scale: 2.0);
-      await open(t, state(premium: true), 'Read');
+      await open(t, state(premium: true), 'Today');
       await goHistory(t);
       await tapVisible(t, find.textContaining('Celtic Cross'));
       await t.pumpAndSettle();
@@ -183,7 +183,7 @@ void main() {
 
     testWidgets('paywall', (t) async {
       phone(t, scale: 2.0);
-      await open(t, state()..trialUsed = true, 'Read');
+      await open(t, state()..trialUsed = true, 'Today');
       await openPaywall(t);
       await t.pumpAndSettle();
       expect(find.text('Unlock Premium'), findsOneWidget);
@@ -195,7 +195,7 @@ void main() {
     testWidgets('scan screen: tap targets and labels', (t) async {
       phone(t);
       final h = t.ensureSemantics();
-      await open(t, state(), 'Read');
+      await open(t, state(), 'Today');
       await goPhoto(t);
       await expectLater(t, meetsGuideline(androidTapTargetGuideline));
       await expectLater(t, meetsGuideline(iOSTapTargetGuideline));
@@ -216,7 +216,7 @@ void main() {
     testWidgets('paywall', (t) async {
       phone(t);
       final h = t.ensureSemantics();
-      await open(t, state()..trialUsed = true, 'Read');
+      await open(t, state()..trialUsed = true, 'Today');
       await openPaywall(t);
       await t.pumpAndSettle();
       await expectLater(t, meetsGuideline(androidTapTargetGuideline));
@@ -229,7 +229,7 @@ void main() {
     ) async {
       phone(t);
       final h = t.ensureSemantics();
-      await open(t, state(premium: true), 'Read');
+      await open(t, state(premium: true), 'Today');
       await goHistory(t);
       await tapVisible(t, find.textContaining('Celtic Cross'));
       await t.pumpAndSettle();
