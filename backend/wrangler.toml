@@ -7,6 +7,9 @@ compatibility_date = "2026-10-01"
 
 [vars]
 LLM_MODEL = "claude-haiku-5-5"
+# Spread photos: Anthropic refuses image requests to the reading model with this key
+# (403 "Request not allowed", seen 2026-10-20), so photos use Sonnet.
+VISION_MODEL = "claude-sonnet-5-5"
 GLOBAL_DAILY_TOKEN_CAP = "2000000"
 # App Attest (iOS device proof): "<Apple Team ID>.<bundle id>". Installs that send a
 # valid proof skip the per-IP new-install limit; once an install has proved itself it

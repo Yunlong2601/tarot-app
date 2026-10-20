@@ -342,21 +342,29 @@ export function createApp(deps: Deps = defaultDeps) {
     const capKey = `spread:${who.usageKey}:${day}`;
     const done = Number((await c.env.KV.get(capKey)) ?? "0");
     if (done >= SPREAD_SCANS_PER_DAY) return c.json({ error: "daily_limit", limit: SPREAD_SCANS_PER_DAY }, 429);
-    const targets = serverTargets(c.env).filter((t) => t.provider === "anthropic");
+    // VISION_MODEL picks the Anthropic model for photos (default: the reading model).
+    const targets = serverTargets(c.env).map((t) =>
+      t.provider === "anthropic" && c.env.VISION_MODEL ? { ...t, model: c.env.VISION_MODEL } : t);
     if (targets.length === 0) return c.json({ error: "service_busy" }, 503);
     const usage = deps.usage(c.env);
     const cap = Number(c.env.GLOBAL_DAILY_TOKEN_CAP ?? DEFAULT_GLOBAL_DAILY_TOKEN_CAP);
     if ((await usage.tokensToday(day)) >= cap) return c.json({ error: "service_busy" }, 503);
     await c.env.KV.put(capKey, String(done + 1), { expirationTtl: 2 * 86_400 });
-    const slot = await usage.reserve(who.usageKey, day, "spread_scan", "single", targets[0]!.model);
-    try {
-      const r = await (deps.vision ?? callVision)(body.image, mediaType, SPREAD_PROMPT, targets[0]!.apiKey, targets[0]!.model);
-      await usage.finalize(slot, r.inputTokens, r.outputTokens);
-      return c.json(parseSpread(r.text));
-    } catch {
-      await usage.release(slot);
-      return c.json({ error: "service_busy" }, 503);
+    // Same provider order as readings, with one fallback.
+    for (const target of targets.slice(0, 2)) {
+      const slot = await usage.reserve(who.usageKey, day, "spread_scan", "single", target.model);
+      try {
+        const r = await (deps.vision ?? callVision)(body.image, mediaType, SPREAD_PROMPT, target);
+        await usage.finalize(slot, r.inputTokens, r.outputTokens);
+        const found = parseSpread(r.text);
+        if (found.cards.length === 0) console.warn(`spread scan: no cards (${r.text.length} chars, ${r.outputTokens} out)`);
+        return c.json(found);
+      } catch (e) {
+        console.warn(`spread scan failed (${target.provider}): ${(e as Error)?.message ?? e}`);
+        await usage.release(slot);
+      }
     }
+    return c.json({ error: "service_busy" }, 503);
   });
 
   app.post("/v1/reading", async (c) => {

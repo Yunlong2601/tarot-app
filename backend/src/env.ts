@@ -11,6 +11,8 @@ export interface Env {
   LLM_PROVIDER?: string;
   REVENUECAT_SECRET_KEY?: string;
   LLM_MODEL?: string;
+  /** Anthropic model for spread photos; defaults to LLM_MODEL. */
+  VISION_MODEL?: string;
   GLOBAL_DAILY_TOKEN_CAP?: string;
   /** Comma-separated OAuth client ids accepted as the ID-token audience. Unset = accounts off. */
   GOOGLE_CLIENT_IDS?: string;
