@@ -1,0 +1,49 @@
+# No secrets here. Set secrets with `wrangler secret put <NAME>`:
+#   JWT_SECRET, HASH_SALT, ANTHROPIC_API_KEY, REVENUECAT_SECRET_KEY
+# Local development: copy .dev.vars.example to .dev.vars (git-ignored).
+name = "shentarot-api"
+main = "src/index.ts"
+compatibility_date = "2026-10-01"
+
+[vars]
+LLM_MODEL = "claude-haiku-5-5"
+# Spread photos: Anthropic refuses image requests to the reading model with this key
+# (403 "Request not allowed", seen 2026-10-20), so photos use Sonnet.
+VISION_MODEL = "claude-sonnet-5-5"
+GLOBAL_DAILY_TOKEN_CAP = "2000000"
+# App Attest (iOS device proof): "<Apple Team ID>.<bundle id>". Installs that send a
+# valid proof skip the per-IP new-install limit; once an install has proved itself it
+# must keep doing so. Unattested installs still work while ALLOW_UNATTESTED_INSTALLS
+# is true (Android until Play Integrity, and older iOS builds).
+APPLE_APP_ID = "SX4CW2L35K.com.shentech.shentarot"
+# Sign in with Apple: the ID token audience (bundle id). Setting it also turns on the
+# guest limit (1 free reading a day without an account, 2 when signed in).
+APPLE_CLIENT_IDS = "com.shentech.shentarot"
+# Sign in with Apple key (private key is the APPLE_SIWA_PRIVATE_KEY secret; file in
+# ~/shentarot-keys). Used to revoke Apple tokens when an account is deleted.
+APPLE_TEAM_ID = "SX4CW2L35K"
+APPLE_SIWA_KEY_ID = "F2F3VMC7QT"
+
+# Create with `wrangler d1 create shentarot` and `wrangler kv namespace create KV`,
+# then paste the ids below.
+[[d1_databases]]
+binding = "DB"
+database_name = "shentarot"
+database_id = "3b23ed42-1d88-4cfc-9662-27d9bd21f837"
+migrations_dir = "migrations"
+
+[[kv_namespaces]]
+binding = "KV"
+id = "1d3064f83fee4fd48cfe6ec48102d260"
+
+# Creator program screenshots (does nothing unless CREATOR_ENABLED=true). Create the
+# bucket with `wrangler r2 bucket create shentarot-shots` (keep it private), then
+# uncomment. The daily cron deletes screenshots after 30 days.
+# [[r2_buckets]]
+# binding = "SHOTS"
+# bucket_name = "shentarot-shots"
+
+# Daily jobs: referral free months (needs REFERRALS_ENABLED=true) and the 30-day
+# creator screenshot purge (needs CREATOR_ENABLED=true).
+[triggers]
+crons = ["0 3 * * *"]

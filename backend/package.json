@@ -1,0 +1,25 @@
+{
+  "name": "shentarot-backend",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "predeploy": "bash ../scripts/release-check.sh",
+    "deploy": "wrangler deploy",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "audit": "npm audit --omit=dev",
+    "deploy:launch": "bash ../scripts/release-check.sh && wrangler deploy --var ALLOW_UNATTESTED_INSTALLS:true",
+    "deploy:beta": "wrangler deploy --var ALLOW_UNATTESTED_INSTALLS:true --var GLOBAL_DAILY_TOKEN_CAP:500000 --var REFERRALS_ENABLED:true --var CREDITS_ENABLED:true"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "0.135.0",
+    "hono": "4.13.13"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "5.20261016.1",
+    "typescript": "7.0.2",
+    "vitest": "5.0.5",
+    "wrangler": "4.151.0"
+  }
+}

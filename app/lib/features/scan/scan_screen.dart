@@ -1,0 +1,177 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../app/app_scope.dart';
+import '../../app/theme.dart';
+import '../../data/models.dart';
+import '../reading/start_reading.dart';
+import '../spreads/spread_layout.dart';
+import 'orientation_dialog.dart';
+import 'spread_photo.dart';
+import '../../app/i18n.dart';
+
+/// Starts a reading by scanning with the camera (Phase C), picking manually,
+/// or - in debug builds - simulating a scan.
+class ScanScreen extends StatefulWidget {
+  const ScanScreen({super.key});
+
+  @override
+  State<ScanScreen> createState() => _ScanScreenState();
+}
+
+class _ScanScreenState extends State<ScanScreen> {
+  late final SpreadType _spread = AppScope.of(context).selectedSpread;
+
+  String get _question => AppScope.of(context).draftQuestion;
+
+  Future<void> _startReading(List<DrawnCard> cards, {bool simulated = false}) =>
+      startReading(
+        context,
+        spread: _spread,
+        cards: cards,
+        question: _question,
+        simulated: simulated,
+      );
+
+  void _toast(String message) =>
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(message)));
+
+  /// Debug-only stand-in for the camera: a random, duplicate-free draw.
+  List<TarotCard> _mockDraw() {
+    final cards = [...AppScope.of(context).deck.cards]..shuffle();
+    return cards.take(_spread.cardCount).toList();
+  }
+
+  List<DrawnCard> _asDrawn(List<TarotCard> cards) => [
+    for (var i = 0; i < cards.length; i++)
+      DrawnCard(card: cards[i], reversed: i.isOdd),
+  ];
+
+  Future<void> _scanWithCamera() async {
+    final cards = await context.push<List<DrawnCard>>(
+      '/scan-camera',
+      extra: _spread.cardCount,
+    );
+    if (cards == null || !mounted) return;
+    _startReading(cards);
+  }
+
+  Future<void> _photoOfSpread() async {
+    final cards = await scanWholeSpread(context, _spread);
+    if (cards == null || !mounted) return;
+    _startReading(cards);
+  }
+
+  Future<void> _pickManually() async {
+    final picked = <DrawnCard>[];
+    final deck = AppScope.of(context).deck;
+    while (picked.length < _spread.cardCount) {
+      final id = await context.push<String>('/pick');
+      if (id == null || !mounted) return;
+      if (picked.any((c) => c.card.id == id)) {
+        _toast(tr('That card is already in this reading.'));
+        continue;
+      }
+      final reversed = await askOrientation(context);
+      if (reversed == null || !mounted) return;
+      picked.add(DrawnCard(card: deck.byId(id)!, reversed: reversed));
+    }
+    _startReading(picked);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final state = AppScope.of(context);
+    final q = state.draftQuestion;
+    return Scaffold(
+      appBar: AppBar(title: Text(tr('Photo reading'))),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          Text(
+            _spread.label,
+            style: Theme.of(context).textTheme.titleLarge,
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 4),
+          Text(
+            q.isEmpty ? tr('General reading') : q,
+            textAlign: TextAlign.center,
+            maxLines: 3,
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(color: AppColors.textMuted),
+          ),
+          const SizedBox(height: 16),
+          Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 300),
+              child: SpreadLayoutView(type: _spread),
+            ),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            _spread.cardCount == 1
+                ? tr(
+                    'Shuffle your deck while you hold your question, draw one card, then scan it.',
+                  )
+                : tr(
+                    'Shuffle your deck while you hold your question, draw {0} cards and lay them out as shown. Then take one photo of the whole spread, or scan the cards one at a time.',
+                    [_spread.cardCount],
+                  ),
+            textAlign: TextAlign.center,
+            style: const TextStyle(color: AppColors.textMuted),
+          ),
+          const SizedBox(height: 16),
+          if (_spread.cardCount > 1) ...[
+            FilledButton.icon(
+              style: FilledButton.styleFrom(
+                minimumSize: const Size.fromHeight(52),
+              ),
+              onPressed: _photoOfSpread,
+              icon: const Icon(Icons.photo_camera),
+              label: Text(tr('Photo of the whole spread')),
+            ),
+            const SizedBox(height: 8),
+            OutlinedButton.icon(
+              style: OutlinedButton.styleFrom(
+                minimumSize: const Size.fromHeight(48),
+              ),
+              onPressed: _scanWithCamera,
+              icon: const Icon(Icons.camera_alt),
+              label: Text(tr('Scan one card at a time')),
+            ),
+          ] else
+            FilledButton.icon(
+              onPressed: _scanWithCamera,
+              icon: const Icon(Icons.camera_alt),
+              label: Text(tr('Scan with camera')),
+            ),
+          if (kDebugMode) ...[
+            const SizedBox(height: 8),
+            OutlinedButton(
+              onPressed: () =>
+                  _startReading(_asDrawn(_mockDraw()), simulated: true),
+              child: Text(tr('Simulate scan')),
+            ),
+          ],
+          const SizedBox(height: 8),
+          OutlinedButton(
+            onPressed: _pickManually,
+            style: OutlinedButton.styleFrom(
+              minimumSize: const Size.fromHeight(48),
+            ),
+            child: Text(tr('Can\'t scan? Pick a card manually')),
+          ),
+          const SizedBox(height: 12),
+          Text(
+            state.creditLine,
+            textAlign: TextAlign.center,
+            style: const TextStyle(color: AppColors.textMuted),
+          ),
+        ],
+      ),
+    );
+  }
+}

@@ -1,0 +1,782 @@
+{
+ "major_00_fool": {
+  "name": "O Louco",
+  "keywords": [
+   "começos",
+   "espontaneidade",
+   "confiança"
+  ],
+  "upright": "Um novo começo pede um salto de fé. Mantenha a curiosidade e abra-se ao novo.",
+  "reversed": "Hesitação ou descuido. Pare para olhar o chão antes de dar o passo."
+ },
+ "major_01_magician": {
+  "name": "O Mago",
+  "keywords": [
+   "habilidade",
+   "foco",
+   "engenho"
+  ],
+  "upright": "Você já tem as ferramentas de que precisa. Reúna sua atenção e aja com intenção.",
+  "reversed": "Energia dispersa ou talento não usado. Pergunte o que está tirando seu foco."
+ },
+ "major_02_high_priestess": {
+  "name": "A Sacerdotisa",
+  "keywords": [
+   "intuição",
+   "quietude",
+   "o não dito"
+  ],
+  "upright": "A reflexão tranquila traz respostas que o barulho não traz. Confie no que você sente sob a superfície.",
+  "reversed": "Ignorar sua voz interior, ou esconder algo de si mesmo."
+ },
+ "major_03_empress": {
+  "name": "A Imperatriz",
+  "keywords": [
+   "cuidado",
+   "abundância",
+   "criatividade"
+  ],
+  "upright": "Cuidado, conforto e crescimento estão ao seu alcance. Cuide do que você ama e deixe florescer.",
+  "reversed": "Sufocar, descuidar de si ou um bloqueio criativo."
+ },
+ "major_04_emperor": {
+  "name": "O Imperador",
+  "keywords": [
+   "estrutura",
+   "autoridade",
+   "estabilidade"
+  ],
+  "upright": "Limites claros e planejamento constante criam uma base sólida. Lidere com calma.",
+  "reversed": "Rigidez ou controle. Pergunte onde a firmeza virou teimosia."
+ },
+ "major_05_hierophant": {
+  "name": "O Hierofante",
+  "keywords": [
+   "tradição",
+   "orientação",
+   "pertencimento"
+  ],
+  "upright": "Aprender com a sabedoria estabelecida ou com uma comunidade pode trazer firmeza.",
+  "reversed": "Questionar regras que não servem mais. Encontre seu próprio caminho para o sentido."
+ },
+ "major_06_lovers": {
+  "name": "Os Enamorados",
+  "keywords": [
+   "escolha",
+   "conexão",
+   "alinhamento"
+  ],
+  "upright": "Uma escolha importante que reflete seus valores, ou um vínculo que pede honestidade.",
+  "reversed": "Desalinhamento ou indecisão. Veja se suas ações combinam com o que você valoriza."
+ },
+ "major_07_chariot": {
+  "name": "O Carro",
+  "keywords": [
+   "determinação",
+   "impulso",
+   "direção"
+  ],
+  "upright": "Força de vontade e foco levam você adiante. Segure firme as rédeas.",
+  "reversed": "Perder a direção, ou forçar demais sem um plano."
+ },
+ "major_08_strength": {
+  "name": "A Força",
+  "keywords": [
+   "coragem",
+   "paciência",
+   "compaixão"
+  ],
+  "upright": "Coragem tranquila e gentileza resolvem o que a força não resolve.",
+  "reversed": "Insegurança ou exaustão. Reconstrua a confiança aos poucos."
+ },
+ "major_09_hermit": {
+  "name": "O Eremita",
+  "keywords": [
+   "solidão",
+   "reflexão",
+   "orientação interior"
+  ],
+  "upright": "Dê um passo atrás para pensar. Um tempo a sós pode mostrar o que importa.",
+  "reversed": "Isolamento ou fuga da reflexão. Equilibre solidão e convivência."
+ },
+ "major_10_wheel_of_fortune": {
+  "name": "A Roda da Fortuna",
+  "keywords": [
+   "ciclos",
+   "mudança",
+   "perspectiva"
+  ],
+  "upright": "Tudo gira em ciclos. Adapte-se à mudança e veja o que ela oferece.",
+  "reversed": "Resistir à mudança ou sentir-se preso num ciclo. Procure o que você pode influenciar."
+ },
+ "major_11_justice": {
+  "name": "A Justiça",
+  "keywords": [
+   "justiça",
+   "verdade",
+   "responsabilidade"
+  ],
+  "upright": "Pese os fatos com honestidade. Escolhas claras e justas trazem equilíbrio.",
+  "reversed": "Parcialidade, fugir da responsabilidade ou uma visão desequilibrada."
+ },
+ "major_12_hanged_man": {
+  "name": "O Enforcado",
+  "keywords": [
+   "pausa",
+   "entrega",
+   "novo ângulo"
+  ],
+  "upright": "Parar para ver de outro jeito pode destravar uma situação.",
+  "reversed": "Adiar sem propósito. Pergunte se esperar ainda está ajudando."
+ },
+ "major_13_death": {
+  "name": "A Morte",
+  "keywords": [
+   "finais",
+   "transição",
+   "desapego"
+  ],
+  "upright": "Um capítulo se fecha para que outro comece. Solte o que já cumpriu seu papel.",
+  "reversed": "Apegar-se ao passado ou temer uma mudança necessária."
+ },
+ "major_14_temperance": {
+  "name": "A Temperança",
+  "keywords": [
+   "equilíbrio",
+   "paciência",
+   "moderação"
+  ],
+  "upright": "Combine necessidades opostas com paciência. Passos firmes e medidos funcionam melhor.",
+  "reversed": "Excesso ou impaciência. Procure onde as coisas estão desequilibradas."
+ },
+ "major_15_devil": {
+  "name": "O Diabo",
+  "keywords": [
+   "apego",
+   "hábito",
+   "sombra"
+  ],
+  "upright": "Perceba o que prende você, seja um hábito, uma crença ou uma dependência, e quanta escolha você realmente tem.",
+  "reversed": "Afrouxar as amarras. Perceber é o primeiro passo para a liberdade."
+ },
+ "major_16_tower": {
+  "name": "A Torre",
+  "keywords": [
+   "reviravolta",
+   "revelação",
+   "recomeço"
+  ],
+  "upright": "Um abalo repentino revela o que não era estável. O terreno limpo abre espaço para reconstruir.",
+  "reversed": "Medo de mudar ou um problema que arde devagar. Enfrente em vez de esperar."
+ },
+ "major_17_star": {
+  "name": "A Estrela",
+  "keywords": [
+   "esperança",
+   "renovação",
+   "calma"
+  ],
+  "upright": "Depois de uma fase difícil, a esperança volta com suavidade. Descanse e confie numa recuperação lenta.",
+  "reversed": "Dúvida ou pouca motivação. Seja gentil consigo e mantenha vivas as pequenas esperanças."
+ },
+ "major_18_moon": {
+  "name": "A Lua",
+  "keywords": [
+   "incerteza",
+   "sonhos",
+   "intuição"
+  ],
+  "upright": "As coisas não estão totalmente claras. Siga com cuidado e note seus medos e instintos.",
+  "reversed": "A confusão se dissipa, ou uma ansiedade que precisa de chão."
+ },
+ "major_19_sun": {
+  "name": "O Sol",
+  "keywords": [
+   "alegria",
+   "vitalidade",
+   "clareza"
+  ],
+  "upright": "Calor, confiança e abertura. Aproveite o que está indo bem.",
+  "reversed": "Entusiasmo apagado ou ego demais. Procure pequenas fontes de luz."
+ },
+ "major_20_judgement": {
+  "name": "O Julgamento",
+  "keywords": [
+   "reflexão",
+   "renovação",
+   "chamado"
+  ],
+  "upright": "Um momento de revisão honesta. Perdoe o passado e responda ao seu chamado interior.",
+  "reversed": "Autocrítica ou evitar uma decisão necessária."
+ },
+ "major_21_world": {
+  "name": "O Mundo",
+  "keywords": [
+   "conclusão",
+   "plenitude",
+   "conquista"
+  ],
+  "upright": "Um ciclo se completa. Reconheça o quanto você caminhou.",
+  "reversed": "Pontas soltas ou um fim que parece fora de alcance. Falta um último passo."
+ },
+ "wands_ace": {
+  "name": "Ás de Paus",
+  "keywords": [
+   "faísca",
+   "inspiração",
+   "energia nova"
+  ],
+  "upright": "Uma explosão de entusiasmo e a chance de começar algo ousado.",
+  "reversed": "Pouca energia ou um começo em falso. Cultive a ideia antes de correr."
+ },
+ "wands_two": {
+  "name": "Dois de Paus",
+  "keywords": [
+   "planejamento",
+   "escolhas",
+   "visão"
+  ],
+  "upright": "Você está na beira do que é conhecido. Decida para onde mirar.",
+  "reversed": "Medo de sair do conforto, ou planos que ficam no papel."
+ },
+ "wands_three": {
+  "name": "Três de Paus",
+  "keywords": [
+   "previsão",
+   "progresso",
+   "expansão"
+  ],
+  "upright": "Os primeiros esforços estão andando. Olhe mais longe e siga em frente.",
+  "reversed": "Atrasos ou visão estreita. Amplie seu olhar."
+ },
+ "wands_four": {
+  "name": "Quatro de Paus",
+  "keywords": [
+   "celebração",
+   "estabilidade",
+   "lar"
+  ],
+  "upright": "Um momento de descanso e alegria compartilhada depois do esforço.",
+  "reversed": "Inquietação em casa ou uma celebração que parece vazia."
+ },
+ "wands_five": {
+  "name": "Cinco de Paus",
+  "keywords": [
+   "competição",
+   "atrito",
+   "debate"
+  ],
+  "upright": "Ideias em choque e rivalidade. A competição pode afiar você se continuar amigável.",
+  "reversed": "Evitar conflito, ou tensão voltada para dentro."
+ },
+ "wands_six": {
+  "name": "Seis de Paus",
+  "keywords": [
+   "reconhecimento",
+   "progresso",
+   "confiança"
+  ],
+  "upright": "Sucesso público ou um impulso de confiança pelo seu esforço.",
+  "reversed": "Insegurança ou busca por elogios. Meça o sucesso pelos seus próprios critérios."
+ },
+ "wands_seven": {
+  "name": "Sete de Paus",
+  "keywords": [
+   "defesa",
+   "perseverança",
+   "manter a posição"
+  ],
+  "upright": "Você mantém sua posição. Fique firme no que acredita.",
+  "reversed": "Sentir-se sobrecarregado ou desistir cedo demais."
+ },
+ "wands_eight": {
+  "name": "Oito de Paus",
+  "keywords": [
+   "velocidade",
+   "movimento",
+   "mensagens"
+  ],
+  "upright": "As coisas andam rápido. Aja logo e mantenha a comunicação aberta.",
+  "reversed": "Atrasos ou esforço disperso. Desacelere para se reorganizar."
+ },
+ "wands_nine": {
+  "name": "Nove de Paus",
+  "keywords": [
+   "resiliência",
+   "limites",
+   "último esforço"
+  ],
+  "upright": "Cansado, mas quase lá. Conte com sua resiliência.",
+  "reversed": "Esgotamento ou teimosia. Descansar pode ser mais sábio que outra rodada."
+ },
+ "wands_ten": {
+  "name": "Dez de Paus",
+  "keywords": [
+   "fardo",
+   "responsabilidade",
+   "sobrecarga"
+  ],
+  "upright": "Você está carregando muito. Pense no que pode deixar de lado.",
+  "reversed": "Largar um fardo, ou ter dificuldade em pedir ajuda."
+ },
+ "wands_page": {
+  "name": "Valete de Paus",
+  "keywords": [
+   "curiosidade",
+   "entusiasmo",
+   "exploração"
+  ],
+  "upright": "Um iniciante animado, ansioso para explorar e testar ideias.",
+  "reversed": "Impaciência ou projetos pela metade."
+ },
+ "wands_knight": {
+  "name": "Cavaleiro de Paus",
+  "keywords": [
+   "aventura",
+   "energia",
+   "impulso"
+  ],
+  "upright": "Energia ousada e inquieta que avança com tudo.",
+  "reversed": "Imprudência ou frustração. Pense antes de pular."
+ },
+ "wands_queen": {
+  "name": "Rainha de Paus",
+  "keywords": [
+   "calor",
+   "confiança",
+   "carisma"
+  ],
+  "upright": "Confiante, acolhedora e determinada. Lidere inspirando.",
+  "reversed": "Insegurança ou ciúme. Reconecte-se com sua própria faísca."
+ },
+ "wands_king": {
+  "name": "Rei de Paus",
+  "keywords": [
+   "visão",
+   "liderança",
+   "ousadia"
+  ],
+  "upright": "Um líder nato com uma visão clara.",
+  "reversed": "Liderança dominadora ou impulsiva."
+ },
+ "cups_ace": {
+  "name": "Ás de Copas",
+  "keywords": [
+   "abertura",
+   "novos sentimentos",
+   "compaixão"
+  ],
+  "upright": "O coração se abre. Acolha a bondade e a renovação emocional.",
+  "reversed": "Sentimentos contidos. Permita-se sentir."
+ },
+ "cups_two": {
+  "name": "Dois de Copas",
+  "keywords": [
+   "conexão",
+   "parceria",
+   "respeito mútuo"
+  ],
+  "upright": "Um vínculo equilibrado, construído com respeito e sentimento compartilhado.",
+  "reversed": "Desequilíbrio ou falha de comunicação numa relação."
+ },
+ "cups_three": {
+  "name": "Três de Copas",
+  "keywords": [
+   "amizade",
+   "celebração",
+   "comunidade"
+  ],
+  "upright": "Alegria compartilhada. Aproveite a boa companhia.",
+  "reversed": "Exagero, ou sentir-se deixado de lado."
+ },
+ "cups_four": {
+  "name": "Quatro de Copas",
+  "keywords": [
+   "apatia",
+   "contemplação",
+   "reavaliação"
+  ],
+  "upright": "Tédio ou retraimento. Pergunte o que você realmente quer.",
+  "reversed": "Despertar para novas opções depois de uma fase sem graça."
+ },
+ "cups_five": {
+  "name": "Cinco de Copas",
+  "keywords": [
+   "perda",
+   "arrependimento",
+   "luto"
+  ],
+  "upright": "O foco está no que se perdeu. Lembre que algumas taças continuam de pé.",
+  "reversed": "Seguir em frente, perdoar e aos poucos voltar-se para o que ficou."
+ },
+ "cups_six": {
+  "name": "Seis de Copas",
+  "keywords": [
+   "nostalgia",
+   "inocência",
+   "gentileza"
+  ],
+  "upright": "Memórias e generosidade suave. Revisite o passado com carinho.",
+  "reversed": "Preso ao passado, ou olhando para trás em vez de para frente."
+ },
+ "cups_seven": {
+  "name": "Sete de Copas",
+  "keywords": [
+   "devaneios",
+   "opções",
+   "ilusão"
+  ],
+  "upright": "Muitas possibilidades e alguma fantasia. Separe o real do imaginado.",
+  "reversed": "A clareza chega, ou escolhas que sobrecarregam."
+ },
+ "cups_eight": {
+  "name": "Oito de Copas",
+  "keywords": [
+   "partir",
+   "buscar mais",
+   "seguir em frente"
+  ],
+  "upright": "Deixar algo que não satisfaz mais em busca de sentido.",
+  "reversed": "Andar sem rumo, ou medo de partir."
+ },
+ "cups_nine": {
+  "name": "Nove de Copas",
+  "keywords": [
+   "contentamento",
+   "satisfação",
+   "gratidão"
+  ],
+  "upright": "Uma sensação de realização. Valorize o que você tem.",
+  "reversed": "Presunção ou um desejo que não satisfaz tanto quanto o esperado."
+ },
+ "cups_ten": {
+  "name": "Dez de Copas",
+  "keywords": [
+   "harmonia",
+   "família",
+   "realização"
+  ],
+  "upright": "Realização emocional e sensação de pertencimento.",
+  "reversed": "Laços tensos, ou valores que não se alinham bem."
+ },
+ "cups_page": {
+  "name": "Valete de Copas",
+  "keywords": [
+   "sensibilidade",
+   "imaginação",
+   "abertura"
+  ],
+  "upright": "Uma mensagem terna e criativa. Ouça seus sentimentos.",
+  "reversed": "Mau humor ou imaturidade emocional."
+ },
+ "cups_knight": {
+  "name": "Cavaleiro de Copas",
+  "keywords": [
+   "romance",
+   "charme",
+   "idealismo"
+  ],
+  "upright": "Um sonhador que segue o coração. Podem surgir propostas ou convites.",
+  "reversed": "Ideias irreais ou sinais confusos."
+ },
+ "cups_queen": {
+  "name": "Rainha de Copas",
+  "keywords": [
+   "empatia",
+   "intuição",
+   "cuidado"
+  ],
+  "upright": "Profundamente cuidadosa e intuitiva. Cuide de si também.",
+  "reversed": "Sobrecarga emocional ou descuidar das próprias necessidades."
+ },
+ "cups_king": {
+  "name": "Rei de Copas",
+  "keywords": [
+   "equilíbrio emocional",
+   "diplomacia",
+   "calma"
+  ],
+  "upright": "Maduro, estável e compassivo. Mantenha a calma sob pressão.",
+  "reversed": "Sentimentos reprimidos ou mau humor escondido atrás da compostura."
+ },
+ "swords_ace": {
+  "name": "Ás de Espadas",
+  "keywords": [
+   "clareza",
+   "verdade",
+   "avanço"
+  ],
+  "upright": "Uma ideia clara corta a confusão. Pense e fale com simplicidade.",
+  "reversed": "Pensamento confuso ou palavras duras."
+ },
+ "swords_two": {
+  "name": "Dois de Espadas",
+  "keywords": [
+   "impasse",
+   "indecisão",
+   "defensiva"
+  ],
+  "upright": "Uma escolha difícil que você está evitando. Tire a venda quando estiver pronto.",
+  "reversed": "Informações vêm à tona, ou a indecisão se arrasta."
+ },
+ "swords_three": {
+  "name": "Três de Espadas",
+  "keywords": [
+   "dor no coração",
+   "tristeza",
+   "honestidade"
+  ],
+  "upright": "Uma verdade dolorosa ou tristeza. Reconheça-a para que possa curar.",
+  "reversed": "A recuperação começa, ou você se apega à dor."
+ },
+ "swords_four": {
+  "name": "Quatro de Espadas",
+  "keywords": [
+   "descanso",
+   "recuperação",
+   "recolhimento"
+  ],
+  "upright": "Pare e recarregue. Descansar é produtivo.",
+  "reversed": "Inquietação ou voltar à ação cedo demais."
+ },
+ "swords_five": {
+  "name": "Cinco de Espadas",
+  "keywords": [
+   "conflito",
+   "tensão",
+   "vitórias vazias"
+  ],
+  "upright": "Uma briga que custa mais do que rende. Escolha suas batalhas.",
+  "reversed": "Fazer as pazes, ou um ressentimento que persiste."
+ },
+ "swords_six": {
+  "name": "Seis de Espadas",
+  "keywords": [
+   "transição",
+   "seguir em frente",
+   "águas mais calmas"
+  ],
+  "upright": "Um afastamento lento dos problemas. A cura está em andamento.",
+  "reversed": "Resistência à mudança, ou bagagem não resolvida."
+ },
+ "swords_seven": {
+  "name": "Sete de Espadas",
+  "keywords": [
+   "estratégia",
+   "segredo",
+   "cautela"
+  ],
+  "upright": "Pense com cuidado; uma abordagem esperta exige honestidade sobre o seu custo.",
+  "reversed": "Abrir o jogo, ou um plano que sai pela culatra."
+ },
+ "swords_eight": {
+  "name": "Oito de Espadas",
+  "keywords": [
+   "restrição",
+   "medo",
+   "sentir-se preso"
+  ],
+  "upright": "Você se sente preso, mas as opções podem estar mais abertas do que parecem.",
+  "reversed": "Libertar-se e voltar a enxergar escolhas."
+ },
+ "swords_nine": {
+  "name": "Nove de Espadas",
+  "keywords": [
+   "ansiedade",
+   "preocupação",
+   "noites sem dormir"
+  ],
+  "upright": "A preocupação parece enorme. Compartilhe com alguém de confiança.",
+  "reversed": "Os medos diminuem, ou uma ansiedade que precisa de apoio."
+ },
+ "swords_ten": {
+  "name": "Dez de Espadas",
+  "keywords": [
+   "finais",
+   "exaustão",
+   "fundo do poço"
+  ],
+  "upright": "Um capítulo doloroso termina. Agora a única direção é para frente.",
+  "reversed": "A recuperação começa, ou você se apega ao passado."
+ },
+ "swords_page": {
+  "name": "Valete de Espadas",
+  "keywords": [
+   "curiosidade",
+   "vigilância",
+   "ideias"
+  ],
+  "upright": "Uma mente afiada e curiosa. Faça perguntas e reúna fatos.",
+  "reversed": "Fofoca, pressa ou pensamentos dispersos."
+ },
+ "swords_knight": {
+  "name": "Cavaleiro de Espadas",
+  "keywords": [
+   "ambição",
+   "pressa",
+   "franqueza"
+  ],
+  "upright": "Determinado e rápido para agir. Cuidado com a rispidez.",
+  "reversed": "Esgotar-se, ou agir sem pensar."
+ },
+ "swords_queen": {
+  "name": "Rainha de Espadas",
+  "keywords": [
+   "clareza",
+   "independência",
+   "honestidade"
+  ],
+  "upright": "Olhar claro e justo. Diga a verdade com gentileza.",
+  "reversed": "Frieza ou crítica excessiva."
+ },
+ "swords_king": {
+  "name": "Rei de Espadas",
+  "keywords": [
+   "intelecto",
+   "autoridade",
+   "razão"
+  ],
+  "upright": "Lógico, íntegro e decidido. Busque a justiça.",
+  "reversed": "Pensamento rígido ou abuso de poder."
+ },
+ "pentacles_ace": {
+  "name": "Ás de Ouros",
+  "keywords": [
+   "oportunidade",
+   "prosperidade",
+   "alicerces"
+  ],
+  "upright": "Uma semente de oportunidade no trabalho ou no dinheiro. Plante com cuidado.",
+  "reversed": "Uma chance perdida ou planejamento fraco."
+ },
+ "pentacles_two": {
+  "name": "Dois de Ouros",
+  "keywords": [
+   "equilíbrio",
+   "malabarismo",
+   "adaptabilidade"
+  ],
+  "upright": "Fazer malabarismo com prioridades de forma flexível. Mantenha seu ritmo.",
+  "reversed": "Assumir compromissos demais ou desorganização."
+ },
+ "pentacles_three": {
+  "name": "Três de Ouros",
+  "keywords": [
+   "trabalho em equipe",
+   "ofício",
+   "habilidade"
+  ],
+  "upright": "Colaboração habilidosa. O bom trabalho cresce com a cooperação.",
+  "reversed": "Pouco trabalho em equipe ou trabalho abaixo do seu padrão."
+ },
+ "pentacles_four": {
+  "name": "Quatro de Ouros",
+  "keywords": [
+   "segurança",
+   "poupança",
+   "controle"
+  ],
+  "upright": "Segurando o que você tem. Segurança é bom; cuidado com o apego.",
+  "reversed": "A generosidade volta, ou o controle se afrouxa."
+ },
+ "pentacles_five": {
+  "name": "Cinco de Ouros",
+  "keywords": [
+   "dificuldade",
+   "preocupação",
+   "sentir-se de fora"
+  ],
+  "upright": "Um tempo de aperto. Existe ajuda se você estender a mão.",
+  "reversed": "Recuperação, ou recusar-se a pedir apoio."
+ },
+ "pentacles_six": {
+  "name": "Seis de Ouros",
+  "keywords": [
+   "generosidade",
+   "partilha",
+   "justiça"
+  ],
+  "upright": "Dar e receber em equilíbrio. Seja justo com os recursos.",
+  "reversed": "Ajuda com condições, ou uma troca de mão única."
+ },
+ "pentacles_seven": {
+  "name": "Sete de Ouros",
+  "keywords": [
+   "paciência",
+   "avaliação",
+   "visão de longo prazo"
+  ],
+  "upright": "Pare para avaliar seus esforços. Crescer leva tempo.",
+  "reversed": "Impaciência ou dúvida sobre seu progresso."
+ },
+ "pentacles_eight": {
+  "name": "Oito de Ouros",
+  "keywords": [
+   "dedicação",
+   "maestria",
+   "prática"
+  ],
+  "upright": "Trabalho firme e concentrado desenvolve habilidade.",
+  "reversed": "Perfeccionismo ou trabalho repetitivo sem propósito."
+ },
+ "pentacles_nine": {
+  "name": "Nove de Ouros",
+  "keywords": [
+   "autossuficiência",
+   "conforto",
+   "recompensa"
+  ],
+  "upright": "Aproveite o que seu esforço construiu.",
+  "reversed": "Excesso de trabalho, ou um conforto que parece vazio."
+ },
+ "pentacles_ten": {
+  "name": "Dez de Ouros",
+  "keywords": [
+   "legado",
+   "família",
+   "segurança duradoura"
+  ],
+  "upright": "Estabilidade de longo prazo, família e riqueza compartilhada.",
+  "reversed": "Atritos familiares ou pensamento de curto prazo."
+ },
+ "pentacles_page": {
+  "name": "Valete de Ouros",
+  "keywords": [
+   "estudo",
+   "ambição",
+   "senso prático"
+  ],
+  "upright": "Um estudante dedicado da vida, ansioso para aprender e construir.",
+  "reversed": "Procrastinação ou falta de foco."
+ },
+ "pentacles_knight": {
+  "name": "Cavaleiro de Ouros",
+  "keywords": [
+   "confiabilidade",
+   "persistência",
+   "rotina"
+  ],
+  "upright": "Confiável e minucioso. Devagar e sempre se chega lá.",
+  "reversed": "Teimosia, tédio ou perfeccionismo."
+ },
+ "pentacles_queen": {
+  "name": "Rainha de Ouros",
+  "keywords": [
+   "cuidado",
+   "praticidade",
+   "engenhosidade"
+  ],
+  "upright": "Calorosa, prática e generosa. Crie conforto para você e para os outros.",
+  "reversed": "Descuidar de si ou sufocar os outros."
+ },
+ "pentacles_king": {
+  "name": "Rei de Ouros",
+  "keywords": [
+   "abundância",
+   "estabilidade",
+   "liderança"
+  ],
+  "upright": "Estabelecido, generoso e seguro. Lidere com firmeza.",
+  "reversed": "Ganância, teimosia ou valorizar o dinheiro acima das pessoas."
+ }
+}
