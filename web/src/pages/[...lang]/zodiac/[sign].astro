@@ -1,0 +1,107 @@
+---
+import Base from "../../../layouts/Base.astro";
+import { BASE } from "../../../config.ts";
+import { slug, type CardId } from "../../../lib/data.ts";
+import { PLANET_CARD, SIGNS, type Sign } from "../../../lib/zodiac.ts";
+import { fill, firstSentence, i18n, langPathsFor, type Locale } from "../../../i18n/index.ts";
+
+export function getStaticPaths() {
+  return langPathsFor(SIGNS.map((s) => ({ params: { sign: s.slug }, props: { s } })));
+}
+const { s, lang } = Astro.props as { s: Sign; lang: Locale };
+const L = i18n(lang);
+const { t, url: u } = L;
+const z = L.zodiac.ui;
+const text = L.zodiac.signs[s.slug as keyof typeof L.zodiac.signs];
+const info = (L.content.signs as Record<string, { name: string; dates: string }>)[s.slug]!;
+const name = info.name;
+const card = (id: CardId) => L.cards[id]!;
+const planet = PLANET_CARD[s.ruler]!;
+const vars = { sign: name, card: card(s.major).name, planet: card(planet).name, dates: info.dates, element: L.assoc(s.element) };
+const path = `zodiac/${s.slug}`;
+const faq: [string, string][] = [
+  [fill(z.faqWhich, vars), fill(z.faqWhichA, vars)],
+  [fill(z.decansTitle, vars), text.decans],
+  [`${z.love}: ${name}`, text.love],
+];
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    inLanguage: L.tag,
+    mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
+  },
+];
+const sections: [string, string][] = [[z.strengths, text.strengths], [z.challenges, text.challenges], [z.love, text.love], [z.work, text.work]];
+---
+<Base
+  title={fill(z.title, vars)}
+  description={fill(z.description, { ...vars, first: firstSentence(text.intro) })}
+  path={path}
+  image={`og/cards/${s.major}.jpg`}
+  crumbs={[[t("zodiac.crumb"), "tools/zodiac-tarot"], [fill(z.h1, vars), path]]}
+  jsonLd={jsonLd}
+  lang={lang}
+>
+  <section class="card-hero" style="margin-top:2rem">
+    <div class="card-frame">
+      <img src={`${BASE}cards/art/${s.major}.jpg`} alt={t("card.imgAlt", { name: vars.card })} width="300" height="514" fetchpriority="high" />
+    </div>
+    <div>
+      <p class="meta">{z.eyebrow} · {info.dates}</p>
+      <h1>{fill(z.h1, vars)}</h1>
+      <p class="answer">{fill(z.lead, { ...vars, planet: L.assoc(s.ruler) })}</p>
+      <p class="lead">{text.intro}</p>
+    </div>
+  </section>
+  <section class="section" style="padding-bottom:0">
+    <div class="card-notes">
+      <a class="panel" href={u(`cards/${slug(s.major)}`)}>
+        <img src={`${BASE}cards/art/${s.major}.jpg`} alt="" loading="lazy" width="150" height="257" />
+        <span><b>{card(s.major).name}</b>{z.signCard}</span>
+      </a>
+      <a class="panel" href={u(`cards/${slug(planet)}`)}>
+        <img src={`${BASE}cards/art/${planet}.jpg`} alt="" loading="lazy" width="150" height="257" />
+        <span><b>{card(planet).name}</b>{z.rulerCard} · {L.assoc(s.ruler)}</span>
+      </a>
+    </div>
+  </section>
+  <section class="section" style="padding-bottom:0">
+    <h2>{fill(z.decansTitle, vars)}</h2>
+    <p>{text.decans}</p>
+    <div class="card-row">
+      {s.decans.map((d, i) => (
+        <a class="tcard" href={u(`cards/${slug(d)}`)}>
+          <img src={`${BASE}cards/art/${d}.jpg`} alt="" loading="lazy" width="150" height="257" />
+          {z.decanNames[i]}: {card(d).name}
+        </a>
+      ))}
+    </div>
+  </section>
+  <section class="section" style="padding-bottom:0">
+    <div class="grid-2">
+      {sections.map(([h, p]) => <div class="panel"><h2>{h}</h2><p>{p}</p></div>)}
+    </div>
+    <div class="panel" style="margin-top:1rem"><h2>{z.advice}</h2><p>{text.advice}</p></div>
+  </section>
+  <section class="section" style="padding-bottom:0">
+    <h2 class="center">{t("card.faqTitle", { name })}</h2>
+    <div class="faq">
+      {faq.map(([q, a]) => (
+        <details>
+          <summary>{q}</summary>
+          <p>{a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+  <section class="panel practice-path"><h2>{L.workspace.weekly}</h2><p>{L.workspace.astroNote}</p><p>{L.workspace.weeklyPrompt}</p><a class="btn btn-gold" href={`${u("read")}?spread=three_decision&card=${s.major}`}>{L.workspace.practice}</a></section>
+  <section class="section center">
+    <p class="lead">{z.toolText}</p>
+    <p><a class="btn btn-gold" href={u("tools/zodiac-tarot")}>{z.toolCta}</a></p>
+    <h2>{z.other}</h2>
+    <nav class="ctx-links" style="justify-content:center" aria-label={z.other}>
+      {SIGNS.filter((x) => x.slug !== s.slug).map((x) => <a href={u(`zodiac/${x.slug}`)}>{(L.content.signs as Record<string, { name: string }>)[x.slug]!.name}</a>)}
+    </nav>
+  </section>
+</Base>

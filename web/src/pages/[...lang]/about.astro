@@ -1,0 +1,38 @@
+---
+import Base from "../../layouts/Base.astro";
+import { SITE_URL, SUPPORT_EMAIL } from "../../config.ts";
+import { i18n, langPaths, prefix, type Locale } from "../../i18n/index.ts";
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Locale };
+const L = i18n(lang);
+const { t } = L;
+const page = new URL(`${prefix(lang)}about`, SITE_URL).href;
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: t("about.h1"),
+    url: page,
+    inLanguage: L.tag,
+    about: {
+      "@type": "Organization",
+      name: "ShenTech",
+      url: SITE_URL,
+      logo: new URL("icon.png", SITE_URL).href,
+      email: SUPPORT_EMAIL,
+      address: { "@type": "PostalAddress", addressCountry: "SG" },
+      brand: { "@type": "Brand", name: "ShenTarot" },
+    },
+  },
+];
+---
+<Base title={t("about.title")} description={L.growth.methodLead} path="about" crumbs={[[t("about.crumb"), "about"]]} jsonLd={jsonLd} lang={lang}>
+  <article class="legal">
+    <h1>{t("about.h1")}</h1>
+    <p class="lead">{t("about.lead")}</p><p><a href={L.url("methodology")}>{L.growth.methodTitle}</a></p>
+    <p>{L.growth.appNote}</p>
+    <p>{L.growth.methodTradition}</p><p>{L.growth.methodProcess}</p><p>{L.growth.methodReview}</p><p>{L.growth.methodAI}</p><p>{L.growth.methodLimits}</p>
+    <p><a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a></p>
+  </article>
+</Base>

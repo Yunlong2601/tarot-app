@@ -1,0 +1,175 @@
+---
+import "@fontsource/cormorant-garamond/latin-500.css";
+import "@fontsource/cormorant-garamond/latin-500-italic.css";
+import "@fontsource/cormorant-garamond/latin-600.css";
+import "@fontsource/cormorant-garamond/cyrillic-500.css";
+import "@fontsource/cormorant-garamond/cyrillic-600.css";
+import "@fontsource-variable/inter";
+import "../styles/site.css";
+import Logo from "../components/Logo.astro";
+import StoreButtons from "../components/StoreButtons.astro";
+import { BASE, SUPPORT_EMAIL } from "../config.ts";
+import { TOPICS } from "../lib/topics.ts";
+import { LOCALES, LOCALE_INFO, i18n, prefix, type Locale } from "../i18n/index.ts";
+
+interface Props {
+  title: string;
+  description: string;
+  /** This page's address under the site, e.g. "cards" ("" = home). */
+  path: string;
+  /** Hide the "Read your own cards" panel (pages that already end with one). */
+  noCta?: boolean;
+  /** Share preview image under the site, e.g. "cards/art/major_00_fool.jpg". */
+  image?: string;
+  /** "Home › Section › Page" trail for search results: [name, path] pairs after Home. */
+  crumbs?: [string, string][];
+  /** Extra schema.org data for this page. */
+  jsonLd?: Record<string, unknown>[];
+  /** Let the page lay out its own full-width sections (the home page). */
+  bare?: boolean;
+  /** The page's language. */
+  lang?: Locale;
+  /** False for pages that exist in English only (legal pages, 404). */
+  localized?: boolean;
+}
+const { title, description, path, noCta = false, image = "og.png", crumbs = [], jsonLd = [], bare = false, lang = "en", localized = true } = Astro.props;
+const L = i18n(lang);
+const t = L.t;
+const nav = [
+  [t("nav.cards"), "cards"],
+  [t("nav.spreads"), "spreads"],
+  [L.learn.nav, "learn"],
+  [L.workspace.astrology, "astrology"],
+  [L.workspace.title, "read"],
+  [t("nav.tools"), "tools"],
+];
+const year = new Date().getFullYear();
+// The legal pages exist in English only, and say so in other languages.
+const legal = (key: string) => (lang === "en" ? t(key) : t("footer.inEnglish", { page: t(key) }));
+const here = (loc: Locale) => new URL(`${prefix(loc)}${path}`.replace(/\/$/, ""), Astro.site).href;
+const canonical = here(lang);
+const imageUrl = new URL(image, Astro.site).href;
+const base = BASE;
+const u = L.url;
+const schema = [...jsonLd];
+if (crumbs.length) {
+  schema.push({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [["ShenTarot", ""], ...crumbs].map(([name, p], i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name,
+      item: new URL(`${prefix(lang)}${p}`.replace(/\/$/, ""), Astro.site).href,
+    })),
+  });
+}
+// Escapes "<" so page text can never close the script tag.
+const ld = (o: unknown) => JSON.stringify(o).replace(/</g, "\\u003c");
+---
+<!doctype html>
+<html lang={L.tag}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {localized && LOCALES.map((l) => <link rel="alternate" hreflang={LOCALE_INFO[l].tag} href={here(l)} />)}
+    {localized && <link rel="alternate" hreflang="x-default" href={here("en")} />}
+    <meta property="og:locale" content={LOCALE_INFO[lang].og} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="ShenTarot" />
+    <meta property="og:image" content={imageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href={`${base}icon.png`} type="image/png" />
+    <link rel="apple-touch-icon" href={`${base}icon.png`} />
+    {schema.map((o) => <script type="application/ld+json" set:html={ld(o)} />)}
+    <meta name="theme-color" content="#09080f" />
+  </head>
+  <body>
+    <a class="skip" href="#main">{t("base.skip")}</a>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href={u()} aria-label={t("base.home")}><Logo />ShenTarot</a>
+        <nav class="site-nav" aria-label={t("base.mainNav")}>
+          {nav.map(([name, p]) => (
+            <a href={u(p)} aria-current={path === p || (p !== "tools" && path.startsWith(`${p}/`)) || (p === "tools" && path.startsWith("tools/") && path !== "tools/yes-no") ? "page" : undefined}>{name}</a>
+          ))}
+        </nav>
+        <details class="lang-menu">
+          <summary aria-label={t("base.language")}><span aria-hidden="true">🌐</span> {LOCALE_INFO[lang].name}</summary>
+          <ul>
+            {LOCALES.map((l) => <li><a href={localized ? here(l).replace(Astro.site!.origin, "") : `${base}${prefix(l)}`.replace(/\/$/, "") || "/"} hreflang={LOCALE_INFO[l].tag} lang={LOCALE_INFO[l].tag} aria-current={l === lang ? "true" : undefined}>{LOCALE_INFO[l].name}</a></li>)}
+          </ul>
+        </details>
+        <a class="btn btn-gold btn-sm header-cta" href={`${u()}#get-app`}>{t("base.getApp")}</a>
+      </div>
+    </header>
+    <main id="main">
+      {bare ? <slot /> : <div class="wrap"><slot /></div>}
+      {!noCta && (
+        <section class="wrap section" id={bare ? undefined : "get-app"}>
+          <div class="cta-band">
+            <p class="eyebrow">{L.growth.appTitle}</p>
+            <h2>{L.growth.appTitle}</h2>
+            <p>{L.growth.appNote}</p>
+            <StoreButtons center lang={lang} />
+          </div>
+        </section>
+      )}
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer-grid">
+          <div>
+            <a class="brand" href={u()}><Logo />ShenTarot</a>
+            <p class="about">{L.growth.footer}</p>
+          </div>
+          <div>
+            <h4>{t("footer.explore")}</h4>
+            <ul>
+              <li><a href={u("cards")}>{t("footer.cards")}</a></li>
+              <li><a href={u("spreads")}>{t("footer.spreads")}</a></li>
+              <li><a href={u("learn")}>{L.learn.footer}</a></li>
+              <li><a href={u("tools/yes-no")}>{t("footer.yesNo")}</a></li>
+              <li><a href={u("tools/daily-card")}>{t("footer.daily")}</a></li>
+              <li><a href={u("tools/combinations")}>{t("footer.combinations")}</a></li>
+              <li><a href={u("tools/elements")}>{t("footer.elements")}</a></li>
+              <li><a href={u("tools/random-card")}>{t("footer.random")}</a></li>
+              <li><a href={u("tools/birth-card")}>{t("footer.birth")}</a></li>
+              <li><a href={u("tools/love-compatibility")}>{t("footer.compat")}</a></li>
+              <li><a href={u("tools")}>{t("footer.allTools")}</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>{t("footer.readings")}</h4>
+            <ul>
+              {TOPICS.map((tp) => <li><a href={u(`topics/${tp.slug}`)}>{L.content.topics[tp.slug as keyof typeof L.content.topics].title}</a></li>)}
+              <li><a href={u("questions")}>{t("footer.questions")}</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>{t("footer.company")}</h4>
+            <ul>
+              <li><a href={u("about")}>{t("footer.about")}</a></li>
+              <li><a href={u("methodology")}>{L.growth.methodTitle}</a></li>
+              <li><a href={u("learn/beginner-reference")}>{L.growth.guideTitle}</a></li>
+              <li><a href={`mailto:${SUPPORT_EMAIL}`}>{t("footer.support")}</a></li>
+              <li><a href={`${base}privacy`}>{legal("footer.privacy")}</a></li>
+              <li><a href={`${base}terms`}>{legal("footer.terms")}</a></li>
+              <li><a href={`${base}delete-account`}>{legal("footer.delete")}</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-base">
+          <span>{t("footer.copyright", { year })}</span>
+          <span>{t("footer.images")}</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+{
+  "homeTitle": "Comprenez les cartes que vous avez déjà tirées.",
+  "homeLead": "Cherchez un sens, saisissez votre tirage physique et explorez les liens. Des outils gratuits, sans compte.",
+  "exampleTitle": "Une question, trois cartes, une histoire reliée",
+  "exampleLead": "Découvrez comment images et positions transforment des sens isolés en une réflexion ouverte.",
+  "editorial": "Exemple éditorial : ni lecture personnelle ni résultat généré en direct.",
+  "exampleQuestion": "Comment faire une place à un projet créatif ?",
+  "exampleLoad": "Essayer cet exemple avec mes cartes",
+  "exampleWarning": "Charger cet exemple ? Il remplace le tirage et les cartes. Votre question, vos impressions, votre réflexion et la sauvegarde restent. Exportez les cartes actuelles si nécessaire.",
+  "exampleLoaded": "Exemple chargé. Vos notes sont conservées ; adaptez les cartes et la question.",
+  "exampleKept": "Exemple non chargé. Votre travail reste intact.",
+  "symbols": [
+    "La baguette levée et les outils suggèrent des ressources disponibles.",
+    "Les deux pièces et le ruban suggèrent plusieurs exigences. Renversée ici, la carte invite à revoir un rythme peu durable.",
+    "Les pièces répétées et l’artisan concentré suggèrent une pratique attentive."
+  ],
+  "positions": [
+    "Situation : le Bateleur invite à inventorier outils, temps et compétences.",
+    "Défi : le Deux de Deniers renversé pourrait évoquer un rythme difficile à tenir.",
+    "Piste : le Huit de Deniers suggère une pratique courte et régulière."
+  ],
+  "connections": "Les ressources du Bateleur rencontrent les exigences du Deux renversé. Le Huit propose un pont : une ressource, des séances courtes et régulières, plutôt que plusieurs projets à la fois.",
+  "alternative": "Autre lecture : le défi serait un emploi du temps trop rigide, plutôt qu’un manque de discipline. Une expérience souple pourrait mieux aider. Voyez ce qui correspond à votre situation.",
+  "positionShift": "La position change la question. Le Huit en défi pourrait évoquer le perfectionnisme ; en piste, une pratique utile. Aucune position ne garantit de résultat.",
+  "methodTitle": "Comment nos significations sont écrites",
+  "methodLead": "Sources, choix et limites des références de ShenTarot.",
+  "methodTradition": "Nous utilisons le système Rider–Waite–Smith de 78 cartes et des images de 1909 dans le domaine public. Les traditions diffèrent ; ce guide ne prétend pas être une autorité universelle.",
+  "methodProcess": "Les textes sont partagés avec l’application : mots-clés, images, sens droits et renversés, questions de réflexion. Certains textes et traductions ont été assistés par IA. Les exemples sont pédagogiques et originaux, pas des lectures sur vous.",
+  "methodReview": "Publié par ShenTech, Singapour. Une relecture indépendante par un expert et des locuteurs natifs n’est pas confirmée pour cette édition. Aucun titre professionnel ni aval n’est revendiqué. Signalez une erreur précise au support.",
+  "methodAI": "Le site propose références et pratique manuelle, sans interprétation IA. Une option future exige authentification, contrôles d’accès et limites explicites. Elle doit rester facultative et respecter votre jugement.",
+  "methodPrivacy": "Les cartes et notes de cet espace ne sont pas envoyées à une IA. Brouillon et unique réflexion sauvegardée restent dans le navigateur, sans synchronisation. Les pages et images génèrent des requêtes d’hébergement. Consultez la confidentialité.",
+  "methodLimits": "Les interprétations sont des possibilités subjectives pour le divertissement et la réflexion, pas des prédictions vérifiées, diagnostics ou conseils professionnels. Comparez image, position et contexte ; le désaccord est bienvenu.",
+  "guideTitle": "Votre premier tirage à trois cartes : guide de poche",
+  "guideLead": "Une référence à garder près du jeu. Lecture en ligne, téléchargement texte ou impression PDF.",
+  "guideDownload": "Télécharger le guide texte",
+  "guidePrint": "Imprimer le guide / enregistrer un PDF",
+  "guideSteps": [
+    "Posez une question ouverte sur laquelle agir, comme « Que puis-je essayer ? ».",
+    "Choisissez Situation / Défi / Piste. Posez trois cartes de gauche à droite et notez leur orientation.",
+    "Décrivez un détail visible avant de chercher chaque sens, puis reliez-le à la position.",
+    "Reliez deux cartes et essayez une autre interprétation. Choisissez une petite action et justifiez-la.",
+    "Notez votre lecture et revenez-y plus tard. Comparez sans vous noter."
+  ],
+  "guideSuits": [
+    "Bâtons : énergie, initiative et créativité.",
+    "Coupes : émotions, liens et relations.",
+    "Épées : pensées, décisions et tensions.",
+    "Deniers : ressources, travail et pratique quotidienne.",
+    "Arcanes majeurs : grands thèmes et tournants."
+  ],
+  "guideReversals": "Une carte renversée n’est pas forcément mauvaise ou opposée. Envisagez une expression bloquée, intérieure, excessive ou retardée selon la question et les voisines.",
+  "guideConnections": "Ces cartes répètent-elles un thème, créent-elles une tension ou suggèrent-elles un changement ? Quel détail soutient cette histoire ? Quelle autre lecture est possible ?",
+  "guideRecord": "Question : ______  Cartes et positions : ______  Impression : ______  Lien et alternative : ______  Action : ______  Retour : ______",
+  "practiceTitle": "Cinq petites pratiques avec votre jeu",
+  "practiceLead": "À votre rythme. Marquez les activités essayées, pas des réponses « justes ».",
+  "practiceSteps": [
+    "Observer une carte",
+    "Lire une position",
+    "Explorer une carte renversée",
+    "Relier deux cartes",
+    "Revenir à une réflexion"
+  ],
+  "practiceTasks": [
+    "Cherchez une carte. Nommez un détail et un sens qui lui correspond.",
+    "Lisez l’exemple puis saisissez vos trois cartes. Expliquez comment une position change le sens.",
+    "Lisez la leçon des renversements. Essayez une lecture intérieure ou bloquée sans présumer une catastrophe.",
+    "Utilisez les combinaisons ou l’exemple. Écrivez un lien et une alternative.",
+    "Ouvrez l’espace et restaurez votre réflexion. Comparez vos observations actuelles. Ajoutez une ligne datée ; exportez avant de remplacer."
+  ],
+  "markDone": "J’ai essayé cette activité",
+  "progress": "{n} / {total} activités essayées",
+  "reset": "Réinitialiser la progression",
+  "progressNote": "La progression reste dans ce navigateur, séparée de la réflexion. Ce n’est ni une qualification ni un compte. Effacer les données la supprime.",
+  "progressError": "Impossible de conserver la progression. Prenez une note ou téléchargez le guide.",
+  "progressSaved": "Progression conservée dans ce navigateur.",
+  "reviewTitle": "Revoir ma réflexion sauvegardée",
+  "reviewPrompt": "Restaurez-la ci-dessous. Qu’est-ce qui a changé ? Ajoutez une ligne datée et exportez l’ancienne version avant de la remplacer.",
+  "appTitle": "Application compagnon — bientôt disponible",
+  "appNote": "L’application iPhone et Android est à venir. Les références web fonctionnent aujourd’hui ; cet espace ne propose ni scan, ni lectures IA, ni fonctions de compte de l’application.",
+  "footer": "Références et pratique du tarot par ShenTech, Singapour. Pour le divertissement et la réflexion.",
+  "faq": [
+    {
+      "q": "Que puis-je utiliser aujourd’hui ?",
+      "a": "Cherchez les 78 cartes, explorez les tirages, saisissez vos cartes et sauvegardez ou exportez une réflexion locale. Sans compte ni requête IA."
+    },
+    {
+      "q": "Le site interprète-t-il avec l’IA ?",
+      "a": "Pas encore. Il propose références et exercices, sans transmettre questions ou cartes à une IA ni utiliser de crédits."
+    },
+    {
+      "q": "Où ma réflexion est-elle conservée ?",
+      "a": "Dans ce navigateur sur cet appareil uniquement. Sauvegarder remplace un seul instantané, sans synchronisation. Exportez avant d’effacer les données ou de changer d’appareil."
+    },
+    {
+      "q": "Puis-je scanner ou télécharger l’application ?",
+      "a": "L’application est à venir. Sur le site, saisissez vos cartes physiques ou utilisez le tirage numérique."
+    }
+  ],
+  "starNote": "L’eau et les étoiles peuvent évoquer le renouveau après une épreuve. En défi, demandez si l’espoir a besoin d’un appui concret.",
+  "twoNote": "Le ruban peut suggérer un équilibre changeant. Renversée, pensez surcharge ou rythme à ajuster ; ce n’est pas une preuve de perte.",
+  "eightNote": "Les pièces répétées peuvent évoquer l’apprentissage par la pratique. En défi, demandez si la préparation est devenue perfectionnisme."
+}

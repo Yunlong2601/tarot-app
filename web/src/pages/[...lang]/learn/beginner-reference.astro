@@ -1,0 +1,35 @@
+---
+import Base from '../../../layouts/Base.astro';
+import SpreadDiagram from '../../../components/SpreadDiagram.astro';
+import { i18n, langPaths, type Locale } from '../../../i18n';
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Locale };
+const L = i18n(lang), g = L.growth, w = L.workspace;
+---
+<Base title={g.guideTitle} description={g.guideLead} path="learn/beginner-reference" lang={lang} noCta>
+<article class="legal guide beginner-reference" data-reference-guide><h1>{g.guideTitle}</h1><p class="lead">{g.guideLead}</p>
+<div class="action-row no-print"><a class="btn btn-gold" data-guide-download download="shentarot-beginner-reference.txt" href={L.url('learn/beginner-reference.txt')}>{g.guideDownload}</a><button class="btn btn-ghost" data-guide-print hidden>{g.guidePrint}</button></div>
+<ol>{g.guideSteps.map(p=><li>{p}</li>)}</ol>
+<SpreadDiagram id="three_decision" positions={L.content.spreads.three_decision.positions} label={L.content.spreads.three_decision.name}/>
+<ul>{g.guideSuits.map(p=><li>{p}</li>)}</ul>
+<p>{g.guideReversals}</p><p>{g.guideConnections}</p><p class="panel">{g.guideRecord}</p>
+<p>{w.storageNote}</p><p>{w.disclaimer}</p><p>shentarot.com</p>
+<p class="no-print"><a class="btn btn-gold" href={`${L.url('read')}?spread=three_decision`}>{w.title}</a></p>
+<p><a href={L.url('learn/connected-reading')}>{g.exampleTitle}</a> · <a href={L.url('methodology')}>{g.methodTitle}</a></p>
+</article></Base>
+<script>
+const button = document.querySelector<HTMLButtonElement>('[data-guide-print]')!;
+button.hidden = false; button.onclick = () => window.print();
+// Keep the static href for no-JS access; use the workspace download approach.
+const download = document.querySelector<HTMLAnchorElement>('[data-guide-download]')!;
+download.onclick = async event => {
+  event.preventDefault();
+  try {
+    const response = await fetch(download.href);
+    if (!response.ok) throw new Error('Guide unavailable');
+    const objectUrl = URL.createObjectURL(new Blob([await response.text()], {type:'text/plain;charset=utf-8'}));
+    const link = document.createElement('a'); link.href=objectUrl; link.download=download.download; link.click();
+    setTimeout(()=>URL.revokeObjectURL(objectUrl),1000);
+  } catch { window.location.assign(download.href); }
+};
+</script>

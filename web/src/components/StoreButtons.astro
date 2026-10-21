@@ -1,0 +1,31 @@
+---
+import { APP_STORE_URL, PLAY_STORE_URL } from "../config.ts";
+import { i18n, type Locale } from "../i18n/index.ts";
+
+interface Props {
+  center?: boolean;
+  lang?: Locale;
+}
+const { center = false, lang = "en" } = Astro.props;
+const { t } = i18n(lang);
+// Until a store page exists the badge says "Coming soon" and links nowhere.
+const stores = [
+  { name: "App Store", url: APP_STORE_URL, icon: "M8 2.5h8a1.5 1.5 0 011.5 1.5v16a1.5 1.5 0 01-1.5 1.5H8A1.5 1.5 0 016.5 20V4A1.5 1.5 0 018 2.5zM10.5 18.5h3" },
+  { name: "Google Play", url: PLAY_STORE_URL, icon: "M6 3.5v17l14-8.5z" },
+];
+---
+<div class:list={["stores", { center }]}>
+  {stores.map((s) =>
+    s.url ? (
+      <a class="store" href={s.url}>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d={s.icon} /></svg>
+        <span><small>{t("store.download")}</small><b>{s.name}</b></span>
+      </a>
+    ) : (
+      <span class="store soon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d={s.icon} /></svg>
+        <span><small>{t("store.soon")}</small><b>{s.name}</b></span>
+      </span>
+    ),
+  )}
+</div>

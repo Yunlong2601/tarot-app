@@ -1,0 +1,16 @@
+---
+import { APP_SPREADS } from "../lib/data";
+interface Props { id: string; positions: string[]; label: string; }
+const { id, positions, label } = Astro.props;
+// Reuse app placement data. The Celtic crossing card is offset to keep both numbers visible.
+const layout = APP_SPREADS[id]!.layout;
+const coords = layout.map(([x, y]) => [Math.round(x * 6) + 1, Math.round(y * 6) + 1]);
+if (id === 'celtic') coords[1] = [coords[0]![0]! + 1, coords[0]![1]!];
+const columns = Math.max(...coords.map(p => p[0]!));
+---
+<figure class="spread-figure">
+<div class="spread-diagram spread-map" style={`--diagram-columns:${columns}`} aria-label={label}>
+  {positions.map((p, i) => <div class="diagram-card" style={coords ? `grid-column:${coords[i]![0]};grid-row:${coords[i]![1]}` : undefined}><b>{i + 1}</b><span>{p}</span></div>)}
+</div>
+<figcaption><ol class="diagram-key">{positions.map(p => <li>{p}</li>)}</ol></figcaption>
+</figure>

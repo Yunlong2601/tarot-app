@@ -1,0 +1,441 @@
+{
+ "groups": {
+  "major": "Die großen Themen und Wendepunkte des Lebens",
+  "wands": "Energie, Antrieb und Kreativität",
+  "cups": "Gefühle, Liebe und Beziehungen",
+  "swords": "Denken, Konflikt und Wahrheit",
+  "pentacles": "Arbeit, Geld und Körper"
+ },
+ "spreads": {
+  "single": {
+   "name": "Eine-Karte-Legung",
+   "positions": [
+    "Die Karte"
+   ],
+   "blurb": "Eine klar gestellte Frage; ein einzelnes Thema, auf das du achten kannst.",
+   "source": "Eine traditionelle Ziehung mit einer Karte."
+  },
+  "three": {
+   "name": "Vergangenheit, Gegenwart, Zukunft",
+   "positions": [
+    "Wo es begann",
+    "Wo es jetzt steht",
+    "Wohin es geht"
+   ],
+   "blurb": "Eine kurze Geschichte davon, wie sich eine Situation entwickelt hat.",
+   "source": "Eine verbreitete moderne Legung mit drei Karten."
+  },
+  "three_decision": {
+   "name": "Situation, Herausforderung, Weg nach vorn",
+   "positions": [
+    "Die Situation",
+    "Die Herausforderung",
+    "Ein Weg nach vorn"
+   ],
+   "blurb": "Eine Entscheidung einordnen: was los ist und wie du weitergehen kannst.",
+   "source": "Eine verbreitete moderne Legung mit drei Karten."
+  },
+  "yes_no": {
+   "name": "Ja oder Nein",
+   "positions": [
+    "Erste Karte",
+    "Der Kern der Sache (zählt doppelt)",
+    "Dritte Karte"
+   ],
+   "blurb": "Eine Ja-oder-Nein-Frage: in welche Richtung die Karten neigen und warum.",
+   "source": "Eine verbreitete Ja-oder-Nein-Methode: Aufrechte Karten neigen zu Ja, umgekehrte zu Nein, und die mittlere Karte zählt doppelt. Bei dieser Legung sind umgekehrte Karten immer aktiviert."
+  },
+  "five_cross": {
+   "name": "Kreuz aus fünf Karten",
+   "positions": [
+    "Was dahintersteht",
+    "Die Sache selbst",
+    "Was vor dir liegt",
+    "Wonach ich strebe",
+    "Was mir Halt gibt"
+   ],
+   "blurb": "Eine klar benannte Sache, von fünf Seiten betrachtet.",
+   "source": "Eine traditionelle Legung, die viele Kartenleser nutzen."
+  },
+  "horseshoe": {
+   "name": "Hufeisen aus sieben Karten",
+   "positions": [
+    "Vergangenheit",
+    "Gegenwart",
+    "Verborgene Einflüsse",
+    "Hindernisse",
+    "Einflüsse um mich herum",
+    "Rat",
+    "Richtung, wenn das Muster anhält"
+   ],
+   "blurb": "Eine konkrete Situation mit mehreren Einflüssen, die zusammenwirken.",
+   "source": "Eine traditionelle Legung, die viele Kartenleser nutzen."
+  },
+  "celtic": {
+   "name": "Keltisches Kreuz",
+   "positions": [
+    "Der Kern der Sache",
+    "Was sie kreuzt",
+    "Fundament",
+    "Jüngste Vergangenheit",
+    "Ziel",
+    "Naher Horizont",
+    "Du",
+    "Umfeld",
+    "Hoffnungen und Ängste",
+    "Richtung"
+   ],
+   "blurb": "Eine vielschichtige Situation, die eine vollständige Karte aller Einflüsse braucht.",
+   "source": "Angelehnt an die Legung, die A. E. Waite in The Pictorial Key to the Tarot (1910) beschrieben hat."
+  },
+  "love_connection": {
+   "name": "Wo stehen wir?",
+   "positions": [
+    "Was ich einbringe",
+    "Die Verbindung selbst",
+    "Was sie von mir verlangt"
+   ],
+   "blurb": "Wo steht diese Beziehung, und was ist mein Anteil daran?",
+   "source": "Von ShenTarot zur Selbstreflexion entwickelt."
+  },
+  "love_bring": {
+   "name": "Ist diese Beziehung richtig für mich?",
+   "positions": [
+    "Was ich einbringe",
+    "Was ich brauche",
+    "Was ich vielleicht vermeide"
+   ],
+   "blurb": "Was ich einbringe, was ich brauche und was ich vielleicht vermeide.",
+   "source": "Von ShenTarot zur Selbstreflexion entwickelt."
+  },
+  "love_reconnect": {
+   "name": "Kommt mein Ex zurück?",
+   "positions": [
+    "Was zu Ende ging",
+    "Was ich noch mit mir trage",
+    "Was ich verstehen muss",
+    "Was ich ändern kann",
+    "Was außerhalb meiner Kontrolle liegt",
+    "Wie Heilung aussehen könnte",
+    "Ein nächster Schritt für mich"
+   ],
+   "blurb": "Die Karten können nicht sagen, was ein anderer Mensch tun wird. Sie können zeigen, was du noch mit dir trägst und was du ändern kannst.",
+   "source": "Von ShenTarot zur Selbstreflexion entwickelt."
+  },
+  "love_ready": {
+   "name": "Wann finde ich die Liebe?",
+   "positions": [
+    "Wie ich gerade über die Liebe denke",
+    "Was ich aus der Vergangenheit mitbringe",
+    "Was ich wirklich will",
+    "Was mich vielleicht zurückhält",
+    "Was ich geben kann",
+    "Wie Offenheit aussehen würde",
+    "Ein Schritt in diese Richtung"
+   ],
+   "blurb": "Bist du bereit für eine neue Liebe, und was würde dich dafür öffnen?",
+   "source": "Von ShenTarot zur Selbstreflexion entwickelt."
+  },
+  "career_path": {
+   "name": "Beruflicher Weg",
+   "positions": [
+    "Wo ich stehe",
+    "Was mich zurückhält",
+    "Was ich als Nächstes erkunden kann"
+   ],
+   "blurb": "Wo stehe ich in meiner Arbeit, und was könnte ich als Nächstes erkunden?",
+   "source": "Von ShenTarot zur Selbstreflexion entwickelt."
+  },
+  "career_strengths": {
+   "name": "Stärken & Wachstum",
+   "positions": [
+    "Meine Stärke",
+    "Meine Herausforderung",
+    "Was ich lernen kann",
+    "Was mich unterstützt",
+    "Ein nächster Schritt"
+   ],
+   "blurb": "Was sind meine Stärken bei der Arbeit, und was kann ich weiterentwickeln?",
+   "source": "Von ShenTarot zur Selbstreflexion entwickelt."
+  },
+  "three_hhh": {
+   "name": "Kopf, Herz, Hände",
+   "positions": [
+    "Was ich denke",
+    "Was ich fühle",
+    "Was ich tun werde"
+   ],
+   "blurb": "Was denke ich, was fühle ich, was werde ich tun?",
+   "source": "Eine moderne Legung zur Selbstreflexion."
+  },
+  "growth_shadow_light": {
+   "name": "Schatten & Licht",
+   "positions": [
+    "Mein Licht",
+    "Mein Schatten",
+    "Beides zusammenbringen"
+   ],
+   "blurb": "Eine Stärke, eine verborgene Seite und wie du beides zusammenbringst.",
+   "source": "Von ShenTarot zur Selbstreflexion entwickelt."
+  }
+ },
+ "topics": {
+  "love": {
+   "name": "Liebe",
+   "title": "Liebes-Tarot",
+   "intro": "Tarot kann dir nicht sagen, was ein anderer Mensch denkt oder tun wird. Es kann dir helfen zu sehen, was du einbringst, was du brauchst und was du selbst ändern kannst.",
+   "questions": [
+    "Kommt mein Ex zurück?",
+    "Wo steht meine Beziehung?",
+    "Wann finde ich die Liebe?"
+   ]
+  },
+  "career": {
+   "name": "Beruf",
+   "title": "Berufs-Tarot",
+   "intro": "Schau mit den Karten darauf, wo du bei der Arbeit stehst, was dich zurückhält und was du als Nächstes ausprobieren könntest.",
+   "questions": [
+    "Soll ich dieses Jobangebot annehmen?",
+    "Was hält mich bei der Arbeit zurück?",
+    "Was könnte ich beruflich als Nächstes erkunden?"
+   ]
+  },
+  "daily": {
+   "name": "Alltag",
+   "title": "Tägliches Tarot",
+   "intro": "Eine Karte oder drei, um deinen Fokus für den Tag oder die kommende Woche zu setzen.",
+   "questions": [
+    "Worauf sollte ich mich heute konzentrieren?",
+    "Welche Energie sollte ich in diese Woche mitnehmen?"
+   ]
+  },
+  "choices": {
+   "name": "Entscheidungen",
+   "title": "Tarot für Entscheidungen",
+   "intro": "Wenn du eine Entscheidung abwägst, können die Karten die Situation, das, was im Weg steht, und einen Weg nach vorn aufzeigen.",
+   "questions": [
+    "Soll ich in eine neue Stadt ziehen?",
+    "Was sollte ich wissen, bevor ich mich entscheide?"
+   ]
+  },
+  "growth": {
+   "name": "Wachstum",
+   "title": "Tarot zur Selbstreflexion",
+   "intro": "Legungen, um dich selbst besser kennenzulernen: was du denkst, was du fühlst und was du immer wiederholst.",
+   "questions": [
+    "Welche Lektion wiederhole ich immer wieder?",
+    "Was übersehe ich an mir selbst?"
+   ]
+  }
+ },
+ "guides": {
+  "does-he-love-me": {
+   "question": "Liebt er mich?",
+   "answer": "Tarot kann nicht in das Herz eines anderen Menschen schauen, und keine Karte beweist, was jemand fühlt. Was eine Legung kann: zeigen, wie die Verbindung von deinem Standpunkt aus aussieht – was du gibst, was zurückkommt und worauf du hoffst.",
+   "better": [
+    "Wie fühle ich mich in dieser Beziehung?",
+    "Wie ist die Verbindung zwischen uns gerade?",
+    "Was brauche ich von ihm, das ich nicht bekomme?"
+   ],
+   "cards": {
+    "cups_two": "Eine gegenseitige Verbindung: Beide kommen einander auf halbem Weg entgegen.",
+    "major_06_lovers": "Eine echte Entscheidung über Werte und Nähe, nicht nur über Anziehung.",
+    "cups_four": "Etwas, das angeboten wird, wird übersehen oder abgelehnt.",
+    "swords_three": "Schmerz, der benannt werden muss, bevor es weitergehen kann."
+   },
+   "tip": "Wenn du immer wieder Karten für dieselbe Antwort ziehst, erzählt dir die Legung etwas über deine eigene Sorge. Es lohnt sich, darauf zu hören."
+  },
+  "will-my-ex-come-back": {
+   "question": "Kommt mein Ex zurück?",
+   "answer": "Keine Legung kann versprechen, dass jemand zurückkommt. Eine Legung zur Wiederannäherung schaut darauf, was die Beziehung beendet hat, was sich seitdem verändert hat und was du bräuchtest, damit es diesmal anders wird – so kannst du entscheiden, ob das Hoffen dir guttut.",
+   "better": [
+    "Was hat unsere Beziehung beendet?",
+    "Was hat sich seit der Trennung in mir verändert?",
+    "Was müsste anders sein, wenn wir wieder zusammenkämen?"
+   ],
+   "cards": {
+    "cups_six": "Nostalgie und der Sog der Vergangenheit, im Guten wie im Schlechten.",
+    "swords_ten": "Ein klares Ende: Dieses Kapitel ist abgeschlossen.",
+    "major_20_judgement": "Eine Abrechnung und die Chance, mit offenen Augen neu anzufangen.",
+    "cups_eight": "Weggehen von etwas, das dich nicht mehr erfüllt."
+   },
+   "tip": "Frag, was du willst, nicht nur, was die andere Person tun wird. Auf das Erste kannst du selbst hinwirken."
+  },
+  "will-i-meet-someone-new": {
+   "question": "Werde ich jemand Neuen kennenlernen?",
+   "answer": "Tarot kann dir kein Datum und keinen Namen nennen. Eine Legung für Singles schaut darauf, ob du bereit bist, wonach du suchst und was dich vielleicht zurückhält – und das zählt meist mehr als der Zeitpunkt.",
+   "better": [
+    "Bin ich bereit für eine neue Beziehung?",
+    "Wonach suche ich wirklich in einem Partner?",
+    "Was hält mich davon ab, jemanden kennenzulernen?"
+   ],
+   "cards": {
+    "cups_ace": "Ein neues Gefühl oder ein offenes Herz, bereit zu empfangen.",
+    "cups_page": "Ein leichter, neugieriger Anfang: eine Nachricht, ein Flirt, ein erster Schritt.",
+    "swords_eight": "Sich gefangen fühlen von Überzeugungen, die nicht so fest sind, wie sie scheinen.",
+    "major_17_star": "Hoffnung, die nach einer schweren Zeit zurückkehrt."
+   },
+   "tip": "Lies die Karten zuerst über dich selbst. Sie sagen meist mehr darüber, ob du bereit bist, als darüber, wer kommt."
+  },
+  "should-i-stay-in-my-relationship": {
+   "question": "Soll ich in meiner Beziehung bleiben?",
+   "answer": "Das ist deine Entscheidung, und die Karten sollten sie dir nicht abnehmen. Eine Beziehungslegung kann zeigen, wo ihr gerade steht, was jede und jeder von euch einbringt und was ungesagt bleibt, damit die Wahl klarer wird.",
+   "better": [
+    "Wo steht meine Beziehung gerade?",
+    "Was sage ich meinem Partner nicht?",
+    "Was würde dieser Beziehung helfen zu wachsen?"
+   ],
+   "cards": {
+    "cups_ten": "Dauerhafte Zufriedenheit und ein gemeinsames Gefühl von Zuhause.",
+    "swords_two": "Ein Patt: eine Entscheidung vermeiden, die du schon ahnst.",
+    "cups_five": "Trauer über das Verlorene, während etwas bleibt.",
+    "major_14_temperance": "Geduld und Ausgleich: Dinge Schritt für Schritt klären."
+   },
+   "tip": "Wenn du oder jemand anderes nicht sicher ist, sprich vor jeder Legung mit einem Menschen, dem du vertraust, oder mit einer Beratungsstelle vor Ort."
+  },
+  "should-i-change-jobs": {
+   "question": "Soll ich den Job wechseln?",
+   "answer": "Tarot kann keinen Arbeitsmarkt und kein Angebotsschreiben sehen. Eine Berufslegung schaut darauf, wo du jetzt stehst, was dich zurückhält und was du als Nächstes ausprobieren könntest, damit du den Schritt mit klarerem Kopf abwägen kannst.",
+   "better": [
+    "Was bringt mich dazu, meinen Job verlassen zu wollen?",
+    "Was könnte ich beruflich als Nächstes erkunden?",
+    "Was bräuchte ich, damit ein Wechsel gelingt?"
+   ],
+   "cards": {
+    "pentacles_eight": "Können und stetige Arbeit: Wachstum kann daraus entstehen, dort besser zu werden, wo du bist.",
+    "wands_three": "Nach vorn schauen: Pläne sind in Gang und bereit, sich auszuweiten.",
+    "cups_eight": "Etwas hinter dir lassen, das dich nicht mehr erfüllt.",
+    "pentacles_four": "Fest an Sicherheit festhalten, vielleicht zu fest."
+   },
+   "tip": "Verbinde die Legung mit praktischen Schritten: Sprich mit Leuten, die die Stelle haben, die du willst, und schau dir die Zahlen an."
+  },
+  "will-i-get-the-job": {
+   "question": "Bekomme ich den Job?",
+   "answer": "Die Entscheidung liegt bei den Leuten, die einstellen, und keine Karte kennt sie. Eine Legung kann zeigen, wie du wirkst, was du mitbringst und worauf du dich vor oder nach dem Vorstellungsgespräch konzentrieren kannst – das ist der Teil, den du noch beeinflussen kannst.",
+   "better": [
+    "Welche Stärken sollte ich in diesem Gespräch zeigen?",
+    "Was könnte mich bei dieser Bewerbung zurückhalten?",
+    "Was sollte ich über diese Stelle wissen?"
+   ],
+   "cards": {
+    "wands_six": "Anerkennung und ein Erfolg, den andere sehen.",
+    "pentacles_three": "Teamarbeit und Wertschätzung für dein Können.",
+    "swords_seven": "Etwas wird nicht offen gesagt: Prüfe die Details.",
+    "major_01_magician": "Du hast die Werkzeuge, die du brauchst. Nutze sie."
+   },
+   "tip": "Was die Karten auch sagen: Bereite dich vor, als läge es an dir. Vieles davon tut es."
+  },
+  "should-i-move-to-a-new-city": {
+   "question": "Soll ich in eine neue Stadt ziehen?",
+   "answer": "Eine Ja-oder-Nein-Ziehung kann ein schneller Stimmungscheck sein, aber ein Umzug ist eine große Entscheidung mit vielen Seiten. Nutze eine kurze Ziehung, um zu sehen, wie du dich damit fühlst, und dann eine Entscheidungslegung, um die Möglichkeiten nebeneinander zu betrachten.",
+   "better": [
+    "Was sollte ich wissen, bevor ich mich für einen Umzug entscheide?",
+    "Was würde ich gewinnen und was aufgeben?",
+    "Was zieht mich an diesen Ort?"
+   ],
+   "cards": {
+    "major_00_fool": "Ein Sprung ins Unbekannte, voller Vertrauen.",
+    "swords_six": "Weiterziehen in ruhigeres Fahrwasser, ein Übergang, der hilft.",
+    "pentacles_ten": "Wurzeln, Familie und langfristige Sicherheit.",
+    "wands_four": "Feiern und ein Gefühl von Zuhause."
+   },
+   "tip": "Frag zu jeder Möglichkeit einzeln und vergleiche. Eine einzige Legung für beide Orte kann sie ineinander verschwimmen lassen."
+  },
+  "what-do-i-need-to-know-before-i-decide": {
+   "question": "Was sollte ich wissen, bevor ich mich entscheide?",
+   "answer": "Das ist eine der besten Fragen für das Tarot, weil sie nach einer Perspektive fragt statt nach einem Urteil. Eine Entscheidungslegung schaut auf die Situation, auf das, was im Weg steht, und auf den Weg nach vorn – und überlässt die Wahl dir.",
+   "better": [
+    "Was übersehe ich bei dieser Entscheidung?",
+    "Was verlangt jede Möglichkeit von mir?",
+    "Was ist mir hier am wichtigsten?"
+   ],
+   "cards": {
+    "swords_two": "Eine Entscheidung aufschieben: Vielleicht ist es Zeit hinzuschauen.",
+    "major_11_justice": "Dinge fair abwägen und mit dem Ergebnis leben.",
+    "cups_seven": "Viele Möglichkeiten und manche Illusion: Sortiere, was echt ist.",
+    "major_02_high_priestess": "Stilles Wissen: Vertrau dem, was du schon spürst."
+   },
+   "tip": "Schreib deine Entscheidung auf, bevor du ziehst. Achte darauf, wie du dich fühlst, wenn eine Karte scheinbar zustimmt oder widerspricht."
+  },
+  "why-do-i-feel-stuck": {
+   "question": "Warum fühle ich mich festgefahren?",
+   "answer": "Sich festgefahren zu fühlen ist ein guter Grund, sich mit den Karten hinzusetzen. Eine Legung zur Selbstreflexion schaut darauf, was du denkst, was du fühlst und was du tust – und wo diese drei gegeneinander ziehen.",
+   "better": [
+    "Was übersehe ich gerade an mir selbst?",
+    "Welche Lektion wiederhole ich immer wieder?",
+    "Welcher kleine Schritt würde mir helfen, in Bewegung zu kommen?"
+   ],
+   "cards": {
+    "major_12_hanged_man": "Eine Pause mit Sinn: die Dinge aus einem neuen Blickwinkel sehen.",
+    "swords_eight": "Sich gefangen fühlen von Überzeugungen, die nicht so fest sind, wie sie scheinen.",
+    "major_15_devil": "Eine Gewohnheit oder Bindung, die dich mehr festhält als du sie.",
+    "wands_ace": "Ein Funke Energie für einen Neuanfang."
+   },
+   "tip": "Wenn das Gefühl, festzustecken, anhält oder schwer wird, hilft ein Gespräch mit einer Freundin, einem Freund oder einer Fachperson mehr als jede Legung."
+  }
+ },
+ "lifePath": {
+  "1": "Unabhängigkeit und Neuanfänge. Du führst gern und gehst deinen eigenen Weg.",
+  "2": "Partnerschaft und Ausgleich. Du merkst, was andere fühlen, und hilfst Menschen, sich in der Mitte zu treffen.",
+  "3": "Ausdruck und Kreativität. Du denkst laut, erschaffst Dinge und bringst Menschen zusammen.",
+  "4": "Beständigkeit und harte Arbeit. Du baust Dinge, die bleiben, Schritt für Schritt mit Sorgfalt.",
+  "5": "Freiheit und Wandel. Du lernst durch Ausprobieren, Reisen und indem du etwas wagst.",
+  "6": "Fürsorge und Verantwortung. Du kümmerst dich um Menschen, ein Zuhause und Gemeinschaften.",
+  "7": "Nachdenken und Suchen. Du brauchst Zeit für dich, um nachzudenken und herauszufinden, was wahr ist.",
+  "8": "Ehrgeiz und Ergebnisse. Dich ziehen Arbeit, Geld und das Hinterlassen von Spuren an.",
+  "9": "Mitgefühl und Vollendung. Du siehst das große Ganze und möchtest etwas zurückgeben.",
+  "11": "Eine Meisterzahl: Intuition und Inspiration. Du spürst Dinge früh und kannst anderen den Weg leuchten.",
+  "22": "Eine Meisterzahl: der Meisterbaumeister. Du kannst große Ideen in etwas Reales verwandeln.",
+  "33": "Eine Meisterzahl: der Meisterlehrer. Du führst durch Freundlichkeit und Vorbild."
+ },
+ "signs": {
+  "aries": {
+   "name": "Widder",
+   "dates": "21. März bis 19. April"
+  },
+  "taurus": {
+   "name": "Stier",
+   "dates": "20. April bis 20. Mai"
+  },
+  "gemini": {
+   "name": "Zwillinge",
+   "dates": "21. Mai bis 20. Juni"
+  },
+  "cancer": {
+   "name": "Krebs",
+   "dates": "21. Juni bis 22. Juli"
+  },
+  "leo": {
+   "name": "Löwe",
+   "dates": "23. Juli bis 22. August"
+  },
+  "virgo": {
+   "name": "Jungfrau",
+   "dates": "23. August bis 22. September"
+  },
+  "libra": {
+   "name": "Waage",
+   "dates": "23. September bis 22. Oktober"
+  },
+  "scorpio": {
+   "name": "Skorpion",
+   "dates": "23. Oktober bis 21. November"
+  },
+  "sagittarius": {
+   "name": "Schütze",
+   "dates": "22. November bis 21. Dezember"
+  },
+  "capricorn": {
+   "name": "Steinbock",
+   "dates": "22. Dezember bis 19. Januar"
+  },
+  "aquarius": {
+   "name": "Wassermann",
+   "dates": "20. Januar bis 18. Februar"
+  },
+  "pisces": {
+   "name": "Fische",
+   "dates": "19. Februar bis 20. März"
+  }
+ }
+}

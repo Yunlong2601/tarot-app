@@ -1,0 +1,29 @@
+---
+import { CARDS, cardIds, slug } from '../lib/data';
+import { BASE } from '../config';
+import type { I18n } from '../i18n';
+const { L } = Astro.props as { L: I18n };
+const w = L.workspace;
+const groups = ['major', 'wands', 'cups', 'swords', 'pentacles'];
+---
+<div data-card-search>
+  <div class="reader-controls search-controls">
+    <label class="grow">{w.search}<input type="search" data-search aria-describedby="search-help" /></label>
+    <label>{L.t('cards.suitsNav')}<select data-group><option value="">{w.all}</option>{groups.map(g => <option value={g}>{L.group(g)}</option>)}</select></label>
+    <label>{w.orientation}<select data-orientation><option value="">{L.t('card.upright')}</option><option value="reversed">{L.t('card.reversed')}</option></select></label>
+    <button class="btn btn-ghost" type="button" data-clear>{w.clear}</button>
+  </div>
+  <p class="muted" id="search-help">{w.searchHint}</p>
+  <p data-count role="status" aria-live="polite">78 / 78</p>
+  <p data-empty hidden>{w.empty}</p>
+  {groups.map(g => <section data-card-group><h2 class="group-title" id={g}>{L.group(g)}</h2><div class="card-grid">
+    {cardIds.filter(id => (CARDS[id].suit ?? 'major') === g).map(id => {
+      const c = L.cards[id]!;
+      const href = L.url(`cards/${slug(id)}`);
+      return <a class="tcard search-card" href={href} data-href={href} data-search-card data-group={g} data-text={`${c.name} ${id} ${CARDS[id].name} ${c.keywords.join(' ')}`} data-up={c.upright} data-rev={c.reversed}>
+        <img src={`${BASE}cards/art/${id}.jpg`} alt="" loading="lazy" width="150" height="257" /><b>{c.name}</b><small data-short>{c.upright}</small>
+      </a>;
+    })}
+  </div></section>)}
+</div>
+<script src="../scripts/card-search.ts"></script>

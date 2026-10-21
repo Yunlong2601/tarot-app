@@ -1,0 +1,404 @@
+{
+ "nav": "Aprender",
+ "footer": "Aprende tarot",
+ "index": {
+  "title": "Aprende tarot: guías gratis para principiantes · ShenTarot",
+  "description": "Lecciones de tarot gratis para principiantes: cómo leer las cartas del tarot, los Arcanos Mayores y Menores, los cuatro palos, los números, las cartas de la corte, las cartas invertidas y cómo hacer una buena pregunta.",
+  "eyebrow": "Curso de tarot gratis",
+  "h1": "Aprende tarot",
+  "lead": "Siete guías breves te llevan desde tu primera barajada hasta leer una tirada completa por tu cuenta. Léelas en orden o ve directo a la que necesites.",
+  "crumb": "Aprende tarot",
+  "read": "Leer la guía",
+  "minutes": "{n} min de lectura",
+  "step": "Lección {n}"
+ },
+ "page": {
+  "title": "{title} · ShenTarot",
+  "inThis": "En esta guía",
+  "next": "Lección siguiente",
+  "previous": "Lección anterior",
+  "all": "Todas las lecciones de tarot",
+  "faqTitle": "Preguntas frecuentes",
+  "practiceTitle": "Practica ahora",
+  "practiceText": "Saca una carta en el sitio y léela con lo que acabas de aprender.",
+  "practiceLink": "Sacar una carta"
+ },
+ "guides": {
+  "how-to-read-tarot": {
+   "title": "Cómo leer las cartas del tarot: guía para principiantes",
+   "description": "Cómo leer las cartas del tarot paso a paso: haz una pregunta clara, baraja, coloca una tirada, lee cada carta según su posición y une las cartas en una sola historia.",
+   "h1": "Cómo leer las cartas del tarot",
+   "answer": "Para leer el tarot, haz una pregunta clara, baraja, coloca las cartas en una tirada, lee cada carta según su posición y fíjate en cómo se relacionan entre sí.",
+   "minutes": 6,
+   "sections": [
+    {
+     "h": "Qué es una lectura de tarot",
+     "p": [
+      "Una baraja de tarot tiene 78 cartas. Cada carta es una imagen de una situación humana común: un nuevo comienzo, una pérdida, una elección, una celebración. En una lectura sacas unas cuantas cartas y las usas como punto de partida para mirar tu pregunta desde ángulos nuevos.",
+      "Hoy la mayoría de la gente lee el tarot para reflexionar, no para predecir. Las cartas no deciden nada por ti. Te ayudan a notar lo que ya sientes y a pensar qué podrías hacer a continuación."
+     ]
+    },
+    {
+     "h": "Paso 1: haz una pregunta clara",
+     "p": [
+      "Las buenas lecturas empiezan con buenas preguntas. Funcionan mejor las preguntas abiertas sobre ti, como «¿Qué necesito entender sobre mi trabajo?» en lugar de «¿Me van a despedir?». Nuestra guía sobre [cómo hacer preguntas al tarot](learn/asking-questions) te muestra cómo convertir una preocupación en una pregunta que las cartas puedan responder."
+     ]
+    },
+    {
+     "h": "Paso 2: baraja y saca las cartas",
+     "p": [
+      "Baraja como te resulte más natural mientras piensas en tu pregunta. Cuando te sientas listo, detente y saca las cartas de arriba, o corta la baraja y saca desde donde se divide. No hay un único método correcto, así que elige uno y sigue con él."
+     ]
+    },
+    {
+     "h": "Paso 3: coloca una tirada",
+     "p": [
+      "Una tirada es un esquema en el que cada posición tiene un significado. A los principiantes les va bien una [lectura de una carta](spreads/single) para el enfoque del día, o la tirada de [pasado, presente, futuro](spreads/three). Cuando eso te resulte fácil, prueba la [Cruz celta](spreads/celtic)."
+     ]
+    },
+    {
+     "h": "Paso 4: lee cada carta según su posición",
+     "p": [
+      "Mira primero la imagen. ¿Quién aparece, qué está haciendo y qué sensación transmite? Después lee el significado de la carta en su [página de cartas](cards) y pregúntate cómo encaja con la posición. El Cinco de Copas en la posición de «pasado» apunta a una pérdida que ya has vivido, mientras que en la de «consejo» te invita a volver la mirada hacia lo que queda.",
+      "Si una carta sale boca abajo, puedes leerla invertida. Nuestra [guía de las cartas invertidas](learn/reversed-cards) explica formas sencillas de hacerlo."
+     ]
+    },
+    {
+     "h": "Paso 5: une las cartas en una sola historia",
+     "p": [
+      "Ahora toma distancia. ¿Hay muchas cartas de un mismo palo? Muchas [Copas](learn/tarot-suits) ponen los sentimientos en el centro, y muchos Arcanos Mayores indican un gran tema de vida. ¿Los números suben o se repiten? ¿Los personajes se miran entre sí o miran hacia otro lado? Estas conexiones convierten significados sueltos en una sola historia.",
+      "Termina resumiendo la lectura en una o dos frases, y anótala. Volver a lecturas antiguas es una de las formas más rápidas de aprender."
+     ]
+    },
+    {
+     "h": "Cómo practicar",
+     "p": [
+      "Saca una carta cada mañana e imagina cómo podría aparecer en tu día. Revisa por la noche. La herramienta de la [carta del día](tools/daily-card) lo hace por ti, y tras unas semanas conocerás la mayor parte de la baraja sin tener que consultar nada."
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "¿Cualquiera puede leer el tarot?",
+     "a": "Sí. Leer el tarot es una habilidad que se aprende practicando con las imágenes y los significados. No hace falta ningún don especial."
+    },
+    {
+     "q": "¿Tengo que memorizar las 78 cartas?",
+     "a": "No. Empieza por aprender los 22 Arcanos Mayores y el significado de los cuatro palos y de los números. Con eso podrás deducir por ti mismo la mayoría de los Arcanos Menores."
+    },
+    {
+     "q": "¿Cuántas cartas debe sacar un principiante?",
+     "a": "De una a tres. Una sola carta o una tirada de tres cartas es fácil de leer en profundidad, y se aprende más con tres cartas bien leídas que con diez leídas deprisa."
+    }
+   ]
+  },
+  "major-and-minor-arcana": {
+   "title": "Arcanos Mayores y Menores: las dos partes de la baraja del tarot",
+   "description": "La diferencia entre los Arcanos Mayores y Menores: 22 Arcanos Mayores para los grandes temas de la vida y 56 Arcanos Menores en cuatro palos para los acontecimientos cotidianos.",
+   "h1": "Los Arcanos Mayores y Menores",
+   "answer": "Las 22 cartas de los Arcanos Mayores muestran grandes temas y puntos de inflexión de la vida, y las 56 de los Arcanos Menores muestran sucesos, sentimientos y decisiones del día a día.",
+   "minutes": 4,
+   "sections": [
+    {
+     "h": "Dos partes de una misma baraja",
+     "p": [
+      "Toda baraja de tarot estándar tiene 78 cartas divididas en dos partes. «Arcano» significa secreto. Los Arcanos Mayores son los grandes secretos y los Menores, los pequeños."
+     ]
+    },
+    {
+     "h": "Los Arcanos Mayores: 22 lecciones de vida",
+     "p": [
+      "Los Arcanos Mayores van desde [El Loco](cards/major-00-fool), con el número 0, hasta [El Mundo](cards/major-21-world), con el 21. Leídos en orden, cuentan el viaje del Loco: salir sin nada, encontrar maestros y pruebas, atravesar pérdidas y cambios con [La Muerte](cards/major-13-death) y [La Torre](cards/major-16-tower), recuperar la esperanza con [La Estrella](cards/major-17-star) y llegar a la plenitud.",
+      "Cuando aparece un Arcano Mayor en una lectura, dale un peso extra. Señala un tema más grande que un día o una decisión."
+     ]
+    },
+    {
+     "h": "Los Arcanos Menores: 56 cartas cotidianas",
+     "p": [
+      "Los Arcanos Menores se dividen en cuatro [palos](learn/tarot-suits): Bastos, Copas, Espadas y Oros. Cada palo tiene diez cartas numeradas, del As al Diez, y cuatro [cartas de la corte](learn/court-cards): Sota, Caballero, Reina y Rey.",
+      "Estas cartas describen el día a día: una discusión, un aumento de sueldo, un nuevo flechazo, una semana agotadora. Cambian más rápido que los temas de los Arcanos Mayores."
+     ]
+    },
+    {
+     "h": "Qué te dice la mezcla en una lectura",
+     "p": [
+      "Cuenta los Arcanos Mayores de tu tirada. Si más de la mitad son Mayores, la situación es un punto de inflexión y hay fuerzas más grandes en juego. Si casi todos son Menores, el asunto está más bajo tu control cotidiano y quizá pase antes."
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "¿Cuántos Arcanos Mayores hay?",
+     "a": "Hay 22 Arcanos Mayores, numerados del 0 (El Loco) al 21 (El Mundo)."
+    },
+    {
+     "q": "¿Los Arcanos Mayores son más importantes?",
+     "a": "Pesan más porque muestran temas a largo plazo, pero una carta de los Arcanos Menores también puede ser la clave de una lectura."
+    },
+    {
+     "q": "¿Puedo leer solo con los Arcanos Mayores?",
+     "a": "Sí. Muchos principiantes empiezan solo con los 22 Arcanos Mayores y añaden los Menores cuando los primeros les resultan familiares."
+    }
+   ]
+  },
+  "tarot-suits": {
+   "title": "Los cuatro palos del tarot: Bastos, Copas, Espadas y Oros",
+   "description": "Qué significan los cuatro palos del tarot: Bastos para la energía y la ambición, Copas para los sentimientos y el amor, Espadas para los pensamientos y el conflicto, Oros para el dinero, el trabajo y el cuerpo.",
+   "h1": "Los cuatro palos del tarot",
+   "answer": "Los Bastos representan la energía y la ambición, las Copas los sentimientos y las relaciones, las Espadas los pensamientos y el conflicto, y los Oros el dinero, el trabajo y el cuerpo.",
+   "minutes": 5,
+   "sections": [
+    {
+     "h": "Por qué importan los palos",
+     "p": [
+      "Cada una de las 56 cartas de los Arcanos Menores pertenece a uno de cuatro palos. Si sabes de qué trata un palo, ya conoces la mitad de cada carta que lo compone. La otra mitad viene de su [número](learn/tarot-numbers) o de su [rango en la corte](learn/court-cards)."
+     ]
+    },
+    {
+     "h": "Bastos: fuego, energía e impulso",
+     "p": [
+      "Los Bastos se asocian al elemento Fuego. Hablan de pasión, ambición, creatividad y acción. Una carta de Bastos suele preguntar qué quieres y hasta dónde estás dispuesto a llegar por ello. Empieza con el [As de Bastos](cards/wands-ace), una chispa de energía nueva."
+     ]
+    },
+    {
+     "h": "Copas: agua, sentimientos y amor",
+     "p": [
+      "Las Copas se asocian al Agua. Abarcan las emociones, el amor, la amistad, la intuición y los sueños. Una tirada llena de Copas indica que el corazón está en el centro de la pregunta. El [Dos de Copas](cards/cups-two) es la carta clásica de un vínculo cercano."
+     ]
+    },
+    {
+     "h": "Espadas: aire, pensamientos y conflicto",
+     "p": [
+      "Las Espadas se asocian al Aire. Tratan de la mente: ideas, palabras, decisiones, verdad, y también estrés y discusiones. Las cartas de Espadas pueden parecer duras, pero a menudo muestran claridad después de una verdad difícil. Mira el [As de Espadas](cards/swords-ace) para ver una idea que lo cambia todo."
+     ]
+    },
+    {
+     "h": "Oros: tierra, dinero y cuerpo",
+     "p": [
+      "Los Oros, también llamados Pentáculos o Monedas, se asocian a la Tierra. Abarcan el trabajo, el dinero, el hogar, la salud y todo lo lento y sólido. El [Diez de Oros](cards/pentacles-ten) muestra una seguridad duradera construida con el tiempo."
+     ]
+    },
+    {
+     "h": "Cómo leer el equilibrio de palos",
+     "p": [
+      "En una tirada, fíjate en qué palo aparece más y cuál falta. Muchas Espadas y ninguna Copa pueden significar que piensas mucho en algo que aún no te has permitido sentir. Nuestra herramienta de [dignidades elementales](tools/elements) te muestra cómo se apoyan o se debilitan entre sí las cartas de distintos elementos."
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "¿Qué palo habla del amor?",
+     "a": "Las Copas son el palo del amor y los sentimientos, aunque una lectura de amor puede incluir cualquier palo."
+    },
+    {
+     "q": "¿Qué palo habla del dinero?",
+     "a": "Los Oros son el palo del dinero, el trabajo, el hogar y la seguridad material."
+    },
+    {
+     "q": "¿Las Espadas son cartas malas?",
+     "a": "No. Las Espadas representan la mente, así que incluyen la preocupación y el conflicto, pero también la honestidad, el pensamiento claro y las buenas decisiones."
+    }
+   ]
+  },
+  "tarot-numbers": {
+   "title": "Los números en el tarot: qué significan del As al Diez",
+   "description": "Numerología del tarot para principiantes: qué significa cada número del As al Diez en los Arcanos Menores y cómo combinar un número con su palo para leer cualquier carta.",
+   "h1": "Los números en el tarot",
+   "answer": "En el tarot, los números muestran una etapa de una historia: los Ases comienzan, los Cincos traen problemas, los Nueves casi terminan y los Dieces cierran el ciclo.",
+   "minutes": 5,
+   "sections": [
+    {
+     "h": "Número más palo da la carta",
+     "p": [
+      "Cada palo cuenta del As al Diez, y cada número significa una etapa parecida en todos los palos. Combina el número con el [palo](learn/tarot-suits) y podrás deducir el significado de una carta antes de consultarlo. Un Cinco es un desafío y las Copas son sentimientos, así que el [Cinco de Copas](cards/cups-five) es un revés emocional."
+     ]
+    },
+    {
+     "h": "Del As al Diez",
+     "p": [
+      "As: un nuevo comienzo, un regalo o una oportunidad en bruto.",
+      "Dos: una elección, una alianza o un equilibrio que mantener.",
+      "Tres: primer crecimiento, trabajo en equipo o resultados.",
+      "Cuatro: estabilidad, descanso o aferrarse a algo.",
+      "Cinco: conflicto, pérdida o una prueba.",
+      "Seis: recuperación, armonía y reciprocidad.",
+      "Siete: reflexión, desafío o mantenerse firme.",
+      "Ocho: movimiento, esfuerzo y cambio.",
+      "Nueve: casi completado, ya sea con plenitud o con inquietud antes del final.",
+      "Diez: el final de un ciclo, con su recompensa completa o todo su peso."
+     ]
+    },
+    {
+     "h": "Cómo leer los números en una tirada",
+     "p": [
+      "Vale la pena notar los números repetidos. Tres Ases sugieren muchos comienzos a la vez, y varios Dieces sugieren capítulos que se cierran. Los números bajos indican que un asunto está en sus inicios, y los altos que está casi terminado.",
+      "Los Arcanos Mayores también tienen números, del 0 al 21. Tu [carta natal](tools/birth-card) y tu [carta del año](tools/year-card) se calculan sumando los dígitos de una fecha hasta llegar a un número de los Arcanos Mayores."
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "¿Qué significa un As en el tarot?",
+     "a": "Un As es el inicio puro de su palo: una nueva oportunidad en la energía (Bastos), los sentimientos (Copas), las ideas (Espadas) o el dinero y el trabajo (Oros)."
+    },
+    {
+     "q": "¿Por qué los Cincos son cartas difíciles?",
+     "a": "El Cinco llega después de la estabilidad del Cuatro, así que rompe esa calma. Cada Cinco muestra un desafío o una pérdida que empuja las cosas hacia delante."
+    },
+    {
+     "q": "¿Las cartas de la corte tienen número?",
+     "a": "Normalmente no. Las Sotas, los Caballeros, las Reinas y los Reyes se leen por su rango y su palo. Algunos lectores las cuentan del 11 al 14."
+    }
+   ]
+  },
+  "court-cards": {
+   "title": "Las cartas de la corte del tarot: Sotas, Caballeros, Reinas y Reyes",
+   "description": "Cómo leer las cartas de la corte del tarot: qué significan las Sotas, los Caballeros, las Reinas y los Reyes, y si una carta de la corte muestra a una persona, una parte de ti o una forma de actuar.",
+   "h1": "Las cartas de la corte del tarot",
+   "answer": "Las cartas de la corte muestran personas o formas de actuar: las Sotas aprenden, los Caballeros actúan, las Reinas cuidan desde dentro y los Reyes lideran hacia fuera.",
+   "minutes": 5,
+   "sections": [
+    {
+     "h": "Dieciséis personajes en la baraja",
+     "p": [
+      "Cada palo tiene cuatro cartas de la corte, así que en total son 16. A menudo son las cartas más difíciles para los principiantes, porque una carta de la corte puede significar una persona de tu vida, una faceta de tu propio carácter o un enfoque que la situación necesita."
+     ]
+    },
+    {
+     "h": "Los cuatro rangos",
+     "p": [
+      "Las Sotas son estudiantes y mensajeras. Traen noticias, curiosidad y mente de principiante.",
+      "Los Caballeros están en movimiento. Persiguen una meta, a veces demasiado deprisa, y muestran la energía del palo en su punto más extremo.",
+      "Las Reinas guardan las cualidades del palo en su interior. Son cuidadosas, sabias y estables.",
+      "Los Reyes usan las cualidades del palo en el mundo exterior. Lideran, deciden y asumen responsabilidades."
+     ]
+    },
+    {
+     "h": "Rango más palo",
+     "p": [
+      "Combina el rango con el [palo](learn/tarot-suits). El [Caballero de Bastos](cards/wands-knight) se lanza de cabeza a la aventura, mientras que la [Reina de Copas](cards/cups-queen) escucha con profunda empatía. El [Rey de Oros](cards/pentacles-king) es un proveedor de confianza."
+     ]
+    },
+    {
+     "h": "¿Una persona, una parte de ti o un consejo?",
+     "p": [
+      "Pregúntate cuál de las tres encaja mejor. Si alguien te viene a la mente enseguida, puede que la carta hable de esa persona. Si no, piensa en dónde actúas tú como este personaje, o en dónde te ayudaría actuar más como él.",
+      "¿Tienes curiosidad por saber qué carta de la corte eres? Prueba el test de [qué carta eres](tools/which-card-are-you)."
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "¿Las cartas de la corte siempre significan una persona?",
+     "a": "No. Pueden mostrar a otra persona, una parte de tu propia personalidad o una actitud que la situación pide."
+    },
+    {
+     "q": "¿Un Rey significa un hombre y una Reina una mujer?",
+     "a": "No necesariamente. La mayoría de los lectores tratan los rangos como estilos de energía que cualquier persona, de cualquier género, puede mostrar."
+    },
+    {
+     "q": "¿Cuántas cartas de la corte tiene una baraja de tarot?",
+     "a": "Hay 16 cartas de la corte: una Sota, un Caballero, una Reina y un Rey en cada uno de los cuatro palos."
+    }
+   ]
+  },
+  "reversed-cards": {
+   "title": "Cartas invertidas del tarot: qué significan las cartas boca abajo",
+   "description": "Cómo leer las cartas invertidas del tarot: energía bloqueada o interior, demasiado o demasiado poco del significado al derecho, y si de verdad necesitas usar las inversiones.",
+   "h1": "Cartas invertidas del tarot",
+   "answer": "Una carta invertida suele mostrar el significado al derecho bloqueado, vuelto hacia dentro, retrasado o desequilibrado, y no simplemente su opuesto.",
+   "minutes": 4,
+   "sections": [
+    {
+     "h": "Qué es una inversión",
+     "p": [
+      "Una carta está invertida cuando sale boca abajo. Algunos lectores usan las inversiones y otros no. Las dos opciones son válidas, siempre que lo decidas antes de barajar."
+     ]
+    },
+    {
+     "h": "Cuatro formas de leer una inversión",
+     "p": [
+      "Bloqueada: la energía de la carta está ahí, pero no puede fluir. El [As de Bastos](cards/wands-ace) invertido es una chispa creativa que no prende.",
+      "Hacia dentro: el significado ocurre en tu interior más que a tu alrededor. [El Ermitaño](cards/major-09-hermit) invertido puede hablar de soledad más que de un retiro elegido.",
+      "Demasiado o demasiado poco: la cualidad de la carta está desequilibrada. [La Fuerza](cards/major-08-strength) invertida puede ser inseguridad, o aferrarse con demasiada fuerza.",
+      "Retrasada: lo que la carta promete está en camino, pero más despacio."
+     ]
+    },
+    {
+     "h": "Una inversión no siempre es mala",
+     "p": [
+      "Las cartas difíciles a menudo se suavizan al invertirse. [La Torre](cards/major-16-tower) invertida puede significar una crisis evitada o un cambio que ya has superado, y el [Diez de Espadas](cards/swords-ten) invertido muestra recuperación una vez pasado lo peor.",
+      "Cada página de carta de este sitio ofrece el significado al derecho y el invertido, para que puedas compararlos."
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "¿Tengo que leer las cartas invertidas?",
+     "a": "No. Muchos lectores ponen todas las cartas al derecho y leen solo los significados al derecho. Elige un enfoque y mantenlo."
+    },
+    {
+     "q": "¿Una carta invertida siempre es negativa?",
+     "a": "No. Una inversión puede suavizar una carta difícil y a menudo muestra una lección más interior o más lenta, no algo malo."
+    },
+    {
+     "q": "¿Cómo consigo cartas invertidas al barajar?",
+     "a": "Gira una parte de la baraja mientras barajas, o extiende las cartas sobre una mesa y mézclalas haciendo círculos."
+    }
+   ]
+  },
+  "asking-questions": {
+   "title": "Cómo hacerle una pregunta al tarot (con ejemplos)",
+   "description": "Cómo hacer preguntas al tarot para obtener lecturas claras: preguntas abiertas sobre ti, ejemplos para el amor, el trabajo y las decisiones, y preguntas que conviene evitar.",
+   "h1": "Cómo hacerle una pregunta al tarot",
+   "answer": "Haz preguntas abiertas sobre ti, como «¿Qué puedo hacer para…?» o «¿Qué debería entender sobre…?», en lugar de preguntas de sí o no sobre otras personas.",
+   "minutes": 4,
+   "sections": [
+    {
+     "h": "Por qué importa la pregunta",
+     "p": [
+      "Las cartas responden a la pregunta que realmente haces. Una pregunta vaga o llena de miedo suele dar una lectura confusa, y una pregunta clara te da algo con lo que puedes actuar."
+     ]
+    },
+    {
+     "h": "Tres reglas para buenas preguntas",
+     "p": [
+      "Hazla sobre ti. Puedes cambiar lo que haces tú, no lo que hace otra persona. Pregunta «¿Cómo puedo mejorar las cosas con mi pareja?» en lugar de «¿Todavía me quiere?».",
+      "Mantenla abierta. Las preguntas con «qué» y «cómo» dan respuestas más ricas que las que empiezan con «¿pasará…?». Si de verdad necesitas un sí o un no, usa el [lector de sí o no](tools/yes-no).",
+      "Pregunta una sola cosa a la vez. Divide «¿Debería mudarme y cambiar de trabajo?» en dos lecturas."
+     ]
+    },
+    {
+     "h": "Ejemplos de preguntas",
+     "p": [
+      "Amor: «¿Qué necesito saber sobre esta relación ahora mismo?»",
+      "Trabajo: «¿Qué fortalezas puedo usar para avanzar en mi trabajo?»",
+      "Decisión: «¿Qué me aportará cada opción?» Pruébalo con la tirada de [situación, desafío, camino a seguir](spreads/three-decision).",
+      "Crecimiento: «¿Qué me frena y qué me ayuda a superarlo?»",
+      "Encontrarás muchas más en nuestras [guías de preguntas para el tarot](questions)."
+     ]
+    },
+    {
+     "h": "Preguntas que es mejor dejar a los profesionales",
+     "p": [
+      "El tarot es para la reflexión y el entretenimiento. Para decisiones de salud, legales o de dinero, habla con un médico, un abogado o un asesor. Aun así, puedes usar las cartas para explorar cómo te sientes ante la situación."
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "¿Puedo hacerle al tarot preguntas de sí o no?",
+     "a": "Sí, con una sola carta o con una tirada de sí o no. Aun así, las preguntas abiertas suelen dar una orientación más útil."
+    },
+    {
+     "q": "¿Puedo preguntar por otra persona?",
+     "a": "Puedes, pero las lecturas son más claras cuando preguntas por tu parte, como cuál es la mejor forma de acercarte a ella o qué necesitas de ese vínculo."
+    },
+    {
+     "q": "¿Puedo hacer la misma pregunta dos veces?",
+     "a": "Es mejor no repetir una pregunta enseguida. Quédate un tiempo con la primera respuesta y vuelve a preguntar cuando algo haya cambiado."
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,335 @@
+{
+ "ui": {
+  "eyebrow": "Tarot et zodiaque",
+  "title": "Carte de tarot du signe {sign} : {card} et les décans du signe {sign} · ShenTarot",
+  "description": "La carte de tarot du signe {sign} est {card}. {first}",
+  "h1": "Carte de tarot du signe {sign}",
+  "lead": "Le signe {sign} ({dates}) est associé à {card}. Son élément est {element} et sa planète maîtresse est {planet}.",
+  "signCard": "Carte du signe",
+  "rulerCard": "Carte de la planète maîtresse",
+  "decansTitle": "Les trois décans du signe {sign}",
+  "decanNames": [
+   "Premier décan",
+   "Deuxième décan",
+   "Troisième décan"
+  ],
+  "strengths": "Forces",
+  "challenges": "Défis",
+  "love": "En amour",
+  "work": "Au travail",
+  "advice": "Conseil des cartes",
+  "toolText": "Entre ta date de naissance pour trouver ton signe et toutes ses cartes.",
+  "toolCta": "Trouver mes cartes du zodiaque",
+  "other": "Autres signes",
+  "readMore": "Lire sur le signe {sign}",
+  "faqWhich": "Quelle carte de tarot correspond au signe {sign} ?",
+  "faqWhichA": "Le signe {sign} est associé à {card} dans la tradition de la Golden Dawn, dont est issu le jeu Rider-Waite-Smith. La carte de sa planète maîtresse est {planet}.",
+  "birth": {
+   "eyebrow": "Carte de naissance",
+   "title": "{card} comme carte de naissance : signification et personnalité · ShenTarot",
+   "description": "Ce que signifie avoir {card} pour carte de naissance de tarot. {first}",
+   "h1": "{card} comme carte de naissance",
+   "how": "Ta carte de naissance vient de ta date de naissance. Additionne l'année, le mois et le jour, puis additionne les chiffres du résultat jusqu'à obtenir un nombre de 1 à 22.",
+   "gifts": "Tes atouts",
+   "challenges": "Tes défis",
+   "love": "En amour",
+   "work": "Au travail",
+   "advice": "Conseil",
+   "pairTitle": "Cartes qui partagent ton nombre",
+   "pairText": "Les cartes de naissance dont les nombres se réduisent au même chiffre se lisent ensemble : {card} partage donc un thème avec ces cartes.",
+   "calcText": "Tu ne sais pas quelle carte est la tienne ? Calcule-la à partir de ta date de naissance.",
+   "calcCta": "Trouver ma carte de naissance",
+   "other": "Signification des cartes de naissance",
+   "readMore": "Lire sur {card} comme carte de naissance",
+   "faqWhat": "Que signifie avoir {card} pour carte de naissance ?"
+  }
+ },
+ "signs": {
+  "aries": {
+   "intro": "Le Bélier est associé à L'Empereur, la carte de la structure, de l'autorité et de la stabilité. C'est un signe de Feu, dont le maître est Mars, dont la carte est La Tour. Ensemble, ils dessinent quelqu'un qui aime bâtir du solide et qui n'attend pas longtemps pour commencer. L'Empereur donne le plan. La Tour rappelle que de vieux murs doivent parfois tomber d'abord.",
+   "decans": "Les trois décans du Bélier sont le Deux de Bâtons, le Trois de Bâtons et le Quatre de Bâtons. Né·e en début de signe, tu peux te lire dans le Deux de Bâtons : tu es au bord du familier et tu décides où viser. Le milieu du signe peut correspondre au Trois de Bâtons, avec des premiers efforts en marche et le regard sur l'horizon. En fin de signe, le Quatre de Bâtons évoque le repos et la joie partagée après l'effort.",
+   "strengths": "Tu as tendance à lancer les choses et tu apportes de l'énergie dans une pièce. On se fie souvent à ta franchise. La stabilité de L'Empereur t'aide à transformer une idée brillante en plan.",
+   "challenges": "L'Empereur peut devenir rigide, et Mars peut te rendre hâtif·ve. Demande-toi où la fermeté s'est changée en entêtement, et laisse aux autres le temps de te rejoindre.",
+   "love": "En amour, tu es ouvert·e et honnête, et tu aimes un·e partenaire qui te fait face. L'Empereur évoque la loyauté et l'envie de protéger. Essaie d'écouter un peu plus longtemps avant de décider de ce que veut dire l'autre.",
+   "work": "Tu travailles bien quand tu peux diriger, ou au moins être responsable d'un projet. Des objectifs clairs et de la marge pour agir te conviennent. Les comités lents peuvent mettre ta patience à l'épreuve : trouve quelques allié·es de confiance qui suivent ton rythme.",
+   "advice": "Avant de sauter, respire une fois et demande-toi ce que ferait un chef calme. Puis lance-toi avec confiance."
+  },
+  "taurus": {
+   "intro": "Le Taureau est associé au Hiérophante, la carte de la tradition, de la guidance et de l'appartenance. C'est un signe de Terre, dont le maître est Vénus, dont la carte est L'Impératrice. Le Hiérophante valorise ce qui a fait ses preuves avec le temps. L'Impératrice ajoute le confort, l'attention et le goût des belles choses. Ensemble, ils décrivent quelqu'un qui bâtit une vie stable et gratifiante.",
+   "decans": "Les trois décans du Taureau sont le Cinq de Deniers, le Six de Deniers et le Sept de Deniers. Né·e en début de signe, tu peux te lire dans le Cinq de Deniers : une période maigre, avec de l'aide disponible si tu tends la main. Le milieu du signe peut convenir au Six de Deniers, où donner et recevoir s'équilibrent. En fin de signe, le Sept de Deniers t'invite à faire une pause, à passer en revue tes efforts et à laisser la croissance prendre son temps.",
+   "strengths": "Tu es patient·e, loyal·e et concret·e. Tu remarques la qualité, et tu continues quand les autres se lassent. Les gens se sentent en sécurité près de toi.",
+   "challenges": "Le Hiérophante peut pencher vers l'habitude pour l'habitude, et le confort peut te ralentir. Remarque quand tu t'accroches simplement parce que c'est familier.",
+   "love": "En amour, tu offres chaleur, loyauté et une main sûre. Tu apprécies les petits rituels partagés, la bonne cuisine et le temps passé ensemble. Essaie de dire à voix haute ce dont tu as besoin plutôt que d'espérer être compris·e.",
+   "work": "Tu réussis dans un travail qui récompense le soin et la constance. Tu préfères un chemin clair et un salaire juste pour un bon effort. Demande-toi de temps en temps si un changement ne te servirait pas mieux que de rester en place.",
+   "advice": "Honore ton rythme régulier, et garde une petite chose de ta vie ouverte au changement. Le confort est délicieux, et un peu de curiosité aussi."
+  },
+  "gemini": {
+   "intro": "Les Gémeaux sont associés aux Amoureux, la carte du choix, du lien et de l'alignement. C'est un signe d'Air, dont le maître est Mercure, dont la carte est Le Magicien. Les Amoureux parlent de peser ses options et d'être honnête sur ses valeurs. Le Magicien apporte l'habileté avec les mots et les idées. Ensemble, ils évoquent un esprit vif et curieux qui aime faire des liens.",
+   "decans": "Les trois décans des Gémeaux sont le Huit d'Épées, le Neuf d'Épées et le Dix d'Épées. Né·e en début de signe, tu peux te lire dans le Huit d'Épées : tu te sens bloqué·e, alors que tes options sont peut-être plus ouvertes qu'il n'y paraît. Le milieu du signe peut convenir au Neuf d'Épées, où l'inquiétude paraît immense et où en parler aide. En fin de signe, le Dix d'Épées marque la fin d'un chapitre douloureux, avec la suite devant toi.",
+   "strengths": "Tu es curieux·se, vif·ve et doué·e avec les gens. Tu sais expliquer une idée de plusieurs façons, et tu t'adaptes facilement. Les autres apprécient ton esprit et l'intérêt que tu leur portes.",
+   "challenges": "Un esprit occupé peut tourner à l'inquiétude, et le choix des Amoureux peut devenir de l'indécision. Écris tes pensées, puis choisis une chose sur laquelle agir.",
+   "love": "En amour, tu veux de la conversation, de l'humour et un·e partenaire qui garde ton intérêt. Les Amoureux demandent de l'honnêteté sur ce que tu valorises. Laisse-toi connaître, et pas seulement amuser.",
+   "work": "Tu brilles dans un travail qui mêle variété, communication et apprentissage. L'écriture, l'enseignement, la vente et le design te vont souvent bien, mais tout rôle avec des problèmes neufs peut convenir. Termine une tâche avant d'ouvrir la suivante.",
+   "advice": "Quand tes pensées s'emballent, ralentis et parle à une personne de confiance. Une inquiétude partagée est souvent plus légère."
+  },
+  "cancer": {
+   "intro": "Le Cancer est associé au Chariot, la carte de la détermination, de l'élan et de la direction. C'est un signe d'Eau, dont le maître est la Lune, dont la carte est La Grande Prêtresse. Le Chariot montre une carapace douce qui sait pourtant avancer avec un but. La Grande Prêtresse apporte un sentiment profond et l'intuition. Ensemble, ils décrivent quelqu'un qui ressent beaucoup et protège ce qui compte.",
+   "decans": "Les trois décans du Cancer sont le Deux de Coupes, le Trois de Coupes et le Quatre de Coupes. Né·e en début de signe, tu peux te lire dans le Deux de Coupes : un lien équilibré, fondé sur le respect et le sentiment partagé. Le milieu du signe peut convenir au Trois de Coupes, avec une joie partagée en bonne compagnie. En fin de signe, le Quatre de Coupes demande ce que tu veux vraiment quand tout semble terne.",
+   "strengths": "Tu es attentionné·e, perspicace et loyal·e. Tu te souviens de ce qui compte pour les gens, et tu crées un sentiment de foyer où que tu ailles. Ton intuition est souvent une vraie aide.",
+   "challenges": "Tu peux te retirer dans ta carapace quand tu es blessé·e, et l'humeur peut tenir les rênes du Chariot. Nomme le sentiment, puis décide si tu veux agir selon lui.",
+   "love": "En amour, tu donnes dévouement et tendresse, et tu veux un·e partenaire qui ressemble à un foyer. La joie partagée et la proximité tranquille comptent pour toi. Dis à ton ou ta partenaire ce qui ne va pas plutôt que d'attendre qu'il ou elle devine.",
+   "work": "Tu travailles bien dans les rôles qui impliquent le soin, l'enseignement, l'accueil ou la protection de ce que d'autres ont bâti. La confiance et la gentillesse au travail comptent énormément pour toi. Pose des limites pour que prendre soin de tout le monde ne t'épuise pas.",
+   "advice": "Prends du temps pour te reposer et pour les personnes qui te rassurent. Puis dirige avec ton cœur et tes plans."
+  },
+  "leo": {
+   "intro": "Le Lion est associé à La Force, la carte du courage, de la patience et de la compassion. C'est un signe de Feu, dont le maître est le Soleil, dont la carte est Le Soleil. La Force montre un courage doux, pas bruyant. Le Soleil ajoute chaleur, joie et ouverture. Ensemble, ils décrivent un cœur généreux qui guide en encourageant les autres.",
+   "decans": "Les trois décans du Lion sont le Cinq de Bâtons, le Six de Bâtons et le Sept de Bâtons. Né·e en début de signe, tu peux te lire dans le Cinq de Bâtons : des idées qui s'entrechoquent et peuvent t'aiguiser si elles restent amicales. Le milieu du signe peut convenir au Six de Bâtons, un élan de confiance et la reconnaissance de tes efforts. En fin de signe, le Sept de Bâtons invite à tenir bon sur ce en quoi tu crois.",
+   "strengths": "Tu es chaleureux·se, loyal·e et courageux·se. Tu apportes de la lumière à un groupe, et tu aimes voir les autres réussir. Ta confiance peut être contagieuse.",
+   "challenges": "La fierté peut rendre difficile de demander de l'aide, et l'attention peut devenir un besoin. Le côté tranquille de La Force peut mieux te servir qu'une démonstration de force.",
+   "love": "En amour, tu es affectueux·se et généreux·se, et tu aimes célébrer les personnes qui te sont chères. Tu veux te sentir apprécié·e. Laisse ton ou ta partenaire voir ton côté tendre autant que ton côté éclatant.",
+   "work": "Tu réussis quand tu peux diriger, créer ou te produire, et quand ton effort est remarqué. Un leadership chaleureux tire le meilleur de ton équipe. Partage le mérite et tu garderas leur bienveillance.",
+   "advice": "Guide avec patience, comme le fait La Force. Laisse la chaleur, plutôt que le volume, porter ton propos."
+  },
+  "virgo": {
+   "intro": "La Vierge est associée à L'Ermite, la carte de la solitude, de la réflexion et de la guidance intérieure. C'est un signe de Terre, dont le maître est Mercure, dont la carte est Le Magicien. L'Ermite porte une lanterne et prend du recul pour voir clair. Le Magicien apporte l'habileté et le sens du détail. Ensemble, ils décrivent un esprit soigneux qui améliore les choses en silence.",
+   "decans": "Les trois décans de la Vierge sont le Huit de Deniers, le Neuf de Deniers et le Dix de Deniers. Né·e en début de signe, tu peux te lire dans le Huit de Deniers : un travail régulier et concentré qui forge le savoir-faire. Le milieu du signe peut convenir au Neuf de Deniers, où tu profites de ce que ton effort a construit. En fin de signe, le Dix de Deniers évoque la stabilité à long terme, la famille et la richesse partagée.",
+   "strengths": "Tu es réfléchi·e, fiable et observateur·rice. Tu remarques les détails que d'autres manquent, et tu aimes être utile. Tes exigences aident les choses à bien fonctionner.",
+   "challenges": "L'Ermite peut glisser vers l'isolement, et un œil aiguisé peut se retourner contre toi. Équilibre solitude et compagnie, et laisse le « suffisamment bien » être suffisant.",
+   "love": "En amour, tu montres ton attention par des actes : te souvenir, aider, réparer. Tu mets du temps à t'ouvrir, et c'est très bien. Essaie de dire ce que tu ressens en plus de faire quelque chose pour l'exprimer.",
+   "work": "Tu t'épanouis dans un travail qui récompense la précision, le savoir-faire et l'amélioration. L'analyse, la santé, la correction et les métiers qualifiés te conviennent souvent. Partage tes idées avant qu'elles soient parfaites pour que d'autres puissent t'aider.",
+   "advice": "Sois aussi doux·ce avec toi-même que tu es serviable avec les autres. Sors ta lanterne en compagnie de temps en temps."
+  },
+  "libra": {
+   "intro": "La Balance est associée à La Justice, la carte de l'équité, de la vérité et de la responsabilité. C'est un signe d'Air, dont le maître est Vénus, dont la carte est L'Impératrice. La Justice pèse honnêtement les faits. L'Impératrice ajoute l'attention, la beauté et le goût de l'harmonie. Ensemble, ils décrivent quelqu'un qui cherche l'équilibre et veut que les choses soient justes et gracieuses.",
+   "decans": "Les trois décans de la Balance sont le Deux d'Épées, le Trois d'Épées et le Quatre d'Épées. Né·e en début de signe, tu peux te lire dans le Deux d'Épées : un choix difficile que tu évites, avec le bandeau prêt à tomber. Le milieu du signe peut convenir au Trois d'Épées, une vérité douloureuse reconnue pour qu'elle puisse guérir. En fin de signe, le Quatre d'Épées dit de faire une pause et de recharger, car le repos est productif.",
+   "strengths": "Tu es diplomate, équitable et doué·e pour voir les deux côtés. Tu fais sentir aux gens qu'ils sont écoutés. Tu as l'œil pour la beauté et pour ce qui est déséquilibré.",
+   "challenges": "Voir tous les côtés peut te laisser bloqué·e, comme le montre le Deux d'Épées. Garder la paix peut aussi signifier te taire quand tu devrais parler.",
+   "love": "En amour, tu veux un partenariat, de la gentillesse et de l'égalité. Tu aimes la romance et les attentions réfléchies. Dis ce dont tu as besoin, même si cela risque un petit désaccord.",
+   "work": "Tu réussis dans les rôles de négociation, de design, de droit, de médiation ou de travail d'équipe. Tu apportes du calme dans les pièces tendues. Fixe une échéance pour les décisions afin que l'équilibre ne se transforme pas en retard.",
+   "advice": "Pèse les choses honnêtement, puis choisis. Une décision juste prise aujourd'hui vaut souvent mieux qu'une décision parfaite prise trop tard."
+  },
+  "scorpio": {
+   "intro": "Le Scorpion est associé à La Mort, la carte des fins, de la transition et du lâcher-prise. C'est un signe d'Eau, dont le maître est Mars, dont la carte est La Tour. La Mort est rarement littérale. Elle parle de chapitres qui se ferment pour que d'autres commencent. Avec La Tour à ses côtés, l'image est celle de quelqu'un d'intense, qui ressent profondément et n'a pas peur du changement.",
+   "decans": "Les trois décans du Scorpion sont le Cinq de Coupes, le Six de Coupes et le Sept de Coupes. Né·e en début de signe, tu peux te lire dans le Cinq de Coupes : le regard sur ce qui est perdu, alors que certaines coupes restent debout. Le milieu du signe peut convenir au Six de Coupes, avec ses souvenirs et sa douce générosité. En fin de signe, le Sept de Coupes montre de nombreuses possibilités et un peu de fantasme : fais le tri entre le réel et l'imaginé.",
+   "strengths": "Tu es loyal·e, concentré·e et courageux·se face aux sentiments difficiles. Tu vois au-delà des apparences et tu t'engages pleinement. On compte souvent sur toi en cas de crise.",
+   "challenges": "Tu peux t'accrocher à une blessure ou garder tes sentiments pour toi trop longtemps. La leçon de La Mort est de lâcher ce qui a fait son temps.",
+   "love": "En amour, tu veux de la profondeur, de la confiance et de l'honnêteté. Tu donnes beaucoup une fois que tu te sens en sécurité. Essaie de partager tes petites inquiétudes tôt, avant qu'elles ne deviennent des silences.",
+   "work": "Tu réussis dans un travail qui demande de la recherche, de la concentration et de la profondeur, comme l'enquête, le soin, la finance ou la stratégie. Tu vois ce qui se cache dans un problème. Délègue et fais confiance aux autres pour ne pas porter toutes les charges seul·e.",
+   "advice": "Choisis une chose à laisser partir cette saison. Faire de la place est souvent le premier pas vers ce qui vient ensuite."
+  },
+  "sagittarius": {
+   "intro": "Le Sagittaire est associé à La Tempérance, la carte de l'équilibre, de la patience et de la mesure. C'est un signe de Feu, dont le maître est Jupiter, dont la carte est La Roue de Fortune. La Tempérance mêle les opposés avec patience, tandis que la Roue rappelle que les choses tournent en cycles. Ensemble, ils décrivent un·e optimiste qui cherche du sens et garde l'esprit ouvert.",
+   "decans": "Les trois décans du Sagittaire sont le Huit de Bâtons, le Neuf de Bâtons et le Dix de Bâtons. Né·e en début de signe, tu peux te lire dans le Huit de Bâtons : les choses vont vite, alors agis sans tarder et garde la communication ouverte. Le milieu du signe peut convenir au Neuf de Bâtons, fatigué·e mais presque au but, en puisant dans ta résilience. En fin de signe, le Dix de Bâtons demande ce que tu portes et pourrais poser.",
+   "strengths": "Tu es plein·e d'espoir, aventureux·se et honnête. Tu aimes apprendre, et tu aides les autres à voir plus large. Ton humour illumine une pièce.",
+   "challenges": "La Tempérance demande de la mesure, ce qui ne vient pas toujours naturellement. Tu peux en prendre trop, ou parler avant de réfléchir.",
+   "love": "En amour, tu veux de la liberté, du rire et un·e partenaire qui partage ta curiosité. Tu es honnête et chaleureux·se. Rappelle-toi que rester présent·e peut être une aventure en soi.",
+   "work": "Tu t'épanouis dans un travail varié, tourné vers l'apprentissage, les voyages ou l'enseignement. Un sens du but te fait avancer. Choisis tes projets avec soin, car le Dix de Bâtons met en garde contre le fait d'en prendre trop.",
+   "advice": "Vise haut, et ménage-toi. Des pas réguliers te mèneront plus loin qu'un sprint."
+  },
+  "capricorn": {
+   "intro": "Le Capricorne est associé au Diable, la carte de l'attachement, de l'habitude et de l'ombre. C'est un signe de Terre, dont le maître est Saturne, dont la carte est Le Monde. Le Diable invite à remarquer ce qui te retient et quelle marge de choix tu as vraiment. Le Monde parle d'achever un cycle avec patience. Ensemble, ils décrivent quelqu'un qui travaille régulièrement vers un but et apprend où finit le devoir et où commence la liberté.",
+   "decans": "Les trois décans du Capricorne sont le Deux de Deniers, le Trois de Deniers et le Quatre de Deniers. Né·e en début de signe, tu peux te lire dans le Deux de Deniers : jongler avec les priorités avec souplesse et garder ton rythme. Le milieu du signe peut convenir au Trois de Deniers, où une collaboration qualifiée aide le bon travail à grandir. En fin de signe, le Quatre de Deniers t'invite à profiter de la sécurité en veillant à ne pas t'accrocher.",
+   "strengths": "Tu es discipliné·e, responsable et patient·e. Tu planifies à l'avance et tu termines ce que tu commences. On te fait confiance pour tenir parole.",
+   "challenges": "Les chaînes du Diable sont souvent des habitudes, comme le surmenage ou la peur d'échouer. Tu peux aussi être dur·e avec toi-même et lent·e à te reposer.",
+   "love": "En amour, tu es loyal·e et tu montres ton attention par l'engagement et la fiabilité. Tu mets peut-être du temps à te détendre dans la romance. Accorde-toi un peu de jeu et de spontanéité, et dis à ton ou ta partenaire quand tu es fier·ère de lui ou d'elle.",
+   "work": "Tu réussis quand tu peux construire quelque chose dans la durée, dans les affaires, la gestion, l'ingénierie ou l'artisanat. Tu respectes le travail acharné. Demande-toi de temps en temps si une habitude t'aide ou ne fait que te retenir.",
+   "advice": "Regarde une croyance sur le devoir que tu pourrais assouplir. Puis reconnais le chemin que tu as déjà parcouru."
+  },
+  "aquarius": {
+   "intro": "Le Verseau est associé à L'Étoile, la carte de l'espoir, du renouveau et du calme. C'est un signe d'Air, dont le maître est Saturne, dont la carte est Le Monde. L'Étoile verse de l'eau sur la terre et dans le bassin, ce qui dit le don librement offert. Le Monde ajoute le sentiment d'appartenir à quelque chose de plus grand. Ensemble, ils décrivent quelqu'un qui se soucie des gens dans leur ensemble et veut rendre les choses un peu meilleures pour tous.",
+   "decans": "Les trois décans du Verseau sont le Cinq d'Épées, le Six d'Épées et le Sept d'Épées. Né·e en début de signe, tu peux te lire dans le Cinq d'Épées : un combat qui coûte plus qu'il ne rapporte, alors choisis tes batailles. Le milieu du signe peut convenir au Six d'Épées, un lent éloignement des ennuis avec la guérison en cours. En fin de signe, le Sept d'Épées t'invite à réfléchir avec soin et à être honnête sur le coût d'une approche sournoise.",
+   "strengths": "Tu es original·e, amical·e et ouvert·e d'esprit. Tu vois comment les choses pourraient être différentes, et tu soutiens des gens qui ne te ressemblent pas. Tu restes calme quand les autres paniquent.",
+   "challenges": "L'Étoile est douce, mais tu peux sembler distant·e ou têtu·e quand tu te sens à l'étroit. Tu peux être si attaché·e à tes idées que tu oublies de demander aux gens comment ils se sentent.",
+   "love": "En amour, tu valorises l'amitié, l'honnêteté et la liberté d'être toi-même. Tu es loyal·e à ta façon. Laisse ton ou ta partenaire entrer dans les moments calmes, pas seulement dans les idées.",
+   "work": "Tu t'épanouis dans un travail inventif, collaboratif ou tourné vers une cause, comme la technologie, la science, le travail communautaire ou le design. Tu aimes améliorer les systèmes. Explique ta pensée aux autres, car les meilleures idées ont besoin d'alliés.",
+   "advice": "Garde ton espoir, et partage-le aujourd'hui avec quelqu'un de proche. Un petit geste chaleureux peut compter autant qu'un grand plan."
+  },
+  "pisces": {
+   "intro": "Les Poissons sont associés à La Lune, la carte de l'incertitude, des rêves et de l'intuition. C'est un signe d'Eau, dont le maître est Jupiter, dont la carte est La Roue de Fortune. La Lune montre un monde qui n'est pas tout à fait clair, où l'instinct et l'imagination te guident. La Roue ajoute le sens des cycles et la confiance dans le changement. Ensemble, ils décrivent quelqu'un de sensible et d'imaginatif, qui suit la marée.",
+   "decans": "Les trois décans des Poissons sont le Huit de Coupes, le Neuf de Coupes et le Dix de Coupes. Né·e en début de signe, tu peux te lire dans le Huit de Coupes : quitter ce qui ne te satisfait plus en quête de sens. Le milieu du signe peut convenir au Neuf de Coupes, un sentiment d'épanouissement et de gratitude pour ce que tu as. En fin de signe, le Dix de Coupes évoque l'épanouissement affectif et l'appartenance.",
+   "strengths": "Tu es compatissant·e, créatif·ve et intuitif·ve. Tu ressens ce que ressentent les autres, et tu sais apporter du réconfort. Ton imagination rend les choses ordinaires belles.",
+   "challenges": "La Lune peut brouiller la frontière entre le réel et l'imaginé. Tu peux absorber les humeurs des autres ou éviter les conversations difficiles.",
+   "love": "En amour, tu es tendre, romantique et attentif·ve aux humeurs. Tu veux un lien qui ait de l'âme. Confronte tes espoirs à ce qui est réellement dit et fait, et garde un peu d'espace à toi.",
+   "work": "Tu réussis dans un travail créatif, bienveillant ou de soin, comme les arts, la musique, l'écoute ou les soins infirmiers. Tu as besoin de sens dans ce que tu fais. Prévois des routines et des pauses pour que tes dons ne t'épuisent pas.",
+   "advice": "Fais confiance à ton instinct, et ancre-le avec un petit fait. Une marche tranquille ou une nuit de sommeil peut clarifier l'eau."
+  }
+ },
+ "birth": {
+  "major_01_magician": {
+   "intro": "Le Magicien comme carte de naissance signifie que ton nombre est le 1. Il reflète la concentration, l'habileté et l'ingéniosité. C'est aussi la carte du 10, donc il forme une paire avec La Roue de Fortune, qui ajoute le thème du changement et des cycles. Les cartes de naissance sont une idée de réflexion, pas une prédiction, et elles fonctionnent mieux comme une invitation à penser.",
+   "gifts": "Tu sais rassembler ton attention et faire advenir les choses. Tu apprends souvent vite et tu expliques bien.",
+   "challenges": "L'énergie peut se disperser quand tu cours après trop d'idées. Demande-toi ce qui freine ta concentration.",
+   "love": "Tu apportes du charme et de l'initiative en amour. Sois aussi prêt·e à écouter qu'à lancer la conversation.",
+   "work": "Tu réussis quand tu peux utiliser librement tes outils, qu'il s'agisse de compétences, de mots ou d'idées. Choisis un projet et mène-le à terme.",
+   "advice": "Tu tiens déjà plus que tu ne le crois. Choisis une chose, et commence."
+  },
+  "major_02_high_priestess": {
+   "intro": "La Grande Prêtresse comme carte de naissance signifie que ton nombre est le 2. Elle reflète l'intuition, le calme et le non-dit. Elle forme une paire avec La Justice (11), qui ajoute l'équité et un jugement honnête à ton côté tranquille. Vois-y une invitation à la réflexion, pas un destin figé.",
+   "gifts": "Tu remarques ce qui se cache sous la surface, et tu sais rester calme dans une pièce bruyante. On se confie peut-être volontiers à toi.",
+   "challenges": "Tu gardes peut-être les choses cachées, même à toi-même. Ignorer ta voix intérieure, ou ne pas la partager, peut te laisser un sentiment de déconnexion.",
+   "love": "Tu offres de la profondeur et de la loyauté en amour. Laisse ton ou ta partenaire entendre ce que tu penses, pas seulement ce que tu pressens.",
+   "work": "Tu travailles bien là où la réflexion est valorisée, comme la recherche, l'accompagnement ou le travail créatif. Prends la parole en réunion quand tu as remarqué quelque chose.",
+   "advice": "Ménage chaque jour un moment de silence. Puis fais confiance à ce que tu entends."
+  },
+  "major_03_empress": {
+   "intro": "L'Impératrice comme carte de naissance signifie que ton nombre est le 3. Elle reflète l'attention aux autres, l'abondance et la créativité. Elle forme une paire avec Le Pendu (12), qui ajoute le don de faire une pause pour voir les choses autrement. Vois-y un miroir pour la réflexion, pas une prévision.",
+   "gifts": "Tu aides les choses à grandir, qu'il s'agisse de personnes, de projets ou d'un foyer. Tu aimes la beauté et le confort, et tu les partages généreusement.",
+   "challenges": "Prendre soin peut basculer dans l'étouffement, ou dans l'oubli de toi-même. Des blocages créatifs peuvent apparaître quand tu es fatigué·e.",
+   "love": "Tu aimes avec chaleur et générosité. Laisse aussi ton ou ta partenaire prendre soin de toi.",
+   "work": "Tu t'épanouis dans un travail créatif, nourricier ou manuel. Fais des pauses pour que ta propre énergie soit aussi nourrie.",
+   "advice": "Prends soin de ce que tu aimes, toi y compris. La croissance suit l'attention."
+  },
+  "major_04_emperor": {
+   "intro": "L'Empereur comme carte de naissance signifie que ton nombre est le 4. Il reflète la structure, l'autorité et la stabilité. Il forme une paire avec La Mort (13), qui ajoute l'idée que les bonnes structures doivent aussi changer quand leur temps est passé. C'est une idée de réflexion, pas une promesse sur ta vie.",
+   "gifts": "Tu sais planifier, organiser et garder ton calme. Les autres comptent sur toi pour la stabilité et des limites claires.",
+   "challenges": "La fermeté peut se durcir en rigidité ou en besoin de contrôle. Demande-toi où être fort·e est devenu être têtu·e.",
+   "love": "Tu offres loyauté et protection en amour. Laisse de la place à la façon de faire de ton ou ta partenaire.",
+   "work": "Tu es fait·e pour diriger et bâtir des systèmes durables. Écoute avant de décider, et délègue quand tu le peux.",
+   "advice": "Dirige avec calme. Fais en sorte que tes règles servent les gens, et non l'inverse."
+  },
+  "major_05_hierophant": {
+   "intro": "Le Hiérophante comme carte de naissance signifie que ton nombre est le 5. Il reflète la tradition, la guidance et l'appartenance. Il forme une paire avec La Tempérance (14), qui ajoute la patience et l'équilibre à ton respect pour la sagesse partagée. Utilise-le pour réfléchir et te divertir, pas pour obtenir des réponses figées.",
+   "gifts": "Tu valorises l'apprentissage, la communauté et la sagesse de ceux qui nous ont précédés. Tu peux être un·e bon·ne enseignant·e et mentor.",
+   "challenges": "Tu suis peut-être des règles qui ne te correspondent plus. Les remettre en question peut être inconfortable, mais c'est aussi ainsi que tu trouves ton propre chemin vers le sens.",
+   "love": "Tu cherches l'engagement et des valeurs communes en amour. Respecte le fait que ton ou ta partenaire peut en avoir d'autres.",
+   "work": "Tu réussis dans l'enseignement, la formation, les institutions et le travail en équipe. Offre des conseils sans imposer une seule bonne manière.",
+   "advice": "Apprends de l'ancien, et fais de la place à ton propre point de vue."
+  },
+  "major_06_lovers": {
+   "intro": "Les Amoureux comme carte de naissance signifie que ton nombre est le 6. Ils reflètent le choix, le lien et l'accord avec tes valeurs. Ils forment une paire avec Le Diable (15), qui te rappelle de remarquer les habitudes et attachements dans tes relations. C'est une idée de réflexion, pas une prédiction d'aucune sorte.",
+   "gifts": "Tu crées facilement des liens et tu tiens à faire ce qui te semble juste. Tu prends tes choix au sérieux.",
+   "challenges": "Tu peux avoir du mal à te décider, ou agir contre tes propres valeurs. Vérifie que tes actes correspondent à ce que tu dis vouloir.",
+   "love": "L'honnêteté compte avant tout pour toi en amour. Dis ce que tu valorises, et écoute ce que valorise ton ou ta partenaire.",
+   "work": "Tu travailles bien en partenariat et là où les valeurs comptent. Prends tes décisions à temps, même quand aucune option n'est parfaite.",
+   "advice": "Quand tu choisis, choisis en accord avec tes valeurs, et dis-le simplement."
+  },
+  "major_07_chariot": {
+   "intro": "Le Chariot comme carte de naissance signifie que ton nombre est le 7. Il reflète la détermination, l'élan et la direction. Il forme une paire avec La Tour (16), qui ajoute le thème du changement soudain et de la reconstruction. Vois-y une idée de réflexion et de divertissement, pas un verdict.",
+   "gifts": "Tu sais tenir ensemble des forces opposées et continuer d'avancer. La concentration et la volonté sont des forces.",
+   "challenges": "Tu peux pousser trop fort sans plan, ou perdre ton cap quand un objectif change. Ralentis assez pour vérifier ton itinéraire.",
+   "love": "Tu aimes avec énergie et engagement. Laisse parfois ton ou ta partenaire donner le rythme.",
+   "work": "Tu réussis dans un travail avec des cibles claires et de l'élan. Repose-toi entre deux sprints, et célèbre les étapes en chemin.",
+   "advice": "Tiens les rênes fermement et vérifie où tu vas."
+  },
+  "major_08_strength": {
+   "intro": "La Force comme carte de naissance signifie que ton nombre est le 8. Elle reflète le courage, la patience et la compassion. Elle forme une paire avec L'Étoile (17), qui ajoute le calme et l'espoir à ton courage discret. C'est une façon de te regarder, pas une prédiction.",
+   "gifts": "Tu sais affronter les choses difficiles avec douceur. Les autres te trouvent rassurant·e, et tu continues sans faire d'histoires.",
+   "challenges": "Le doute de toi peut s'infiltrer, ou tu peux tourner à vide. Reconstruis ta confiance à petits pas.",
+   "love": "Tu aimes avec patience et chaleur. Laisse-toi aussi aimer et soigner.",
+   "work": "Tu réussis dans les rôles qui demandent du calme sous pression, comme le soin, le coaching ou la direction. Protège ton énergie.",
+   "advice": "Sois doux·ce avec toi-même. Les petits actes de courage s'additionnent."
+  },
+  "major_09_hermit": {
+   "intro": "L'Ermite comme carte de naissance signifie que ton nombre est le 9. Il reflète la solitude, la réflexion et la guidance intérieure. Il forme une paire avec La Lune (18), qui ajoute l'imagination et l'intuition à ta quête de réponses. Utilise-le comme une invitation à penser, pas comme une règle.",
+   "gifts": "Tu penses en profondeur et tu sais trouver tes propres réponses. Le temps seul·e te ressource, et tu as souvent une sagesse à partager.",
+   "challenges": "Tu peux glisser vers l'isolement ou éviter la réflexion en restant occupé·e. Équilibre solitude et lien.",
+   "love": "Tu valorises la profondeur et le calme en amour. Dis à ton ou ta partenaire quand tu as besoin d'espace et quand tu le ou la veux près de toi.",
+   "work": "Tu t'épanouis dans la recherche, l'artisanat et les rôles qui récompensent la concentration. Sors de ta grotte pour partager ce que tu trouves.",
+   "advice": "Prends du recul pour penser, puis apporte ta lanterne aux autres."
+  },
+  "major_10_wheel_of_fortune": {
+   "intro": "La Roue de Fortune comme carte de naissance signifie que ton nombre est le 10, qui se réduit à 1. Cela te place dans une paire avec Le Magicien. Elle reflète les cycles, le changement et la perspective. Comme toujours, c'est pour la réflexion et le divertissement, pas pour prédire.",
+   "gifts": "Tu t'adaptes, et tu sais voir le schéma plus large des événements. Tu trouves souvent le moyen de recommencer.",
+   "challenges": "Résister au changement peut te laisser coincé·e dans une boucle. Cherche ce que tu peux influencer, et lâche le reste.",
+   "love": "Tu apportes de la souplesse en amour et tu traverses bien les saisons changeantes. Partage tes projets avec ton ou ta partenaire pour que le changement soit un travail d'équipe.",
+   "work": "Tu réussis là où l'adaptabilité est valorisée. Associe ton ouverture au changement à une compétence claire, comme le suggère Le Magicien.",
+   "advice": "Les choses tournent en cycles. Garde les mains prêtes pour la suite."
+  },
+  "major_11_justice": {
+   "intro": "La Justice comme carte de naissance signifie que ton nombre est le 11, qui se réduit à 2. Cela t'associe à La Grande Prêtresse. Elle reflète l'équité, la vérité et la responsabilité. Vois-y un miroir pour la réflexion, pas une prévision.",
+   "gifts": "Tu pèses les faits honnêtement et tu tiens à l'équité. Les gens se fient à ton jugement.",
+   "challenges": "Les préjugés ou la fuite des responsabilités peuvent s'infiltrer, et tu peux être dur·e avec toi ou avec les autres. Vérifie que ton point de vue est équilibré.",
+   "love": "Tu valorises l'honnêteté et l'égalité en amour. Fais de la place aux sentiments autant qu'aux faits.",
+   "work": "Tu réussis dans le droit, la médiation, la finance ou tout rôle qui demande la tête froide. Écoute ton intuition autant que les preuves.",
+   "advice": "Regarde les faits, et ta propre part en eux. Puis choisis avec équité."
+  },
+  "major_12_hanged_man": {
+   "intro": "Le Pendu comme carte de naissance signifie que ton nombre est le 12, qui se réduit à 3. Cela t'associe à L'Impératrice. Il reflète la pause, l'abandon et le fait de voir sous un autre angle. C'est une invitation à la réflexion, jamais une prédiction.",
+   "gifts": "Tu sais attendre, et tu vois ce que les autres manquent quand tu regardes d'un autre côté. Tu es souvent ouvert·e d'esprit et patient·e.",
+   "challenges": "Il peut arriver que tu t'immobilises sans but. Demande-toi si attendre t'aide encore.",
+   "love": "Tu laisses à l'amour de l'espace et de la patience. N'attends pas si longtemps que tes sentiments restent non dits.",
+   "work": "Tu réussis dans un travail créatif et réfléchi. Choisis un moment pour bouger, puis agis.",
+   "advice": "Fais une pause pour voir autrement, puis fais le pas suivant."
+  },
+  "major_13_death": {
+   "intro": "La Mort comme carte de naissance signifie que ton nombre est le 13, qui se réduit à 4. Cela t'associe à L'Empereur. Elle reflète les fins, la transition et le lâcher-prise, et elle est rarement littérale. Utilise-la pour réfléchir et te divertir, pas pour obtenir des réponses sur l'avenir.",
+   "gifts": "Tu sais lâcher prise et recommencer. Tu gères souvent le changement avec courage.",
+   "challenges": "Tu peux t'accrocher au passé ou craindre un changement nécessaire. Remarque ce qui a fait son temps.",
+   "love": "Tu aimes avec honnêteté sur les fins et les commencements. Laisse du temps aux choses nouvelles pour s'installer.",
+   "work": "Tu réussis dans un travail de renouveau, comme les redressements, la refonte ou le grand ménage. Construis une base, comme le suggère L'Empereur.",
+   "advice": "Laisse partir une chose ce mois-ci, et fais de la place pour du nouveau."
+  },
+  "major_14_temperance": {
+   "intro": "La Tempérance comme carte de naissance signifie que ton nombre est le 14, qui se réduit à 5. Cela t'associe au Hiérophante. Elle reflète l'équilibre, la patience et la mesure. Les cartes de naissance servent à réfléchir sur soi, pas à prédire des événements.",
+   "gifts": "Tu mêles les opposés avec patience. Tu es posé·e et mesuré·e, et les autres se sentent bien près de toi.",
+   "challenges": "L'excès ou l'impatience peuvent apparaître quand les choses sont déséquilibrées. Repère où tu donnes trop ou trop peu.",
+   "love": "Tu apportes calme et compromis en amour. Dis ce dont tu as besoin, pas seulement ce qui maintient la paix.",
+   "work": "Tu réussis comme médiateur·rice, soignant·e, enseignant·e ou membre d'équipe. Des pas réguliers et mesurés te conviennent le mieux.",
+   "advice": "Mélange avec patience et prends ton temps. L'équilibre est quelque chose que l'on refait sans cesse."
+  },
+  "major_15_devil": {
+   "intro": "Le Diable comme carte de naissance signifie que ton nombre est le 15, qui se réduit à 6. Cela t'associe aux Amoureux. Il reflète l'attachement, l'habitude et l'ombre. C'est une idée de réflexion, pas un jugement sur toi.",
+   "gifts": "Tu vois ce qui retient les gens, toi y compris. Tu as souvent beaucoup d'élan et d'appétit pour la vie.",
+   "challenges": "Les habitudes, les croyances et les dépendances peuvent serrer fort. Prendre conscience est le premier pas vers la liberté.",
+   "love": "Tu aimes avec passion. Demande-toi honnêtement si un lien est un choix ou une habitude, comme le suggèrent Les Amoureux.",
+   "work": "Tu es motivé·e au travail et à l'aise avec l'argent et l'influence. Attention au surmenage et aux objectifs qui ne sont pas les tiens.",
+   "advice": "Remarque ce qui te retient, et rappelle-toi combien tu as de choix."
+  },
+  "major_16_tower": {
+   "intro": "La Tour comme carte de naissance signifie que ton nombre est le 16, qui se réduit à 7. Cela t'associe au Chariot. Elle reflète le bouleversement, la révélation et la remise à zéro. Vois-y une invitation à la réflexion, pas une prédiction.",
+   "gifts": "Tu sais faire face quand les choses changent vite, et tu es honnête sur ce qui ne marche pas. Un terrain dégagé te laisse de la place pour reconstruire.",
+   "challenges": "La peur du changement peut couver et devenir un problème lent. Affronte-la plus tôt que tard.",
+   "love": "Tu valorises la vérité en amour. Sois doux·ce quand tu la dis.",
+   "work": "Tu réussis quand tu peux réparer, reconstruire ou mener à travers le changement. Dirige avec détermination, comme le fait Le Chariot.",
+   "advice": "Regarde en face ce qui est bancal, et bâtis sur un sol solide."
+  },
+  "major_17_star": {
+   "intro": "L'Étoile comme carte de naissance signifie que ton nombre est le 17, qui se réduit à 8. Cela t'associe à La Force. Elle reflète l'espoir, le renouveau et le calme. Elle est faite pour réfléchir et se divertir, pas pour dire la bonne aventure.",
+   "gifts": "Tu apportes un espoir doux aux autres. Tu te remets bien et tu partages ce que tu as.",
+   "challenges": "Le doute et le manque de motivation peuvent s'installer. Sois bienveillant·e avec toi-même et garde en vie de petits espoirs.",
+   "love": "Tu aimes avec ouverture et calme. Laisse aussi ton ou ta partenaire voir tes doutes.",
+   "work": "Tu réussis dans le soin, la création et le travail communautaire. Ménage-toi pour ne pas te tarir.",
+   "advice": "Repose-toi, et fais confiance à une guérison lente. Garde en vie un petit espoir."
+  },
+  "major_18_moon": {
+   "intro": "La Lune comme carte de naissance signifie que ton nombre est le 18, qui se réduit à 9. Cela t'associe à L'Ermite. Elle reflète l'incertitude, les rêves et l'intuition. Vois-y une idée sur laquelle réfléchir, pas une prédiction.",
+   "gifts": "Tu es imaginatif·ve et sensible, et tu remarques les humeurs et les signes. Tes rêves et tes instincts peuvent nourrir un travail créatif.",
+   "challenges": "Les choses ne sont pas toujours claires, et les peurs peuvent grandir dans le noir. Avance avec précaution et ancre-toi.",
+   "love": "Tu aimes avec le cœur. Confronte tes espoirs et tes peurs à ce que dit réellement ton ou ta partenaire.",
+   "work": "Tu réussis dans un travail créatif, bienveillant ou d'imagination. Prends du temps au calme, comme le fait L'Ermite, pour distinguer le réel de l'imaginé.",
+   "advice": "Avance avec précaution quand les choses sont floues. Remarque tes instincts et tes peurs."
+  },
+  "major_19_sun": {
+   "intro": "Le Soleil comme carte de naissance signifie que ton nombre est le 19. Additionne 1 et 9 et tu arrives à 10, puis 1 : il est donc lié à La Roue de Fortune et au Magicien. Il reflète la joie, la vitalité et la clarté. Les cartes de naissance servent à réfléchir et à se divertir, pas à faire des promesses.",
+   "gifts": "Tu apportes chaleur et confiance. Tu es ouvert·e et honnête, et les gens se sentent mieux près de toi.",
+   "challenges": "L'enthousiasme peut faiblir, ou l'ego peut grossir trop. Cherche de petites sources de lumière quand tout te semble terne.",
+   "love": "Tu aimes avec chaleur et jeu. Partage la lumière avec ton ou ta partenaire.",
+   "work": "Tu réussis dans les rôles où tu peux être visible et positif·ve, comme l'enseignement, la direction ou la scène. Partage le mérite.",
+   "advice": "Profite de ce qui va bien, et laisse les autres le partager."
+  },
+  "major_20_judgement": {
+   "intro": "Le Jugement comme carte de naissance signifie que ton nombre est le 20, qui se réduit à 2. Cela t'associe à La Grande Prêtresse. Il reflète le bilan honnête, le pardon et un appel intérieur. Utilise-le comme une invitation à penser, pas comme une prédiction.",
+   "gifts": "Tu sais regarder en arrière honnêtement et recommencer. Tu ressens souvent un appel et tu y réponds.",
+   "challenges": "L'autocritique peut devenir bruyante, ou tu peux éviter une décision nécessaire. Pardonne ce que tu peux.",
+   "love": "Tu aimes avec honnêteté et pardon. Lâche les vieux comptes.",
+   "work": "Tu réussis dans les rôles de renouveau, comme l'accompagnement, le soin ou la réinvention d'une carrière. Écoute en silence, comme le fait La Grande Prêtresse.",
+   "advice": "Revois le passé avec bienveillance. Puis réponds à ton appel."
+  },
+  "major_21_world": {
+   "intro": "Le Monde comme carte de naissance signifie que ton nombre est le 21, qui se réduit à 3. Cela t'associe à L'Impératrice. Il reflète l'accomplissement, la plénitude et la réussite. C'est une idée sur laquelle réfléchir, qui ne promet rien sur ton avenir.",
+   "gifts": "Tu vois le tableau d'ensemble et tu termines ce que tu commences. Tu sais mesurer le chemin parcouru.",
+   "challenges": "Des fils lâches peuvent traîner, ou une fin peut sembler hors d'atteinte. Il reste souvent un dernier pas.",
+   "love": "Tu aimes avec un sentiment de plénitude. Laisse aussi de la place à la croissance de ton ou ta partenaire.",
+   "work": "Tu réussis dans les rôles larges qui relient des personnes ou des projets, et dans un travail qui a une fin claire. Célèbre, puis commence la chose suivante.",
+   "advice": "Fais le point sur le chemin parcouru, et laisse-toi célébrer."
+  },
+  "major_00_fool": {
+   "intro": "Le Fou comme carte de naissance signifie que ton total est 22, le dernier nombre avant que le cycle ne recommence. Il reflète les nouveaux départs, la confiance et la curiosité. Il forme une paire avec l'Empereur (4), qui ajoute l'idée qu'un esprit libre a aussi besoin d'un peu de structure pour se poser. C'est une piste de réflexion, pas une promesse sur ta vie.",
+   "gifts": "Tu accueilles la nouveauté l'esprit ouvert et le cœur léger. Ton sens du possible est contagieux.",
+   "challenges": "L'ouverture peut virer à l'insouciance ou à l'habitude de partir quand les choses se compliquent. Demande-toi ce que tu manques à toujours recommencer.",
+   "love": "Tu apportes spontanéité et émerveillement en amour. N'oublie pas que l'autre peut aussi avoir besoin de projets et de promesses, pas seulement de surprises.",
+   "work": "Tu t'épanouis dans les nouveaux projets, les voyages et tout ce qui demande d'apprendre vite. Associe tes idées à quelqu'un qui sait finir les choses.",
+   "advice": "Dis oui à la prochaine belle aventure, et regarde où tu poses les pieds."
+  }
+ }
+}

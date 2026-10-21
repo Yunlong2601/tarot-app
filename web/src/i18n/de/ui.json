@@ -1,0 +1,952 @@
+{
+ "nav": {
+  "cards": "Kartenbedeutungen",
+  "spreads": "Legungen",
+  "yesNo": "Ja oder Nein",
+  "tools": "Kostenlose Tools"
+ },
+ "base": {
+  "skip": "Zum Inhalt springen",
+  "home": "ShenTarot Startseite",
+  "mainNav": "Hauptmenü",
+  "language": "Sprache",
+  "getApp": "App holen",
+  "ctaEyebrow": "ShenTarot für iPhone und Android",
+  "ctaTitle": "Lies deine eigenen Karten",
+  "ctaText": "Scanne dein Rider-Waite-Smith-Deck oder zieh Karten auf dem Bildschirm, stell deine Frage und erhalte eine Deutung, zu der du immer weiter nachfragen kannst.",
+  "about": "KI-Tarot-Deutungen für deine eigenen Karten, von ShenTech aus Singapur. Nur zur Unterhaltung und Selbstreflexion.",
+  "siteName": "ShenTarot",
+  "titleSuffix": " · ShenTarot",
+  "homeCrumb": "Startseite"
+ },
+ "footer": {
+  "explore": "Entdecken",
+  "cards": "Kartenbedeutungen",
+  "spreads": "Tarot-Legungen",
+  "yesNo": "Ja-oder-Nein-Tarot",
+  "daily": "Tageskarte",
+  "combinations": "Kartenkombinationen",
+  "elements": "Elementarwürden",
+  "random": "Eine Karte ziehen",
+  "birth": "Geburtskarten-Rechner",
+  "compat": "Liebes-Kompatibilität",
+  "allTools": "Alle kostenlosen Tools",
+  "readings": "Legungen",
+  "questions": "Tarot-Fragen",
+  "company": "Unternehmen",
+  "support": "Support",
+  "privacy": "Datenschutz",
+  "terms": "Nutzungsbedingungen",
+  "delete": "Deine Daten löschen",
+  "copyright": "© {year} ShenTech, Singapur. Alle Rechte vorbehalten.",
+  "images": "Kartenbilder: Rider-Waite-Smith-Deck (1909), gemeinfrei.",
+  "inEnglish": "{page} (auf Englisch)",
+  "about": "Über uns"
+ },
+ "store": {
+  "download": "Laden im",
+  "soon": "Bald erhältlich im"
+ },
+ "home": {
+  "title": "ShenTarot: KI-Tarot-Deutung mit deinen eigenen Karten",
+  "description": "KI-Tarot-App für iPhone und Android. Scanne dein eigenes Deck oder zieh Karten auf dem Bildschirm, stell deine Frage und erhalte eine durchdachte Deutung. Kostenlose Tageskarte und Anmeldung mit einem Tipp über Google oder Apple für KI-Deutungen.",
+  "appDescription": "KI-Tarot-App: Scanne dein eigenes Deck oder zieh Karten auf dem Bildschirm und erhalte eine Deutung zu deiner Frage.",
+  "eyebrow": "KI-Tarot-App",
+  "h1a": "Frag die Karten",
+  "h1b": "alles",
+  "lead": "Scanne dein eigenes Deck oder zieh Karten auf dem Bildschirm. ShenTarot wählt eine Legung für deine Frage und gibt dir eine Deutung, zu der du immer weiter nachfragen kannst.",
+  "drawFree": "Oder zieh jetzt eine kostenlose Karte",
+  "trust1": "Kostenlose Tageskarte",
+  "trust2": "Anmeldung mit einem Tipp",
+  "trust3": "Dein Foto bleibt auf dem Handy",
+  "stepsTitle": "Eine Deutung in drei Schritten",
+  "stepsLead": "Bring eine Frage mit. ShenTarot erledigt den Rest – mit deinen Karten.",
+  "step1": {
+   "title": "Stell deine Frage",
+   "text": "Schreib, was dich beschäftigt, oder tippe auf eine der Beispielfragen zu Liebe, Beruf und mehr."
+  },
+  "step2": {
+   "title": "Zieh deine Karten",
+   "text": "Scanne die Karten aus deinem eigenen Deck oder misch und zieh auf dem Bildschirm. ShenTarot schlägt die Legung vor."
+  },
+  "step3": {
+   "title": "Lesen und nachdenken",
+   "text": "Erhalte eine Deutung Karte für Karte, mit einer Zusammenfassung am Ende. Stell eine Folgefrage oder halte Notizen in deinem Tagebuch fest."
+  },
+  "topicsTitle": "Was beschäftigt dich?",
+  "topicsLead": "Fragen, die Menschen stellen, und die Legungen, die dazu passen.",
+  "whyTitle": "Warum ShenTarot",
+  "whyLead": "Durchdachte Deutungen, die deine Privatsphäre respektieren.",
+  "feature": {
+   "photo": {
+    "title": "Dein Foto bleibt auf deinem Handy",
+    "text": "Die Karten werden direkt auf dem Gerät erkannt. Das Foto wird nie hochgeladen."
+   },
+   "signin": {
+    "title": "Anmeldung mit einem Tipp für KI-Deutungen",
+    "text": "Karten ziehen und Bedeutungen nachschlagen geht ohne Konto. Für KI-Deutungen meldest du dich mit Google oder Apple an."
+   },
+   "daily": {
+    "title": "Jeden Tag eine kostenlose Karte",
+    "text": "Eine Tageskarte und dazu jeden Tag kostenlose Deutungen mit bis zu drei Karten."
+   },
+   "followup": {
+    "title": "Deutungen, bei denen du nachfragen kannst",
+    "text": "Stell eine Folgefrage zu deiner Deutung oder zieh eine klärende Karte."
+   },
+   "spreads": {
+    "title": "Legungen für deine Frage",
+    "text": "Liebe, Beruf, Entscheidungen, Ja oder Nein und das klassische Keltische Kreuz."
+   },
+   "journal": {
+    "title": "Ein Tagebuch deiner Deutungen",
+    "text": "Halte zu jeder Deutung Notizen fest und durchsuche später deinen Verlauf."
+   }
+  },
+  "exploreTitle": "Tarot entdecken",
+  "tabTools": "Kostenlose Tools",
+  "tabMajors": "Die Großen Arkana",
+  "tabQuestions": "Fragen",
+  "toolsTitle": "Kostenlose Tarot-Tools",
+  "toolsLead": "Probier sie direkt im Browser aus. Nichts wird irgendwohin gesendet.",
+  "seeAllTools": "Alle Tools ansehen",
+  "tile": {
+   "yesNo": {
+    "title": "Ja-oder-Nein-Tarot",
+    "text": "Drei Karten und eine Tendenz für eine Ja-oder-Nein-Frage.",
+    "cta": "Jetzt fragen"
+   },
+   "daily": {
+    "title": "Tageskarte",
+    "text": "Eine Karte, ihre Bedeutung und eine Frage zum Nachdenken.",
+    "cta": "Heutige Karte ziehen"
+   },
+   "random": {
+    "title": "Eine Tarotkarte ziehen",
+    "text": "Misch das ganze Deck und deck eine bis zehn Karten auf.",
+    "cta": "Jetzt ziehen"
+   },
+   "birth": {
+    "title": "Finde deine Geburtskarten",
+    "text": "Deine Geburtskarten und deine Karte für dieses Jahr, aus deinem Geburtstag berechnet.",
+    "cta": "Deine finden"
+   }
+  },
+  "majorsLead": "Zweiundzwanzig Karten für die großen Themen des Lebens. Tippe auf eine, um ihre Bedeutung zu lesen, aufrecht und umgekehrt.",
+  "allCards": "Alle 78 Kartenbedeutungen",
+  "getTitle": "Hol dir ShenTarot",
+  "getText": "KI-Tarot-Deutungen für deine eigenen Karten, auf iPhone und Android.",
+  "contact": "Fragen?",
+  "faq": {
+   "free": {
+    "q": "Ist ShenTarot kostenlos?",
+    "a": "Ja, für den Anfang. Du bekommst eine kostenlose Tageskarte und, sobald du angemeldet bist, jeden Tag kostenlose KI-Deutungen mit bis zu drei Karten. Premium bietet mehr."
+   },
+   "account": {
+    "q": "Brauche ich ein Konto?",
+    "a": "Nur für KI-Deutungen. Karten ziehen und Bedeutungen nachschlagen kannst du auch ohne. Für KI-Deutungen meldest du dich mit Google oder Apple an, du musst also kein neues Passwort erstellen."
+   },
+   "deck": {
+    "q": "Brauche ich ein eigenes Tarotdeck?",
+    "a": "Nein. Du kannst dein eigenes Rider-Waite-Smith-Deck mit der Kamera scannen oder Karten aus dem vollständigen Deck mit 78 Karten auf dem Bildschirm ziehen."
+   },
+   "photo": {
+    "q": "Wird das Foto meiner Karten hochgeladen?",
+    "a": "Nein. Die Karten werden auf deinem Handy erkannt, und das Foto wird nie gespeichert oder gesendet. Für die Deutung werden nur die Kartennamen und deine Frage verwendet."
+   },
+   "how": {
+    "q": "Wie funktioniert die KI-Tarot-Deutung?",
+    "a": "ShenTarot wählt eine Legung für deine Frage und schreibt dann eine Deutung aus den gezogenen Karten, ihren Positionen und ob sie aufrecht oder umgekehrt liegen. Du kannst eine Folgefrage dazu stellen."
+   },
+   "predict": {
+    "q": "Kann Tarot die Zukunft vorhersagen?",
+    "a": "ShenTarot dient der Unterhaltung und Selbstreflexion. Deutungen helfen dir, eine Frage zu durchdenken; sie sind keine Vorhersagen und keine professionelle Beratung."
+   }
+  }
+ },
+ "recommend": {
+  "reconnect": [
+   "ex ",
+   " ex",
+   "ex-",
+   "exfreund",
+   "versöhn",
+   "wieder zusammen",
+   "zurückkomm",
+   "kommt zurück",
+   "kommt er zurück",
+   "kommt sie zurück",
+   "heilen",
+   "trennung",
+   "getrennt",
+   "schluss gemacht"
+  ],
+  "ready": [
+   "single",
+   "dating",
+   "daten",
+   "neue liebe",
+   "kennenlernen",
+   "jemanden treffen",
+   "partnersuche"
+  ],
+  "love": [
+   "liebe",
+   "liebt",
+   "beziehung",
+   "partner",
+   "freund",
+   "freundin",
+   "ehemann",
+   "ehefrau",
+   "meine ehe",
+   "unsere ehe",
+   "der ehe",
+   "heirat",
+   "verliebt",
+   "schwarm"
+  ],
+  "career": [
+   "job",
+   "beruf",
+   "karriere",
+   "arbeit",
+   "chef",
+   "beförder",
+   "stelle",
+   "bewerb",
+   "studium",
+   "studier",
+   "schule"
+  ],
+  "decision": [
+   "entscheid",
+   "entschei",
+   "wählen",
+   "wahl",
+   "option",
+   "möglichkeit",
+   "ob ich"
+  ],
+  "growth": [
+   "fühle",
+   "gefühl",
+   "angst",
+   "ängstlich",
+   "festgefahren",
+   "feststeck",
+   "verwirr",
+   "mich selbst",
+   "wachstum"
+  ],
+  "yesNoStarts": [
+   "wird",
+   "werde",
+   "wirst",
+   "werden",
+   "soll",
+   "sollte",
+   "sollen",
+   "ist",
+   "bin",
+   "bist",
+   "sind",
+   "kann",
+   "kannst",
+   "können",
+   "könnte",
+   "darf",
+   "habe",
+   "hat",
+   "liebt",
+   "mag",
+   "kommt",
+   "bekomme",
+   "gibt",
+   "würde",
+   "lohnt"
+  ],
+  "yesNoEnds": []
+ },
+ "ask": {
+  "label": "Deine Frage",
+  "placeholder": "Was beschäftigt dich?",
+  "submit": "Meine Legung finden",
+  "try": "Probier:"
+ },
+ "reader": {
+  "draw": "Mischen und ziehen",
+  "questionLabel": "Deine Frage (optional, bleibt auf dieser Seite)",
+  "placeholderYesNo": "Soll ich den neuen Job annehmen?",
+  "placeholder": "Was muss ich wissen über …",
+  "askNote": "Wir haben diese Legung für deine Frage ausgewählt. Misch, wenn du bereit bist.",
+  "revealAll": "Alle aufdecken",
+  "copy": "Deutung kopieren",
+  "altReversed": "{name}, umgekehrt",
+  "nameReversed": "{name} (umgekehrt)",
+  "fullMeaning": "Vollständige Bedeutung",
+  "turnOver": "Karte {n} aufdecken: {pos}",
+  "leanYes": "Tendenz Ja",
+  "leanNo": "Tendenz Nein",
+  "leanEven": "Unentschieden",
+  "leanNote": "Aufrechte Karten neigen zu Ja, umgekehrte zu Nein. Bei drei Karten zählt die mittlere doppelt. Lies das als Tendenz, nicht als feste Antwort: Die Bedeutungen oben zeigen, was sie verändern könnte.",
+  "majorsMany": "{majors} von {n} Karten gehören zu den Großen Arkana: große Themen und Wendepunkte, mehr als alltägliche Ereignisse.",
+  "majorsFew": "{majors} von {n} Karten gehören zu den Großen Arkana, also geht es in dieser Legung vor allem um alltägliche Dinge.",
+  "suitLeads": "Die {suit} überwiegen ({count} Karten): Im Mittelpunkt stehen {sense}.",
+  "suitsMissing": "Keine {suits}: Achte darauf, was diese Legung auslässt.",
+  "or": " oder ",
+  "noReversed": "Keine umgekehrten Karten.",
+  "reversedCount": "{reversed} umgekehrt: Energie, die blockiert, verzögert oder nach innen gerichtet ist.",
+  "glance": "Auf einen Blick",
+  "quint": "Quintessenz-Karte: {card}, das Thema unter der ganzen Legung (die Kartenzahlen addiert und auf {total} reduziert).",
+  "copyTitle": "ShenTarot-Deutung · {date}",
+  "copyQuestion": "Frage: {q}",
+  "copied": "Kopiert",
+  "copyFailed": "Kopieren fehlgeschlagen"
+ },
+ "suits": {
+  "wands": "Stäbe",
+  "cups": "Kelche",
+  "swords": "Schwerter",
+  "pentacles": "Münzen"
+ },
+ "suitSense": {
+  "wands": "Antrieb und Handeln",
+  "cups": "Gefühle und Beziehungen",
+  "swords": "Gedanken und Konflikte",
+  "pentacles": "Arbeit, Geld und Körper"
+ },
+ "groups": {
+  "major": "Große Arkana",
+  "wands": "Stäbe",
+  "cups": "Kelche",
+  "swords": "Schwerter",
+  "pentacles": "Münzen"
+ },
+ "elements": {
+  "fire": "Feuer",
+  "water": "Wasser",
+  "air": "Luft",
+  "earth": "Erde"
+ },
+ "planets": {
+  "sun": "Sonne",
+  "moon": "Mond",
+  "mercury": "Merkur",
+  "venus": "Venus",
+  "mars": "Mars",
+  "jupiter": "Jupiter",
+  "saturn": "Saturn"
+ },
+ "cards": {
+  "title": "Tarotkarten Bedeutung: alle 78 Karten · ShenTarot",
+  "description": "Die Bedeutungen aller 78 Rider-Waite-Smith-Tarotkarten, aufrecht und umgekehrt, mit dem, was jede Karte zeigt und warum.",
+  "crumb": "Kartenbedeutungen",
+  "eyebrow": "Das ganze Deck",
+  "h1": "Bedeutung der Tarotkarten",
+  "lead": "Alle 78 Karten des Rider-Waite-Smith-Decks, aufrecht und umgekehrt, mit dem, was jede Karte zeigt und warum.",
+  "suitsNav": "Farben"
+ },
+ "card": {
+  "title": "{name} Tarotkarte Bedeutung: aufrecht und umgekehrt · ShenTarot",
+  "description": "{name} im Tarot, Bedeutung aufrecht und umgekehrt: {keywords}. {essence}",
+  "home": "Startseite",
+  "kindMajor": "Große Arkana · {n}",
+  "kindMinor": "Kleine Arkana · {suit}",
+  "element": "Element: {element}",
+  "association": "Traditionelle Zuordnung: {assoc}",
+  "relatedSum": "{number} ergibt in der Quersumme {n} ({digits}), die Zahl der {word}.",
+  "relatedNumber": "Die Karten der Kleinen Arkana mit der Zahl {n}.",
+  "relatedRank": "Die anderen {rank}: dieselbe Art von Mensch oder Herangehensweise, in einem anderen Lebensbereich.",
+  "relatedPip": "Die anderen {word}: dieselbe Phase einer Geschichte in anderen Lebensbereichen.",
+  "relatedPipMajor": "Die anderen {word} und {major}, Karte {n} der Großen Arkana: dieselbe Phase einer Geschichte in anderen Lebensbereichen.",
+  "numberWords": [
+   "Nullen",
+   "Asse",
+   "Zweien",
+   "Dreien",
+   "Vieren",
+   "Fünfen",
+   "Sechsen",
+   "Siebenen",
+   "Achten",
+   "Neunen",
+   "Zehnen"
+  ],
+  "ranks": {
+   "page": "Buben",
+   "knight": "Ritter",
+   "queen": "Königinnen",
+   "king": "Könige"
+  },
+  "faqMeaning": "Was bedeutet {name} im Tarot?",
+  "faqMeaningA": "{core} Schlüsselwörter: {keywords}.",
+  "faqReversed": "Was bedeutet {name} umgekehrt?",
+  "faqLove": "Was bedeutet {name} in der Liebe?",
+  "faqWork": "Was bedeutet {name} für den Beruf?",
+  "faqQuestion": "Welche Frage stellt {name}?",
+  "faqQuestionA": "Aufrecht: {up} Umgekehrt: {rev}",
+  "listSep": ", ",
+  "imgAlt": "{name}, Rider-Waite-Smith-Deck",
+  "about": "Über {name}",
+  "tabMeaning": "Bedeutung",
+  "tabLoveWork": "Liebe und Beruf",
+  "tabRelated": "Verwandte Karten",
+  "tabFaq": "Fragen",
+  "shows": "Was die Karte zeigt",
+  "upright": "Aufrecht",
+  "reversed": "Umgekehrt",
+  "light": "Licht",
+  "shadow": "Schatten",
+  "love": "Liebe",
+  "work": "Beruf",
+  "inReading": "{name} in einer Legung",
+  "inLove": "In der Liebe",
+  "atWork": "Im Beruf",
+  "reversedPrefix": "Umgekehrt: {text}",
+  "shadowSide": "Ihre Schattenseite: {text}.",
+  "asMajor": "Als Karte der Großen Arkana",
+  "asSuit": "Als Karte der {suit}",
+  "majorNote": "Eine Karte der Großen Arkana weist auf ein größeres Thema hin als die alltäglichen Karten um sie herum.",
+  "suitElement": "Das Element der Farbe ist {element}. ",
+  "suitNote": "Sie zeigt, in welchem Bereich des Alltags sich die Legung abspielt.",
+  "allOf": "Alle {suit}",
+  "related": "Verwandte Karten",
+  "withOthers": "Mit anderen Karten lesen",
+  "combTitle": "Kartenkombinationen",
+  "combText": "Wähle eine zweite Karte und sieh, wie {name} sich mit ihr liest.",
+  "combCta": "Kombinieren",
+  "elTitle": "Elementarwürden",
+  "elText": "Sieh, welche Nachbarn {name} stärken oder schwächen.",
+  "elCta": "Prüfen",
+  "ynTitle": "Ja-oder-Nein-Tarot",
+  "ynText": "Zieh drei Karten für eine Ja-oder-Nein-Frage.",
+  "ynCta": "Fragen",
+  "faqTitle": "Fragen zu {name}",
+  "moreCards": "Weitere Karten",
+  "prev": "Vorherige Karte",
+  "next": "Nächste Karte",
+  "answer": "{name} bedeutet {keywords}."
+ },
+ "cardCount": {
+  "one": "{n} Karte",
+  "other": "{n} Karten"
+ },
+ "spreadCats": {
+  "classics": "Klassiker",
+  "love": "Liebe",
+  "career": "Beruf",
+  "growth": "Wachstum"
+ },
+ "spreads": {
+  "title": "Tarot-Legungen: Legemuster und was jede Position bedeutet · ShenTarot",
+  "description": "Tarot-Legungen für Liebe, Beruf, Entscheidungen und Ja-oder-Nein-Fragen, mit Erklärung jeder Position.",
+  "crumb": "Legungen",
+  "eyebrow": "Legemuster",
+  "h1": "Tarot-Legungen",
+  "lead": "Wofür jede Legung gedacht ist und was jede Position bedeutet, von einer Karte bis zum Keltischen Kreuz.",
+  "catsNav": "Kategorien",
+  "seePositions": "Positionen ansehen"
+ },
+ "spread": {
+  "title": "{name}: Tarot-Legung mit {count} · ShenTarot",
+  "description": "{name}: eine Tarot-Legung, Anzahl der Karten: {n}. {blurb}",
+  "faqCount": "Wie viele Karten hat die Legung „{name}“?",
+  "faqCountA": "{count}: {positions}.",
+  "positionSep": "; ",
+  "faqFor": "Wofür ist die Legung „{name}“ gedacht?",
+  "faqQuestions": "Welche Fragen passen zur Legung „{name}“?",
+  "about": "Die Legung „{name}“",
+  "tabTry": "Karten ziehen",
+  "tabPositions": "Positionen",
+  "tabHow": "So liest du sie",
+  "tabRelated": "Verwandte Legungen",
+  "tabFaq": "Fragen",
+  "tryTitle": "Probier diese Legung aus",
+  "tryLead": "Zieh die Karten hier und lies jede Position. Nichts wird irgendwohin gesendet.",
+  "positions": "Die Positionen",
+  "source": "Quelle: {source}",
+  "bestFor": "Am besten für Fragen wie",
+  "from": "Aus den Themen {topics}.",
+  "and": " und ",
+  "comma": ", ",
+  "how1": "Behalte eine klare Frage im Kopf.",
+  "how1YesNo": "Behalte eine klare Frage im Kopf, so formuliert, dass man sie mit Ja oder Nein beantworten kann.",
+  "how2": "Misch die Karten und leg dann {count} der Reihe nach aus, von Position 1 bis {n}.",
+  "how2One": "Misch die Karten und leg dann {count} aus.",
+  "how3": "Lies jede Karte für ihre Position: Dieselbe Karte bedeutet als „{first}“ etwas anderes als als „{last}“.",
+  "how3One": "Lies die Karte für ihre Position: Dieselbe Karte bedeutet als einzelne Antwort etwas anderes als innerhalb einer größeren Legung.",
+  "how4": "Lies die Karten dann zusammen: die Geschichte, die sie erzählen, welche Farben überwiegen und wie viele zu den Großen Arkana gehören. Das Tool unten zeigt dir das.",
+  "related": "Verwandte Legungen",
+  "faqTitle": "Fragen zur Legung „{name}“"
+ },
+ "topic": {
+  "title": "{title}: Fragen und passende Legungen · ShenTarot",
+  "description": "{intro} Beispielfragen und die Legungen, die dazu passen.",
+  "meta": "Legungen zum Thema {name}",
+  "asked": "Fragen, die Menschen stellen",
+  "appNote": "In der App tippst du auf eine Frage wie diese, um deine Deutung zu starten, oder schreibst deine eigene.",
+  "guides": "Ratgeber zu Fragen",
+  "spreadsFor": "Legungen für Fragen zum Thema {name}"
+ },
+ "questions": {
+  "title": "Tarot-Fragen: was du fragen kannst und welche Legung passt · ShenTarot",
+  "description": "Häufige Tarot-Fragen zu Liebe, Beruf und großen Entscheidungen, mit besseren Formulierungen und der passenden Legung für jede Frage.",
+  "crumb": "Fragen",
+  "eyebrow": "Ratgeber",
+  "h1": "Tarot-Fragen",
+  "lead": "Die Fragen, mit denen Menschen am häufigsten zum Tarot kommen, was die Karten dir sagen können und was nicht, und welche Legung du nutzen kannst.",
+  "readGuide": "Ratgeber lesen"
+ },
+ "guide": {
+  "title": "{question} Tarot-Fragen und die passende Legung · ShenTarot",
+  "description": "{first} Bessere Formulierungen, Karten, auf die du achten kannst, und die passende Legung.",
+  "faqCan": "Kann Tarot diese Frage beantworten: „{question}“",
+  "faqWhich": "Welche Legung passt am besten zu „{question}“",
+  "faqWhichA": "Die Legung „{name}“ ({count}). {blurb}",
+  "faqWord": "Wie sollte ich diese Frage formulieren?",
+  "faqWordA": "Frag zum Beispiel: {better}",
+  "eyebrow": "Frage zum Thema {topic}",
+  "askThis": "Das in einer Legung fragen",
+  "tabsLabel": "Dieser Ratgeber",
+  "tabAsk": "Besser fragen",
+  "tabSpread": "Die Legung",
+  "tabCards": "Karten, auf die du achten kannst",
+  "tabNote": "Bevor du ziehst",
+  "tabFaq": "Fragen",
+  "askLead": "Offene Fragen über dich selbst bringen meist klarere Deutungen als Fragen danach, was jemand anderes tun wird.",
+  "spreadTitle": "Die passende Legung",
+  "cardsNote": "Keine einzelne Karte entscheidet über eine Deutung. Lies jede in ihrer Position und zusammen mit den anderen.",
+  "noteTitle": "Ein Hinweis, bevor du ziehst",
+  "faqTitle": "Fragen zu dieser Deutung",
+  "more": "Weitere Fragen"
+ },
+ "toolsCrumb": "Kostenlose Tools",
+ "freeTool": "Kostenloses Tool",
+ "tools": {
+  "title": "Kostenlose Tarot-Tools: Ja oder Nein, Tageskarte, Kombinationen · ShenTarot",
+  "description": "Kostenlose Tarot-Tools im Browser: eine Ja-oder-Nein-Legung, deine Tageskarte, Liebes-Kompatibilität, deine Jahreskarte, Sternzeichen-Karten, ein Lebenszahl-Rechner, ein Persönlichkeitsquiz, eine Wochenlegung, Legeblätter zum Ausdrucken und mehr.",
+  "eyebrow": "Kostenlos, im Browser",
+  "h1": "Tarot-Tools",
+  "lead": "Alles hier läuft auf dieser Seite. Nichts, was du eingibst oder ziehst, wird irgendwohin gesendet.",
+  "kinds": "Arten von Tools",
+  "open": "Öffnen",
+  "groups": {
+   "readings": "Legungen",
+   "birthday": "Geburtstag und Sterne",
+   "fun": "Quiz und Lernen"
+  },
+  "list": {
+   "yes-no": {
+    "title": "Ja-oder-Nein-Tarot",
+    "text": "Drei Karten und eine Tendenz für eine Ja-oder-Nein-Frage."
+   },
+   "daily-card": {
+    "title": "Tageskarte",
+    "text": "Eine Karte, ihre Bedeutung und eine Frage zum Nachdenken."
+   },
+   "combinations": {
+    "title": "Kartenkombinationen",
+    "text": "Wähle zwei Karten und sieh, wie sie sich zusammen lesen."
+   },
+   "elements": {
+    "title": "Elementarwürden",
+    "text": "Sieh, welche Karten sich gegenseitig stärken oder schwächen."
+   },
+   "spreads": {
+    "title": "Jede Legung lesen",
+    "text": "Wähle aus 15 Legungen, zieh die Karten und lies jede Position."
+   },
+   "random-card": {
+    "title": "Zufällige Karten ziehen",
+    "text": "Misch das ganze Deck und deck eine bis zehn Karten auf."
+   },
+   "birth-card": {
+    "title": "Geburtskarten-Rechner",
+    "text": "Deine Geburtskarten und deine Karte für dieses Jahr."
+   },
+   "love-compatibility": {
+    "title": "Liebes-Kompatibilität",
+    "text": "Vergleiche zwei Geburtskarten und ihre Elemente."
+   },
+   "year-card": {
+    "title": "Deine Jahreskarte",
+    "text": "Deine Tarotkarte für dieses oder das nächste Jahr."
+   },
+   "zodiac-tarot": {
+    "title": "Sternzeichen-Tarotkarten",
+    "text": "Die Karten für dein Sternzeichen, seinen Planeten und seine Dekaden."
+   },
+   "life-path": {
+    "title": "Lebenszahl",
+    "text": "Deine Zahl aus der Numerologie und ihre Karte der Großen Arkana."
+   },
+   "which-card-are-you": {
+    "title": "Welche Karte bist du?",
+    "text": "Ein Quiz mit sechs Fragen, das dir eine Hofkarte zuordnet."
+   },
+   "weekly-draw": {
+    "title": "Wochenlegung",
+    "text": "Sieben Karten, eine für jeden Tag der Woche."
+   },
+   "reading-sheet": {
+    "title": "Legeblatt zum Ausdrucken",
+    "text": "Druck ein Blatt für jede Legung aus, mit Platz für Notizen."
+   },
+   "cards": {
+    "title": "Kartenbedeutungen",
+    "text": "Alle 78 Karten, aufrecht und umgekehrt."
+   }
+  }
+ },
+ "yesNo": {
+  "title": "Ja-oder-Nein-Tarot: kostenlose Legung mit drei Karten · ShenTarot",
+  "description": "Stell eine Ja-oder-Nein-Frage und zieh drei Tarotkarten. Aufrechte Karten neigen zu Ja, umgekehrte zu Nein, und die mittlere Karte zählt doppelt. Kostenlos, im Browser.",
+  "crumb": "Ja-oder-Nein-Tarot",
+  "h1": "Ja-oder-Nein-Tarot",
+  "lead": "Behalte eine klare Ja-oder-Nein-Frage im Kopf und zieh drei Karten. Aufrechte Karten neigen zu Ja, umgekehrte zu Nein, und die mittlere Karte zählt doppelt. Jede Karte liegt in der Hälfte der Fälle umgekehrt, also wird keine Antwort bevorzugt.",
+  "button": "Drei Karten ziehen",
+  "howTitle": "So stellst du eine gute Ja-oder-Nein-Frage",
+  "how1": "Frag nach einer Sache, und nach etwas, worauf du selbst Einfluss hast: „Soll ich mich auf die Designstelle bewerben?“ funktioniert besser als „Wird mein Leben besser?“",
+  "how2": "Frag nur einmal. Für dieselbe Frage noch einmal zu ziehen, bringt nur Rauschen.",
+  "how3": "Lies die drei Bedeutungen, nicht nur die Tendenz. Sie zeigen, was die Antwort in die andere Richtung kippen könnte.",
+  "note": "Zur Unterhaltung und Selbstreflexion. Bei Fragen zu Gesundheit, Geld oder Recht sprich mit einer Fachperson. Siehe auch die {link}.",
+  "noteLink": "Ja-oder-Nein-Legung"
+ },
+ "daily": {
+  "title": "Tageskarte Tarot: deine Karte des Tages · ShenTarot",
+  "description": "Zieh deine Tarot-Tageskarte, mit ihrer Bedeutung und einer Frage zum Nachdenken. Deine Karte bleibt bis morgen dieselbe. Kostenlos, im Browser.",
+  "crumb": "Tageskarte",
+  "h1": "Deine Karte des Tages",
+  "lead": "Atme einmal durch, denk an den Tag, der vor dir liegt, und zieh eine Karte. Lies morgens ihre Bedeutung und komm abends auf die Frage zurück. Deine Karte bleibt bis morgen dieselbe.",
+  "position": "Deine Karte für heute",
+  "button": "Heutige Karte ziehen"
+ },
+ "weekly": {
+  "title": "Tarot-Wochenlegung: eine kostenlose Karte für jeden Tag · ShenTarot",
+  "description": "Zieh sieben Tarotkarten, eine für jeden Tag der Woche, und lies, was jeder Tag von dir verlangen könnte. Kostenlos und im Browser gezogen.",
+  "crumb": "Wochenlegung",
+  "h1": "Deine Woche im Tarot",
+  "lead": "Sieben Karten, eine für jeden Tag von Montag bis Sonntag. Zieh am Anfang der Woche und komm dann jeden Tag zurück, um die Karte des Tages zu lesen. Im Browser gemischt.",
+  "days": [
+   "Montag",
+   "Dienstag",
+   "Mittwoch",
+   "Donnerstag",
+   "Freitag",
+   "Samstag",
+   "Sonntag"
+  ],
+  "button": "Meine Woche ziehen"
+ },
+ "pairing": {
+  "none": "Keine",
+  "choose": "Karte wählen",
+  "reversed": "Umgekehrt",
+  "random": "Zufällig ziehen",
+  "noElement": "Planet: kein einzelnes Element",
+  "togetherTitle": "Zusammen gelesen",
+  "elementsTitle": "Elementarwürden",
+  "reflect": "Fragen zum Nachdenken:",
+  "twoMajors": "Zwei Karten der Großen Arkana: ein großes Thema, von zwei Seiten gesehen. Frag dich, was {a} und {b} gemeinsam haben und wo sie auseinanderziehen.",
+  "majorTheme": "{major} gibt das Thema vor; {minor} zeigt, wo es sich im Alltag abspielt.",
+  "sameSuit": "Beide sind {suit}: Die ganze Frage dreht sich um {sense}.",
+  "suitsMeet": "{a} treffen auf {b}: {senseA} trifft auf {senseB}.",
+  "sameNumber": "Beide sind {word}: Dieselbe Phase einer Geschichte zeigt sich in zwei Lebensbereichen.",
+  "neighbours": "Sie stehen in den Großen Arkana direkt nebeneinander, also ist die eine vielleicht der Schritt, der zur anderen führt.",
+  "twoSameRank": "Zwei {rank}: zwei Menschen oder zwei Seiten von dir, die auf ähnliche Weise handeln.",
+  "twoCourts": "Zwei Hofkarten: oft zwei Menschen in der Situation oder zwei Arten, wie du handeln könntest.",
+  "oneCourt": "{name} steht oft für einen Menschen oder eine Art zu handeln, in der Situation, die die andere Karte beschreibt.",
+  "bothReversed": "Beide umgekehrt: Die Energie beider Karten ist blockiert, verzögert oder nach innen gerichtet. Frag dich, was sie zurückhält.",
+  "oneReversed": "{name} liegt umgekehrt: Ein Teil fließt, während der andere blockiert oder nach innen gerichtet ist.",
+  "elementsLine": "Elemente: {a} ({ea}) und {b} ({eb}) {rel}.",
+  "pairLine": "{a} und {b} {rel}.",
+  "rel": {
+   "same": "teilen ein Element und stärken sich daher gegenseitig",
+   "friendly": "haben befreundete Elemente und unterstützen sich daher gegenseitig",
+   "contrary": "haben gegensätzliche Elemente und schwächen sich daher gegenseitig",
+   "neutral": "helfen und behindern sich nicht, weil eine von ihnen kein einzelnes Element hat"
+  },
+  "muchWeak": "{name} ist stark geschwächt: Beide Nachbarn stehen ihr entgegen. Lies sie leicht, als kleineren Einfluss.",
+  "mixed": "{name} ist gemischt: Ein Nachbar unterstützt sie, einer steht ihr entgegen.",
+  "someWeak": "{name} ist durch einen gegensätzlichen Nachbarn etwas geschwächt.",
+  "strong": "{name} ist gestärkt: Beide Nachbarn unterstützen sie. Lies sie als starken Einfluss.",
+  "someStrong": "{name} ist durch einen unterstützenden Nachbarn etwas gestärkt.",
+  "neither": "{name} wird von ihren Nachbarn weder gestärkt noch geschwächt.",
+  "bridge": "{l} und {r} stehen einander entgegen, aber {m} versteht sich mit beiden: Sie kann eine Brücke zwischen ihnen bauen."
+ },
+ "birthday": "Dein Geburtstag",
+ "pickDate": "Wähle zuerst deinen Geburtstag.",
+ "notFate": "Themen, in die du hineinwachsen kannst, kein festes Schicksal.",
+ "birth": {
+  "title": "Tarot-Geburtskarten-Rechner: finde deine Geburtskarten · ShenTarot",
+  "description": "Finde deine Tarot-Geburtskarten und deine Karte für dieses Jahr aus deinem Geburtstag. Im Browser berechnet; nichts wird gesendet.",
+  "crumb": "Geburtskarten-Rechner",
+  "h1": "Tarot-Geburtskarten-Rechner",
+  "lead": "Eine traditionelle Methode der Numerologie: Addiere Geburtsmonat, -tag und -jahr und bilde dann die Quersumme, bis du bei 22 oder weniger ankommst. Diese Zahl ist eine Karte der Großen Arkana (22 ist der Narr). Ein zweistelliges Ergebnis ergibt außerdem die Karte für die Summe seiner Ziffern. Im Browser berechnet; nichts wird gesendet.",
+  "button": "Meine Karten finden",
+  "yours": "Deine Geburtskarten",
+  "year": "Deine Karte für {year}"
+ },
+ "life": {
+  "title": "Lebenszahl berechnen, mit passender Tarotkarte · ShenTarot",
+  "description": "Berechne deine Lebenszahl aus der Numerologie anhand deines Geburtstags, einschließlich der Meisterzahlen 11, 22 und 33, und sieh die Karte der Großen Arkana, die dazugehört.",
+  "crumb": "Lebenszahl",
+  "h1": "Lebenszahl und Tarotkarte",
+  "lead": "Addiere alle Ziffern deines Geburtsdatums und reduziere sie auf eine Ziffer, wobei die Meisterzahlen 11, 22 und 33 erhalten bleiben. Zu jeder Zahl gehört eine Karte der Großen Arkana. Im Browser berechnet; nichts wird gesendet.",
+  "button": "Meine Zahl finden",
+  "listTitle": "Die Zahlen und ihre Karten",
+  "note": "Die Zahlen 1 bis 9 und 11 entsprechen der Karte der Großen Arkana mit dieser Nummer. 22 ist der Narr, und 33 ergibt 6, die Liebenden. Das ist eine andere Rechnung als bei der {link}, bei der Monat, Tag und Jahr als ganze Zahlen addiert werden.",
+  "noteLink": "Geburtskarte",
+  "yours": "Deine Lebenszahl",
+  "cardFor": "Die Karte für {n}"
+ },
+ "howItWorks": "So funktioniert es",
+ "year": {
+  "title": "Tarot-Jahreskarte berechnen: deine Karte für das Jahr · ShenTarot",
+  "description": "Finde deine persönliche Tarot-Jahreskarte anhand deines Geburtstags, für dieses oder das nächste Jahr, mit ihrer Bedeutung und einer Frage, die dich durch das Jahr begleitet.",
+  "crumb": "Jahreskarte",
+  "h1": "Deine Tarot-Jahreskarte",
+  "lead": "Addiere deinen Geburtsmonat und -tag zu dem Jahr, das du betrachten willst, und reduziere die Summe dann auf eine Karte der Großen Arkana. Diese Karte ist ein Thema für dein Jahr. Im Browser berechnet; nichts wird gesendet.",
+  "yearLabel": "Jahr",
+  "button": "Meine Karte finden",
+  "how": "Addiere deinen Geburtsmonat, deinen Geburtstag und das Jahr und bilde dann die Quersumme der Summe, bis sie 22 oder weniger beträgt. 22 ist der Narr. Die Karte wechselt jedes Jahr, also lohnt sich an jedem Geburtstag ein neuer Blick. Deine {link} nutzen stattdessen dein Geburtsjahr und bleiben ein Leben lang gleich.",
+  "howLink": "Geburtskarten",
+  "cardFor": "Deine Karte für {year}",
+  "question": "Eine Frage für das Jahr: {q}",
+  "next": "Als Nächstes, {year}: {name}."
+ },
+ "compat": {
+  "title": "Tarot-Liebes-Kompatibilität: zwei Geburtskarten vergleichen · ShenTarot",
+  "description": "Gib zwei Geburtstage ein, um die Tarot-Geburtskarte jeder Person zu finden, und sieh, wie die beiden Karten und ihre Elemente zusammenpassen. Kostenlos und im Browser berechnet.",
+  "crumb": "Liebes-Kompatibilität",
+  "h1": "Tarot-Liebes-Kompatibilität",
+  "lead": "Jeder Geburtstag ergibt eine Geburtskarte aus den Großen Arkana. Vergleiche die beiden Karten und ihre Elemente, um zu sehen, wo ihr euch trefft und wo ihr aneinandergeraten könntet. Im Browser berechnet; nichts wird gesendet.",
+  "yours": "Dein Geburtstag",
+  "theirs": "Geburtstag der anderen Person",
+  "button": "Vergleichen",
+  "how": "Addiere Monat, Tag und Jahr eines Geburtstags und bilde dann die Quersumme, bis die Summe 22 oder weniger beträgt. Diese Zahl ist die Geburtskarte der Person (22 ist der Narr). Dann wird das Element jeder Karte so verglichen, wie Kartenleser Karten in einer Legung vergleichen: Gleiche Elemente stärken sich, Feuer und Wasser oder Luft und Erde ziehen gegeneinander, und die übrigen Paare unterstützen sich. Karten, die mit einem Planeten verbunden sind, haben kein einzelnes Element.",
+  "note": "Zum Spaß und zum Nachdenken. Kein Kartenpaar entscheidet, ob eine Beziehung funktioniert.",
+  "pickBoth": "Wähle zuerst beide Geburtstage.",
+  "shared": "Ihr habt dieselbe Geburtskarte: {name}",
+  "pair": "{a} und {b}",
+  "sameCard": "Dieselbe Karte: Ihr erkennt euch vielleicht im anderen wieder, mit Stärken und Gewohnheiten.",
+  "elements": "Elemente: {a} und {b}.",
+  "yourCard": "Deine Geburtskarte",
+  "theirCard": "Geburtskarte der anderen Person",
+  "rel": {
+   "same": "Eure Karten teilen ein Element, also versteht ihr euch leicht. Achtet darauf, dass ihr nicht dieselben blinden Flecken habt.",
+   "friendly": "Die Elemente eurer Karten unterstützen sich. Ihr bringt Unterschiedliches mit, das zusammenpasst.",
+   "contrary": "Die Elemente eurer Karten ziehen gegeneinander. Es gibt Funken und Reibung; es funktioniert, wenn ihr den Unterschied respektiert.",
+   "neutral": "Eine eurer Karten ist mit einem Planeten statt mit einem Element verbunden, also passt sie sich der anderen an."
+  }
+ },
+ "zodiac": {
+  "title": "Sternzeichen und Tarot: die Tarotkarte für jedes Sternzeichen · ShenTarot",
+  "description": "Finde die Tarotkarten für dein Sternzeichen: seine Karte der Großen Arkana, die Karte seines Herrscherplaneten und die drei Karten seiner Dekaden, von Widder bis Fische.",
+  "crumb": "Sternzeichen-Tarotkarten",
+  "h1": "Deine Sternzeichen-Tarotkarten",
+  "lead": "In der Tradition des Golden Dawn, auf der das Rider-Waite-Smith-Deck beruht, hat jedes Sternzeichen seine eigene Karte der Großen Arkana, einen Herrscherplaneten mit eigener Karte und drei Zahlenkarten für die drei Drittel des Zeichens.",
+  "button": "Mein Zeichen finden",
+  "signsLabel": "Sternzeichen",
+  "about": "Element: {element}, daher gehört es zur Farbe {suit}. Traditioneller Herrscher: {ruler}.",
+  "signCard": "Die Karte von {sign}: {keywords}.",
+  "rulerCard": "Die Karte von {ruler}, dem Herrscher des Zeichens: {keywords}.",
+  "decans": "Die drei Drittel (Dekaden) von {sign}: {cards}.",
+  "datesNote": "Die Daten der Sternzeichen verschieben sich in manchen Jahren um einen Tag. Wenn du am ersten oder letzten Tag eines Zeichens geboren bist, schau dir beide an."
+ },
+ "quiz": {
+  "title": "Welche Tarotkarte bist du? Ein kostenloses Quiz mit sechs Fragen · ShenTarot",
+  "description": "Beantworte sechs schnelle Fragen und finde die Hofkarte, die zu deiner Persönlichkeit passt, vom Buben der Stäbe bis zum König der Münzen.",
+  "crumb": "Welche Karte bist du?",
+  "eyebrow": "Quiz",
+  "h1": "Welche Tarotkarte bist du?",
+  "lead": "Sechs schnelle Fragen ordnen dir eine der 16 Hofkarten zu: Deine Farbe zeigt, was dich antreibt, und dein Rang, wie du handelst. Deine Antworten bleiben auf dieser Seite.",
+  "submit": "Meine Karte ansehen",
+  "copyLink": "Link zu meinem Ergebnis kopieren",
+  "copied": "Link kopiert",
+  "youAre": "Du bist",
+  "q": [
+   {
+    "q": "An einem freien Nachmittag würdest du am liebsten …",
+    "a": [
+     "etwas Neues anfangen",
+     "Zeit mit einem nahen Menschen verbringen",
+     "lesen, planen oder diskutieren",
+     "etwas bauen oder reparieren"
+    ]
+   },
+   {
+    "q": "Freunde kommen zu dir für …",
+    "a": [
+     "Energie und einen Schubs",
+     "Trost und ein offenes Ohr",
+     "ehrlichen Rat",
+     "praktische Hilfe"
+    ]
+   },
+   {
+    "q": "Was ist dir am wichtigsten?",
+    "a": [
+     "Leidenschaft",
+     "Liebe",
+     "Wahrheit",
+     "Sicherheit"
+    ]
+   },
+   {
+    "q": "Wenn etwas Neues auftaucht, …",
+    "a": [
+     "wirst du neugierig und stellst Fragen",
+     "springst du direkt hinein",
+     "tastest du dich langsam heran",
+     "übernimmst du die Führung"
+    ]
+   },
+   {
+    "q": "In einer Gruppe bist du meistens diejenige oder derjenige, die oder der …",
+    "a": [
+     "lernt und frische Ideen mitbringt",
+     "die Dinge ins Rollen bringt",
+     "sich um alle kümmert",
+     "die letzte Entscheidung trifft"
+    ]
+   },
+   {
+    "q": "Deine größte Stärke ist …",
+    "a": [
+     "Offenheit",
+     "Tatkraft",
+     "Verständnis",
+     "Beständigkeit"
+    ]
+   }
+  ]
+ },
+ "sheet": {
+  "title": "Tarot-Legeblatt zum Ausdrucken für jede Legung · ShenTarot",
+  "description": "Druck ein kostenloses Tarot-Legeblatt für jede unserer 15 Legungen aus, mit beschrifteten Positionen und Platz für deine Karten und Notizen.",
+  "crumb": "Legeblatt zum Ausdrucken",
+  "h1": "Legeblatt zum Ausdrucken",
+  "lead": "Wähle eine Legung und druck ein Blatt für dein Tagebuch aus, mit beschrifteten Positionen und Platz für deine Karten und Notizen.",
+  "spread": "Legung",
+  "print": "Drucken",
+  "date": "Datum:",
+  "question": "Frage:",
+  "card": "Karte:",
+  "takeaway": "Was ich aus dieser Legung mitnehme"
+ },
+ "random": {
+  "title": "Zufällige Tarotkarte ziehen: 1 bis 10 Karten · ShenTarot",
+  "description": "Zieh zufällige Tarotkarten aus dem vollständigen Rider-Waite-Smith-Deck mit 78 Karten. Tippe auf eine Karte, um sie aufzudecken und ihre Bedeutung zu lesen.",
+  "crumb": "Zufällige Karten ziehen",
+  "h1": "Eine Tarotkarte ziehen",
+  "lead": "Im Browser aus allen 78 Karten gemischt. Tippe auf eine Karte, um sie aufzudecken. Etwa jede vierte Karte liegt umgekehrt.",
+  "howMany": "Wie viele Karten",
+  "turnOver": "Diese Karte aufdecken"
+ },
+ "comb": {
+  "title": "Tarot-Kartenkombinationen: zwei Karten zusammen lesen · ShenTarot",
+  "description": "Wähle zwei beliebige Tarotkarten, aufrecht oder umgekehrt, und sieh, wie sie sich zusammen lesen: Thema und Detail, Farben, Zahlen, Hofkarten und Elemente. Kostenlos, im Browser.",
+  "crumb": "Kartenkombinationen",
+  "h1": "Tarot-Kartenkombinationen",
+  "lead": "Wähle zwei Karten aus einer Legung oder zieh zwei zufällig und sieh, was sie verbindet: welche das Thema vorgibt, was ihre Farben, Zahlen und Elemente sagen, und zu jeder Karte eine Frage zum Nachdenken.",
+  "slots": [
+   "Erste Karte",
+   "Zweite Karte"
+  ],
+  "howTitle": "So liest du zwei Karten zusammen",
+  "how": [
+   "Lies zuerst jede Karte für sich und frag dich dann, wie die eine die andere verändert. Die zweite Karte beantwortet oder ergänzt oft die erste.",
+   "Eine Karte der Großen Arkana hat mehr Gewicht. Liegt sie neben einer Karte der Kleinen Arkana, benennt die große das Thema und die kleine zeigt, wie es sich äußert.",
+   "Versuch einen Satz, der beide Bedeutungen enthält. Wenn er sich gezwungen anfühlt, such auf den Bildern beider Karten nach einem Detail, das sie teilen."
+  ],
+  "note": "Zur Unterhaltung und Selbstreflexion. Siehe auch {elements} und {cards}.",
+  "elementsLink": "Elementarwürden",
+  "cardsLink": "die Bedeutungen aller 78 Karten"
+ },
+ "elem": {
+  "title": "Elementarwürden im Tarot: kostenloser Check · ShenTarot",
+  "description": "Prüfe die Elementarwürden von zwei oder drei Tarotkarten. Sieh, welche Karten sich durch Feuer, Wasser, Luft und Erde gegenseitig stärken oder schwächen. Kostenlos, im Browser.",
+  "crumb": "Elementarwürden",
+  "h1": "Elementarwürden",
+  "lead": "Eine Methode aus der Tradition des Golden Dawn, die oft statt umgekehrter Karten genutzt wird. Jede Karte hat ein Element, und Karten, die nebeneinander liegen, stärken oder schwächen sich gegenseitig. Wähle eine Reihe aus zwei oder drei Karten, um sie zu prüfen.",
+  "slots": [
+   "Linke Karte",
+   "Mittlere Karte",
+   "Rechte Karte"
+  ],
+  "how": [
+   [
+    "Farben:",
+    "Stäbe sind Feuer, Kelche sind Wasser, Schwerter sind Luft und Münzen sind Erde."
+   ],
+   [
+    "Große Arkana",
+    "übernehmen das Element ihres traditionellen Sternzeichens oder Elements. Karten, die mit einem Planeten verbunden sind, haben hier kein einzelnes Element und zählen als neutral."
+   ],
+   [
+    "Gleiches Element:",
+    "Die Karten stärken sich gegenseitig."
+   ],
+   [
+    "Gegensätze",
+    "(Feuer und Wasser, Luft und Erde) schwächen sich gegenseitig."
+   ],
+   [
+    "Andere Paare",
+    "unterstützen sich gegenseitig. Manche Kartenleser zählen Feuer mit Erde und Luft mit Wasser stattdessen als neutral."
+   ],
+   [
+    "In einer Reihe von drei Karten",
+    "wird die mittlere Karte nach beiden Nachbarn beurteilt. Eine Karte zwischen zwei Freunden ist stark; eine Karte zwischen zwei Gegensätzen ist schwach."
+   ]
+  ],
+  "note": "Das Element jeder Karte steht auf ihrer {cards}. Um zwei Karten zusammen zu lesen, probier {comb}.",
+  "cardsLink": "Bedeutungsseite",
+  "combLink": "die Kartenkombinationen"
+ },
+ "share": {
+  "save": "Bild speichern",
+  "share": "Teilen",
+  "made": "Bild gespeichert",
+  "failed": "Das Bild konnte nicht erstellt werden",
+  "card": "Bedeutung der Tarotkarte",
+  "daily": "Meine Tageskarte",
+  "reading": "Meine Tarot-Legung",
+  "quiz": "Welche Tarotkarte bin ich?",
+  "compat": "Unsere Tarot-Geburtskarten",
+  "year": "Meine Tarotkarte für {year}",
+  "life": "Meine Lebenszahl ist {n}",
+  "birth": "Meine Tarot-Geburtskarten"
+ },
+ "about": {
+  "title": "Über ShenTarot: wer es macht und woher die Bedeutungen stammen",
+  "description": "Wer ShenTarot macht, woher die Bedeutungen der Tarotkarten und Legesysteme stammen und wie die KI-Deutungen funktionieren.",
+  "h1": "Über ShenTarot",
+  "lead": "ShenTarot ist eine Tarot-App für iPhone und Android. Diese Website ist ihr kostenloser Begleiter: Kartenbedeutungen, Legesysteme und Deutungswerkzeuge, die du ohne Konto nutzen kannst.",
+  "crumb": "Über ShenTarot",
+  "sections": [
+   {
+    "title": "Wer es macht",
+    "text": "ShenTarot wird von ShenTech gemacht, einem Unternehmen in Singapur. Schreib uns an {email}."
+   },
+   {
+    "title": "Woher die Bedeutungen stammen",
+    "text": "Die Kartenbedeutungen hier sind dieselben, die die App und ihre Deutungen verwenden, sodass sie sich nie widersprechen. Sie folgen den Bildern des Rider-Waite-Smith-Decks (1909, gemeinfrei) und den Zuordnungen von Elementen, Planeten und Sternzeichen aus der Golden-Dawn-Tradition, auf der es beruht. Jede Kartenseite erklärt, was die Karte zeigt und warum sie bedeutet, was sie bedeutet."
+   },
+   {
+    "title": "Legesysteme",
+    "text": "Jede Seite eines Legesystems nennt, woher seine Anordnung stammt, ob traditionell oder eine verbreitete moderne Legung."
+   },
+   {
+    "title": "Wie die KI-Deutungen funktionieren",
+    "text": "In der App wählt ShenTarot ein Legesystem für deine Frage und schreibt eine Deutung aus den gezogenen Karten, ihren Positionen und ob sie aufrecht oder umgekehrt liegen. Nur KI-Deutungen erfordern eine Anmeldung, mit Google oder Apple. Fotos deiner Karten werden auf deinem Handy erkannt und nie hochgeladen."
+   },
+   {
+    "title": "Wofür es gedacht ist",
+    "text": "ShenTarot dient der Unterhaltung und Selbstreflexion. Deutungen helfen dir, eine Frage zu durchdenken; sie sind keine Vorhersagen und keine professionelle Beratung."
+   }
+  ]
+ }
+}

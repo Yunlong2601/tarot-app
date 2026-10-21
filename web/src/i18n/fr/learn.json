@@ -1,0 +1,404 @@
+{
+ "nav": "Apprendre",
+ "footer": "Apprendre le tarot",
+ "index": {
+  "title": "Apprendre le tarot : guides gratuits pour débutants · ShenTarot",
+  "description": "Des leçons de tarot gratuites pour débutants : comment lire les cartes, les Arcanes majeurs et mineurs, les quatre couleurs, les nombres, les figures, les cartes renversées et comment poser une bonne question.",
+  "eyebrow": "Cours de tarot gratuit",
+  "h1": "Apprendre le tarot",
+  "lead": "Sept guides courts t'accompagnent de ton premier mélange jusqu'à la lecture d'un tirage complet en toute autonomie. Lis-les dans l'ordre, ou va directement à celui qu'il te faut.",
+  "crumb": "Apprendre le tarot",
+  "read": "Lire le guide",
+  "minutes": "{n} min de lecture",
+  "step": "Leçon {n}"
+ },
+ "page": {
+  "title": "{title} · ShenTarot",
+  "inThis": "Dans ce guide",
+  "next": "Leçon suivante",
+  "previous": "Leçon précédente",
+  "all": "Toutes les leçons de tarot",
+  "faqTitle": "Questions fréquentes",
+  "practiceTitle": "Pratique dès maintenant",
+  "practiceText": "Tire une carte sur le site et lis-la avec ce que tu viens d'apprendre.",
+  "practiceLink": "Tirer une carte"
+ },
+ "guides": {
+  "how-to-read-tarot": {
+   "title": "Comment lire les cartes du tarot : guide pour débutants",
+   "description": "Comment lire les cartes du tarot pas à pas : poser une question claire, mélanger, disposer un tirage, lire chaque carte selon sa position et relier les cartes en une seule histoire.",
+   "h1": "Comment lire les cartes du tarot",
+   "answer": "Pour lire le tarot, pose une question claire, mélange, dispose les cartes en tirage, lis chaque carte selon sa position, puis observe comment les cartes se répondent.",
+   "minutes": 6,
+   "sections": [
+    {
+     "h": "Ce qu'est une lecture de tarot",
+     "p": [
+      "Un jeu de tarot compte 78 cartes. Chaque carte est l'image d'une situation humaine courante : un nouveau départ, une perte, un choix, une fête. Pendant une lecture, tu tires quelques cartes et tu t'en sers comme de pistes pour regarder ta question sous de nouveaux angles.",
+      "Aujourd'hui, la plupart des gens lisent le tarot pour réfléchir, pas pour prédire. Les cartes ne décident rien à ta place. Elles t'aident à repérer ce que tu ressens déjà et à penser à ce que tu pourrais faire ensuite."
+     ]
+    },
+    {
+     "h": "Étape 1 : pose une question claire",
+     "p": [
+      "Une bonne lecture commence par une bonne question. Les questions ouvertes qui te concernent fonctionnent le mieux, par exemple « Que dois-je comprendre à propos de mon travail ? » plutôt que « Vais-je être renvoyé·e ? ». Notre guide pour [poser ses questions au tarot](learn/asking-questions) montre comment transformer une inquiétude en une question à laquelle les cartes peuvent répondre."
+     ]
+    },
+    {
+     "h": "Étape 2 : mélange et tire",
+     "p": [
+      "Mélange comme il te paraît naturel, en pensant à ta question. Quand tu te sens prêt·e, arrête-toi et tire les cartes du dessus, ou coupe le jeu et tire à l'endroit de la coupe. Il n'existe pas de méthode unique et correcte : choisis-en une et garde-la."
+     ]
+    },
+    {
+     "h": "Étape 3 : dispose un tirage",
+     "p": [
+      "Un tirage est une disposition dans laquelle chaque position a un sens. Les débutants s'en sortent bien avec le [tirage à une carte](spreads/single) pour se donner un fil conducteur du jour, ou avec le [tirage à trois cartes](spreads/three) pour le passé, le présent et l'avenir. Quand ces tirages te semblent faciles, essaie la [Croix celtique](spreads/celtic)."
+     ]
+    },
+    {
+     "h": "Étape 4 : lis chaque carte selon sa position",
+     "p": [
+      "Regarde d'abord l'image. Qui s'y trouve, que fait cette personne, et quelle impression s'en dégage ? Lis ensuite la signification de la carte sur sa [page de carte](cards) et demande-toi comment elle s'accorde à la position. Le Cinq de Coupes en position « passé » évoque une perte que tu as traversée, alors qu'en position « conseil » il t'invite à te tourner vers ce qui reste.",
+      "Si une carte tombe à l'envers, tu peux la lire renversée. Notre [guide des cartes renversées](learn/reversed-cards) explique des façons simples de le faire."
+     ]
+    },
+    {
+     "h": "Étape 5 : relie les cartes en une seule histoire",
+     "p": [
+      "Prends maintenant du recul. Y a-t-il beaucoup de cartes d'une même couleur ? Beaucoup de [Coupes](learn/tarot-suits) placent les sentiments au centre, et beaucoup d'Arcanes majeurs annoncent un grand thème de vie. Les nombres montent-ils ou se répètent-ils ? Les personnages se regardent-ils ou se tournent-ils le dos ? Ces liens transforment des significations isolées en une seule histoire.",
+      "Termine en résumant la lecture en une ou deux phrases, et note-la. Relire d'anciens tirages est l'un des moyens les plus rapides d'apprendre."
+     ]
+    },
+    {
+     "h": "Comment s'exercer",
+     "p": [
+      "Tire une carte chaque matin et imagine comment elle pourrait se manifester dans ta journée. Vérifie le soir. L'outil [carte du jour](tools/daily-card) le fait pour toi, et au bout de quelques semaines tu connaîtras la plupart du jeu sans rien avoir à chercher."
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "Tout le monde peut-il lire le tarot ?",
+     "a": "Oui. Lire le tarot est une compétence qui s'acquiert en s'exerçant avec les images et les significations. Il n'est pas nécessaire d'avoir un don particulier."
+    },
+    {
+     "q": "Dois-je mémoriser les 78 cartes ?",
+     "a": "Non. Commence par apprendre les 22 Arcanes majeurs, le sens des quatre couleurs et celui des nombres. Avec cela, tu peux deviner seul·e la plupart des Arcanes mineurs."
+    },
+    {
+     "q": "Combien de cartes un débutant doit-il tirer ?",
+     "a": "Entre une et trois. Une carte seule ou un tirage à trois cartes se lit facilement en profondeur, et trois cartes bien lues t'apprennent plus que dix lues à la hâte."
+    }
+   ]
+  },
+  "major-and-minor-arcana": {
+   "title": "Arcanes majeurs et mineurs : les deux parties du jeu de tarot",
+   "description": "La différence entre les Arcanes majeurs et mineurs : 22 Arcanes majeurs pour les grands thèmes de vie, et 56 Arcanes mineurs répartis en quatre couleurs pour les événements du quotidien.",
+   "h1": "Les Arcanes majeurs et mineurs",
+   "answer": "Les 22 Arcanes majeurs montrent les grands thèmes de vie et les tournants, et les 56 Arcanes mineurs montrent les événements, les émotions et les choix du quotidien.",
+   "minutes": 4,
+   "sections": [
+    {
+     "h": "Deux parties d'un même jeu",
+     "p": [
+      "Tout jeu de tarot standard compte 78 cartes en deux parties. « Arcane » signifie secret. Les Arcanes majeurs sont les grands secrets et les Arcanes mineurs les petits."
+     ]
+    },
+    {
+     "h": "Les Arcanes majeurs : 22 leçons de vie",
+     "p": [
+      "Les Arcanes majeurs vont du [Fou](cards/major-00-fool), numéro 0, au [Monde](cards/major-21-world), numéro 21. Lus dans l'ordre, ils racontent le voyage du Fou : partir sans rien, rencontrer des maîtres et des épreuves, traverser la perte et le changement avec [la Mort](cards/major-13-death) et [la Tour](cards/major-16-tower), retrouver l'espoir avec [l'Étoile](cards/major-17-star), et arriver à l'accomplissement.",
+      "Quand un Arcane majeur apparaît dans une lecture, accorde-lui un poids supplémentaire. Il évoque un thème plus large qu'une journée ou qu'une décision."
+     ]
+    },
+    {
+     "h": "Les Arcanes mineurs : 56 cartes du quotidien",
+     "p": [
+      "Les Arcanes mineurs se divisent en quatre [couleurs](learn/tarot-suits) : Bâtons, Coupes, Épées et Deniers. Chaque couleur compte dix cartes numérotées, de l'As au Dix, et quatre [figures](learn/court-cards) : Valet, Cavalier, Reine et Roi.",
+      "Ces cartes décrivent le quotidien : une dispute, une augmentation, un nouveau coup de cœur, une semaine épuisante. Elles évoluent plus vite que les thèmes des Arcanes majeurs."
+     ]
+    },
+    {
+     "h": "Ce que t'apprend le mélange dans une lecture",
+     "p": [
+      "Compte les Arcanes majeurs de ton tirage. S'il y en a plus de la moitié, la situation est un tournant et des forces plus grandes sont à l'œuvre. Si presque toutes les cartes sont mineures, la question dépend davantage de ton quotidien et passera peut-être plus vite."
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "Combien y a-t-il d'Arcanes majeurs ?",
+     "a": "Il y a 22 Arcanes majeurs, numérotés de 0 (le Fou) à 21 (le Monde)."
+    },
+    {
+     "q": "Les Arcanes majeurs sont-ils plus importants ?",
+     "a": "Ils pèsent plus lourd parce qu'ils montrent des thèmes de long terme, mais un Arcane mineur peut tout de même être la clé d'une lecture."
+    },
+    {
+     "q": "Puis-je lire seulement avec les Arcanes majeurs ?",
+     "a": "Oui. Beaucoup de débutants commencent avec les 22 Arcanes majeurs seuls, puis ajoutent les Arcanes mineurs quand les premiers leur sont devenus familiers."
+    }
+   ]
+  },
+  "tarot-suits": {
+   "title": "Les quatre couleurs du tarot : Bâtons, Coupes, Épées et Deniers",
+   "description": "Ce que signifient les quatre couleurs du tarot : les Bâtons pour l'énergie et l'ambition, les Coupes pour les sentiments et l'amour, les Épées pour les pensées et les conflits, les Deniers pour l'argent, le travail et le corps.",
+   "h1": "Les quatre couleurs du tarot",
+   "answer": "Les Bâtons parlent d'énergie et d'ambition, les Coupes de sentiments et de relations, les Épées de pensées et de conflits, et les Deniers d'argent, de travail et de corps.",
+   "minutes": 5,
+   "sections": [
+    {
+     "h": "Pourquoi les couleurs comptent",
+     "p": [
+      "Chacun des 56 Arcanes mineurs appartient à l'une des quatre couleurs. Si tu sais de quoi parle une couleur, tu connais déjà la moitié de chacune de ses cartes. L'autre moitié vient de son [nombre](learn/tarot-numbers) ou de son [rang de figure](learn/court-cards)."
+     ]
+    },
+    {
+     "h": "Bâtons : feu, énergie et élan",
+     "p": [
+      "Les Bâtons sont liés à l'élément Feu. Ils parlent de passion, d'ambition, de créativité et d'action. Une carte de Bâtons demande souvent ce que tu veux et jusqu'où tu es prêt·e à aller pour l'obtenir. Commence par l'[As de Bâtons](cards/wands-ace), une étincelle de nouvelle énergie."
+     ]
+    },
+    {
+     "h": "Coupes : eau, sentiments et amour",
+     "p": [
+      "Les Coupes sont liées à l'Eau. Elles recouvrent les émotions, l'amour, l'amitié, l'intuition et les rêves. Un tirage rempli de Coupes signifie que le cœur est au centre de la question. Le [Deux de Coupes](cards/cups-two) est la carte classique d'un lien proche."
+     ]
+    },
+    {
+     "h": "Épées : air, pensées et conflits",
+     "p": [
+      "Les Épées sont liées à l'Air. Elles parlent de l'esprit : les idées, les mots, les décisions, la vérité, mais aussi le stress et les disputes. Les Épées peuvent paraître dures, mais elles montrent souvent la clarté qui suit une vérité difficile. Voir l'[As d'Épées](cards/swords-ace) pour une idée qui change tout."
+     ]
+    },
+    {
+     "h": "Deniers : terre, argent et corps",
+     "p": [
+      "Les Deniers, parfois appelés Pentacles ou Pièces, sont liés à la Terre. Ils recouvrent le travail, l'argent, le foyer, la santé et tout ce qui est lent et solide. Le [Dix de Deniers](cards/pentacles-ten) montre une sécurité durable bâtie avec le temps."
+     ]
+    },
+    {
+     "h": "Lire l'équilibre des couleurs",
+     "p": [
+      "Dans un tirage, remarque quelle couleur revient le plus et laquelle manque. Beaucoup d'Épées et aucune Coupe peuvent signifier que tu penses beaucoup à quelque chose que tu ne t'es pas laissé·e ressentir. Notre outil de [dignités élémentaires](tools/elements) montre comment les cartes d'éléments différents se soutiennent ou s'affaiblissent."
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "Quelle couleur parle d'amour ?",
+     "a": "Les Coupes sont la couleur de l'amour et des sentiments, même si une lecture sur l'amour peut comporter n'importe quelle couleur."
+    },
+    {
+     "q": "Quelle couleur parle d'argent ?",
+     "a": "Les Deniers sont la couleur de l'argent, du travail, du foyer et de la sécurité matérielle."
+    },
+    {
+     "q": "Les Épées sont-elles de mauvaises cartes ?",
+     "a": "Non. Les Épées représentent l'esprit : elles comprennent donc l'inquiétude et le conflit, mais aussi l'honnêteté, la pensée claire et les bonnes décisions."
+    }
+   ]
+  },
+  "tarot-numbers": {
+   "title": "Les nombres dans le tarot : le sens de l'As au Dix",
+   "description": "La numérologie du tarot pour débutants : ce que signifie chaque nombre de l'As au Dix dans les Arcanes mineurs, et comment combiner un nombre avec sa couleur pour lire n'importe quelle carte.",
+   "h1": "Les nombres dans le tarot",
+   "answer": "Dans le tarot, les nombres marquent une étape d'une histoire : les As commencent, les Cinq apportent des soucis, les Neuf touchent presque au but et les Dix bouclent le cycle.",
+   "minutes": 5,
+   "sections": [
+    {
+     "h": "Nombre plus couleur donne la carte",
+     "p": [
+      "Chaque couleur compte de l'As au Dix, et chaque nombre représente une étape semblable dans toutes les couleurs. Combine le nombre avec la [couleur](learn/tarot-suits) et tu pourras deviner le sens d'une carte avant même de le chercher. Un Cinq est une épreuve et les Coupes sont les sentiments : le [Cinq de Coupes](cards/cups-five) est donc un revers émotionnel."
+     ]
+    },
+    {
+     "h": "De l'As au Dix",
+     "p": [
+      "As : un nouveau départ, un cadeau ou une occasion à l'état brut.",
+      "Deux : un choix, une association ou un équilibre à maintenir.",
+      "Trois : les premières pousses, le travail d'équipe ou les résultats.",
+      "Quatre : la stabilité, le repos ou le fait de se retenir.",
+      "Cinq : un conflit, une perte ou une épreuve.",
+      "Six : le rétablissement, l'harmonie et l'échange.",
+      "Sept : la réflexion, le défi ou le fait de tenir bon.",
+      "Huit : le mouvement, l'effort et le changement.",
+      "Neuf : presque l'achèvement, soit l'accomplissement, soit l'inquiétude avant la fin.",
+      "Dix : la fin d'un cycle, sa pleine récompense ou son plein poids."
+     ]
+    },
+    {
+     "h": "Lire les nombres dans un tirage",
+     "p": [
+      "Les nombres qui reviennent méritent l'attention. Trois As suggèrent de nombreux nouveaux départs en même temps, et plusieurs Dix suggèrent des chapitres qui se ferment. Les petits nombres indiquent qu'une situation en est à ses débuts, et les grands qu'elle touche à sa fin.",
+      "Les Arcanes majeurs ont aussi des numéros, de 0 à 21. Ta [carte de naissance](tools/birth-card) et ta [carte de l'année](tools/year-card) se calculent en additionnant les chiffres d'une date jusqu'à obtenir le numéro d'un Arcane majeur."
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "Que signifie un As dans le tarot ?",
+     "a": "Un As est le pur commencement de sa couleur : une nouvelle chance en matière d'énergie (Bâtons), de sentiments (Coupes), d'idées (Épées) ou d'argent et de travail (Deniers)."
+    },
+    {
+     "q": "Pourquoi les Cinq sont-ils des cartes difficiles ?",
+     "a": "Le Cinq vient après la stabilité du Quatre et en brise le calme. Chaque Cinq montre une épreuve ou une perte qui fait avancer les choses."
+    },
+    {
+     "q": "Les figures ont-elles des numéros ?",
+     "a": "En général, non. Les Valets, Cavaliers, Reines et Rois se lisent plutôt par leur rang et leur couleur. Certains lecteurs les comptent de 11 à 14."
+    }
+   ]
+  },
+  "court-cards": {
+   "title": "Les figures du tarot : Valets, Cavaliers, Reines et Rois",
+   "description": "Comment lire les figures du tarot : ce que signifient les Valets, Cavaliers, Reines et Rois, et si une figure montre une personne, un côté de toi ou une façon d'agir.",
+   "h1": "Les figures du tarot",
+   "answer": "Les figures montrent des personnes ou des façons d'agir : les Valets apprennent, les Cavaliers passent à l'action, les Reines nourrissent de l'intérieur et les Rois dirigent vers l'extérieur.",
+   "minutes": 5,
+   "sections": [
+    {
+     "h": "Seize personnages dans le jeu",
+     "p": [
+      "Chaque couleur compte quatre figures, soit 16 au total. Ce sont souvent les cartes les plus difficiles pour les débutants, car une figure peut désigner une personne de ton entourage, un côté de ton propre caractère, ou une attitude dont la situation a besoin."
+     ]
+    },
+    {
+     "h": "Les quatre rangs",
+     "p": [
+      "Les Valets sont des élèves et des messagers. Ils apportent des nouvelles, de la curiosité et un esprit de débutant.",
+      "Les Cavaliers sont en mouvement. Ils courent après un but, parfois trop vite, et montrent l'énergie de la couleur à son extrême.",
+      "Les Reines portent en elles les qualités de la couleur. Elles sont attentionnées, sages et stables.",
+      "Les Rois mettent les qualités de la couleur en œuvre dans le monde extérieur. Ils dirigent, décident et assument leurs responsabilités."
+     ]
+    },
+    {
+     "h": "Rang plus couleur",
+     "p": [
+      "Associe le rang à la [couleur](learn/tarot-suits). Le [Cavalier de Bâtons](cards/wands-knight) se précipite vers l'aventure, tandis que la [Reine de Coupes](cards/cups-queen) écoute avec une profonde empathie. Le [Roi de Deniers](cards/pentacles-king) est un soutien fiable."
+     ]
+    },
+    {
+     "h": "Une personne, une part de toi ou un conseil ?",
+     "p": [
+      "Demande-toi ce qui convient le mieux. Si quelqu'un te vient tout de suite à l'esprit, la carte parle peut-être de lui ou d'elle. Sinon, demande-toi où tu agis comme ce personnage, ou en quoi agir davantage comme lui pourrait t'aider.",
+      "Tu veux savoir quelle figure te ressemble ? Essaie le quiz [quelle carte es-tu](tools/which-card-are-you)."
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "Une figure désigne-t-elle toujours une personne ?",
+     "a": "Non. Elle peut montrer une autre personne, une part de ta propre personnalité, ou une attitude que la situation demande."
+    },
+    {
+     "q": "Un Roi désigne-t-il un homme et une Reine une femme ?",
+     "a": "Pas forcément. La plupart des lecteurs voient les rangs comme des styles d'énergie que chacun, quel que soit son genre, peut incarner."
+    },
+    {
+     "q": "Combien y a-t-il de figures dans un jeu de tarot ?",
+     "a": "Il y a 16 figures : un Valet, un Cavalier, une Reine et un Roi dans chacune des quatre couleurs."
+    }
+   ]
+  },
+  "reversed-cards": {
+   "title": "Les cartes renversées du tarot : le sens des cartes à l'envers",
+   "description": "Comment lire les cartes renversées du tarot : énergie bloquée ou intérieure, trop ou trop peu du sens à l'endroit, et si tu as vraiment besoin d'utiliser les renversements.",
+   "h1": "Les cartes renversées du tarot",
+   "answer": "Une carte renversée montre en général le sens de la carte à l'endroit bloqué, tourné vers l'intérieur, retardé ou déséquilibré, et pas simplement son contraire.",
+   "minutes": 4,
+   "sections": [
+    {
+     "h": "Ce qu'est un renversement",
+     "p": [
+      "Une carte est renversée quand elle tombe à l'envers. Certains lecteurs utilisent les renversements, d'autres non. Les deux façons se valent, à condition de décider avant de mélanger."
+     ]
+    },
+    {
+     "h": "Quatre façons de lire un renversement",
+     "p": [
+      "Bloquée : l'énergie de la carte est là mais ne peut pas circuler. L'[As de Bâtons](cards/wands-ace) renversé est une étincelle créative qui ne prend pas.",
+      "Intérieure : le sens se vit en toi plutôt qu'autour de toi. [L'Ermite](cards/major-09-hermit) renversé peut évoquer la solitude subie plutôt qu'une solitude choisie.",
+      "Trop ou trop peu : la qualité de la carte est déséquilibrée. [La Force](cards/major-08-strength) renversée peut signifier le doute de soi, ou s'accrocher trop fort.",
+      "Retardée : ce que la carte promet arrive, mais plus lentement."
+     ]
+    },
+    {
+     "h": "Un renversement n'est pas toujours mauvais",
+     "p": [
+      "Les cartes difficiles s'adoucissent souvent quand elles sont renversées. [La Tour](cards/major-16-tower) renversée peut évoquer une crise évitée ou un changement que tu as déjà traversé, et le [Dix d'Épées](cards/swords-ten) renversé montre le rétablissement une fois le pire passé.",
+      "Chaque page de carte de ce site donne le sens à l'endroit et le sens renversé, pour que tu puisses les comparer."
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "Dois-je lire les cartes renversées ?",
+     "a": "Non. Beaucoup de lecteurs remettent toutes les cartes à l'endroit et ne lisent que le sens à l'endroit. Choisis une approche et garde-la."
+    },
+    {
+     "q": "Une carte renversée est-elle toujours négative ?",
+     "a": "Non. Un renversement peut adoucir une carte difficile, et montre souvent une leçon plus intérieure ou plus lente plutôt que mauvaise."
+    },
+    {
+     "q": "Comment obtenir des cartes renversées en mélangeant ?",
+     "a": "Retourne une partie du jeu pendant que tu mélanges, ou étale les cartes sur une table et mélange-les en cercles."
+    }
+   ]
+  },
+  "asking-questions": {
+   "title": "Comment poser une question au tarot (avec exemples)",
+   "description": "Comment poser au tarot des questions qui donnent des lectures claires : des questions ouvertes qui te concernent, des exemples pour l'amour, le travail et les décisions, et les questions à éviter.",
+   "h1": "Comment poser une question au tarot",
+   "answer": "Pose des questions ouvertes sur toi, comme « Que puis-je faire pour… » ou « Que dois-je comprendre à propos de… », plutôt que des questions par oui ou non sur les autres.",
+   "minutes": 4,
+   "sections": [
+    {
+     "h": "Pourquoi la question compte",
+     "p": [
+      "Les cartes répondent à la question que tu poses vraiment. Une question vague ou anxieuse donne généralement une lecture confuse, alors qu'une question claire te donne quelque chose sur quoi t'appuyer."
+     ]
+    },
+    {
+     "h": "Trois règles pour de bonnes questions",
+     "p": [
+      "Parle de toi. Tu peux changer ce que tu fais, pas ce que fait quelqu'un d'autre. Demande « Comment améliorer les choses avec mon ou ma partenaire ? » plutôt que « M'aime-t-il encore ? ».",
+      "Reste ouvert·e. Les questions en « quoi » et « comment » donnent des réponses plus riches que celles en « est-ce que ». Si tu as vraiment besoin d'un oui ou d'un non, utilise le [tirage oui ou non](tools/yes-no).",
+      "Ne demande qu'une chose à la fois. Sépare « Dois-je déménager et changer de travail ? » en deux lectures."
+     ]
+    },
+    {
+     "h": "Exemples de questions",
+     "p": [
+      "Amour : « Que dois-je savoir sur cette relation en ce moment ? »",
+      "Travail : « Sur quelles forces puis-je m'appuyer pour avancer dans mon travail ? »",
+      "Décision : « Qu'est-ce que chaque option va m'apporter ? » Essaie avec le [tirage de décision](spreads/three-decision).",
+      "Évolution personnelle : « Qu'est-ce qui me retient, et qu'est-ce qui m'aide à le dépasser ? »",
+      "Tu en trouveras beaucoup d'autres dans nos [guides de questions au tarot](questions)."
+     ]
+    },
+    {
+     "h": "Les questions à laisser aux professionnels",
+     "p": [
+      "Le tarot sert à la réflexion et au divertissement. Pour une décision de santé, de droit ou d'argent, parle à un médecin, à un avocat ou à un conseiller. Tu peux quand même te servir des cartes pour explorer ce que tu ressens face à la situation."
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "Puis-je poser au tarot des questions par oui ou non ?",
+     "a": "Oui, avec une seule carte ou un tirage oui ou non. Cela dit, les questions ouvertes donnent généralement des pistes plus utiles."
+    },
+    {
+     "q": "Puis-je poser une question sur une autre personne ?",
+     "a": "Tu peux, mais les lectures sont plus claires quand tu interroges ta part, par exemple comment l'aborder ou ce dont tu as besoin dans ce lien."
+    },
+    {
+     "q": "Puis-je poser deux fois la même question ?",
+     "a": "Mieux vaut ne pas répéter une question tout de suite. Prends le temps de digérer la première réponse et repose la question quand quelque chose a changé."
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,26 @@
+---
+// How other sites can add the free card-of-the-day box (English only).
+import Base from "../layouts/Base.astro";
+import { SITE_URL } from "../config.ts";
+import { LOCALES, LOCALE_INFO, prefix } from "../i18n/index.ts";
+
+const code = (l: (typeof LOCALES)[number]) =>
+  `<iframe src="${new URL(`${prefix(l)}embed/daily-card`, SITE_URL).href}" width="360" height="190" style="border:0;max-width:100%" loading="lazy" title="Tarot card of the day"></iframe>\n<p style="font-size:12px"><a href="${new URL(prefix(l) || "", SITE_URL).href}">Free tarot card meanings by ShenTarot</a></p>`;
+---
+<Base title="Free tarot card of the day widget for your website · ShenTarot" description="Add a free tarot card of the day to your blog or website. One line of code, eight languages, no tracking and no cookies." path="widget" localized={false}>
+  <article class="legal">
+    <h1>Tarot card of the day widget</h1>
+    <p class="lead">Add a free card of the day to your blog, shop or website. It shows a new Rider-Waite-Smith card every day, links to its full meaning, and works in eight languages. It sets no cookies and tracks nobody.</p>
+    <iframe src={`${new URL("embed/daily-card", SITE_URL).href}`} width="360" height="190" style="border:0;max-width:100%" loading="lazy" title="Tarot card of the day"></iframe>
+    <h2>How to add it</h2>
+    <p>Copy the code for your language and paste it into your page's HTML, or into a "Custom HTML" block in WordPress, Squarespace, Wix or Blogger.</p>
+    {LOCALES.map((l) => (
+      <>
+        <h3>{LOCALE_INFO[l].name}</h3>
+        <pre class="code"><code>{code(l)}</code></pre>
+      </>
+    ))}
+    <h2>Terms</h2>
+    <p>The widget is free for any site. Please keep the credit link. The card images are from the 1909 Rider-Waite-Smith deck, which is in the public domain.</p>
+  </article>
+</Base>

@@ -1,0 +1,35 @@
+---
+import Base from "../../../layouts/Base.astro";
+import Pairing from "../../../components/Pairing.astro";
+import { i18n, langPaths, type Locale } from "../../../i18n/index.ts";
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Locale };
+const L = i18n(lang);
+const { t, url: u } = L;
+
+const [a, rest] = t("elem.note").split("{cards}");
+const [b, c] = (rest ?? "").split("{comb}");
+const how = L.ui.elem.how as unknown as [string, string][];
+// Chinese and Japanese run the bold lead straight into the sentence.
+const gap = lang.startsWith("zh") || lang === "ja" ? "" : " ";
+---
+<Base
+  title={t("elem.title")}
+  description={t("elem.description")}
+  path="tools/elements"
+  crumbs={[[t("toolsCrumb"), "tools"], [t("elem.crumb"), "tools/elements"]]}
+  lang={lang}
+>
+  <header class="page-head center">
+    <p class="eyebrow">{t("freeTool")}</p>
+    <h1>{t("elem.h1")}</h1>
+    <p class="lead">{t("elem.lead")}</p>
+  </header>
+  <Pairing mode="elements" slots={L.list("elem.slots")} lang={lang} />
+  <section class="narrow" style="margin:3rem auto 0">
+    <h2>{t("howItWorks")}</h2>
+    <ul>{how.map(([head, text]) => <li><b>{head}</b>{gap}{text}</li>)}</ul>
+    <p class="muted">{a}<a href={u("cards")}>{t("elem.cardsLink")}</a>{b}<a href={u("tools/combinations")}>{t("elem.combLink")}</a>{c}</p>
+  </section>
+</Base>

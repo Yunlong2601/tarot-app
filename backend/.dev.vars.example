@@ -1,0 +1,7 @@
+# Copy to .dev.vars for `wrangler dev`. Never commit .dev.vars.
+JWT_SECRET=change-me-to-a-long-random-string
+HASH_SALT=change-me-too
+ANTHROPIC_API_KEY=
+REVENUECAT_SECRET_KEY=
+# Local testing only. NEVER set this in production: it skips device attestation.
+ALLOW_UNATTESTED_INSTALLS=true

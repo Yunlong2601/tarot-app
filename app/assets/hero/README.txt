@@ -1,0 +1,1 @@
+Drop your own landing artwork here as hero.jpg (portrait, about 1170x2532). Until it exists the app paints a starry placeholder. Only use art you made or have the rights to. A hero video is planned: see docs/design-notes.md.

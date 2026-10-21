@@ -1,0 +1,102 @@
+{
+  "homeTitle": "Understand the cards you already pulled.",
+  "homeLead": "Find a meaning, enter your physical spread and make sense of the connections. Free reference tools, with no account needed.",
+  "exampleTitle": "One question, three cards, a connected story",
+  "exampleLead": "See how pictures and positions turn separate meanings into a reflection you can question.",
+  "editorial": "Editorial demonstration — not a personal or generated reading.",
+  "exampleQuestion": "How can I make room for a creative project?",
+  "exampleLoad": "Try this example with my cards",
+  "exampleWarning": "Load this example? It replaces the current spread and cards. Your existing question, impressions, reflection and saved snapshot stay. Export your current cards first if needed.",
+  "exampleLoaded": "Example cards loaded. Existing notes were kept; edit the cards and question to make it yours.",
+  "exampleKept": "Example not loaded. Your current work is unchanged.",
+  "symbols": [
+    "The raised wand and tools on the table suggest resources already within reach.",
+    "The two coins and looping ribbon suggest effort spent juggling demands. Reversed here, try questioning an unsustainable rhythm.",
+    "The repeated coins and focused craftsperson suggest deliberate repetition rather than instant mastery."
+  ],
+  "positions": [
+    "Situation: the Magician invites an inventory of tools, time and skills.",
+    "Challenge: the Two of Pentacles reversed could point to a rhythm that is difficult to sustain.",
+    "Way forward: the Eight of Pentacles suggests protecting a small, repeatable practice."
+  ],
+  "connections": "The Magician’s available resources meet the reversed Two’s competing demands. The Eight offers a bridge: use one resource in a short, regular session rather than beginning several projects at once.",
+  "alternative": "Another reading: the challenge may be an overly rigid schedule, not too little discipline. A playful, flexible experiment could help more than another obligation. Check which story fits your circumstances.",
+  "positionShift": "Position changes the question. The Eight of Pentacles as a challenge could suggest perfectionism or endless preparation; as a way forward it could suggest useful practice. Neither position guarantees an outcome.",
+  "methodTitle": "How our meanings are written",
+  "methodLead": "A transparent guide to the sources, choices and limits behind ShenTarot’s reference content.",
+  "methodTradition": "We use the standard 78-card Rider–Waite–Smith system and public-domain 1909 imagery. Symbolism and correspondences vary across traditions; this is one reference approach, not a universal authority.",
+  "methodProcess": "Our reference text is shared with the app. It combines keywords, imagery, upright and reversed possibilities and reflective questions. Some text and translations were AI-assisted. The examples here are original editorial teaching material, not readings about you.",
+  "methodReview": "Published by ShenTech, Singapore. Independent expert review and native-speaker review are not confirmed for this edition. No professional tarot credential or reviewer endorsement is claimed. Tell us about a specific error through Support.",
+  "methodAI": "The website currently offers references and manual practice, not AI interpretations. A future AI option needs supported authentication, access checks and clearly disclosed limits. It should remain optional and preserve your judgment.",
+  "methodPrivacy": "Cards and notes entered in this reference workspace are not submitted to an AI service. Drafts and the single saved reflection use browser storage; they do not sync. Hosting requests still occur when pages and images load. See the privacy policy for details.",
+  "methodLimits": "Tarot interpretations are subjective possibilities for entertainment and self-reflection. They are not verified predictions, diagnoses or professional advice. Compare the picture, position and your own circumstances; disagreement is welcome.",
+  "guideTitle": "Your first three-card reading: a pocket guide",
+  "guideLead": "A practical reference to keep beside your physical deck. Read it here, download the text or print it as a PDF.",
+  "guideDownload": "Download reference text",
+  "guidePrint": "Print guide / save PDF",
+  "guideSteps": [
+    "Ask an open question you can act on: “What can I try?” rather than demanding a prediction.",
+    "Choose Situation / Challenge / Way forward. Lay three cards left to right and note their names and orientations.",
+    "Describe one visible detail before looking up each meaning. Relate the meaning to its position.",
+    "Connect two cards, then try a different interpretation. Choose one small action and write why it fits.",
+    "Record the cards and your own interpretation. Revisit it after some time; compare, do not score yourself."
+  ],
+  "guideSuits": [
+    "Wands: energy, initiative and creativity.",
+    "Cups: emotion, connection and relationships.",
+    "Swords: thoughts, decisions and tension.",
+    "Pentacles: resources, work and daily practice.",
+    "Major Arcana: broad themes and turning points."
+  ],
+  "guideReversals": "A reversal is not automatically bad or the opposite. Consider a blocked, inward, excessive or delayed expression. Compare it with the question and neighboring cards.",
+  "guideConnections": "Ask: Do these cards repeat a theme, create tension or suggest a change? Which detail supports that story? What is another plausible reading?",
+  "guideRecord": "Question: ______  Cards and positions: ______  First impression: ______  Connection and alternative: ______  Small action: ______  Later reflection: ______",
+  "practiceTitle": "Five small practices with your own deck",
+  "practiceLead": "Work at your pace. Mark activities you tried, not answers you got “right”.",
+  "practiceSteps": [
+    "Notice a card",
+    "Read a position",
+    "Explore a reversal",
+    "Connect a pair",
+    "Return to a reflection"
+  ],
+  "practiceTasks": [
+    "Look up one card. Name a detail in its picture and a meaning that fits it.",
+    "Read the example, then enter your own three cards. Explain how one position changes a meaning.",
+    "Read the reversals lesson. Try an inward or blocked interpretation without assuming disaster.",
+    "Use the combinations tool or the worked example. Write one connection and one alternative.",
+    "Open the workspace, restore your saved reflection and compare it with what you notice now. Add a dated line to the reflection; export before replacing your save."
+  ],
+  "markDone": "I tried this activity",
+  "progress": "{n} of {total} activities tried",
+  "reset": "Reset practice progress",
+  "progressNote": "Progress is stored only in this browser. It is separate from your saved reflection, not a qualification or an account record. Clearing browser data removes it.",
+  "progressError": "Progress could not be stored. Keep a note or use the downloadable guide.",
+  "progressSaved": "Practice progress saved in this browser.",
+  "reviewTitle": "Revisit your saved reflection",
+  "reviewPrompt": "Restore the saved reflection below. What has changed since you wrote it? Add a dated line to your reflection, and export the earlier version before saving a replacement.",
+  "appTitle": "Companion app — coming soon",
+  "appNote": "The iPhone and Android app is upcoming. Website reference tools work here today; app scanning, AI readings and account features are not available in this workspace.",
+  "footer": "Tarot references and practice from ShenTech, Singapore. For entertainment and self-reflection.",
+  "faq": [
+    {
+      "q": "What can I use here today?",
+      "a": "Search all 78 cards, explore spreads, enter your own cards and save or export one browser-local reflection. No account or AI request is needed."
+    },
+    {
+      "q": "Does the website interpret my cards with AI?",
+      "a": "Not yet. This website provides reference meanings and practice prompts. It does not submit your questions or cards to an AI service or consume credits."
+    },
+    {
+      "q": "Where is my reflection saved?",
+      "a": "Only in this browser on this device. Save replaces one snapshot; there is no account sync. Export a copy before clearing browser data or changing devices."
+    },
+    {
+      "q": "Can I scan cards or download the app?",
+      "a": "The companion app is upcoming. On the website, enter your physical cards manually or use the existing digital draw tools."
+    }
+  ],
+  "starNote": "The water and stars can invite renewal after difficulty. In a challenge position, ask whether hope needs practical support rather than assuming success.",
+  "twoNote": "The looping ribbon can suggest a changing balance. Reversed, consider overload or a rhythm that needs adjusting; it does not prove a loss.",
+  "eightNote": "The repeated coins can suggest skill built through practice. In a challenge position, ask whether preparation has become perfectionism."
+}

@@ -1,0 +1,102 @@
+{
+  "homeTitle": "Verstehe die Karten, die du bereits gezogen hast.",
+  "homeLead": "Bedeutungen nachschlagen, deine echte Legung eingeben und Zusammenhänge erkunden. Kostenlose Hilfen ohne Konto.",
+  "exampleTitle": "Eine Frage, drei Karten, eine zusammenhängende Geschichte",
+  "exampleLead": "Sieh, wie Bilder und Positionen aus einzelnen Bedeutungen eine offene Reflexion machen.",
+  "editorial": "Redaktionelles Beispiel – keine persönliche oder live erzeugte Deutung.",
+  "exampleQuestion": "Wie schaffe ich Raum für ein kreatives Projekt?",
+  "exampleLoad": "Dieses Beispiel mit meinen Karten ausprobieren",
+  "exampleWarning": "Beispiel laden? Es ersetzt Legung und Karten. Deine Frage, Eindrücke, Reflexion und gespeicherte Kopie bleiben. Exportiere bei Bedarf zuerst die aktuellen Karten.",
+  "exampleLoaded": "Beispiel geladen. Vorhandene Notizen bleiben; passe Karten und Frage an.",
+  "exampleKept": "Beispiel nicht geladen. Deine Arbeit bleibt unverändert.",
+  "symbols": [
+    "Stab und Werkzeuge können verfügbare Mittel zeigen.",
+    "Münzen und Schleife können mehrere Anforderungen zeigen. Umgekehrt lädt die Karte ein, einen unhaltbaren Rhythmus zu prüfen.",
+    "Wiederholte Münzen und der konzentrierte Handwerker können bewusstes Üben zeigen."
+  ],
+  "positions": [
+    "Situation: Der Magier lädt ein, Mittel, Zeit und Fähigkeiten zu prüfen.",
+    "Herausforderung: Zwei der Münzen umgekehrt könnte einen schwer haltbaren Rhythmus zeigen.",
+    "Weg: Acht der Münzen legt eine kleine regelmäßige Übung nahe."
+  ],
+  "connections": "Die Mittel des Magiers treffen auf die Anforderungen der umgekehrten Zwei. Die Acht bildet eine Brücke: ein Mittel in kurzen regelmäßigen Einheiten nutzen, statt mehrere Projekte zu starten.",
+  "alternative": "Andere Deutung: Vielleicht ist der Zeitplan zu starr, nicht die Disziplin zu gering. Ein flexibles Experiment könnte eher helfen. Prüfe, was zu deiner Lage passt.",
+  "positionShift": "Die Position ändert die Frage. Die Acht als Herausforderung könnte Perfektionismus bedeuten; als Weg nützliches Üben. Keine Position garantiert ein Ergebnis.",
+  "methodTitle": "Wie unsere Bedeutungen entstehen",
+  "methodLead": "Quellen, Entscheidungen und Grenzen der ShenTarot-Referenzen.",
+  "methodTradition": "Wir nutzen das Rider–Waite–Smith-System mit 78 Karten und gemeinfreie Bilder von 1909. Traditionen unterscheiden sich; dies ist eine Orientierung, keine universelle Autorität.",
+  "methodProcess": "Die Texte werden mit der App geteilt: Stichwörter, Bilder, aufrechte und umgekehrte Möglichkeiten sowie Reflexionsfragen. Manche Texte und Übersetzungen sind KI-unterstützt. Beispiele sind eigenes Lehrmaterial, keine Deutungen über dich.",
+  "methodReview": "Veröffentlicht von ShenTech, Singapur. Eine unabhängige Fachprüfung und muttersprachliche Prüfung sind für diese Ausgabe nicht bestätigt. Wir behaupten keine professionellen Qualifikationen oder Empfehlungen. Melde konkrete Fehler beim Support.",
+  "methodAI": "Die Website bietet Referenzen und manuelles Üben, keine KI-Deutung. Eine künftige Option braucht Authentifizierung, Zugriffsprüfung und klare Grenzen. Sie soll optional bleiben und dein Urteil respektieren.",
+  "methodPrivacy": "Karten und Notizen werden hier nicht an KI gesendet. Entwurf und eine gespeicherte Reflexion liegen im Browser, ohne Synchronisierung. Seiten und Bilder erzeugen Hosting-Anfragen. Details stehen im Datenschutz.",
+  "methodLimits": "Deutungen sind subjektive Möglichkeiten für Unterhaltung und Selbstreflexion, keine geprüften Vorhersagen, Diagnosen oder Fachberatung. Vergleiche Bild, Position und Lage; Widerspruch ist willkommen.",
+  "guideTitle": "Deine erste Dreierlegung: ein Taschenleitfaden",
+  "guideLead": "Eine Hilfe neben deinem Kartendeck. Hier lesen, als Text laden oder als PDF drucken.",
+  "guideDownload": "Referenztext herunterladen",
+  "guidePrint": "Leitfaden drucken / PDF speichern",
+  "guideSteps": [
+    "Frage offen und handlungsnah, etwa „Was kann ich versuchen?“.",
+    "Wähle Situation / Herausforderung / Weg. Lege drei Karten von links nach rechts und notiere ihre Ausrichtung.",
+    "Beschreibe vor dem Nachschlagen ein Bilddetail und beziehe die Bedeutung auf die Position.",
+    "Verbinde zwei Karten und versuche eine andere Deutung. Wähle eine kleine Handlung und begründe sie.",
+    "Notiere deine Deutung und lies sie später erneut. Vergleiche, ohne dich zu benoten."
+  ],
+  "guideSuits": [
+    "Stäbe: Energie, Initiative und Kreativität.",
+    "Kelche: Gefühle, Verbindung und Beziehungen.",
+    "Schwerter: Gedanken, Entscheidungen und Spannung.",
+    "Münzen: Mittel, Arbeit und tägliche Praxis.",
+    "Große Arkana: größere Themen und Wendepunkte."
+  ],
+  "guideReversals": "Umgekehrt heißt nicht automatisch schlecht oder Gegenteil. Prüfe blockierte, innere, übermäßige oder verzögerte Ausprägungen im Kontext der Frage und Nachbarkarten.",
+  "guideConnections": "Wiederholen die Karten ein Thema, erzeugen sie Spannung oder zeigen sie Wandel? Welches Detail stützt die Geschichte? Welche andere Deutung passt?",
+  "guideRecord": "Frage: ______  Karten und Positionen: ______  Eindruck: ______  Verbindung und Alternative: ______  Handlung: ______  Rückblick: ______",
+  "practiceTitle": "Fünf kleine Übungen mit deinem Deck",
+  "practiceLead": "In deinem Tempo. Markiere versuchte Aktivitäten, keine „richtigen“ Antworten.",
+  "practiceSteps": [
+    "Eine Karte betrachten",
+    "Eine Position lesen",
+    "Eine Umkehrung erkunden",
+    "Zwei Karten verbinden",
+    "Eine Reflexion wieder lesen"
+  ],
+  "practiceTasks": [
+    "Schlage eine Karte nach. Nenne ein Detail und eine passende Bedeutung.",
+    "Lies das Beispiel und gib deine drei Karten ein. Erkläre, wie eine Position die Bedeutung verändert.",
+    "Lies die Lektion zu Umkehrungen. Versuche eine innere oder blockierte Deutung ohne Katastrophenannahme.",
+    "Nutze Kombinationen oder das Beispiel. Notiere eine Verbindung und eine Alternative.",
+    "Öffne den Arbeitsbereich und stelle deine Reflexion wieder her. Vergleiche deine heutige Sicht. Ergänze eine datierte Zeile; exportiere vor dem Ersetzen."
+  ],
+  "markDone": "Diese Aktivität habe ich versucht",
+  "progress": "{n} von {total} Aktivitäten versucht",
+  "reset": "Fortschritt zurücksetzen",
+  "progressNote": "Fortschritt bleibt nur in diesem Browser, getrennt von der Reflexion. Er ist weder Qualifikation noch Kontoeintrag. Browserdaten löschen entfernt ihn.",
+  "progressError": "Fortschritt konnte nicht gespeichert werden. Notiere ihn oder lade den Leitfaden.",
+  "progressSaved": "Fortschritt in diesem Browser gespeichert.",
+  "reviewTitle": "Gespeicherte Reflexion erneut ansehen",
+  "reviewPrompt": "Stelle sie unten wieder her. Was hat sich verändert? Ergänze eine datierte Zeile und exportiere die alte Fassung vor dem Ersetzen.",
+  "appTitle": "Begleit-App – bald verfügbar",
+  "appNote": "Die App für iPhone und Android ist in Vorbereitung. Web-Referenzen funktionieren heute; Scannen, KI-Deutungen und App-Kontofunktionen sind hier nicht verfügbar.",
+  "footer": "Tarot-Referenzen und Übungen von ShenTech, Singapur. Für Unterhaltung und Selbstreflexion.",
+  "faq": [
+    {
+      "q": "Was kann ich heute nutzen?",
+      "a": "78 Karten suchen, Legungen erkunden, eigene Karten eingeben und eine lokale Reflexion speichern oder exportieren. Ohne Konto oder KI-Anfrage."
+    },
+    {
+      "q": "Deutet die Website mit KI?",
+      "a": "Noch nicht. Sie bietet Referenzen und Übungen, sendet keine Fragen oder Karten an KI und verbraucht keine Credits."
+    },
+    {
+      "q": "Wo liegt meine Reflexion?",
+      "a": "Nur in diesem Browser auf diesem Gerät. Speichern ersetzt eine Kopie, ohne Kontosynchronisierung. Exportiere vor Datenlöschung oder Gerätewechsel."
+    },
+    {
+      "q": "Kann ich scannen oder die App laden?",
+      "a": "Die App erscheint später. Auf der Website gibst du echte Karten manuell ein oder nutzt digitale Ziehwerkzeuge."
+    }
+  ],
+  "starNote": "Wasser und Sterne können Erneuerung nach Schwierigkeiten anregen. Als Herausforderung: Braucht Hoffnung praktische Unterstützung?",
+  "twoNote": "Die Schleife kann wechselndes Gleichgewicht zeigen. Umgekehrt: Überlastung oder Rhythmus prüfen; kein Beweis für Verlust.",
+  "eightNote": "Die wiederholten Münzen können Können durch Übung zeigen. Als Herausforderung: Wird Vorbereitung zu Perfektionismus?"
+}

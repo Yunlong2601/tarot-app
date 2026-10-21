@@ -1,0 +1,21 @@
+// Cloudflare hosting for shentarot.com. Deploy with `npm run deploy` after
+// `npx wrangler login`. Pages are static files from dist/, served at clean
+// addresses: /privacy serves privacy.html and /cards serves cards/index.html
+// (html_handling "drop-trailing-slash"), and old .html addresses redirect to
+// the clean ones, so links already in the store listings keep working. Only /s/* (shared readings) runs the small worker,
+// which hands them to the backend Worker (shentarot-api) through a service
+// binding, so deploy the backend first.
+{
+  "name": "shentarot-site",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "html_handling": "drop-trailing-slash",
+    "run_worker_first": ["/s/*"]
+  },
+  "services": [{ "binding": "API", "service": "shentarot-api" }],
+  "routes": [{ "pattern": "shentarot.com", "custom_domain": true }]
+}

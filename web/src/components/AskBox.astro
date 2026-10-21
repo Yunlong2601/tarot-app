@@ -1,0 +1,51 @@
+---
+// Ask a question on the home page, get sent to the spread that suits it, with
+// the question filled in. The question never leaves the browser.
+import { TOPICS } from "../lib/topics.ts";
+import { i18n, type Locale } from "../i18n/index.ts";
+
+interface Props {
+  lang?: Locale;
+}
+const { lang = "en" } = Astro.props;
+const L = i18n(lang);
+const { t } = L;
+const samples = TOPICS.map((tp) => L.content.topics[tp.slug as keyof typeof L.content.topics].questions[0]!);
+const config = JSON.stringify({ spreads: L.url("spreads/"), kw: L.ui.recommend });
+---
+<form class="ask" data-ask>
+  <script type="application/json" data-config set:html={config.replace(/</g, "\\u003c")} />
+  <label for="ask-q" class="sr-only">{t("ask.label")}</label>
+  <div class="ask-row">
+    <input id="ask-q" type="text" name="q" maxlength="200" placeholder={t("ask.placeholder")} autocomplete="off" required />
+    <button class="btn btn-gold" type="submit">{t("ask.submit")}</button>
+  </div>
+  <p class="ask-try">
+    <span>{t("ask.try")}</span>
+    {samples.map((q) => <button type="button" class="chip" data-sample={q}>{q}</button>)}
+  </p>
+</form>
+
+<script>
+  import { recommendSpread, ASK_KEY, type Keywords } from "../lib/recommend.ts";
+
+  for (const form of document.querySelectorAll<HTMLFormElement>("[data-ask]")) {
+    const cfg = JSON.parse(form.querySelector("[data-config]")!.textContent!) as { spreads: string; kw: Keywords };
+    const input = form.querySelector("input")!;
+    for (const b of form.querySelectorAll<HTMLButtonElement>("[data-sample]")) {
+      b.onclick = () => {
+        input.value = b.dataset.sample!;
+        input.focus();
+      };
+    }
+    form.onsubmit = (e) => {
+      e.preventDefault();
+      const q = input.value.trim();
+      if (!q) return;
+      try {
+        sessionStorage.setItem(ASK_KEY, q);
+      } catch {}
+      location.href = `${cfg.spreads}/${recommendSpread(q, cfg.kw).replace(/_/g, "-")}#try`;
+    };
+  }
+</script>

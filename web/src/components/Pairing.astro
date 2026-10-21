@@ -1,0 +1,224 @@
+---
+// Pick cards (or draw them) and see how they read together. "combine" shows
+// two cards and what links them; "elements" checks the elemental dignities of
+// a line of two or three cards. Nothing leaves the page.
+import { BASE } from "../config.ts";
+import { readerDeck } from "../lib/data.ts";
+import { i18n, type Locale } from "../i18n/index.ts";
+
+interface Props {
+  mode: "combine" | "elements";
+  slots: string[];
+  lang?: Locale;
+}
+const { mode, slots, lang = "en" } = Astro.props;
+const L = i18n(lang);
+const { t } = L;
+const deck = readerDeck(L);
+const config = JSON.stringify({
+  mode, slots, base: BASE, cards: L.url("cards"), deck,
+  t: { ...L.ui.pairing, nameReversed: L.ui.reader.nameReversed, altReversed: L.ui.reader.altReversed, fullMeaning: L.ui.reader.fullMeaning },
+  suits: L.ui.suits, sense: L.ui.suitSense, elements: L.ui.elements, numbers: L.ui.card.numberWords, ranks: L.ui.card.ranks,
+});
+---
+<div class="pairing" data-pairing>
+  <script type="application/json" data-config set:html={config.replace(/</g, "\\u003c")} />
+  <div class="panel tool-panel picker">
+    {slots.map((s, i) => (
+      <div class="pick">
+        <label>{s}
+          <select data-card={i}>
+            <option value="">{i === 2 ? t("pairing.none") : t("pairing.choose")}</option>
+            {deck.map((c) => <option value={c.slug}>{c.name}</option>)}
+          </select>
+        </label>
+        {mode === "combine" && <label class="check"><input type="checkbox" data-rev={i} /> {t("pairing.reversed")}</label>}
+      </div>
+    ))}
+    <p class="center actions">
+      <button class="btn btn-gold" type="button" data-random>{t("pairing.random")}</button>
+    </p>
+  </div>
+  <div data-out aria-live="polite"></div>
+</div>
+
+<script>
+  type Card = { id: string; slug: string; name: string; suit: string | null; n: number | null; keywords: string[]; up: string; rev: string; upQ: string; revQ: string; el: string | null };
+  type Config = {
+    mode: "combine" | "elements"; slots: string[]; base: string; cards: string; deck: Card[];
+    t: Record<string, string> & { rel: Record<string, string> };
+    suits: Record<string, string>; sense: Record<string, string>; elements: Record<string, string>; numbers: string[]; ranks: Record<string, string>;
+  };
+  const fill = (s: string, v: Record<string, string | number>) => s.replace(/\{(\w+)\}/g, (m, k: string) => (k in v ? String(v[k]) : m));
+
+  const rand = (n: number) => {
+    const r = new Uint32Array(1);
+    crypto.getRandomValues(r);
+    return r[0]! % n;
+  };
+  const el = <K extends keyof HTMLElementTagNameMap>(tag: K, cls?: string, text?: string) => {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text) e.textContent = text;
+    return e;
+  };
+  const COURT = ["page", "knight", "queen", "king"];
+  const isCourt = (c: Card) => c.suit !== null && c.n === null;
+  const courtRank = (c: Card) => COURT.find((r) => c.id.endsWith(`_${r}`)) ?? "";
+
+  // Elemental dignities as the Golden Dawn tradition reads them: the same
+  // element strengthens, opposite elements (Fire and Water, Air and Earth)
+  // weaken each other, and the rest support each other.
+  type Rel = "same" | "friendly" | "contrary" | "neutral";
+  function relation(a: string | null, b: string | null): Rel {
+    if (!a || !b) return "neutral";
+    if (a === b) return "same";
+    const pair = [a, b].sort().join("+");
+    return pair === "Fire+Water" || pair === "Air+Earth" ? "contrary" : "friendly";
+  }
+
+  for (const root of document.querySelectorAll<HTMLElement>("[data-pairing]")) {
+    const cfg = JSON.parse(root.querySelector("[data-config]")!.textContent!) as Config;
+    const selects = [...root.querySelectorAll<HTMLSelectElement>("[data-card]")];
+    const revs = [...root.querySelectorAll<HTMLInputElement>("[data-rev]")];
+    const out = root.querySelector<HTMLElement>("[data-out]")!;
+    const bySlug = new Map(cfg.deck.map((c) => [c.slug, c]));
+    const T = cfg.t;
+    const REL_TEXT = T.rel as Record<Rel, string>;
+    const elName = (e: string) => cfg.elements[e.toLowerCase()] ?? e;
+
+    function chosen() {
+      return selects.map((s, i) => ({ card: bySlug.get(s.value), reversed: !!revs[i]?.checked }));
+    }
+
+    function face(card: Card, reversed: boolean, label: string) {
+      const spot = el("div", "spot");
+      spot.append(el("p", "pos", label));
+      const box = el("div", "face");
+      const link = el("a");
+      link.href = `${cfg.cards}/${card.slug}`;
+      const img = el("img", reversed ? "rev" : "");
+      img.src = `${cfg.base}cards/art/${card.id}.jpg`;
+      img.alt = reversed ? fill(T.altReversed!, { name: card.name }) : card.name;
+      img.width = 300;
+      img.height = 514;
+      link.append(img);
+      const body = el("div", "face-body");
+      body.append(el("b", "", reversed ? fill(T.nameReversed!, { name: card.name }) : card.name));
+      if (cfg.mode === "elements") body.append(el("p", `elem ${(card.el ?? "none").toLowerCase()}`, card.el ? elName(card.el) : T.noElement));
+      body.append(el("p", "kw", card.keywords.join(" · ")));
+      if (cfg.mode === "combine") body.append(el("p", "", reversed ? card.rev : card.up));
+      const more = el("a", "link-arrow", T.fullMeaning);
+      more.href = link.href;
+      body.append(more);
+      box.append(link, body);
+      spot.append(box);
+      return spot;
+    }
+
+    function combineNotes(a: Card, ar: boolean, b: Card, br: boolean) {
+      const lines: string[] = [];
+      const am = a.suit === null, bm = b.suit === null;
+      if (am && bm) lines.push(fill(T.twoMajors!, { a: a.name, b: b.name }));
+      else if (am || bm) {
+        const [m, x] = am ? [a, b] : [b, a];
+        lines.push(fill(T.majorTheme!, { major: m.name, minor: x.name }));
+      } else if (a.suit === b.suit) lines.push(fill(T.sameSuit!, { suit: cfg.suits[a.suit!]!, sense: cfg.sense[a.suit!]! }));
+      else lines.push(fill(T.suitsMeet!, { a: cfg.suits[a.suit!]!, b: cfg.suits[b.suit!]!, senseA: cfg.sense[a.suit!]!, senseB: cfg.sense[b.suit!]! }));
+      if (!am && !bm && a.n !== null && a.n === b.n) lines.push(fill(T.sameNumber!, { word: cfg.numbers[a.n]! }));
+      if (am && bm && a.n !== null && b.n !== null && Math.abs(a.n - b.n) === 1) lines.push(T.neighbours!);
+      const courts = [a, b].filter(isCourt);
+      if (courts.length === 2) lines.push(courtRank(a) === courtRank(b) ? fill(T.twoSameRank!, { rank: cfg.ranks[courtRank(a)]! }) : T.twoCourts!);
+      else if (courts.length === 1) lines.push(fill(T.oneCourt!, { name: courts[0]!.name }));
+      if (ar && br) lines.push(T.bothReversed!);
+      else if (ar || br) lines.push(fill(T.oneReversed!, { name: ar ? a.name : b.name }));
+      const r = relation(a.el, b.el);
+      if (a.el && b.el) lines.push(fill(T.elementsLine!, { a: a.name, ea: elName(a.el), b: b.name, eb: elName(b.el), rel: REL_TEXT[r] }));
+      return lines;
+    }
+
+    function elementNotes(cards: Card[]) {
+      const lines: string[] = [];
+      for (let i = 0; i < cards.length - 1; i++) {
+        const [x, y] = [cards[i]!, cards[i + 1]!];
+        lines.push(fill(T.pairLine!, { a: x.name, b: y.name, rel: REL_TEXT[relation(x.el, y.el)] }));
+      }
+      if (cards.length === 3) {
+        const [l, m, r] = cards as [Card, Card, Card];
+        const rels = [relation(l.el, m.el), relation(m.el, r.el)];
+        const good = rels.filter((x) => x === "same" || x === "friendly").length;
+        const bad = rels.filter((x) => x === "contrary").length;
+        let verdict: string;
+        if (bad === 2) verdict = T.muchWeak!;
+        else if (bad === 1 && good === 1) verdict = T.mixed!;
+        else if (bad === 1) verdict = T.someWeak!;
+        else if (good === 2) verdict = T.strong!;
+        else if (good === 1) verdict = T.someStrong!;
+        else verdict = T.neither!;
+        lines.push(fill(verdict, { name: m.name }));
+        if (relation(l.el, r.el) === "contrary" && rels.every((x) => x === "friendly" || x === "same")) {
+          lines.push(fill(T.bridge!, { l: l.name, r: r.name, m: m.name }));
+        }
+      }
+      return lines;
+    }
+
+    function render() {
+      // The first two slots are required and the third is optional, so a card
+      // always shows (and is saved) under the slot it was picked in.
+      const all = chosen();
+      // Keep the choice in the address so it can be shared or bookmarked.
+      const params = new URLSearchParams();
+      all.forEach((p, i) => p.card && params.set(String.fromCharCode(97 + i), `${p.card.slug}${p.reversed ? "~r" : ""}`));
+      history.replaceState(null, "", params.toString() ? `?${params}` : location.pathname);
+      out.replaceChildren();
+      if (!all[0]!.card || !all[1]!.card) return;
+      const picked = (all[2]?.card ? all : all.slice(0, 2)) as { card: Card; reversed: boolean }[];
+      const table = el("div", "table");
+      table.dataset.count = String(picked.length);
+      picked.forEach((p, i) => table.append(face(p.card, p.reversed, cfg.slots[i] ?? "")));
+      const notes = cfg.mode === "combine"
+        ? combineNotes(picked[0]!.card, picked[0]!.reversed, picked[1]!.card, picked[1]!.reversed)
+        : elementNotes(picked.map((p) => p.card));
+      const panel = el("div", "panel summary");
+      panel.append(el("h3", "", cfg.mode === "combine" ? T.togetherTitle : T.elementsTitle));
+      const ul = el("ul");
+      for (const l of notes) ul.append(el("li", "", l));
+      panel.append(ul);
+      if (cfg.mode === "combine") {
+        const qs = picked.map((p) => (p.reversed ? p.card.revQ : p.card.upQ)).filter(Boolean);
+        if (qs.length) {
+          panel.append(el("p", "quint", T.reflect));
+          const ql = el("ul", "questions-mini");
+          for (const q of qs) ql.append(el("li", "", q));
+          panel.append(ql);
+        }
+      }
+      out.append(table, panel);
+    }
+
+    function randomize() {
+      const d = cfg.deck.slice();
+      selects.forEach((s, i) => {
+        const j = rand(d.length);
+        s.value = d.splice(j, 1)[0]!.slug;
+        if (revs[i]) revs[i]!.checked = rand(4) === 0;
+      });
+      render();
+    }
+
+    selects.forEach((s) => (s.onchange = render));
+    revs.forEach((r) => (r.onchange = render));
+    root.querySelector<HTMLButtonElement>("[data-random]")!.onclick = randomize;
+
+    const params = new URLSearchParams(location.search);
+    selects.forEach((s, i) => {
+      const v = params.get(String.fromCharCode(97 + i));
+      if (!v) return;
+      const [slug, flag] = v.split("~");
+      if (bySlug.has(slug!)) s.value = slug!;
+      if (revs[i]) revs[i]!.checked = flag === "r";
+    });
+    render();
+  }
+</script>

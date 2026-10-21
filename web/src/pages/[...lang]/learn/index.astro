@@ -1,0 +1,46 @@
+---
+import Base from "../../../layouts/Base.astro";
+import { LEARN_SLUGS, fill, i18n, langPaths, type Locale } from "../../../i18n/index.ts";
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Locale };
+const L = i18n(lang);
+const u = L.url;
+const ix = L.learn.index;
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    name: ix.h1,
+    description: ix.description,
+    inLanguage: L.tag,
+    isAccessibleForFree: true,
+    provider: { "@type": "Organization", name: "ShenTech", url: new URL(u(), Astro.site).href },
+    hasPart: LEARN_SLUGS.map((s) => ({ "@type": "Article", name: L.learn.guides[s].h1, url: new URL(u(`learn/${s}`), Astro.site).href })),
+  },
+];
+---
+<Base title={ix.title} description={ix.description} path="learn" crumbs={[[ix.crumb, "learn"]]} jsonLd={jsonLd} lang={lang}>
+  <header class="page-head center">
+    <p class="eyebrow">{ix.eyebrow}</p>
+    <h1>{ix.h1}</h1>
+    <p class="lead">{ix.lead}</p>
+  </header>
+  <section class="panel practice-path"><h2>{L.workspace.learnPath}</h2><p>{L.workspace.practiceHint}</p><ol>{["how-to-read-tarot", "reversed-cards", "asking-questions"].map(s => <li><a href={u(`learn/${s}`)}>{L.learn.guides[s as keyof typeof L.learn.guides].h1}</a></li>)}<li><a href={u("tools/combinations")}>{L.t("footer.combinations")}</a></li><li><a href={u("read")}>{L.workspace.practice}</a></li></ol></section>
+  <div class="panel"><h2><a href={u("learn/practice")}>{L.growth.practiceTitle}</a></h2><p>{L.growth.practiceLead}</p><p><a href={u("learn/connected-reading")}>{L.growth.exampleTitle}</a></p><p><a href={u("learn/beginner-reference")}>{L.growth.guideTitle}</a></p><p><a href={u("methodology")}>{L.growth.methodTitle}</a></p></div>
+  <ol class="grid-3 lessons">
+    {LEARN_SLUGS.map((s, i) => {
+      const g = L.learn.guides[s];
+      return (
+        <li>
+          <a class="panel spread-card" href={u(`learn/${s}`)}>
+            <p class="count">{fill(ix.step, { n: i + 1 })} · {fill(ix.minutes, { n: g.minutes })}</p>
+            <h3>{g.h1}</h3>
+            <p>{g.answer}</p>
+            <span class="link-arrow">{ix.read}</span>
+          </a>
+        </li>
+      );
+    })}
+  </ol>
+</Base>

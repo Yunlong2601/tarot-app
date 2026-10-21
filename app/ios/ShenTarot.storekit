@@ -1,0 +1,96 @@
+{
+  "identifier": "4424D251-09EE-44C7-98C7-703FD31047AB",
+  "nonRenewingSubscriptions": [],
+  "products": [],
+  "settings": {
+    "_failTransactionsEnabled": false,
+    "_locale": "en_US",
+    "_storefront": "USA",
+    "_storeKitErrors": []
+  },
+  "subscriptionGroups": [
+    {
+      "id": "2CE865E4-38E5-4246-9910-E791C8AF9833",
+      "localizations": [],
+      "name": "ShenTarot Premium",
+      "subscriptions": [
+        {
+          "adHocOffers": [],
+          "codeOffers": [],
+          "displayPrice": "39.99",
+          "familyShareable": false,
+          "groupNumber": 1,
+          "internalID": "125C637D-394F-47F7-9503-670B38461E45",
+          "introductoryOffer": {
+            "internalID": "4EFA48E7-FAE9-4E64-A8A7-B410ECE58FA7",
+            "paymentMode": "payUpFront",
+            "subscriptionPeriod": "P1M",
+            "displayPrice": "1.99",
+            "numberOfPeriods": 1
+          },
+          "localizations": [
+            {
+              "description": "All spreads, follow-ups, 50 readings a day",
+              "displayName": "Premium Annual",
+              "locale": "en_US"
+            }
+          ],
+          "productID": "shentarot_annual",
+          "recurringSubscriptionPeriod": "P1Y",
+          "referenceName": "Annual",
+          "subscriptionGroupID": "2CE865E4-38E5-4246-9910-E791C8AF9833",
+          "type": "RecurringSubscription",
+          "winbackOffers": []
+        },
+        {
+          "adHocOffers": [],
+          "codeOffers": [],
+          "displayPrice": "14.99",
+          "familyShareable": false,
+          "groupNumber": 2,
+          "internalID": "6789012345",
+          "introductoryOffer": null,
+          "localizations": [
+            {
+              "description": "All spreads, follow-ups, 50 readings a day",
+              "displayName": "Premium 3 Months",
+              "locale": "en_US"
+            }
+          ],
+          "productID": "shentarot_quarterly",
+          "recurringSubscriptionPeriod": "P3M",
+          "referenceName": "3 Months",
+          "subscriptionGroupID": "2CE865E4-38E5-4246-9910-E791C8AF9833",
+          "type": "RecurringSubscription",
+          "winbackOffers": []
+        },
+        {
+          "adHocOffers": [],
+          "codeOffers": [],
+          "displayPrice": "6.99",
+          "familyShareable": false,
+          "groupNumber": 3,
+          "internalID": "5A1CE170-0BBD-4631-A7EC-DBD4786393AE",
+          "introductoryOffer": null,
+          "localizations": [
+            {
+              "description": "All spreads, follow-ups, 50 readings a day",
+              "displayName": "Premium Monthly",
+              "locale": "en_US"
+            }
+          ],
+          "productID": "shentarot_monthly",
+          "recurringSubscriptionPeriod": "P1M",
+          "referenceName": "Monthly",
+          "subscriptionGroupID": "2CE865E4-38E5-4246-9910-E791C8AF9833",
+          "type": "RecurringSubscription",
+          "winbackOffers": []
+        }
+      ]
+    }
+  ],
+  "version": {
+    "major": 4,
+    "minor": 0
+  }
+}

@@ -1,0 +1,62 @@
+---
+import Base from "../../../layouts/Base.astro";
+import Tabs from "../../../components/Tabs.astro";
+import { BASE } from "../../../config.ts";
+import { i18n, langPaths, type Locale } from "../../../i18n/index.ts";
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Locale };
+const L = i18n(lang);
+const { t, url: u } = L;
+
+const GROUPS = [
+  { id: "readings", hrefs: ["tools/yes-no", "tools/daily-card", "spreads", "tools/weekly-draw", "tools/random-card", "tools/combinations", "tools/elements"] },
+  { id: "birthday", hrefs: ["tools/birth-card", "tools/year-card", "tools/love-compatibility", "tools/zodiac-tarot", "tools/life-path"] },
+  { id: "fun", hrefs: ["tools/which-card-are-you", "cards", "tools/reading-sheet"] },
+];
+const ART: Record<string, string[]> = {
+  "tools/yes-no": ["major_19_sun", "major_10_wheel_of_fortune", "major_18_moon"],
+  "tools/daily-card": ["major_17_star", "major_19_sun", "cups_ace"],
+  "tools/combinations": ["major_06_lovers", "cups_two", "major_16_tower"],
+  "tools/elements": ["wands_ace", "cups_ace", "swords_ace"],
+  spreads: ["swords_two", "major_07_chariot", "wands_three"],
+  "tools/random-card": ["major_10_wheel_of_fortune", "cups_ace", "major_18_moon"],
+  "tools/birth-card": ["major_03_empress", "major_21_world", "major_04_emperor"],
+  "tools/love-compatibility": ["major_06_lovers", "cups_two", "major_03_empress"],
+  "tools/year-card": ["major_10_wheel_of_fortune", "major_19_sun", "major_17_star"],
+  "tools/zodiac-tarot": ["major_04_emperor", "major_08_strength", "major_18_moon"],
+  "tools/life-path": ["major_09_hermit", "major_01_magician", "major_11_justice"],
+  "tools/which-card-are-you": ["cups_queen", "wands_knight", "pentacles_king"],
+  "tools/weekly-draw": ["wands_eight", "pentacles_three", "cups_six"],
+  "tools/reading-sheet": ["swords_page", "major_02_high_priestess", "pentacles_eight"],
+  cards: ["major_00_fool", "major_01_magician", "major_02_high_priestess"],
+};
+const key = (href: string) => href.replace("tools/", "");
+---
+<Base
+  title={t("tools.title")}
+  description={t("tools.description")}
+  path="tools"
+  crumbs={[[t("toolsCrumb"), "tools"]]}
+  lang={lang}
+>
+  <header class="page-head center">
+    <p class="eyebrow">{t("tools.eyebrow")}</p>
+    <h1>{t("tools.h1")}</h1>
+    <p class="lead">{t("tools.lead")}</p>
+  </header>
+  <Tabs label={t("tools.kinds")} tabs={GROUPS.map((g) => ({ id: g.id, label: t(`tools.groups.${g.id}`) }))}>
+    {GROUPS.map((g) => (
+      <div class="grid-2" data-panel={g.id}>
+        {g.hrefs.map((h) => (
+          <a class="panel tool-tile" href={u(h)}>
+            <div class="mini" aria-hidden="true">
+              {ART[h]!.map((id) => <img src={`${BASE}cards/art/${id}.jpg`} alt="" loading="lazy" width="150" height="257" />)}
+            </div>
+            <div><h3>{t(`tools.list.${key(h)}.title`)}</h3><p>{t(`tools.list.${key(h)}.text`)}</p><span class="link-arrow">{t("tools.open")}</span></div>
+          </a>
+        ))}
+      </div>
+    ))}
+  </Tabs>
+</Base>

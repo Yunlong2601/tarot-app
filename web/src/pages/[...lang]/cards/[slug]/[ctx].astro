@@ -1,0 +1,112 @@
+---
+import Base from "../../../../layouts/Base.astro";
+import { BASE } from "../../../../config.ts";
+import { cardIds, slug, type CardId } from "../../../../lib/data.ts";
+import { CONTEXTS, CONTEXT_KEY, type Context } from "../../../../lib/contexts.ts";
+import { fill, firstSentence, i18n, langPathsFor, type Locale } from "../../../../i18n/index.ts";
+
+export function getStaticPaths() {
+  return langPathsFor(cardIds.flatMap((id) => CONTEXTS.map((ctx) => ({ params: { slug: slug(id), ctx }, props: { id, ctx } }))));
+}
+const { id, ctx, lang } = Astro.props as { id: CardId; ctx: Context; lang: Locale };
+const L = i18n(lang);
+const { t, url: u } = L;
+const ui = L.contexts.ui;
+const tr = L.cards[id]!;
+const name = tr.name;
+const text = L.contexts.cards[id as keyof typeof L.contexts.cards];
+const key = CONTEXT_KEY[ctx];
+const body = text[key];
+const page = ui.pages[key];
+// Yes/no texts open with a bare "Yes." or "No."; the verdict line shows that, so lead with the reason.
+const first = firstSentence(ctx === "yes-or-no" ? body.up.slice(firstSentence(body.up).length).trim() || body.up : body.up);
+const v = (n: number) => (n > 0 ? ui.yes : n < 0 ? ui.no : ui.maybe);
+const verdict = ctx === "yes-or-no" ? text.yesno.verdict : null;
+const k = tr.k;
+const question = k ? [k.upright.question, k.reversed.question] : null;
+const path = `cards/${slug(id)}/${ctx}`;
+const h1 = fill(page.h1, { name });
+const faq: [string, string][] = [
+  [fill(page.faqUp, { name }), body.up],
+  [fill(page.faqRev, { name }), body.rev],
+  [fill(ui.faqAdvice, { name }), text.advice.up],
+];
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    inLanguage: L.tag,
+    mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
+  },
+];
+const tryHref = u(ctx === "yes-or-no" ? "tools/yes-no" : ctx === "career" ? "topics/career" : "topics/love");
+---
+<Base
+  title={fill(page.title, { name })}
+  description={fill(page.description, { name, first })}
+  path={path}
+  image={`og/cards/${id}.jpg`}
+  crumbs={[[t("cards.crumb"), "cards"], [name, `cards/${slug(id)}`], [h1, path]]}
+  jsonLd={jsonLd}
+  lang={lang}
+>
+  <ol class="crumbs" style="margin-top:2rem">
+    <li><a href={u()}>{t("card.home")}</a></li>
+    <li><a href={u("cards")}>{t("cards.crumb")}</a></li>
+    <li><a href={u(`cards/${slug(id)}`)}>{name}</a></li>
+  </ol>
+  <section class="card-hero">
+    <div class="card-frame">
+      <img src={`${BASE}cards/art/${id}.jpg`} alt={t("card.imgAlt", { name })} width="300" height="514" fetchpriority="high" />
+    </div>
+    <div>
+      <p class="meta">{ui.eyebrow}</p>
+      <h1>{h1}</h1>
+      {verdict && <p class="verdict">{ui.upright}: <b class={verdict[0]! > 0 ? "yes" : verdict[0]! < 0 ? "no" : "even"}>{v(verdict[0]!)}</b> · {ui.reversed}: <b class={verdict[1]! > 0 ? "yes" : verdict[1]! < 0 ? "no" : "even"}>{v(verdict[1]!)}</b></p>}
+      <p class="answer">{first}</p>
+      <ul class="chips">{tr.keywords.map((w) => <li>{w}</li>)}</ul>
+      <nav class="ctx-links" aria-label={fill(ui.other, { name })}>
+        <a href={u(`cards/${slug(id)}`)}>{ui.tabs.meaning}</a>
+        {CONTEXTS.map((c) => <a href={u(`cards/${slug(id)}/${c}`)} aria-current={c === ctx ? "page" : undefined}>{ui.tabs[CONTEXT_KEY[c]]}</a>)}
+      </nav>
+    </div>
+  </section>
+  <p><a href={u("methodology")}>{L.growth.methodTitle}</a></p>
+  <section class="section" style="padding-bottom:0">
+    <div class="meaning">
+      <div class="panel"><h2><span>▲</span>{ui.upright}</h2><p>{body.up}</p><a href={`${u("read")}?card=${id}`}>{L.workspace.title}</a></div>
+      <div class="panel"><h2><span>▼</span>{ui.reversed}</h2><p>{body.rev}</p><a href={`${u("read")}?card=${id}&orientation=reversed`}>{L.workspace.title}</a></div>
+    </div>
+  </section>
+  <section class="section" style="padding-bottom:0">
+    <div class="grid-2">
+      <div class="panel">
+        <h2>{ui.advice}</h2>
+        <p>{text.advice.up}</p>
+        <p class="muted">{fill(ui.adviceRev, { text: text.advice.rev })}</p>
+      </div>
+      {question && (
+        <div class="panel">
+          <h2>{ui.reflect}</h2>
+          <p>{question[0]}</p>
+          <p class="muted">{fill(ui.reflectRev, { text: question[1]! })}</p>
+        </div>
+      )}
+    </div>
+  </section>
+  <section class="section" style="padding-bottom:0">
+    <h2 class="center">{fill(ui.faqTitle, { name })}</h2>
+    <div class="faq">
+      {faq.map(([q, a]) => (
+        <details>
+          <summary>{q}</summary>
+          <p>{a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+  <section class="section center">
+    <p class="lead">{ui.tryText}</p>
+    <p><a class="btn btn-gold" href={tryHref}>{ui.tryCta}</a></p>
+  </section>
+</Base>

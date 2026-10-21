@@ -1,0 +1,36 @@
+# No secrets here. Set secrets with `wrangler secret put <NAME>`:
+#   JWT_SECRET, HASH_SALT, ANTHROPIC_API_KEY, REVENUECAT_SECRET_KEY
+# Local development: copy .dev.vars.example to .dev.vars (git-ignored).
+name = "shentarot-api"
+main = "src/index.ts"
+compatibility_date = "2026-10-01"
+
+[vars]
+LLM_MODEL = "claude-haiku-5-5"
+GLOBAL_DAILY_TOKEN_CAP = "2000000"
+# Share links point at the website, which passes /s/* to this Worker.
+SHARE_BASE_URL = "https://shentarot.com"
+
+# Create with `wrangler d1 create shentarot` and `wrangler kv namespace create KV`,
+# then paste the ids below.
+[[d1_databases]]
+binding = "DB"
+database_name = "shentarot"
+database_id = "3b23ed42-1d88-4cfc-9662-27d9bd21f837"
+migrations_dir = "migrations"
+
+[[kv_namespaces]]
+binding = "KV"
+id = "1d3064f83fee4fd48cfe6ec48102d260"
+
+# Creator program screenshots (does nothing unless CREATOR_ENABLED=true). Create the
+# bucket with `wrangler r2 bucket create shentarot-shots` (keep it private), then
+# uncomment. The daily cron deletes screenshots after 30 days.
+# [[r2_buckets]]
+# binding = "SHOTS"
+# bucket_name = "shentarot-shots"
+
+# Daily jobs: referral free months (needs REFERRALS_ENABLED=true) and the 30-day
+# creator screenshot purge (needs CREATOR_ENABLED=true).
+[triggers]
+crons = ["0 3 * * *"]

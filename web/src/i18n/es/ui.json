@@ -1,0 +1,989 @@
+{
+ "nav": {
+  "cards": "Significado de las cartas",
+  "spreads": "Tiradas",
+  "yesNo": "Sí o no",
+  "tools": "Herramientas gratis"
+ },
+ "base": {
+  "skip": "Saltar al contenido",
+  "home": "Inicio de ShenTarot",
+  "mainNav": "Principal",
+  "language": "Idioma",
+  "getApp": "Descarga la app",
+  "ctaEyebrow": "ShenTarot para iPhone y Android",
+  "ctaTitle": "Lee tus propias cartas",
+  "ctaText": "Escanea tu baraja Rider-Waite-Smith o saca cartas en pantalla, haz tu pregunta y recibe una lectura sobre la que puedes seguir preguntando.",
+  "about": "Lecturas de tarot con IA para tus propias cartas, de ShenTech en Singapur. Solo para entretenimiento y reflexión personal.",
+  "siteName": "ShenTarot",
+  "titleSuffix": " · ShenTarot",
+  "homeCrumb": "Inicio"
+ },
+ "footer": {
+  "explore": "Explorar",
+  "cards": "Significado de las cartas",
+  "spreads": "Tiradas de tarot",
+  "yesNo": "Tarot sí o no",
+  "daily": "Carta del día",
+  "combinations": "Combinaciones de cartas",
+  "elements": "Dignidades elementales",
+  "random": "Sacar una carta",
+  "birth": "Calculadora de carta natal",
+  "compat": "Compatibilidad amorosa",
+  "allTools": "Todas las herramientas gratis",
+  "readings": "Lecturas",
+  "questions": "Preguntas de tarot",
+  "company": "Empresa",
+  "support": "Soporte",
+  "privacy": "Privacidad",
+  "terms": "Términos",
+  "delete": "Eliminar tus datos",
+  "copyright": "© {year} ShenTech, Singapur. Todos los derechos reservados.",
+  "images": "Imágenes de las cartas: baraja Rider-Waite-Smith (1909), de dominio público.",
+  "inEnglish": "{page} (en inglés)",
+  "about": "Acerca de"
+ },
+ "store": {
+  "download": "Descárgalo en",
+  "soon": "Muy pronto en"
+ },
+ "home": {
+  "title": "ShenTarot: lectura de tarot con IA con tus propias cartas",
+  "description": "App de lectura de tarot con IA para iPhone y Android. Escanea tu propia baraja o saca cartas en pantalla, haz tu pregunta y recibe una lectura reflexiva. Carta del día gratis e inicio de sesión con Google o Apple en un toque para las lecturas con IA.",
+  "appDescription": "App de lectura de tarot con IA: escanea tu propia baraja o saca cartas en pantalla y recibe una lectura para tu pregunta.",
+  "eyebrow": "App de lectura de tarot con IA",
+  "h1a": "Pregunta a las cartas",
+  "h1b": "lo que quieras",
+  "lead": "Escanea tu propia baraja o saca cartas en pantalla. ShenTarot elige una tirada para tu pregunta y te da una lectura sobre la que puedes seguir preguntando.",
+  "drawFree": "O saca ahora una carta gratis",
+  "trust1": "Carta del día gratis",
+  "trust2": "Inicio de sesión en un toque",
+  "trust3": "La foto se queda en tu teléfono",
+  "stepsTitle": "Una lectura en tres pasos",
+  "stepsLead": "Trae una pregunta. ShenTarot hace el resto, con tus cartas.",
+  "step1": {
+   "title": "Haz tu pregunta",
+   "text": "Escribe lo que tienes en mente, o toca una de las preguntas de ejemplo sobre amor, trabajo y más."
+  },
+  "step2": {
+   "title": "Saca tus cartas",
+   "text": "Escanea las cartas de tu propia baraja, o baraja y saca cartas en pantalla. ShenTarot te sugiere la tirada."
+  },
+  "step3": {
+   "title": "Lee y reflexiona",
+   "text": "Recibe una lectura carta por carta, con un resumen al final. Haz una pregunta de seguimiento o guarda notas en tu diario."
+  },
+  "topicsTitle": "¿Qué tienes en mente?",
+  "topicsLead": "Preguntas que hace la gente y las tiradas que mejor les van.",
+  "whyTitle": "Por qué ShenTarot",
+  "whyLead": "Lecturas reflexivas que respetan tu privacidad.",
+  "feature": {
+   "photo": {
+    "title": "Tu foto se queda en tu teléfono",
+    "text": "Las cartas se reconocen en el propio dispositivo. La foto nunca se sube."
+   },
+   "signin": {
+    "title": "Inicio de sesión en un toque para las lecturas con IA",
+    "text": "Saca cartas y consulta significados sin cuenta. Inicia sesión con Google o Apple para las lecturas con IA."
+   },
+   "daily": {
+    "title": "Una carta gratis cada día",
+    "text": "Una Carta del día, y además lecturas gratis de hasta tres cartas cada día."
+   },
+   "followup": {
+    "title": "Lecturas a las que puedes hacer preguntas",
+    "text": "Haz una pregunta de seguimiento sobre tu lectura, o saca una carta aclaratoria."
+   },
+   "spreads": {
+    "title": "Tiradas para tu pregunta",
+    "text": "Amor, trabajo, decisiones, sí o no, y la clásica Cruz celta."
+   },
+   "journal": {
+    "title": "Un diario de tus lecturas",
+    "text": "Guarda notas de cada lectura y busca en tu historial más adelante."
+   }
+  },
+  "exploreTitle": "Explora el tarot",
+  "tabTools": "Herramientas gratis",
+  "tabMajors": "Los Arcanos Mayores",
+  "tabQuestions": "Preguntas",
+  "toolsTitle": "Herramientas de tarot gratis",
+  "toolsLead": "Pruébalas en tu navegador. No se envía nada a ningún sitio.",
+  "seeAllTools": "Ver todas las herramientas",
+  "tile": {
+   "yesNo": {
+    "title": "Tarot sí o no",
+    "text": "Tres cartas y una tendencia para una pregunta de sí o no.",
+    "cta": "Pregunta ahora"
+   },
+   "daily": {
+    "title": "Carta del día",
+    "text": "Una carta, su significado y una pregunta para reflexionar.",
+    "cta": "Saca la carta de hoy"
+   },
+   "random": {
+    "title": "Saca una carta de tarot",
+    "text": "Baraja la baraja completa y da la vuelta a entre una y diez cartas.",
+    "cta": "Sacar ahora"
+   },
+   "birth": {
+    "title": "Descubre tus cartas natales",
+    "text": "Tus cartas natales y tu carta de este año, a partir de tu fecha de nacimiento.",
+    "cta": "Descubre las tuyas"
+   }
+  },
+  "majorsLead": "Veintidós cartas para los grandes temas de la vida. Toca una para leer su significado, al derecho e invertida.",
+  "allCards": "El significado de las 78 cartas",
+  "getTitle": "Descarga ShenTarot",
+  "getText": "Lecturas de tarot con IA para tus propias cartas, en iPhone y Android.",
+  "contact": "¿Tienes preguntas?",
+  "faq": {
+   "free": {
+    "q": "¿ShenTarot es gratis?",
+    "a": "Sí, para empezar. Tienes una Carta del día gratis y, una vez que inicias sesión, lecturas con IA gratis de hasta tres cartas cada día. Premium ofrece más."
+   },
+   "account": {
+    "q": "¿Necesito una cuenta?",
+    "a": "Solo para las lecturas con IA. Puedes sacar cartas y consultar significados sin cuenta. Para las lecturas con IA, inicia sesión con Google o Apple, así no tienes que crear una contraseña nueva."
+   },
+   "deck": {
+    "q": "¿Necesito mi propia baraja de tarot?",
+    "a": "No. Puedes escanear tu propia baraja Rider-Waite-Smith con la cámara, o sacar cartas en pantalla de la baraja completa de 78 cartas."
+   },
+   "photo": {
+    "q": "¿Se sube la foto de mis cartas?",
+    "a": "No. Las cartas se reconocen en tu teléfono y la foto nunca se guarda ni se envía. Para escribir la lectura solo se usan los nombres de las cartas y tu pregunta."
+   },
+   "how": {
+    "q": "¿Cómo funciona la lectura de tarot con IA?",
+    "a": "ShenTarot elige una tirada para tu pregunta y luego escribe una lectura a partir de las cartas que sacaste, sus posiciones y si salieron al derecho o invertidas. Puedes hacer una pregunta de seguimiento sobre ella."
+   },
+   "predict": {
+    "q": "¿Puede el tarot predecir el futuro?",
+    "a": "ShenTarot es para entretenimiento y reflexión personal. Las lecturas te ayudan a pensar una pregunta a fondo; no son predicciones ni asesoramiento profesional."
+   }
+  }
+ },
+ "recommend": {
+  "reconnect": [
+   "mi ex",
+   "ex ",
+   " ex",
+   "expareja",
+   "exnovi",
+   "reconcil",
+   "volver con",
+   "volvamos",
+   "volveremos",
+   "vuelva",
+   "volverá",
+   "regres",
+   "sanar",
+   "ruptura",
+   "rompimos",
+   "terminamos",
+   "me dejó"
+  ],
+  "ready": [
+   "soltero",
+   "soltera",
+   "citas",
+   "nuevo amor",
+   "amor nuevo",
+   "conocer a alguien",
+   "conoceré a alguien",
+   "encontraré el amor",
+   "encontrar el amor",
+   "encontrar pareja"
+  ],
+  "love": [
+   "amor",
+   "relación",
+   "relacion",
+   "pareja",
+   "novio",
+   "novia",
+   "matrimonio",
+   "casar",
+   "me quiere",
+   "enamor",
+   "gusta alguien",
+   "crush"
+  ],
+  "career": [
+   "trabajo",
+   "empleo",
+   "carrera",
+   "profesi",
+   "laboral",
+   "jefe",
+   "jefa",
+   "ascenso",
+   "entrevista",
+   "estudi",
+   "escuela",
+   "universidad",
+   "negocio"
+  ],
+  "decision": [
+   "decid",
+   "decisión",
+   "decision",
+   "elegir",
+   "elij",
+   "elección",
+   "eleccion",
+   "opción",
+   "opcion",
+   "opciones"
+  ],
+  "growth": [
+   "siento",
+   "sentir",
+   "ansiedad",
+   "ansios",
+   "estancad",
+   "atascad",
+   "bloquead",
+   "confus",
+   "mí mismo",
+   "mi mismo",
+   "mí misma",
+   "mi misma",
+   "crecimiento",
+   "crecer"
+  ],
+  "yesNoStarts": [
+   "debería",
+   "deberia",
+   "debo",
+   "voy",
+   "va",
+   "van",
+   "será",
+   "sera",
+   "es",
+   "está",
+   "esta",
+   "estoy",
+   "hay",
+   "puedo",
+   "podré",
+   "podría",
+   "tendré",
+   "conseguiré",
+   "lograré",
+   "me",
+   "le",
+   "nos",
+   "¿debería",
+   "¿deberia",
+   "¿debo",
+   "¿voy ",
+   "¿va ",
+   "¿van ",
+   "¿será",
+   "¿sera ",
+   "¿es ",
+   "¿está ",
+   "¿esta ",
+   "¿estoy ",
+   "¿hay ",
+   "¿puedo",
+   "¿podré",
+   "¿podría",
+   "¿tendré",
+   "¿conseguiré",
+   "¿lograré",
+   "¿me ",
+   "¿le ",
+   "¿nos "
+  ],
+  "yesNoEnds": [
+   " o no",
+   "sí o no",
+   "si o no"
+  ]
+ },
+ "ask": {
+  "label": "Tu pregunta",
+  "placeholder": "¿Qué tienes en mente?",
+  "submit": "Buscar mi tirada",
+  "try": "Prueba:"
+ },
+ "reader": {
+  "draw": "Barajar y sacar",
+  "questionLabel": "Tu pregunta (opcional, se queda en esta página)",
+  "placeholderYesNo": "¿Debería aceptar el nuevo trabajo?",
+  "placeholder": "¿Qué necesito saber sobre…?",
+  "askNote": "Hemos elegido esta tirada para tu pregunta. Baraja cuando estés listo.",
+  "revealAll": "Dar la vuelta a todas",
+  "copy": "Copiar la lectura",
+  "altReversed": "{name}, invertida",
+  "nameReversed": "{name} (invertida)",
+  "fullMeaning": "Significado completo",
+  "turnOver": "Dar la vuelta a la carta {n}: {pos}",
+  "leanYes": "Tiende al sí",
+  "leanNo": "Tiende al no",
+  "leanEven": "Sin decidir",
+  "leanNote": "Las cartas al derecho tienden al sí y las invertidas al no. Con tres cartas, la del centro cuenta doble. Léelo como una tendencia, no como una respuesta fija: los significados de arriba muestran qué podría cambiarla.",
+  "majorsMany": "Arcanos Mayores: {majors} de {n} cartas. Hablan de grandes temas y momentos decisivos, más que de hechos del día a día.",
+  "majorsFew": "Arcanos Mayores: {majors} de {n} cartas, así que esta lectura trata sobre todo de asuntos cotidianos.",
+  "suitLeads": "Palo predominante: {suit} ({count} cartas). El foco está en {sense}.",
+  "suitsMissing": "Sin {suits}: fíjate en lo que esta lectura deja fuera.",
+  "or": " ni ",
+  "noReversed": "No hay cartas invertidas.",
+  "reversedCount": "Cartas invertidas: {reversed}. Energía bloqueada, retrasada o vuelta hacia dentro.",
+  "glance": "De un vistazo",
+  "quint": "Carta de la quintaesencia: {card}, el tema de fondo de toda la lectura (la suma de los números de las cartas, reducida a {total}).",
+  "copyTitle": "Lectura de ShenTarot · {date}",
+  "copyQuestion": "Pregunta: {q}",
+  "copied": "Copiada",
+  "copyFailed": "No se pudo copiar"
+ },
+ "suits": {
+  "wands": "Bastos",
+  "cups": "Copas",
+  "swords": "Espadas",
+  "pentacles": "Oros"
+ },
+ "suitSense": {
+  "wands": "el impulso y la acción",
+  "cups": "los sentimientos y las relaciones",
+  "swords": "los pensamientos y el conflicto",
+  "pentacles": "el trabajo, el dinero y el cuerpo"
+ },
+ "groups": {
+  "major": "Arcanos Mayores",
+  "wands": "Bastos",
+  "cups": "Copas",
+  "swords": "Espadas",
+  "pentacles": "Oros"
+ },
+ "elements": {
+  "fire": "Fuego",
+  "water": "Agua",
+  "air": "Aire",
+  "earth": "Tierra"
+ },
+ "planets": {
+  "sun": "Sol",
+  "moon": "Luna",
+  "mercury": "Mercurio",
+  "venus": "Venus",
+  "mars": "Marte",
+  "jupiter": "Júpiter",
+  "saturn": "Saturno"
+ },
+ "cards": {
+  "title": "Significado de las cartas del tarot: las 78 cartas · ShenTarot",
+  "description": "El significado de las 78 cartas del tarot Rider-Waite-Smith, al derecho e invertidas, con lo que muestra cada carta y por qué.",
+  "crumb": "Significado de las cartas",
+  "eyebrow": "La baraja completa",
+  "h1": "Significado de las cartas del tarot",
+  "lead": "Las 78 cartas de la baraja Rider-Waite-Smith, al derecho e invertidas, con lo que muestra cada carta y por qué.",
+  "suitsNav": "Palos"
+ },
+ "card": {
+  "title": "{name} en el tarot: significado al derecho e invertido · ShenTarot",
+  "description": "Significado de {name} en el tarot, al derecho e invertida: {keywords}. {essence}",
+  "home": "Inicio",
+  "kindMajor": "Arcanos Mayores · {n}",
+  "kindMinor": "Arcanos Menores · {suit}",
+  "element": "Elemento: {element}",
+  "association": "Asociación tradicional: {assoc}",
+  "relatedSum": "{number} suma {n} ({digits}), el número de los {word}.",
+  "relatedNumber": "Las cartas de los Arcanos Menores que comparten el número {n}.",
+  "relatedRank": "Las demás cartas del mismo rango ({rank}): el mismo tipo de persona o de enfoque, en otro ámbito de la vida.",
+  "relatedPip": "Los otros {word}: la misma etapa de una historia en otros ámbitos de la vida.",
+  "relatedPipMajor": "Los otros {word}, y {major}, la carta {n} de los Arcanos Mayores: la misma etapa de una historia en otros ámbitos de la vida.",
+  "numberWords": [
+   "ceros",
+   "ases",
+   "doses",
+   "treses",
+   "cuatros",
+   "cincos",
+   "seises",
+   "sietes",
+   "ochos",
+   "nueves",
+   "dieces"
+  ],
+  "ranks": {
+   "page": "sotas",
+   "knight": "caballeros",
+   "queen": "reinas",
+   "king": "reyes"
+  },
+  "faqMeaning": "¿Qué significa {name} en el tarot?",
+  "faqMeaningA": "{core} Palabras clave: {keywords}.",
+  "faqReversed": "¿Qué significa {name} invertida?",
+  "faqLove": "¿Qué significa {name} en el amor?",
+  "faqWork": "¿Qué significa {name} en el trabajo?",
+  "faqQuestion": "¿Qué pregunta plantea {name}?",
+  "faqQuestionA": "Al derecho: {up} Invertida: {rev}",
+  "listSep": ", ",
+  "imgAlt": "{name}, baraja Rider-Waite-Smith",
+  "about": "Sobre {name}",
+  "tabMeaning": "Significado",
+  "tabLoveWork": "Amor y trabajo",
+  "tabRelated": "Cartas relacionadas",
+  "tabFaq": "Preguntas",
+  "shows": "Lo que muestra la carta",
+  "upright": "Al derecho",
+  "reversed": "Invertida",
+  "light": "Luz",
+  "shadow": "Sombra",
+  "love": "Amor",
+  "work": "Trabajo",
+  "inReading": "{name} en una lectura",
+  "inLove": "En el amor",
+  "atWork": "En el trabajo",
+  "reversedPrefix": "Invertida: {text}",
+  "shadowSide": "Su lado sombrío: {text}.",
+  "asMajor": "Como carta de los Arcanos Mayores",
+  "asSuit": "Como carta de {suit}",
+  "majorNote": "Una carta de los Arcanos Mayores apunta a un tema más grande que las cartas cotidianas que la rodean.",
+  "suitElement": "El elemento del palo es {element}. ",
+  "suitNote": "Muestra en qué parte de la vida diaria se desarrolla la lectura.",
+  "allOf": "Todas las cartas de {suit}",
+  "related": "Cartas relacionadas",
+  "withOthers": "Léela con otras cartas",
+  "combTitle": "Combinaciones de cartas",
+  "combText": "Elige una segunda carta y mira cómo se lee {name} junto a ella.",
+  "combCta": "Combinar",
+  "elTitle": "Dignidades elementales",
+  "elText": "Mira qué cartas vecinas refuerzan o debilitan a {name}.",
+  "elCta": "Comprobar",
+  "ynTitle": "Tarot sí o no",
+  "ynText": "Saca tres cartas para una pregunta de sí o no.",
+  "ynCta": "Preguntar",
+  "faqTitle": "Preguntas sobre {name}",
+  "moreCards": "Más cartas",
+  "prev": "Carta anterior",
+  "next": "Carta siguiente",
+  "answer": "{name} significa {keywords}."
+ },
+ "cardCount": {
+  "one": "{n} carta",
+  "other": "{n} cartas"
+ },
+ "spreadCats": {
+  "classics": "Clásicas",
+  "love": "Amor",
+  "career": "Trabajo",
+  "growth": "Crecimiento"
+ },
+ "spreads": {
+  "title": "Tiradas de tarot: cómo se colocan y qué significa cada posición · ShenTarot",
+  "description": "Tiradas de tarot para el amor, el trabajo, las decisiones y las preguntas de sí o no, con cada posición explicada.",
+  "crumb": "Tiradas",
+  "eyebrow": "Disposiciones",
+  "h1": "Tiradas de tarot",
+  "lead": "Para qué sirve cada tirada y qué significa cada posición, desde una sola carta hasta la Cruz celta.",
+  "catsNav": "Categorías",
+  "seePositions": "Ver las posiciones"
+ },
+ "spread": {
+  "title": "Tirada de tarot {name}: {count} · ShenTarot",
+  "description": "{name}: tirada de tarot. Número de cartas: {n}. {blurb}",
+  "faqCount": "¿Cuántas cartas tiene la tirada {name}?",
+  "faqCountA": "{count}: {positions}.",
+  "positionSep": "; ",
+  "faqFor": "¿Para qué sirve la tirada {name}?",
+  "faqQuestions": "¿Qué preguntas van bien con la tirada {name}?",
+  "about": "La tirada {name}",
+  "tabTry": "Saca las cartas",
+  "tabPositions": "Posiciones",
+  "tabHow": "Cómo leerla",
+  "tabRelated": "Tiradas relacionadas",
+  "tabFaq": "Preguntas",
+  "tryTitle": "Prueba esta tirada",
+  "tryLead": "Saca las cartas aquí y lee cada posición. No se envía nada a ningún sitio.",
+  "positions": "Las posiciones",
+  "source": "Origen: {source}",
+  "bestFor": "Ideal para preguntas como",
+  "from": "De {topics}.",
+  "and": " y ",
+  "comma": ", ",
+  "how1": "Ten en mente una sola pregunta clara.",
+  "how1YesNo": "Ten en mente una sola pregunta clara, formulada de manera que se pueda responder con sí o no.",
+  "how2": "Baraja y luego coloca {count} en orden, de la posición 1 a la {n}.",
+  "how2One": "Baraja y luego coloca {count}.",
+  "how3": "Lee cada carta según su posición: la misma carta significa algo distinto en «{first}» que en «{last}».",
+  "how3One": "Lee la carta según su posición: la misma carta significa algo distinto como respuesta única que dentro de una tirada más grande.",
+  "how4": "Después lee las cartas en conjunto: la historia que cuentan, qué palos predominan y cuántas son Arcanos Mayores. El lector de abajo te lo muestra.",
+  "related": "Tiradas relacionadas",
+  "faqTitle": "Preguntas sobre la tirada {name}"
+ },
+ "topic": {
+  "title": "{title}: preguntas que hacer y tiradas que usar · ShenTarot",
+  "description": "{intro} Preguntas de ejemplo y las tiradas que mejor les van.",
+  "meta": "Lecturas: {name}",
+  "asked": "Preguntas que hace la gente",
+  "appNote": "En la app, toca una pregunta como estas para empezar tu lectura, o escribe la tuya.",
+  "guides": "Guías de preguntas",
+  "spreadsFor": "Tiradas recomendadas: {name}"
+ },
+ "questions": {
+  "title": "Preguntas de tarot: qué preguntar y qué tirada usar · ShenTarot",
+  "description": "Preguntas habituales de tarot sobre el amor, el trabajo y las grandes decisiones, con mejores formas de plantearlas y la tirada que mejor va con cada una.",
+  "crumb": "Preguntas",
+  "eyebrow": "Guías",
+  "h1": "Preguntas de tarot",
+  "lead": "Las preguntas que más se le hacen al tarot, lo que las cartas pueden y no pueden decirte, y la tirada que conviene usar.",
+  "readGuide": "Leer la guía"
+ },
+ "guide": {
+  "title": "{question} Preguntas de tarot y la tirada adecuada · ShenTarot",
+  "description": "{first} Mejores formas de preguntar, cartas en las que fijarte y la tirada que mejor le va.",
+  "faqCan": "Ante la pregunta «{question}», ¿puede responder el tarot?",
+  "faqWhich": "Para la pregunta «{question}», ¿qué tirada es la mejor?",
+  "faqWhichA": "La tirada {name} ({count}). {blurb}",
+  "faqWord": "¿Cómo debería formular esta pregunta?",
+  "faqWordA": "Prueba a preguntar: {better}",
+  "eyebrow": "Pregunta · {topic}",
+  "askThis": "Pregunta esto en una lectura",
+  "tabsLabel": "Esta guía",
+  "tabAsk": "Mejores formas de preguntar",
+  "tabSpread": "La tirada",
+  "tabCards": "Cartas en las que fijarte",
+  "tabNote": "Antes de sacar las cartas",
+  "tabFaq": "Preguntas",
+  "askLead": "Las preguntas abiertas sobre ti suelen dar lecturas más claras que las preguntas sobre lo que hará otra persona.",
+  "spreadTitle": "La tirada que conviene usar",
+  "cardsNote": "Ninguna carta decide por sí sola una lectura. Lee cada una en su posición y junto a las demás.",
+  "noteTitle": "Una nota antes de sacar las cartas",
+  "faqTitle": "Preguntas sobre esta lectura",
+  "more": "Más preguntas"
+ },
+ "toolsCrumb": "Herramientas gratis",
+ "freeTool": "Herramienta gratis",
+ "tools": {
+  "title": "Herramientas de tarot gratis: sí o no, carta del día, combinaciones · ShenTarot",
+  "description": "Herramientas de tarot gratis en tu navegador: lectura de sí o no, tu carta del día, compatibilidad amorosa, tu carta del año, cartas del zodiaco, calculadora del número de camino de vida, test de personalidad, tirada semanal, hojas de lectura para imprimir y más.",
+  "eyebrow": "Gratis, en tu navegador",
+  "h1": "Herramientas de tarot",
+  "lead": "Todo lo que hay aquí funciona en esta página. Nada de lo que escribes o sacas se envía a ningún sitio.",
+  "kinds": "Tipos de herramienta",
+  "open": "Abrir",
+  "groups": {
+   "readings": "Lecturas",
+   "birthday": "Cumpleaños y astros",
+   "fun": "Test y aprendizaje"
+  },
+  "list": {
+   "yes-no": {
+    "title": "Tarot sí o no",
+    "text": "Tres cartas y una tendencia para una pregunta de sí o no."
+   },
+   "daily-card": {
+    "title": "Carta del día",
+    "text": "Una carta, su significado y una pregunta para reflexionar."
+   },
+   "combinations": {
+    "title": "Combinaciones de cartas",
+    "text": "Elige dos cartas y mira cómo se leen juntas."
+   },
+   "elements": {
+    "title": "Dignidades elementales",
+    "text": "Mira qué cartas se refuerzan o se debilitan entre sí."
+   },
+   "spreads": {
+    "title": "Lee cualquier tirada",
+    "text": "Elige entre 15 tiradas, saca las cartas y lee cada posición."
+   },
+   "random-card": {
+    "title": "Sacar cartas al azar",
+    "text": "Baraja la baraja completa y da la vuelta a entre una y diez cartas."
+   },
+   "birth-card": {
+    "title": "Calculadora de carta natal",
+    "text": "Tus cartas natales y tu carta de este año."
+   },
+   "love-compatibility": {
+    "title": "Compatibilidad amorosa",
+    "text": "Compara dos cartas natales y sus elementos."
+   },
+   "year-card": {
+    "title": "Tu carta del año",
+    "text": "Tu carta de tarot para este año o el siguiente."
+   },
+   "zodiac-tarot": {
+    "title": "Cartas del tarot y el zodiaco",
+    "text": "Las cartas de tu signo, de su planeta y de sus decanatos."
+   },
+   "life-path": {
+    "title": "Número de camino de vida",
+    "text": "Tu número de numerología y su carta de los Arcanos Mayores."
+   },
+   "which-card-are-you": {
+    "title": "¿Qué carta eres?",
+    "text": "Un test de seis preguntas que te asocia con una carta de la corte."
+   },
+   "weekly-draw": {
+    "title": "Tirada semanal",
+    "text": "Siete cartas, una para cada día de la semana."
+   },
+   "reading-sheet": {
+    "title": "Hoja de lectura para imprimir",
+    "text": "Imprime una hoja para cualquier tirada, con espacio para notas."
+   },
+   "cards": {
+    "title": "Significado de las cartas",
+    "text": "Las 78 cartas, al derecho e invertidas."
+   }
+  }
+ },
+ "yesNo": {
+  "title": "Tarot sí o no: lectura gratis de tres cartas · ShenTarot",
+  "description": "Haz una pregunta de sí o no y saca tres cartas de tarot. Las cartas al derecho tienden al sí, las invertidas al no, y la carta del centro cuenta doble. Gratis, en tu navegador.",
+  "crumb": "Tarot sí o no",
+  "h1": "Tarot sí o no",
+  "lead": "Ten en mente una pregunta clara de sí o no y saca tres cartas. Las cartas al derecho tienden al sí, las invertidas al no, y la carta del centro cuenta doble. Cada carta sale invertida la mitad de las veces, así que ninguna respuesta tiene ventaja.",
+  "button": "Sacar tres cartas",
+  "howTitle": "Cómo hacer una buena pregunta de sí o no",
+  "how1": "Pregunta por una sola cosa, y por algo sobre lo que puedas actuar: «¿Debería presentarme al puesto de diseño?» funciona mejor que «¿Mejorará mi vida?».",
+  "how2": "Pregunta una sola vez. Volver a sacar cartas para la misma pregunta solo añade ruido.",
+  "how3": "Lee los tres significados, no solo la tendencia. Muestran qué podría inclinar la respuesta hacia el otro lado.",
+  "note": "Para entretenimiento y reflexión personal. Para cuestiones de salud, dinero o legales, habla con un profesional. Consulta también la {link}.",
+  "noteLink": "tirada de sí o no"
+ },
+ "daily": {
+  "title": "Carta del tarot del día: tu carta diaria · ShenTarot",
+  "description": "Saca tu carta del tarot del día, con su significado y una pregunta para reflexionar. Tu carta no cambia hasta mañana. Gratis, en tu navegador.",
+  "crumb": "Carta del tarot del día",
+  "h1": "Tu carta del día",
+  "lead": "Respira hondo, piensa en el día que tienes por delante y saca una carta. Lee su significado por la mañana y vuelve a la pregunta por la noche. Tu carta no cambia hasta mañana.",
+  "position": "Tu carta de hoy",
+  "button": "Saca la carta de hoy"
+ },
+ "weekly": {
+  "title": "Tarot semanal: una carta gratis para cada día · ShenTarot",
+  "description": "Saca siete cartas de tarot, una para cada día de la semana, y lee lo que cada día puede pedirte. Gratis y sacadas en tu navegador.",
+  "crumb": "Tirada semanal",
+  "h1": "Tu semana en el tarot",
+  "lead": "Siete cartas, una para cada día de lunes a domingo. Sácalas al empezar la semana y vuelve cada día para leer la carta de ese día. Se barajan en tu navegador.",
+  "days": [
+   "Lunes",
+   "Martes",
+   "Miércoles",
+   "Jueves",
+   "Viernes",
+   "Sábado",
+   "Domingo"
+  ],
+  "button": "Sacar mi semana"
+ },
+ "pairing": {
+  "none": "Ninguna",
+  "choose": "Elige una carta",
+  "reversed": "Invertida",
+  "random": "Sacar al azar",
+  "noElement": "Planeta: sin un elemento único",
+  "togetherTitle": "Leerlas juntas",
+  "elementsTitle": "Dignidades elementales",
+  "reflect": "Preguntas para reflexionar:",
+  "twoMajors": "Dos Arcanos Mayores: un gran tema visto desde dos lados. Pregúntate qué tienen en común {a} y {b}, y en qué se separan.",
+  "majorTheme": "{major} marca el tema; {minor} muestra cómo se vive en el día a día.",
+  "sameSuit": "Las dos son de {suit}: toda la pregunta gira en torno a {sense}.",
+  "suitsMeet": "{a} y {b} se encuentran: {senseA} se unen a {senseB}.",
+  "sameNumber": "Las dos son {word}: la misma etapa de una historia aparece en dos ámbitos de la vida.",
+  "neighbours": "Están una junto a otra en los Arcanos Mayores, así que una puede ser el paso que lleva a la otra.",
+  "twoSameRank": "Dos {rank}: dos personas, o dos lados de ti, que actúan de forma parecida.",
+  "twoCourts": "Dos cartas de la corte: a menudo dos personas en la situación, o dos formas en que podrías actuar.",
+  "oneCourt": "{name} suele representar a una persona, o una forma de actuar, en la situación que describe la otra carta.",
+  "bothReversed": "Las dos invertidas: la energía de ambas cartas está bloqueada, retrasada o vuelta hacia dentro. Pregúntate qué la está frenando.",
+  "oneReversed": "{name} está invertida: una parte fluye mientras la otra está bloqueada o vuelta hacia dentro.",
+  "elementsLine": "Elementos: {a} ({ea}) y {b} ({eb}) {rel}.",
+  "pairLine": "{a} y {b} {rel}.",
+  "rel": {
+   "same": "comparten elemento, así que se refuerzan mutuamente",
+   "friendly": "tienen elementos afines, así que se apoyan mutuamente",
+   "contrary": "tienen elementos opuestos, así que se debilitan mutuamente",
+   "neutral": "ni se ayudan ni se estorban, porque una no tiene un elemento único"
+  },
+  "muchWeak": "{name} queda muy debilitada: sus dos vecinas se le oponen. Léela con ligereza, como una influencia menor.",
+  "mixed": "{name} queda en una posición mixta: una vecina la apoya y la otra se le opone.",
+  "someWeak": "{name} queda algo debilitada por una vecina que se le opone.",
+  "strong": "{name} queda reforzada: sus dos vecinas la apoyan. Léela como una influencia fuerte.",
+  "someStrong": "{name} queda algo reforzada por una vecina que la apoya.",
+  "neither": "Sus vecinas ni ayudan ni estorban a {name}.",
+  "bridge": "{l} y {r} se oponen entre sí, pero {m} se lleva bien con las dos: puede tender un puente entre ambas."
+ },
+ "birthday": "Tu fecha de nacimiento",
+ "pickDate": "Primero elige tu fecha de nacimiento.",
+ "notFate": "Temas hacia los que puedes crecer, no un destino fijo.",
+ "birth": {
+  "title": "Calculadora de carta natal del tarot: descubre tus cartas · ShenTarot",
+  "description": "Descubre tus cartas natales del tarot y tu carta de este año a partir de tu fecha de nacimiento. Se calcula en tu navegador; no se envía nada.",
+  "crumb": "Calculadora de carta natal",
+  "h1": "Calculadora de carta natal del tarot",
+  "lead": "Un método tradicional de numerología: suma el mes, el día y el año de tu nacimiento, y luego suma las cifras hasta llegar a 22 o menos. Ese número es una carta de los Arcanos Mayores (el 22 es El Loco). Un resultado de dos cifras también da la carta de la suma de sus cifras. Se calcula en tu navegador; no se envía nada.",
+  "button": "Descubrir mis cartas",
+  "yours": "Tus cartas natales",
+  "year": "Tu carta para {year}"
+ },
+ "life": {
+  "title": "Calculadora del número de camino de vida y su carta del tarot · ShenTarot",
+  "description": "Calcula tu número de camino de vida en numerología a partir de tu fecha de nacimiento, incluidos los números maestros 11, 22 y 33, y descubre la carta de los Arcanos Mayores que le corresponde.",
+  "crumb": "Número de camino de vida",
+  "h1": "Número de camino de vida y carta del tarot",
+  "lead": "Suma todas las cifras de tu fecha de nacimiento y redúcelas a una sola cifra, conservando los números maestros 11, 22 y 33. Cada número tiene una carta de los Arcanos Mayores. Se calcula en tu navegador; no se envía nada.",
+  "button": "Descubrir mi número",
+  "listTitle": "Los números y sus cartas",
+  "note": "Los números del 1 al 9 y el 11 corresponden a la carta de los Arcanos Mayores con ese número. El 22 es El Loco, y el 33 suma 6, Los Enamorados. Es una suma distinta de la de la {link}, que suma el mes, el día y el año como números completos.",
+  "noteLink": "carta natal",
+  "yours": "Tu número de camino de vida",
+  "cardFor": "La carta del {n}"
+ },
+ "howItWorks": "Cómo funciona",
+ "year": {
+  "title": "Calculadora de la carta del año en el tarot: tu carta para este año · ShenTarot",
+  "description": "Descubre tu carta personal del año en el tarot a partir de tu fecha de nacimiento, para este año o el siguiente, con su significado y una pregunta que llevar contigo durante el año.",
+  "crumb": "Carta del año",
+  "h1": "Tu carta del año en el tarot",
+  "lead": "Suma el mes y el día de tu nacimiento al año que quieres consultar, y luego reduce el total a una carta de los Arcanos Mayores. Esa carta es un tema para tu año. Se calcula en tu navegador; no se envía nada.",
+  "yearLabel": "Año",
+  "button": "Descubrir mi carta",
+  "how": "Suma el mes de tu nacimiento, el día de tu nacimiento y el año, y luego suma las cifras del total hasta que sea 22 o menos. El 22 es El Loco. La carta cambia cada año, así que vale la pena volver a mirarla en cada cumpleaños. Tus {link} usan en cambio tu año de nacimiento y no cambian en toda la vida.",
+  "howLink": "cartas natales",
+  "cardFor": "Tu carta para {year}",
+  "question": "Una pregunta para el año: {q}",
+  "next": "Después, en {year}: {name}."
+ },
+ "compat": {
+  "title": "Compatibilidad amorosa en el tarot: compara dos cartas natales · ShenTarot",
+  "description": "Introduce dos fechas de nacimiento para descubrir la carta natal del tarot de cada persona y ver cómo se llevan las dos cartas y sus elementos. Gratis y calculado en tu navegador.",
+  "crumb": "Compatibilidad amorosa",
+  "h1": "Compatibilidad amorosa en el tarot",
+  "lead": "Cada fecha de nacimiento da una carta natal de los Arcanos Mayores. Compara las dos cartas y sus elementos para ver dónde coinciden y dónde pueden chocar. Se calcula en tu navegador; no se envía nada.",
+  "yours": "Tu fecha de nacimiento",
+  "theirs": "Su fecha de nacimiento",
+  "button": "Comparar",
+  "how": "Suma el mes, el día y el año de una fecha de nacimiento, y luego suma las cifras hasta que el total sea 22 o menos. Ese número es la carta natal de la persona (el 22 es El Loco). Después se compara el elemento de cada carta como se comparan las cartas en una tirada: el mismo elemento refuerza, Fuego y Agua o Aire y Tierra tiran en sentidos opuestos, y los demás pares se apoyan entre sí. Las cartas vinculadas a un planeta no tienen un elemento único.",
+  "note": "Para divertirte y reflexionar. Ningún par de cartas decide si una relación funciona.",
+  "pickBoth": "Primero elige las dos fechas de nacimiento.",
+  "shared": "Comparten carta natal: {name}",
+  "pair": "{a} y {b}",
+  "sameCard": "La misma carta: puede que se vean reflejados el uno en el otro, en las fortalezas y en los hábitos.",
+  "elements": "Elementos: {a} y {b}.",
+  "yourCard": "Tu carta natal",
+  "theirCard": "Su carta natal",
+  "rel": {
+   "same": "Sus cartas comparten elemento, así que se entienden con facilidad. Cuidado con tener los mismos puntos ciegos.",
+   "friendly": "Los elementos de sus cartas se apoyan entre sí. Cada uno aporta cosas distintas que encajan.",
+   "contrary": "Los elementos de sus cartas tiran en sentidos opuestos. Hay chispa y fricción; funciona cuando respetan la diferencia.",
+   "neutral": "Una de sus cartas está vinculada a un planeta y no a un elemento, así que se adapta a la otra."
+  }
+ },
+ "zodiac": {
+  "title": "Cartas del tarot y el zodiaco: la carta de cada signo · ShenTarot",
+  "description": "Descubre las cartas del tarot de tu signo del zodiaco: su carta de los Arcanos Mayores, la carta de su planeta regente y las tres cartas de sus decanatos, de Aries a Piscis.",
+  "crumb": "Cartas del tarot y el zodiaco",
+  "h1": "Tus cartas del tarot según el zodiaco",
+  "lead": "En la tradición de la Golden Dawn, en la que se basa la baraja Rider-Waite-Smith, cada signo del zodiaco tiene su propia carta de los Arcanos Mayores, un planeta regente con una carta propia y tres cartas numeradas para los tercios del signo.",
+  "button": "Buscar mi signo",
+  "signsLabel": "Signos del zodiaco",
+  "about": "Signo de {element}, así que su palo es {suit}. Regente tradicional: {ruler}.",
+  "signCard": "La carta de {sign}: {keywords}.",
+  "rulerCard": "La carta de {ruler}, regente del signo: {keywords}.",
+  "decans": "Los tres tercios de {sign}: {cards}.",
+  "datesNote": "Las fechas de los signos se mueven un día algunos años. Si naciste el primer o el último día de un signo, consulta los dos."
+ },
+ "quiz": {
+  "title": "¿Qué carta del tarot eres? Test gratis de seis preguntas · ShenTarot",
+  "description": "Responde seis preguntas rápidas para descubrir la carta de la corte del tarot que encaja con tu personalidad, de la Sota de Bastos al Rey de Oros.",
+  "crumb": "¿Qué carta eres?",
+  "eyebrow": "Test",
+  "h1": "¿Qué carta del tarot eres?",
+  "lead": "Seis preguntas rápidas te asocian con una de las 16 cartas de la corte: tu palo muestra lo que te mueve, y tu rango, cómo actúas. Tus respuestas se quedan en esta página.",
+  "submit": "Ver mi carta",
+  "copyLink": "Copiar el enlace a mi resultado",
+  "copied": "Enlace copiado",
+  "youAre": "Eres",
+  "q": [
+   {
+    "q": "En una tarde libre, prefieres…",
+    "a": [
+     "Empezar algo nuevo",
+     "Pasarla con alguien cercano",
+     "Leer, planear o debatir",
+     "Hacer o arreglar algo"
+    ]
+   },
+   {
+    "q": "Tus amigos acuden a ti para…",
+    "a": [
+     "Recibir energía y un empujón",
+     "Encontrar consuelo y alguien que escuche",
+     "Pedir un consejo sincero",
+     "Conseguir ayuda práctica"
+    ]
+   },
+   {
+    "q": "¿Qué es lo que más te importa?",
+    "a": [
+     "La pasión",
+     "El amor",
+     "La verdad",
+     "La seguridad"
+    ]
+   },
+   {
+    "q": "Cuando aparece algo nuevo, tú…",
+    "a": [
+     "Sientes curiosidad y haces preguntas",
+     "Te lanzas de cabeza",
+     "Te vas acercando poco a poco",
+     "Tomas las riendas"
+    ]
+   },
+   {
+    "q": "En un grupo, sueles ser quien…",
+    "a": [
+     "Aprende y trae ideas nuevas",
+     "Pone las cosas en marcha",
+     "Cuida de todos",
+     "Toma la decisión final"
+    ]
+   },
+   {
+    "q": "Tu mayor fortaleza es…",
+    "a": [
+     "La apertura",
+     "El empuje",
+     "La comprensión",
+     "La constancia"
+    ]
+   }
+  ]
+ },
+ "sheet": {
+  "title": "Hoja de lectura de tarot para imprimir, para cualquier tirada · ShenTarot",
+  "description": "Imprime gratis una hoja de lectura de tarot para cualquiera de nuestras 15 tiradas, con cada posición señalada y espacio para anotar tus cartas y tus notas.",
+  "crumb": "Hoja de lectura para imprimir",
+  "h1": "Hoja de lectura para imprimir",
+  "lead": "Elige una tirada e imprime una hoja para tu diario, con cada posición señalada y espacio para tus cartas y tus notas.",
+  "spread": "Tirada",
+  "print": "Imprimir",
+  "date": "Fecha:",
+  "question": "Pregunta:",
+  "card": "Carta:",
+  "takeaway": "Lo que me llevo de esta lectura"
+ },
+ "random": {
+  "title": "Generador de cartas de tarot al azar: saca de 1 a 10 cartas · ShenTarot",
+  "description": "Saca cartas de tarot al azar de la baraja Rider-Waite-Smith completa de 78 cartas. Toca una carta para darle la vuelta y leer su significado.",
+  "crumb": "Sacar cartas al azar",
+  "h1": "Saca una carta de tarot",
+  "lead": "Se barajan en tu navegador las 78 cartas. Toca una carta para darle la vuelta. Más o menos una de cada cuatro cartas sale invertida.",
+  "howMany": "Cuántas cartas",
+  "turnOver": "Dar la vuelta a esta carta"
+ },
+ "comb": {
+  "title": "Combinaciones de cartas del tarot: lee dos cartas juntas · ShenTarot",
+  "description": "Elige dos cartas del tarot cualesquiera, al derecho o invertidas, y mira cómo se leen juntas: tema y detalle, palos, números, cartas de la corte y elementos. Gratis, en tu navegador.",
+  "crumb": "Combinaciones de cartas",
+  "h1": "Combinaciones de cartas del tarot",
+  "lead": "Elige dos cartas de una lectura, o saca dos al azar, y mira qué las une: cuál marca el tema, qué dicen sus palos, sus números y sus elementos, y una pregunta de cada carta para reflexionar.",
+  "slots": [
+   "Primera carta",
+   "Segunda carta"
+  ],
+  "howTitle": "Cómo leer dos cartas juntas",
+  "how": [
+   "Lee primero cada carta por separado y luego pregúntate cómo cambia una a la otra. La segunda carta a menudo responde a la primera o la matiza.",
+   "Una carta de los Arcanos Mayores tiene más peso. Cuando está junto a una de los Arcanos Menores, la Mayor nombra el tema y la Menor muestra cómo se manifiesta.",
+   "Prueba con una sola frase que recoja los dos significados. Si te resulta forzada, busca en el dibujo de cada carta un detalle que compartan."
+  ],
+  "note": "Para entretenimiento y reflexión personal. Consulta también {elements} y {cards}.",
+  "elementsLink": "las dignidades elementales",
+  "cardsLink": "el significado de las 78 cartas"
+ },
+ "elem": {
+  "title": "Dignidades elementales en el tarot: comprobador gratis · ShenTarot",
+  "description": "Comprueba las dignidades elementales de dos o tres cartas del tarot. Mira qué cartas se refuerzan o se debilitan entre sí según el Fuego, el Agua, el Aire y la Tierra. Gratis, en tu navegador.",
+  "crumb": "Dignidades elementales",
+  "h1": "Dignidades elementales",
+  "lead": "Un método de la tradición de la Golden Dawn que a menudo se usa en lugar de las cartas invertidas. Cada carta tiene un elemento, y las cartas que están una junto a otra se refuerzan o se debilitan mutuamente. Elige una fila de dos o tres cartas para comprobarlas.",
+  "slots": [
+   "Carta izquierda",
+   "Carta central",
+   "Carta derecha"
+  ],
+  "how": [
+   [
+    "Palos:",
+    "los Bastos son Fuego, las Copas son Agua, las Espadas son Aire y los Oros son Tierra."
+   ],
+   [
+    "Los Arcanos Mayores",
+    "toman el elemento de su signo del zodiaco o elemento tradicional. Las cartas vinculadas a un planeta no tienen aquí un elemento único y cuentan como neutras."
+   ],
+   [
+    "Mismo elemento:",
+    "las cartas se refuerzan mutuamente."
+   ],
+   [
+    "Los opuestos",
+    "(Fuego y Agua, Aire y Tierra) se debilitan mutuamente."
+   ],
+   [
+    "Los demás pares",
+    "se apoyan entre sí. Algunos lectores consideran neutros el Fuego con la Tierra y el Aire con el Agua."
+   ],
+   [
+    "En una fila de tres,",
+    "la carta central se juzga por sus dos vecinas. Una carta entre dos afines es fuerte; una carta entre dos opuestas es débil."
+   ]
+  ],
+  "note": "El elemento de cada carta aparece en su {cards}. Para leer dos cartas juntas, prueba las {comb}.",
+  "cardsLink": "página de significado",
+  "combLink": "combinaciones de cartas"
+ },
+ "share": {
+  "save": "Guardar imagen",
+  "share": "Compartir",
+  "made": "Imagen guardada",
+  "failed": "No se pudo crear la imagen",
+  "card": "Significado de la carta del tarot",
+  "daily": "Mi carta del día",
+  "reading": "Mi lectura de tarot",
+  "quiz": "¿Qué carta del tarot soy?",
+  "compat": "Nuestras cartas natales del tarot",
+  "year": "Mi carta del tarot para {year}",
+  "life": "Mi número de camino de vida es el {n}",
+  "birth": "Mis cartas natales del tarot"
+ },
+ "about": {
+  "title": "Acerca de ShenTarot: quién lo hace y de dónde vienen los significados",
+  "description": "Quién hace ShenTarot, de dónde vienen los significados de las cartas y las tiradas, y cómo funcionan las lecturas con IA.",
+  "h1": "Acerca de ShenTarot",
+  "lead": "ShenTarot es una app de tarot para iPhone y Android. Esta web es su compañera gratuita: significados de las cartas, tiradas y herramientas de lectura que puedes usar sin cuenta.",
+  "crumb": "Acerca de ShenTarot",
+  "sections": [
+   {
+    "title": "Quién lo hace",
+    "text": "ShenTarot lo hace ShenTech, una empresa de Singapur. Escríbenos a {email}."
+   },
+   {
+    "title": "De dónde vienen los significados",
+    "text": "Los significados de las cartas son los mismos que usan la app y sus lecturas, así que nunca se contradicen. Siguen las imágenes de la baraja Rider-Waite-Smith (1909, de dominio público) y las asociaciones de elementos, planetas y signos de la tradición de la Golden Dawn en la que se basa. Cada página de carta explica qué muestra la carta y por qué significa lo que significa."
+   },
+   {
+    "title": "Tiradas",
+    "text": "Cada página de tirada indica de dónde viene su disposición, ya sea tradicional o una tirada moderna habitual."
+   },
+   {
+    "title": "Cómo funcionan las lecturas con IA",
+    "text": "En la app, ShenTarot elige una tirada para tu pregunta y escribe una lectura a partir de las cartas que sacaste, sus posiciones y si salieron al derecho o invertidas. Solo las lecturas con IA requieren iniciar sesión, con Google o Apple. Las fotos de tus cartas se reconocen en tu teléfono y nunca se suben."
+   },
+   {
+    "title": "Para qué sirve",
+    "text": "ShenTarot es para entretenimiento y reflexión personal. Las lecturas te ayudan a pensar una pregunta; no son predicciones ni consejo profesional."
+   }
+  ]
+ }
+}

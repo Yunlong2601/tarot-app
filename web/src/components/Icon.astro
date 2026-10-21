@@ -1,0 +1,16 @@
+---
+/** Line icons for feature tiles (24px grid, drawn with the current colour). */
+interface Props {
+  name: "lock" | "spark" | "sun" | "chat" | "layout" | "book";
+}
+const paths: Record<Props["name"], string> = {
+  lock: "M7 11V8a5 5 0 0110 0v3M5.5 11h13v9.5h-13zM12 15v2.5",
+  spark: "M12 3l1.8 5.4L19 10l-5.2 1.6L12 17l-1.8-5.4L5 10l5.2-1.6zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z",
+  sun: "M12 7.5a4.5 4.5 0 100 9 4.5 4.5 0 000-9zM12 2v2.5M12 19.5V22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M2 12h2.5M19.5 12H22M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8",
+  chat: "M4 5.5h16v10H9l-5 4v-14zM8 9.5h8M8 12.5h5",
+  layout: "M3.5 6h5v8h-5zM9.5 4h5v8h-5zM15.5 6h5v8h-5zM9.5 14.5h5V20h-5z",
+  book: "M5 4.5h9a3 3 0 013 3v12H8a3 3 0 01-3-3zM5 16.5a3 3 0 013-3h9M9 8.5h5",
+};
+const { name } = Astro.props;
+---
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={paths[name]} /></svg>

@@ -1,0 +1,25 @@
+---
+import CardSearch from "../../../components/CardSearch.astro";
+import Base from "../../../layouts/Base.astro";
+import { i18n, langPaths, type Locale } from "../../../i18n/index.ts";
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Locale };
+const L = i18n(lang);
+const { t } = L;
+
+---
+<Base
+  title={t("cards.title")}
+  description={t("cards.description")}
+  path="cards"
+  crumbs={[[t("cards.crumb"), "cards"]]}
+  lang={lang}
+>
+  <header class="page-head center">
+    <p class="eyebrow">{t("cards.eyebrow")}</p>
+    <h1>{t("cards.h1")}</h1>
+    <p class="lead">{t("cards.lead")}</p>
+  </header>
+  <CardSearch L={L} />
+</Base>
