@@ -14,7 +14,7 @@ const config = { j:L.journey, g: L.growth, deck: readerDeck(L).map(c=>({...c,eng
   <header class="page-head"><p class="eyebrow">ShenTarot</p><h1>{w.title}</h1><p class="lead">{w.description}</p></header>
   <noscript><p>{w.practiceHint}</p><p><a href={L.url('cards')}>{w.find}</a> · <a href={L.url('spreads')}>{w.choose}</a></p></noscript>
   <div data-workspace hidden data-config={JSON.stringify(config)}>
-    <dialog data-overwrite-dialog aria-labelledby="overwrite-title" aria-describedby="overwrite-message"><h2 id="overwrite-title">{L.growth.reviewTitle}</h2><p id="overwrite-message" data-overwrite-message></p><div class="action-row"><button class="btn btn-ghost" data-overwrite-cancel type="button">{L.journey.cancel}</button><button class="btn btn-gold" data-overwrite-confirm type="button"></button></div></dialog>
+    <dialog data-overwrite-dialog aria-labelledby="overwrite-title" aria-describedby="overwrite-message"><h2 id="overwrite-title">{L.journey.confirmTitle}</h2><p id="overwrite-message" data-overwrite-message></p><div class="action-row"><button class="btn btn-ghost" data-overwrite-cancel type="button">{L.journey.cancel}</button><button class="btn btn-gold" data-overwrite-confirm type="button"></button></div></dialog>
     <div class="workspace-grid">
       <section class="panel workspace-input">
         <label>{w.choose}<select data-spread>{spreads.map(s => <option value={s.id} selected={s.id === 'three'}>{s.name} ({s.positions.length})</option>)}</select></label>

@@ -25,5 +25,12 @@
     "Lire une carte renversée en contexte",
     "Garder une réflexion portable"
   ],
-  "cancel": "Annuler"
+  "cancel": "Annuler",
+  "shrinkWarning": "Une disposition plus petite supprime les cartes des dernières positions. Exportez d’abord pour conserver le tirage complet. Continuer ?",
+  "spreadKept": "Les cartes, orientations et notes qui tiennent sont conservées. Vérifiez les nouveaux intitulés des positions.",
+  "orientationWarning": "Cette carte est déjà dans votre tirage. Appliquer l’orientation choisie sur la page du sens ? Les autres cartes et notes sont conservées.",
+  "orientationUpdated": "Orientation mise à jour. Vérifiez son sens à cette position.",
+  "resume": "Reprendre mon tirage inachevé",
+  "resumeHint": "Uniquement le brouillon de cet onglet. Les réflexions enregistrées restent séparées ; aucune synchronisation entre appareils.",
+  "confirmTitle": "Vérifier cette modification"
 }

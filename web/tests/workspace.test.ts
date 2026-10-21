@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { blank, validDraft, setPick, movePick, queryParts, matches, loadDraft, saveDraft } from '../src/lib/workspace.ts';
+import { changeSpread, losesCards, blank, validDraft, setPick, movePick, queryParts, matches, loadDraft, saveDraft } from '../src/lib/workspace.ts';
 const spreads = [{id:'three',name:'Three',positions:['Past','Present','Future']},{id:'single',name:'One',positions:['Card']}];
 const ids = ['cups_queen','major_00_fool','pentacles_two'];
 test('editing and reordering preserves the real draw and orientation without duplicates', () => {
@@ -36,4 +36,17 @@ test('search understands reversals, aliases and accented names', () => {
   assert.equal(queryParts('圣杯皇后逆位').reversed,true);
   assert.equal(matches('Reine de Coupes',queryParts('reine de coupes').words),true);
   assert.equal(matches('Bâtons',queryParts('batons').words),true);
+});
+
+test('spread changes retain the physical draw and notes, expose tail loss and copy picks', () => {
+  const d=blank(spreads[0]!);setPick(d,0,ids[0]!,true);setPick(d,2,ids[1]!,false);
+  d.question='Question';d.impression='First thought';d.reflection='My notes';
+  const alternate={id:'decision',name:'Decision',positions:['Situation','Challenge','Advice']};
+  const next=changeSpread(d,alternate);
+  assert.deepEqual(next.cards,d.cards);assert.equal(next.reflection,d.reflection);assert.equal(next.question,d.question);assert.equal(next.impression,d.impression);
+  next.cards[0]!.reversed=false;assert.equal(d.cards[0]!.reversed,true);
+  assert.equal(losesCards(d,spreads[1]!),true);
+  const shorter=changeSpread(d,spreads[1]!);assert.deepEqual(shorter.cards,[d.cards[0]]);
+  const expanded=changeSpread(shorter,spreads[0]!);assert.deepEqual(expanded.cards,[d.cards[0],{id:'',reversed:false},{id:'',reversed:false}]);
+  assert.equal(losesCards(expanded,spreads[1]!),false);assert.equal(validDraft(expanded,spreads,ids),true);
 });

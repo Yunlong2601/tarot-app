@@ -1,4 +1,5 @@
 ---
+import ResumeWorkspace from "../../../components/ResumeWorkspace.astro";
 import CardSearch from "../../../components/CardSearch.astro";
 import Base from "../../../layouts/Base.astro";
 import { i18n, langPaths, type Locale } from "../../../i18n/index.ts";
@@ -21,5 +22,6 @@ const { t } = L;
     <h1>{t("cards.h1")}</h1>
     <p class="lead">{t("cards.lead")}</p>
   </header>
+  <ResumeWorkspace L={L} />
   <CardSearch L={L} />
 </Base>

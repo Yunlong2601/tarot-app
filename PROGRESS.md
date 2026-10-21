@@ -14,6 +14,8 @@ Primary working copy: the owner's local Mac folder. This repo is the backup and 
 
 **2026-10-22: practice continuity and release follow-up.** Fresh branch from merged main; position-level local/English card filtering, first-untried practice recommendation, protected Save/Restore with accessible cancellation, public correction instructions and three original downloadable demo PNGs. No new pages or app/backend/entitlement changes. Ten tests and eight-locale checks; browser verification and access-limited competitor comparison documented in `docs/website-continuity-verification-2026-10-22.md`. Reviewer pack and concrete browser-AI contract proposal prepared; AI/reporting/newsletter dependencies remain honest. Owner authorises merge/deploy; final release identifiers and production results are recorded in the follow-up PR release receipt.
 
+**2026-10-22: physical-draw preservation follow-up.** Fresh branch from merged #24 preserves fitting cards/orientations/notes when changing spreads, confirms selected tail loss and explicit deep-link orientation corrections, and offers validated session resume on home/cards/learn. Eight locales; no new storage, tracking, Premium history, app/backend or pricing changes. Baseline report template, prepared distribution experiment, review issue log and verification: `docs/website-draw-preservation-2026-10-22.md`. Browser AI contract and independent/native review remain external dependencies. Release identifiers will be recorded in the focused PR receipt after checks/merge/deployment.
+
 | Phase | Scope | Status |
 |---|---|---|
 | Step 1 | Plan, research, costs (`docs/step1-plan.md`) | Done |
