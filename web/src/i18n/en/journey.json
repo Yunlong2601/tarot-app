@@ -1,0 +1,29 @@
+{
+  "filter": "Find a card for this position",
+  "filterHint": "Search by name, keyword or “coins”. Your selected card stays when you filter.",
+  "matches": "{n} matching cards",
+  "clear": "Clear search",
+  "ready": "{n} / {total} cards entered. Check the position labels, then explore the meanings.",
+  "next": "Your next practice",
+  "allDone": "You have tried all five activities. Revisit a reflection or repeat any practice.",
+  "continuePractice": "Continue my practice",
+  "restoreWarning": "Restore the saved snapshot and replace this tab’s current cards and notes? Export current work first if you want to keep both.",
+  "saveWarning": "Replace the saved snapshot with this reflection? Export the older version first if you want to keep it.",
+  "cancelled": "Cancelled. Your current work and saved reflection are unchanged.",
+  "correction": "Suggest a correction",
+  "correctionLead": "Help us check a specific claim. Do not include private reading questions, birth details or photographs.",
+  "correctionSteps": [
+    "Include the page URL, language and card or section.",
+    "Quote the short passage to check, explain the concern and suggest a change or source.",
+    "Send it to Support. We assess suggestions; a submission does not imply review, acceptance or endorsement."
+  ],
+  "correctionSend": "Email a correction",
+  "demoTitle": "Three practice cards to share",
+  "demoNote": "English-language PNGs using public-domain card art. Download for your notes or a demo; no posting happens automatically.",
+  "demos": [
+    "Connect a three-card spread",
+    "Read a reversal in context",
+    "Keep a portable reflection"
+  ],
+  "cancel": "Cancel"
+}

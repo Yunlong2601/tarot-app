@@ -1,0 +1,29 @@
+{
+  "filter": "Eine Karte für diese Position finden",
+  "filterHint": "Suche nach Name, Stichwort oder „coins“. Die gewählte Karte bleibt beim Filtern erhalten.",
+  "matches": "{n} passende Karten",
+  "clear": "Suche leeren",
+  "ready": "{n} / {total} Karten eingegeben. Prüfe die Positionen und erkunde die Bedeutungen.",
+  "next": "Deine nächste Übung",
+  "allDone": "Du hast alle fünf Aktivitäten versucht. Lies eine Reflexion erneut oder wiederhole eine Übung.",
+  "continuePractice": "Meine Übungen fortsetzen",
+  "restoreWarning": "Gespeicherte Kopie laden und Karten und Notizen dieses Tabs ersetzen? Exportiere zuerst, wenn du beides behalten möchtest.",
+  "saveWarning": "Gespeicherte Kopie durch diese Reflexion ersetzen? Exportiere zuerst die alte Version, wenn du sie behalten möchtest.",
+  "cancelled": "Abgebrochen. Deine Arbeit und die gespeicherte Reflexion bleiben unverändert.",
+  "correction": "Eine Korrektur vorschlagen",
+  "correctionLead": "Hilf uns, eine konkrete Aussage zu prüfen. Keine privaten Fragen, Geburtsdaten oder Fotos mitsenden.",
+  "correctionSteps": [
+    "Nenne Seitenadresse, Sprache und Karte oder Abschnitt.",
+    "Zitiere die kurze Stelle, erkläre das Problem und schlage Änderung oder Quelle vor.",
+    "Sende sie an den Support. Ein Vorschlag bedeutet noch keine Prüfung, Annahme oder Empfehlung."
+  ],
+  "correctionSend": "Korrektur per E-Mail senden",
+  "demoTitle": "Drei Übungskarten zum Teilen",
+  "demoNote": "Englische PNGs mit gemeinfreien Kartenbildern. Für Notizen oder Demos herunterladen; nichts wird automatisch veröffentlicht.",
+  "demos": [
+    "Eine Dreierlegung verbinden",
+    "Eine Umkehrung im Kontext lesen",
+    "Eine portable Reflexion behalten"
+  ],
+  "cancel": "Abbrechen"
+}

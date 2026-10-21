@@ -13,7 +13,8 @@ const L = i18n(lang), g = L.growth, w = L.workspace;
 <SpreadDiagram id="three_decision" positions={L.content.spreads.three_decision.positions} label={L.content.spreads.three_decision.name}/>
 <ul>{g.guideSuits.map(p=><li>{p}</li>)}</ul>
 <p>{g.guideReversals}</p><p>{g.guideConnections}</p><p class="panel">{g.guideRecord}</p>
-<p>{w.storageNote}</p><p>{w.disclaimer}</p><p>shentarot.com</p>
+<p>{w.storageNote}</p>
+<section class="no-print demo-downloads"><h2>{L.journey.demoTitle}</h2><p>{L.journey.demoNote}</p><ul>{['connect','reversal','reflect'].map((name,i)=><li><a data-demo-download href={`/demos/${name}.png`} download>{L.journey.demos[i]}</a></li>)}</ul></section><p>{w.disclaimer}</p><p>shentarot.com</p>
 <p class="no-print"><a class="btn btn-gold" href={`${L.url('read')}?spread=three_decision`}>{w.title}</a></p>
 <p><a href={L.url('learn/connected-reading')}>{g.exampleTitle}</a> · <a href={L.url('methodology')}>{g.methodTitle}</a></p>
 </article></Base>
@@ -21,15 +22,16 @@ const L = i18n(lang), g = L.growth, w = L.workspace;
 const button = document.querySelector<HTMLButtonElement>('[data-guide-print]')!;
 button.hidden = false; button.onclick = () => window.print();
 // Keep the static href for no-JS access; use the workspace download approach.
-const download = document.querySelector<HTMLAnchorElement>('[data-guide-download]')!;
+for (const download of document.querySelectorAll<HTMLAnchorElement>('[data-guide-download], [data-demo-download]')) {
 download.onclick = async event => {
   event.preventDefault();
   try {
     const response = await fetch(download.href);
     if (!response.ok) throw new Error('Guide unavailable');
-    const objectUrl = URL.createObjectURL(new Blob([await response.text()], {type:'text/plain;charset=utf-8'}));
-    const link = document.createElement('a'); link.href=objectUrl; link.download=download.download; link.click();
+    const objectUrl = URL.createObjectURL(await response.blob());
+    const link = document.createElement('a'); link.href=objectUrl; link.download=download.download || download.pathname.split('/').pop()!; link.click();
     setTimeout(()=>URL.revokeObjectURL(objectUrl),1000);
   } catch { window.location.assign(download.href); }
 };
+}
 </script>

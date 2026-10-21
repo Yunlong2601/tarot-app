@@ -139,3 +139,21 @@ not create an account history or alter the app's Premium journal/look-back.
 New copy is in each locale's `growth.json`. See
 `../docs/website-growth-validation-2026-10-21.md` for measurement, distribution,
 privacy/service dependencies and the unperformed human usability study.
+
+## Practice continuity follow-up
+
+Card position pickers now filter by local/English name, keyword and existing
+English aliases, retaining the current selection. Save/Restore confirm before
+replacing different content. The practice page recommends the first untried
+activity from the same local progress record; it does not create a journal.
+New interface text is in `journey.json` for all eight locales.
+
+Three original English teaching PNGs are in `public/demos/`, downloadable from
+the beginner reference. Rebuild them manually with `node scripts/demo-assets.mjs`
+when editorial copy changes. They use the existing 1909 public-domain artwork
+and the existing sharp development dependency. No content is posted automatically.
+
+See `../docs/website-review-pack-2026-10-22.md` for the unperformed review and
+`../docs/website-ai-contract-proposal-2026-10-22.md` for the concrete backend
+handoff. Browser authentication/preflight/idempotency remain unsupported;
+no AI submission or testing-token workaround was enabled.

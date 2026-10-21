@@ -13,5 +13,5 @@ const L = i18n(lang), g = L.growth, w = L.workspace;
 <article class="connected-example"><h2>{g.exampleQuestion}</h2>
 <ol class="example-cards">{EXAMPLE.cards.map((p,i) => <li class="panel"><h3>{i+1}. {L.content.spreads[EXAMPLE.spread]!.positions[i]}</h3><a href={`${L.url(`cards/${slug(p.id)}`)}${p.reversed ? '?orientation=reversed' : ''}`}><img class:list={{'reversed-art':p.reversed}} src={`${BASE}cards/art/${p.id}.jpg`} width="150" height="257" alt={L.cards[p.id]!.name}/><b>{L.cards[p.id]!.name}</b></a><p class="eyebrow">{L.t(p.reversed ? 'card.reversed' : 'card.upright')}</p><p>{g.symbols[i]}</p><p>{g.positions[i]}</p></li>)}</ol>
 <section class="panel"><h2>{w.connections}</h2><p>{g.connections}</p><p>{g.alternative}</p><p>{g.positionShift}</p></section>
-<p><a class="btn btn-gold" href={`${L.url('read')}?example=creative`}>{g.exampleLoad}</a></p><p><a href={L.url('methodology')}>{g.methodTitle}</a></p><p>{w.disclaimer}</p>
+<p><a class="btn btn-gold" href={`${L.url('read')}?example=creative`}>{g.exampleLoad}</a></p><p><a href={L.url("learn/practice")}>{L.journey.continuePractice}</a></p><p><a href={L.url('methodology')}>{g.methodTitle}</a></p><p>{w.disclaimer}</p>
 </article></Base>

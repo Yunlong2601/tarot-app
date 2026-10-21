@@ -9,6 +9,7 @@ const L = i18n(lang), g = L.growth;
 <Base title={g.methodTitle} description={g.methodLead} path="methodology" lang={lang} noCta>
 <article class="legal guide"><h1>{g.methodTitle}</h1><p class="lead">{g.methodLead}</p>
 {[g.methodTradition,g.methodProcess,g.methodReview,g.methodAI,g.methodPrivacy,g.methodLimits].map(p => <p>{p}</p>)}
+<section id="corrections"><h2>{L.journey.correction}</h2><p>{L.journey.correctionLead}</p><ol>{L.journey.correctionSteps.map(s=><li>{s}</li>)}</ol><p><a href={`mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent('ShenTarot reference correction')}`}>{L.journey.correctionSend}</a></p></section>
 <p><a href={L.url('learn/connected-reading')}>{g.exampleTitle}</a></p>
 <p><a href={L.url('learn/beginner-reference')}>{g.guideTitle}</a></p>
 <p><a href="/privacy">{L.t('footer.privacy')}</a> · <a href={`mailto:${SUPPORT_EMAIL}`}>{L.t('footer.support')}</a></p>

@@ -564,3 +564,7 @@ option { background:var(--bg-2); color:var(--fg); }
   .beginner-reference .diagram-card { min-height:3rem; }
   .beginner-reference li { break-inside:avoid; }
 }
+
+.picker-hint,.picker-count{font-size:.85rem;margin:.35rem 0}.ready-count{padding:.8rem;border:1px solid var(--line-strong);border-radius:.6rem}.next-practice{margin-bottom:1.5rem}.next-practice h2{margin-top:0}.demo-downloads li{min-height:44px}
+
+[data-overwrite-dialog]{max-width:min(34rem,calc(100vw - 2rem));border:1px solid var(--gold);border-radius:1rem;background:#14121a;color:var(--text);padding:1.4rem}[data-overwrite-dialog]::backdrop{background:#000b}[data-overwrite-dialog] h2{margin-top:0}

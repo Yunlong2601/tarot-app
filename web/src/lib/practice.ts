@@ -16,3 +16,9 @@ export function writeProgress(storage: StoragePort, ids: ActivityId[]): void {
   if (!validProgress(ids)) throw new Error('Invalid practice progress');
   storage.setItem(PRACTICE_KEY, JSON.stringify(ids));
 }
+
+export const ACTIVITY_LINKS = ['cards','learn/connected-reading','learn/reversed-cards','tools/combinations','read#saved-reflection'];
+export function nextActivity(done: ActivityId[]): number | null {
+  const index = ACTIVITY_IDS.findIndex(id => !done.includes(id));
+  return index < 0 ? null : index;
+}
