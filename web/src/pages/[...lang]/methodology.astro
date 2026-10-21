@@ -1,0 +1,15 @@
+---
+import { SUPPORT_EMAIL } from '../../config';
+import Base from '../../layouts/Base.astro';
+import { i18n, langPaths, type Locale } from '../../i18n';
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Locale };
+const L = i18n(lang), g = L.growth;
+---
+<Base title={g.methodTitle} description={g.methodLead} path="methodology" lang={lang} noCta>
+<article class="legal guide"><h1>{g.methodTitle}</h1><p class="lead">{g.methodLead}</p>
+{[g.methodTradition,g.methodProcess,g.methodReview,g.methodAI,g.methodPrivacy,g.methodLimits].map(p => <p>{p}</p>)}
+<p><a href={L.url('learn/connected-reading')}>{g.exampleTitle}</a></p>
+<p><a href={L.url('learn/beginner-reference')}>{g.guideTitle}</a></p>
+<p><a href="/privacy">{L.t('footer.privacy')}</a> · <a href={`mailto:${SUPPORT_EMAIL}`}>{L.t('footer.support')}</a></p>
+</article></Base>

@@ -57,7 +57,7 @@ const topicName = (title: string) => (lang === "en" ? title.toLowerCase() : titl
     <h2>{w.diagram}</h2><p>{w.diagramHint}</p>
     <SpreadDiagram id={id} positions={positions} label={name} />
     <div class="action-row"><a class="btn btn-gold" href={`${u("read")}?spread=${id}`}>{w.title}</a><a class="btn btn-ghost" href="#try">{t("spread.tabTry")}</a></div>
-    {["three", "three_decision", "celtic"].includes(id) && <div class="panel worked-example"><h2>{w.example}</h2><p><b>{w.exampleQuestion}</b></p><div class="example-art">{["major_01_magician", "pentacles_two", "pentacles_eight"].map(c => <a href={u(`cards/${slug(c)}`)}><img src={`/cards/art/${c}.jpg`} alt={L.cards[c]!.name} loading="lazy" width="90" height="154" /></a>)}</div><p>{id === "three" ? w.exampleThree : id === "three_decision" ? w.exampleDecision : w.exampleCeltic}</p><p class="muted">{w.disclaimer}</p></div>}
+    {["three", "three_decision", "celtic"].includes(id) && <div class="panel worked-example"><h2>{w.example}</h2><p><b>{w.exampleQuestion}</b></p><div class="example-art">{["major_01_magician", "pentacles_two", "pentacles_eight"].map(c => <a href={u(`cards/${slug(c)}`)}><img src={`/cards/art/${c}.jpg`} alt={L.cards[c]!.name} loading="lazy" width="90" height="154" /></a>)}</div><p>{id === "three" ? w.exampleThree : id === "three_decision" ? w.exampleDecision : w.exampleCeltic}</p><p><a href={u("learn/connected-reading")}>{L.growth.exampleTitle}</a></p><p class="muted">{w.disclaimer}</p></div>}
   </section>
   <Tabs label={t("spread.about", { name })} tabs={[
     { id: "try", label: t("spread.tabTry") },

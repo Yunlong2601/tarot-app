@@ -126,3 +126,16 @@ Run `npm run check:i18n`, `npm test`, `npm run check`, `npm run build`, then
 See `../docs/website-enhancements-verification-2026-10-21.md` for browser evidence
 and the required secure browser-authentication/API handoff before website AI
 can be enabled. Do not expose the app's testing install flow to browser users.
+
+## Teaching and repeat practice
+
+`/learn/connected-reading` is an original editorial example; loading it asks
+before replacing current cards and preserves personal notes and the saved snapshot.
+`/methodology` discloses the source tradition, AI assistance and unconfirmed expert
+and native-language review. `/learn/beginner-reference` has accessible HTML, a
+static UTF-8 text download and browser print/PDF output. `/learn/practice` stores
+five activity IDs locally, independently of the one saved reflection; it does
+not create an account history or alter the app's Premium journal/look-back.
+New copy is in each locale's `growth.json`. See
+`../docs/website-growth-validation-2026-10-21.md` for measurement, distribution,
+privacy/service dependencies and the unperformed human usability study.

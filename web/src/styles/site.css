@@ -540,3 +540,27 @@ option { background:var(--bg-2); color:var(--fg); }
   .hero { padding-top:2rem; }
 }
 @media print { .print-reading h1 { color:#000; } }
+
+/* Editorial teaching and local practice extend the existing visual language. */
+.example-invitation { border-color: var(--gold); }
+.example-cards { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;list-style:none;padding:0; }
+.example-cards li { min-width:0; }
+.example-cards img { display:block;width:min(150px,100%);height:auto;margin:1rem auto; }
+.example-cards a { display:block;text-align:center; }
+.connected-example { max-width:1000px;margin:0 auto 4rem; }
+.connected-example .panel { margin-bottom:1rem; }
+.practice-activities { list-style-position:inside;padding:0; }
+.practice-activities li { margin-bottom:1rem; }
+.practice-activities h2 { display:inline;font-size:1.5rem; }
+.practice-activities .check-label { min-height:44px; }
+.guide ol li,.guide ul li { margin-block:.8rem; }
+@media(max-width:650px){.example-cards{grid-template-columns:1fr}.example-cards img{width:120px}.example-cards .panel{padding:1.2rem}}
+@media print { body:has([data-reference-guide]) .site-header,body:has([data-reference-guide]) .site-footer,body:has([data-reference-guide]) .no-print{display:none!important} .beginner-reference {max-width:none;margin:0;color:#111} .beginner-reference .panel{color:#111;border:1px solid #888;background:white} }
+@media print {
+  .beginner-reference, .beginner-reference * { color:#111!important; }
+  .beginner-reference .spread-map,.beginner-reference .diagram-card { background:#fff!important; border-color:#444!important; }
+  .beginner-reference h1 { font-size:24pt; }
+  .beginner-reference { font-size:11pt; }
+  .beginner-reference .diagram-card { min-height:3rem; }
+  .beginner-reference li { break-inside:avoid; }
+}

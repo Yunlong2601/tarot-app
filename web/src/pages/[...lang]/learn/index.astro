@@ -27,6 +27,7 @@ const jsonLd = [
     <p class="lead">{ix.lead}</p>
   </header>
   <section class="panel practice-path"><h2>{L.workspace.learnPath}</h2><p>{L.workspace.practiceHint}</p><ol>{["how-to-read-tarot", "reversed-cards", "asking-questions"].map(s => <li><a href={u(`learn/${s}`)}>{L.learn.guides[s as keyof typeof L.learn.guides].h1}</a></li>)}<li><a href={u("tools/combinations")}>{L.t("footer.combinations")}</a></li><li><a href={u("read")}>{L.workspace.practice}</a></li></ol></section>
+  <div class="panel"><h2><a href={u("learn/practice")}>{L.growth.practiceTitle}</a></h2><p>{L.growth.practiceLead}</p><p><a href={u("learn/connected-reading")}>{L.growth.exampleTitle}</a></p><p><a href={u("learn/beginner-reference")}>{L.growth.guideTitle}</a></p><p><a href={u("methodology")}>{L.growth.methodTitle}</a></p></div>
   <ol class="grid-3 lessons">
     {LEARN_SLUGS.map((s, i) => {
       const g = L.learn.guides[s];

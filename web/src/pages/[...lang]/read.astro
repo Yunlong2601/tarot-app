@@ -7,7 +7,7 @@ export const getStaticPaths = langPaths;
 const { lang } = Astro.props as { lang: Locale };
 const L = i18n(lang), w = L.workspace;
 const spreads = spreadIds.map(id => ({ id, name: L.content.spreads[id].name, positions: L.content.spreads[id].positions }));
-const config = { deck: readerDeck(L), spreads, w, base: BASE, cardsUrl: L.url('cards'), up: L.t('card.upright'), rev: L.t('card.reversed'), more: L.t('reader.fullMeaning') };
+const config = { g: L.growth, deck: readerDeck(L), spreads, w, base: BASE, cardsUrl: L.url('cards'), up: L.t('card.upright'), rev: L.t('card.reversed'), more: L.t('reader.fullMeaning') };
 ---
 <Base title={w.title} description={w.description} path="read" noCta lang={lang}>
   <header class="page-head"><p class="eyebrow">ShenTarot</p><h1>{w.title}</h1><p class="lead">{w.description}</p></header>
@@ -30,7 +30,8 @@ const config = { deck: readerDeck(L), spreads, w, base: BASE, cardsUrl: L.url('c
         <aside class="panel ai-availability"><h2>{w.aiTitle}</h2><p>{w.aiNote}</p></aside>
       </section>
     </div>
-    <section class="panel reflection-panel">
+    <section class="panel reflection-panel" id="saved-reflection">
+      <h2>{L.growth.reviewTitle}</h2><p>{L.growth.reviewPrompt}</p><p><a href={L.url("learn/practice")}>{L.growth.practiceTitle}</a></p>
       <label>{w.reflection}<textarea data-reflection maxlength="5000" rows="5"></textarea></label>
       <p class="muted">{w.storageNote}</p>
       <div class="action-row">

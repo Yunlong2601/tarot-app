@@ -71,10 +71,11 @@ const tryHref = u(ctx === "yes-or-no" ? "tools/yes-no" : ctx === "career" ? "top
       </nav>
     </div>
   </section>
+  <p><a href={u("methodology")}>{L.growth.methodTitle}</a></p>
   <section class="section" style="padding-bottom:0">
     <div class="meaning">
-      <div class="panel"><h2><span>▲</span>{ui.upright}</h2><p>{body.up}</p></div>
-      <div class="panel"><h2><span>▼</span>{ui.reversed}</h2><p>{body.rev}</p></div>
+      <div class="panel"><h2><span>▲</span>{ui.upright}</h2><p>{body.up}</p><a href={`${u("read")}?card=${id}`}>{L.workspace.title}</a></div>
+      <div class="panel"><h2><span>▼</span>{ui.reversed}</h2><p>{body.rev}</p><a href={`${u("read")}?card=${id}&orientation=reversed`}>{L.workspace.title}</a></div>
     </div>
   </section>
   <section class="section" style="padding-bottom:0">

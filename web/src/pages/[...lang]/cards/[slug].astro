@@ -117,6 +117,8 @@ const jsonLd = [
       </div>
     </div>
   </section>
+  <p><a href={u("methodology")}>{L.growth.methodTitle}</a></p>
+  {['major_17_star','pentacles_two','pentacles_eight'].includes(id) && <aside class="panel"><h2>{w.practice}</h2><p>{id === 'major_17_star' ? L.growth.starNote : id === 'pentacles_two' ? L.growth.twoNote : L.growth.eightNote}</p><a href={u('learn/connected-reading')}>{L.growth.exampleTitle}</a></aside>}
   <Tabs label={t("card.about", { name })} tabs={[
     { id: "meaning", label: t("card.tabMeaning") },
     ...(k ? [{ id: "love-work", label: t("card.tabLoveWork") }] : []),

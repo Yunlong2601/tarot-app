@@ -114,9 +114,9 @@ const ld = (o: unknown) => JSON.stringify(o).replace(/</g, "\\u003c");
       {!noCta && (
         <section class="wrap section" id={bare ? undefined : "get-app"}>
           <div class="cta-band">
-            <p class="eyebrow">{t("base.ctaEyebrow")}</p>
-            <h2>{t("base.ctaTitle")}</h2>
-            <p>{t("base.ctaText")}</p>
+            <p class="eyebrow">{L.growth.appTitle}</p>
+            <h2>{L.growth.appTitle}</h2>
+            <p>{L.growth.appNote}</p>
             <StoreButtons center lang={lang} />
           </div>
         </section>
@@ -127,7 +127,7 @@ const ld = (o: unknown) => JSON.stringify(o).replace(/</g, "\\u003c");
         <div class="footer-grid">
           <div>
             <a class="brand" href={u()}><Logo />ShenTarot</a>
-            <p class="about">{t("base.about")}</p>
+            <p class="about">{L.growth.footer}</p>
           </div>
           <div>
             <h4>{t("footer.explore")}</h4>
@@ -156,6 +156,8 @@ const ld = (o: unknown) => JSON.stringify(o).replace(/</g, "\\u003c");
             <h4>{t("footer.company")}</h4>
             <ul>
               <li><a href={u("about")}>{t("footer.about")}</a></li>
+              <li><a href={u("methodology")}>{L.growth.methodTitle}</a></li>
+              <li><a href={u("learn/beginner-reference")}>{L.growth.guideTitle}</a></li>
               <li><a href={`mailto:${SUPPORT_EMAIL}`}>{t("footer.support")}</a></li>
               <li><a href={`${base}privacy`}>{legal("footer.privacy")}</a></li>
               <li><a href={`${base}terms`}>{legal("footer.terms")}</a></li>

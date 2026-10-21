@@ -1,8 +1,10 @@
 import { blank, validDraft, setPick, movePick, STORAGE_KEY, saveDraft, type Draft, type Spread } from '../lib/workspace';
+import { applyExample } from '../lib/example';
+import type growth from '../i18n/en/growth.json';
 import { fill } from '../i18n/fill';
 import type { ReaderCard } from '../lib/data';
 import type en from '../i18n/en/workspace.json';
-type Config = { deck: ReaderCard[]; spreads: Spread[]; w: typeof en; base: string; cardsUrl: string; up: string; rev: string; more: string };
+type Config = { g: typeof growth; deck: ReaderCard[]; spreads: Spread[]; w: typeof en; base: string; cardsUrl: string; up: string; rev: string; more: string };
 for (const root of document.querySelectorAll<HTMLElement>('[data-workspace]')) {
   const cfg: Config = JSON.parse(root.dataset.config!);
   const { w } = cfg;
@@ -116,7 +118,12 @@ for (const root of document.querySelectorAll<HTMLElement>('[data-workspace]')) {
     // If full, ask before replacing the first card.
     else if (window.confirm(w.replaceWarning)) setPick(draft, 0, card.id, params.get('orientation') === 'reversed');
   }
+  if (params.get('example') === 'creative') {
+    if (!draft.cards.some(p => p.id) || window.confirm(cfg.g.exampleWarning)) {
+      draft = applyExample(draft, cfg.g.exampleQuestion); status.textContent = cfg.g.exampleLoaded;
+    } else status.textContent = cfg.g.exampleKept;
+  }
   // Consume seed parameters once so refresh/delete cannot re-seed old cards.
-  if (params.has('card') || params.has('spread')) history.replaceState(null, '', location.pathname);
+  if (params.has('card') || params.has('spread') || params.has('example')) history.replaceState(null, '', location.pathname);
   hydrate(); persistDraft();
 }

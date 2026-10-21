@@ -13,10 +13,10 @@ const { lang } = Astro.props as { lang: Locale };
 const L = i18n(lang);
 const { t, url: u } = L;
 
-const w = L.workspace;
+const w = L.workspace, g = L.growth;
 const fan = ["major_17_star", "major_00_fool", "major_02_high_priestess"];
 const majors = cardIds.filter((id) => CARDS[id].arcana === "major");
-const faq = ["free", "account", "deck", "photo", "how", "predict"].map((k) => [t(`home.faq.${k}.q`), t(`home.faq.${k}.a`)]);
+const faq = g.faq.map(f => [f.q, f.a]);
 const tiles = [
   { href: "tools/yes-no", key: "yesNo", art: ["major_19_sun", "major_11_justice", "major_18_moon"] },
   { href: "tools/daily-card", key: "daily", art: ["major_17_star", "cups_ace", "major_14_temperance"] },
@@ -27,25 +27,16 @@ const site = new URL(u(), Astro.site).href;
 const jsonLd = [
   { "@context": "https://schema.org", "@type": "Organization", name: "ShenTech", url: Astro.site!.href, logo: new URL("icon.png", Astro.site).href, email: SUPPORT_EMAIL },
   { "@context": "https://schema.org", "@type": "WebSite", name: "ShenTarot", url: site, inLanguage: L.tag },
-  {
-    "@context": "https://schema.org",
-    "@type": "MobileApplication",
-    name: "ShenTarot",
-    operatingSystem: "iOS, Android",
-    applicationCategory: "LifestyleApplication",
-    description: t("home.appDescription"),
-    publisher: { "@type": "Organization", name: "ShenTech" },
-  },
   { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) },
 ];
 ---
-<Base title={`${w.homeTitle} · ShenTarot`} description={w.homeLead} path="" jsonLd={jsonLd} bare noCta lang={lang}>
+<Base title={`${g.homeTitle} · ShenTarot`} description={g.homeLead} path="" jsonLd={jsonLd} bare noCta lang={lang}>
   <section class="hero">
     <div class="wrap">
       <div>
         <p class="eyebrow">ShenTarot</p>
-        <h1>{w.homeTitle}</h1>
-        <p class="lead">{w.homeLead}</p>
+        <h1>{g.homeTitle}</h1>
+        <p class="lead">{g.homeLead}</p>
         <form class="home-search" action={u("cards")} role="search"><label for="home-card-query">{w.search}</label><div class="action-row"><input id="home-card-query" name="q" type="search" placeholder={w.searchHint} /><button class="btn btn-gold" type="submit">{w.find}</button></div></form>
         <div class="action-row hero-actions"><a class="btn btn-ghost" href={u("spreads")}>{w.choose}</a><a class="btn btn-gold" href={u("read")}>{w.title}</a></div>
         <p class="alt"><a class="link-arrow" href={u("tools/random-card")}>{t("home.drawFree")}</a></p>
@@ -59,6 +50,8 @@ const jsonLd = [
       </div>
     </div>
   </section>
+
+  <section class="wrap section"><div class="panel example-invitation"><p class="eyebrow">{w.example}</p><h2>{g.exampleTitle}</h2><p>{g.exampleLead}</p><div class="action-row"><a class="btn btn-gold" href={u("learn/connected-reading")}>{w.example}</a><a class="btn btn-ghost" href={u("learn/practice")}>{g.practiceTitle}</a></div></div></section>
 
   <section class="section">
     <div class="wrap">
@@ -161,8 +154,8 @@ const jsonLd = [
           <img src={`${BASE}cards/art/${id}.jpg`} alt="" loading="lazy" width="150" height="257" />
         ))}
       </div>
-      <h2>{t("home.getTitle")}</h2>
-      <p>{t("home.getText")}</p>
+      <h2>{g.appTitle}</h2>
+      <p>{g.appNote}</p>
       <StoreButtons center lang={lang} />
       <p class="muted" style="margin:1.6rem 0 0;font-size:.85rem">
         {t("home.contact")} <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>

@@ -1,0 +1,102 @@
+{
+  "homeTitle": "Comprende las cartas que ya sacaste.",
+  "homeLead": "Busca significados, introduce tu tirada física y explora las conexiones. Referencias gratuitas sin cuenta.",
+  "exampleTitle": "Una pregunta, tres cartas, una historia conectada",
+  "exampleLead": "Descubre cómo las imágenes y posiciones transforman significados aislados en una reflexión abierta.",
+  "editorial": "Ejemplo editorial: no es una lectura personal ni generada al momento.",
+  "exampleQuestion": "¿Cómo puedo hacer espacio para un proyecto creativo?",
+  "exampleLoad": "Probar este ejemplo con mis cartas",
+  "exampleWarning": "¿Cargar el ejemplo? Sustituye la tirada y las cartas actuales. Conserva tu pregunta, impresiones, reflexión y copia guardada. Exporta primero las cartas actuales si las necesitas.",
+  "exampleLoaded": "Ejemplo cargado. Se conservaron tus notas; adapta las cartas y la pregunta.",
+  "exampleKept": "Ejemplo cancelado. Tu trabajo sigue igual.",
+  "symbols": [
+    "La vara levantada y las herramientas sugieren recursos disponibles.",
+    "Las dos monedas y la cinta sugieren varias demandas. Invertida aquí, invita a cuestionar un ritmo insostenible.",
+    "Las monedas repetidas y el artesano atento sugieren práctica deliberada."
+  ],
+  "positions": [
+    "Situación: el Mago invita a revisar herramientas, tiempo y habilidades.",
+    "Desafío: el Dos de Oros invertido podría señalar un ritmo difícil de sostener.",
+    "Camino: el Ocho de Oros sugiere proteger una práctica breve y repetible."
+  ],
+  "connections": "Los recursos del Mago se encuentran con las demandas del Dos invertido. El Ocho ofrece un puente: usar un recurso en sesiones breves y regulares en lugar de iniciar varios proyectos.",
+  "alternative": "Otra lectura: quizá el desafío sea un horario demasiado rígido, no falta de disciplina. Un experimento flexible puede ayudar más que otra obligación. Comprueba qué encaja contigo.",
+  "positionShift": "La posición cambia la pregunta. El Ocho como desafío podría sugerir perfeccionismo; como camino, práctica útil. Ninguna posición garantiza resultados.",
+  "methodTitle": "Cómo escribimos los significados",
+  "methodLead": "Fuentes, decisiones y límites de las referencias de ShenTarot.",
+  "methodTradition": "Usamos el sistema Rider–Waite–Smith de 78 cartas e imágenes de dominio público de 1909. Las tradiciones difieren; esta es una referencia, no una autoridad universal.",
+  "methodProcess": "Los textos se comparten con la app: palabras clave, imágenes, posibilidades derechas e invertidas y preguntas. Parte del texto y las traducciones recibió ayuda de IA. Los ejemplos son material didáctico original, no lecturas sobre ti.",
+  "methodReview": "Publicado por ShenTech, Singapur. No se ha confirmado una revisión experta independiente ni de hablantes nativos para esta edición. No afirmamos credenciales ni avales profesionales. Comunica errores concretos a Soporte.",
+  "methodAI": "La web ofrece referencias y práctica manual, no interpretaciones de IA. Una opción futura necesita autenticación, controles de acceso y límites claros. Debe ser opcional y respetar tu criterio.",
+  "methodPrivacy": "Las cartas y notas de este espacio no se envían a IA. El borrador y una reflexión guardada usan el navegador, sin sincronización. Cargar páginas e imágenes sí genera solicitudes al alojamiento. Consulta la política de privacidad.",
+  "methodLimits": "Las interpretaciones son posibilidades subjetivas para entretenimiento y reflexión, no predicciones verificadas, diagnósticos ni asesoramiento profesional. Compara imagen, posición y circunstancias; puedes discrepar.",
+  "guideTitle": "Tu primera tirada de tres cartas: guía de bolsillo",
+  "guideLead": "Una referencia junto a tu baraja. Léela aquí, descarga el texto o imprímela como PDF.",
+  "guideDownload": "Descargar referencia en texto",
+  "guidePrint": "Imprimir guía / guardar PDF",
+  "guideSteps": [
+    "Haz una pregunta abierta y accionable, como «¿Qué puedo intentar?».",
+    "Elige Situación / Desafío / Camino. Coloca tres cartas de izquierda a derecha y anota sus orientaciones.",
+    "Describe un detalle visible antes de consultar cada significado; relaciónalo con la posición.",
+    "Conecta dos cartas y prueba otra interpretación. Elige una acción pequeña y explica por qué.",
+    "Anota tu interpretación y revísala más adelante. Compara sin calificarte."
+  ],
+  "guideSuits": [
+    "Bastos: energía, iniciativa y creatividad.",
+    "Copas: emoción, conexión y relaciones.",
+    "Espadas: ideas, decisiones y tensión.",
+    "Oros: recursos, trabajo y práctica cotidiana.",
+    "Arcanos Mayores: temas amplios y cambios."
+  ],
+  "guideReversals": "Una inversión no es automáticamente mala ni opuesta. Considera una expresión bloqueada, interior, excesiva o retrasada según la pregunta y las cartas vecinas.",
+  "guideConnections": "¿Repiten un tema, crean tensión o sugieren un cambio? ¿Qué detalle respalda esa historia? ¿Qué otra lectura es plausible?",
+  "guideRecord": "Pregunta: ______  Cartas y posiciones: ______  Impresión: ______  Conexión y alternativa: ______  Acción: ______  Revisión: ______",
+  "practiceTitle": "Cinco pequeñas prácticas con tu baraja",
+  "practiceLead": "A tu ritmo. Marca actividades que probaste, no respuestas «correctas».",
+  "practiceSteps": [
+    "Observar una carta",
+    "Leer una posición",
+    "Explorar una inversión",
+    "Conectar dos cartas",
+    "Volver a una reflexión"
+  ],
+  "practiceTasks": [
+    "Busca una carta. Nombra un detalle y un significado relacionado.",
+    "Lee el ejemplo e introduce tus tres cartas. Explica cómo una posición cambia el significado.",
+    "Lee la lección de inversiones. Prueba una lectura interior o bloqueada sin asumir desastres.",
+    "Usa combinaciones o el ejemplo. Escribe una conexión y una alternativa.",
+    "Abre el espacio y restaura tu reflexión. Compara lo que notas ahora. Añade una línea con fecha; exporta antes de reemplazarla."
+  ],
+  "markDone": "Probé esta actividad",
+  "progress": "{n} de {total} actividades probadas",
+  "reset": "Reiniciar progreso",
+  "progressNote": "El progreso vive solo en este navegador, separado de la reflexión. No es una acreditación ni registro de cuenta. Borrar los datos lo elimina.",
+  "progressError": "No se pudo guardar el progreso. Toma nota o descarga la guía.",
+  "progressSaved": "Progreso guardado en este navegador.",
+  "reviewTitle": "Revisar mi reflexión guardada",
+  "reviewPrompt": "Restaura la reflexión abajo. ¿Qué cambió? Añade una línea con fecha y exporta la versión anterior antes de sustituirla.",
+  "appTitle": "App complementaria — próximamente",
+  "appNote": "La app para iPhone y Android está por llegar. Las referencias web funcionan hoy; aquí no hay escaneo, lecturas IA ni funciones de cuenta de la app.",
+  "footer": "Referencias y práctica de tarot de ShenTech, Singapur. Para entretenimiento y reflexión.",
+  "faq": [
+    {
+      "q": "¿Qué puedo usar hoy?",
+      "a": "Busca las 78 cartas, explora tiradas, introduce tus cartas y guarda o exporta una reflexión local. Sin cuenta ni solicitud de IA."
+    },
+    {
+      "q": "¿La web interpreta con IA?",
+      "a": "Todavía no. Ofrece referencias y práctica; no envía preguntas ni cartas a IA ni consume créditos."
+    },
+    {
+      "q": "¿Dónde se guarda mi reflexión?",
+      "a": "Solo en este navegador y dispositivo. Guardar reemplaza una copia, sin sincronizar cuentas. Exporta antes de borrar datos o cambiar de dispositivo."
+    },
+    {
+      "q": "¿Puedo escanear o descargar la app?",
+      "a": "La app llegará próximamente. En la web introduce tus cartas manualmente o usa las herramientas de tirada digital."
+    }
+  ],
+  "starNote": "El agua y las estrellas pueden invitar a renovarse tras una dificultad. Como desafío, pregunta si la esperanza necesita apoyo práctico.",
+  "twoNote": "La cinta puede sugerir equilibrio cambiante. Invertida, considera sobrecarga o ajustes de ritmo; no demuestra pérdidas.",
+  "eightNote": "Las monedas repetidas pueden sugerir habilidad mediante práctica. Como desafío, pregunta si la preparación se volvió perfeccionismo."
+}

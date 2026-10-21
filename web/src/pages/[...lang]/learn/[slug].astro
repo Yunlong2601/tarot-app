@@ -44,6 +44,7 @@ const jsonLd = [
     <p class="eyebrow">{fill(ix.step, { n: i + 1 })} · {fill(ix.minutes, { n: g.minutes })}</p>
     <h1>{g.h1}</h1>
     <p class="lead">{g.answer}</p>
+    <aside class="panel"><p><a href={u("learn/connected-reading")}>{L.growth.exampleTitle}</a></p><p><a href={u("learn/practice")}>{L.growth.practiceTitle}</a> · <a href={u("methodology")}>{L.growth.methodTitle}</a></p></aside>
     <nav class="toc" aria-label={pg.inThis}>
       <h2>{pg.inThis}</h2>
       <ol>{g.sections.map((s, n) => <li><a href={`#s${n + 1}`}>{s.h}</a></li>)}</ol>
