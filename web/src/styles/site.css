@@ -505,7 +505,7 @@ option { background:var(--bg-2); color:var(--fg); }
 .print-reading { display:none; }
 .spread-guide { margin-bottom:2rem; }
 .spread-diagram { display:grid; grid-template-columns:repeat(auto-fit,minmax(5rem,1fr)); gap:.65rem; padding:1rem; margin:1rem 0; background:var(--surface); border-radius:var(--radius); }
-.spread-map { grid-template-columns:repeat(5,minmax(0,1fr)); }
+.spread-map { grid-template-columns:repeat(var(--diagram-columns,5),minmax(0,1fr)); }
 .diagram-card { min-height:6rem; padding:.65rem .35rem; border:1px solid var(--line-strong); border-radius:9px; text-align:center; background:var(--bg-2); }
 .diagram-card b { display:block; font-size:1.4rem; color:var(--gold-2); }
 .diagram-card span { font-size:.78rem; overflow-wrap:anywhere; }

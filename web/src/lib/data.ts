@@ -31,18 +31,23 @@ export const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? "" :
  * (app/lib/data/spreads.dart). The backend's `purpose` text is written for the
  * reading model, not for people, so the site never shows it. Read at build
  * time; builds run from this folder. */
-function readAppSpreads(): Record<string, { blurb: string; source: string }> {
+function readAppSpreads(): Record<string, { blurb: string; source: string; layout: [number, number][] }> {
   const dart = readFileSync(join(process.cwd(), "../app/lib/data/spreads.dart"), "utf8");
   const consts = Object.fromEntries([...dart.matchAll(/^const (_\w+) = '([^']*)';/gm)].map((m) => [m[1], m[2]]));
   const text = (src: string) =>
     src.startsWith("_") ? consts[src]! : [...src.matchAll(/'([^']*)'/g)].map((m) => m[1]).join("");
-  const out: Record<string, { blurb: string; source: string }> = {};
+  const layouts = Object.fromEntries([...dart.matchAll(/const (_\w+) = \[([\s\S]*?)\];/g)].map(m => [m[1], m[2]]));
+  const out: Record<string, { blurb: string; source: string; layout: [number, number][] }> = {};
   for (const block of dart.split("SpreadDef(").slice(1)) {
     const wire = block.match(/wire: '([a-z_]+)'/)?.[1];
     const blurb = block.match(/blurb:\s*((?:'[^']*'\s*)+)/)?.[1];
     const source = block.match(/source:\s*((?:'[^']*'\s*)+|_\w+)/)?.[1];
     if (!wire || !blurb || !source) continue;
-    out[wire] = { blurb: text(blurb), source: text(source) };
+    const layoutSrc = block.match(/layout:\s*(_\w+|\[[\s\S]*?\]),/)?.[1];
+    const layoutText = layoutSrc?.startsWith('_') ? layouts[layoutSrc] : layoutSrc;
+    const layout = [...(layoutText ?? '').matchAll(/Offset\(([\d.]+),\s*([\d.]+)\)/g)].map(m => [Number(m[1]), Number(m[2])] as [number, number]);
+    if (layout.length !== SPREADS[wire as keyof typeof SPREADS].positions.length) throw new Error(`Missing layout for ${wire}`);
+    out[wire] = { blurb: text(blurb), source: text(source), layout };
   }
   for (const id of Object.keys(SPREADS)) {
     if (!out[id]) throw new Error(`No blurb or source for spread ${id} in spreads.dart`);
