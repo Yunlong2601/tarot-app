@@ -1,0 +1,71 @@
+---
+import Base from "../../../layouts/Base.astro";
+import Tabs from "../../../components/Tabs.astro";
+import { BASE } from "../../../config.ts";
+import { slug, type CardId } from "../../../lib/data.ts";
+import { PLANET_CARD, SIGNS, SUIT_OF } from "../../../lib/zodiac.ts";
+import { fill, i18n, langPaths, type Locale } from "../../../i18n/index.ts";
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Locale };
+const L = i18n(lang);
+const { t, url: u } = L;
+
+const card = (id: CardId) => L.cards[id]!;
+const sign = (s: string) => (L.content.signs as Record<string, { name: string; dates: string }>)[s]!;
+const sep = t("card.listSep");
+---
+<Base
+  title={t("zodiac.title")}
+  description={t("zodiac.description")}
+  path="tools/zodiac-tarot"
+  crumbs={[[t("toolsCrumb"), "tools"], [t("zodiac.crumb"), "tools/zodiac-tarot"]]}
+  lang={lang}
+>
+  <header class="page-head center">
+    <p class="eyebrow">{t("freeTool")}</p>
+    <h1>{t("zodiac.h1")}</h1>
+    <p class="lead">{t("zodiac.lead")}</p>
+  </header>
+  <div class="panel tool-panel" data-zodiac>
+    <label>{t("birthday")} <input type="date" data-bd /></label>
+    <button class="btn btn-gold" type="button" data-go>{t("zodiac.button")}</button>
+  </div>
+  <Tabs label={t("zodiac.signsLabel")} tabs={SIGNS.map((s) => ({ id: s.slug, label: sign(s.slug).name }))}>
+  {SIGNS.map((s) => {
+    const planet = PLANET_CARD[s.ruler]!;
+    const name = sign(s.slug).name;
+    const [before, after] = t("zodiac.decans", { sign: name }).split("{cards}");
+    return (
+      <section data-panel={s.slug}>
+        <h2>{name} <small class="muted">{sign(s.slug).dates}</small></h2>
+        <p>{t("zodiac.about", { element: L.assoc(s.element), suit: L.group(SUIT_OF[s.element]), ruler: L.assoc(s.ruler) })}</p>
+        <div class="card-notes">
+          <a class="panel" href={u(`cards/${slug(s.major)}`)}>
+            <img src={`${BASE}cards/art/${s.major}.jpg`} alt="" loading="lazy" width="150" height="257" />
+            <span><b>{card(s.major).name}</b>{t("zodiac.signCard", { sign: name, keywords: card(s.major).keywords.join(sep) })}</span>
+          </a>
+          <a class="panel" href={u(`cards/${slug(planet)}`)}>
+            <img src={`${BASE}cards/art/${planet}.jpg`} alt="" loading="lazy" width="150" height="257" />
+            <span><b>{card(planet).name}</b>{t("zodiac.rulerCard", { ruler: L.assoc(s.ruler), keywords: card(planet).keywords.join(sep) })}</span>
+          </a>
+        </div>
+        <p class="muted">{before}{s.decans.map((d, i) => <>{i > 0 && sep}<a href={u(`cards/${slug(d)}`)}>{card(d).name}</a></>)}{after}</p>
+        <p><a class="link-arrow" href={u(`zodiac/${s.slug}`)}>{fill(L.zodiac.ui.readMore, { sign: name })}</a></p>
+      </section>
+    );
+  })}
+  </Tabs>
+  <p class="muted section">{t("zodiac.datesNote")}</p>
+</Base>
+
+<script>
+  import { parseDate } from "../../../lib/numerology.ts";
+  import { signFor } from "../../../lib/zodiac.ts";
+
+  const root = document.querySelector<HTMLElement>("[data-zodiac]")!;
+  root.querySelector<HTMLButtonElement>("[data-go]")!.onclick = () => {
+    const d = parseDate(root.querySelector<HTMLInputElement>("[data-bd]")!.value);
+    if (d) location.hash = signFor(d[1], d[2]).slug;
+  };
+</script>

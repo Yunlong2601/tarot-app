@@ -1,0 +1,271 @@
+{
+ "groups": {
+  "major": "Los grandes temas y momentos decisivos de la vida",
+  "wands": "Energía, impulso y creatividad",
+  "cups": "Sentimientos, amor y relaciones",
+  "swords": "Pensamiento, conflicto y verdad",
+  "pentacles": "Trabajo, dinero y cuerpo"
+ },
+ "spreads": {
+  "single": {
+   "name": "Lectura de una carta",
+   "positions": ["La carta"],
+   "blurb": "Una pregunta bien planteada; un solo tema en el que fijarte.",
+   "source": "Una tirada tradicional de una carta."
+  },
+  "three": {
+   "name": "Pasado, presente, futuro",
+   "positions": ["Dónde empezó", "Dónde está", "Hacia dónde va"],
+   "blurb": "Un relato breve de cómo se ha desarrollado una situación.",
+   "source": "Una tirada moderna habitual de tres cartas."
+  },
+  "three_decision": {
+   "name": "Situación, desafío, camino a seguir",
+   "positions": ["La situación", "El desafío", "Un camino a seguir"],
+   "blurb": "Para plantear una decisión: qué está pasando y cómo avanzar.",
+   "source": "Una tirada moderna habitual de tres cartas."
+  },
+  "yes_no": {
+   "name": "Sí o no",
+   "positions": ["Primera carta", "El centro de la cuestión (cuenta doble)", "Tercera carta"],
+   "blurb": "Una pregunta de sí o no: hacia dónde se inclinan las cartas y por qué.",
+   "source": "Un método habitual de sí o no: las cartas al derecho se inclinan por el sí, las invertidas por el no, y la carta del centro cuenta doble. En esta tirada las cartas invertidas siempre están activadas."
+  },
+  "five_cross": {
+   "name": "Cruz de cinco cartas",
+   "positions": ["Lo que hay detrás", "El asunto en sí", "Lo que viene", "Lo que busco alcanzar", "Lo que me da arraigo"],
+   "blurb": "Un asunto claramente planteado, visto desde cinco ángulos.",
+   "source": "Una tirada tradicional que usan muchos lectores."
+  },
+  "horseshoe": {
+   "name": "Herradura de siete cartas",
+   "positions": ["Pasado", "Presente", "Influencias ocultas", "Obstáculos", "Influencias a mi alrededor", "Consejo", "Rumbo si el patrón continúa"],
+   "blurb": "Una situación concreta con varias influencias que se cruzan.",
+   "source": "Una tirada tradicional que usan muchos lectores."
+  },
+  "celtic": {
+   "name": "Cruz celta",
+   "positions": ["El centro de la cuestión", "Lo que se cruza", "Base", "Pasado reciente", "Objetivo", "Horizonte cercano", "Tú", "Entorno", "Esperanzas y temores", "Rumbo"],
+   "blurb": "Una situación compleja que necesita un mapa completo de influencias.",
+   "source": "Adaptada de la tirada que A. E. Waite describió en The Pictorial Key to the Tarot (1910)."
+  },
+  "love_connection": {
+   "name": "¿En qué punto estamos?",
+   "positions": ["Lo que aporto", "La conexión en sí", "Lo que me pide"],
+   "blurb": "¿En qué punto está esta relación y cuál es mi parte en ella?",
+   "source": "Diseñada por ShenTarot para la reflexión personal."
+  },
+  "love_bring": {
+   "name": "¿Es esta relación adecuada para mí?",
+   "positions": ["Lo que aporto", "Lo que necesito", "Lo que quizá estoy evitando"],
+   "blurb": "Lo que aporto, lo que necesito y lo que quizá estoy evitando.",
+   "source": "Diseñada por ShenTarot para la reflexión personal."
+  },
+  "love_reconnect": {
+   "name": "¿Volverá mi ex?",
+   "positions": ["Lo que terminó", "Lo que todavía cargo", "Lo que necesito entender", "Lo que puedo cambiar", "Lo que no está en mis manos", "Cómo podría ser la sanación", "Un próximo paso para mí"],
+   "blurb": "Las cartas no pueden decir lo que hará otra persona. Sí pueden mostrarte lo que todavía cargas y lo que puedes cambiar.",
+   "source": "Diseñada por ShenTarot para la reflexión personal."
+  },
+  "love_ready": {
+   "name": "¿Cuándo encontraré el amor?",
+   "positions": ["Cómo me siento ahora respecto al amor", "Lo que traigo del pasado", "Lo que de verdad quiero", "Lo que quizá me frena", "Lo que puedo ofrecer", "Cómo sería abrirme", "Un paso hacia ello"],
+   "blurb": "¿Estás preparado o preparada para un nuevo amor, y qué te ayudaría a abrirte a él?",
+   "source": "Diseñada por ShenTarot para la reflexión personal."
+  },
+  "career_path": {
+   "name": "Camino profesional",
+   "positions": ["Dónde estoy", "Lo que me frena", "Qué explorar a continuación"],
+   "blurb": "¿Dónde estoy en mi trabajo y qué podría explorar a continuación?",
+   "source": "Diseñada por ShenTarot para la reflexión personal."
+  },
+  "career_strengths": {
+   "name": "Fortalezas y crecimiento",
+   "positions": ["Mi fortaleza", "Mi desafío", "Lo que puedo aprender", "Lo que me apoya", "Un próximo paso"],
+   "blurb": "¿Cuáles son mis fortalezas en el trabajo y qué puedo desarrollar?",
+   "source": "Diseñada por ShenTarot para la reflexión personal."
+  },
+  "three_hhh": {
+   "name": "Mente, corazón, manos",
+   "positions": ["Lo que pienso", "Lo que siento", "Lo que haré"],
+   "blurb": "¿Qué pienso, qué siento, qué haré?",
+   "source": "Una tirada moderna de reflexión personal."
+  },
+  "growth_shadow_light": {
+   "name": "Sombra y luz",
+   "positions": ["Mi luz", "Mi sombra", "Unirlas"],
+   "blurb": "Una fortaleza, un lado oculto y cómo unirlos.",
+   "source": "Diseñada por ShenTarot para la reflexión personal."
+  }
+ },
+ "topics": {
+  "love": {
+   "name": "Amor",
+   "title": "Lectura de tarot del amor",
+   "intro": "El tarot no puede decirte lo que otra persona piensa o hará. Sí puede ayudarte a ver lo que aportas, lo que necesitas y lo que está en tus manos cambiar.",
+   "questions": ["¿Volverá mi ex?", "¿En qué punto está mi relación?", "¿Cuándo encontraré el amor?"]
+  },
+  "career": {
+   "name": "Trabajo",
+   "title": "Lectura de tarot del trabajo",
+   "intro": "Usa las cartas para ver en qué punto estás en el trabajo, qué te frena y qué podrías probar a continuación.",
+   "questions": ["¿Debería aceptar esta oferta de trabajo?", "¿Qué me frena en el trabajo?", "¿Qué podría explorar a continuación en mi carrera?"]
+  },
+  "daily": {
+   "name": "Diaria",
+   "title": "Lectura de tarot diaria",
+   "intro": "Una carta o tres para marcar tu enfoque del día o de la semana que empieza.",
+   "questions": ["¿En qué necesito enfocarme hoy?", "¿Qué energía debería llevar a esta semana?"]
+  },
+  "choices": {
+   "name": "Decisiones",
+   "title": "Tarot para tomar decisiones",
+   "intro": "Cuando estás sopesando una decisión, las cartas pueden mostrar la situación, lo que se interpone y un camino a seguir.",
+   "questions": ["¿Debería mudarme a otra ciudad?", "¿Qué necesito saber antes de decidir?"]
+  },
+  "growth": {
+   "name": "Crecimiento",
+   "title": "Tarot para la reflexión personal",
+   "intro": "Tiradas para conocerte mejor: lo que piensas, lo que sientes y lo que sigues repitiendo.",
+   "questions": ["¿Qué lección sigo repitiendo?", "¿Qué no estoy viendo de mí mismo o de mí misma?"]
+  }
+ },
+ "guides": {
+  "does-he-love-me": {
+   "question": "¿Me quiere?",
+   "answer": "El tarot no puede ver dentro del corazón de otra persona, y ninguna carta demuestra lo que alguien siente. Lo que sí puede hacer una lectura es mostrarte cómo se ve la conexión desde donde estás tú: lo que das, lo que recibes y lo que esperas.",
+   "better": ["¿Cómo me siento en esta relación?", "¿Cómo es la conexión entre nosotros ahora mismo?", "¿Qué necesito de esa persona que no estoy recibiendo?"],
+   "cards": {
+    "cups_two": "Un vínculo mutuo: las dos personas se encuentran a mitad de camino.",
+    "major_06_lovers": "Una elección real sobre valores y cercanía, no solo atracción.",
+    "cups_four": "Algo que se ofrece pasa desapercibido o se rechaza.",
+    "swords_three": "Un dolor que hay que nombrar antes de poder seguir adelante."
+   },
+   "tip": "Si te descubres sacando cartas una y otra vez buscando la misma respuesta, la lectura te está hablando de tu propia preocupación. Vale la pena escucharla."
+  },
+  "will-my-ex-come-back": {
+   "question": "¿Volverá mi ex?",
+   "answer": "Ninguna lectura puede prometer que alguien volverá. Una tirada de reconciliación examina qué terminó con la relación, qué ha cambiado desde entonces y qué necesitarías para que esta vez fuera distinto, para que puedas decidir si mantener la esperanza te hace bien.",
+   "better": ["¿Qué terminó con nuestra relación?", "¿Qué ha cambiado en mí desde que rompimos?", "¿Qué tendría que ser distinto si volviéramos?"],
+   "cards": {
+    "cups_six": "La nostalgia y la atracción del pasado, para bien o para mal.",
+    "swords_ten": "Un final claro: este capítulo está cerrado.",
+    "major_20_judgement": "Un ajuste de cuentas y la oportunidad de empezar de nuevo con los ojos abiertos.",
+    "cups_eight": "Alejarte de algo que ya no te llena."
+   },
+   "tip": "Pregunta qué quieres tú, no solo qué hará la otra persona. Sobre lo primero sí puedes actuar."
+  },
+  "will-i-meet-someone-new": {
+   "question": "¿Conoceré a alguien nuevo?",
+   "answer": "El tarot no puede darte una fecha ni un nombre. Una lectura para alguien sin pareja examina si estás preparado o preparada, qué buscas y qué puede estar frenándote, y eso suele importar más que el momento.",
+   "better": ["¿Estoy preparado o preparada para una nueva relación?", "¿Qué busco de verdad en una pareja?", "¿Qué me impide conocer a alguien?"],
+   "cards": {
+    "cups_ace": "Un sentimiento nuevo, o un corazón abierto y dispuesto a recibir.",
+    "cups_page": "Un comienzo ligero y curioso: un mensaje, un coqueteo, un primer paso.",
+    "swords_eight": "Sentirte atrapado o atrapada por creencias que no son tan fijas como parecen.",
+    "major_17_star": "La esperanza que vuelve después de una época difícil."
+   },
+   "tip": "Lee primero las cartas sobre ti. Suelen decir más sobre si estás preparado o preparada que sobre quién va a llegar."
+  },
+  "should-i-stay-in-my-relationship": {
+   "question": "¿Debería seguir en mi relación?",
+   "answer": "Esta decisión es tuya, y las cartas no deberían tomarla por ti. Una tirada de pareja puede mostrar en qué punto están las cosas entre ustedes, lo que aporta cada uno y lo que no se está diciendo, para que la elección sea más clara.",
+   "better": ["¿En qué punto está mi relación ahora mismo?", "¿Qué no le estoy diciendo a mi pareja?", "¿Qué ayudaría a que esta relación crezca?"],
+   "cards": {
+    "cups_ten": "Una satisfacción duradera y un sentido compartido de hogar.",
+    "swords_two": "Un punto muerto: evitar una decisión que ya intuyes.",
+    "cups_five": "Duelo por lo perdido, mientras algo permanece.",
+    "major_14_temperance": "Paciencia y equilibrio: resolver las cosas paso a paso."
+   },
+   "tip": "Si tú o alguien más no está a salvo, habla con alguien de confianza o con un servicio de apoyo local antes de hacer cualquier lectura."
+  },
+  "should-i-change-jobs": {
+   "question": "¿Debería cambiar de trabajo?",
+   "answer": "El tarot no puede ver el mercado laboral ni una carta de oferta. Una tirada de trabajo examina en qué punto estás ahora, qué te frena y qué podrías probar a continuación, para que puedas valorar el cambio con la cabeza más despejada.",
+   "better": ["¿Qué me hace querer dejar mi trabajo?", "¿Qué podría explorar a continuación en mi carrera?", "¿Qué necesitaría para que un cambio funcione?"],
+   "cards": {
+    "pentacles_eight": "Habilidad y trabajo constante: el crecimiento puede venir de mejorar donde ya estás.",
+    "wands_three": "Mirar hacia delante: los planes están en marcha y listos para ampliarse.",
+    "cups_eight": "Dejar atrás algo que ya no te llena.",
+    "pentacles_four": "Aferrarte con fuerza a la seguridad, quizá demasiado."
+   },
+   "tip": "Acompaña la lectura con pasos prácticos: habla con personas que tengan el puesto que quieres y revisa los números."
+  },
+  "will-i-get-the-job": {
+   "question": "¿Conseguiré el trabajo?",
+   "answer": "La decisión es de quienes contratan, y ninguna carta la conoce. Una lectura puede mostrar cómo te estás presentando, lo que aportas y en qué enfocarte antes o después de la entrevista, que es la parte que todavía puedes cambiar.",
+   "better": ["¿Qué fortalezas debería mostrar en esta entrevista?", "¿Qué podría jugar en mi contra en esta candidatura?", "¿Qué necesito saber sobre este puesto?"],
+   "cards": {
+    "wands_six": "Reconocimiento y un triunfo público.",
+    "pentacles_three": "Trabajo en equipo y que valoren tu habilidad.",
+    "swords_seven": "Algo que no se está diciendo abiertamente: revisa los detalles.",
+    "major_01_magician": "Tienes las herramientas que necesitas. Úsalas."
+   },
+   "tip": "Digan lo que digan las cartas, prepárate como si dependiera de ti. En buena parte, depende."
+  },
+  "should-i-move-to-a-new-city": {
+   "question": "¿Debería mudarme a otra ciudad?",
+   "answer": "Una tirada de sí o no puede servir como consulta rápida, pero una mudanza es una decisión grande con muchas partes. Usa una tirada corta para ver cómo te sientes al respecto y luego una tirada de decisión para comparar las opciones una al lado de la otra.",
+   "better": ["¿Qué necesito saber antes de decidir mudarme?", "¿Qué ganaría y a qué renunciaría?", "¿Qué me atrae de ese lugar?"],
+   "cards": {
+    "major_00_fool": "Un salto a lo desconocido, con confianza.",
+    "swords_six": "Avanzar hacia aguas más tranquilas, una transición que ayuda.",
+    "pentacles_ten": "Raíces, familia y seguridad a largo plazo.",
+    "wands_four": "Celebración y sensación de hogar."
+   },
+   "tip": "Pregunta por cada opción por separado y compáralas. Una sola lectura para los dos lugares puede mezclarlos."
+  },
+  "what-do-i-need-to-know-before-i-decide": {
+   "question": "¿Qué necesito saber antes de decidir?",
+   "answer": "Es una de las mejores preguntas que puedes llevar al tarot, porque pide perspectiva y no un veredicto. Una tirada de decisión examina la situación, lo que se interpone y el camino a seguir, y deja la elección en tus manos.",
+   "better": ["¿Qué no estoy viendo de esta decisión?", "¿Qué me pide cada opción?", "¿Qué es lo que más me importa aquí?"],
+   "cards": {
+    "swords_two": "Aplazar una decisión: quizá sea momento de mirar.",
+    "major_11_justice": "Sopesar las cosas con justicia y aceptar el resultado.",
+    "cups_seven": "Muchas opciones y algunas ilusiones: separa lo que es real.",
+    "major_02_high_priestess": "Un saber tranquilo: confía en lo que ya intuyes."
+   },
+   "tip": "Escribe tu decisión antes de sacar las cartas. Fíjate en cómo te sientes cuando una carta parece estar de acuerdo o en desacuerdo."
+  },
+  "why-do-i-feel-stuck": {
+   "question": "¿Por qué me siento estancado o estancada?",
+   "answer": "Sentirte estancado o estancada es una buena razón para sentarte con las cartas. Una tirada de reflexión personal examina lo que piensas, lo que sientes y lo que haces, y dónde esas tres cosas tiran en direcciones opuestas.",
+   "better": ["¿Qué no estoy viendo de mí ahora mismo?", "¿Qué lección sigo repitiendo?", "¿Qué pequeño paso me ayudaría a moverme?"],
+   "cards": {
+    "major_12_hanged_man": "Una pausa con propósito: ver las cosas desde un ángulo nuevo.",
+    "swords_eight": "Sentirte atrapado o atrapada por creencias que no son tan fijas como parecen.",
+    "major_15_devil": "Un hábito o apego que te tiene a ti más de lo que tú lo tienes a él.",
+    "wands_ace": "Una chispa de energía para un nuevo comienzo."
+   },
+   "tip": "Si la sensación de estancamiento dura o se vuelve pesada, hablar con un amigo o con un profesional ayuda más que cualquier tirada."
+  }
+ },
+ "lifePath": {
+  "1": "Independencia y nuevos comienzos. Te gusta liderar y abrirte tu propio camino.",
+  "2": "Compañerismo y equilibrio. Percibes lo que sienten los demás y ayudas a que las personas se encuentren a mitad de camino.",
+  "3": "Expresión y creatividad. Piensas en voz alta, creas cosas y unes a las personas.",
+  "4": "Constancia y trabajo duro. Construyes cosas que duran, paso a paso y con cuidado.",
+  "5": "Libertad y cambio. Aprendes probando, viajando y arriesgándote.",
+  "6": "Cuidado y responsabilidad. Cuidas de las personas, los hogares y las comunidades.",
+  "7": "Reflexión y búsqueda. Necesitas tiempo a solas para pensar y descubrir lo que es verdad.",
+  "8": "Ambición y resultados. Te atraen el trabajo, el dinero y dejar huella.",
+  "9": "Compasión y culminación. Ves el panorama general y quieres devolver algo.",
+  "11": "Un número maestro: intuición e inspiración. Percibes las cosas antes que nadie y puedes iluminar el camino de los demás.",
+  "22": "Un número maestro: el maestro constructor. Puedes convertir grandes ideas en algo real.",
+  "33": "Un número maestro: el gran maestro. Guías con amabilidad y con el ejemplo."
+ },
+ "signs": {
+  "aries": {"name": "Aries", "dates": "21 de marzo al 19 de abril"},
+  "taurus": {"name": "Tauro", "dates": "20 de abril al 20 de mayo"},
+  "gemini": {"name": "Géminis", "dates": "21 de mayo al 20 de junio"},
+  "cancer": {"name": "Cáncer", "dates": "21 de junio al 22 de julio"},
+  "leo": {"name": "Leo", "dates": "23 de julio al 22 de agosto"},
+  "virgo": {"name": "Virgo", "dates": "23 de agosto al 22 de septiembre"},
+  "libra": {"name": "Libra", "dates": "23 de septiembre al 22 de octubre"},
+  "scorpio": {"name": "Escorpio", "dates": "23 de octubre al 21 de noviembre"},
+  "sagittarius": {"name": "Sagitario", "dates": "22 de noviembre al 21 de diciembre"},
+  "capricorn": {"name": "Capricornio", "dates": "22 de diciembre al 19 de enero"},
+  "aquarius": {"name": "Acuario", "dates": "20 de enero al 18 de febrero"},
+  "pisces": {"name": "Piscis", "dates": "19 de febrero al 20 de marzo"}
+ }
+}

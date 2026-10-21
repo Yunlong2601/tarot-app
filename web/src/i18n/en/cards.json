@@ -1,0 +1,2498 @@
+{
+ "major_00_fool": {
+  "name": "The Fool",
+  "keywords": [
+   "beginnings",
+   "spontaneity",
+   "trust"
+  ],
+  "upright": "A fresh start asks for a leap of faith. Stay curious and open to what is new.",
+  "reversed": "Hesitation or carelessness. Pause to check the ground before you step.",
+  "k": {
+   "essence": "The step you take before you feel ready.",
+   "imagery": "A traveller stands at the edge of a cliff under a bright sun, head tilted up and not looking down. A small bundle hangs on a stick, a white rose is in one hand, and a little white dog bounds at the heel. Mountains rise far behind.",
+   "why": "Zero is the number of potential, before anything has been counted, so this card is about starting with nothing proven. The cliff edge is the decision point. The upturned gaze reads as trust rather than planning, the light bundle as travelling without baggage, and the dog as instinct urging you on.",
+   "upright": {
+    "core": "A beginning whose result cannot be known yet, and an invitation to move anyway.",
+    "light": "curiosity, play, willingness to be a beginner, trust",
+    "shadow": "enthusiasm that skips the basics",
+    "love": "Openness to meeting a person or an experience without a script; in an existing relationship, trying something new together.",
+    "work": "Starting an unproven project, a change of direction, saying yes before you feel qualified.",
+    "question": "What would I start if I accepted that I will be clumsy at first?"
+   },
+   "reversed": {
+    "core": "The energy of beginning is present but held back, rushed or pointed nowhere.",
+    "modes": [
+     "Blocked: hesitation at the edge, always preparing.",
+     "Excess: the leap without a look at the ground.",
+     "Inward: a plan you keep private because saying it makes it real."
+    ],
+    "question": "Am I waiting for certainty that will not arrive, or moving so fast I am not actually choosing?"
+   }
+  }
+ },
+ "major_01_magician": {
+  "name": "The Magician",
+  "keywords": [
+   "skill",
+   "focus",
+   "resourcefulness"
+  ],
+  "upright": "You already hold the tools you need. Gather your attention and act with intent.",
+  "reversed": "Scattered energy or unused talent. Ask what is holding your focus back.",
+  "k": {
+   "essence": "You already hold what you need to begin.",
+   "imagery": "A figure in a white robe and red cloak raises one wand to the sky and points the other hand to the ground. An infinity sign floats above the head. On the table before the figure lie a cup, a sword, a wand and a pentacle, and roses and lilies bloom below.",
+   "why": "One is the number of a single point of focus. The four tools on the table stand for the four suits, so every kind of resource is within reach. The raised and lowered hands are commonly read as bringing an idea down into the world. Mercury, the card's usual planet, points to skill and communication.",
+   "upright": {
+    "core": "Focus turns what is possible into something real. You have more to work with than you may think.",
+    "light": "skill, focus, initiative",
+    "shadow": "cleverness without sincerity, many tricks and little follow-through",
+    "love": "Saying plainly what you want and meaning it; sincerity over performance.",
+    "work": "Using your skills on purpose, starting a project with a plan.",
+    "question": "What do I already have that I am not using?"
+   },
+   "reversed": {
+    "core": "Skill and focus are scattered, held back, or used for show.",
+    "modes": [
+     "Blocked: knowing what to do and not starting.",
+     "Excess: promising more than you deliver.",
+     "Inward: a talent kept private."
+    ],
+    "question": "Where is my attention going instead of where I say I want it?"
+   }
+  }
+ },
+ "major_02_high_priestess": {
+  "name": "The High Priestess",
+  "keywords": [
+   "intuition",
+   "stillness",
+   "the unspoken"
+  ],
+  "upright": "Quiet reflection brings answers that noise cannot. Trust what you sense beneath the surface.",
+  "reversed": "Ignoring your inner voice, or keeping something hidden from yourself.",
+  "k": {
+   "essence": "What you sense before you can explain it.",
+   "imagery": "A woman in blue robes sits between a black pillar and a white pillar marked with the letters B and J. A crescent moon rests at her feet and a scroll is half hidden in her lap. Behind her hangs a curtain patterned with pomegranates.",
+   "why": "Two is the number of pairs and thresholds. The pillars mark a doorway between opposites, and the curtain hides what lies beyond it. The Moon, her usual association, is the traditional symbol of intuition and what is not yet visible.",
+   "upright": {
+    "core": "Stillness before deciding: listening to what is unspoken, in the situation and in you.",
+    "light": "intuition, patience, discretion",
+    "shadow": "secrecy, holding back too long",
+    "love": "Noticing what is left unsaid between people, and what you have not admitted to yourself.",
+    "work": "Gathering information before acting; trusting a quiet read of the room.",
+    "question": "What do I already sense but have not said out loud?"
+   },
+   "reversed": {
+    "core": "Intuition is drowned out, or secrets are kept too tightly.",
+    "modes": [
+     "Blocked: noise and busyness over the inner voice.",
+     "Inward: feelings hidden even from yourself.",
+     "Excess: overthinking, reading too much into small signs."
+    ],
+    "question": "When did I last go quiet enough to hear what I think?"
+   }
+  }
+ },
+ "major_03_empress": {
+  "name": "The Empress",
+  "keywords": [
+   "nurture",
+   "abundance",
+   "creativity"
+  ],
+  "upright": "Care, comfort and growth are available. Tend what you love and let it flourish.",
+  "reversed": "Smothering, neglecting yourself, or a creative block.",
+  "k": {
+   "essence": "Growth that comes from care.",
+   "imagery": "A woman in a flowing gown patterned with pomegranates sits on cushions in a field of ripe wheat. She wears a crown of stars and holds a sceptre. A heart-shaped shield with the symbol of Venus rests beside her, and a stream and a forest lie behind.",
+   "why": "Three is the number of growth and first results. Wheat, water and forest show nature at its fullest. Venus, her usual planet, points to love, pleasure and the senses.",
+   "upright": {
+    "core": "Nurture, creativity and enjoyment: things grow where they are tended.",
+    "light": "generosity, creativity, comfort",
+    "shadow": "smothering, overindulgence",
+    "love": "Warmth and care, giving and receiving; learning to let yourself be looked after.",
+    "work": "A creative project ripening, caring for a team or a process.",
+    "question": "What in my life needs tending rather than pushing?"
+   },
+   "reversed": {
+    "core": "Care is blocked, overdone, or neglected, including care for yourself.",
+    "modes": [
+     "Blocked: a creative dry spell.",
+     "Excess: over-giving or smothering.",
+     "Fading: your own needs left last."
+    ],
+    "question": "Am I giving from fullness, or from habit?"
+   }
+  }
+ },
+ "major_04_emperor": {
+  "name": "The Emperor",
+  "keywords": [
+   "structure",
+   "authority",
+   "stability"
+  ],
+  "upright": "Clear boundaries and steady planning create a solid base. Lead with calm.",
+  "reversed": "Rigidity or control. Ask where firmness has become stubbornness.",
+  "k": {
+   "essence": "Order that protects and builds.",
+   "imagery": "A bearded ruler in red robes over armour sits on a stone throne with ram heads on its arms. He holds an ankh-topped sceptre and an orb. Bare mountains rise behind him.",
+   "why": "Four is the number of structure and stability. The ram belongs to Aries, the first sign, linked with initiative. The barren mountains suggest authority built on discipline rather than comfort.",
+   "upright": {
+    "core": "Structure, boundaries and responsibility: using order to look after what matters.",
+    "light": "leadership, stability, clear limits",
+    "shadow": "rigidity, control",
+    "love": "Clear commitments and steadiness; where firmness turns into control.",
+    "work": "Setting up systems and rules, taking responsibility for an outcome.",
+    "question": "What structure would make this situation steadier?"
+   },
+   "reversed": {
+    "core": "Structure turns into rigidity, or falls away.",
+    "modes": [
+     "Excess: control and stubbornness.",
+     "Deficit: no boundaries, no plan.",
+     "Inward: carrying authority uneasily."
+    ],
+    "question": "Where am I holding on tightly because I fear losing control?"
+   }
+  }
+ },
+ "major_05_hierophant": {
+  "name": "The Hierophant",
+  "keywords": [
+   "tradition",
+   "guidance",
+   "belonging"
+  ],
+  "upright": "Learning from established wisdom or community can steady you.",
+  "reversed": "Questioning rules that no longer fit. Find your own path to meaning.",
+  "k": {
+   "essence": "Learning from a shared tradition.",
+   "imagery": "A robed figure in a triple crown sits between two grey pillars, one hand raised in blessing. Two crossed keys lie at his feet and two figures kneel in front of him.",
+   "why": "The Hierophant is the teacher of established ways. The pillars and keys point to a doorway to knowledge that is passed on in a community. Taurus, his usual sign, is steady and loyal to what has been proven.",
+   "upright": {
+    "core": "Belonging to a tradition, a group or a teacher, and learning the established way first.",
+    "light": "mentorship, shared values, commitment",
+    "shadow": "conformity, doing it because it has always been done",
+    "love": "Shared values and rituals that hold people together.",
+    "work": "Formal learning, mentors, working inside an institution or a recognised path.",
+    "question": "Which tradition or teacher is serving me, and which am I following out of habit?"
+   },
+   "reversed": {
+    "core": "Inherited rules are being questioned, or are stuck in place.",
+    "modes": [
+     "Releasing: stepping away from convention.",
+     "Blocked: unwilling to learn from others.",
+     "Excess: rules held as dogma."
+    ],
+    "question": "Whose rules am I living by?"
+   }
+  }
+ },
+ "major_06_lovers": {
+  "name": "The Lovers",
+  "keywords": [
+   "choice",
+   "connection",
+   "alignment"
+  ],
+  "upright": "A meaningful choice that reflects your values, or a bond that asks for honesty.",
+  "reversed": "Misalignment or indecision. Check whether your actions match what you value.",
+  "k": {
+   "essence": "A choice that asks you to be honest about your values.",
+   "imagery": "A man and a woman stand unclothed under a bright sun. An angel spreads its arms above them. Behind the woman is a tree with a snake and behind the man a tree of flames.",
+   "why": "Six is the number of exchange and harmony. Gemini, the twins, is the sign of duality and choice. The angel suggests a wider view than either person has alone. Although it is often read as romance, the heart of the card is a choice made in line with what you value.",
+   "upright": {
+    "core": "A meaningful choice or connection that asks you to act in line with your values.",
+    "light": "honesty, harmony, commitment",
+    "shadow": "indecision, choosing in order to please",
+    "love": "Honest connection, and whether your actions match what you say you want.",
+    "work": "A choice or partnership that fits your values, not only your convenience.",
+    "question": "What would I choose if I were fully honest about what matters to me?"
+   },
+   "reversed": {
+    "core": "Choices are delayed, or values and actions are out of tune.",
+    "modes": [
+     "Blocked: putting off the decision.",
+     "Excess: leaning too hard on another person's view.",
+     "Fading: a sense of drifting apart."
+    ],
+    "question": "Where am I saying yes while meaning no?"
+   }
+  }
+ },
+ "major_07_chariot": {
+  "name": "The Chariot",
+  "keywords": [
+   "determination",
+   "drive",
+   "direction"
+  ],
+  "upright": "Willpower and focus move you forward. Hold the reins steady.",
+  "reversed": "Losing direction, or pushing too hard without a plan.",
+  "k": {
+   "essence": "Moving forward by holding opposing pulls together.",
+   "imagery": "An armoured figure stands upright in a chariot under a canopy of stars. A black sphinx and a white sphinx rest in front of it, and the figure holds no reins. A city lies behind.",
+   "why": "Seven is the number of tests. The two sphinxes face different ways, so the driver steers by will and focus, not by force. Cancer, the usual sign, gives a protective shell around a determined aim.",
+   "upright": {
+    "core": "Disciplined drive: you keep moving by holding competing pulls in line.",
+    "light": "determination, focus, momentum",
+    "shadow": "force without direction, running over others",
+    "love": "Choosing where to put your energy and sticking with it.",
+    "work": "Pushing a project through to the end; staying focused under pressure.",
+    "question": "What am I steering, and where do I want it to go?"
+   },
+   "reversed": {
+    "core": "Drive is scattered, stalled or turned aggressive.",
+    "modes": [
+     "Blocked: stuck without direction.",
+     "Excess: forcing things, aggression.",
+     "Inward: pulled two ways at once."
+    ],
+    "question": "Am I steering, or being dragged?"
+   }
+  }
+ },
+ "major_08_strength": {
+  "name": "Strength",
+  "keywords": [
+   "courage",
+   "patience",
+   "compassion"
+  ],
+  "upright": "Quiet courage and gentleness handle what force cannot.",
+  "reversed": "Self-doubt or running on empty. Rebuild confidence in small steps.",
+  "k": {
+   "essence": "Courage that is gentle.",
+   "imagery": "A woman in white, with an infinity sign above her head, calmly closes the mouth of a lion. She wears a garland of flowers and mountains rise behind.",
+   "why": "In this deck Strength is numbered eight (Justice is eleven). Eight is the number of steady effort. The picture shows strength as patience rather than force: the lion is not beaten but befriended. Leo, her usual sign, is the lion.",
+   "upright": {
+    "core": "Quiet courage: meeting a strong feeling with patience and kindness instead of a fight.",
+    "light": "patience, resilience, self-compassion",
+    "shadow": "self-doubt, pushing feelings down",
+    "love": "Staying steady and gentle when emotions run high.",
+    "work": "Keeping calm under pressure; leading by example.",
+    "question": "What would patience look like here?"
+   },
+   "reversed": {
+    "core": "Strength is drained, or force takes the place of gentleness.",
+    "modes": [
+     "Fading: running low on energy.",
+     "Blocked: self-doubt.",
+     "Excess: trying to tame a feeling by force."
+    ],
+    "question": "What am I trying to force that needs gentleness?"
+   }
+  }
+ },
+ "major_09_hermit": {
+  "name": "The Hermit",
+  "keywords": [
+   "solitude",
+   "reflection",
+   "inner guidance"
+  ],
+  "upright": "Step back to think. Time alone can show you what matters.",
+  "reversed": "Isolation or avoiding reflection. Balance solitude with connection.",
+  "k": {
+   "essence": "Stepping back to find your own answer.",
+   "imagery": "An old figure in a grey cloak stands on a snowy peak. One hand holds a lantern with a six-pointed star inside and the other a staff.",
+   "why": "Nine is the number of near-completion and solitude. The lantern lights only the next few steps, which is how inner guidance often works. Virgo, the usual sign, is careful and discerning.",
+   "upright": {
+    "core": "Time apart to hear your own thoughts and decide what matters.",
+    "light": "wisdom, focus, chosen solitude",
+    "shadow": "isolation, avoiding people or choices",
+    "love": "Time alone to understand what you want; sharing it when ready.",
+    "work": "Deep focus, research, finding a mentor or becoming one.",
+    "question": "What do I hear when everything gets quiet?"
+   },
+   "reversed": {
+    "core": "Solitude turns into isolation, or you cannot be alone with your thoughts.",
+    "modes": [
+     "Excess: withdrawing too far.",
+     "Blocked: restless, unable to be still.",
+     "Fading: coming back toward other people."
+    ],
+    "question": "Is this solitude restoring me or hiding me?"
+   }
+  }
+ },
+ "major_10_wheel_of_fortune": {
+  "name": "Wheel of Fortune",
+  "keywords": [
+   "cycles",
+   "change",
+   "perspective"
+  ],
+  "upright": "Things turn in cycles. Adapt to change and look for what it offers.",
+  "reversed": "Resisting change or feeling stuck in a loop. Look for what you can influence.",
+  "k": {
+   "essence": "A cycle turning, with you inside it.",
+   "imagery": "A great wheel marked with letters and symbols turns in the sky. A snake descends on one side and a jackal-headed figure rises on the other, while a sphinx holding a sword sits on top. Four winged figures, each reading a book, float in the corners among clouds.",
+   "why": "Ten is the number of a completed cycle. Jupiter, the usual planet, is linked with expansion and luck. The picture is about rising and falling, and about what stays steady while the wheel moves.",
+   "upright": {
+    "core": "Circumstances shift in cycles. You cannot stop the wheel, but you can choose how to meet it.",
+    "light": "perspective, timing, a new chapter",
+    "shadow": "feeling at the mercy of events",
+    "love": "Phases and patterns in relationships; seeing your own part in them.",
+    "work": "Changing circumstances; staying adaptable.",
+    "question": "What cycle am I in, and what is it asking of me?"
+   },
+   "reversed": {
+    "core": "You resist a change, or feel stuck in a loop.",
+    "modes": [
+     "Blocked: stuck in a repeating pattern.",
+     "Fading: a cycle winding down.",
+     "Inward: change happening inside first."
+    ],
+    "question": "What pattern keeps repeating, and what is my part in it?"
+   }
+  }
+ },
+ "major_11_justice": {
+  "name": "Justice",
+  "keywords": [
+   "fairness",
+   "truth",
+   "accountability"
+  ],
+  "upright": "Weigh the facts honestly. Clear, fair choices bring balance.",
+  "reversed": "Bias, dodging responsibility, or an unbalanced view.",
+  "k": {
+   "essence": "An honest look at the facts, and at your part in them.",
+   "imagery": "A crowned figure in a red robe sits between two pillars. One hand holds an upright sword and the other a pair of scales. A purple veil hangs behind.",
+   "why": "In this deck Justice is numbered eleven. The scales weigh, the sword cuts through, and the figure is seated, so the card is about calm judgment and cause and effect. Libra, the usual sign, is the sign of the scales.",
+   "upright": {
+    "core": "Seeing a situation fairly and owning your choices.",
+    "light": "fairness, clarity, accountability",
+    "shadow": "harsh judgment, rigidity",
+    "love": "An honest conversation about what each person is doing.",
+    "work": "Decisions based on honest facts, treating people fairly.",
+    "question": "What would a fair account of this situation include?"
+   },
+   "reversed": {
+    "core": "Bias, avoiding consequences, or judging yourself too harshly.",
+    "modes": [
+     "Blocked: avoiding accountability.",
+     "Excess: harsh judging of others.",
+     "Inward: the scales are unfair to yourself."
+    ],
+    "question": "Am I being fair to myself?"
+   }
+  }
+ },
+ "major_12_hanged_man": {
+  "name": "The Hanged Man",
+  "keywords": [
+   "pause",
+   "surrender",
+   "new angle"
+  ],
+  "upright": "Stopping to see differently can unlock a stuck situation.",
+  "reversed": "Stalling without purpose. Ask whether waiting is still helping.",
+  "k": {
+   "essence": "A pause that shows you something new.",
+   "imagery": "A figure hangs upside down by one foot from a living wooden frame, hands behind the back and one leg bent. A halo of light surrounds the calm face.",
+   "why": "Twelve closes a full set, and the card is about stopping rather than doing. The hanging is voluntary; the face is peaceful. Water, the usual element, suggests letting go of control and seeing from a new angle.",
+   "upright": {
+    "core": "Stopping on purpose lets you see the situation from another side.",
+    "light": "patience, perspective, letting go",
+    "shadow": "stalling, feeling like a martyr",
+    "love": "Pausing to see a situation from the other person's side, or your own.",
+    "work": "Waiting for the right moment; a change of viewpoint.",
+    "question": "What do I see if I stop trying to fix this?"
+   },
+   "reversed": {
+    "core": "The pause has become delay, or a sacrifice that serves no one.",
+    "modes": [
+     "Blocked: stalling.",
+     "Excess: a martyr role.",
+     "Releasing: ending a pause and getting ready to move."
+    ],
+    "question": "Am I waiting for a reason, or avoiding a choice?"
+   }
+  }
+ },
+ "major_13_death": {
+  "name": "Death",
+  "keywords": [
+   "endings",
+   "transition",
+   "release"
+  ],
+  "upright": "One chapter closes so another can begin. Let go of what has run its course.",
+  "reversed": "Clinging to the past or fearing a needed change.",
+  "k": {
+   "essence": "An ending that is already underway.",
+   "imagery": "A skeleton in black armour rides a white horse and carries a black banner with a white flower. A bishop pleads, a child offers flowers, a king lies fallen and a young woman looks away. In the distance a river runs and the sun rises between two towers.",
+   "why": "The picture is about how people respond to an ending: the king cannot stop it, the bishop's prayer does not slow it, the child meets it with curiosity. The flower on the banner is commonly read as life continuing, and the sunrise as what comes after. Thirteen follows a full set of twelve, so tradition treats it as the number of transformation. It is not a prediction of physical death.",
+   "upright": {
+    "core": "A chapter, role, habit or belief has finished, and holding on now costs more than letting go.",
+    "light": "closure, clearing out, relief",
+    "shadow": "grief, especially if the ending was not your choice",
+    "love": "A pattern or phase of a relationship changing; putting down an old story about someone or about yourself.",
+    "work": "The end of a role, project or way of working; making room for something different.",
+    "question": "What has already ended that I am still acting as if it has not?"
+   },
+   "reversed": {
+    "core": "The ending is being resisted, dragged out or only partly accepted.",
+    "modes": [
+     "Blocked: clinging past the natural end.",
+     "Fading: an ending that drags on because nobody names it.",
+     "Inward: quietly knowing something is over and not saying so yet."
+    ],
+    "question": "What would I have to admit is over in order to move?"
+   }
+  }
+ },
+ "major_14_temperance": {
+  "name": "Temperance",
+  "keywords": [
+   "balance",
+   "patience",
+   "moderation"
+  ],
+  "upright": "Blend opposing needs with patience. Steady, measured steps work best.",
+  "reversed": "Excess or impatience. Look for where things are out of balance.",
+  "k": {
+   "essence": "Finding the middle path.",
+   "imagery": "An angel with large wings stands with one foot in water and one on land, pouring liquid between two cups. A path winds toward a glow between distant mountains, and irises grow nearby.",
+   "why": "Fourteen follows the turning point of the Majors and brings blending and recovery. Pouring between cups is about combining opposites at a steady pace. Sagittarius, the usual sign, adds the long view.",
+   "upright": {
+    "core": "Blending opposites patiently and keeping a steady pace.",
+    "light": "balance, patience, moderation",
+    "shadow": "lukewarm avoidance of commitment",
+    "love": "Patience and giving each other room to differ.",
+    "work": "A sustainable pace, collaboration, combining skills.",
+    "question": "What two things in my life need blending rather than choosing between?"
+   },
+   "reversed": {
+    "core": "Things are out of balance, or pushed to extremes.",
+    "modes": [
+     "Excess: overdoing it.",
+     "Deficit: impatience, wanting results now.",
+     "Blocked: cannot find a middle way."
+    ],
+    "question": "Where have I tipped too far to one side?"
+   }
+  }
+ },
+ "major_15_devil": {
+  "name": "The Devil",
+  "keywords": [
+   "attachment",
+   "habit",
+   "shadow"
+  ],
+  "upright": "Notice what holds you, whether a habit, a belief or a dependency, and how much choice you really have.",
+  "reversed": "Loosening a grip. Awareness is the first step toward freedom.",
+  "k": {
+   "essence": "Seeing what holds you, and how loosely.",
+   "imagery": "A horned figure perches on a block, one hand raised and the other holding a torch. A man and a woman, each with small horns and a tail, stand chained at the neck to the block. The chains are loose enough to lift off.",
+   "why": "Fifteen sits in the third act of the Majors, where hidden pulls come into view. Capricorn, the usual sign, is earthly and practical, and the card is about material attachment, habit and the shadow side. The loose chains suggest the hold is partly chosen. It is not a literal devil.",
+   "upright": {
+    "core": "Seeing a habit, attachment or fear that you could loosen once you name it.",
+    "light": "honesty about desire, naming what holds you",
+    "shadow": "feeling stuck, repeating a pattern (if a habit is affecting your health, a professional can help)",
+    "love": "Patterns of dependence or control in how people relate; noticing your own part.",
+    "work": "A job or arrangement kept for comfort rather than meaning.",
+    "question": "What am I holding that I could put down?"
+   },
+   "reversed": {
+    "core": "A hold is loosening, or you are avoiding seeing it.",
+    "modes": [
+     "Releasing: slipping out of a grip.",
+     "Blocked: denial.",
+     "Inward: quietly aware but not yet acting."
+    ],
+    "question": "What would I do if I trusted that I could step out?"
+   }
+  }
+ },
+ "major_16_tower": {
+  "name": "The Tower",
+  "keywords": [
+   "upheaval",
+   "revelation",
+   "reset"
+  ],
+  "upright": "A sudden shake-up reveals what was not stable. Clear ground makes room to rebuild.",
+  "reversed": "Fear of change or a slow-burning problem. Face it rather than wait.",
+  "k": {
+   "essence": "What was never stable comes down.",
+   "imagery": "A tall tower on a crag is struck by lightning. The crown flies off, flames burst from the windows and two figures fall. The sky is dark.",
+   "why": "Sixteen is the number of the break. Mars, the usual planet, is the planet of sudden force. The tower is a structure built on a weak base, and the lightning is revelation as much as damage.",
+   "upright": {
+    "core": "Something built on shaky ground comes down, clearing space for something more honest.",
+    "light": "revelation, release, a more honest start",
+    "shadow": "shock, fear of loss",
+    "love": "Sudden honesty or a change in a pattern; reacting to news.",
+    "work": "Plans that no longer hold; rebuilding a different way.",
+    "question": "What was never stable that I have been propping up?"
+   },
+   "reversed": {
+    "core": "The shock is being avoided, or you are in its aftermath.",
+    "modes": [
+     "Blocked: resisting something that is already coming apart.",
+     "Fading: a slow unravelling.",
+     "Inward: a private crisis."
+    ],
+    "question": "What small honest change could I make before things have to break?"
+   }
+  }
+ },
+ "major_17_star": {
+  "name": "The Star",
+  "keywords": [
+   "hope",
+   "renewal",
+   "calm"
+  ],
+  "upright": "Gentle hope returns after a hard stretch. Rest and trust a slow recovery.",
+  "reversed": "Doubt or low motivation. Be kind to yourself and keep small hopes alive.",
+  "k": {
+   "essence": "Quiet hope after a hard stretch.",
+   "imagery": "A woman kneels beside a pool, pouring water from two jugs, one onto land and one into the pool. A large eight-pointed star shines above her with seven smaller ones, and a bird perches in a tree behind.",
+   "why": "Seventeen comes right after the Tower, so this is calm after upheaval. The two jugs are about giving back to the earth and to yourself. Aquarius, the usual sign, is the water-bearer, linked with hope and openness.",
+   "upright": {
+    "core": "Gentle renewal and trust coming back after difficulty.",
+    "light": "hope, healing, honesty",
+    "shadow": "wishing without acting, feeling detached",
+    "love": "Gentleness, starting to trust again.",
+    "work": "Renewed motivation; a clearer sense of what you want to work toward.",
+    "question": "What helps me feel hopeful, and how can I do more of it?"
+   },
+   "reversed": {
+    "core": "Hope is dimming, or has become vague.",
+    "modes": [
+     "Fading: discouragement.",
+     "Blocked: no light in sight.",
+     "Excess: wishing without acting."
+    ],
+    "question": "What small thing could bring back a bit of trust?"
+   }
+  }
+ },
+ "major_18_moon": {
+  "name": "The Moon",
+  "keywords": [
+   "uncertainty",
+   "dreams",
+   "intuition"
+  ],
+  "upright": "Things are not fully clear. Move carefully and notice your fears and instincts.",
+  "reversed": "Confusion lifting, or anxiety that needs grounding.",
+  "k": {
+   "essence": "Things are not yet clear.",
+   "imagery": "A full moon with a face shines between two towers. A dog and a wolf howl at it, and a crayfish crawls from a pool onto a winding path that leads into the distance.",
+   "why": "Eighteen sits near the end of the journey, where the unconscious is loud. The moon gives light, but not enough to see clearly. Pisces, the usual sign, is dreamy and sensitive.",
+   "upright": {
+    "core": "Feelings and imagination colour what you see, so take your time and gather more light.",
+    "light": "intuition, creativity, imagination",
+    "shadow": "fear, projection, confusion",
+    "love": "Unclear feelings, or imagining what another person thinks.",
+    "work": "Working with incomplete information; avoiding hasty conclusions.",
+    "question": "What am I afraid of that has not actually happened?"
+   },
+   "reversed": {
+    "core": "The fog is lifting, or the confusion is deepening.",
+    "modes": [
+     "Fading: things start to become clear.",
+     "Excess: anxiety spiralling.",
+     "Inward: a fear kept hidden."
+    ],
+    "question": "What would look different in daylight?"
+   }
+  }
+ },
+ "major_19_sun": {
+  "name": "The Sun",
+  "keywords": [
+   "joy",
+   "vitality",
+   "clarity"
+  ],
+  "upright": "Warmth, confidence and openness. Enjoy what is going well.",
+  "reversed": "Dimmed enthusiasm or too much ego. Look for small sources of light.",
+  "k": {
+   "essence": "Plain, uncomplicated warmth.",
+   "imagery": "A child on a white horse holds a red banner under a large sun. Sunflowers rise over a wall behind.",
+   "why": "Nineteen is near the end of the journey, and the picture is open and bright, with nothing hidden. The Sun is the card's usual planet: vitality and clarity.",
+   "upright": {
+    "core": "Warmth, clarity and simple joy.",
+    "light": "optimism, vitality, openness",
+    "shadow": "overconfidence, ignoring complexity",
+    "love": "Openness and playfulness with the people you trust.",
+    "work": "Feeling confident and clear about work you care about.",
+    "question": "What brings me plain, uncomplicated joy?"
+   },
+   "reversed": {
+    "core": "The warmth is dimmed or forced.",
+    "modes": [
+     "Blocked: clouds in the way.",
+     "Excess: forced positivity.",
+     "Fading: tiredness."
+    ],
+    "question": "Where am I pretending to be brighter than I feel?"
+   }
+  }
+ },
+ "major_20_judgement": {
+  "name": "Judgement",
+  "keywords": [
+   "reflection",
+   "renewal",
+   "calling"
+  ],
+  "upright": "A moment of honest review. Forgive the past and answer your inner call.",
+  "reversed": "Self-criticism or avoiding a necessary decision.",
+  "k": {
+   "essence": "A call to look back and begin again.",
+   "imagery": "An angel blows a trumpet from the clouds. Below, figures with raised arms rise from open coffins. Snowy mountains stand behind.",
+   "why": "Twenty is the number of the awakening before completion. The trumpet is a call, and the rising figures are people answering. The card is about review and renewal, not a verdict handed down.",
+   "upright": {
+    "core": "A moment of reckoning and renewal: hearing a call to live differently.",
+    "light": "awakening, forgiveness, purpose",
+    "shadow": "harsh self-judgment",
+    "love": "Forgiveness, and an honest look at a pattern.",
+    "work": "Reassessing a path; a sense of calling.",
+    "question": "What is calling me that I have been postponing?"
+   },
+   "reversed": {
+    "core": "Doubt, ignoring the call, or being hard on yourself.",
+    "modes": [
+     "Blocked: ignoring what you hear.",
+     "Excess: harsh self-criticism.",
+     "Inward: a private reckoning."
+    ],
+    "question": "Can I forgive myself enough to move on?"
+   }
+  }
+ },
+ "major_21_world": {
+  "name": "The World",
+  "keywords": [
+   "completion",
+   "wholeness",
+   "achievement"
+  ],
+  "upright": "A cycle completes. Take stock of how far you have come.",
+  "reversed": "Loose ends or a finish that feels out of reach. One last step remains.",
+  "k": {
+   "essence": "A cycle complete.",
+   "imagery": "A dancing figure wrapped in a light scarf holds two wands inside a large laurel wreath. In the four corners are an angel, an eagle, a bull and a lion.",
+   "why": "Twenty-one is the last of the Majors, so this is completion. The wreath is a closed loop and the dancing figure moves freely inside it. The four corner figures are tied to the four suits. Saturn, the usual planet, is linked with finishing and limits.",
+   "upright": {
+    "core": "Completion and wholeness, with the next cycle waiting.",
+    "light": "completion, integration, satisfaction",
+    "shadow": "reluctance to finish or to move on",
+    "love": "Feeling whole in yourself, and sharing it.",
+    "work": "Finishing a project; taking in what you have learned.",
+    "question": "What have I finished that deserves to be acknowledged?"
+   },
+   "reversed": {
+    "core": "Something is almost complete but not quite finished.",
+    "modes": [
+     "Blocked: the last step is missing.",
+     "Fading: closure is near.",
+     "Inward: not quite ready to let go."
+    ],
+    "question": "What is the last step I keep avoiding?"
+   }
+  }
+ },
+ "wands_ace": {
+  "name": "Ace of Wands",
+  "keywords": [
+   "spark",
+   "inspiration",
+   "new energy"
+  ],
+  "upright": "A burst of enthusiasm and a chance to start something bold.",
+  "reversed": "Low energy or a false start. Nurture the idea before you rush.",
+  "k": {
+   "essence": "A spark of drive offered to you.",
+   "imagery": "A hand reaches out of a cloud holding a sturdy wand that sprouts fresh leaves. Below are a river, a castle on a hill and gentle green country.",
+   "why": "Aces are the seed of their suit. Fire is will and creative drive, so this is the raw impulse before any plan. The sprouting leaves show life in the wood, and the hand from the cloud is the traditional sign of a gift to take or leave.",
+   "upright": {
+    "core": "A new burst of energy, inspiration or opportunity, waiting for you to act on it.",
+    "light": "inspiration, courage, a fresh start",
+    "shadow": "an idea that never leaves the page",
+    "love": "A spark of attraction or a new enthusiasm for the relationship.",
+    "work": "A new project, idea or push of motivation.",
+    "question": "What do I feel energised to begin right now?"
+   },
+   "reversed": {
+    "core": "The spark is delayed, doubted or spent on the wrong thing.",
+    "modes": [
+     "Blocked: no clear outlet for the energy.",
+     "Excess: starting with fire and no plan.",
+     "Fading: a burst that runs out quickly."
+    ],
+    "question": "What is stopping me from acting on what excites me?"
+   }
+  }
+ },
+ "wands_two": {
+  "name": "Two of Wands",
+  "keywords": [
+   "planning",
+   "choices",
+   "vision"
+  ],
+  "upright": "You stand at the edge of what is familiar. Decide where to aim.",
+  "reversed": "Fear of leaving comfort, or plans that stay on paper.",
+  "k": {
+   "essence": "Standing at the edge of what you know.",
+   "imagery": "A figure in a rich robe stands on a castle wall holding a small globe, one hand on a tall wand while another is fixed beside him. He looks out over the sea.",
+   "why": "Two is the number of choices and pairs. Holding the globe while looking outward shows planning and wanting more than the home territory. The wall shows he has security but is choosing whether to leave it.",
+   "upright": {
+    "core": "A decision point between the comfortable and the bigger horizon.",
+    "light": "planning, vision, ambition",
+    "shadow": "restlessness, over-planning",
+    "love": "Wondering whether to stay settled or grow in a new direction.",
+    "work": "Weighing a bigger move against what you have built.",
+    "question": "What do I want that is beyond what I have?"
+   },
+   "reversed": {
+    "core": "Fear of leaving the known, or plans that never leave paper.",
+    "modes": [
+     "Blocked: staying put out of fear.",
+     "Excess: planning endlessly.",
+     "Inward: dreams you have not shared."
+    ],
+    "question": "Is it caution that keeps me here, or comfort?"
+   }
+  }
+ },
+ "wands_three": {
+  "name": "Three of Wands",
+  "keywords": [
+   "foresight",
+   "progress",
+   "expansion"
+  ],
+  "upright": "Early efforts are moving. Look further ahead and keep going.",
+  "reversed": "Delays or a narrow view. Widen your outlook.",
+  "k": {
+   "essence": "Having launched, watching what returns.",
+   "imagery": "A figure in a rich cloak stands on a cliff with his back to us, three wands planted around him, looking out over a calm sea where ships sail.",
+   "why": "Three is growth beyond the first step. The ships on the water are plans already sent out, and the high place gives perspective. He is waiting and watching rather than rushing.",
+   "upright": {
+    "core": "Your efforts are in motion; the task now is patience and broader vision.",
+    "light": "foresight, expansion, patience",
+    "shadow": "impatience, expecting instant returns",
+    "love": "Giving a connection space to develop.",
+    "work": "Early results of a project; looking to wider horizons.",
+    "question": "What have I set going that I can trust for now?"
+   },
+   "reversed": {
+    "core": "Delays, or plans that do not leave the harbour.",
+    "modes": [
+     "Blocked: stalled projects.",
+     "Excess: expecting too much too fast.",
+     "Fading: losing sight of the goal."
+    ],
+    "question": "Am I waiting calmly, or avoiding the next move?"
+   }
+  }
+ },
+ "wands_four": {
+  "name": "Four of Wands",
+  "keywords": [
+   "celebration",
+   "stability",
+   "home"
+  ],
+  "upright": "A moment of rest and shared joy after effort.",
+  "reversed": "Unease at home or a celebration that feels hollow.",
+  "k": {
+   "essence": "A celebration of reaching a stable point.",
+   "imagery": "Four tall wands are linked by a garland of flowers and fruit, forming a gateway. Two figures raise bouquets, with people dancing and a castle behind them.",
+   "why": "Four is the number of foundations. The four wands form a frame, a structure to celebrate in. Garlands and the castle suggest home, community and a milestone reached.",
+   "upright": {
+    "core": "A moment of harmony and shared joy after effort.",
+    "light": "celebration, belonging, security",
+    "shadow": "complacency, clinging to the party",
+    "love": "Togetherness, a milestone, a feeling of home.",
+    "work": "Finishing a stage; being recognised by a team.",
+    "question": "What is worth celebrating right now?"
+   },
+   "reversed": {
+    "core": "Instability at home, or a celebration that feels hollow.",
+    "modes": [
+     "Blocked: unsettled foundations.",
+     "Fading: a good time ending.",
+     "Inward: joy not shared."
+    ],
+    "question": "What would make this place feel like home?"
+   }
+  }
+ },
+ "wands_five": {
+  "name": "Five of Wands",
+  "keywords": [
+   "competition",
+   "friction",
+   "debate"
+  ],
+  "upright": "Clashing ideas and rivalry. Competition can sharpen you if kept friendly.",
+  "reversed": "Avoiding conflict, or tension turning inward.",
+  "k": {
+   "essence": "Friction between equally matched energies.",
+   "imagery": "Five young people each swing a staff in what looks like a scuffle on open ground. No one seems to be winning, and no one seems badly hurt.",
+   "why": "Five is the number of strain after the stable four. Everyone holds a staff of the same size, so this is competition among equals, more like a rough practice than a war.",
+   "upright": {
+    "core": "Competing ideas and egos; messy but possibly productive conflict.",
+    "light": "competition, vigour, testing ideas",
+    "shadow": "pointless arguing, scattered effort",
+    "love": "Disagreements that need a clear direction instead of noise.",
+    "work": "Rivalry or brainstorming where nobody leads.",
+    "question": "Is this conflict getting me anywhere?"
+   },
+   "reversed": {
+    "core": "Conflict fades, is avoided, or turns into quiet tension.",
+    "modes": [
+     "Blocked: avoiding necessary disagreement.",
+     "Excess: fighting to win.",
+     "Fading: peace through exhaustion."
+    ],
+    "question": "What would working together look like here?"
+   }
+  }
+ },
+ "wands_six": {
+  "name": "Six of Wands",
+  "keywords": [
+   "recognition",
+   "progress",
+   "confidence"
+  ],
+  "upright": "Public success or a boost of confidence for your efforts.",
+  "reversed": "Self-doubt or craving praise. Measure success on your own terms.",
+  "k": {
+   "essence": "Recognition after effort.",
+   "imagery": "A rider on a decorated horse wears a laurel wreath and carries a wand with a wreath on top. Crowds with staves walk alongside.",
+   "why": "Six is the number of harmony after trouble. The wreath is an old symbol of victory, and the crowd shows public acknowledgement. The rider is seen by others, which is the point of the card.",
+   "upright": {
+    "core": "Success that others can see, and the confidence that comes with it.",
+    "light": "victory, recognition, pride",
+    "shadow": "ego, needing applause",
+    "love": "Feeling proud of a shared achievement.",
+    "work": "A win, a promotion, finishing something visible.",
+    "question": "What have I done that I could let myself be proud of?"
+   },
+   "reversed": {
+    "core": "Success is delayed or hollow, or recognition feels out of reach.",
+    "modes": [
+     "Blocked: a win that does not land.",
+     "Excess: pride.",
+     "Fading: effort unnoticed."
+    ],
+    "question": "Whose approval am I waiting for?"
+   }
+  }
+ },
+ "wands_seven": {
+  "name": "Seven of Wands",
+  "keywords": [
+   "defence",
+   "perseverance",
+   "standing firm"
+  ],
+  "upright": "You hold your ground. Stay firm on what you believe.",
+  "reversed": "Feeling overwhelmed or giving up too soon.",
+  "k": {
+   "essence": "Holding your ground.",
+   "imagery": "A figure on a hilltop holds a wand and fends off six wands rising from below. One foot is in a different shoe from the other.",
+   "why": "Seven is the number of tests. The high ground is an advantage, and being outnumbered tests resolve. The mismatched shoes hint at a hasty stand, taken before being fully ready.",
+   "upright": {
+    "core": "Standing up for a position when challenged.",
+    "light": "resilience, boundaries, courage",
+    "shadow": "defensiveness, seeing every challenge as an attack",
+    "love": "Defending your needs or a boundary.",
+    "work": "Protecting your work or idea under pressure.",
+    "question": "What am I defending, and is it worth it?"
+   },
+   "reversed": {
+    "core": "Giving in under pressure, or being worn down.",
+    "modes": [
+     "Blocked: backing down too fast.",
+     "Excess: fighting everything.",
+     "Fading: running out of energy."
+    ],
+    "question": "Is this a hill worth holding?"
+   }
+  }
+ },
+ "wands_eight": {
+  "name": "Eight of Wands",
+  "keywords": [
+   "speed",
+   "movement",
+   "messages"
+  ],
+  "upright": "Things move fast. Act promptly and keep communication open.",
+  "reversed": "Delays or scattered effort. Slow down to regroup.",
+  "k": {
+   "essence": "Things moving fast.",
+   "imagery": "Eight wands fly diagonally across the sky over a quiet landscape with a river. No figure appears in the scene.",
+   "why": "Eight is movement and mastery of a field. With no people shown, this is momentum itself: things happening faster than anyone steers them, like messages arriving.",
+   "upright": {
+    "core": "Quick progress, news or events that carry you along.",
+    "light": "speed, news, momentum",
+    "shadow": "rushing, scattered attention",
+    "love": "Quick communication or developments.",
+    "work": "Fast progress, messages, travel.",
+    "question": "What am I ready to let move quickly?"
+   },
+   "reversed": {
+    "core": "Delays, crossed wires, or things moving faster than you can manage.",
+    "modes": [
+     "Blocked: delays and waiting.",
+     "Excess: haste and mistakes.",
+     "Fading: momentum lost."
+    ],
+    "question": "Where do I need to slow down to catch up?"
+   }
+  }
+ },
+ "wands_nine": {
+  "name": "Nine of Wands",
+  "keywords": [
+   "resilience",
+   "boundaries",
+   "last push"
+  ],
+  "upright": "Tired but nearly there. Draw on your resilience.",
+  "reversed": "Burnout or stubbornness. Rest may be wiser than another round.",
+  "k": {
+   "essence": "Weary but still standing.",
+   "imagery": "A bandaged figure leans on a wand and looks warily to one side. Behind him eight wands stand upright like a fence.",
+   "why": "Nine is the number near the end of a cycle, when strength is lowest. The bandage shows he has been hurt, and the fence shows he has built defences. He is still on his feet.",
+   "upright": {
+    "core": "Resilience after a long struggle; one last effort before rest.",
+    "light": "persistence, courage, caution",
+    "shadow": "stubbornness, distrust after a hard time",
+    "love": "Guarding yourself after hurt.",
+    "work": "Nearing the end of a long project, tired but close.",
+    "question": "What do I need in order to last the final stretch?"
+   },
+   "reversed": {
+    "core": "Exhaustion, or defences that no longer protect.",
+    "modes": [
+     "Blocked: burnout.",
+     "Excess: paranoia.",
+     "Fading: giving up near the end."
+    ],
+    "question": "What can I put down to rest?"
+   }
+  }
+ },
+ "wands_ten": {
+  "name": "Ten of Wands",
+  "keywords": [
+   "burden",
+   "responsibility",
+   "overload"
+  ],
+  "upright": "You are carrying a lot. Consider what you can set down.",
+  "reversed": "Dropping a burden, or struggling to ask for help.",
+  "k": {
+   "essence": "Carrying more than you were meant to.",
+   "imagery": "A figure bends forward under the weight of ten bundled wands, heading toward a village in the distance.",
+   "why": "Ten is the end of a cycle, and here it is overload. The wands are all gathered into one burden, and the village shows that the goal is close. The question is whether it all has to be carried alone.",
+   "upright": {
+    "core": "Responsibility and effort at their limit, and a sign to share the load.",
+    "light": "dedication, hard work, nearly there",
+    "shadow": "overwork, taking on too much",
+    "love": "Carrying everything alone in a relationship.",
+    "work": "Overloaded schedule, burnout, a project near its end.",
+    "question": "What can I hand over or put down?"
+   },
+   "reversed": {
+    "core": "Dropping the burden, or collapsing under it.",
+    "modes": [
+     "Releasing: finally sharing the load.",
+     "Excess: refusing help.",
+     "Blocked: unable to put anything down."
+    ],
+    "question": "What am I carrying that was never mine?"
+   }
+  }
+ },
+ "wands_page": {
+  "name": "Page of Wands",
+  "keywords": [
+   "curiosity",
+   "enthusiasm",
+   "exploration"
+  ],
+  "upright": "A spirited newcomer, eager to explore and try ideas.",
+  "reversed": "Impatience or half-finished projects.",
+  "k": {
+   "essence": "A spark of curiosity you are allowed to follow.",
+   "imagery": "A young person in a tunic patterned with salamanders stands in a desert holding a tall wand and studying its top. Pyramids sit far behind.",
+   "why": "Pages are beginners and messengers. Wands are fire, so this is eager, early-stage drive. The salamanders are a traditional fire symbol, and the barren ground suggests a talent that has not yet been tried.",
+   "upright": {
+    "core": "Enthusiasm for something new, and the willingness to explore it before being good at it.",
+    "light": "curiosity, play, a bold first try",
+    "shadow": "scattered interest, dropping things when they get hard",
+    "love": "Fresh excitement about a person or a way of connecting; being upfront about what thrills you.",
+    "work": "A new idea or side project; learning by doing.",
+    "question": "What am I curious enough about to try badly?"
+   },
+   "reversed": {
+    "core": "Excitement without direction, or a spark that fizzles early.",
+    "modes": [
+     "Blocked: fear of looking like a beginner.",
+     "Excess: starting many things and finishing none.",
+     "Fading: interest cooling before it has been tested."
+    ],
+    "question": "Which of my ideas deserves one real week of effort?"
+   }
+  }
+ },
+ "wands_knight": {
+  "name": "Knight of Wands",
+  "keywords": [
+   "adventure",
+   "energy",
+   "impulse"
+  ],
+  "upright": "Bold, restless energy that charges ahead.",
+  "reversed": "Recklessness or frustration. Think before you leap.",
+  "k": {
+   "essence": "Energy that charges forward, for better or worse.",
+   "imagery": "A rider in armour under a plumed helmet rears up on a galloping horse, holding a wand. The landscape is dry and pale, with pyramids in the distance.",
+   "why": "Knights are action in motion. With fire as the element, speed and zeal are the point. The rearing horse shows momentum that is hard to steer, and the empty ground shows how little has been built yet.",
+   "upright": {
+    "core": "Drive and adventure, with a question over whether the speed is aimed at anything.",
+    "light": "boldness, passion, momentum",
+    "shadow": "impatience, burning out, leaving before finishing",
+    "love": "Strong attraction or a rush of feeling; the question is whether it lasts past the thrill.",
+    "work": "A burst of productivity, a fast change of direction.",
+    "question": "Is my speed carrying me toward something, or away from something?"
+   },
+   "reversed": {
+    "core": "Energy is stalled, rushed, or scattered in several directions.",
+    "modes": [
+     "Blocked: wanting to move but held in place.",
+     "Excess: recklessness and haste.",
+     "Fading: enthusiasm gone flat."
+    ],
+    "question": "What would change if I slowed down by half?"
+   }
+  }
+ },
+ "wands_queen": {
+  "name": "Queen of Wands",
+  "keywords": [
+   "warmth",
+   "confidence",
+   "charisma"
+  ],
+  "upright": "Confident, welcoming and driven. Lead by inspiring.",
+  "reversed": "Insecurity or jealousy. Reconnect with your own spark.",
+  "k": {
+   "essence": "Warm confidence that lets others be themselves.",
+   "imagery": "A crowned woman sits on a throne carved with lions, holding a wand in one hand and a sunflower in the other. A black cat sits at her feet.",
+   "why": "Queens carry their suit inwardly. Fire turned inward becomes confidence and warmth rather than hurry. Sunflowers face the sun, and lions suggest courage worn lightly.",
+   "upright": {
+    "core": "Self-assured warmth: knowing who you are and being generous with it.",
+    "light": "charisma, loyalty, joy in what you do",
+    "shadow": "jealousy, needing to be the centre of attention",
+    "love": "Open, affectionate presence; comfort with being seen.",
+    "work": "Leading by enthusiasm; making a place people want to be part of.",
+    "question": "Where do I feel most like myself, and am I bringing that in?"
+   },
+   "reversed": {
+    "core": "Confidence wavers, or warmth turns controlling.",
+    "modes": [
+     "Blocked: doubting your own worth.",
+     "Excess: needing admiration.",
+     "Inward: warmth held back from others."
+    ],
+    "question": "Am I seeking approval, or sharing what I actually feel?"
+   }
+  }
+ },
+ "wands_king": {
+  "name": "King of Wands",
+  "keywords": [
+   "vision",
+   "leadership",
+   "boldness"
+  ],
+  "upright": "A natural leader with a clear vision.",
+  "reversed": "Domineering or impulsive leadership.",
+  "k": {
+   "essence": "Vision with the will to lead it.",
+   "imagery": "A crowned king sits relaxed on a throne decorated with lions and salamanders, holding a flowering wand. His cloak is orange and his gaze goes into the distance.",
+   "why": "Kings turn their suit outward into mastery. Fire mastered becomes vision and leadership. The salamanders and lions repeat the fire themes, and the budding wand shows growth under steady hands.",
+   "upright": {
+    "core": "Leading with energy and a clear picture of where things are going.",
+    "light": "inspiration, decisiveness, big-picture thinking",
+    "shadow": "domineering, impatience with details or people",
+    "love": "Passion held with maturity: loyal, generous, direct.",
+    "work": "Taking charge of a project; setting a direction others will follow.",
+    "question": "What am I building toward, and who comes with me?"
+   },
+   "reversed": {
+    "core": "Leadership slips into control, or vision lacks follow-through.",
+    "modes": [
+     "Excess: bossiness, running over others.",
+     "Blocked: a plan that never leaves your head.",
+     "Fading: energy needing rest."
+    ],
+    "question": "Am I leading people, or just pushing them?"
+   }
+  }
+ },
+ "cups_ace": {
+  "name": "Ace of Cups",
+  "keywords": [
+   "openness",
+   "new feelings",
+   "compassion"
+  ],
+  "upright": "An opening of the heart. Welcome kindness and emotional renewal.",
+  "reversed": "Feelings held back. Allow yourself to feel.",
+  "k": {
+   "essence": "A feeling that wants to overflow.",
+   "imagery": "A hand from a cloud holds a cup, from which five streams pour into a pond covered in lilies. A dove carrying a small wafer descends toward the cup.",
+   "why": "Aces are the seed of their suit. Water is feeling, so this is the opening of the heart. Overflowing water shows abundance, the lilies show calm, and the dove adds peace and grace.",
+   "upright": {
+    "core": "A new emotional beginning: love, compassion, creativity or connection.",
+    "light": "openness, compassion, new love",
+    "shadow": "feeling that is not acknowledged",
+    "love": "A fresh start in love or deeper closeness.",
+    "work": "Passion for work that fits your values.",
+    "question": "What would I let myself feel if I were not guarding it?"
+   },
+   "reversed": {
+    "core": "Feelings are held in, blocked or poured out unseen.",
+    "modes": [
+     "Blocked: closed off emotionally.",
+     "Excess: overflowing with no direction.",
+     "Inward: feelings kept private."
+    ],
+    "question": "What feeling am I keeping from myself?"
+   }
+  }
+ },
+ "cups_two": {
+  "name": "Two of Cups",
+  "keywords": [
+   "connection",
+   "partnership",
+   "mutual respect"
+  ],
+  "upright": "A balanced bond built on respect and shared feeling.",
+  "reversed": "Imbalance or miscommunication in a relationship.",
+  "k": {
+   "essence": "A meeting of equals.",
+   "imagery": "A man and a woman face each other and hold out cups in a pledge. Above them floats a winged lion head over a staff entwined with two snakes. A house stands on a hill behind.",
+   "why": "Two is the number of pairs. This is a picture of mutual exchange: each person offers a cup and each receives. The winged lion and snake staff are old symbols of strong bonds and healing.",
+   "upright": {
+    "core": "Connection built on mutual respect, in love or friendship.",
+    "light": "partnership, attraction, balance",
+    "shadow": "an unequal exchange, idealising the other",
+    "love": "A bond with give and take on both sides.",
+    "work": "A good working partnership.",
+    "question": "Is what I give and what I receive in balance?"
+   },
+   "reversed": {
+    "core": "Imbalance, miscommunication or a bond drifting apart.",
+    "modes": [
+     "Blocked: unable to open up to the other.",
+     "Excess: merging too fast.",
+     "Fading: closeness cooling."
+    ],
+    "question": "Where is the exchange between us uneven?"
+   }
+  }
+ },
+ "cups_three": {
+  "name": "Three of Cups",
+  "keywords": [
+   "friendship",
+   "celebration",
+   "community"
+  ],
+  "upright": "Joy shared with others. Enjoy good company.",
+  "reversed": "Overindulgence, or feeling left out.",
+  "k": {
+   "essence": "Joy shared with others.",
+   "imagery": "Three women lift cups together in a celebration, in a garden with harvest fruit around their feet.",
+   "why": "Three is the number of growth and community. The raised cups and the harvest show shared gladness in what has grown. Friendship is the theme here more than romance.",
+   "upright": {
+    "core": "Celebration, friendship and support from a community.",
+    "light": "friendship, joy, togetherness",
+    "shadow": "overindulgence, gossip",
+    "love": "Warmth from friends and community.",
+    "work": "Collaboration and celebrating a team win.",
+    "question": "Who do I want to celebrate with?"
+   },
+   "reversed": {
+    "core": "Isolation, or the party turns sour.",
+    "modes": [
+     "Blocked: left out or holding back.",
+     "Excess: too much indulgence.",
+     "Fading: friendships drifting."
+    ],
+    "question": "Who has been missing from my circle?"
+   }
+  }
+ },
+ "cups_four": {
+  "name": "Four of Cups",
+  "keywords": [
+   "apathy",
+   "contemplation",
+   "reevaluation"
+  ],
+  "upright": "Boredom or withdrawal. Ask what you truly want.",
+  "reversed": "Waking up to new options after a dull patch.",
+  "k": {
+   "essence": "Not seeing what is being offered.",
+   "imagery": "A figure sits under a tree with arms and legs crossed, looking at three cups on the ground. A hand from a cloud offers a fourth cup, which he does not seem to notice.",
+   "why": "Four is a pause. The three cups hold his attention while a new one is offered. The folded arms show withdrawal, and the cloud-hand shows that something is on offer if he looks up.",
+   "upright": {
+    "core": "A pause for reflection, and the question of whether boredom is hiding an opportunity.",
+    "light": "reflection, contemplation, reassessment",
+    "shadow": "apathy, missing what is offered",
+    "love": "Feeling flat in a bond, or ignoring a gesture of care.",
+    "work": "Boredom with what you have; space to rethink.",
+    "question": "What am I overlooking because I am looking at what I lack?"
+   },
+   "reversed": {
+    "core": "Waking up to something you ignored, or sinking deeper into apathy.",
+    "modes": [
+     "Releasing: seeing the offer at last.",
+     "Blocked: stuck in withdrawal.",
+     "Excess: rejecting everything."
+    ],
+    "question": "What might I accept if I looked up?"
+   }
+  }
+ },
+ "cups_five": {
+  "name": "Five of Cups",
+  "keywords": [
+   "loss",
+   "regret",
+   "grief"
+  ],
+  "upright": "Focus on what is lost. Remember that some cups still stand.",
+  "reversed": "Moving on, forgiveness and slowly turning toward what remains.",
+  "k": {
+   "essence": "Grief that hides what remains.",
+   "imagery": "A cloaked figure in black faces three spilled cups. Two cups still stand upright behind him. A river, a bridge and a house are in the distance.",
+   "why": "Five is a number of loss and strain. The spilled cups are what has gone, and the standing cups are what remains. The turned back is the point: he has not yet looked around.",
+   "upright": {
+    "core": "Mourning what was lost, with something still left to turn toward.",
+    "light": "grief, regret, honest feeling",
+    "shadow": "dwelling on loss, bitterness",
+    "love": "Sadness over a relationship that changed.",
+    "work": "Disappointment with a result.",
+    "question": "What remains that I have not looked at yet?"
+   },
+   "reversed": {
+    "core": "Moving on, forgiveness, or being stuck in regret.",
+    "modes": [
+     "Releasing: turning to what is left.",
+     "Blocked: refusing to let go.",
+     "Inward: grief unspoken."
+    ],
+    "question": "What am I ready to stop mourning?"
+   }
+  }
+ },
+ "cups_six": {
+  "name": "Six of Cups",
+  "keywords": [
+   "nostalgia",
+   "innocence",
+   "kindness"
+  ],
+  "upright": "Memories and gentle generosity. Revisit the past with warmth.",
+  "reversed": "Stuck in the past, or looking back instead of ahead.",
+  "k": {
+   "essence": "Warmth from the past.",
+   "imagery": "In a courtyard of a village, a child hands a cup full of flowers to a smaller child. Other cups with flowers sit around, with a guard in the background.",
+   "why": "Six is the number of harmony. The childhood scene points to innocence and old bonds, with flowers as a gift. Nostalgia is the theme, along with simple kindness.",
+   "upright": {
+    "core": "Memory, simple kindness and old connections.",
+    "light": "nostalgia, kindness, innocence",
+    "shadow": "living in the past",
+    "love": "Reuniting with an old friend, or sentimental tenderness.",
+    "work": "Returning to what you used to love doing.",
+    "question": "What from my past is worth bringing forward?"
+   },
+   "reversed": {
+    "core": "Stuck in memories, or letting go of the past.",
+    "modes": [
+     "Blocked: unable to leave the past.",
+     "Releasing: moving on from old patterns.",
+     "Excess: idealising what was."
+    ],
+    "question": "Am I remembering the past, or hiding in it?"
+   }
+  }
+ },
+ "cups_seven": {
+  "name": "Seven of Cups",
+  "keywords": [
+   "daydreams",
+   "options",
+   "illusion"
+  ],
+  "upright": "Many possibilities and some fantasy. Sort the real from the imagined.",
+  "reversed": "Clarity arrives, or choices that overwhelm.",
+  "k": {
+   "essence": "Many dreams and no clear choice.",
+   "imagery": "A silhouetted figure stands before seven cups floating in clouds. Each holds something different: a face, a veiled figure, a snake, a castle, jewels, a laurel wreath and a dragon.",
+   "why": "Seven is a number of trial. The cups are options, some appealing, some dangerous, all hovering in cloud rather than on solid ground. The figure looks at them and has not yet chosen.",
+   "upright": {
+    "core": "A wealth of options and fantasies, calling for clear sorting.",
+    "light": "imagination, possibility, dreaming",
+    "shadow": "illusion, indecision, wishful thinking",
+    "love": "Idealised pictures of love versus the real person.",
+    "work": "Too many ideas; choosing one to commit to.",
+    "question": "Which of these dreams am I willing to make real?"
+   },
+   "reversed": {
+    "core": "Clearing the fog, or being lost in fantasies.",
+    "modes": [
+     "Releasing: seeing clearly at last.",
+     "Excess: lost in escapism.",
+     "Blocked: unable to choose."
+    ],
+    "question": "Which option is real, and which is only attractive?"
+   }
+  }
+ },
+ "cups_eight": {
+  "name": "Eight of Cups",
+  "keywords": [
+   "walking away",
+   "seeking more",
+   "moving on"
+  ],
+  "upright": "Leaving something that no longer satisfies in search of meaning.",
+  "reversed": "Aimless drifting, or fear of leaving.",
+  "k": {
+   "essence": "Leaving what no longer fills you.",
+   "imagery": "A cloaked figure with a staff walks away from eight stacked cups toward dark hills. A moon appears in the sky. A gap in the stack shows that one cup is missing.",
+   "why": "Eight is a turning point. The stacked cups are a neat but incomplete arrangement, and the walker chooses a hard road over staying. The moon suggests a journey made in the dark.",
+   "upright": {
+    "core": "Walking away from something that looks fine but no longer satisfies.",
+    "light": "moving on, honesty, seeking meaning",
+    "shadow": "running away, leaving without facing why",
+    "love": "Leaving, or needing to leave, a bond that has run its course.",
+    "work": "Quitting a path that no longer fits.",
+    "question": "What am I leaving, and what am I going toward?"
+   },
+   "reversed": {
+    "core": "Staying out of fear, or leaving without a plan.",
+    "modes": [
+     "Blocked: afraid to leave.",
+     "Excess: always moving on.",
+     "Inward: leaving quietly."
+    ],
+    "question": "Am I leaving for something, or only away from something?"
+   }
+  }
+ },
+ "cups_nine": {
+  "name": "Nine of Cups",
+  "keywords": [
+   "contentment",
+   "satisfaction",
+   "gratitude"
+  ],
+  "upright": "A sense of fulfilment. Appreciate what you have.",
+  "reversed": "Smugness or a wish that is not as satisfying as expected.",
+  "k": {
+   "essence": "Contentment you can enjoy.",
+   "imagery": "A man in a red hat sits on a bench with arms crossed and a satisfied look. Behind him on a curved table stand nine cups under a blue cloth.",
+   "why": "Nine is near the end of a cycle, when results can be enjoyed. The cups are in a neat display, and his posture is relaxed. It is commonly called the wish card, but it may also point to private satisfaction.",
+   "upright": {
+    "core": "Satisfaction with what you have worked for.",
+    "light": "contentment, gratitude, enjoyment",
+    "shadow": "complacency, showing off",
+    "love": "Feeling content and secure.",
+    "work": "Reaching a personal goal you are glad of.",
+    "question": "What do I already have that I am glad of?"
+   },
+   "reversed": {
+    "core": "Dissatisfaction despite having what you wanted.",
+    "modes": [
+     "Blocked: nothing feels enough.",
+     "Excess: indulgence.",
+     "Inward: satisfaction you do not share."
+    ],
+    "question": "What would feel like enough?"
+   }
+  }
+ },
+ "cups_ten": {
+  "name": "Ten of Cups",
+  "keywords": [
+   "harmony",
+   "family",
+   "fulfilment"
+  ],
+  "upright": "Emotional fulfilment and a sense of belonging.",
+  "reversed": "Strained bonds, or values that do not quite line up.",
+  "k": {
+   "essence": "A picture of a happy home.",
+   "imagery": "A couple stands with arms raised under a rainbow of ten cups, while two children dance beside them. A small house stands in a green landscape.",
+   "why": "Ten is the completion of a cycle. Where the Nine is personal, the Ten is shared: a family or community scene. The rainbow arches over everyone like a blessing.",
+   "upright": {
+    "core": "Emotional fulfilment shared with the people you love.",
+    "light": "harmony, belonging, family",
+    "shadow": "an ideal that hides real issues",
+    "love": "Deep, lasting closeness and shared values.",
+    "work": "A workplace where you feel you belong.",
+    "question": "What does a good home or community mean to me?"
+   },
+   "reversed": {
+    "core": "Strain in a family or group, or an ideal out of reach.",
+    "modes": [
+     "Blocked: disconnection at home.",
+     "Excess: pressure to look perfect.",
+     "Fading: values that no longer match."
+    ],
+    "question": "What is missing from my picture of belonging?"
+   }
+  }
+ },
+ "cups_page": {
+  "name": "Page of Cups",
+  "keywords": [
+   "sensitivity",
+   "imagination",
+   "openness"
+  ],
+  "upright": "A tender, creative message. Listen to your feelings.",
+  "reversed": "Moodiness or emotional immaturity.",
+  "k": {
+   "essence": "A gentle message from your own feelings.",
+   "imagery": "A young person in a flowered tunic stands by the sea holding a cup, from which a small fish pokes its head. The water behind is calm.",
+   "why": "Pages are beginnings, and Cups are feeling and imagination. The fish rising from the cup is a playful picture of an unexpected idea or emotion surfacing. The sea behind is the deeper unconscious.",
+   "upright": {
+    "core": "A tender, creative impulse; being open to surprise in your inner life.",
+    "light": "sensitivity, wonder, imagination",
+    "shadow": "moodiness, escaping into daydreams",
+    "love": "A sweet gesture or an honest feeling shared for the first time.",
+    "work": "A creative idea that needs room; a gentle beginning.",
+    "question": "What small feeling is trying to get my attention?"
+   },
+   "reversed": {
+    "core": "Feelings are held back, or become melodrama.",
+    "modes": [
+     "Blocked: afraid to be vulnerable.",
+     "Excess: oversensitivity.",
+     "Inward: a creative idea kept secret."
+    ],
+    "question": "Am I ignoring a quiet feeling because it seems childish?"
+   }
+  }
+ },
+ "cups_knight": {
+  "name": "Knight of Cups",
+  "keywords": [
+   "romance",
+   "charm",
+   "idealism"
+  ],
+  "upright": "A dreamer who follows the heart. Offers or invitations may come.",
+  "reversed": "Unrealistic ideas or mixed signals.",
+  "k": {
+   "essence": "Following the heart, with a romantic eye.",
+   "imagery": "A knight in armour with winged helmet and boots rides a calm white horse at a gentle pace, holding a cup in front of him. A river and distant hills lie ahead.",
+   "why": "Knights pursue, and in Cups the pursuit is of feeling. The slow horse shows that this is courtship rather than conquest. Wings on the helmet suggest ideals and imagination.",
+   "upright": {
+    "core": "Pursuing something because it moves you; an offer, an invitation, an ideal.",
+    "light": "romance, charm, idealism",
+    "shadow": "daydreaming, promises that outrun reality",
+    "love": "A romantic gesture or the wish for one; the gap between the ideal and the person.",
+    "work": "Following inspiration; pitching an idea with feeling.",
+    "question": "Am I following a person or a picture of them?"
+   },
+   "reversed": {
+    "core": "Charm without substance, or a retreat from feeling.",
+    "modes": [
+     "Excess: chasing an ideal that is not real.",
+     "Blocked: unable to say what you feel.",
+     "Fading: enthusiasm cooling."
+    ],
+    "question": "What would change if I acted from what is real, not what I hope?"
+   }
+  }
+ },
+ "cups_queen": {
+  "name": "Queen of Cups",
+  "keywords": [
+   "empathy",
+   "intuition",
+   "care"
+  ],
+  "upright": "Deeply caring and intuitive. Look after yourself too.",
+  "reversed": "Emotional overwhelm or neglecting your own needs.",
+  "k": {
+   "essence": "Deep feeling held with care.",
+   "imagery": "A crowned woman sits on a shell-like throne at the water's edge, holding an ornate closed cup with both hands and gazing at it. Small figures decorate the throne.",
+   "why": "Queens embody their suit inwardly. The closed, ornate cup shows feelings treasured and not spilled. Being at the shore places her where the conscious and unconscious meet.",
+   "upright": {
+    "core": "Empathy and intuition used with care, including toward yourself.",
+    "light": "compassion, intuition, emotional depth",
+    "shadow": "absorbing others' moods, losing your own boundaries",
+    "love": "Listening closely; being available without losing yourself.",
+    "work": "Supportive roles, reading what a team needs.",
+    "question": "Whose feelings am I carrying that are not mine?"
+   },
+   "reversed": {
+    "core": "Empathy tips into over-giving, or feelings are shut away.",
+    "modes": [
+     "Excess: taking on everyone's problems.",
+     "Blocked: numbing your own feelings.",
+     "Inward: caring for others but not yourself."
+    ],
+    "question": "Where do my feelings end and other people's begin?"
+   }
+  }
+ },
+ "cups_king": {
+  "name": "King of Cups",
+  "keywords": [
+   "emotional balance",
+   "diplomacy",
+   "calm"
+  ],
+  "upright": "Mature, steady and compassionate. Keep calm under pressure.",
+  "reversed": "Suppressed feelings or moodiness hiding behind composure.",
+  "k": {
+   "essence": "Calm that holds feeling without being ruled by it.",
+   "imagery": "A crowned king sits on a throne that floats on rough water, holding a cup in one hand and a sceptre in the other. A fish leaps in the waves and a ship sails behind him.",
+   "why": "Kings master their suit outwardly. The throne is steady on turbulent water, which is the whole message: feeling is present but held. The leaping fish shows creativity still alive.",
+   "upright": {
+    "core": "Emotional maturity: feeling deeply and still choosing how to respond.",
+    "light": "diplomacy, balance, generosity",
+    "shadow": "emotional distance, suppressing feelings, manipulation",
+    "love": "Steady, kind presence in hard conversations.",
+    "work": "Mediating, counselling, leading with calm.",
+    "question": "How do I stay steady when the water is rough?"
+   },
+   "reversed": {
+    "core": "Control of feeling hardens into coldness, or composure cracks.",
+    "modes": [
+     "Blocked: bottling things up.",
+     "Excess: moods that run the room.",
+     "Inward: calm on the surface, storm underneath."
+    ],
+    "question": "Am I calm, or am I just not showing it?"
+   }
+  }
+ },
+ "swords_ace": {
+  "name": "Ace of Swords",
+  "keywords": [
+   "clarity",
+   "truth",
+   "breakthrough"
+  ],
+  "upright": "A clear idea cuts through confusion. Speak and think plainly.",
+  "reversed": "Muddled thinking or harsh words.",
+  "k": {
+   "essence": "A clear idea cutting through.",
+   "imagery": "A hand from a cloud grips a sword pointing up, with a crown at its tip and olive and palm branches hanging from the crown. Mountains lie below.",
+   "why": "Aces are the seed of their suit. Air is thought and truth, so this is clarity and decision. The crown with branches shows both victory and peace, a reminder that a clear mind can serve both.",
+   "upright": {
+    "core": "A clear insight or a decision that cuts through confusion.",
+    "light": "clarity, truth, a breakthrough",
+    "shadow": "words used as weapons",
+    "love": "Honest, direct talk that clears the air.",
+    "work": "A sharp idea or a clear decision.",
+    "question": "What do I see clearly now?"
+   },
+   "reversed": {
+    "core": "Confusion or a truth you avoid.",
+    "modes": [
+     "Blocked: unable to think clearly.",
+     "Excess: harsh words.",
+     "Inward: truth known but unspoken."
+    ],
+    "question": "What am I not letting myself admit?"
+   }
+  }
+ },
+ "swords_two": {
+  "name": "Two of Swords",
+  "keywords": [
+   "stalemate",
+   "indecision",
+   "guarded"
+  ],
+  "upright": "A hard choice you are avoiding. Remove the blindfold when ready.",
+  "reversed": "Information comes to light, or indecision drags on.",
+  "k": {
+   "essence": "A decision you are blind to.",
+   "imagery": "A blindfolded woman sits on a bench holding two crossed swords at chest height. Behind her are calm water, a crescent moon and a rocky shore.",
+   "why": "Two is the number of choices. The blindfold shows choosing without looking, and the crossed swords are a stand-off, a defence against feeling. The calm sea shows that there is peace on the surface and tension beneath.",
+   "upright": {
+    "core": "A stalemate; avoiding a decision by refusing to look.",
+    "light": "balance, composure, a pause",
+    "shadow": "avoidance, denial",
+    "love": "Holding off from facing a feeling or a choice.",
+    "work": "Two options and no way to choose without more information.",
+    "question": "What would I see if I took the blindfold off?"
+   },
+   "reversed": {
+    "core": "The choice is forced, or the blindfold comes off.",
+    "modes": [
+     "Releasing: seeing the truth.",
+     "Excess: anxiety of indecision.",
+     "Blocked: refusing to choose."
+    ],
+    "question": "What am I protecting myself from by not looking?"
+   }
+  }
+ },
+ "swords_three": {
+  "name": "Three of Swords",
+  "keywords": [
+   "heartache",
+   "sorrow",
+   "honesty"
+  ],
+  "upright": "Painful truth or sadness. Acknowledge it so it can heal.",
+  "reversed": "Recovery begins, or you are holding on to pain.",
+  "k": {
+   "essence": "A hurt that deserves to be felt.",
+   "imagery": "A red heart is pierced by three swords against a background of grey clouds and falling rain.",
+   "why": "Three is the number of growth, and in Swords it is the painful truth. The picture is stark on purpose: this card names pain without softening it, so that it can be faced.",
+   "upright": {
+    "core": "Heartache or a painful truth that has to be admitted.",
+    "light": "honesty about pain, grief, release",
+    "shadow": "dwelling on hurt",
+    "love": "Sadness over a hurt or a betrayal.",
+    "work": "Disappointment or a hard conversation.",
+    "question": "What hurt am I ready to look at honestly?"
+   },
+   "reversed": {
+    "core": "Recovery beginning, or holding onto old hurt.",
+    "modes": [
+     "Releasing: pain easing.",
+     "Blocked: refusing to feel it.",
+     "Excess: replaying the wound."
+    ],
+    "question": "What would healing from this look like?"
+   }
+  }
+ },
+ "swords_four": {
+  "name": "Four of Swords",
+  "keywords": [
+   "rest",
+   "recovery",
+   "retreat"
+  ],
+  "upright": "Pause and recharge. Rest is productive.",
+  "reversed": "Restlessness or returning to action too soon.",
+  "k": {
+   "essence": "Rest as a choice.",
+   "imagery": "A stone figure of a knight lies on a tomb with hands together in prayer. Three swords hang on the wall above and one lies beneath. A stained-glass window shows a figure giving care.",
+   "why": "Four is a number of stability, and here it means stillness. The effigy on the tomb is rest and retreat, not death. The stained glass adds a note of quiet healing.",
+   "upright": {
+    "core": "A needed pause to rest and recover.",
+    "light": "rest, recovery, quiet",
+    "shadow": "withdrawing too long",
+    "love": "Taking space to heal.",
+    "work": "A break, leave or time to think before the next step.",
+    "question": "What would resting properly look like?"
+   },
+   "reversed": {
+    "core": "Restlessness, or coming back too soon.",
+    "modes": [
+     "Blocked: unable to rest.",
+     "Releasing: ready to return.",
+     "Excess: avoiding life."
+    ],
+    "question": "Am I resting, or hiding?"
+   }
+  }
+ },
+ "swords_five": {
+  "name": "Five of Swords",
+  "keywords": [
+   "conflict",
+   "tension",
+   "hollow wins"
+  ],
+  "upright": "A fight that costs more than it gains. Choose your battles.",
+  "reversed": "Making peace, or lingering resentment.",
+  "k": {
+   "essence": "A win that costs something.",
+   "imagery": "A man in the foreground holds three swords and looks smug while two others lie on the ground. Two figures walk away with heads down toward a stormy shore.",
+   "why": "Five is a number of strain. The man has gathered the swords but at a visible cost: the others walk off defeated, and the sky is stormy. It asks what winning is worth.",
+   "upright": {
+    "core": "Conflict where the winner may be left with little.",
+    "light": "self-interest, strategy, competition",
+    "shadow": "pettiness, hollow victories",
+    "love": "An argument won at the expense of the bond.",
+    "work": "Competitive workplace tactics.",
+    "question": "Is winning this worth what it costs?"
+   },
+   "reversed": {
+    "core": "Making amends, or walking away from a fight.",
+    "modes": [
+     "Releasing: reconciliation.",
+     "Excess: needing to win.",
+     "Fading: defeat and shame."
+    ],
+    "question": "Who am I fighting, and why?"
+   }
+  }
+ },
+ "swords_six": {
+  "name": "Six of Swords",
+  "keywords": [
+   "transition",
+   "moving on",
+   "calmer waters"
+  ],
+  "upright": "A slow move away from trouble. Healing is underway.",
+  "reversed": "Resistance to change, or unresolved baggage.",
+  "k": {
+   "essence": "Moving toward calmer water.",
+   "imagery": "A ferryman poles a boat carrying a hooded woman and a child, with six swords standing upright in the bow. The water ahead looks calmer.",
+   "why": "Six is the number of harmony after trouble. The swords are what they carry with them. The calmer water on the far side suggests a hard passage with something better ahead.",
+   "upright": {
+    "core": "A transition away from difficulty, carrying lessons with you.",
+    "light": "transition, recovery, leaving trouble behind",
+    "shadow": "unresolved baggage",
+    "love": "Moving past a rough patch together or apart.",
+    "work": "Changing jobs or leaving a hard situation.",
+    "question": "What am I leaving behind, and what am I carrying with me?"
+   },
+   "reversed": {
+    "core": "Delayed passage, or trouble that follows you.",
+    "modes": [
+     "Blocked: stuck at the shore.",
+     "Excess: running away.",
+     "Fading: the transition stalling."
+    ],
+    "question": "What would I need in order to cross?"
+   }
+  }
+ },
+ "swords_seven": {
+  "name": "Seven of Swords",
+  "keywords": [
+   "strategy",
+   "secrecy",
+   "caution"
+  ],
+  "upright": "Think carefully; a sly approach needs honesty about its cost.",
+  "reversed": "Coming clean, or a plan that backfires.",
+  "k": {
+   "essence": "Acting by stealth.",
+   "imagery": "A figure tiptoes away from a military camp carrying five swords and looking back, leaving two swords stuck in the ground.",
+   "why": "Seven is the number of trials. The sneaking figure is taking a risk alone, and leaving two swords behind shows he could not carry everything. It raises the question of whether the plan is smart or only evasive.",
+   "upright": {
+    "core": "Strategy, secrecy or avoiding a direct approach.",
+    "light": "cleverness, strategy, independence",
+    "shadow": "deception, dodging responsibility",
+    "love": "Something not being said; hidden motives.",
+    "work": "Taking shortcuts or working around a rule.",
+    "question": "Where am I avoiding being direct?"
+   },
+   "reversed": {
+    "core": "Coming clean, or getting caught out.",
+    "modes": [
+     "Releasing: confession.",
+     "Excess: deceit.",
+     "Blocked: unable to act."
+    ],
+    "question": "What would honesty cost me here, and what does avoiding it cost?"
+   }
+  }
+ },
+ "swords_eight": {
+  "name": "Eight of Swords",
+  "keywords": [
+   "restriction",
+   "fear",
+   "feeling trapped"
+  ],
+  "upright": "You feel stuck, though options may be more open than they seem.",
+  "reversed": "Freeing yourself, and seeing choices again.",
+  "k": {
+   "essence": "Feeling bound by a trap that is partly loose.",
+   "imagery": "A woman stands blindfolded and bound, surrounded by eight swords in the ground, with shallow water at her feet and a castle on a distant hill.",
+   "why": "Eight is movement and mastery. The ties are loose and the swords do not form a closed cage, which is the point: the restriction may be partly in the mind. The shallow water suggests the way out is not far.",
+   "upright": {
+    "core": "A sense of being stuck that may be more about perception than fact.",
+    "light": "awareness of limits, patience, a way out",
+    "shadow": "self-imposed limits, helplessness",
+    "love": "Feeling trapped in a pattern.",
+    "work": "Feeling powerless in a job or situation.",
+    "question": "What would I try if I thought I could?"
+   },
+   "reversed": {
+    "core": "Taking off the blindfold and seeing a way out.",
+    "modes": [
+     "Releasing: freedom coming.",
+     "Blocked: staying in the trap.",
+     "Excess: victim thinking."
+    ],
+    "question": "Which of my limits are real, and which are assumed?"
+   }
+  }
+ },
+ "swords_nine": {
+  "name": "Nine of Swords",
+  "keywords": [
+   "anxiety",
+   "worry",
+   "sleepless nights"
+  ],
+  "upright": "Worry looms large. Share it with someone you trust.",
+  "reversed": "Fears easing, or anxiety that needs support.",
+  "k": {
+   "essence": "Worry in the night.",
+   "imagery": "A person sits up in bed with their face in their hands. Nine swords hang on the dark wall behind. The quilt is covered in roses and astrological signs.",
+   "why": "Nine is a number near the end of a cycle, when worry peaks. The swords float on the wall above, not touching the sleeper, which hints that the fears are thoughts more than events.",
+   "upright": {
+    "core": "Anxiety, worry or guilt that feels heavier at night.",
+    "light": "honesty about fear, release",
+    "shadow": "catastrophising, sleepless worry",
+    "love": "Anxiety about a relationship.",
+    "work": "Stress about outcomes you cannot control.",
+    "question": "What worries could I talk about instead of carrying alone?"
+   },
+   "reversed": {
+    "core": "Fears easing, or being buried.",
+    "modes": [
+     "Releasing: fear easing.",
+     "Excess: spiralling.",
+     "Inward: worry kept hidden."
+    ],
+    "question": "Who could I tell what is keeping me awake?"
+   }
+  }
+ },
+ "swords_ten": {
+  "name": "Ten of Swords",
+  "keywords": [
+   "endings",
+   "exhaustion",
+   "rock bottom"
+  ],
+  "upright": "A painful chapter ends. The only direction now is forward.",
+  "reversed": "Recovery begins, or you cling to the past.",
+  "k": {
+   "essence": "The end of something painful.",
+   "imagery": "A figure lies face down with ten swords in their back against a black sky. On the horizon, dawn lights a calm sea.",
+   "why": "Ten is the end of a cycle. The picture is dramatic on purpose, but the dawn on the horizon means that the worst is over: there is nowhere further down to go. It is exaggerated pain, not a literal omen.",
+   "upright": {
+    "core": "A painful ending that clears the way for a new start.",
+    "light": "release, an ending, a fresh start",
+    "shadow": "dramatising, clinging to being the victim",
+    "love": "Closing a painful chapter.",
+    "work": "A project or job ends; relief in being done.",
+    "question": "What is over that I can finally let be over?"
+   },
+   "reversed": {
+    "core": "Recovery slowly beginning, or refusing to let go of the pain.",
+    "modes": [
+     "Releasing: dawn after the worst.",
+     "Excess: dramatising.",
+     "Blocked: unwilling to end it."
+    ],
+    "question": "What would starting over look like?"
+   }
+  }
+ },
+ "swords_page": {
+  "name": "Page of Swords",
+  "keywords": [
+   "curiosity",
+   "vigilance",
+   "ideas"
+  ],
+  "upright": "A sharp, inquisitive mind. Ask questions and gather facts.",
+  "reversed": "Gossip, haste or scattered thoughts.",
+  "k": {
+   "essence": "A sharp mind that wants to find out.",
+   "imagery": "A young figure stands on a windy hill holding a sword upright with both hands, glancing to the side. Clouds race overhead and trees bend in the wind.",
+   "why": "Pages are learners, and Swords are thought and speech. The wind and clouds show restless ideas, and the alert pose is of someone who watches before speaking.",
+   "upright": {
+    "core": "Curiosity and vigilance: asking questions and noticing details.",
+    "light": "alertness, honesty, learning",
+    "shadow": "gossip, sharp words used carelessly",
+    "love": "Wanting honest conversation; asking direct questions.",
+    "work": "Research, studying, a new way of thinking.",
+    "question": "What question have I not asked yet?"
+   },
+   "reversed": {
+    "core": "Words and ideas used to hurt, or thoughts that spin without conclusion.",
+    "modes": [
+     "Excess: sarcasm, nit-picking.",
+     "Blocked: afraid to speak up.",
+     "Inward: ideas that never get shared."
+    ],
+    "question": "Am I seeking truth, or just winning an argument?"
+   }
+  }
+ },
+ "swords_knight": {
+  "name": "Knight of Swords",
+  "keywords": [
+   "ambition",
+   "haste",
+   "directness"
+  ],
+  "upright": "Driven and quick to act. Watch for bluntness.",
+  "reversed": "Burning out, or acting without thinking.",
+  "k": {
+   "essence": "A direct charge toward an idea.",
+   "imagery": "A knight in armour gallops fast with a raised sword. Trees bend in a strong wind and clouds stream across the sky.",
+   "why": "Knights are action. In Air, action is thought and speech at speed. The horse races into the wind, and nothing in the picture slows it down.",
+   "upright": {
+    "core": "Decisive, quick thinking; the willingness to say what needs saying.",
+    "light": "determination, directness, fast thinking",
+    "shadow": "bluntness, haste, not listening",
+    "love": "Saying things plainly; the risk is saying them too sharply.",
+    "work": "Pushing a plan through; fast decisions.",
+    "question": "Who am I rushing past in my hurry to be right?"
+   },
+   "reversed": {
+    "core": "Haste turns to carelessness, or plans stall in overthinking.",
+    "modes": [
+     "Excess: aggression, tactless words.",
+     "Blocked: scattered thoughts.",
+     "Fading: motivation running out."
+    ],
+    "question": "What would I notice if I paused before acting?"
+   }
+  }
+ },
+ "swords_queen": {
+  "name": "Queen of Swords",
+  "keywords": [
+   "clarity",
+   "independence",
+   "honesty"
+  ],
+  "upright": "Clear-eyed and fair. Speak the truth kindly.",
+  "reversed": "Coldness or being overly critical.",
+  "k": {
+   "essence": "Clear sight, kindly or coldly used.",
+   "imagery": "A crowned woman sits side-on on a throne, one hand raised and the other holding a sword upright. Clouds and a bird are behind her and the carvings on the throne show butterflies and cherubs.",
+   "why": "Queens embody their suit inwardly. Air turned inward becomes clarity and independence. The raised hand is open, and the upright sword shows truth held in readiness, not used to strike.",
+   "upright": {
+    "core": "Straight, thoughtful honesty grounded in experience.",
+    "light": "clarity, independence, perception",
+    "shadow": "coldness, cutting remarks, closing off",
+    "love": "Honest communication and clear boundaries.",
+    "work": "Seeing through noise to what matters; fair, direct feedback.",
+    "question": "What do I see clearly that I have been softening?"
+   },
+   "reversed": {
+    "core": "Clarity turns harsh, or truth is held back.",
+    "modes": [
+     "Excess: criticism and cynicism.",
+     "Blocked: avoiding an honest conversation.",
+     "Inward: loneliness behind independence."
+    ],
+    "question": "Is my honesty serving someone, or just protecting me?"
+   }
+  }
+ },
+ "swords_king": {
+  "name": "King of Swords",
+  "keywords": [
+   "intellect",
+   "authority",
+   "reason"
+  ],
+  "upright": "Logical, principled and decisive. Seek fairness.",
+  "reversed": "Rigid thinking or misuse of power.",
+  "k": {
+   "essence": "Authority built on reason.",
+   "imagery": "A crowned king sits on a throne facing forward, holding an upright sword in one hand and gesturing with the other. Clouds and birds fill the sky behind.",
+   "why": "Kings turn their suit outward into mastery. Air mastered is judgment, ethics and clear rule. The head-on pose suggests someone who stands behind their words.",
+   "upright": {
+    "core": "Fair, informed judgment; thinking things through and standing by the result.",
+    "light": "intellect, fairness, integrity",
+    "shadow": "rigidity, using authority to cut people off",
+    "love": "Clear agreements and fair dealing.",
+    "work": "Analysis, decisions made on principle, advising.",
+    "question": "What principle do I want my decisions to stand on?"
+   },
+   "reversed": {
+    "core": "Reason becomes rigid or cold, or judgment is clouded.",
+    "modes": [
+     "Excess: tyranny of logic.",
+     "Blocked: inability to decide.",
+     "Fading: trust in your own judgment shaken."
+    ],
+    "question": "Am I being fair, or just being firm?"
+   }
+  }
+ },
+ "pentacles_ace": {
+  "name": "Ace of Pentacles",
+  "keywords": [
+   "opportunity",
+   "prosperity",
+   "foundations"
+  ],
+  "upright": "A seed of opportunity in work or money. Plant it carefully.",
+  "reversed": "A missed chance or poor planning.",
+  "k": {
+   "essence": "A practical seed in your hand.",
+   "imagery": "A hand from a cloud holds a golden coin marked with a star. Below is a garden with flowers, a stone arch and a path leading to distant mountains.",
+   "why": "Aces are the seed of their suit. Earth is work, body and money, so this is a tangible opportunity. The garden and path show that it is a good place to grow something.",
+   "upright": {
+    "core": "A real opportunity, a solid start in work, health or finances.",
+    "light": "opportunity, prosperity, a good foundation",
+    "shadow": "a missed chance",
+    "love": "A steady, practical start to a connection.",
+    "work": "A new job, offer, or financial chance.",
+    "question": "What practical opportunity can I start on?"
+   },
+   "reversed": {
+    "core": "A missed opportunity or a plan with no foundation.",
+    "modes": [
+     "Blocked: unable to start.",
+     "Excess: grabbing too fast.",
+     "Fading: an opening closing."
+    ],
+    "question": "What would make this opportunity workable?"
+   }
+  }
+ },
+ "pentacles_two": {
+  "name": "Two of Pentacles",
+  "keywords": [
+   "balance",
+   "juggling",
+   "adaptability"
+  ],
+  "upright": "Juggling priorities with flexibility. Keep your rhythm.",
+  "reversed": "Overcommitting or disorganisation.",
+  "k": {
+   "essence": "Keeping two things in the air.",
+   "imagery": "A young man in a tall hat dances while juggling two coins linked by an infinity loop. Behind him ships rise and fall on large waves.",
+   "why": "Two is the number of choices and balance. The infinity loop is a flow between two demands, and the waves show that conditions keep changing. He is smiling but must keep moving.",
+   "upright": {
+    "core": "Balancing competing demands with flexibility.",
+    "light": "adaptability, balance, juggling",
+    "shadow": "overcommitting, dropping things",
+    "love": "Balancing a relationship with other parts of life.",
+    "work": "Handling money and time with limited resources.",
+    "question": "What can I stop juggling?"
+   },
+   "reversed": {
+    "core": "Overwhelm, or a balance that falls apart.",
+    "modes": [
+     "Blocked: everything feels too much.",
+     "Excess: taking on too much.",
+     "Fading: balance slipping."
+    ],
+    "question": "What is the cost of doing it all?"
+   }
+  }
+ },
+ "pentacles_three": {
+  "name": "Three of Pentacles",
+  "keywords": [
+   "teamwork",
+   "craft",
+   "skill"
+  ],
+  "upright": "Skilled collaboration. Good work grows through cooperation.",
+  "reversed": "Poor teamwork or work below your usual standard.",
+  "k": {
+   "essence": "Work done well, together.",
+   "imagery": "A craftsman works on a stone carving in a church while two others look on with plans in hand. Three coins are carved in the arch.",
+   "why": "Three is the number of growth. This is teamwork: skill, planning and a patron in one room. The church setting shows craftsmanship as something almost sacred.",
+   "upright": {
+    "core": "Collaboration and skill recognised by others.",
+    "light": "teamwork, craft, quality",
+    "shadow": "ignoring feedback, working at cross purposes",
+    "love": "Building something together.",
+    "work": "A team project, skill-building, getting feedback.",
+    "question": "Whose expertise do I need to build this well?"
+   },
+   "reversed": {
+    "core": "Poor teamwork or work without pride.",
+    "modes": [
+     "Blocked: collaboration breaking down.",
+     "Excess: perfectionism.",
+     "Fading: losing interest in the craft."
+    ],
+    "question": "Am I working with others, or around them?"
+   }
+  }
+ },
+ "pentacles_four": {
+  "name": "Four of Pentacles",
+  "keywords": [
+   "security",
+   "saving",
+   "control"
+  ],
+  "upright": "Holding on to what you have. Security is good; watch for clinging.",
+  "reversed": "Generosity returns, or tight control loosens.",
+  "k": {
+   "essence": "Holding on tightly.",
+   "imagery": "A crowned figure sits clutching one coin to the chest, with another on the head and two under the feet. A city stands behind.",
+   "why": "Four is the number of foundation and, here, rigidity. Every coin is guarded so that nothing can be lost, and nothing can be used. The city behind shows the world he is cut off from.",
+   "upright": {
+    "core": "Security that tips into clinging, with money, things or control.",
+    "light": "security, saving, boundaries",
+    "shadow": "greed, fear of loss, control",
+    "love": "Possessiveness or guardedness.",
+    "work": "Protecting resources; being too cautious.",
+    "question": "What am I holding onto out of fear?"
+   },
+   "reversed": {
+    "core": "Loosening your grip, or spending without thought.",
+    "modes": [
+     "Releasing: generosity.",
+     "Excess: hoarding.",
+     "Blocked: scarcity fear."
+    ],
+    "question": "What would I do if I felt safe?"
+   }
+  }
+ },
+ "pentacles_five": {
+  "name": "Five of Pentacles",
+  "keywords": [
+   "hardship",
+   "worry",
+   "feeling left out"
+  ],
+  "upright": "A lean time. Help exists if you reach for it.",
+  "reversed": "Recovery, or refusing to ask for support.",
+  "k": {
+   "essence": "Feeling left out in the cold.",
+   "imagery": "Two ragged figures, one on crutches, walk through snow past a lit stained-glass window of a church. The window shows five coins.",
+   "why": "Five is a number of hardship. The warm window shows help is near but not noticed, and the figures keep walking. It is a picture of need and of overlooked shelter.",
+   "upright": {
+    "core": "Hardship or feeling excluded, with help nearby.",
+    "light": "resilience, asking for help",
+    "shadow": "isolation, pride that blocks help",
+    "love": "Feeling alone in a bond.",
+    "work": "Financial or job worries.",
+    "question": "Who could I ask for help?"
+   },
+   "reversed": {
+    "core": "Recovery, or refusing help.",
+    "modes": [
+     "Releasing: the worst is over.",
+     "Blocked: too proud to ask.",
+     "Excess: dwelling on scarcity."
+    ],
+    "question": "What help is near that I have not asked for?"
+   }
+  }
+ },
+ "pentacles_six": {
+  "name": "Six of Pentacles",
+  "keywords": [
+   "generosity",
+   "sharing",
+   "fairness"
+  ],
+  "upright": "Giving and receiving in balance. Be fair with resources.",
+  "reversed": "Strings attached, or one-sided exchange.",
+  "k": {
+   "essence": "Giving and receiving fairly.",
+   "imagery": "A well-dressed man holds scales in one hand and gives coins to two kneeling figures with the other. A stack of coins is at the side.",
+   "why": "Six is the number of harmony. The scales show fairness. The card is about the flow of resources, and it also asks who holds power in the exchange.",
+   "upright": {
+    "core": "Generosity, fairness and mutual support.",
+    "light": "generosity, fairness, support",
+    "shadow": "strings attached, uneven power",
+    "love": "Giving and receiving care evenly.",
+    "work": "Fair pay, mentoring, sharing resources.",
+    "question": "Is the give and take in my life fair?"
+   },
+   "reversed": {
+    "core": "Debt, one-sided giving, or conditions on help.",
+    "modes": [
+     "Blocked: unable to give or receive.",
+     "Excess: giving to control.",
+     "Fading: support running out."
+    ],
+    "question": "Who is holding the scales in this situation?"
+   }
+  }
+ },
+ "pentacles_seven": {
+  "name": "Seven of Pentacles",
+  "keywords": [
+   "patience",
+   "assessment",
+   "long view"
+  ],
+  "upright": "Pause to review your efforts. Growth takes time.",
+  "reversed": "Impatience or doubting your progress.",
+  "k": {
+   "essence": "Pausing to see what grew.",
+   "imagery": "A farmer leans on his hoe and looks at a bush bearing seven coins. A work of effort has already been done.",
+   "why": "Seven is the number of trial. After planting and tending, the farmer pauses and looks. The coins have grown but are not yet harvested, so the question is whether to keep waiting.",
+   "upright": {
+    "core": "A pause to assess the results of long effort.",
+    "light": "patience, assessment, long-term thinking",
+    "shadow": "impatience, doubting your effort",
+    "love": "Taking stock of what a long investment has produced.",
+    "work": "Reviewing progress and deciding on the next step.",
+    "question": "Is the growth I see worth continuing for?"
+   },
+   "reversed": {
+    "core": "Frustration at slow progress, or giving up too early.",
+    "modes": [
+     "Blocked: impatience.",
+     "Excess: overworking.",
+     "Fading: losing faith in the work."
+    ],
+    "question": "What have I actually built so far?"
+   }
+  }
+ },
+ "pentacles_eight": {
+  "name": "Eight of Pentacles",
+  "keywords": [
+   "diligence",
+   "mastery",
+   "practice"
+  ],
+  "upright": "Steady, focused work builds skill.",
+  "reversed": "Perfectionism or repetitive work with no purpose.",
+  "k": {
+   "essence": "Skill built by practice.",
+   "imagery": "A craftsman sits at a bench hammering a coin with a chisel. Finished coins hang on a post and others lie ready. A town is distant.",
+   "why": "Eight is mastery. The craftsman is alone and absorbed, which is the card's tone: steady repetition, not glory. The finished coins show progress made.",
+   "upright": {
+    "core": "Dedication to learning a skill, one repetition at a time.",
+    "light": "diligence, craft, focus",
+    "shadow": "repetitive grind, perfectionism",
+    "love": "Doing steady work on a bond.",
+    "work": "Learning a trade or improving through practice.",
+    "question": "What skill am I willing to practise patiently?"
+   },
+   "reversed": {
+    "core": "Shoddy work, or burnout from drudgery.",
+    "modes": [
+     "Blocked: no progress.",
+     "Excess: obsessive work.",
+     "Fading: motivation lost."
+    ],
+    "question": "What would I learn if I stayed with it a little longer?"
+   }
+  }
+ },
+ "pentacles_nine": {
+  "name": "Nine of Pentacles",
+  "keywords": [
+   "self-reliance",
+   "comfort",
+   "reward"
+  ],
+  "upright": "Enjoy what your effort has built.",
+  "reversed": "Overwork, or comfort that feels empty.",
+  "k": {
+   "essence": "Comfort you built yourself.",
+   "imagery": "A richly dressed woman stands in a vineyard with a falcon on her gloved hand. A snail crawls at the base of the picture. A grand house is behind.",
+   "why": "Nine is near completion and brings private enjoyment of results. The garden is the work of years, and the falcon is trained and calm. The snail suggests slow progress was the route.",
+   "upright": {
+    "core": "Self-reliance and enjoying what you have earned.",
+    "light": "independence, ease, self-sufficiency",
+    "shadow": "isolation, valuing comfort over connection",
+    "love": "Being content on your own.",
+    "work": "Rewards of long work; financial independence.",
+    "question": "What have I built that I can enjoy?"
+   },
+   "reversed": {
+    "core": "Dependence, or comfort that feels empty.",
+    "modes": [
+     "Blocked: unable to enjoy it.",
+     "Excess: living for show.",
+     "Inward: loneliness behind success."
+    ],
+    "question": "Does what I have built feel like mine?"
+   }
+  }
+ },
+ "pentacles_ten": {
+  "name": "Ten of Pentacles",
+  "keywords": [
+   "legacy",
+   "family",
+   "lasting security"
+  ],
+  "upright": "Long-term stability, family and shared wealth.",
+  "reversed": "Family friction or short-term thinking.",
+  "k": {
+   "essence": "A lasting legacy.",
+   "imagery": "An old man sits with two dogs under an archway. A couple and a child stand nearby, and ten coins are arranged in a pattern above a large estate.",
+   "why": "Ten is the completion of a cycle. Where the Nine is personal, the Ten is generational: security that passes on. The arch and the estate show roots and tradition.",
+   "upright": {
+    "core": "Long-term security, family or community that lasts.",
+    "light": "stability, legacy, belonging",
+    "shadow": "pressure to conform, being tied to others' expectations",
+    "love": "A long-term, rooted bond.",
+    "work": "Lasting business or financial security.",
+    "question": "What do I want to leave behind or build to last?"
+   },
+   "reversed": {
+    "core": "Instability in family or finances.",
+    "modes": [
+     "Blocked: unstable foundations.",
+     "Excess: obsession with status.",
+     "Fading: a legacy dissolving."
+    ],
+    "question": "What roots do I want to put down?"
+   }
+  }
+ },
+ "pentacles_page": {
+  "name": "Page of Pentacles",
+  "keywords": [
+   "study",
+   "ambition",
+   "practicality"
+  ],
+  "upright": "A hardworking student of life, eager to learn and build.",
+  "reversed": "Procrastination or lack of focus.",
+  "k": {
+   "essence": "A patient first step on solid ground.",
+   "imagery": "A young person stands in a green field holding up a single golden coin and studying it closely. Trees and gentle hills lie behind.",
+   "why": "Pages begin things, and Pentacles are the physical world. Looking closely at one coin is the picture of careful study. Fertile ground implies that growth is possible.",
+   "upright": {
+    "core": "Learning a craft or starting a practical goal with care.",
+    "light": "diligence, curiosity about the real world, steadiness",
+    "shadow": "procrastination, only dreaming",
+    "love": "Slow, sincere interest; showing care through consistency.",
+    "work": "A course, an apprenticeship, a first step on a goal.",
+    "question": "What one practical step can I take this week?"
+   },
+   "reversed": {
+    "core": "Plans stay dreams, or effort is misdirected.",
+    "modes": [
+     "Blocked: waiting for the perfect moment.",
+     "Excess: perfectionism.",
+     "Fading: motivation dropping off."
+    ],
+    "question": "What am I postponing that only needs a start?"
+   }
+  }
+ },
+ "pentacles_knight": {
+  "name": "Knight of Pentacles",
+  "keywords": [
+   "reliability",
+   "persistence",
+   "routine"
+  ],
+  "upright": "Dependable and thorough. Slow and steady wins.",
+  "reversed": "Stubbornness, boredom or perfectionism.",
+  "k": {
+   "essence": "Steady effort that gets there in the end.",
+   "imagery": "A knight in dark armour sits calmly on a heavy, still horse, holding a coin and gazing at it. The field around him is ploughed.",
+   "why": "Knights pursue, and in Pentacles they pursue steadily. The horse is the only one in the Knights that stands still, showing patience over speed. The ploughed field shows work already done.",
+   "upright": {
+    "core": "Reliability and persistence: doing the work and finishing it.",
+    "light": "dependability, routine, thoroughness",
+    "shadow": "stubbornness, boredom, getting stuck in routine",
+    "love": "Showing love through dependable acts.",
+    "work": "Following a long project through; consistent routines.",
+    "question": "Where is my steadiness serving me, and where am I just stuck?"
+   },
+   "reversed": {
+    "core": "Routine turns into rut, or progress stalls.",
+    "modes": [
+     "Blocked: stuck in the same pattern.",
+     "Excess: workaholism or rigidity.",
+     "Fading: losing interest in the long task."
+    ],
+    "question": "What would a small change to my routine open up?"
+   }
+  }
+ },
+ "pentacles_queen": {
+  "name": "Queen of Pentacles",
+  "keywords": [
+   "nurturing",
+   "practical",
+   "resourceful"
+  ],
+  "upright": "Warm, practical and generous. Create comfort for yourself and others.",
+  "reversed": "Self-neglect or smothering.",
+  "k": {
+   "essence": "Care that is practical and warm.",
+   "imagery": "A crowned woman sits in a garden bower of flowers and fruit, holding a coin on her lap and looking at it tenderly. A rabbit is nearby.",
+   "why": "Queens embody their suit inwardly. Earth held tenderly is nurture through practical things. The garden and rabbit suggest abundance and fertility of ideas and resources.",
+   "upright": {
+    "core": "Resourcefulness and nurture: making a home, a budget or a life that works.",
+    "light": "generosity, practicality, comfort",
+    "shadow": "overworking, neglecting yourself to provide",
+    "love": "Caring through everyday actions and a welcoming home.",
+    "work": "Managing resources well; creating a stable environment.",
+    "question": "Am I looking after myself with the same care I give others?"
+   },
+   "reversed": {
+    "core": "Support turns into smothering, or self-care is neglected.",
+    "modes": [
+     "Excess: taking on too much.",
+     "Blocked: scarcity worries.",
+     "Inward: provides for others but not herself."
+    ],
+    "question": "What do I need to make my own life feel secure?"
+   }
+  }
+ },
+ "pentacles_king": {
+  "name": "King of Pentacles",
+  "keywords": [
+   "abundance",
+   "stability",
+   "leadership"
+  ],
+  "upright": "Established, generous and secure. Lead steadily.",
+  "reversed": "Greed, stubbornness or valuing money over people.",
+  "k": {
+   "essence": "Stability built over time.",
+   "imagery": "A crowned king sits on a throne carved with bulls and decorated with vines, holding a coin and a sceptre. A castle and a garden are behind him.",
+   "why": "Kings turn their suit outward into mastery. Earth mastered is lasting security. Bulls and vines suggest strength and abundance that have been cultivated.",
+   "upright": {
+    "core": "Prosperity through patience, discipline and fair dealing.",
+    "light": "reliability, generosity, long-term thinking",
+    "shadow": "materialism, resisting change",
+    "love": "Providing security and commitment.",
+    "work": "Building something lasting; sound financial habits.",
+    "question": "What am I building that will still stand in five years?"
+   },
+   "reversed": {
+    "core": "Security hardens into possessiveness, or resources are mismanaged.",
+    "modes": [
+     "Excess: valuing things over people.",
+     "Blocked: fear of loss.",
+     "Fading: neglected foundations."
+    ],
+    "question": "What does enough look like for me?"
+   }
+  }
+ }
+}

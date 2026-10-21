@@ -1,8 +1,9 @@
 ---
 // A reading table in the browser: shuffle, draw one card per position, turn
 // them over and read the short meanings. Nothing leaves the page.
-import { BASE } from "../config.ts";
 import { readerDeck } from "../lib/data.ts";
+import { BASE } from "../config.ts";
+import { i18n, type Locale } from "../i18n/index.ts";
 
 interface Props {
   positions: string[];
@@ -11,16 +12,20 @@ interface Props {
   /** Chance that a card comes up reversed. */
   reversals?: number;
   button?: string;
+  lang?: Locale;
 }
-const { positions, mode = "spread", reversals = 0.25, button = "Shuffle and draw" } = Astro.props;
-const config = JSON.stringify({ positions, mode, reversals, base: BASE, deck: readerDeck });
+const { positions, mode = "spread", reversals = 0.25, lang = "en" } = Astro.props;
+const L = i18n(lang);
+const { t } = L;
+const button = Astro.props.button ?? t("reader.draw");
+const config = JSON.stringify({ positions, mode, reversals, base: BASE, cards: L.url("cards"), deck: readerDeck(L), t: L.ui.reader, share: L.ui.share, suits: L.ui.suits, sense: L.ui.suitSense, date: L.tag });
 ---
 <div class="reader" data-reader>
   <script type="application/json" data-config set:html={config.replace(/</g, "\\u003c")} />
   {mode !== "daily" && (
     <div class="panel tool-panel">
-      <label class="grow">Your question (optional, stays on this page)
-        <input type="text" data-question maxlength="200" placeholder={mode === "yesno" ? "Should I take the new job?" : "What do I need to know about…"} />
+      <label class="grow">{t("reader.questionLabel")}
+        <input type="text" data-question maxlength="200" placeholder={mode === "yesno" ? t("reader.placeholderYesNo") : t("reader.placeholder")} />
       </label>
       <button class="btn btn-gold" type="button" data-draw>{button}</button>
     </div>
@@ -28,23 +33,25 @@ const config = JSON.stringify({ positions, mode, reversals, base: BASE, deck: re
   {mode === "daily" && (
     <p class="center"><button class="btn btn-gold" type="button" data-draw>{button}</button></p>
   )}
-  <p class="ask-note" data-ask-note hidden>We picked this spread for your question. Shuffle when you're ready.</p>
+  <p class="ask-note" data-ask-note hidden>{t("reader.askNote")}</p>
   <div class="table" data-table aria-live="polite"></div>
   <div class="reader-foot" data-foot hidden>
     <div class="lean" data-lean hidden></div>
     <div class="panel summary" data-summary hidden></div>
     <p class="center">
-      <button class="btn btn-ghost btn-sm" type="button" data-reveal>Turn all over</button>
-      <button class="btn btn-ghost btn-sm" type="button" data-copy hidden>Copy reading</button>
+      <button class="btn btn-ghost btn-sm" type="button" data-reveal>{t("reader.revealAll")}</button>
+      <button class="btn btn-ghost btn-sm" type="button" data-copy hidden>{t("reader.copy")}</button>
     </p>
   </div>
 </div>
 
 <script>
   import { ASK_KEY } from "../lib/recommend.ts";
+  import { shareButtons, type ShareText } from "../lib/share.ts";
 
   type Card = { id: string; slug: string; name: string; suit: string | null; n: number | null; keywords: string[]; up: string; rev: string; upQ: string; revQ: string };
-  type Config = { positions: string[]; mode: "spread" | "yesno" | "daily"; reversals: number; base: string; deck: Card[] };
+  type Config = { positions: string[]; mode: "spread" | "yesno" | "daily"; reversals: number; base: string; cards: string; deck: Card[]; t: Record<string, string>; share: ShareText & Record<string, string>; suits: Record<string, string>; sense: Record<string, string>; date: string };
+  const fill = (s: string, v: Record<string, string | number>) => s.replace(/\{(\w+)\}/g, (m, k: string) => (k in v ? String(v[k]) : m));
   type Drawn = { card: Card; reversed: boolean; open: boolean };
 
   const rand = (n: number) => {
@@ -62,6 +69,7 @@ const config = JSON.stringify({ positions, mode, reversals, base: BASE, deck: re
 
   for (const root of document.querySelectorAll<HTMLElement>("[data-reader]")) {
     const cfg = JSON.parse(root.querySelector("[data-config]")!.textContent!) as Config;
+    const T = cfg.t;
     const table = root.querySelector<HTMLElement>("[data-table]")!;
     const foot = root.querySelector<HTMLElement>("[data-foot]")!;
     const leanBox = root.querySelector<HTMLElement>("[data-lean]")!;
@@ -70,6 +78,20 @@ const config = JSON.stringify({ positions, mode, reversals, base: BASE, deck: re
     const copy = root.querySelector<HTMLButtonElement>("[data-copy]")!;
     const question = root.querySelector<HTMLInputElement>("[data-question]");
     let drawn: Drawn[] = [];
+    // A share image for a day's card or a short reading (longer spreads don't fit one picture).
+    const shareRow = shareButtons(() => {
+      const one = drawn.length === 1;
+      const nameOf = (d: Drawn) => (d.reversed ? fill(T.nameReversed!, { name: d.card.name }) : d.card.name);
+      return {
+        base: cfg.base,
+        eyebrow: cfg.mode === "daily" ? cfg.share.daily! : cfg.share.reading!,
+        title: drawn.map(nameOf).join(" · "),
+        text: one ? (drawn[0]!.reversed ? drawn[0]!.card.rev : drawn[0]!.card.up) : drawn.map((d) => d.card.keywords[0]).join(" · "),
+        cards: drawn.map((d, i) => ({ id: d.card.id, name: d.card.name, reversed: d.reversed, label: one ? undefined : cfg.positions[i] })),
+        file: `shentarot-${drawn.map((d) => d.card.slug).join("-")}`,
+      };
+    }, cfg.share);
+    foot.append(shareRow);
 
     function shuffle(): Drawn[] {
       const d = cfg.deck.slice();
@@ -84,20 +106,20 @@ const config = JSON.stringify({ positions, mode, reversals, base: BASE, deck: re
       const { card, reversed } = drawn[i]!;
       const box = el("div", "face");
       const link = el("a");
-      link.href = `${cfg.base}cards/${card.slug}`;
+      link.href = `${cfg.cards}/${card.slug}`;
       const img = el("img", reversed ? "rev" : "");
       img.src = `${cfg.base}cards/art/${card.id}.jpg`;
-      img.alt = `${card.name}${reversed ? ", reversed" : ""}`;
+      img.alt = reversed ? fill(T.altReversed!, { name: card.name }) : card.name;
       img.width = 300;
       img.height = 514;
       link.append(img);
       const body = el("div", "face-body");
-      body.append(el("b", "", card.name + (reversed ? " (reversed)" : "")));
+      body.append(el("b", "", reversed ? fill(T.nameReversed!, { name: card.name }) : card.name));
       body.append(el("p", "kw", card.keywords.join(" · ")));
       body.append(el("p", "", reversed ? card.rev : card.up));
       const q = reversed ? card.revQ : card.upQ;
       if (q && cfg.mode === "daily") body.append(el("p", "reflect", q));
-      const more = el("a", "link-arrow", "Full meaning");
+      const more = el("a", "link-arrow", T.fullMeaning);
       more.href = link.href;
       body.append(more);
       box.append(link, body);
@@ -115,7 +137,7 @@ const config = JSON.stringify({ positions, mode, reversals, base: BASE, deck: re
         } else {
           const back = el("button", "back");
           back.type = "button";
-          back.setAttribute("aria-label", `Turn over card ${i + 1}: ${cfg.positions[i]}`);
+          back.setAttribute("aria-label", fill(T.turnOver!, { n: i + 1, pos: cfg.positions[i]! }));
           back.onclick = () => {
             d.open = true;
             render();
@@ -129,6 +151,7 @@ const config = JSON.stringify({ positions, mode, reversals, base: BASE, deck: re
       foot.hidden = drawn.length === 0;
       revealAll.hidden = allOpen || drawn.length < 2;
       copy.hidden = !allOpen;
+      shareRow.hidden = !(allOpen && drawn.length <= 3);
       leanBox.hidden = !(allOpen && cfg.mode === "yesno");
       if (allOpen && cfg.mode === "yesno") showLean();
       summary.hidden = !(allOpen && drawn.length >= 3);
@@ -144,11 +167,11 @@ const config = JSON.stringify({ positions, mode, reversals, base: BASE, deck: re
     // Same rule as the app: upright leans yes, reversed leans no, the middle card counts double.
     function showLean() {
       const score = drawn.reduce((s, d, i) => s + (d.reversed ? -1 : 1) * (i === 1 && drawn.length === 3 ? 2 : 1), 0);
-      const label = score > 0 ? "Leaning yes" : score < 0 ? "Leaning no" : "Not settled";
+      const label = score > 0 ? T.leanYes! : score < 0 ? T.leanNo! : T.leanEven!;
       leanBox.className = `lean ${score > 0 ? "yes" : score < 0 ? "no" : "even"}`;
       leanBox.replaceChildren(
         el("b", "", label),
-        el("p", "", "Upright cards lean yes and reversed cards lean no. With three cards, the middle one counts double. Read it as a tendency, not a fixed answer: the meanings above show what could shift it."),
+        el("p", "", T.leanNote!),
       );
     }
 
@@ -160,28 +183,26 @@ const config = JSON.stringify({ positions, mode, reversals, base: BASE, deck: re
       const majors = drawn.filter((d) => d.card.suit === null).length;
       const reversed = drawn.filter((d) => d.reversed).length;
       const suits = ["wands", "cups", "swords", "pentacles"].map((s) => [s, drawn.filter((d) => d.card.suit === s).length] as const);
-      const SUIT_SENSE: Record<string, string> = { wands: "drive and action", cups: "feelings and relationships", swords: "thoughts and conflict", pentacles: "work, money and the body" };
       let total = drawn.reduce((s, d) => s + (d.card.n ?? 0), 0);
       while (total > 22) total = String(total).split("").reduce((s, x) => s + Number(x), 0);
       const quint = cfg.deck.find((c) => c.suit === null && c.n === (total === 22 ? 0 : total));
       const lines: string[] = [];
-      if (majors / n >= 0.5) lines.push(`${majors} of ${n} cards are Major Arcana: big themes and turning points, more than day-to-day events.`);
-      else lines.push(`${majors} of ${n} cards are Major Arcana, so this reading is mostly about everyday matters.`);
+      lines.push(fill(majors / n >= 0.5 ? T.majorsMany! : T.majorsFew!, { majors, n }));
       const top = suits.slice().sort((a, b) => b[1] - a[1]);
-      if (top[0]![1] >= 2 && top[0]![1] > top[1]![1]) lines.push(`${top[0]![0][0]!.toUpperCase()}${top[0]![0].slice(1)} lead (${top[0]![1]} cards): the focus is ${SUIT_SENSE[top[0]![0]]}.`);
-      const missing = suits.filter((s) => s[1] === 0).map((s) => s[0]);
-      if (n >= 5 && missing.length) lines.push(`No ${missing.join(" or ")}: notice what this reading leaves out.`);
-      lines.push(reversed === 0 ? "No reversed cards." : `${reversed} reversed: energy that is blocked, delayed or turned inward.`);
-      summary.replaceChildren(el("h3", "", "At a glance"));
+      if (top[0]![1] >= 2 && top[0]![1] > top[1]![1]) lines.push(fill(T.suitLeads!, { suit: cfg.suits[top[0]![0]]!, count: top[0]![1], sense: cfg.sense[top[0]![0]]! }));
+      const missing = suits.filter((s) => s[1] === 0).map((s) => cfg.suits[s[0]]!);
+      if (n >= 5 && missing.length) lines.push(fill(T.suitsMissing!, { suits: missing.join(T.or!) }));
+      lines.push(reversed === 0 ? T.noReversed! : fill(T.reversedCount!, { reversed }));
+      summary.replaceChildren(el("h3", "", T.glance));
       const ul = el("ul");
       for (const l of lines) ul.append(el("li", "", l));
       summary.append(ul);
       if (quint && total > 0) {
         const q = el("p", "quint");
-        q.append("Quintessence card: ");
+        const [before, after] = fill(T.quint!, { total }).split("{card}");
         const a = el("a", "", quint.name);
-        a.href = `${cfg.base}cards/${quint.slug}`;
-        q.append(a, `, the theme underneath the whole reading (the card numbers added and reduced to ${total}).`);
+        a.href = `${cfg.cards}/${quint.slug}`;
+        q.append(before ?? "", a, after ?? "");
         summary.append(q);
       }
     }
@@ -198,19 +219,19 @@ const config = JSON.stringify({ positions, mode, reversals, base: BASE, deck: re
       render();
     };
     copy.onclick = async () => {
-      const lines = [`ShenTarot reading · ${today()}`];
-      if (question?.value.trim()) lines.push(`Question: ${question.value.trim()}`);
+      const lines = [fill(T.copyTitle!, { date: today() })];
+      if (question?.value.trim()) lines.push(fill(T.copyQuestion!, { q: question.value.trim() }));
       drawn.forEach((d, i) => {
-        lines.push(`${cfg.positions[i]}: ${d.card.name}${d.reversed ? " (reversed)" : ""}: ${d.reversed ? d.card.rev : d.card.up}`);
+        lines.push(`${cfg.positions[i]}: ${d.reversed ? fill(T.nameReversed!, { name: d.card.name }) : d.card.name}: ${d.reversed ? d.card.rev : d.card.up}`);
       });
       if (cfg.mode === "yesno") lines.push(leanBox.querySelector("b")?.textContent ?? "");
       try {
         await navigator.clipboard.writeText(lines.join("\n"));
-        copy.textContent = "Copied";
+        copy.textContent = T.copied!;
       } catch {
-        copy.textContent = "Copy failed";
+        copy.textContent = T.copyFailed!;
       }
-      setTimeout(() => (copy.textContent = "Copy reading"), 2000);
+      setTimeout(() => (copy.textContent = T.copy!), 2000);
     };
 
     // A question asked on the home page arrives with the spread it was matched to.

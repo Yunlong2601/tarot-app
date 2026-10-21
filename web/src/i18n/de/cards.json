@@ -1,0 +1,2498 @@
+{
+ "major_00_fool": {
+  "name": "Der Narr",
+  "keywords": [
+   "Neubeginn",
+   "Spontaneität",
+   "Vertrauen"
+  ],
+  "upright": "Ein Neuanfang verlangt einen Vertrauenssprung. Bleib neugierig und offen für das Neue.",
+  "reversed": "Zögern oder Leichtsinn. Halte kurz inne und prüfe den Boden, bevor du losgehst.",
+  "k": {
+   "essence": "Der Schritt, den du machst, bevor du dich bereit fühlst.",
+   "imagery": "Ein Reisender steht unter einer hellen Sonne am Rand einer Klippe, den Kopf nach oben gerichtet, ohne nach unten zu schauen. An einem Stock hängt ein kleines Bündel, in einer Hand hält er eine weiße Rose, und ein kleiner weißer Hund springt ihm um die Füße. In der Ferne erheben sich Berge.",
+   "why": "Null ist die Zahl der Möglichkeiten, bevor überhaupt etwas gezählt wurde – darum geht es bei dieser Karte um einen Anfang, bei dem noch nichts bewiesen ist. Der Klippenrand ist der Moment der Entscheidung. Der erhobene Blick steht für Vertrauen statt Planung, das leichte Bündel für Reisen ohne Ballast und der Hund für den Instinkt, der dich antreibt.",
+   "upright": {
+    "core": "Ein Anfang, dessen Ergebnis noch niemand kennen kann, und die Einladung, trotzdem loszugehen.",
+    "light": "Neugier, Verspieltheit, die Bereitschaft, Anfänger zu sein, Vertrauen",
+    "shadow": "Begeisterung, die die Grundlagen überspringt",
+    "love": "Offenheit, einem Menschen oder einer Erfahrung ohne Drehbuch zu begegnen; in einer bestehenden Beziehung gemeinsam etwas Neues ausprobieren.",
+    "work": "Ein unerprobtes Projekt beginnen, eine neue Richtung einschlagen, Ja sagen, bevor du dich qualifiziert fühlst.",
+    "question": "Was würde ich anfangen, wenn ich akzeptiere, dass ich am Anfang ungeschickt sein werde?"
+   },
+   "reversed": {
+    "core": "Die Energie des Anfangs ist da, wird aber zurückgehalten, überstürzt oder geht ins Leere.",
+    "modes": [
+     "Blockiert: Zögern am Rand, immer nur vorbereiten.",
+     "Übermaß: der Sprung, ohne auf den Boden zu schauen.",
+     "Nach innen: ein Plan, den du für dich behältst, weil er real wird, sobald du ihn aussprichst."
+    ],
+    "question": "Warte ich auf eine Gewissheit, die nicht kommen wird, oder bewege ich mich so schnell, dass ich gar nicht wirklich wähle?"
+   }
+  }
+ },
+ "major_01_magician": {
+  "name": "Der Magier",
+  "keywords": [
+   "Können",
+   "Fokus",
+   "Einfallsreichtum"
+  ],
+  "upright": "Du hast die Werkzeuge, die du brauchst, schon in der Hand. Sammle deine Aufmerksamkeit und handle mit Absicht.",
+  "reversed": "Verstreute Energie oder ungenutztes Talent. Frag dich, was deinen Fokus zurückhält.",
+  "k": {
+   "essence": "Du hast schon, was du zum Anfangen brauchst.",
+   "imagery": "Eine Gestalt in weißem Gewand und rotem Umhang hebt einen Stab zum Himmel und zeigt mit der anderen Hand zum Boden. Über dem Kopf schwebt ein Unendlichkeitszeichen. Auf dem Tisch vor ihr liegen ein Kelch, ein Schwert, ein Stab und eine Münze, und darunter blühen Rosen und Lilien.",
+   "why": "Eins ist die Zahl eines einzigen Brennpunkts. Die vier Werkzeuge auf dem Tisch stehen für die vier Farben, also ist jede Art von Ressource in Reichweite. Die erhobene und die gesenkte Hand werden meist so gedeutet, dass eine Idee in die Welt geholt wird. Merkur, der übliche Planet der Karte, verweist auf Geschick und Kommunikation.",
+   "upright": {
+    "core": "Fokus macht aus dem Möglichen etwas Reales. Du hast mehr, womit du arbeiten kannst, als du vielleicht denkst.",
+    "light": "Können, Fokus, Initiative",
+    "shadow": "Cleverness ohne Aufrichtigkeit, viele Tricks und wenig Durchhalten",
+    "love": "Klar sagen, was du willst, und es auch so meinen; Aufrichtigkeit statt Show.",
+    "work": "Deine Fähigkeiten gezielt einsetzen, ein Projekt mit einem Plan beginnen.",
+    "question": "Was habe ich schon, das ich nicht nutze?"
+   },
+   "reversed": {
+    "core": "Können und Fokus sind zerstreut, werden zurückgehalten oder nur zur Schau gestellt.",
+    "modes": [
+     "Blockiert: wissen, was zu tun ist, und nicht anfangen.",
+     "Übermaß: mehr versprechen, als du hältst.",
+     "Nach innen: ein Talent, das du für dich behältst."
+    ],
+    "question": "Wohin geht meine Aufmerksamkeit statt dorthin, wo ich sie angeblich haben will?"
+   }
+  }
+ },
+ "major_02_high_priestess": {
+  "name": "Die Hohepriesterin",
+  "keywords": [
+   "Intuition",
+   "Stille",
+   "das Unausgesprochene"
+  ],
+  "upright": "Stilles Nachdenken bringt Antworten, die Lärm nicht bringen kann. Vertrau dem, was du unter der Oberfläche spürst.",
+  "reversed": "Deine innere Stimme ignorieren oder etwas vor dir selbst verbergen.",
+  "k": {
+   "essence": "Was du spürst, bevor du es erklären kannst.",
+   "imagery": "Eine Frau in blauen Gewändern sitzt zwischen einer schwarzen und einer weißen Säule, die mit den Buchstaben B und J beschriftet sind. Zu ihren Füßen liegt eine Mondsichel, und auf ihrem Schoß ist eine Schriftrolle halb verborgen. Hinter ihr hängt ein Vorhang mit Granatapfelmuster.",
+   "why": "Zwei ist die Zahl der Paare und Schwellen. Die Säulen markieren ein Tor zwischen Gegensätzen, und der Vorhang verbirgt, was dahinter liegt. Der Mond, mit dem sie üblicherweise verbunden wird, ist das traditionelle Symbol für Intuition und für das, was noch nicht sichtbar ist.",
+   "upright": {
+    "core": "Stille vor der Entscheidung: auf das Unausgesprochene hören, in der Situation und in dir.",
+    "light": "Intuition, Geduld, Diskretion",
+    "shadow": "Heimlichkeit, zu lange zurückhalten",
+    "love": "Wahrnehmen, was zwischen Menschen ungesagt bleibt und was du dir selbst noch nicht eingestanden hast.",
+    "work": "Informationen sammeln, bevor du handelst; einem stillen Gespür für die Stimmung im Raum vertrauen.",
+    "question": "Was spüre ich schon, habe es aber noch nicht laut gesagt?"
+   },
+   "reversed": {
+    "core": "Die Intuition wird übertönt, oder Geheimnisse werden zu fest gehütet.",
+    "modes": [
+     "Blockiert: Lärm und Geschäftigkeit statt innerer Stimme.",
+     "Nach innen: Gefühle, die selbst vor dir verborgen sind.",
+     "Übermaß: Grübeln, zu viel in kleine Zeichen hineinlesen."
+    ],
+    "question": "Wann bin ich zuletzt still genug geworden, um zu hören, was ich denke?"
+   }
+  }
+ },
+ "major_03_empress": {
+  "name": "Die Herrscherin",
+  "keywords": [
+   "Fürsorge",
+   "Fülle",
+   "Kreativität"
+  ],
+  "upright": "Fürsorge, Geborgenheit und Wachstum sind für dich da. Pflege, was du liebst, und lass es aufblühen.",
+  "reversed": "Erdrückende Fürsorge, Selbstvernachlässigung oder eine kreative Blockade.",
+  "k": {
+   "essence": "Wachstum, das aus Fürsorge entsteht.",
+   "imagery": "Eine Frau in einem fließenden Kleid mit Granatapfelmuster sitzt auf Kissen in einem Feld aus reifem Weizen. Sie trägt eine Sternenkrone und hält ein Zepter. Neben ihr lehnt ein herzförmiger Schild mit dem Venussymbol, und hinter ihr liegen ein Bach und ein Wald.",
+   "why": "Drei ist die Zahl des Wachstums und der ersten Ergebnisse. Weizen, Wasser und Wald zeigen die Natur in ihrer ganzen Fülle. Venus, ihr üblicher Planet, verweist auf Liebe, Genuss und die Sinne.",
+   "upright": {
+    "core": "Fürsorge, Kreativität und Genuss: Dinge wachsen dort, wo sie gepflegt werden.",
+    "light": "Großzügigkeit, Kreativität, Geborgenheit",
+    "shadow": "erdrückende Fürsorge, Maßlosigkeit",
+    "love": "Wärme und Fürsorge, Geben und Nehmen; lernen, dich auch umsorgen zu lassen.",
+    "work": "Ein kreatives Projekt, das reift; sich um ein Team oder einen Ablauf kümmern.",
+    "question": "Was in meinem Leben braucht Pflege statt Druck?"
+   },
+   "reversed": {
+    "core": "Fürsorge ist blockiert, übertrieben oder vernachlässigt, auch die Fürsorge für dich selbst.",
+    "modes": [
+     "Blockiert: eine kreative Durststrecke.",
+     "Übermaß: zu viel geben oder erdrücken.",
+     "Schwindend: deine eigenen Bedürfnisse kommen zuletzt."
+    ],
+    "question": "Gebe ich aus der Fülle heraus oder aus Gewohnheit?"
+   }
+  }
+ },
+ "major_04_emperor": {
+  "name": "Der Herrscher",
+  "keywords": [
+   "Struktur",
+   "Autorität",
+   "Stabilität"
+  ],
+  "upright": "Klare Grenzen und beständige Planung schaffen ein solides Fundament. Führe mit Ruhe.",
+  "reversed": "Starrheit oder Kontrolle. Frag dich, wo Festigkeit zu Sturheit geworden ist.",
+  "k": {
+   "essence": "Ordnung, die schützt und aufbaut.",
+   "imagery": "Ein bärtiger Herrscher in roten Gewändern über einer Rüstung sitzt auf einem steinernen Thron mit Widderköpfen an den Armlehnen. Er hält ein Zepter mit einem Anch an der Spitze und einen Reichsapfel. Hinter ihm ragen kahle Berge auf.",
+   "why": "Vier ist die Zahl der Struktur und Stabilität. Der Widder gehört zum Sternzeichen Widder, dem ersten Zeichen, das mit Initiative verbunden wird. Die kargen Berge deuten auf eine Autorität, die auf Disziplin statt auf Bequemlichkeit gebaut ist.",
+   "upright": {
+    "core": "Struktur, Grenzen und Verantwortung: Ordnung nutzen, um zu schützen, was wichtig ist.",
+    "light": "Führung, Stabilität, klare Grenzen",
+    "shadow": "Starrheit, Kontrolle",
+    "love": "Klare Verbindlichkeit und Beständigkeit; und wo Festigkeit in Kontrolle umschlägt.",
+    "work": "Systeme und Regeln aufbauen, Verantwortung für ein Ergebnis übernehmen.",
+    "question": "Welche Struktur würde diese Situation stabiler machen?"
+   },
+   "reversed": {
+    "core": "Struktur wird zu Starrheit oder bricht weg.",
+    "modes": [
+     "Übermaß: Kontrolle und Sturheit.",
+     "Mangel: keine Grenzen, kein Plan.",
+     "Nach innen: Autorität, mit der du dich unwohl fühlst."
+    ],
+    "question": "Wo halte ich krampfhaft fest, weil ich Angst habe, die Kontrolle zu verlieren?"
+   }
+  }
+ },
+ "major_05_hierophant": {
+  "name": "Der Hierophant",
+  "keywords": [
+   "Tradition",
+   "Führung",
+   "Zugehörigkeit"
+  ],
+  "upright": "Von bewährtem Wissen oder einer Gemeinschaft zu lernen, kann dir Halt geben.",
+  "reversed": "Regeln hinterfragen, die nicht mehr passen. Finde deinen eigenen Weg zu Sinn.",
+  "k": {
+   "essence": "Von einer gemeinsamen Tradition lernen.",
+   "imagery": "Eine Gestalt in Gewändern und mit dreifacher Krone sitzt zwischen zwei grauen Säulen und hebt eine Hand zum Segen. Zu ihren Füßen liegen zwei gekreuzte Schlüssel, und zwei Gestalten knien vor ihr.",
+   "why": "Der Hierophant ist der Lehrer der bewährten Wege. Säulen und Schlüssel verweisen auf ein Tor zu Wissen, das in einer Gemeinschaft weitergegeben wird. Stier, sein übliches Sternzeichen, ist beständig und dem Bewährten treu.",
+   "upright": {
+    "core": "Zu einer Tradition, einer Gruppe oder einem Lehrer gehören und zuerst den bewährten Weg lernen.",
+    "light": "Mentoring, gemeinsame Werte, Verbindlichkeit",
+    "shadow": "Anpassung, etwas tun, weil man es schon immer so gemacht hat",
+    "love": "Gemeinsame Werte und Rituale, die Menschen zusammenhalten.",
+    "work": "Formale Ausbildung, Mentoren, Arbeit innerhalb einer Institution oder auf einem anerkannten Weg.",
+    "question": "Welche Tradition oder welcher Lehrer tut mir gut, und welcher folge ich nur aus Gewohnheit?"
+   },
+   "reversed": {
+    "core": "Überlieferte Regeln werden hinterfragt oder stecken fest.",
+    "modes": [
+     "Loslassen: sich von Konventionen lösen.",
+     "Blockiert: nicht bereit, von anderen zu lernen.",
+     "Übermaß: Regeln als Dogma."
+    ],
+    "question": "Nach wessen Regeln lebe ich?"
+   }
+  }
+ },
+ "major_06_lovers": {
+  "name": "Die Liebenden",
+  "keywords": [
+   "Entscheidung",
+   "Verbindung",
+   "Einklang"
+  ],
+  "upright": "Eine bedeutsame Entscheidung, die deine Werte widerspiegelt, oder eine Verbindung, die Ehrlichkeit verlangt.",
+  "reversed": "Fehlender Einklang oder Unentschlossenheit. Prüfe, ob dein Handeln zu dem passt, was dir wichtig ist.",
+  "k": {
+   "essence": "Eine Entscheidung, die dich bittet, ehrlich zu deinen Werten zu sein.",
+   "imagery": "Ein Mann und eine Frau stehen nackt unter einer hellen Sonne. Über ihnen breitet ein Engel die Arme aus. Hinter der Frau steht ein Baum mit einer Schlange, hinter dem Mann ein Baum aus Flammen.",
+   "why": "Sechs ist die Zahl des Austauschs und der Harmonie. Zwillinge ist das Sternzeichen der Dualität und der Wahl. Der Engel deutet auf einen weiteren Blick, als ihn jeder der beiden allein hat. Auch wenn die Karte oft als Romantik gelesen wird, geht es im Kern um eine Entscheidung im Einklang mit deinen Werten.",
+   "upright": {
+    "core": "Eine bedeutsame Entscheidung oder Verbindung, die dich bittet, im Einklang mit deinen Werten zu handeln.",
+    "light": "Ehrlichkeit, Harmonie, Verbindlichkeit",
+    "shadow": "Unentschlossenheit, wählen, um anderen zu gefallen",
+    "love": "Ehrliche Verbindung, und ob dein Handeln zu dem passt, was du angeblich willst.",
+    "work": "Eine Entscheidung oder Partnerschaft, die zu deinen Werten passt, nicht nur zu deiner Bequemlichkeit.",
+    "question": "Was würde ich wählen, wenn ich ganz ehrlich wäre, was mir wichtig ist?"
+   },
+   "reversed": {
+    "core": "Entscheidungen werden aufgeschoben, oder Werte und Handeln passen nicht zusammen.",
+    "modes": [
+     "Blockiert: die Entscheidung vor dir herschieben.",
+     "Übermaß: dich zu sehr auf die Sicht eines anderen Menschen stützen.",
+     "Schwindend: das Gefühl, sich auseinanderzuleben."
+    ],
+    "question": "Wo sage ich Ja und meine Nein?"
+   }
+  }
+ },
+ "major_07_chariot": {
+  "name": "Der Wagen",
+  "keywords": [
+   "Entschlossenheit",
+   "Antrieb",
+   "Richtung"
+  ],
+  "upright": "Willenskraft und Fokus bringen dich voran. Halte die Zügel ruhig.",
+  "reversed": "Die Richtung verlieren oder ohne Plan zu stark drängen.",
+  "k": {
+   "essence": "Vorankommen, indem du gegensätzliche Kräfte zusammenhältst.",
+   "imagery": "Eine Gestalt in Rüstung steht aufrecht in einem Wagen unter einem Sternenbaldachin. Vor ihr ruhen eine schwarze und eine weiße Sphinx, und die Gestalt hält keine Zügel. Dahinter liegt eine Stadt.",
+   "why": "Sieben ist die Zahl der Prüfungen. Die beiden Sphingen schauen in verschiedene Richtungen, also lenkt der Wagenlenker mit Willen und Fokus, nicht mit Gewalt. Krebs, das übliche Sternzeichen, legt einen schützenden Panzer um ein entschlossenes Ziel.",
+   "upright": {
+    "core": "Disziplinierter Antrieb: Du bleibst in Bewegung, indem du widerstreitende Kräfte auf Linie hältst.",
+    "light": "Entschlossenheit, Fokus, Schwung",
+    "shadow": "Kraft ohne Richtung, andere überrollen",
+    "love": "Entscheiden, wohin du deine Energie lenkst, und dabei bleiben.",
+    "work": "Ein Projekt bis zum Ende durchziehen; unter Druck fokussiert bleiben.",
+    "question": "Was lenke ich, und wohin soll es gehen?"
+   },
+   "reversed": {
+    "core": "Der Antrieb ist zerstreut, stockt oder wird aggressiv.",
+    "modes": [
+     "Blockiert: festgefahren ohne Richtung.",
+     "Übermaß: Dinge erzwingen, Aggression.",
+     "Nach innen: in zwei Richtungen zugleich gezogen."
+    ],
+    "question": "Lenke ich, oder werde ich mitgeschleift?"
+   }
+  }
+ },
+ "major_08_strength": {
+  "name": "Die Kraft",
+  "keywords": [
+   "Mut",
+   "Geduld",
+   "Mitgefühl"
+  ],
+  "upright": "Stiller Mut und Sanftheit bewältigen, was Gewalt nicht schafft.",
+  "reversed": "Selbstzweifel oder leere Akkus. Bau dein Selbstvertrauen in kleinen Schritten wieder auf.",
+  "k": {
+   "essence": "Mut, der sanft ist.",
+   "imagery": "Eine Frau in Weiß mit einem Unendlichkeitszeichen über dem Kopf schließt ruhig das Maul eines Löwen. Sie trägt eine Blumengirlande, und hinter ihr erheben sich Berge.",
+   "why": "In diesem Deck trägt die Kraft die Nummer acht (die Gerechtigkeit die Nummer elf). Acht ist die Zahl der beständigen Anstrengung. Das Bild zeigt Stärke als Geduld statt als Gewalt: Der Löwe wird nicht besiegt, sondern zum Freund gemacht. Löwe, ihr übliches Sternzeichen, ist eben der Löwe.",
+   "upright": {
+    "core": "Stiller Mut: einem starken Gefühl mit Geduld und Freundlichkeit begegnen statt mit Kampf.",
+    "light": "Geduld, Widerstandskraft, Selbstmitgefühl",
+    "shadow": "Selbstzweifel, Gefühle unterdrücken",
+    "love": "Ruhig und sanft bleiben, wenn die Gefühle hochkochen.",
+    "work": "Unter Druck gelassen bleiben; mit gutem Beispiel vorangehen.",
+    "question": "Wie würde Geduld hier aussehen?"
+   },
+   "reversed": {
+    "core": "Die Kraft ist aufgebraucht, oder Gewalt tritt an die Stelle von Sanftheit.",
+    "modes": [
+     "Schwindend: Die Energie geht zur Neige.",
+     "Blockiert: Selbstzweifel.",
+     "Übermaß: ein Gefühl mit Gewalt zähmen wollen."
+    ],
+    "question": "Was versuche ich zu erzwingen, das eigentlich Sanftheit braucht?"
+   }
+  }
+ },
+ "major_09_hermit": {
+  "name": "Der Eremit",
+  "keywords": [
+   "Alleinsein",
+   "Besinnung",
+   "innere Führung"
+  ],
+  "upright": "Tritt einen Schritt zurück, um nachzudenken. Zeit für dich kann dir zeigen, was wichtig ist.",
+  "reversed": "Isolation oder das Vermeiden von Besinnung. Bring Alleinsein und Verbundenheit ins Gleichgewicht.",
+  "k": {
+   "essence": "Einen Schritt zurücktreten, um deine eigene Antwort zu finden.",
+   "imagery": "Eine alte Gestalt in grauem Umhang steht auf einem verschneiten Gipfel. In einer Hand hält sie eine Laterne mit einem sechszackigen Stern darin, in der anderen einen Stab.",
+   "why": "Neun ist die Zahl der Beinahe-Vollendung und des Alleinseins. Die Laterne beleuchtet nur die nächsten paar Schritte – so funktioniert innere Führung oft. Jungfrau, das übliche Sternzeichen, ist sorgfältig und urteilsfähig.",
+   "upright": {
+    "core": "Zeit für dich, um deine eigenen Gedanken zu hören und zu entscheiden, was wichtig ist.",
+    "light": "Weisheit, Fokus, selbst gewähltes Alleinsein",
+    "shadow": "Isolation, Menschen oder Entscheidungen ausweichen",
+    "love": "Zeit allein, um zu verstehen, was du willst; es teilen, wenn du so weit bist.",
+    "work": "Tiefe Konzentration, Recherche, einen Mentor finden oder selbst einer werden.",
+    "question": "Was höre ich, wenn alles still wird?"
+   },
+   "reversed": {
+    "core": "Alleinsein wird zu Isolation, oder du hältst es nicht aus, mit deinen Gedanken allein zu sein.",
+    "modes": [
+     "Übermaß: dich zu weit zurückziehen.",
+     "Blockiert: rastlos, unfähig, zur Ruhe zu kommen.",
+     "Schwindend: wieder auf andere Menschen zugehen."
+    ],
+    "question": "Stärkt mich dieses Alleinsein, oder versteckt es mich?"
+   }
+  }
+ },
+ "major_10_wheel_of_fortune": {
+  "name": "Das Rad des Schicksals",
+  "keywords": [
+   "Zyklen",
+   "Wandel",
+   "Perspektive"
+  ],
+  "upright": "Die Dinge drehen sich in Zyklen. Pass dich dem Wandel an und schau, was er dir bietet.",
+  "reversed": "Widerstand gegen Veränderung oder das Gefühl, in einer Schleife festzustecken. Achte darauf, was du beeinflussen kannst.",
+  "k": {
+   "essence": "Ein Zyklus, der sich dreht, und du mittendrin.",
+   "imagery": "Ein großes Rad mit Buchstaben und Symbolen dreht sich am Himmel. Auf einer Seite gleitet eine Schlange hinab, auf der anderen steigt eine Gestalt mit Schakalkopf auf, und oben sitzt eine Sphinx mit einem Schwert. In den Ecken schweben zwischen Wolken vier geflügelte Gestalten, die jeweils in einem Buch lesen.",
+   "why": "Zehn ist die Zahl eines abgeschlossenen Zyklus. Jupiter, der übliche Planet, wird mit Wachstum und Glück verbunden. Das Bild handelt vom Steigen und Fallen und davon, was beständig bleibt, während sich das Rad dreht.",
+   "upright": {
+    "core": "Umstände ändern sich in Zyklen. Du kannst das Rad nicht anhalten, aber du kannst wählen, wie du ihm begegnest.",
+    "light": "Perspektive, gutes Timing, ein neues Kapitel",
+    "shadow": "das Gefühl, den Ereignissen ausgeliefert zu sein",
+    "love": "Phasen und Muster in Beziehungen; deinen eigenen Anteil daran sehen.",
+    "work": "Sich verändernde Umstände; anpassungsfähig bleiben.",
+    "question": "In welchem Zyklus bin ich, und was verlangt er von mir?"
+   },
+   "reversed": {
+    "core": "Du wehrst dich gegen eine Veränderung oder fühlst dich in einer Schleife gefangen.",
+    "modes": [
+     "Blockiert: in einem sich wiederholenden Muster festgefahren.",
+     "Schwindend: Ein Zyklus läuft aus.",
+     "Nach innen: Veränderung geschieht zuerst im Inneren."
+    ],
+    "question": "Welches Muster wiederholt sich immer wieder, und was ist mein Anteil daran?"
+   }
+  }
+ },
+ "major_11_justice": {
+  "name": "Die Gerechtigkeit",
+  "keywords": [
+   "Fairness",
+   "Wahrheit",
+   "Verantwortung"
+  ],
+  "upright": "Wäge die Fakten ehrlich ab. Klare, faire Entscheidungen schaffen Ausgleich.",
+  "reversed": "Voreingenommenheit, Verantwortung ausweichen oder ein unausgewogener Blick.",
+  "k": {
+   "essence": "Ein ehrlicher Blick auf die Fakten und auf deinen Anteil daran.",
+   "imagery": "Eine gekrönte Gestalt in rotem Gewand sitzt zwischen zwei Säulen. In einer Hand hält sie ein aufrechtes Schwert, in der anderen eine Waage. Dahinter hängt ein purpurner Schleier.",
+   "why": "In diesem Deck trägt die Gerechtigkeit die Nummer elf. Die Waage wägt ab, das Schwert schneidet hindurch, und die Gestalt sitzt – es geht also um ruhiges Urteilen und um Ursache und Wirkung. Waage, das übliche Sternzeichen, ist das Zeichen der Waagschalen.",
+   "upright": {
+    "core": "Eine Situation fair betrachten und zu deinen Entscheidungen stehen.",
+    "light": "Fairness, Klarheit, Verantwortung",
+    "shadow": "hartes Urteilen, Starrheit",
+    "love": "Ein ehrliches Gespräch darüber, was jede Person tut.",
+    "work": "Entscheidungen auf Grundlage ehrlicher Fakten, Menschen fair behandeln.",
+    "question": "Was gehört zu einer fairen Darstellung dieser Situation?"
+   },
+   "reversed": {
+    "core": "Voreingenommenheit, Konsequenzen ausweichen oder zu hart mit dir selbst ins Gericht gehen.",
+    "modes": [
+     "Blockiert: Verantwortung ausweichen.",
+     "Übermaß: andere hart verurteilen.",
+     "Nach innen: Die Waage ist dir selbst gegenüber unfair."
+    ],
+    "question": "Bin ich fair zu mir selbst?"
+   }
+  }
+ },
+ "major_12_hanged_man": {
+  "name": "Der Gehängte",
+  "keywords": [
+   "Pause",
+   "Hingabe",
+   "neuer Blickwinkel"
+  ],
+  "upright": "Innezuhalten, um anders zu sehen, kann eine festgefahrene Situation lösen.",
+  "reversed": "Stillstand ohne Sinn. Frag dich, ob das Warten noch hilft.",
+  "k": {
+   "essence": "Eine Pause, die dir etwas Neues zeigt.",
+   "imagery": "Eine Gestalt hängt kopfüber an einem Fuß von einem lebendigen Holzgerüst, die Hände hinter dem Rücken, ein Bein angewinkelt. Ein Lichtschein umgibt das ruhige Gesicht.",
+   "why": "Zwölf schließt eine vollständige Reihe ab, und die Karte handelt vom Innehalten statt vom Handeln. Das Hängen ist freiwillig; das Gesicht ist friedlich. Wasser, das übliche Element, steht dafür, Kontrolle loszulassen und aus einem neuen Blickwinkel zu sehen.",
+   "upright": {
+    "core": "Bewusstes Innehalten lässt dich die Situation von einer anderen Seite sehen.",
+    "light": "Geduld, Perspektive, Loslassen",
+    "shadow": "Hinauszögern, sich als Märtyrer fühlen",
+    "love": "Innehalten, um eine Situation aus der Sicht der anderen Person zu sehen – oder aus deiner eigenen.",
+    "work": "Auf den richtigen Moment warten; ein Wechsel der Sichtweise.",
+    "question": "Was sehe ich, wenn ich aufhöre, das reparieren zu wollen?"
+   },
+   "reversed": {
+    "core": "Die Pause ist zur Verzögerung geworden oder zu einem Opfer, das niemandem nützt.",
+    "modes": [
+     "Blockiert: Hinauszögern.",
+     "Übermaß: eine Märtyrerrolle.",
+     "Loslassen: eine Pause beenden und dich bereit machen, weiterzugehen."
+    ],
+    "question": "Warte ich aus einem Grund, oder weiche ich einer Entscheidung aus?"
+   }
+  }
+ },
+ "major_13_death": {
+  "name": "Der Tod",
+  "keywords": [
+   "Abschluss",
+   "Übergang",
+   "Loslassen"
+  ],
+  "upright": "Ein Kapitel schließt sich, damit ein anderes beginnen kann. Lass los, was sich überlebt hat.",
+  "reversed": "An der Vergangenheit festhalten oder Angst vor einer nötigen Veränderung.",
+  "k": {
+   "essence": "Ein Ende, das schon begonnen hat.",
+   "imagery": "Ein Skelett in schwarzer Rüstung reitet auf einem weißen Pferd und trägt ein schwarzes Banner mit einer weißen Blume. Ein Bischof fleht, ein Kind reicht Blumen, ein König liegt am Boden, und eine junge Frau wendet sich ab. In der Ferne fließt ein Fluss, und zwischen zwei Türmen geht die Sonne auf.",
+   "why": "Das Bild zeigt, wie Menschen auf ein Ende reagieren: Der König kann es nicht aufhalten, das Gebet des Bischofs verlangsamt es nicht, das Kind begegnet ihm mit Neugier. Die Blume auf dem Banner wird meist als Zeichen gelesen, dass das Leben weitergeht, und der Sonnenaufgang als das, was danach kommt. Dreizehn folgt auf eine vollständige Reihe von zwölf, darum gilt sie traditionell als Zahl der Verwandlung. Die Karte sagt keinen körperlichen Tod voraus.",
+   "upright": {
+    "core": "Ein Kapitel, eine Rolle, eine Gewohnheit oder Überzeugung ist zu Ende, und Festhalten kostet jetzt mehr als Loslassen.",
+    "light": "Abschluss, Aufräumen, Erleichterung",
+    "shadow": "Trauer, besonders wenn das Ende nicht deine Wahl war",
+    "love": "Ein Muster oder eine Phase einer Beziehung verändert sich; eine alte Geschichte über jemanden oder über dich selbst ablegen.",
+    "work": "Das Ende einer Rolle, eines Projekts oder einer Arbeitsweise; Platz schaffen für etwas anderes.",
+    "question": "Was ist schon zu Ende, obwohl ich noch so tue, als wäre es das nicht?"
+   },
+   "reversed": {
+    "core": "Gegen das Ende wird angekämpft, es wird hinausgezögert oder nur zum Teil akzeptiert.",
+    "modes": [
+     "Blockiert: über das natürliche Ende hinaus festhalten.",
+     "Schwindend: ein Ende, das sich hinzieht, weil niemand es benennt.",
+     "Nach innen: still wissen, dass etwas vorbei ist, und es noch nicht aussprechen."
+    ],
+    "question": "Was müsste ich mir als vorbei eingestehen, um weiterzukommen?"
+   }
+  }
+ },
+ "major_14_temperance": {
+  "name": "Die Mäßigkeit",
+  "keywords": [
+   "Ausgleich",
+   "Geduld",
+   "Maß"
+  ],
+  "upright": "Bring gegensätzliche Bedürfnisse geduldig zusammen. Ruhige, maßvolle Schritte funktionieren am besten.",
+  "reversed": "Übermaß oder Ungeduld. Schau, wo etwas aus dem Gleichgewicht geraten ist.",
+  "k": {
+   "essence": "Den Mittelweg finden.",
+   "imagery": "Ein Engel mit großen Flügeln steht mit einem Fuß im Wasser und mit dem anderen an Land und gießt Flüssigkeit zwischen zwei Kelchen hin und her. Ein Weg schlängelt sich zu einem Leuchten zwischen fernen Bergen, und in der Nähe wachsen Schwertlilien.",
+   "why": "Vierzehn folgt auf den Wendepunkt der Großen Arkana und bringt Vermischung und Erholung. Das Umgießen zwischen den Kelchen steht dafür, Gegensätze in ruhigem Tempo zu verbinden. Schütze, das übliche Sternzeichen, bringt den weiten Blick hinzu.",
+   "upright": {
+    "core": "Gegensätze geduldig verbinden und ein ruhiges Tempo halten.",
+    "light": "Ausgleich, Geduld, Maß",
+    "shadow": "lauwarmes Ausweichen vor Verbindlichkeit",
+    "love": "Geduld und einander Raum lassen, verschieden zu sein.",
+    "work": "Ein Tempo, das sich halten lässt, Zusammenarbeit, Fähigkeiten verbinden.",
+    "question": "Welche zwei Dinge in meinem Leben muss ich verbinden, statt zwischen ihnen zu wählen?"
+   },
+   "reversed": {
+    "core": "Die Dinge sind aus dem Gleichgewicht oder werden ins Extrem getrieben.",
+    "modes": [
+     "Übermaß: es übertreiben.",
+     "Mangel: Ungeduld, Ergebnisse sofort wollen.",
+     "Blockiert: keinen Mittelweg finden."
+    ],
+    "question": "Wo bin ich zu weit auf eine Seite gekippt?"
+   }
+  }
+ },
+ "major_15_devil": {
+  "name": "Der Teufel",
+  "keywords": [
+   "Abhängigkeit",
+   "Gewohnheit",
+   "Schatten"
+  ],
+  "upright": "Achte darauf, was dich festhält – eine Gewohnheit, eine Überzeugung oder eine Abhängigkeit – und wie viel Wahl du wirklich hast.",
+  "reversed": "Ein Griff lockert sich. Bewusstsein ist der erste Schritt zur Freiheit.",
+  "k": {
+   "essence": "Sehen, was dich festhält, und wie locker.",
+   "imagery": "Eine gehörnte Gestalt hockt auf einem Block, eine Hand erhoben, in der anderen eine Fackel. Ein Mann und eine Frau, jeweils mit kleinen Hörnern und einem Schwanz, stehen mit Ketten um den Hals an den Block gebunden. Die Ketten sind so locker, dass man sie abheben könnte.",
+   "why": "Fünfzehn liegt im dritten Akt der Großen Arkana, in dem verborgene Kräfte sichtbar werden. Steinbock, das übliche Sternzeichen, ist erdverbunden und praktisch, und die Karte handelt von materieller Bindung, Gewohnheit und der Schattenseite. Die lockeren Ketten deuten an, dass der Halt zum Teil selbst gewählt ist. Es ist kein wörtlicher Teufel.",
+   "upright": {
+    "core": "Eine Gewohnheit, Bindung oder Angst erkennen, die du lockern könntest, sobald du sie benennst.",
+    "light": "Ehrlichkeit über das eigene Verlangen, benennen, was dich festhält",
+    "shadow": "sich festgefahren fühlen, ein Muster wiederholen (wenn eine Gewohnheit deiner Gesundheit schadet, kann eine Fachperson helfen)",
+    "love": "Muster von Abhängigkeit oder Kontrolle im Umgang miteinander; deinen eigenen Anteil bemerken.",
+    "work": "Ein Job oder eine Vereinbarung, an der du aus Bequemlichkeit statt aus Überzeugung festhältst.",
+    "question": "Was halte ich fest, das ich ablegen könnte?"
+   },
+   "reversed": {
+    "core": "Ein Griff lockert sich, oder du vermeidest es, ihn zu sehen.",
+    "modes": [
+     "Loslassen: aus einem Griff herausschlüpfen.",
+     "Blockiert: Verdrängung.",
+     "Nach innen: still bewusst, aber noch nicht handelnd."
+    ],
+    "question": "Was würde ich tun, wenn ich darauf vertraute, dass ich aussteigen kann?"
+   }
+  }
+ },
+ "major_16_tower": {
+  "name": "Der Turm",
+  "keywords": [
+   "Umbruch",
+   "Enthüllung",
+   "Neustart"
+  ],
+  "upright": "Eine plötzliche Erschütterung zeigt, was nicht stabil war. Freier Boden schafft Platz für einen Neuaufbau.",
+  "reversed": "Angst vor Veränderung oder ein Problem, das langsam schwelt. Stell dich ihm, statt abzuwarten.",
+  "k": {
+   "essence": "Was nie stabil war, stürzt ein.",
+   "imagery": "Ein hoher Turm auf einem Felsen wird vom Blitz getroffen. Die Krone fliegt davon, aus den Fenstern schlagen Flammen, und zwei Gestalten stürzen hinab. Der Himmel ist dunkel.",
+   "why": "Sechzehn ist die Zahl des Bruchs. Mars, der übliche Planet, ist der Planet der plötzlichen Kraft. Der Turm ist ein Bauwerk auf schwachem Fundament, und der Blitz ist ebenso Enthüllung wie Zerstörung.",
+   "upright": {
+    "core": "Etwas, das auf wackligem Grund gebaut war, stürzt ein und macht Platz für etwas Ehrlicheres.",
+    "light": "Enthüllung, Befreiung, ein ehrlicherer Anfang",
+    "shadow": "Schock, Angst vor Verlust",
+    "love": "Plötzliche Ehrlichkeit oder ein Bruch in einem Muster; die Reaktion auf eine Nachricht.",
+    "work": "Pläne, die nicht mehr tragen; auf andere Weise neu aufbauen.",
+    "question": "Was war nie stabil, und ich habe es trotzdem gestützt?"
+   },
+   "reversed": {
+    "core": "Dem Schock wird ausgewichen, oder du bist mitten in seinen Nachwirkungen.",
+    "modes": [
+     "Blockiert: gegen etwas ankämpfen, das schon auseinanderfällt.",
+     "Schwindend: ein langsames Zerfallen.",
+     "Nach innen: eine Krise, die du still für dich durchlebst."
+    ],
+    "question": "Welche kleine ehrliche Veränderung könnte ich vornehmen, bevor etwas zerbrechen muss?"
+   }
+  }
+ },
+ "major_17_star": {
+  "name": "Der Stern",
+  "keywords": [
+   "Hoffnung",
+   "Erneuerung",
+   "Ruhe"
+  ],
+  "upright": "Nach einer schweren Zeit kehrt sanfte Hoffnung zurück. Ruh dich aus und vertrau auf eine langsame Erholung.",
+  "reversed": "Zweifel oder wenig Antrieb. Sei freundlich zu dir und halte kleine Hoffnungen lebendig.",
+  "k": {
+   "essence": "Stille Hoffnung nach einer schweren Zeit.",
+   "imagery": "Eine Frau kniet an einem Teich und gießt Wasser aus zwei Krügen, einen auf das Land und einen in den Teich. Über ihr leuchtet ein großer achtzackiger Stern mit sieben kleineren, und hinter ihr sitzt ein Vogel in einem Baum.",
+   "why": "Siebzehn kommt direkt nach dem Turm – das ist die Ruhe nach dem Umbruch. Die beiden Krüge stehen dafür, der Erde und dir selbst etwas zurückzugeben. Wassermann, das übliche Sternzeichen, ist der Wasserträger und wird mit Hoffnung und Offenheit verbunden.",
+   "upright": {
+    "core": "Sanfte Erneuerung und Vertrauen, das nach schweren Zeiten zurückkehrt.",
+    "light": "Hoffnung, Heilung, Ehrlichkeit",
+    "shadow": "wünschen, ohne zu handeln, sich losgelöst fühlen",
+    "love": "Sanftheit, wieder anfangen zu vertrauen.",
+    "work": "Neuer Antrieb; ein klareres Gefühl dafür, worauf du hinarbeiten willst.",
+    "question": "Was gibt mir Hoffnung, und wie kann ich mehr davon tun?"
+   },
+   "reversed": {
+    "core": "Die Hoffnung verblasst oder ist vage geworden.",
+    "modes": [
+     "Schwindend: Entmutigung.",
+     "Blockiert: kein Licht in Sicht.",
+     "Übermaß: wünschen, ohne zu handeln."
+    ],
+    "question": "Welche Kleinigkeit könnte ein bisschen Vertrauen zurückbringen?"
+   }
+  }
+ },
+ "major_18_moon": {
+  "name": "Der Mond",
+  "keywords": [
+   "Ungewissheit",
+   "Träume",
+   "Intuition"
+  ],
+  "upright": "Die Dinge sind noch nicht ganz klar. Geh vorsichtig weiter und achte auf deine Ängste und dein Bauchgefühl.",
+  "reversed": "Verwirrung, die sich lichtet, oder Angst, die Erdung braucht.",
+  "k": {
+   "essence": "Die Dinge sind noch nicht klar.",
+   "imagery": "Ein Vollmond mit Gesicht scheint zwischen zwei Türmen. Ein Hund und ein Wolf heulen ihn an, und ein Flusskrebs kriecht aus einem Teich auf einen gewundenen Pfad, der in die Ferne führt.",
+   "why": "Achtzehn steht nahe dem Ende der Reise, wo das Unbewusste laut wird. Der Mond spendet Licht, aber nicht genug, um klar zu sehen. Fische, das übliche Sternzeichen, ist verträumt und empfindsam.",
+   "upright": {
+    "core": "Gefühle und Fantasie färben, was du siehst – also nimm dir Zeit und sammle mehr Licht.",
+    "light": "Intuition, Kreativität, Fantasie",
+    "shadow": "Angst, Projektion, Verwirrung",
+    "love": "Unklare Gefühle oder Vorstellungen darüber, was ein anderer Mensch denkt.",
+    "work": "Mit unvollständigen Informationen arbeiten; voreilige Schlüsse vermeiden.",
+    "question": "Wovor habe ich Angst, das gar nicht passiert ist?"
+   },
+   "reversed": {
+    "core": "Der Nebel lichtet sich, oder die Verwirrung wird tiefer.",
+    "modes": [
+     "Schwindend: Die Dinge werden langsam klar.",
+     "Übermaß: Angst, die sich hochschaukelt.",
+     "Nach innen: eine verborgene Angst."
+    ],
+    "question": "Was würde bei Tageslicht anders aussehen?"
+   }
+  }
+ },
+ "major_19_sun": {
+  "name": "Die Sonne",
+  "keywords": [
+   "Freude",
+   "Lebenskraft",
+   "Klarheit"
+  ],
+  "upright": "Wärme, Zuversicht und Offenheit. Genieß, was gerade gut läuft.",
+  "reversed": "Gedämpfte Begeisterung oder zu viel Ego. Such nach kleinen Lichtquellen.",
+  "k": {
+   "essence": "Schlichte, unkomplizierte Wärme.",
+   "imagery": "Ein Kind auf einem weißen Pferd hält unter einer großen Sonne ein rotes Banner. Hinter ihm ragen Sonnenblumen über eine Mauer.",
+   "why": "Neunzehn steht nahe dem Ende der Reise, und das Bild ist offen und hell, nichts ist verborgen. Die Sonne ist der übliche Planet der Karte: Lebenskraft und Klarheit.",
+   "upright": {
+    "core": "Wärme, Klarheit und einfache Freude.",
+    "light": "Optimismus, Lebenskraft, Offenheit",
+    "shadow": "Selbstüberschätzung, Vielschichtigkeit übersehen",
+    "love": "Offenheit und Verspieltheit mit den Menschen, denen du vertraust.",
+    "work": "Sich sicher und klar fühlen bei einer Arbeit, die dir am Herzen liegt.",
+    "question": "Was bereitet mir schlichte, unkomplizierte Freude?"
+   },
+   "reversed": {
+    "core": "Die Wärme ist gedämpft oder erzwungen.",
+    "modes": [
+     "Blockiert: Wolken im Weg.",
+     "Übermaß: erzwungene Positivität.",
+     "Schwindend: Müdigkeit."
+    ],
+    "question": "Wo tue ich so, als ginge es mir besser, als ich mich fühle?"
+   }
+  }
+ },
+ "major_20_judgement": {
+  "name": "Das Gericht",
+  "keywords": [
+   "Rückschau",
+   "Erneuerung",
+   "Berufung"
+  ],
+  "upright": "Ein Moment ehrlicher Rückschau. Vergib der Vergangenheit und folge deinem inneren Ruf.",
+  "reversed": "Selbstkritik oder das Ausweichen vor einer nötigen Entscheidung.",
+  "k": {
+   "essence": "Ein Ruf, zurückzuschauen und neu anzufangen.",
+   "imagery": "Ein Engel bläst aus den Wolken eine Posaune. Darunter erheben sich Gestalten mit erhobenen Armen aus offenen Särgen. Im Hintergrund stehen verschneite Berge.",
+   "why": "Zwanzig ist die Zahl des Erwachens vor der Vollendung. Die Posaune ist ein Ruf, und die aufsteigenden Gestalten sind Menschen, die ihm antworten. Die Karte handelt von Rückschau und Erneuerung, nicht von einem verhängten Urteil.",
+   "upright": {
+    "core": "Ein Moment der Abrechnung und Erneuerung: einen Ruf hören, anders zu leben.",
+    "light": "Erwachen, Vergebung, Sinn",
+    "shadow": "hartes Urteil über dich selbst",
+    "love": "Vergebung und ein ehrlicher Blick auf ein Muster.",
+    "work": "Einen Weg neu bewerten; ein Gefühl von Berufung.",
+    "question": "Was ruft mich, das ich immer wieder aufgeschoben habe?"
+   },
+   "reversed": {
+    "core": "Zweifel, den Ruf überhören oder hart mit dir selbst sein.",
+    "modes": [
+     "Blockiert: ignorieren, was du hörst.",
+     "Übermaß: harte Selbstkritik.",
+     "Nach innen: eine stille Abrechnung mit dir selbst."
+    ],
+    "question": "Kann ich mir genug vergeben, um weiterzugehen?"
+   }
+  }
+ },
+ "major_21_world": {
+  "name": "Die Welt",
+  "keywords": [
+   "Vollendung",
+   "Ganzheit",
+   "Erfolg"
+  ],
+  "upright": "Ein Zyklus schließt sich. Halte inne und sieh, wie weit du gekommen bist.",
+  "reversed": "Offene Enden oder ein Abschluss, der unerreichbar scheint. Ein letzter Schritt fehlt noch.",
+  "k": {
+   "essence": "Ein vollendeter Zyklus.",
+   "imagery": "Eine tanzende Gestalt, in ein leichtes Tuch gehüllt, hält zwei Stäbe in einem großen Lorbeerkranz. In den vier Ecken sind ein Engel, ein Adler, ein Stier und ein Löwe.",
+   "why": "Einundzwanzig ist die letzte der Großen Arkana, also geht es um Vollendung. Der Kranz ist ein geschlossener Kreis, und die tanzende Gestalt bewegt sich frei darin. Die vier Gestalten in den Ecken sind mit den vier Farben verbunden. Saturn, der übliche Planet, steht für Abschluss und Grenzen.",
+   "upright": {
+    "core": "Vollendung und Ganzheit, während der nächste Zyklus schon wartet.",
+    "light": "Vollendung, Integration, Zufriedenheit",
+    "shadow": "Widerwille, abzuschließen oder weiterzugehen",
+    "love": "Dich in dir selbst ganz fühlen und das teilen.",
+    "work": "Ein Projekt abschließen; verinnerlichen, was du gelernt hast.",
+    "question": "Was habe ich abgeschlossen, das Anerkennung verdient?"
+   },
+   "reversed": {
+    "core": "Etwas ist fast vollendet, aber noch nicht ganz.",
+    "modes": [
+     "Blockiert: Der letzte Schritt fehlt.",
+     "Schwindend: Der Abschluss ist nah.",
+     "Nach innen: noch nicht ganz bereit loszulassen."
+    ],
+    "question": "Was ist der letzte Schritt, dem ich immer wieder ausweiche?"
+   }
+  }
+ },
+ "wands_ace": {
+  "name": "Ass der Stäbe",
+  "keywords": [
+   "Funke",
+   "Inspiration",
+   "neue Energie"
+  ],
+  "upright": "Ein Schub Begeisterung und die Chance, etwas Mutiges anzufangen.",
+  "reversed": "Wenig Energie oder ein Fehlstart. Lass die Idee reifen, bevor du losstürmst.",
+  "k": {
+   "essence": "Ein Funke Antrieb, der dir angeboten wird.",
+   "imagery": "Eine Hand ragt aus einer Wolke und hält einen kräftigen Stab, an dem frische Blätter sprießen. Darunter liegen ein Fluss, eine Burg auf einem Hügel und sanftes grünes Land.",
+   "why": "Asse sind der Samen ihrer Farbe. Feuer steht für Willen und schöpferischen Antrieb, also ist dies der rohe Impuls vor jedem Plan. Die sprießenden Blätter zeigen das Leben im Holz, und die Hand aus der Wolke ist das traditionelle Zeichen für ein Geschenk, das du annehmen oder ablehnen kannst.",
+   "upright": {
+    "core": "Ein neuer Schub an Energie, Inspiration oder Gelegenheit, der darauf wartet, dass du handelst.",
+    "light": "Inspiration, Mut, ein frischer Anfang",
+    "shadow": "eine Idee, die nie über das Papier hinauskommt",
+    "love": "Ein Funke der Anziehung oder neue Begeisterung für die Beziehung.",
+    "work": "Ein neues Projekt, eine neue Idee oder ein Motivationsschub.",
+    "question": "Wozu fühle ich mich gerade voller Energie, es anzufangen?"
+   },
+   "reversed": {
+    "core": "Der Funke verzögert sich, wird angezweifelt oder an das Falsche verschwendet.",
+    "modes": [
+     "Blockiert: kein klares Ventil für die Energie.",
+     "Übermaß: mit Feuer anfangen, aber ohne Plan.",
+     "Schwindend: ein Schub, der schnell verpufft."
+    ],
+    "question": "Was hält mich davon ab, dem nachzugehen, was mich begeistert?"
+   }
+  }
+ },
+ "wands_two": {
+  "name": "Zwei der Stäbe",
+  "keywords": [
+   "Planung",
+   "Entscheidungen",
+   "Vision"
+  ],
+  "upright": "Du stehst am Rand des Vertrauten. Entscheide, wohin du zielen willst.",
+  "reversed": "Angst, die Komfortzone zu verlassen, oder Pläne, die auf dem Papier bleiben.",
+  "k": {
+   "essence": "Am Rand dessen stehen, was du kennst.",
+   "imagery": "Eine Gestalt in prächtigem Gewand steht auf einer Burgmauer und hält eine kleine Weltkugel, eine Hand an einem hohen Stab, während ein weiterer neben ihr befestigt ist. Sie blickt hinaus aufs Meer.",
+   "why": "Zwei ist die Zahl der Entscheidungen und der Paare. Die Weltkugel in der Hand, während der Blick nach draußen geht, zeigt Planung und den Wunsch nach mehr als dem heimischen Gebiet. Die Mauer zeigt, dass die Gestalt Sicherheit hat, aber abwägt, ob sie sie verlassen soll.",
+   "upright": {
+    "core": "Ein Entscheidungspunkt zwischen dem Bequemen und dem weiteren Horizont.",
+    "light": "Planung, Vision, Ehrgeiz",
+    "shadow": "Rastlosigkeit, Verplanen",
+    "love": "Sich fragen, ob man bleiben soll, wo man ist, oder in eine neue Richtung wachsen.",
+    "work": "Einen größeren Schritt gegen das abwägen, was du aufgebaut hast.",
+    "question": "Was will ich, das über das hinausgeht, was ich habe?"
+   },
+   "reversed": {
+    "core": "Angst, das Bekannte zu verlassen, oder Pläne, die nie das Papier verlassen.",
+    "modes": [
+     "Blockiert: aus Angst bleiben, wo du bist.",
+     "Übermaß: endlos planen.",
+     "Nach innen: Träume, die du noch nicht geteilt hast."
+    ],
+    "question": "Ist es Vorsicht, die mich hier hält, oder Bequemlichkeit?"
+   }
+  }
+ },
+ "wands_three": {
+  "name": "Drei der Stäbe",
+  "keywords": [
+   "Weitblick",
+   "Fortschritt",
+   "Ausdehnung"
+  ],
+  "upright": "Deine ersten Bemühungen kommen in Bewegung. Schau weiter nach vorn und bleib dran.",
+  "reversed": "Verzögerungen oder ein enger Blick. Weite deine Sicht.",
+  "k": {
+   "essence": "Losgeschickt haben und schauen, was zurückkommt.",
+   "imagery": "Eine Gestalt in einem prächtigen Umhang steht mit dem Rücken zu uns auf einer Klippe, drei Stäbe um sich herum in den Boden gesteckt, und blickt auf ein ruhiges Meer, auf dem Schiffe segeln.",
+   "why": "Drei ist Wachstum über den ersten Schritt hinaus. Die Schiffe auf dem Wasser sind Pläne, die schon unterwegs sind, und der erhöhte Ort gibt Überblick. Die Gestalt wartet und beobachtet, statt zu hetzen.",
+   "upright": {
+    "core": "Deine Bemühungen sind in Gang; jetzt geht es um Geduld und einen weiteren Blick.",
+    "light": "Weitblick, Ausdehnung, Geduld",
+    "shadow": "Ungeduld, sofortige Ergebnisse erwarten",
+    "love": "Einer Verbindung Raum geben, sich zu entwickeln.",
+    "work": "Erste Ergebnisse eines Projekts; auf weitere Horizonte schauen.",
+    "question": "Was habe ich in Gang gesetzt, dem ich jetzt vertrauen kann?"
+   },
+   "reversed": {
+    "core": "Verzögerungen oder Pläne, die den Hafen nicht verlassen.",
+    "modes": [
+     "Blockiert: stockende Projekte.",
+     "Übermaß: zu viel zu schnell erwarten.",
+     "Schwindend: das Ziel aus den Augen verlieren."
+    ],
+    "question": "Warte ich gelassen, oder weiche ich dem nächsten Schritt aus?"
+   }
+  }
+ },
+ "wands_four": {
+  "name": "Vier der Stäbe",
+  "keywords": [
+   "Feier",
+   "Stabilität",
+   "Zuhause"
+  ],
+  "upright": "Ein Moment der Ruhe und geteilten Freude nach der Anstrengung.",
+  "reversed": "Unruhe zu Hause oder eine Feier, die sich hohl anfühlt.",
+  "k": {
+   "essence": "Eine Feier, weil ein stabiler Punkt erreicht ist.",
+   "imagery": "Vier hohe Stäbe sind durch eine Girlande aus Blumen und Früchten verbunden und bilden ein Tor. Zwei Gestalten heben Blumensträuße, hinter ihnen tanzen Menschen, und dahinter steht eine Burg.",
+   "why": "Vier ist die Zahl der Fundamente. Die vier Stäbe bilden einen Rahmen, eine Struktur, in der gefeiert wird. Girlanden und Burg deuten auf Zuhause, Gemeinschaft und einen erreichten Meilenstein.",
+   "upright": {
+    "core": "Ein Moment der Harmonie und geteilten Freude nach der Anstrengung.",
+    "light": "Feiern, Zugehörigkeit, Sicherheit",
+    "shadow": "Selbstzufriedenheit, an der Feier festhalten",
+    "love": "Zusammensein, ein Meilenstein, ein Gefühl von Zuhause.",
+    "work": "Eine Etappe abschließen; Anerkennung im Team bekommen.",
+    "question": "Was ist gerade wert, gefeiert zu werden?"
+   },
+   "reversed": {
+    "core": "Instabilität zu Hause oder eine Feier, die sich hohl anfühlt.",
+    "modes": [
+     "Blockiert: wackelige Fundamente.",
+     "Schwindend: Eine gute Zeit geht zu Ende.",
+     "Nach innen: Freude, die nicht geteilt wird."
+    ],
+    "question": "Was würde diesen Ort zu einem Zuhause machen?"
+   }
+  }
+ },
+ "wands_five": {
+  "name": "Fünf der Stäbe",
+  "keywords": [
+   "Wettbewerb",
+   "Reibung",
+   "Streitgespräch"
+  ],
+  "upright": "Aufeinanderprallende Ideen und Rivalität. Wettbewerb kann dich schärfen, wenn er freundlich bleibt.",
+  "reversed": "Konflikten ausweichen oder Spannung, die sich nach innen richtet.",
+  "k": {
+   "essence": "Reibung zwischen gleich starken Kräften.",
+   "imagery": "Fünf junge Leute schwingen jeweils einen Stab in etwas, das wie eine Rangelei auf offenem Gelände aussieht. Niemand scheint zu gewinnen, und niemand scheint ernsthaft verletzt.",
+   "why": "Fünf ist die Zahl der Anspannung nach der stabilen Vier. Alle halten einen gleich großen Stab, also ist das ein Wettstreit unter Gleichen, eher eine raue Übung als ein Krieg.",
+   "upright": {
+    "core": "Konkurrierende Ideen und Egos; ein chaotischer, aber womöglich fruchtbarer Konflikt.",
+    "light": "Wettbewerb, Tatkraft, Ideen auf die Probe stellen",
+    "shadow": "sinnloses Streiten, zersplitterte Kraft",
+    "love": "Meinungsverschiedenheiten, die eine klare Richtung brauchen statt Lärm.",
+    "work": "Rivalität oder Brainstorming, bei dem niemand die Führung übernimmt.",
+    "question": "Bringt mich dieser Konflikt irgendwohin?"
+   },
+   "reversed": {
+    "core": "Der Konflikt flaut ab, wird vermieden oder wird zu stiller Spannung.",
+    "modes": [
+     "Blockiert: notwendigen Meinungsverschiedenheiten ausweichen.",
+     "Übermaß: kämpfen, um zu gewinnen.",
+     "Schwindend: Frieden aus Erschöpfung."
+    ],
+    "question": "Wie würde Zusammenarbeit hier aussehen?"
+   }
+  }
+ },
+ "wands_six": {
+  "name": "Sechs der Stäbe",
+  "keywords": [
+   "Anerkennung",
+   "Fortschritt",
+   "Selbstvertrauen"
+  ],
+  "upright": "Sichtbarer Erfolg oder ein Schub Selbstvertrauen für deine Mühe.",
+  "reversed": "Selbstzweifel oder das Verlangen nach Lob. Miss Erfolg an deinen eigenen Maßstäben.",
+  "k": {
+   "essence": "Anerkennung nach der Anstrengung.",
+   "imagery": "Ein Reiter auf einem geschmückten Pferd trägt einen Lorbeerkranz und einen Stab, auf dem ein Kranz steckt. Menschen mit Stäben gehen neben ihm her.",
+   "why": "Sechs ist die Zahl der Harmonie nach schweren Zeiten. Der Kranz ist ein altes Siegessymbol, und die Menge zeigt öffentliche Anerkennung. Der Reiter wird von anderen gesehen – darum geht es bei dieser Karte.",
+   "upright": {
+    "core": "Erfolg, den andere sehen können, und das Selbstvertrauen, das damit kommt.",
+    "light": "Sieg, Anerkennung, Stolz",
+    "shadow": "Ego, Applaus brauchen",
+    "love": "Stolz auf etwas, das ihr gemeinsam erreicht habt.",
+    "work": "Ein Erfolg, eine Beförderung, etwas Sichtbares abschließen.",
+    "question": "Worauf könnte ich mir erlauben, stolz zu sein?"
+   },
+   "reversed": {
+    "core": "Der Erfolg verzögert sich oder fühlt sich hohl an, oder Anerkennung scheint unerreichbar.",
+    "modes": [
+     "Blockiert: ein Erfolg, der nicht ankommt.",
+     "Übermaß: Hochmut.",
+     "Schwindend: Mühe, die niemand bemerkt."
+    ],
+    "question": "Auf wessen Zustimmung warte ich?"
+   }
+  }
+ },
+ "wands_seven": {
+  "name": "Sieben der Stäbe",
+  "keywords": [
+   "Verteidigung",
+   "Ausdauer",
+   "standhaft bleiben"
+  ],
+  "upright": "Du behauptest deine Stellung. Bleib standhaft bei dem, woran du glaubst.",
+  "reversed": "Sich überwältigt fühlen oder zu früh aufgeben.",
+  "k": {
+   "essence": "Deine Stellung behaupten.",
+   "imagery": "Eine Gestalt auf einer Anhöhe hält einen Stab und wehrt sechs Stäbe ab, die von unten aufragen. An einem Fuß trägt sie einen anderen Schuh als am anderen.",
+   "why": "Sieben ist die Zahl der Prüfungen. Die Anhöhe ist ein Vorteil, und die Überzahl der anderen prüft die Entschlossenheit. Die verschiedenen Schuhe deuten auf eine hastige Verteidigung hin, die begonnen wurde, bevor alles bereit war.",
+   "upright": {
+    "core": "Für eine Position einstehen, wenn sie angegriffen wird.",
+    "light": "Widerstandskraft, Grenzen, Mut",
+    "shadow": "Abwehrhaltung, jede Herausforderung als Angriff sehen",
+    "love": "Deine Bedürfnisse oder eine Grenze verteidigen.",
+    "work": "Deine Arbeit oder Idee unter Druck schützen.",
+    "question": "Was verteidige ich, und ist es das wert?"
+   },
+   "reversed": {
+    "core": "Unter Druck nachgeben oder zermürbt werden.",
+    "modes": [
+     "Blockiert: zu schnell einknicken.",
+     "Übermaß: gegen alles kämpfen.",
+     "Schwindend: Die Kraft geht aus."
+    ],
+    "question": "Ist das eine Stellung, die es wert ist, gehalten zu werden?"
+   }
+  }
+ },
+ "wands_eight": {
+  "name": "Acht der Stäbe",
+  "keywords": [
+   "Tempo",
+   "Bewegung",
+   "Nachrichten"
+  ],
+  "upright": "Die Dinge bewegen sich schnell. Handle zügig und halte die Kommunikation offen.",
+  "reversed": "Verzögerungen oder zersplitterte Kraft. Werde langsamer, um dich neu zu sortieren.",
+  "k": {
+   "essence": "Die Dinge bewegen sich schnell.",
+   "imagery": "Acht Stäbe fliegen schräg über den Himmel, über eine ruhige Landschaft mit einem Fluss. Im Bild ist keine Gestalt zu sehen.",
+   "why": "Acht steht für Bewegung und die Beherrschung eines Gebiets. Da keine Menschen zu sehen sind, ist dies der Schwung selbst: Dinge geschehen schneller, als jemand sie lenken kann, wie Nachrichten, die eintreffen.",
+   "upright": {
+    "core": "Schneller Fortschritt, Neuigkeiten oder Ereignisse, die dich mitreißen.",
+    "light": "Tempo, Neuigkeiten, Schwung",
+    "shadow": "Hetze, zerstreute Aufmerksamkeit",
+    "love": "Schnelle Kommunikation oder Entwicklungen.",
+    "work": "Schneller Fortschritt, Nachrichten, Reisen.",
+    "question": "Was bin ich bereit, sich schnell bewegen zu lassen?"
+   },
+   "reversed": {
+    "core": "Verzögerungen, Missverständnisse oder Dinge, die sich schneller bewegen, als du mitkommst.",
+    "modes": [
+     "Blockiert: Verzögerungen und Warten.",
+     "Übermaß: Hast und Fehler.",
+     "Schwindend: Der Schwung ist weg."
+    ],
+    "question": "Wo muss ich langsamer werden, um hinterherzukommen?"
+   }
+  }
+ },
+ "wands_nine": {
+  "name": "Neun der Stäbe",
+  "keywords": [
+   "Widerstandskraft",
+   "Grenzen",
+   "letzte Anstrengung"
+  ],
+  "upright": "Müde, aber fast am Ziel. Greif auf deine Widerstandskraft zurück.",
+  "reversed": "Burnout oder Sturheit. Ausruhen kann klüger sein als eine weitere Runde.",
+  "k": {
+   "essence": "Erschöpft, aber noch auf den Beinen.",
+   "imagery": "Eine Gestalt mit Verband stützt sich auf einen Stab und blickt misstrauisch zur Seite. Hinter ihr stehen acht Stäbe aufrecht wie ein Zaun.",
+   "why": "Neun ist die Zahl kurz vor dem Ende eines Zyklus, wenn die Kraft am geringsten ist. Der Verband zeigt, dass die Gestalt verletzt wurde, und der Zaun, dass sie Schutz aufgebaut hat. Sie steht noch.",
+   "upright": {
+    "core": "Widerstandskraft nach einem langen Kampf; eine letzte Anstrengung vor der Ruhe.",
+    "light": "Beharrlichkeit, Mut, Vorsicht",
+    "shadow": "Sturheit, Misstrauen nach einer schweren Zeit",
+    "love": "Dich nach einer Verletzung schützen.",
+    "work": "Kurz vor dem Ende eines langen Projekts, müde, aber nah dran.",
+    "question": "Was brauche ich, um die letzte Strecke durchzuhalten?"
+   },
+   "reversed": {
+    "core": "Erschöpfung oder Schutzmauern, die nicht mehr schützen.",
+    "modes": [
+     "Blockiert: Burnout.",
+     "Übermaß: Misstrauen gegen alles und jeden.",
+     "Schwindend: kurz vor dem Ende aufgeben."
+    ],
+    "question": "Was kann ich ablegen, um mich auszuruhen?"
+   }
+  }
+ },
+ "wands_ten": {
+  "name": "Zehn der Stäbe",
+  "keywords": [
+   "Last",
+   "Verantwortung",
+   "Überlastung"
+  ],
+  "upright": "Du trägst viel. Überleg, was du ablegen kannst.",
+  "reversed": "Eine Last abwerfen oder sich schwertun, um Hilfe zu bitten.",
+  "k": {
+   "essence": "Mehr tragen, als für dich gedacht war.",
+   "imagery": "Eine Gestalt beugt sich unter dem Gewicht von zehn gebündelten Stäben nach vorn und geht auf ein Dorf in der Ferne zu.",
+   "why": "Zehn ist das Ende eines Zyklus, und hier ist es Überlastung. Die Stäbe sind alle zu einer einzigen Last gebündelt, und das Dorf zeigt, dass das Ziel nah ist. Die Frage ist, ob alles allein getragen werden muss.",
+   "upright": {
+    "core": "Verantwortung und Anstrengung an der Grenze, und ein Zeichen, die Last zu teilen.",
+    "light": "Hingabe, harte Arbeit, fast geschafft",
+    "shadow": "Überarbeitung, zu viel auf dich nehmen",
+    "love": "In einer Beziehung alles allein tragen.",
+    "work": "Ein überfüllter Terminkalender, Burnout, ein Projekt kurz vor dem Ende.",
+    "question": "Was kann ich abgeben oder ablegen?"
+   },
+   "reversed": {
+    "core": "Die Last abwerfen oder unter ihr zusammenbrechen.",
+    "modes": [
+     "Loslassen: die Last endlich teilen.",
+     "Übermaß: Hilfe ablehnen.",
+     "Blockiert: nichts ablegen können."
+    ],
+    "question": "Was trage ich, das nie meins war?"
+   }
+  }
+ },
+ "wands_page": {
+  "name": "Bube der Stäbe",
+  "keywords": [
+   "Neugier",
+   "Begeisterung",
+   "Erkundung"
+  ],
+  "upright": "Ein lebhafter Neuling, begierig darauf, zu erkunden und Ideen auszuprobieren.",
+  "reversed": "Ungeduld oder halb fertige Projekte.",
+  "k": {
+   "essence": "Ein Funke Neugier, dem du folgen darfst.",
+   "imagery": "Ein junger Mensch in einem Wams mit Salamandermuster steht in einer Wüste, hält einen hohen Stab und betrachtet dessen Spitze. Weit hinten stehen Pyramiden.",
+   "why": "Buben sind Anfänger und Boten. Stäbe sind Feuer, also ist das eifriger Antrieb in einem frühen Stadium. Die Salamander sind ein traditionelles Feuersymbol, und der karge Boden deutet auf ein Talent hin, das noch nicht erprobt wurde.",
+   "upright": {
+    "core": "Begeisterung für etwas Neues und die Bereitschaft, es zu erkunden, bevor du gut darin bist.",
+    "light": "Neugier, Verspieltheit, ein mutiger erster Versuch",
+    "shadow": "zerstreutes Interesse, Dinge fallen lassen, wenn es schwierig wird",
+    "love": "Frische Aufregung über einen Menschen oder eine Art, sich zu verbinden; offen sagen, was dich begeistert.",
+    "work": "Eine neue Idee oder ein Nebenprojekt; lernen durch Tun.",
+    "question": "Wofür bin ich neugierig genug, um es schlecht auszuprobieren?"
+   },
+   "reversed": {
+    "core": "Aufregung ohne Richtung oder ein Funke, der früh verpufft.",
+    "modes": [
+     "Blockiert: Angst, wie ein Anfänger auszusehen.",
+     "Übermaß: viel anfangen und nichts beenden.",
+     "Schwindend: Das Interesse kühlt ab, bevor es erprobt wurde."
+    ],
+    "question": "Welche meiner Ideen verdient eine Woche echter Mühe?"
+   }
+  }
+ },
+ "wands_knight": {
+  "name": "Ritter der Stäbe",
+  "keywords": [
+   "Abenteuer",
+   "Energie",
+   "Impuls"
+  ],
+  "upright": "Kühne, rastlose Energie, die vorwärtsstürmt.",
+  "reversed": "Leichtsinn oder Frust. Denk nach, bevor du springst.",
+  "k": {
+   "essence": "Energie, die vorwärtsstürmt, im Guten wie im Schlechten.",
+   "imagery": "Ein Reiter in Rüstung mit federgeschmücktem Helm sitzt auf einem galoppierenden Pferd, das sich aufbäumt, und hält einen Stab. Die Landschaft ist trocken und blass, in der Ferne stehen Pyramiden.",
+   "why": "Ritter sind Handlung in Bewegung. Mit Feuer als Element geht es um Tempo und Eifer. Das sich aufbäumende Pferd zeigt Schwung, der schwer zu lenken ist, und der leere Boden zeigt, wie wenig bisher aufgebaut wurde.",
+   "upright": {
+    "core": "Antrieb und Abenteuer, mit der Frage, ob das Tempo auf irgendetwas gerichtet ist.",
+    "light": "Kühnheit, Leidenschaft, Schwung",
+    "shadow": "Ungeduld, Ausbrennen, gehen, bevor etwas fertig ist",
+    "love": "Starke Anziehung oder ein Gefühlsrausch; die Frage ist, ob es über den Nervenkitzel hinaus hält.",
+    "work": "Ein Produktivitätsschub, ein schneller Richtungswechsel.",
+    "question": "Trägt mich mein Tempo auf etwas zu oder von etwas weg?"
+   },
+   "reversed": {
+    "core": "Die Energie stockt, überstürzt sich oder zerstreut sich in mehrere Richtungen.",
+    "modes": [
+     "Blockiert: losziehen wollen, aber festgehalten werden.",
+     "Übermaß: Leichtsinn und Hast.",
+     "Schwindend: Die Begeisterung ist verflogen."
+    ],
+    "question": "Was würde sich ändern, wenn ich nur halb so schnell wäre?"
+   }
+  }
+ },
+ "wands_queen": {
+  "name": "Königin der Stäbe",
+  "keywords": [
+   "Wärme",
+   "Selbstvertrauen",
+   "Ausstrahlung"
+  ],
+  "upright": "Selbstbewusst, einladend und voller Antrieb. Führe, indem du inspirierst.",
+  "reversed": "Unsicherheit oder Eifersucht. Finde wieder zu deinem eigenen Funken.",
+  "k": {
+   "essence": "Warmes Selbstvertrauen, das andere sie selbst sein lässt.",
+   "imagery": "Eine gekrönte Frau sitzt auf einem Thron, in den Löwen geschnitzt sind, und hält in einer Hand einen Stab, in der anderen eine Sonnenblume. Zu ihren Füßen sitzt eine schwarze Katze.",
+   "why": "Königinnen tragen ihre Farbe nach innen. Nach innen gewandtes Feuer wird zu Selbstvertrauen und Wärme statt zu Eile. Sonnenblumen wenden sich der Sonne zu, und Löwen stehen für Mut, der leicht getragen wird.",
+   "upright": {
+    "core": "Selbstsichere Wärme: wissen, wer du bist, und großzügig damit sein.",
+    "light": "Ausstrahlung, Treue, Freude an dem, was du tust",
+    "shadow": "Eifersucht, im Mittelpunkt stehen müssen",
+    "love": "Offene, liebevolle Präsenz; sich wohlfühlen, gesehen zu werden.",
+    "work": "Mit Begeisterung führen; einen Ort schaffen, zu dem Menschen gehören wollen.",
+    "question": "Wo fühle ich mich am meisten wie ich selbst, und bringe ich das ein?"
+   },
+   "reversed": {
+    "core": "Das Selbstvertrauen wankt, oder Wärme wird kontrollierend.",
+    "modes": [
+     "Blockiert: am eigenen Wert zweifeln.",
+     "Übermaß: Bewunderung brauchen.",
+     "Nach innen: Wärme, die du anderen vorenthältst."
+    ],
+    "question": "Suche ich Bestätigung, oder teile ich, was ich wirklich fühle?"
+   }
+  }
+ },
+ "wands_king": {
+  "name": "König der Stäbe",
+  "keywords": [
+   "Vision",
+   "Führung",
+   "Kühnheit"
+  ],
+  "upright": "Eine geborene Führungspersönlichkeit mit einer klaren Vision.",
+  "reversed": "Herrische oder impulsive Führung.",
+  "k": {
+   "essence": "Vision mit dem Willen, sie anzuführen.",
+   "imagery": "Ein gekrönter König sitzt entspannt auf einem Thron, der mit Löwen und Salamandern verziert ist, und hält einen blühenden Stab. Sein Umhang ist orange, und sein Blick geht in die Ferne.",
+   "why": "Könige wenden ihre Farbe nach außen und machen Meisterschaft daraus. Gemeistertes Feuer wird zu Vision und Führung. Salamander und Löwen greifen die Feuerthemen wieder auf, und der knospende Stab zeigt Wachstum unter ruhigen Händen.",
+   "upright": {
+    "core": "Mit Energie führen und mit einem klaren Bild davon, wohin es geht.",
+    "light": "Inspiration, Entschlusskraft, Denken im großen Ganzen",
+    "shadow": "herrisch sein, Ungeduld mit Details oder Menschen",
+    "love": "Leidenschaft mit Reife: treu, großzügig, direkt.",
+    "work": "Die Leitung eines Projekts übernehmen; eine Richtung vorgeben, der andere folgen.",
+    "question": "Worauf baue ich hin, und wer kommt mit mir?"
+   },
+   "reversed": {
+    "core": "Führung rutscht in Kontrolle ab, oder der Vision fehlt die Umsetzung.",
+    "modes": [
+     "Übermaß: Herumkommandieren, andere überrollen.",
+     "Blockiert: ein Plan, der nie deinen Kopf verlässt.",
+     "Schwindend: Energie, die Ruhe braucht."
+    ],
+    "question": "Führe ich Menschen, oder schiebe ich sie nur an?"
+   }
+  }
+ },
+ "cups_ace": {
+  "name": "Ass der Kelche",
+  "keywords": [
+   "Offenheit",
+   "neue Gefühle",
+   "Mitgefühl"
+  ],
+  "upright": "Ein Herz öffnet sich. Heiß Freundlichkeit und emotionale Erneuerung willkommen.",
+  "reversed": "Zurückgehaltene Gefühle. Erlaube dir zu fühlen.",
+  "k": {
+   "essence": "Ein Gefühl, das überfließen will.",
+   "imagery": "Eine Hand aus einer Wolke hält einen Kelch, aus dem fünf Ströme in einen mit Seerosen bedeckten Teich fließen. Eine Taube mit einer kleinen Hostie im Schnabel fliegt auf den Kelch herab.",
+   "why": "Asse sind der Samen ihrer Farbe. Wasser steht für Gefühl, also ist dies das Öffnen des Herzens. Das überfließende Wasser zeigt Fülle, die Seerosen zeigen Ruhe, und die Taube bringt Frieden und Gnade.",
+   "upright": {
+    "core": "Ein neuer emotionaler Anfang: Liebe, Mitgefühl, Kreativität oder Verbundenheit.",
+    "light": "Offenheit, Mitgefühl, neue Liebe",
+    "shadow": "ein Gefühl, das nicht anerkannt wird",
+    "love": "Ein Neuanfang in der Liebe oder tiefere Nähe.",
+    "work": "Leidenschaft für eine Arbeit, die zu deinen Werten passt.",
+    "question": "Was würde ich mir erlauben zu fühlen, wenn ich es nicht bewachen würde?"
+   },
+   "reversed": {
+    "core": "Gefühle werden zurückgehalten, blockiert oder ungesehen ausgeschüttet.",
+    "modes": [
+     "Blockiert: emotional verschlossen.",
+     "Übermaß: überfließend, ohne Richtung.",
+     "Nach innen: Gefühle, die du für dich behältst."
+    ],
+    "question": "Welches Gefühl halte ich vor mir selbst zurück?"
+   }
+  }
+ },
+ "cups_two": {
+  "name": "Zwei der Kelche",
+  "keywords": [
+   "Verbindung",
+   "Partnerschaft",
+   "gegenseitiger Respekt"
+  ],
+  "upright": "Eine ausgewogene Verbindung, die auf Respekt und gemeinsamem Gefühl beruht.",
+  "reversed": "Ungleichgewicht oder Missverständnisse in einer Beziehung.",
+  "k": {
+   "essence": "Eine Begegnung auf Augenhöhe.",
+   "imagery": "Ein Mann und eine Frau stehen einander gegenüber und reichen sich Kelche wie bei einem Versprechen. Über ihnen schwebt ein geflügelter Löwenkopf über einem Stab, um den sich zwei Schlangen winden. Auf einem Hügel dahinter steht ein Haus.",
+   "why": "Zwei ist die Zahl der Paare. Das Bild zeigt gegenseitigen Austausch: Jeder bietet einen Kelch an, und jeder empfängt einen. Der geflügelte Löwe und der Schlangenstab sind alte Symbole für starke Bindungen und Heilung.",
+   "upright": {
+    "core": "Eine Verbindung, die auf gegenseitigem Respekt beruht, in Liebe oder Freundschaft.",
+    "light": "Partnerschaft, Anziehung, Ausgleich",
+    "shadow": "ein ungleicher Austausch, den anderen idealisieren",
+    "love": "Eine Bindung, in der beide Seiten geben und nehmen.",
+    "work": "Eine gute Arbeitspartnerschaft.",
+    "question": "Sind das, was ich gebe, und das, was ich bekomme, im Gleichgewicht?"
+   },
+   "reversed": {
+    "core": "Ungleichgewicht, Missverständnisse oder eine Bindung, die auseinanderdriftet.",
+    "modes": [
+     "Blockiert: sich dem anderen nicht öffnen können.",
+     "Übermaß: zu schnell verschmelzen.",
+     "Schwindend: Die Nähe kühlt ab."
+    ],
+    "question": "Wo ist der Austausch zwischen uns ungleich?"
+   }
+  }
+ },
+ "cups_three": {
+  "name": "Drei der Kelche",
+  "keywords": [
+   "Freundschaft",
+   "Feier",
+   "Gemeinschaft"
+  ],
+  "upright": "Freude, die mit anderen geteilt wird. Genieß gute Gesellschaft.",
+  "reversed": "Maßlosigkeit oder das Gefühl, außen vor zu sein.",
+  "k": {
+   "essence": "Freude, die mit anderen geteilt wird.",
+   "imagery": "Drei Frauen heben bei einer Feier gemeinsam ihre Kelche, in einem Garten mit Erntefrüchten zu ihren Füßen.",
+   "why": "Drei ist die Zahl des Wachstums und der Gemeinschaft. Die erhobenen Kelche und die Ernte zeigen gemeinsame Freude an dem, was gewachsen ist. Hier geht es mehr um Freundschaft als um Romantik.",
+   "upright": {
+    "core": "Feiern, Freundschaft und Unterstützung durch eine Gemeinschaft.",
+    "light": "Freundschaft, Freude, Zusammensein",
+    "shadow": "Maßlosigkeit, Tratsch",
+    "love": "Wärme von Freunden und Gemeinschaft.",
+    "work": "Zusammenarbeit und einen Teamerfolg feiern.",
+    "question": "Mit wem möchte ich feiern?"
+   },
+   "reversed": {
+    "core": "Isolation, oder die Feier kippt.",
+    "modes": [
+     "Blockiert: ausgeschlossen sein oder sich zurückhalten.",
+     "Übermaß: zu viel Genuss.",
+     "Schwindend: Freundschaften, die auseinanderdriften."
+    ],
+    "question": "Wer hat in meinem Kreis gefehlt?"
+   }
+  }
+ },
+ "cups_four": {
+  "name": "Vier der Kelche",
+  "keywords": [
+   "Gleichgültigkeit",
+   "Besinnung",
+   "Neubewertung"
+  ],
+  "upright": "Langeweile oder Rückzug. Frag dich, was du wirklich willst.",
+  "reversed": "Nach einer trüben Phase neue Möglichkeiten entdecken.",
+  "k": {
+   "essence": "Nicht sehen, was angeboten wird.",
+   "imagery": "Eine Gestalt sitzt mit verschränkten Armen und Beinen unter einem Baum und schaut auf drei Kelche am Boden. Eine Hand aus einer Wolke bietet einen vierten Kelch an, den er nicht zu bemerken scheint.",
+   "why": "Vier ist eine Pause. Die drei Kelche halten seine Aufmerksamkeit fest, während ihm ein neuer angeboten wird. Die verschränkten Arme zeigen Rückzug, und die Hand aus der Wolke zeigt, dass etwas angeboten wird, wenn er aufschaut.",
+   "upright": {
+    "core": "Eine Pause zum Nachdenken und die Frage, ob hinter der Langeweile eine Gelegenheit steckt.",
+    "light": "Nachdenken, Besinnung, Neubewertung",
+    "shadow": "Gleichgültigkeit, das Angebotene übersehen",
+    "love": "Sich in einer Bindung leer fühlen oder eine fürsorgliche Geste übersehen.",
+    "work": "Langeweile mit dem, was du hast; Raum zum Umdenken.",
+    "question": "Was übersehe ich, weil ich auf das schaue, was mir fehlt?"
+   },
+   "reversed": {
+    "core": "Aufwachen für etwas, das du ignoriert hast, oder noch tiefer in Gleichgültigkeit sinken.",
+    "modes": [
+     "Loslassen: das Angebot endlich sehen.",
+     "Blockiert: im Rückzug festgefahren.",
+     "Übermaß: alles ablehnen."
+    ],
+    "question": "Was würde ich vielleicht annehmen, wenn ich aufschauen würde?"
+   }
+  }
+ },
+ "cups_five": {
+  "name": "Fünf der Kelche",
+  "keywords": [
+   "Verlust",
+   "Bedauern",
+   "Trauer"
+  ],
+  "upright": "Der Blick auf das Verlorene. Denk daran, dass einige Kelche noch stehen.",
+  "reversed": "Weitergehen, Vergebung und langsames Hinwenden zu dem, was bleibt.",
+  "k": {
+   "essence": "Trauer, die verdeckt, was bleibt.",
+   "imagery": "Eine Gestalt in schwarzem Umhang blickt auf drei umgestoßene Kelche. Hinter ihr stehen noch zwei Kelche aufrecht. In der Ferne sind ein Fluss, eine Brücke und ein Haus.",
+   "why": "Fünf ist eine Zahl von Verlust und Anspannung. Die umgestoßenen Kelche sind das, was verloren ist, und die stehenden Kelche das, was bleibt. Der abgewandte Rücken ist der Kern: Die Gestalt hat sich noch nicht umgesehen.",
+   "upright": {
+    "core": "Um das Verlorene trauern, während noch etwas bleibt, dem man sich zuwenden kann.",
+    "light": "Trauer, Bedauern, ehrliches Gefühl",
+    "shadow": "beim Verlust verharren, Verbitterung",
+    "love": "Traurigkeit über eine Beziehung, die sich verändert hat.",
+    "work": "Enttäuschung über ein Ergebnis.",
+    "question": "Was ist noch da, das ich mir noch nicht angesehen habe?"
+   },
+   "reversed": {
+    "core": "Weitergehen, Vergebung oder im Bedauern festhängen.",
+    "modes": [
+     "Loslassen: sich dem zuwenden, was bleibt.",
+     "Blockiert: sich weigern loszulassen.",
+     "Nach innen: unausgesprochene Trauer."
+    ],
+    "question": "Worum bin ich bereit, nicht länger zu trauern?"
+   }
+  }
+ },
+ "cups_six": {
+  "name": "Sechs der Kelche",
+  "keywords": [
+   "Nostalgie",
+   "Unschuld",
+   "Freundlichkeit"
+  ],
+  "upright": "Erinnerungen und sanfte Großzügigkeit. Blick mit Wärme auf die Vergangenheit zurück.",
+  "reversed": "In der Vergangenheit festhängen oder zurückschauen statt nach vorn.",
+  "k": {
+   "essence": "Wärme aus der Vergangenheit.",
+   "imagery": "Im Hof eines Dorfes reicht ein Kind einem kleineren Kind einen Kelch voller Blumen. Ringsum stehen weitere Kelche mit Blumen, und im Hintergrund ist eine Wache zu sehen.",
+   "why": "Sechs ist die Zahl der Harmonie. Die Kindheitsszene verweist auf Unschuld und alte Bindungen, mit Blumen als Geschenk. Es geht um Nostalgie und um schlichte Freundlichkeit.",
+   "upright": {
+    "core": "Erinnerung, schlichte Freundlichkeit und alte Verbindungen.",
+    "light": "Nostalgie, Freundlichkeit, Unschuld",
+    "shadow": "in der Vergangenheit leben",
+    "love": "Ein Wiedersehen mit einem alten Freund oder sentimentale Zärtlichkeit.",
+    "work": "Zu dem zurückkehren, was du früher gern getan hast.",
+    "question": "Was aus meiner Vergangenheit lohnt es sich mitzunehmen?"
+   },
+   "reversed": {
+    "core": "In Erinnerungen festhängen oder die Vergangenheit loslassen.",
+    "modes": [
+     "Blockiert: die Vergangenheit nicht verlassen können.",
+     "Loslassen: sich von alten Mustern lösen.",
+     "Übermaß: das Vergangene verklären."
+    ],
+    "question": "Erinnere ich mich an die Vergangenheit, oder verstecke ich mich darin?"
+   }
+  }
+ },
+ "cups_seven": {
+  "name": "Sieben der Kelche",
+  "keywords": [
+   "Tagträume",
+   "Möglichkeiten",
+   "Illusion"
+  ],
+  "upright": "Viele Möglichkeiten und etwas Fantasie. Trenne das Echte vom Eingebildeten.",
+  "reversed": "Klarheit stellt sich ein, oder die Auswahl überfordert.",
+  "k": {
+   "essence": "Viele Träume und keine klare Wahl.",
+   "imagery": "Eine Gestalt, nur als Silhouette zu sehen, steht vor sieben Kelchen, die in Wolken schweben. Jeder enthält etwas anderes: ein Gesicht, eine verschleierte Gestalt, eine Schlange, eine Burg, Juwelen, einen Lorbeerkranz und einen Drachen.",
+   "why": "Sieben ist eine Zahl der Prüfung. Die Kelche sind Möglichkeiten, manche verlockend, manche gefährlich, alle in Wolken statt auf festem Boden. Die Gestalt betrachtet sie und hat noch nicht gewählt.",
+   "upright": {
+    "core": "Eine Fülle von Möglichkeiten und Fantasien, die klares Sortieren verlangt.",
+    "light": "Fantasie, Möglichkeit, Träumen",
+    "shadow": "Illusion, Unentschlossenheit, Wunschdenken",
+    "love": "Idealisierte Bilder von Liebe im Vergleich zum echten Menschen.",
+    "work": "Zu viele Ideen; eine auswählen, auf die du dich festlegst.",
+    "question": "Welchen dieser Träume bin ich bereit, wahr zu machen?"
+   },
+   "reversed": {
+    "core": "Der Nebel lichtet sich, oder du verlierst dich in Fantasien.",
+    "modes": [
+     "Loslassen: endlich klar sehen.",
+     "Übermaß: in Realitätsflucht verloren.",
+     "Blockiert: nicht wählen können."
+    ],
+    "question": "Welche Möglichkeit ist echt, und welche ist nur verlockend?"
+   }
+  }
+ },
+ "cups_eight": {
+  "name": "Acht der Kelche",
+  "keywords": [
+   "Weggehen",
+   "nach mehr suchen",
+   "weiterziehen"
+  ],
+  "upright": "Etwas verlassen, das nicht mehr erfüllt, auf der Suche nach Sinn.",
+  "reversed": "Zielloses Treiben oder Angst, zu gehen.",
+  "k": {
+   "essence": "Verlassen, was dich nicht mehr erfüllt.",
+   "imagery": "Eine Gestalt in Umhang und mit Wanderstab geht von acht aufgestapelten Kelchen fort auf dunkle Hügel zu. Am Himmel steht ein Mond. Eine Lücke im Stapel zeigt, dass ein Kelch fehlt.",
+   "why": "Acht ist ein Wendepunkt. Die gestapelten Kelche sind eine ordentliche, aber unvollständige Anordnung, und der Wanderer wählt einen harten Weg, statt zu bleiben. Der Mond deutet auf eine Reise im Dunkeln.",
+   "upright": {
+    "core": "Von etwas weggehen, das gut aussieht, aber nicht mehr erfüllt.",
+    "light": "weiterziehen, Ehrlichkeit, nach Sinn suchen",
+    "shadow": "davonlaufen, gehen, ohne sich dem Warum zu stellen",
+    "love": "Eine Bindung verlassen – oder verlassen müssen –, die sich überlebt hat.",
+    "work": "Einen Weg aufgeben, der nicht mehr passt.",
+    "question": "Was verlasse ich, und worauf gehe ich zu?"
+   },
+   "reversed": {
+    "core": "Aus Angst bleiben oder ohne Plan gehen.",
+    "modes": [
+     "Blockiert: Angst, zu gehen.",
+     "Übermaß: immer weiterziehen.",
+     "Nach innen: still und leise gehen."
+    ],
+    "question": "Gehe ich auf etwas zu oder nur von etwas weg?"
+   }
+  }
+ },
+ "cups_nine": {
+  "name": "Neun der Kelche",
+  "keywords": [
+   "Zufriedenheit",
+   "Erfüllung",
+   "Dankbarkeit"
+  ],
+  "upright": "Ein Gefühl der Erfüllung. Schätze, was du hast.",
+  "reversed": "Selbstgefälligkeit oder ein Wunsch, der weniger erfüllt als erwartet.",
+  "k": {
+   "essence": "Zufriedenheit, die du genießen kannst.",
+   "imagery": "Ein Mann mit rotem Hut sitzt mit verschränkten Armen und zufriedenem Blick auf einer Bank. Hinter ihm stehen auf einem gebogenen Tisch unter einem blauen Tuch neun Kelche.",
+   "why": "Neun steht kurz vor dem Ende eines Zyklus, wenn Ergebnisse genossen werden können. Die Kelche sind ordentlich aufgereiht, und seine Haltung ist entspannt. Sie wird oft Wunschkarte genannt, kann aber auch auf eine stille, persönliche Zufriedenheit hinweisen.",
+   "upright": {
+    "core": "Zufriedenheit mit dem, wofür du gearbeitet hast.",
+    "light": "Zufriedenheit, Dankbarkeit, Genuss",
+    "shadow": "Selbstgefälligkeit, Angeberei",
+    "love": "Sich zufrieden und geborgen fühlen.",
+    "work": "Ein persönliches Ziel erreichen, über das du dich freust.",
+    "question": "Was habe ich schon, worüber ich froh bin?"
+   },
+   "reversed": {
+    "core": "Unzufriedenheit, obwohl du hast, was du wolltest.",
+    "modes": [
+     "Blockiert: Nichts fühlt sich genug an.",
+     "Übermaß: Maßlosigkeit.",
+     "Nach innen: Zufriedenheit, die du nicht teilst."
+    ],
+    "question": "Was würde sich wie genug anfühlen?"
+   }
+  }
+ },
+ "cups_ten": {
+  "name": "Zehn der Kelche",
+  "keywords": [
+   "Harmonie",
+   "Familie",
+   "Erfüllung"
+  ],
+  "upright": "Emotionale Erfüllung und ein Gefühl der Zugehörigkeit.",
+  "reversed": "Angespannte Bindungen oder Werte, die nicht ganz zusammenpassen.",
+  "k": {
+   "essence": "Das Bild eines glücklichen Zuhauses.",
+   "imagery": "Ein Paar steht mit erhobenen Armen unter einem Regenbogen aus zehn Kelchen, während zwei Kinder neben ihnen tanzen. In einer grünen Landschaft steht ein kleines Haus.",
+   "why": "Zehn ist die Vollendung eines Zyklus. Während die Neun persönlich ist, ist die Zehn geteilt: eine Szene mit Familie oder Gemeinschaft. Der Regenbogen wölbt sich wie ein Segen über alle.",
+   "upright": {
+    "core": "Emotionale Erfüllung, geteilt mit den Menschen, die du liebst.",
+    "light": "Harmonie, Zugehörigkeit, Familie",
+    "shadow": "ein Ideal, das echte Probleme verdeckt",
+    "love": "Tiefe, dauerhafte Nähe und gemeinsame Werte.",
+    "work": "Ein Arbeitsplatz, an dem du dich zugehörig fühlst.",
+    "question": "Was bedeutet ein gutes Zuhause oder eine gute Gemeinschaft für mich?"
+   },
+   "reversed": {
+    "core": "Spannungen in einer Familie oder Gruppe oder ein unerreichbares Ideal.",
+    "modes": [
+     "Blockiert: fehlende Verbindung zu Hause.",
+     "Übermaß: der Druck, perfekt auszusehen.",
+     "Schwindend: Werte, die nicht mehr zusammenpassen."
+    ],
+    "question": "Was fehlt in meinem Bild von Zugehörigkeit?"
+   }
+  }
+ },
+ "cups_page": {
+  "name": "Bube der Kelche",
+  "keywords": [
+   "Empfindsamkeit",
+   "Fantasie",
+   "Offenheit"
+  ],
+  "upright": "Eine zarte, kreative Botschaft. Hör auf deine Gefühle.",
+  "reversed": "Launenhaftigkeit oder emotionale Unreife.",
+  "k": {
+   "essence": "Eine sanfte Botschaft deiner eigenen Gefühle.",
+   "imagery": "Ein junger Mensch in einem geblümten Wams steht am Meer und hält einen Kelch, aus dem ein kleiner Fisch den Kopf streckt. Das Wasser dahinter ist ruhig.",
+   "why": "Buben sind Anfänge, und Kelche stehen für Gefühl und Fantasie. Der Fisch, der aus dem Kelch auftaucht, ist ein verspieltes Bild für eine unerwartete Idee oder ein Gefühl, das an die Oberfläche kommt. Das Meer dahinter ist das tiefere Unbewusste.",
+   "upright": {
+    "core": "Ein zarter, kreativer Impuls; offen sein für Überraschungen in deinem Innenleben.",
+    "light": "Empfindsamkeit, Staunen, Fantasie",
+    "shadow": "Launenhaftigkeit, Flucht in Tagträume",
+    "love": "Eine liebe Geste oder ein ehrliches Gefühl, das zum ersten Mal geteilt wird.",
+    "work": "Eine kreative Idee, die Raum braucht; ein sanfter Anfang.",
+    "question": "Welches kleine Gefühl versucht, meine Aufmerksamkeit zu bekommen?"
+   },
+   "reversed": {
+    "core": "Gefühle werden zurückgehalten oder werden zum Melodram.",
+    "modes": [
+     "Blockiert: Angst, verletzlich zu sein.",
+     "Übermaß: Überempfindlichkeit.",
+     "Nach innen: eine kreative Idee, die geheim bleibt."
+    ],
+    "question": "Übergehe ich ein leises Gefühl, weil es mir kindisch vorkommt?"
+   }
+  }
+ },
+ "cups_knight": {
+  "name": "Ritter der Kelche",
+  "keywords": [
+   "Romantik",
+   "Charme",
+   "Idealismus"
+  ],
+  "upright": "Ein Träumer, der seinem Herzen folgt. Angebote oder Einladungen können kommen.",
+  "reversed": "Unrealistische Vorstellungen oder widersprüchliche Signale.",
+  "k": {
+   "essence": "Dem Herzen folgen, mit romantischem Blick.",
+   "imagery": "Ein Ritter in Rüstung mit geflügeltem Helm und geflügelten Stiefeln reitet in gemächlichem Tempo auf einem ruhigen weißen Pferd und hält einen Kelch vor sich. Vor ihm liegen ein Fluss und ferne Hügel.",
+   "why": "Ritter verfolgen etwas, und bei den Kelchen gilt die Verfolgung dem Gefühl. Das langsame Pferd zeigt, dass es um Werben geht, nicht um Eroberung. Die Flügel am Helm stehen für Ideale und Fantasie.",
+   "upright": {
+    "core": "Etwas verfolgen, weil es dich berührt; ein Angebot, eine Einladung, ein Ideal.",
+    "light": "Romantik, Charme, Idealismus",
+    "shadow": "Tagträumerei, Versprechen, die der Wirklichkeit davonlaufen",
+    "love": "Eine romantische Geste oder der Wunsch danach; die Lücke zwischen dem Ideal und dem Menschen.",
+    "work": "Der Inspiration folgen; eine Idee mit Gefühl vorstellen.",
+    "question": "Folge ich einem Menschen oder einem Bild von ihm?"
+   },
+   "reversed": {
+    "core": "Charme ohne Substanz oder ein Rückzug vor dem Gefühl.",
+    "modes": [
+     "Übermaß: einem Ideal nachjagen, das nicht echt ist.",
+     "Blockiert: nicht sagen können, was du fühlst.",
+     "Schwindend: Die Begeisterung kühlt ab."
+    ],
+    "question": "Was würde sich ändern, wenn ich aus dem handle, was echt ist, und nicht aus dem, was ich mir erhoffe?"
+   }
+  }
+ },
+ "cups_queen": {
+  "name": "Königin der Kelche",
+  "keywords": [
+   "Einfühlungsvermögen",
+   "Intuition",
+   "Fürsorge"
+  ],
+  "upright": "Zutiefst fürsorglich und intuitiv. Kümmere dich auch um dich selbst.",
+  "reversed": "Emotionale Überwältigung oder das Vernachlässigen deiner eigenen Bedürfnisse.",
+  "k": {
+   "essence": "Tiefes Gefühl, mit Sorgfalt gehalten.",
+   "imagery": "Eine gekrönte Frau sitzt auf einem muschelartigen Thron am Ufer, hält mit beiden Händen einen verzierten, geschlossenen Kelch und betrachtet ihn. Kleine Figuren schmücken den Thron.",
+   "why": "Königinnen verkörpern ihre Farbe nach innen. Der geschlossene, verzierte Kelch zeigt Gefühle, die wie ein Schatz gehütet und nicht verschüttet werden. Am Ufer sitzt sie dort, wo Bewusstes und Unbewusstes sich begegnen.",
+   "upright": {
+    "core": "Einfühlungsvermögen und Intuition, mit Sorgfalt eingesetzt, auch dir selbst gegenüber.",
+    "light": "Mitgefühl, Intuition, emotionale Tiefe",
+    "shadow": "die Stimmungen anderer aufsaugen, die eigenen Grenzen verlieren",
+    "love": "Genau zuhören; da sein, ohne dich selbst zu verlieren.",
+    "work": "Unterstützende Rollen, spüren, was ein Team braucht.",
+    "question": "Wessen Gefühle trage ich, die nicht meine sind?"
+   },
+   "reversed": {
+    "core": "Einfühlungsvermögen kippt in zu viel Geben, oder Gefühle werden weggeschlossen.",
+    "modes": [
+     "Übermaß: die Probleme aller übernehmen.",
+     "Blockiert: die eigenen Gefühle betäuben.",
+     "Nach innen: sich um andere kümmern, aber nicht um sich selbst."
+    ],
+    "question": "Wo enden meine Gefühle, und wo beginnen die der anderen?"
+   }
+  }
+ },
+ "cups_king": {
+  "name": "König der Kelche",
+  "keywords": [
+   "emotionales Gleichgewicht",
+   "Diplomatie",
+   "Ruhe"
+  ],
+  "upright": "Reif, beständig und mitfühlend. Bleib unter Druck ruhig.",
+  "reversed": "Unterdrückte Gefühle oder Launen, die sich hinter Gelassenheit verstecken.",
+  "k": {
+   "essence": "Ruhe, die Gefühle hält, ohne von ihnen beherrscht zu werden.",
+   "imagery": "Ein gekrönter König sitzt auf einem Thron, der auf bewegtem Wasser schwimmt, und hält in einer Hand einen Kelch, in der anderen ein Zepter. Ein Fisch springt aus den Wellen, und hinter ihm segelt ein Schiff.",
+   "why": "Könige meistern ihre Farbe nach außen. Der Thron steht fest auf aufgewühltem Wasser – das ist die ganze Botschaft: Das Gefühl ist da, aber es wird gehalten. Der springende Fisch zeigt, dass die Kreativität noch lebendig ist.",
+   "upright": {
+    "core": "Emotionale Reife: tief fühlen und trotzdem wählen, wie du reagierst.",
+    "light": "Diplomatie, Ausgeglichenheit, Großzügigkeit",
+    "shadow": "emotionale Distanz, Gefühle unterdrücken, Manipulation",
+    "love": "Beständige, freundliche Präsenz in schwierigen Gesprächen.",
+    "work": "Vermitteln, beraten, mit Ruhe führen.",
+    "question": "Wie bleibe ich standfest, wenn das Wasser aufgewühlt ist?"
+   },
+   "reversed": {
+    "core": "Die Kontrolle über Gefühle erstarrt zu Kälte, oder die Fassung bekommt Risse.",
+    "modes": [
+     "Blockiert: alles in sich hineinfressen.",
+     "Übermaß: Launen, die den ganzen Raum bestimmen.",
+     "Nach innen: ruhig an der Oberfläche, Sturm darunter."
+    ],
+    "question": "Bin ich ruhig, oder zeige ich es nur nicht?"
+   }
+  }
+ },
+ "swords_ace": {
+  "name": "Ass der Schwerter",
+  "keywords": [
+   "Klarheit",
+   "Wahrheit",
+   "Durchbruch"
+  ],
+  "upright": "Eine klare Idee durchschneidet die Verwirrung. Sprich und denk klar.",
+  "reversed": "Wirres Denken oder harte Worte.",
+  "k": {
+   "essence": "Eine klare Idee, die durchschneidet.",
+   "imagery": "Eine Hand aus einer Wolke umfasst ein nach oben gerichtetes Schwert, an dessen Spitze eine Krone sitzt, von der Oliven- und Palmzweige herabhängen. Darunter liegen Berge.",
+   "why": "Asse sind der Samen ihrer Farbe. Luft steht für Denken und Wahrheit, also geht es um Klarheit und Entscheidung. Die Krone mit den Zweigen zeigt Sieg und Frieden zugleich – eine Erinnerung daran, dass ein klarer Kopf beidem dienen kann.",
+   "upright": {
+    "core": "Eine klare Einsicht oder eine Entscheidung, die die Verwirrung durchschneidet.",
+    "light": "Klarheit, Wahrheit, ein Durchbruch",
+    "shadow": "Worte als Waffen",
+    "love": "Ein ehrliches, direktes Gespräch, das die Luft reinigt.",
+    "work": "Eine scharfe Idee oder eine klare Entscheidung.",
+    "question": "Was sehe ich jetzt klar?"
+   },
+   "reversed": {
+    "core": "Verwirrung oder eine Wahrheit, der du ausweichst.",
+    "modes": [
+     "Blockiert: nicht klar denken können.",
+     "Übermaß: harte Worte.",
+     "Nach innen: eine Wahrheit, die du kennst, aber nicht aussprichst."
+    ],
+    "question": "Was erlaube ich mir nicht, mir einzugestehen?"
+   }
+  }
+ },
+ "swords_two": {
+  "name": "Zwei der Schwerter",
+  "keywords": [
+   "Patt",
+   "Unentschlossenheit",
+   "verschlossen"
+  ],
+  "upright": "Eine schwere Entscheidung, der du ausweichst. Nimm die Augenbinde ab, wenn du bereit bist.",
+  "reversed": "Informationen kommen ans Licht, oder die Unentschlossenheit zieht sich hin.",
+  "k": {
+   "essence": "Eine Entscheidung, für die du blind bist.",
+   "imagery": "Eine Frau mit verbundenen Augen sitzt auf einer Bank und hält zwei gekreuzte Schwerter auf Brusthöhe. Hinter ihr liegen ruhiges Wasser, eine Mondsichel und ein felsiges Ufer.",
+   "why": "Zwei ist die Zahl der Entscheidungen. Die Augenbinde steht für Wählen, ohne hinzusehen, und die gekreuzten Schwerter sind ein Patt, eine Abwehr gegen das Fühlen. Das ruhige Meer zeigt Frieden an der Oberfläche und Spannung darunter.",
+   "upright": {
+    "core": "Ein Patt; einer Entscheidung ausweichen, indem du dich weigerst hinzusehen.",
+    "light": "Ausgleich, Gefasstheit, eine Pause",
+    "shadow": "Vermeidung, Verdrängung",
+    "love": "Es aufschieben, dich einem Gefühl oder einer Entscheidung zu stellen.",
+    "work": "Zwei Möglichkeiten und keine Chance zu wählen, ohne mehr Informationen.",
+    "question": "Was würde ich sehen, wenn ich die Augenbinde abnehme?"
+   },
+   "reversed": {
+    "core": "Die Entscheidung wird erzwungen, oder die Augenbinde fällt.",
+    "modes": [
+     "Loslassen: die Wahrheit sehen.",
+     "Übermaß: die Angst der Unentschlossenheit.",
+     "Blockiert: sich weigern zu wählen."
+    ],
+    "question": "Wovor schütze ich mich, indem ich nicht hinsehe?"
+   }
+  }
+ },
+ "swords_three": {
+  "name": "Drei der Schwerter",
+  "keywords": [
+   "Herzschmerz",
+   "Kummer",
+   "Ehrlichkeit"
+  ],
+  "upright": "Eine schmerzhafte Wahrheit oder Traurigkeit. Erkenne sie an, damit sie heilen kann.",
+  "reversed": "Die Erholung beginnt, oder du hältst am Schmerz fest.",
+  "k": {
+   "essence": "Ein Schmerz, der gefühlt werden darf.",
+   "imagery": "Ein rotes Herz wird von drei Schwertern durchbohrt, vor einem Hintergrund aus grauen Wolken und fallendem Regen.",
+   "why": "Drei ist die Zahl des Wachstums, und bei den Schwertern ist es die schmerzhafte Wahrheit. Das Bild ist bewusst schonungslos: Diese Karte benennt Schmerz, ohne ihn abzumildern, damit man sich ihm stellen kann.",
+   "upright": {
+    "core": "Herzschmerz oder eine schmerzhafte Wahrheit, die eingestanden werden muss.",
+    "light": "Ehrlichkeit über Schmerz, Trauer, Befreiung",
+    "shadow": "beim Schmerz verharren",
+    "love": "Traurigkeit über eine Verletzung oder einen Vertrauensbruch.",
+    "work": "Enttäuschung oder ein schwieriges Gespräch.",
+    "question": "Welche Verletzung bin ich bereit, mir ehrlich anzusehen?"
+   },
+   "reversed": {
+    "core": "Die Erholung beginnt, oder du hältst an altem Schmerz fest.",
+    "modes": [
+     "Loslassen: Der Schmerz lässt nach.",
+     "Blockiert: sich weigern, ihn zu fühlen.",
+     "Übermaß: die Wunde immer wieder durchleben."
+    ],
+    "question": "Wie würde Heilung davon aussehen?"
+   }
+  }
+ },
+ "swords_four": {
+  "name": "Vier der Schwerter",
+  "keywords": [
+   "Ruhe",
+   "Erholung",
+   "Rückzug"
+  ],
+  "upright": "Halte inne und tanke auf. Ruhe ist produktiv.",
+  "reversed": "Unruhe oder zu früh wieder aktiv werden.",
+  "k": {
+   "essence": "Ruhe als bewusste Entscheidung.",
+   "imagery": "Die steinerne Figur eines Ritters liegt mit zum Gebet gefalteten Händen auf einem Grab. Drei Schwerter hängen an der Wand darüber, eines liegt darunter. Ein Buntglasfenster zeigt eine Gestalt, die sich um jemanden kümmert.",
+   "why": "Vier ist eine Zahl der Stabilität, und hier bedeutet sie Stille. Die Grabfigur steht für Ruhe und Rückzug, nicht für den Tod. Das Buntglas fügt einen Hauch stiller Heilung hinzu.",
+   "upright": {
+    "core": "Eine nötige Pause, um dich auszuruhen und zu erholen.",
+    "light": "Ruhe, Erholung, Stille",
+    "shadow": "sich zu lange zurückziehen",
+    "love": "Dir Raum nehmen, um zu heilen.",
+    "work": "Eine Pause, Urlaub oder Zeit zum Nachdenken vor dem nächsten Schritt.",
+    "question": "Wie würde richtiges Ausruhen aussehen?"
+   },
+   "reversed": {
+    "core": "Unruhe oder eine zu frühe Rückkehr.",
+    "modes": [
+     "Blockiert: nicht zur Ruhe kommen können.",
+     "Loslassen: bereit zurückzukehren.",
+     "Übermaß: dem Leben ausweichen."
+    ],
+    "question": "Ruhe ich mich aus, oder verstecke ich mich?"
+   }
+  }
+ },
+ "swords_five": {
+  "name": "Fünf der Schwerter",
+  "keywords": [
+   "Konflikt",
+   "Spannung",
+   "leere Siege"
+  ],
+  "upright": "Ein Kampf, der mehr kostet, als er bringt. Wähle deine Kämpfe.",
+  "reversed": "Frieden schließen oder anhaltender Groll.",
+  "k": {
+   "essence": "Ein Sieg, der etwas kostet.",
+   "imagery": "Ein Mann im Vordergrund hält drei Schwerter und wirkt selbstgefällig, während zwei weitere am Boden liegen. Zwei Gestalten gehen mit gesenkten Köpfen auf ein stürmisches Ufer zu.",
+   "why": "Fünf ist eine Zahl der Anspannung. Der Mann hat die Schwerter eingesammelt, aber zu einem sichtbaren Preis: Die anderen ziehen geschlagen davon, und der Himmel ist stürmisch. Die Karte fragt, was Gewinnen wert ist.",
+   "upright": {
+    "core": "Ein Konflikt, bei dem dem Sieger womöglich wenig bleibt.",
+    "light": "Eigeninteresse, Strategie, Wettbewerb",
+    "shadow": "Kleinlichkeit, leere Siege",
+    "love": "Ein Streit, der auf Kosten der Beziehung gewonnen wird.",
+    "work": "Konkurrenztaktiken am Arbeitsplatz.",
+    "question": "Ist dieser Sieg den Preis wert?"
+   },
+   "reversed": {
+    "core": "Wiedergutmachung oder einem Streit den Rücken kehren.",
+    "modes": [
+     "Loslassen: Versöhnung.",
+     "Übermaß: gewinnen müssen.",
+     "Schwindend: Niederlage und Scham."
+    ],
+    "question": "Gegen wen kämpfe ich, und warum?"
+   }
+  }
+ },
+ "swords_six": {
+  "name": "Sechs der Schwerter",
+  "keywords": [
+   "Übergang",
+   "weiterziehen",
+   "ruhigeres Fahrwasser"
+  ],
+  "upright": "Ein langsames Wegbewegen von Schwierigkeiten. Die Heilung ist im Gang.",
+  "reversed": "Widerstand gegen Veränderung oder ungeklärter Ballast.",
+  "k": {
+   "essence": "Auf ruhigeres Wasser zusteuern.",
+   "imagery": "Ein Fährmann stakt ein Boot mit einer verhüllten Frau und einem Kind, im Bug stehen sechs Schwerter aufrecht. Das Wasser vor ihnen sieht ruhiger aus.",
+   "why": "Sechs ist die Zahl der Harmonie nach schweren Zeiten. Die Schwerter sind das, was sie mit sich tragen. Das ruhigere Wasser auf der anderen Seite deutet auf eine schwere Überfahrt hin, mit etwas Besserem vor ihnen.",
+   "upright": {
+    "core": "Ein Übergang weg von Schwierigkeiten, mit den Lektionen im Gepäck.",
+    "light": "Übergang, Erholung, Probleme hinter dir lassen",
+    "shadow": "ungeklärter Ballast",
+    "love": "Gemeinsam oder getrennt über eine schwere Phase hinwegkommen.",
+    "work": "Den Job wechseln oder eine schwierige Situation verlassen.",
+    "question": "Was lasse ich hinter mir, und was nehme ich mit?"
+   },
+   "reversed": {
+    "core": "Eine verzögerte Überfahrt oder Probleme, die dir folgen.",
+    "modes": [
+     "Blockiert: am Ufer festsitzen.",
+     "Übermaß: davonlaufen.",
+     "Schwindend: Der Übergang gerät ins Stocken."
+    ],
+    "question": "Was bräuchte ich, um überzusetzen?"
+   }
+  }
+ },
+ "swords_seven": {
+  "name": "Sieben der Schwerter",
+  "keywords": [
+   "Strategie",
+   "Heimlichkeit",
+   "Vorsicht"
+  ],
+  "upright": "Denk gründlich nach; ein listiger Weg verlangt Ehrlichkeit über seinen Preis.",
+  "reversed": "Reinen Tisch machen oder ein Plan, der nach hinten losgeht.",
+  "k": {
+   "essence": "Heimlich handeln.",
+   "imagery": "Eine Gestalt schleicht sich auf Zehenspitzen mit fünf Schwertern aus einem Heerlager davon, blickt zurück und lässt zwei Schwerter im Boden stecken.",
+   "why": "Sieben ist die Zahl der Prüfungen. Die schleichende Gestalt geht allein ein Risiko ein, und die zwei zurückgelassenen Schwerter zeigen, dass sie nicht alles tragen konnte. Das wirft die Frage auf, ob der Plan klug ist oder nur ausweichend.",
+   "upright": {
+    "core": "Strategie, Heimlichkeit oder einem direkten Weg ausweichen.",
+    "light": "Klugheit, Strategie, Unabhängigkeit",
+    "shadow": "Täuschung, sich vor Verantwortung drücken",
+    "love": "Etwas wird nicht ausgesprochen; verborgene Motive.",
+    "work": "Abkürzungen nehmen oder eine Regel umgehen.",
+    "question": "Wo vermeide ich es, direkt zu sein?"
+   },
+   "reversed": {
+    "core": "Reinen Tisch machen oder ertappt werden.",
+    "modes": [
+     "Loslassen: ein Geständnis.",
+     "Übermaß: Betrug.",
+     "Blockiert: nicht handeln können."
+    ],
+    "question": "Was würde mich Ehrlichkeit hier kosten, und was kostet es, ihr auszuweichen?"
+   }
+  }
+ },
+ "swords_eight": {
+  "name": "Acht der Schwerter",
+  "keywords": [
+   "Einschränkung",
+   "Angst",
+   "sich gefangen fühlen"
+  ],
+  "upright": "Du fühlst dich festgefahren, obwohl die Möglichkeiten offener sein könnten, als es scheint.",
+  "reversed": "Dich befreien und wieder Wahlmöglichkeiten sehen.",
+  "k": {
+   "essence": "Sich von einer Falle gefesselt fühlen, die zum Teil locker ist.",
+   "imagery": "Eine Frau steht mit verbundenen Augen und gefesselt da, umgeben von acht Schwertern im Boden, mit seichtem Wasser zu ihren Füßen und einer Burg auf einem fernen Hügel.",
+   "why": "Acht steht für Bewegung und Meisterschaft. Die Fesseln sind locker, und die Schwerter bilden keinen geschlossenen Käfig – darum geht es: Die Einschränkung ist vielleicht zum Teil im Kopf. Das seichte Wasser deutet an, dass der Ausweg nicht weit ist.",
+   "upright": {
+    "core": "Ein Gefühl des Feststeckens, das vielleicht mehr mit Wahrnehmung als mit Tatsachen zu tun hat.",
+    "light": "Bewusstsein für Grenzen, Geduld, ein Ausweg",
+    "shadow": "selbst auferlegte Grenzen, Hilflosigkeit",
+    "love": "Sich in einem Muster gefangen fühlen.",
+    "work": "Sich in einem Job oder einer Situation machtlos fühlen.",
+    "question": "Was würde ich ausprobieren, wenn ich glaubte, dass ich es kann?"
+   },
+   "reversed": {
+    "core": "Die Augenbinde abnehmen und einen Ausweg sehen.",
+    "modes": [
+     "Loslassen: Die Freiheit kommt.",
+     "Blockiert: in der Falle bleiben.",
+     "Übermaß: Opferdenken."
+    ],
+    "question": "Welche meiner Grenzen sind echt, und welche nehme ich nur an?"
+   }
+  }
+ },
+ "swords_nine": {
+  "name": "Neun der Schwerter",
+  "keywords": [
+   "Angst",
+   "Sorge",
+   "schlaflose Nächte"
+  ],
+  "upright": "Die Sorgen wirken übermächtig. Teile sie mit jemandem, dem du vertraust.",
+  "reversed": "Ängste lassen nach, oder eine Angst braucht Unterstützung.",
+  "k": {
+   "essence": "Sorgen in der Nacht.",
+   "imagery": "Ein Mensch sitzt aufrecht im Bett und hat das Gesicht in den Händen vergraben. An der dunklen Wand dahinter hängen neun Schwerter. Die Bettdecke ist mit Rosen und Tierkreiszeichen bedeckt.",
+   "why": "Neun ist eine Zahl kurz vor dem Ende eines Zyklus, wenn die Sorgen ihren Höhepunkt erreichen. Die Schwerter schweben an der Wand und berühren den Schlafenden nicht – ein Hinweis darauf, dass die Ängste eher Gedanken als Ereignisse sind.",
+   "upright": {
+    "core": "Angst, Sorge oder Schuldgefühle, die sich nachts schwerer anfühlen.",
+    "light": "Ehrlichkeit über die Angst, Erleichterung",
+    "shadow": "Katastrophendenken, schlaflose Sorgen",
+    "love": "Angst um eine Beziehung.",
+    "work": "Stress wegen Ergebnissen, die du nicht kontrollieren kannst.",
+    "question": "Über welche Sorgen könnte ich sprechen, statt sie allein zu tragen?"
+   },
+   "reversed": {
+    "core": "Ängste lassen nach oder werden verdrängt.",
+    "modes": [
+     "Loslassen: Die Angst lässt nach.",
+     "Übermaß: Gedankenspiralen.",
+     "Nach innen: Sorgen, die du versteckst."
+    ],
+    "question": "Wem könnte ich erzählen, was mich wach hält?"
+   }
+  }
+ },
+ "swords_ten": {
+  "name": "Zehn der Schwerter",
+  "keywords": [
+   "Ende",
+   "Erschöpfung",
+   "Tiefpunkt"
+  ],
+  "upright": "Ein schmerzhaftes Kapitel endet. Ab jetzt geht es nur noch nach vorn.",
+  "reversed": "Die Erholung beginnt, oder du klammerst dich an die Vergangenheit.",
+  "k": {
+   "essence": "Das Ende von etwas Schmerzhaftem.",
+   "imagery": "Eine Gestalt liegt mit dem Gesicht nach unten, zehn Schwerter im Rücken, vor einem schwarzen Himmel. Am Horizont erhellt die Morgendämmerung ein ruhiges Meer.",
+   "why": "Zehn ist das Ende eines Zyklus. Das Bild ist bewusst dramatisch, aber die Dämmerung am Horizont bedeutet, dass das Schlimmste vorbei ist: Tiefer geht es nicht mehr. Es ist übertriebener Schmerz, kein wörtliches Omen.",
+   "upright": {
+    "core": "Ein schmerzhaftes Ende, das den Weg für einen Neuanfang frei macht.",
+    "light": "Befreiung, ein Ende, ein Neuanfang",
+    "shadow": "dramatisieren, an der Opferrolle festhalten",
+    "love": "Ein schmerzhaftes Kapitel abschließen.",
+    "work": "Ein Projekt oder Job endet; Erleichterung, dass es vorbei ist.",
+    "question": "Was ist vorbei, das ich endlich vorbei sein lassen kann?"
+   },
+   "reversed": {
+    "core": "Die Erholung beginnt langsam, oder du weigerst dich, den Schmerz loszulassen.",
+    "modes": [
+     "Loslassen: Morgendämmerung nach dem Schlimmsten.",
+     "Übermaß: dramatisieren.",
+     "Blockiert: nicht bereit, es zu beenden."
+    ],
+    "question": "Wie würde ein Neuanfang aussehen?"
+   }
+  }
+ },
+ "swords_page": {
+  "name": "Bube der Schwerter",
+  "keywords": [
+   "Neugier",
+   "Wachsamkeit",
+   "Ideen"
+  ],
+  "upright": "Ein scharfer, wissbegieriger Verstand. Stell Fragen und sammle Fakten.",
+  "reversed": "Tratsch, Hast oder zerstreute Gedanken.",
+  "k": {
+   "essence": "Ein scharfer Verstand, der etwas herausfinden will.",
+   "imagery": "Eine junge Gestalt steht auf einem windigen Hügel, hält mit beiden Händen ein Schwert aufrecht und blickt zur Seite. Über ihr jagen Wolken dahin, und die Bäume biegen sich im Wind.",
+   "why": "Buben sind Lernende, und Schwerter stehen für Denken und Sprechen. Wind und Wolken zeigen rastlose Ideen, und die wache Haltung gehört jemandem, der beobachtet, bevor er spricht.",
+   "upright": {
+    "core": "Neugier und Wachsamkeit: Fragen stellen und Details bemerken.",
+    "light": "Aufmerksamkeit, Ehrlichkeit, Lernen",
+    "shadow": "Tratsch, scharfe Worte, achtlos eingesetzt",
+    "love": "Sich ehrliche Gespräche wünschen; direkte Fragen stellen.",
+    "work": "Recherche, Lernen, eine neue Denkweise.",
+    "question": "Welche Frage habe ich noch nicht gestellt?"
+   },
+   "reversed": {
+    "core": "Worte und Ideen, die verletzen sollen, oder Gedanken, die sich ohne Ergebnis im Kreis drehen.",
+    "modes": [
+     "Übermaß: Sarkasmus, Haarspalterei.",
+     "Blockiert: Angst, den Mund aufzumachen.",
+     "Nach innen: Ideen, die nie geteilt werden."
+    ],
+    "question": "Suche ich die Wahrheit, oder will ich nur einen Streit gewinnen?"
+   }
+  }
+ },
+ "swords_knight": {
+  "name": "Ritter der Schwerter",
+  "keywords": [
+   "Ehrgeiz",
+   "Hast",
+   "Direktheit"
+  ],
+  "upright": "Getrieben und schnell im Handeln. Achte darauf, nicht zu schroff zu sein.",
+  "reversed": "Ausbrennen oder handeln, ohne nachzudenken.",
+  "k": {
+   "essence": "Ein direkter Sturm auf eine Idee zu.",
+   "imagery": "Ein Ritter in Rüstung galoppiert schnell mit erhobenem Schwert. Die Bäume biegen sich in einem starken Wind, und Wolken ziehen über den Himmel.",
+   "why": "Ritter sind Handlung. Im Element Luft ist Handlung schnelles Denken und Sprechen. Das Pferd rast in den Wind, und nichts im Bild bremst es.",
+   "upright": {
+    "core": "Entschlossenes, schnelles Denken; die Bereitschaft auszusprechen, was gesagt werden muss.",
+    "light": "Entschlossenheit, Direktheit, schnelles Denken",
+    "shadow": "Schroffheit, Hast, nicht zuhören",
+    "love": "Dinge klar aussprechen; das Risiko ist, sie zu scharf zu sagen.",
+    "work": "Einen Plan durchziehen; schnelle Entscheidungen.",
+    "question": "An wem renne ich vorbei, weil ich es so eilig habe, recht zu haben?"
+   },
+   "reversed": {
+    "core": "Hast wird zu Nachlässigkeit, oder Pläne bleiben im Grübeln stecken.",
+    "modes": [
+     "Übermaß: Aggression, taktlose Worte.",
+     "Blockiert: zerstreute Gedanken.",
+     "Schwindend: Die Motivation geht aus."
+    ],
+    "question": "Was würde mir auffallen, wenn ich vor dem Handeln kurz innehielte?"
+   }
+  }
+ },
+ "swords_queen": {
+  "name": "Königin der Schwerter",
+  "keywords": [
+   "Klarheit",
+   "Unabhängigkeit",
+   "Ehrlichkeit"
+  ],
+  "upright": "Klarsichtig und fair. Sag die Wahrheit mit Freundlichkeit.",
+  "reversed": "Kälte oder übertriebene Kritik.",
+  "k": {
+   "essence": "Klarer Blick, freundlich oder kalt eingesetzt.",
+   "imagery": "Eine gekrönte Frau sitzt seitlich auf einem Thron, eine Hand erhoben, mit der anderen hält sie ein Schwert aufrecht. Hinter ihr sind Wolken und ein Vogel, und die Schnitzereien am Thron zeigen Schmetterlinge und Engelsköpfe.",
+   "why": "Königinnen verkörpern ihre Farbe nach innen. Nach innen gewandte Luft wird zu Klarheit und Unabhängigkeit. Die erhobene Hand ist offen, und das aufrechte Schwert zeigt Wahrheit, die bereitgehalten wird, nicht zum Zuschlagen.",
+   "upright": {
+    "core": "Gerade, durchdachte Ehrlichkeit, die auf Erfahrung beruht.",
+    "light": "Klarheit, Unabhängigkeit, Wahrnehmung",
+    "shadow": "Kälte, verletzende Bemerkungen, sich verschließen",
+    "love": "Ehrliche Kommunikation und klare Grenzen.",
+    "work": "Durch den Lärm hindurch sehen, was wichtig ist; faires, direktes Feedback.",
+    "question": "Was sehe ich klar, habe es aber immer abgeschwächt?"
+   },
+   "reversed": {
+    "core": "Klarheit wird hart, oder die Wahrheit wird zurückgehalten.",
+    "modes": [
+     "Übermaß: Kritik und Zynismus.",
+     "Blockiert: einem ehrlichen Gespräch ausweichen.",
+     "Nach innen: Einsamkeit hinter der Unabhängigkeit."
+    ],
+    "question": "Dient meine Ehrlichkeit jemandem, oder schützt sie nur mich?"
+   }
+  }
+ },
+ "swords_king": {
+  "name": "König der Schwerter",
+  "keywords": [
+   "Verstand",
+   "Autorität",
+   "Vernunft"
+  ],
+  "upright": "Logisch, prinzipientreu und entschlossen. Strebe nach Fairness.",
+  "reversed": "Starres Denken oder Machtmissbrauch.",
+  "k": {
+   "essence": "Autorität, die auf Vernunft gebaut ist.",
+   "imagery": "Ein gekrönter König sitzt mit dem Blick nach vorn auf einem Thron, hält in einer Hand ein aufrechtes Schwert und gestikuliert mit der anderen. Wolken und Vögel füllen den Himmel hinter ihm.",
+   "why": "Könige wenden ihre Farbe nach außen und machen Meisterschaft daraus. Gemeisterte Luft ist Urteilskraft, Ethik und klare Führung. Die frontale Haltung zeigt jemanden, der zu seinen Worten steht.",
+   "upright": {
+    "core": "Faires, gut informiertes Urteil; Dinge durchdenken und zum Ergebnis stehen.",
+    "light": "Verstand, Fairness, Integrität",
+    "shadow": "Starrheit, Autorität nutzen, um anderen das Wort abzuschneiden",
+    "love": "Klare Absprachen und fairer Umgang.",
+    "work": "Analyse, Entscheidungen aus Prinzip, Beratung.",
+    "question": "Auf welchem Prinzip sollen meine Entscheidungen stehen?"
+   },
+   "reversed": {
+    "core": "Vernunft wird starr oder kalt, oder das Urteil ist getrübt.",
+    "modes": [
+     "Übermaß: die Tyrannei der Logik.",
+     "Blockiert: sich nicht entscheiden können.",
+     "Schwindend: erschüttertes Vertrauen in das eigene Urteil."
+    ],
+    "question": "Bin ich fair, oder nur hart?"
+   }
+  }
+ },
+ "pentacles_ace": {
+  "name": "Ass der Münzen",
+  "keywords": [
+   "Gelegenheit",
+   "Wohlstand",
+   "Fundament"
+  ],
+  "upright": "Ein Samen der Gelegenheit bei Arbeit oder Geld. Pflanz ihn mit Sorgfalt.",
+  "reversed": "Eine verpasste Chance oder schlechte Planung.",
+  "k": {
+   "essence": "Ein praktischer Samen in deiner Hand.",
+   "imagery": "Eine Hand aus einer Wolke hält eine goldene Münze mit einem Stern. Darunter liegt ein Garten mit Blumen, ein steinerner Bogen und ein Weg, der zu fernen Bergen führt.",
+   "why": "Asse sind der Samen ihrer Farbe. Erde steht für Arbeit, Körper und Geld, also ist dies eine greifbare Gelegenheit. Garten und Weg zeigen, dass dies ein guter Ort ist, um etwas wachsen zu lassen.",
+   "upright": {
+    "core": "Eine echte Gelegenheit, ein solider Start bei Arbeit, Gesundheit oder Finanzen.",
+    "light": "Gelegenheit, Wohlstand, ein gutes Fundament",
+    "shadow": "eine verpasste Chance",
+    "love": "Ein beständiger, bodenständiger Beginn einer Verbindung.",
+    "work": "Ein neuer Job, ein Angebot oder eine finanzielle Chance.",
+    "question": "Mit welcher praktischen Gelegenheit kann ich anfangen?"
+   },
+   "reversed": {
+    "core": "Eine verpasste Gelegenheit oder ein Plan ohne Fundament.",
+    "modes": [
+     "Blockiert: nicht anfangen können.",
+     "Übermaß: zu schnell zugreifen.",
+     "Schwindend: Eine Tür schließt sich."
+    ],
+    "question": "Was würde diese Gelegenheit umsetzbar machen?"
+   }
+  }
+ },
+ "pentacles_two": {
+  "name": "Zwei der Münzen",
+  "keywords": [
+   "Gleichgewicht",
+   "Jonglieren",
+   "Anpassungsfähigkeit"
+  ],
+  "upright": "Prioritäten flexibel jonglieren. Bleib in deinem Rhythmus.",
+  "reversed": "Sich zu viel vornehmen oder Unordnung.",
+  "k": {
+   "essence": "Zwei Dinge in der Luft halten.",
+   "imagery": "Ein junger Mann mit hohem Hut tanzt und jongliert dabei zwei Münzen, die durch eine Unendlichkeitsschleife verbunden sind. Hinter ihm heben und senken sich Schiffe auf hohen Wellen.",
+   "why": "Zwei ist die Zahl der Entscheidungen und des Gleichgewichts. Die Unendlichkeitsschleife ist ein Fließen zwischen zwei Anforderungen, und die Wellen zeigen, dass sich die Bedingungen ständig ändern. Er lächelt, muss aber in Bewegung bleiben.",
+   "upright": {
+    "core": "Konkurrierende Anforderungen flexibel ausbalancieren.",
+    "light": "Anpassungsfähigkeit, Gleichgewicht, Jonglieren",
+    "shadow": "sich zu viel vornehmen, Dinge fallen lassen",
+    "love": "Eine Beziehung mit anderen Lebensbereichen in Einklang bringen.",
+    "work": "Geld und Zeit mit begrenzten Mitteln einteilen.",
+    "question": "Womit kann ich aufhören zu jonglieren?"
+   },
+   "reversed": {
+    "core": "Überforderung oder ein Gleichgewicht, das zusammenbricht.",
+    "modes": [
+     "Blockiert: Alles fühlt sich zu viel an.",
+     "Übermaß: zu viel übernehmen.",
+     "Schwindend: Das Gleichgewicht kommt ins Rutschen."
+    ],
+    "question": "Was kostet es, alles zu machen?"
+   }
+  }
+ },
+ "pentacles_three": {
+  "name": "Drei der Münzen",
+  "keywords": [
+   "Teamarbeit",
+   "Handwerk",
+   "Können"
+  ],
+  "upright": "Gekonnte Zusammenarbeit. Gute Arbeit wächst durch Kooperation.",
+  "reversed": "Schlechte Teamarbeit oder Arbeit unter deinem üblichen Niveau.",
+  "k": {
+   "essence": "Gute Arbeit, gemeinsam gemacht.",
+   "imagery": "Ein Handwerker arbeitet in einer Kirche an einer Steinmetzarbeit, während zwei andere mit Plänen in der Hand zuschauen. In den Bogen sind drei Münzen gemeißelt.",
+   "why": "Drei ist die Zahl des Wachstums. Das ist Teamarbeit: Können, Planung und ein Auftraggeber in einem Raum. Der Kirchenraum zeigt Handwerkskunst als etwas fast Heiliges.",
+   "upright": {
+    "core": "Zusammenarbeit und Können, das von anderen anerkannt wird.",
+    "light": "Teamarbeit, Handwerk, Qualität",
+    "shadow": "Feedback ignorieren, aneinander vorbeiarbeiten",
+    "love": "Gemeinsam etwas aufbauen.",
+    "work": "Ein Teamprojekt, Fähigkeiten aufbauen, Feedback bekommen.",
+    "question": "Wessen Fachwissen brauche ich, um das gut aufzubauen?"
+   },
+   "reversed": {
+    "core": "Schlechte Teamarbeit oder Arbeit ohne Stolz.",
+    "modes": [
+     "Blockiert: Die Zusammenarbeit bricht zusammen.",
+     "Übermaß: Perfektionismus.",
+     "Schwindend: das Interesse am Handwerk verlieren."
+    ],
+    "question": "Arbeite ich mit anderen oder um sie herum?"
+   }
+  }
+ },
+ "pentacles_four": {
+  "name": "Vier der Münzen",
+  "keywords": [
+   "Sicherheit",
+   "Sparen",
+   "Kontrolle"
+  ],
+  "upright": "Festhalten, was du hast. Sicherheit ist gut; pass auf, dass du nicht klammerst.",
+  "reversed": "Die Großzügigkeit kehrt zurück, oder strenge Kontrolle lockert sich.",
+  "k": {
+   "essence": "Krampfhaft festhalten.",
+   "imagery": "Eine gekrönte Gestalt sitzt da und drückt eine Münze an die Brust, eine weitere liegt auf ihrem Kopf und zwei unter ihren Füßen. Dahinter steht eine Stadt.",
+   "why": "Vier ist die Zahl des Fundaments und hier der Starrheit. Jede Münze wird bewacht, damit nichts verloren gehen kann – und nichts genutzt werden kann. Die Stadt dahinter zeigt die Welt, von der er abgeschnitten ist.",
+   "upright": {
+    "core": "Sicherheit, die ins Klammern kippt, bei Geld, Dingen oder Kontrolle.",
+    "light": "Sicherheit, Sparen, Grenzen",
+    "shadow": "Gier, Verlustangst, Kontrolle",
+    "love": "Besitzdenken oder Verschlossenheit.",
+    "work": "Ressourcen schützen; zu vorsichtig sein.",
+    "question": "Woran halte ich aus Angst fest?"
+   },
+   "reversed": {
+    "core": "Den Griff lockern oder gedankenlos ausgeben.",
+    "modes": [
+     "Loslassen: Großzügigkeit.",
+     "Übermaß: Horten.",
+     "Blockiert: Angst vor Mangel."
+    ],
+    "question": "Was würde ich tun, wenn ich mich sicher fühlte?"
+   }
+  }
+ },
+ "pentacles_five": {
+  "name": "Fünf der Münzen",
+  "keywords": [
+   "Not",
+   "Sorge",
+   "sich ausgeschlossen fühlen"
+  ],
+  "upright": "Eine magere Zeit. Hilfe ist da, wenn du danach greifst.",
+  "reversed": "Erholung oder sich weigern, um Unterstützung zu bitten.",
+  "k": {
+   "essence": "Sich in der Kälte ausgeschlossen fühlen.",
+   "imagery": "Zwei zerlumpte Gestalten, eine davon auf Krücken, gehen durch den Schnee an einem erleuchteten Buntglasfenster einer Kirche vorbei. Das Fenster zeigt fünf Münzen.",
+   "why": "Fünf ist eine Zahl der Not. Das warme Fenster zeigt, dass Hilfe nah ist, aber nicht bemerkt wird, und die Gestalten gehen weiter. Es ist ein Bild von Bedürftigkeit und übersehener Zuflucht.",
+   "upright": {
+    "core": "Not oder das Gefühl, ausgeschlossen zu sein, während Hilfe in der Nähe ist.",
+    "light": "Widerstandskraft, um Hilfe bitten",
+    "shadow": "Isolation, Stolz, der Hilfe im Weg steht",
+    "love": "Sich in einer Bindung allein fühlen.",
+    "work": "Finanzielle Sorgen oder Sorgen um den Job.",
+    "question": "Wen könnte ich um Hilfe bitten?"
+   },
+   "reversed": {
+    "core": "Erholung oder Hilfe ablehnen.",
+    "modes": [
+     "Loslassen: Das Schlimmste ist vorbei.",
+     "Blockiert: zu stolz, um zu fragen.",
+     "Übermaß: beim Mangel verharren."
+    ],
+    "question": "Welche Hilfe ist nah, um die ich noch nicht gebeten habe?"
+   }
+  }
+ },
+ "pentacles_six": {
+  "name": "Sechs der Münzen",
+  "keywords": [
+   "Großzügigkeit",
+   "Teilen",
+   "Fairness"
+  ],
+  "upright": "Geben und Nehmen im Gleichgewicht. Geh fair mit Ressourcen um.",
+  "reversed": "Hilfe mit Bedingungen oder ein einseitiger Austausch.",
+  "k": {
+   "essence": "Fair geben und nehmen.",
+   "imagery": "Ein gut gekleideter Mann hält in einer Hand eine Waage und gibt mit der anderen zwei knienden Gestalten Münzen. An der Seite liegt ein Stapel Münzen.",
+   "why": "Sechs ist die Zahl der Harmonie. Die Waage zeigt Fairness. Die Karte handelt vom Fluss der Ressourcen und fragt auch, wer in diesem Austausch die Macht hat.",
+   "upright": {
+    "core": "Großzügigkeit, Fairness und gegenseitige Unterstützung.",
+    "light": "Großzügigkeit, Fairness, Unterstützung",
+    "shadow": "Bedingungen, ungleiche Macht",
+    "love": "Fürsorge gleichmäßig geben und empfangen.",
+    "work": "Faire Bezahlung, Mentoring, Ressourcen teilen.",
+    "question": "Ist das Geben und Nehmen in meinem Leben fair?"
+   },
+   "reversed": {
+    "core": "Schulden, einseitiges Geben oder Hilfe, an die Bedingungen geknüpft sind.",
+    "modes": [
+     "Blockiert: nicht geben oder nehmen können.",
+     "Übermaß: geben, um zu kontrollieren.",
+     "Schwindend: Die Unterstützung geht zur Neige."
+    ],
+    "question": "Wer hält in dieser Situation die Waage?"
+   }
+  }
+ },
+ "pentacles_seven": {
+  "name": "Sieben der Münzen",
+  "keywords": [
+   "Geduld",
+   "Bestandsaufnahme",
+   "langer Atem"
+  ],
+  "upright": "Halte inne und sieh dir deine Bemühungen an. Wachstum braucht Zeit.",
+  "reversed": "Ungeduld oder Zweifel an deinem Fortschritt.",
+  "k": {
+   "essence": "Innehalten, um zu sehen, was gewachsen ist.",
+   "imagery": "Ein Bauer stützt sich auf seine Hacke und betrachtet einen Strauch, an dem sieben Münzen hängen. Die Mühe ist schon getan.",
+   "why": "Sieben ist die Zahl der Prüfung. Nach dem Pflanzen und Pflegen hält der Bauer inne und schaut. Die Münzen sind gewachsen, aber noch nicht geerntet – also stellt sich die Frage, ob er weiter warten soll.",
+   "upright": {
+    "core": "Eine Pause, um die Ergebnisse langer Mühe einzuschätzen.",
+    "light": "Geduld, Bestandsaufnahme, langfristiges Denken",
+    "shadow": "Ungeduld, Zweifel an der eigenen Mühe",
+    "love": "Bilanz ziehen, was eine lange Investition gebracht hat.",
+    "work": "Den Fortschritt prüfen und über den nächsten Schritt entscheiden.",
+    "question": "Ist das Wachstum, das ich sehe, es wert, weiterzumachen?"
+   },
+   "reversed": {
+    "core": "Frust über langsamen Fortschritt oder zu frühes Aufgeben.",
+    "modes": [
+     "Blockiert: Ungeduld.",
+     "Übermaß: Überarbeitung.",
+     "Schwindend: den Glauben an die Arbeit verlieren."
+    ],
+    "question": "Was habe ich bisher tatsächlich aufgebaut?"
+   }
+  }
+ },
+ "pentacles_eight": {
+  "name": "Acht der Münzen",
+  "keywords": [
+   "Fleiß",
+   "Meisterschaft",
+   "Übung"
+  ],
+  "upright": "Beständige, konzentrierte Arbeit baut Können auf.",
+  "reversed": "Perfektionismus oder sich wiederholende Arbeit ohne Sinn.",
+  "k": {
+   "essence": "Können, das durch Übung entsteht.",
+   "imagery": "Ein Handwerker sitzt an einer Werkbank und bearbeitet mit Hammer und Meißel eine Münze. Fertige Münzen hängen an einem Pfosten, andere liegen bereit. In der Ferne liegt eine Stadt.",
+   "why": "Acht steht für Meisterschaft. Der Handwerker ist allein und vertieft – das ist der Ton der Karte: beständige Wiederholung, kein Ruhm. Die fertigen Münzen zeigen den erreichten Fortschritt.",
+   "upright": {
+    "core": "Hingabe ans Erlernen einer Fähigkeit, eine Wiederholung nach der anderen.",
+    "light": "Fleiß, Handwerk, Fokus",
+    "shadow": "eintönige Plackerei, Perfektionismus",
+    "love": "Beständig an einer Bindung arbeiten.",
+    "work": "Ein Handwerk lernen oder durch Übung besser werden.",
+    "question": "Welche Fähigkeit bin ich bereit, geduldig zu üben?"
+   },
+   "reversed": {
+    "core": "Schludrige Arbeit oder Burnout durch Plackerei.",
+    "modes": [
+     "Blockiert: kein Fortschritt.",
+     "Übermaß: zwanghaftes Arbeiten.",
+     "Schwindend: Die Motivation ist weg."
+    ],
+    "question": "Was würde ich lernen, wenn ich noch ein bisschen länger dranbliebe?"
+   }
+  }
+ },
+ "pentacles_nine": {
+  "name": "Neun der Münzen",
+  "keywords": [
+   "Eigenständigkeit",
+   "Wohlbefinden",
+   "Lohn"
+  ],
+  "upright": "Genieß, was deine Mühe aufgebaut hat.",
+  "reversed": "Überarbeitung oder ein Komfort, der sich leer anfühlt.",
+  "k": {
+   "essence": "Wohlstand, den du selbst aufgebaut hast.",
+   "imagery": "Eine prächtig gekleidete Frau steht in einem Weinberg, einen Falken auf der behandschuhten Hand. Am unteren Bildrand kriecht eine Schnecke. Dahinter steht ein großes Haus.",
+   "why": "Neun steht kurz vor der Vollendung und bringt stillen Genuss der Ergebnisse. Der Garten ist das Werk von Jahren, und der Falke ist abgerichtet und ruhig. Die Schnecke deutet an, dass langsamer Fortschritt der Weg war.",
+   "upright": {
+    "core": "Eigenständigkeit und genießen, was du dir verdient hast.",
+    "light": "Unabhängigkeit, Leichtigkeit, Selbstständigkeit",
+    "shadow": "Isolation, Komfort wichtiger nehmen als Verbundenheit",
+    "love": "Mit dir allein zufrieden sein.",
+    "work": "Der Lohn langer Arbeit; finanzielle Unabhängigkeit.",
+    "question": "Was habe ich aufgebaut, das ich genießen kann?"
+   },
+   "reversed": {
+    "core": "Abhängigkeit oder ein Komfort, der sich leer anfühlt.",
+    "modes": [
+     "Blockiert: es nicht genießen können.",
+     "Übermaß: für den Schein leben.",
+     "Nach innen: Einsamkeit hinter dem Erfolg."
+    ],
+    "question": "Fühlt sich das, was ich aufgebaut habe, wie meins an?"
+   }
+  }
+ },
+ "pentacles_ten": {
+  "name": "Zehn der Münzen",
+  "keywords": [
+   "Vermächtnis",
+   "Familie",
+   "dauerhafte Sicherheit"
+  ],
+  "upright": "Langfristige Stabilität, Familie und gemeinsamer Wohlstand.",
+  "reversed": "Familiäre Spannungen oder kurzfristiges Denken.",
+  "k": {
+   "essence": "Ein bleibendes Vermächtnis.",
+   "imagery": "Ein alter Mann sitzt mit zwei Hunden unter einem Torbogen. In der Nähe stehen ein Paar und ein Kind, und zehn Münzen sind in einem Muster über einem großen Anwesen angeordnet.",
+   "why": "Zehn ist die Vollendung eines Zyklus. Während die Neun persönlich ist, umfasst die Zehn Generationen: Sicherheit, die weitergegeben wird. Torbogen und Anwesen zeigen Wurzeln und Tradition.",
+   "upright": {
+    "core": "Langfristige Sicherheit, eine Familie oder Gemeinschaft, die Bestand hat.",
+    "light": "Stabilität, Vermächtnis, Zugehörigkeit",
+    "shadow": "Anpassungsdruck, an die Erwartungen anderer gebunden sein",
+    "love": "Eine langfristige, verwurzelte Bindung.",
+    "work": "Ein beständiges Geschäft oder finanzielle Sicherheit.",
+    "question": "Was möchte ich hinterlassen oder so aufbauen, dass es bleibt?"
+   },
+   "reversed": {
+    "core": "Instabilität in der Familie oder bei den Finanzen.",
+    "modes": [
+     "Blockiert: wackelige Fundamente.",
+     "Übermaß: Fixierung auf Status.",
+     "Schwindend: Ein Vermächtnis löst sich auf."
+    ],
+    "question": "Welche Wurzeln möchte ich schlagen?"
+   }
+  }
+ },
+ "pentacles_page": {
+  "name": "Bube der Münzen",
+  "keywords": [
+   "Lernen",
+   "Ehrgeiz",
+   "Bodenständigkeit"
+  ],
+  "upright": "Ein fleißiger Schüler des Lebens, begierig zu lernen und aufzubauen.",
+  "reversed": "Aufschieben oder mangelnder Fokus.",
+  "k": {
+   "essence": "Ein geduldiger erster Schritt auf festem Boden.",
+   "imagery": "Ein junger Mensch steht auf einer grünen Wiese, hält eine einzelne goldene Münze in die Höhe und betrachtet sie genau. Dahinter liegen Bäume und sanfte Hügel.",
+   "why": "Buben beginnen Dinge, und Münzen sind die körperliche, greifbare Welt. Der genaue Blick auf eine einzige Münze ist das Bild sorgfältigen Lernens. Der fruchtbare Boden zeigt, dass Wachstum möglich ist.",
+   "upright": {
+    "core": "Ein Handwerk lernen oder ein praktisches Ziel mit Sorgfalt angehen.",
+    "light": "Fleiß, Neugier auf die reale Welt, Beständigkeit",
+    "shadow": "Aufschieben, nur träumen",
+    "love": "Langsames, aufrichtiges Interesse; Fürsorge durch Verlässlichkeit zeigen.",
+    "work": "Ein Kurs, eine Ausbildung, ein erster Schritt auf ein Ziel zu.",
+    "question": "Welchen einen praktischen Schritt kann ich diese Woche gehen?"
+   },
+   "reversed": {
+    "core": "Pläne bleiben Träume, oder die Mühe geht in die falsche Richtung.",
+    "modes": [
+     "Blockiert: auf den perfekten Moment warten.",
+     "Übermaß: Perfektionismus.",
+     "Schwindend: Die Motivation lässt nach."
+    ],
+    "question": "Was schiebe ich auf, das nur einen Anfang braucht?"
+   }
+  }
+ },
+ "pentacles_knight": {
+  "name": "Ritter der Münzen",
+  "keywords": [
+   "Verlässlichkeit",
+   "Beharrlichkeit",
+   "Routine"
+  ],
+  "upright": "Verlässlich und gründlich. Langsam, aber stetig führt zum Ziel.",
+  "reversed": "Sturheit, Langeweile oder Perfektionismus.",
+  "k": {
+   "essence": "Beständige Mühe, die am Ende ankommt.",
+   "imagery": "Ein Ritter in dunkler Rüstung sitzt ruhig auf einem schweren, stillstehenden Pferd, hält eine Münze und betrachtet sie. Das Feld um ihn herum ist gepflügt.",
+   "why": "Ritter verfolgen etwas, und bei den Münzen tun sie es beständig. Sein Pferd ist das einzige unter den Rittern, das stillsteht – Geduld statt Tempo. Das gepflügte Feld zeigt, dass schon Arbeit getan ist.",
+   "upright": {
+    "core": "Verlässlichkeit und Beharrlichkeit: die Arbeit machen und zu Ende bringen.",
+    "light": "Verlässlichkeit, Routine, Gründlichkeit",
+    "shadow": "Sturheit, Langeweile, in der Routine festhängen",
+    "love": "Liebe durch verlässliche Taten zeigen.",
+    "work": "Ein langes Projekt durchziehen; beständige Routinen.",
+    "question": "Wo hilft mir meine Beständigkeit, und wo stecke ich einfach fest?"
+   },
+   "reversed": {
+    "core": "Routine wird zum Trott, oder der Fortschritt stockt.",
+    "modes": [
+     "Blockiert: im selben Muster festgefahren.",
+     "Übermaß: Arbeitssucht oder Starrheit.",
+     "Schwindend: das Interesse an der langen Aufgabe verlieren."
+    ],
+    "question": "Was würde eine kleine Änderung meiner Routine öffnen?"
+   }
+  }
+ },
+ "pentacles_queen": {
+  "name": "Königin der Münzen",
+  "keywords": [
+   "Fürsorge",
+   "praktisch",
+   "einfallsreich"
+  ],
+  "upright": "Warm, praktisch und großzügig. Schaffe Geborgenheit für dich und andere.",
+  "reversed": "Selbstvernachlässigung oder erdrückende Fürsorge.",
+  "k": {
+   "essence": "Fürsorge, die praktisch und warm ist.",
+   "imagery": "Eine gekrönte Frau sitzt in einer Gartenlaube aus Blumen und Früchten, hält eine Münze auf dem Schoß und betrachtet sie zärtlich. In der Nähe ist ein Hase.",
+   "why": "Königinnen verkörpern ihre Farbe nach innen. Zärtlich gehaltene Erde ist Fürsorge durch praktische Dinge. Garten und Hase stehen für Fülle und Fruchtbarkeit – an Ideen wie an Ressourcen.",
+   "upright": {
+    "core": "Einfallsreichtum und Fürsorge: ein Zuhause, ein Budget oder ein Leben schaffen, das funktioniert.",
+    "light": "Großzügigkeit, Bodenständigkeit, Geborgenheit",
+    "shadow": "Überarbeitung, dich selbst vernachlässigen, um für andere zu sorgen",
+    "love": "Fürsorge durch alltägliche Taten und ein einladendes Zuhause.",
+    "work": "Ressourcen gut verwalten; ein stabiles Umfeld schaffen.",
+    "question": "Kümmere ich mich um mich selbst mit derselben Sorgfalt, die ich anderen gebe?"
+   },
+   "reversed": {
+    "core": "Unterstützung wird erdrückend, oder die Selbstfürsorge kommt zu kurz.",
+    "modes": [
+     "Übermaß: zu viel übernehmen.",
+     "Blockiert: Sorgen vor Mangel.",
+     "Nach innen: sorgt für andere, aber nicht für sich selbst."
+    ],
+    "question": "Was brauche ich, damit sich mein eigenes Leben sicher anfühlt?"
+   }
+  }
+ },
+ "pentacles_king": {
+  "name": "König der Münzen",
+  "keywords": [
+   "Fülle",
+   "Stabilität",
+   "Führung"
+  ],
+  "upright": "Etabliert, großzügig und sicher. Führe mit Beständigkeit.",
+  "reversed": "Gier, Sturheit oder Geld wichtiger nehmen als Menschen.",
+  "k": {
+   "essence": "Stabilität, die über die Zeit aufgebaut wurde.",
+   "imagery": "Ein gekrönter König sitzt auf einem Thron, in den Stiere geschnitzt sind und der mit Weinranken geschmückt ist, und hält eine Münze und ein Zepter. Hinter ihm liegen eine Burg und ein Garten.",
+   "why": "Könige wenden ihre Farbe nach außen und machen Meisterschaft daraus. Gemeisterte Erde ist dauerhafte Sicherheit. Stiere und Weinranken stehen für Stärke und Fülle, die über lange Zeit gepflegt wurden.",
+   "upright": {
+    "core": "Wohlstand durch Geduld, Disziplin und fairen Umgang.",
+    "light": "Verlässlichkeit, Großzügigkeit, langfristiges Denken",
+    "shadow": "Materialismus, sich gegen Veränderung sträuben",
+    "love": "Sicherheit und Verbindlichkeit geben.",
+    "work": "Etwas Bleibendes aufbauen; gesunde finanzielle Gewohnheiten.",
+    "question": "Was baue ich auf, das in fünf Jahren noch steht?"
+   },
+   "reversed": {
+    "core": "Sicherheit erstarrt zu Besitzdenken, oder Ressourcen werden schlecht verwaltet.",
+    "modes": [
+     "Übermaß: Dinge wichtiger nehmen als Menschen.",
+     "Blockiert: Verlustangst.",
+     "Schwindend: vernachlässigte Fundamente."
+    ],
+    "question": "Wie sieht genug für mich aus?"
+   }
+  }
+ }
+}

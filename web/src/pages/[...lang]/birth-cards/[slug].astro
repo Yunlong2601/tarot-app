@@ -1,0 +1,81 @@
+---
+import Base from "../../../layouts/Base.astro";
+import { BASE } from "../../../config.ts";
+import { CARDS, slug, type CardId } from "../../../lib/data.ts";
+import { BIRTH, birthNumber } from "../../../lib/birth.ts";
+import { fill, firstSentence, i18n, langPathsFor, type Locale } from "../../../i18n/index.ts";
+
+export function getStaticPaths() {
+  return langPathsFor(BIRTH.map((id) => ({ params: { slug: slug(id) }, props: { id } })));
+}
+const { id, lang } = Astro.props as { id: CardId; lang: Locale };
+const L = i18n(lang);
+const { t, url: u } = L;
+const z = L.zodiac.ui.birth;
+const text = L.zodiac.birth[id as keyof typeof L.zodiac.birth];
+const name = L.cards[id]!.name;
+const root = (n: number): number => (n < 10 ? n : root(String(n).split("").reduce((a, d) => a + Number(d), 0)));
+const n = birthNumber(id);
+const pair = BIRTH.filter((x) => x !== id && root(birthNumber(x)) === root(n));
+const path = `birth-cards/${slug(id)}`;
+const sections: [string, string][] = [[z.gifts, text.gifts], [z.challenges, text.challenges], [z.love, text.love], [z.work, text.work]];
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    inLanguage: L.tag,
+    mainEntity: [[fill(z.faqWhat, { card: name }), text.intro]].map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
+  },
+];
+---
+<Base
+  title={fill(z.title, { card: name })}
+  description={fill(z.description, { card: name, first: firstSentence(text.intro) })}
+  path={path}
+  image={`og/cards/${id}.jpg`}
+  crumbs={[[t("birth.crumb"), "tools/birth-card"], [fill(z.h1, { card: name }), path]]}
+  jsonLd={jsonLd}
+  lang={lang}
+>
+  <section class="card-hero" style="margin-top:2rem">
+    <div class="card-frame">
+      <img src={`${BASE}cards/art/${id}.jpg`} alt={t("card.imgAlt", { name })} width="300" height="514" fetchpriority="high" />
+    </div>
+    <div>
+      <p class="meta">{z.eyebrow} · {n}</p>
+      <h1>{fill(z.h1, { card: name })}</h1>
+      <p class="answer">{firstSentence(text.intro)}</p>
+      <p class="lead">{text.intro}</p>
+      <p class="muted">{z.how}</p>
+      <nav class="ctx-links"><a href={u(`cards/${slug(id)}`)}>{L.contexts.ui.tabs.meaning}</a></nav>
+    </div>
+  </section>
+  <section class="section" style="padding-bottom:0">
+    <div class="grid-2">
+      {sections.map(([h, p]) => <div class="panel"><h2>{h}</h2><p>{p}</p></div>)}
+    </div>
+    <div class="panel" style="margin-top:1rem"><h2>{z.advice}</h2><p>{text.advice}</p></div>
+  </section>
+  {pair.length > 0 && (
+    <section class="section" style="padding-bottom:0">
+      <h2>{z.pairTitle}</h2>
+      <p class="muted">{fill(z.pairText, { card: name })}</p>
+      <div class="card-row">
+        {pair.map((p) => (
+          <a class="tcard" href={u(`birth-cards/${slug(p)}`)}>
+            <img src={`${BASE}cards/art/${p}.jpg`} alt="" loading="lazy" width="150" height="257" />
+            {L.cards[p]!.name}
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+  <section class="section center">
+    <p class="lead">{z.calcText}</p>
+    <p><a class="btn btn-gold" href={u("tools/birth-card")}>{z.calcCta}</a></p>
+    <h2>{z.other}</h2>
+    <nav class="ctx-links" style="justify-content:center" aria-label={z.other}>
+      {BIRTH.filter((x) => x !== id).map((x) => <a href={u(`birth-cards/${slug(x)}`)}>{L.cards[x]!.name}</a>)}
+    </nav>
+  </section>
+</Base>

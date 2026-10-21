@@ -1,0 +1,2498 @@
+{
+ "major_00_fool": {
+  "name": "Le Fou",
+  "keywords": [
+   "commencements",
+   "spontanéité",
+   "confiance"
+  ],
+  "upright": "Un nouveau départ demande un acte de foi. Reste curieux·se et ouvert·e à la nouveauté.",
+  "reversed": "Hésitation ou imprudence. Prends le temps de vérifier le terrain avant d'avancer.",
+  "k": {
+   "essence": "Le pas que tu fais avant de te sentir prêt·e.",
+   "imagery": "Un voyageur se tient au bord d'une falaise sous un soleil éclatant, la tête levée, sans regarder en bas. Un petit baluchon pend au bout d'un bâton, il tient une rose blanche à la main, et un petit chien blanc bondit à ses talons. Des montagnes s'élèvent au loin.",
+   "why": "Zéro est le nombre du potentiel, avant que rien n'ait été compté : cette carte parle donc de commencer sans rien de prouvé. Le bord de la falaise est le moment de la décision. Le regard levé se lit comme de la confiance plutôt que de la planification, le baluchon léger comme un voyage sans bagages, et le chien comme l'instinct qui pousse en avant.",
+   "upright": {
+    "core": "Un commencement dont on ne peut pas encore connaître l'issue, et une invitation à avancer malgré tout.",
+    "light": "curiosité, jeu, accepter d'être débutant·e, confiance",
+    "shadow": "un enthousiasme qui saute les bases",
+    "love": "S'ouvrir à une rencontre ou à une expérience sans scénario ; dans une relation existante, essayer quelque chose de nouveau ensemble.",
+    "work": "Lancer un projet qui n'a pas fait ses preuves, changer de direction, dire oui avant de se sentir qualifié·e.",
+    "question": "Qu'est-ce que je commencerais si j'acceptais d'être maladroit·e au début ?"
+   },
+   "reversed": {
+    "core": "L'énergie du commencement est là, mais elle est retenue, précipitée ou ne vise rien.",
+    "modes": [
+     "Bloqué : l'hésitation au bord du vide, toujours en train de se préparer.",
+     "Excès : le saut sans regarder le sol.",
+     "Intérieur : un projet que tu gardes pour toi parce que le dire le rendrait réel."
+    ],
+    "question": "Est-ce que j'attends une certitude qui ne viendra pas, ou est-ce que j'avance si vite que je ne choisis plus vraiment ?"
+   }
+  }
+ },
+ "major_01_magician": {
+  "name": "Le Magicien",
+  "keywords": [
+   "habileté",
+   "concentration",
+   "ingéniosité"
+  ],
+  "upright": "Tu as déjà les outils qu'il te faut. Rassemble ton attention et agis avec intention.",
+  "reversed": "Énergie dispersée ou talent inutilisé. Demande-toi ce qui freine ta concentration.",
+  "k": {
+   "essence": "Tu as déjà ce qu'il faut pour commencer.",
+   "imagery": "Une silhouette en robe blanche et cape rouge lève une baguette vers le ciel et pointe l'autre main vers le sol. Un signe de l'infini flotte au-dessus de sa tête. Sur la table devant elle reposent une coupe, une épée, un bâton et un denier, et des roses et des lys fleurissent en dessous.",
+   "why": "Un est le nombre d'un point de concentration unique. Les quatre outils sur la table représentent les quatre couleurs du tarot : toutes les ressources sont donc à portée de main. Les mains levée et baissée se lisent souvent comme le fait de faire descendre une idée dans le monde. Mercure, la planète habituellement associée à la carte, évoque l'habileté et la communication.",
+   "upright": {
+    "core": "La concentration transforme le possible en réel. Tu as plus de ressources que tu ne le crois peut-être.",
+    "light": "habileté, concentration, initiative",
+    "shadow": "de l'astuce sans sincérité, beaucoup de tours et peu de suivi",
+    "love": "Dire simplement ce que tu veux, et le penser ; la sincérité plutôt que la mise en scène.",
+    "work": "Utiliser tes compétences de façon délibérée, lancer un projet avec un plan.",
+    "question": "Qu'est-ce que j'ai déjà et que je n'utilise pas ?"
+   },
+   "reversed": {
+    "core": "L'habileté et la concentration sont dispersées, retenues ou utilisées pour faire illusion.",
+    "modes": [
+     "Bloqué : savoir quoi faire et ne pas commencer.",
+     "Excès : promettre plus que ce que tu tiens.",
+     "Intérieur : un talent gardé pour soi."
+    ],
+    "question": "Où va mon attention, au lieu d'aller là où je dis la vouloir ?"
+   }
+  }
+ },
+ "major_02_high_priestess": {
+  "name": "La Grande Prêtresse",
+  "keywords": [
+   "intuition",
+   "calme",
+   "le non-dit"
+  ],
+  "upright": "La réflexion silencieuse apporte des réponses que le bruit ne peut pas donner. Fais confiance à ce que tu perçois sous la surface.",
+  "reversed": "Ignorer ta voix intérieure, ou te cacher quelque chose à toi-même.",
+  "k": {
+   "essence": "Ce que tu perçois avant de pouvoir l'expliquer.",
+   "imagery": "Une femme en robe bleue est assise entre un pilier noir et un pilier blanc marqués des lettres B et J. Un croissant de lune repose à ses pieds et un rouleau est à moitié caché sur ses genoux. Derrière elle pend un voile orné de grenades.",
+   "why": "Deux est le nombre des paires et des seuils. Les piliers marquent une porte entre deux contraires, et le voile cache ce qui se trouve au-delà. La Lune, à laquelle elle est habituellement associée, est le symbole traditionnel de l'intuition et de ce qui n'est pas encore visible.",
+   "upright": {
+    "core": "Le calme avant de décider : écouter ce qui n'est pas dit, dans la situation et en toi.",
+    "light": "intuition, patience, discrétion",
+    "shadow": "le secret, se retenir trop longtemps",
+    "love": "Remarquer ce qui reste non dit entre les gens, et ce que tu ne t'es pas avoué.",
+    "work": "Rassembler des informations avant d'agir ; faire confiance à une lecture discrète de l'ambiance.",
+    "question": "Qu'est-ce que je perçois déjà sans l'avoir dit à voix haute ?"
+   },
+   "reversed": {
+    "core": "L'intuition est étouffée, ou les secrets sont gardés trop étroitement.",
+    "modes": [
+     "Bloqué : le bruit et l'agitation prennent le pas sur la voix intérieure.",
+     "Intérieur : des sentiments cachés même à toi-même.",
+     "Excès : trop réfléchir, voir trop de choses dans de petits signes."
+    ],
+    "question": "Quand me suis-je accordé assez de silence pour entendre ce que je pense ?"
+   }
+  }
+ },
+ "major_03_empress": {
+  "name": "L'Impératrice",
+  "keywords": [
+   "soin",
+   "abondance",
+   "créativité"
+  ],
+  "upright": "Le soin, le réconfort et la croissance sont à ta portée. Prends soin de ce que tu aimes et laisse-le s'épanouir.",
+  "reversed": "Étouffer l'autre, te négliger toi-même, ou un blocage créatif.",
+  "k": {
+   "essence": "La croissance qui naît du soin.",
+   "imagery": "Une femme vêtue d'une robe ample ornée de grenades est assise sur des coussins dans un champ de blé mûr. Elle porte une couronne d'étoiles et tient un sceptre. Un bouclier en forme de cœur portant le symbole de Vénus repose à côté d'elle, et un ruisseau et une forêt s'étendent derrière.",
+   "why": "Trois est le nombre de la croissance et des premiers résultats. Le blé, l'eau et la forêt montrent la nature dans toute sa plénitude. Vénus, sa planète habituelle, évoque l'amour, le plaisir et les sens.",
+   "upright": {
+    "core": "Soin, créativité et plaisir : les choses poussent là où l'on s'en occupe.",
+    "light": "générosité, créativité, réconfort",
+    "shadow": "étouffer, l'excès",
+    "love": "Chaleur et attention, donner et recevoir ; apprendre à te laisser chouchouter.",
+    "work": "Un projet créatif qui mûrit, prendre soin d'une équipe ou d'un processus.",
+    "question": "Qu'est-ce qui, dans ma vie, a besoin d'attention plutôt que d'être poussé ?"
+   },
+   "reversed": {
+    "core": "Le soin est bloqué, excessif ou négligé, y compris le soin de toi-même.",
+    "modes": [
+     "Bloqué : une période de sécheresse créative.",
+     "Excès : trop donner ou étouffer.",
+     "Déclin : tes propres besoins passent en dernier."
+    ],
+    "question": "Est-ce que je donne parce que je suis plein·e, ou par habitude ?"
+   }
+  }
+ },
+ "major_04_emperor": {
+  "name": "L'Empereur",
+  "keywords": [
+   "structure",
+   "autorité",
+   "stabilité"
+  ],
+  "upright": "Des limites claires et une planification régulière posent une base solide. Mène avec calme.",
+  "reversed": "Rigidité ou contrôle. Demande-toi où la fermeté est devenue de l'entêtement.",
+  "k": {
+   "essence": "Un ordre qui protège et qui construit.",
+   "imagery": "Un souverain barbu, en robe rouge par-dessus une armure, est assis sur un trône de pierre dont les accoudoirs portent des têtes de bélier. Il tient un sceptre surmonté d'une croix ansée et un globe. Des montagnes nues s'élèvent derrière lui.",
+   "why": "Quatre est le nombre de la structure et de la stabilité. Le bélier appartient au Bélier, premier signe du zodiaque, associé à l'initiative. Les montagnes arides suggèrent une autorité bâtie sur la discipline plutôt que sur le confort.",
+   "upright": {
+    "core": "Structure, limites et responsabilité : utiliser l'ordre pour protéger ce qui compte.",
+    "light": "leadership, stabilité, limites claires",
+    "shadow": "rigidité, contrôle",
+    "love": "Des engagements clairs et de la constance ; repérer quand la fermeté se transforme en contrôle.",
+    "work": "Mettre en place des systèmes et des règles, assumer la responsabilité d'un résultat.",
+    "question": "Quelle structure rendrait cette situation plus stable ?"
+   },
+   "reversed": {
+    "core": "La structure se fige en rigidité, ou disparaît.",
+    "modes": [
+     "Excès : contrôle et entêtement.",
+     "Manque : pas de limites, pas de plan.",
+     "Intérieur : porter l'autorité avec malaise."
+    ],
+    "question": "Où est-ce que je m'accroche fort parce que j'ai peur de perdre le contrôle ?"
+   }
+  }
+ },
+ "major_05_hierophant": {
+  "name": "Le Hiérophante",
+  "keywords": [
+   "tradition",
+   "conseil",
+   "appartenance"
+  ],
+  "upright": "Apprendre d'une sagesse établie ou d'une communauté peut t'apporter de la stabilité.",
+  "reversed": "Remettre en question des règles qui ne te correspondent plus. Trouve ton propre chemin vers le sens.",
+  "k": {
+   "essence": "Apprendre d'une tradition partagée.",
+   "imagery": "Un personnage en robe, coiffé d'une triple couronne, est assis entre deux piliers gris, une main levée pour bénir. Deux clés croisées reposent à ses pieds et deux personnages sont agenouillés devant lui.",
+   "why": "Le Hiérophante est le maître des voies établies. Les piliers et les clés désignent une porte vers un savoir transmis au sein d'une communauté. Le Taureau, son signe habituel, est stable et fidèle à ce qui a fait ses preuves.",
+   "upright": {
+    "core": "Appartenir à une tradition, à un groupe ou à l'enseignement d'un maître, et apprendre d'abord la voie établie.",
+    "light": "transmission, valeurs partagées, engagement",
+    "shadow": "le conformisme, faire les choses parce qu'on les a toujours faites ainsi",
+    "love": "Des valeurs et des rituels partagés qui unissent les gens.",
+    "work": "Une formation classique, des mentors, travailler au sein d'une institution ou d'un parcours reconnu.",
+    "question": "Quelle tradition ou quel maître me sert vraiment, et lequel est-ce que je suis par habitude ?"
+   },
+   "reversed": {
+    "core": "Les règles héritées sont remises en question, ou restent figées.",
+    "modes": [
+     "Libération : s'éloigner des conventions.",
+     "Bloqué : refuser d'apprendre des autres.",
+     "Excès : des règles vécues comme des dogmes."
+    ],
+    "question": "Selon les règles de qui est-ce que je vis ?"
+   }
+  }
+ },
+ "major_06_lovers": {
+  "name": "Les Amoureux",
+  "keywords": [
+   "choix",
+   "lien",
+   "alignement"
+  ],
+  "upright": "Un choix important qui reflète tes valeurs, ou un lien qui demande de l'honnêteté.",
+  "reversed": "Décalage ou indécision. Vérifie si tes actes correspondent à ce qui compte pour toi.",
+  "k": {
+   "essence": "Un choix qui te demande d'être honnête sur tes valeurs.",
+   "imagery": "Un homme et une femme se tiennent nus sous un soleil éclatant. Un ange déploie ses bras au-dessus d'eux. Derrière la femme se trouve un arbre avec un serpent, et derrière l'homme un arbre de flammes.",
+   "why": "Six est le nombre de l'échange et de l'harmonie. Les Gémeaux, les jumeaux, sont le signe de la dualité et du choix. L'ange suggère une vision plus large que celle de chacune des deux personnes seule. Même si on la lit souvent comme une carte romantique, le cœur de la carte est un choix fait en accord avec ce qui compte pour toi.",
+   "upright": {
+    "core": "Un choix ou un lien important qui te demande d'agir en accord avec tes valeurs.",
+    "light": "honnêteté, harmonie, engagement",
+    "shadow": "l'indécision, choisir pour faire plaisir",
+    "love": "Un lien sincère, et la question de savoir si tes actes correspondent à ce que tu dis vouloir.",
+    "work": "Un choix ou un partenariat qui correspond à tes valeurs, pas seulement à ta commodité.",
+    "question": "Que choisirais-je si j'étais complètement honnête sur ce qui compte pour moi ?"
+   },
+   "reversed": {
+    "core": "Les choix sont repoussés, ou les valeurs et les actes ne sont pas accordés.",
+    "modes": [
+     "Bloqué : remettre la décision à plus tard.",
+     "Excès : trop s'appuyer sur l'avis de quelqu'un d'autre.",
+     "Déclin : le sentiment de s'éloigner l'un de l'autre."
+    ],
+    "question": "Où est-ce que je dis oui alors que je pense non ?"
+   }
+  }
+ },
+ "major_07_chariot": {
+  "name": "Le Chariot",
+  "keywords": [
+   "détermination",
+   "élan",
+   "direction"
+  ],
+  "upright": "La volonté et la concentration te font avancer. Tiens les rênes fermement.",
+  "reversed": "Perdre le cap, ou forcer sans plan.",
+  "k": {
+   "essence": "Avancer en maintenant ensemble des forces opposées.",
+   "imagery": "Un personnage en armure se tient droit dans un chariot sous un dais étoilé. Un sphinx noir et un sphinx blanc reposent devant lui, et il ne tient aucune rêne. Une ville s'étend derrière.",
+   "why": "Sept est le nombre des épreuves. Les deux sphinx regardent dans des directions différentes : le conducteur dirige donc par la volonté et la concentration, pas par la force. Le Cancer, son signe habituel, apporte une carapace protectrice autour d'un objectif déterminé.",
+   "upright": {
+    "core": "Un élan discipliné : tu continues d'avancer en gardant alignées des forces qui tirent en sens contraire.",
+    "light": "détermination, concentration, dynamique",
+    "shadow": "la force sans direction, écraser les autres",
+    "love": "Choisir où mettre ton énergie et t'y tenir.",
+    "work": "Mener un projet jusqu'au bout ; rester concentré·e sous la pression.",
+    "question": "Qu'est-ce que je dirige, et où est-ce que je veux aller ?"
+   },
+   "reversed": {
+    "core": "L'élan est dispersé, à l'arrêt ou devenu agressif.",
+    "modes": [
+     "Bloqué : coincé·e, sans direction.",
+     "Excès : forcer les choses, l'agressivité.",
+     "Intérieur : tiraillé·e dans deux directions à la fois."
+    ],
+    "question": "Est-ce que je tiens les rênes, ou est-ce que je me fais traîner ?"
+   }
+  }
+ },
+ "major_08_strength": {
+  "name": "La Force",
+  "keywords": [
+   "courage",
+   "patience",
+   "compassion"
+  ],
+  "upright": "Un courage tranquille et la douceur viennent à bout de ce que la force ne peut pas régler.",
+  "reversed": "Doute de soi ou batteries à plat. Reconstruis ta confiance par petites étapes.",
+  "k": {
+   "essence": "Un courage qui est doux.",
+   "imagery": "Une femme vêtue de blanc, un signe de l'infini au-dessus de la tête, ferme calmement la gueule d'un lion. Elle porte une guirlande de fleurs et des montagnes s'élèvent derrière elle.",
+   "why": "Dans ce jeu, la Force porte le numéro huit (la Justice, le onze). Huit est le nombre de l'effort constant. L'image montre la force comme de la patience plutôt que de la contrainte : le lion n'est pas vaincu mais apprivoisé. Le Lion, son signe habituel, est justement le lion.",
+   "upright": {
+    "core": "Un courage tranquille : accueillir une émotion forte avec patience et bienveillance plutôt que par la lutte.",
+    "light": "patience, résilience, bienveillance envers soi",
+    "shadow": "le doute de soi, refouler ses émotions",
+    "love": "Rester stable et doux·ce quand les émotions s'emballent.",
+    "work": "Garder son calme sous la pression ; montrer l'exemple.",
+    "question": "À quoi ressemblerait la patience ici ?"
+   },
+   "reversed": {
+    "core": "La force s'épuise, ou la contrainte prend la place de la douceur.",
+    "modes": [
+     "Déclin : être à court d'énergie.",
+     "Bloqué : le doute de soi.",
+     "Excès : essayer de dompter une émotion par la force."
+    ],
+    "question": "Qu'est-ce que j'essaie de forcer alors que cela demande de la douceur ?"
+   }
+  }
+ },
+ "major_09_hermit": {
+  "name": "L'Ermite",
+  "keywords": [
+   "solitude",
+   "réflexion",
+   "guidance intérieure"
+  ],
+  "upright": "Prends du recul pour réfléchir. Un temps seul·e peut te montrer ce qui compte.",
+  "reversed": "Isolement ou fuite de la réflexion. Équilibre la solitude et le lien aux autres.",
+  "k": {
+   "essence": "Prendre du recul pour trouver ta propre réponse.",
+   "imagery": "Un vieil homme en manteau gris se tient sur un sommet enneigé. D'une main, il tient une lanterne contenant une étoile à six branches, et de l'autre un bâton.",
+   "why": "Neuf est le nombre du presque-achèvement et de la solitude. La lanterne n'éclaire que les quelques pas suivants, ce qui ressemble souvent à la façon dont fonctionne la guidance intérieure. La Vierge, son signe habituel, est attentive et pleine de discernement.",
+   "upright": {
+    "core": "Un temps à l'écart pour entendre tes propres pensées et décider de ce qui compte.",
+    "light": "sagesse, concentration, solitude choisie",
+    "shadow": "l'isolement, fuir les gens ou les choix",
+    "love": "Un temps seul·e pour comprendre ce que tu veux ; le partager quand tu es prêt·e.",
+    "work": "Une concentration profonde, la recherche, trouver un mentor ou en devenir un.",
+    "question": "Qu'est-ce que j'entends quand tout devient calme ?"
+   },
+   "reversed": {
+    "core": "La solitude devient isolement, ou tu n'arrives pas à rester seul·e avec tes pensées.",
+    "modes": [
+     "Excès : se retirer trop loin.",
+     "Bloqué : agité·e, incapable de rester tranquille.",
+     "Déclin : revenir vers les autres."
+    ],
+    "question": "Cette solitude me ressource-t-elle, ou me cache-t-elle ?"
+   }
+  }
+ },
+ "major_10_wheel_of_fortune": {
+  "name": "La Roue de Fortune",
+  "keywords": [
+   "cycles",
+   "changement",
+   "recul"
+  ],
+  "upright": "Les choses tournent par cycles. Adapte-toi au changement et cherche ce qu'il t'offre.",
+  "reversed": "Résister au changement ou se sentir coincé·e dans une boucle. Cherche ce sur quoi tu peux agir.",
+  "k": {
+   "essence": "Un cycle qui tourne, et toi à l'intérieur.",
+   "imagery": "Une grande roue marquée de lettres et de symboles tourne dans le ciel. Un serpent descend d'un côté et un personnage à tête de chacal monte de l'autre, tandis qu'un sphinx tenant une épée est assis au sommet. Quatre figures ailées, chacune lisant un livre, flottent dans les coins parmi les nuages.",
+   "why": "Dix est le nombre d'un cycle achevé. Jupiter, sa planète habituelle, est associée à l'expansion et à la chance. L'image parle de montée et de chute, et de ce qui reste stable pendant que la roue tourne.",
+   "upright": {
+    "core": "Les circonstances changent par cycles. Tu ne peux pas arrêter la roue, mais tu peux choisir comment l'accueillir.",
+    "light": "recul, sens du moment, un nouveau chapitre",
+    "shadow": "se sentir à la merci des événements",
+    "love": "Les phases et les schémas dans les relations ; y voir ta propre part.",
+    "work": "Des circonstances qui changent ; rester adaptable.",
+    "question": "Dans quel cycle suis-je, et qu'attend-il de moi ?"
+   },
+   "reversed": {
+    "core": "Tu résistes à un changement, ou tu te sens coincé·e dans une boucle.",
+    "modes": [
+     "Bloqué : coincé·e dans un schéma qui se répète.",
+     "Déclin : un cycle qui touche à sa fin.",
+     "Intérieur : le changement se produit d'abord à l'intérieur."
+    ],
+    "question": "Quel schéma ne cesse de se répéter, et quelle est ma part dedans ?"
+   }
+  }
+ },
+ "major_11_justice": {
+  "name": "La Justice",
+  "keywords": [
+   "équité",
+   "vérité",
+   "responsabilité"
+  ],
+  "upright": "Pèse les faits honnêtement. Des choix clairs et justes ramènent l'équilibre.",
+  "reversed": "Parti pris, fuite des responsabilités ou vision déséquilibrée.",
+  "k": {
+   "essence": "Un regard honnête sur les faits, et sur ta part dedans.",
+   "imagery": "Un personnage couronné, en robe rouge, est assis entre deux piliers. D'une main, il tient une épée dressée et de l'autre une balance. Un voile violet pend derrière lui.",
+   "why": "Dans ce jeu, la Justice porte le numéro onze. La balance pèse, l'épée tranche, et le personnage est assis : la carte parle donc de jugement serein et de cause à effet. La Balance, son signe habituel, est le signe de la balance.",
+   "upright": {
+    "core": "Voir une situation avec équité et assumer tes choix.",
+    "light": "équité, clarté, responsabilité",
+    "shadow": "un jugement sévère, la rigidité",
+    "love": "Une conversation honnête sur ce que fait chacun.",
+    "work": "Des décisions fondées sur des faits honnêtes, traiter les gens avec équité.",
+    "question": "Que contiendrait un compte rendu équitable de cette situation ?"
+   },
+   "reversed": {
+    "core": "Parti pris, fuite des conséquences, ou te juger trop sévèrement.",
+    "modes": [
+     "Bloqué : éviter de rendre des comptes.",
+     "Excès : juger durement les autres.",
+     "Intérieur : la balance est injuste envers toi-même."
+    ],
+    "question": "Est-ce que je suis juste envers moi-même ?"
+   }
+  }
+ },
+ "major_12_hanged_man": {
+  "name": "Le Pendu",
+  "keywords": [
+   "pause",
+   "lâcher-prise",
+   "nouvel angle"
+  ],
+  "upright": "S'arrêter pour voir autrement peut débloquer une situation figée.",
+  "reversed": "Piétiner sans but. Demande-toi si attendre t'aide encore.",
+  "k": {
+   "essence": "Une pause qui te montre quelque chose de nouveau.",
+   "imagery": "Un personnage est suspendu la tête en bas, par un pied, à une potence de bois vivant, les mains derrière le dos et une jambe repliée. Un halo de lumière entoure son visage serein.",
+   "why": "Douze clôt un ensemble complet, et la carte parle de s'arrêter plutôt que d'agir. La suspension est volontaire ; le visage est paisible. L'Eau, son élément habituel, évoque le fait de lâcher le contrôle et de voir les choses sous un nouvel angle.",
+   "upright": {
+    "core": "S'arrêter volontairement permet de voir la situation sous un autre jour.",
+    "light": "patience, recul, lâcher-prise",
+    "shadow": "piétiner, se sentir martyr",
+    "love": "Faire une pause pour voir une situation du point de vue de l'autre, ou du tien.",
+    "work": "Attendre le bon moment ; changer de point de vue.",
+    "question": "Qu'est-ce que je vois si j'arrête d'essayer de régler ça ?"
+   },
+   "reversed": {
+    "core": "La pause est devenue un retard, ou un sacrifice qui ne sert à personne.",
+    "modes": [
+     "Bloqué : piétiner.",
+     "Excès : un rôle de martyr.",
+     "Libération : mettre fin à une pause et se préparer à bouger."
+    ],
+    "question": "Est-ce que j'attends pour une bonne raison, ou est-ce que j'évite un choix ?"
+   }
+  }
+ },
+ "major_13_death": {
+  "name": "La Mort",
+  "keywords": [
+   "fins",
+   "transition",
+   "libération"
+  ],
+  "upright": "Un chapitre se ferme pour qu'un autre puisse commencer. Laisse partir ce qui a fait son temps.",
+  "reversed": "S'accrocher au passé ou craindre un changement nécessaire.",
+  "k": {
+   "essence": "Une fin déjà en cours.",
+   "imagery": "Un squelette en armure noire monte un cheval blanc et porte une bannière noire ornée d'une fleur blanche. Un évêque l'implore, un enfant lui offre des fleurs, un roi gît à terre et une jeune femme détourne le regard. Au loin coule une rivière et le soleil se lève entre deux tours.",
+   "why": "L'image parle de la façon dont les gens réagissent à une fin : le roi ne peut pas l'arrêter, la prière de l'évêque ne la ralentit pas, l'enfant l'accueille avec curiosité. La fleur sur la bannière se lit souvent comme la vie qui continue, et le lever du soleil comme ce qui vient après. Treize suit un ensemble complet de douze, et la tradition en fait donc le nombre de la transformation. Ce n'est pas une prédiction de mort physique.",
+   "upright": {
+    "core": "Un chapitre, un rôle, une habitude ou une croyance est terminé, et s'y accrocher coûte désormais plus que de lâcher prise.",
+    "light": "clôture, faire le tri, soulagement",
+    "shadow": "le chagrin, surtout si la fin n'était pas ton choix",
+    "love": "Un schéma ou une phase de la relation qui change ; laisser de côté une vieille histoire sur quelqu'un ou sur toi-même.",
+    "work": "La fin d'un rôle, d'un projet ou d'une façon de travailler ; faire de la place pour autre chose.",
+    "question": "Qu'est-ce qui s'est déjà terminé, alors que j'agis encore comme si ce n'était pas le cas ?"
+   },
+   "reversed": {
+    "core": "La fin est refusée, traîne en longueur ou n'est qu'à moitié acceptée.",
+    "modes": [
+     "Bloqué : s'accrocher au-delà de la fin naturelle.",
+     "Déclin : une fin qui traîne parce que personne ne la nomme.",
+     "Intérieur : savoir en silence que quelque chose est fini, sans encore le dire."
+    ],
+    "question": "Qu'est-ce que je devrais admettre comme terminé pour pouvoir avancer ?"
+   }
+  }
+ },
+ "major_14_temperance": {
+  "name": "La Tempérance",
+  "keywords": [
+   "équilibre",
+   "patience",
+   "modération"
+  ],
+  "upright": "Concilie des besoins opposés avec patience. Des pas réguliers et mesurés fonctionnent le mieux.",
+  "reversed": "Excès ou impatience. Cherche où les choses sont déséquilibrées.",
+  "k": {
+   "essence": "Trouver la voie du milieu.",
+   "imagery": "Un ange aux grandes ailes se tient un pied dans l'eau et l'autre sur la terre, versant un liquide d'une coupe à l'autre. Un chemin serpente vers une lueur entre des montagnes lointaines, et des iris poussent tout près.",
+   "why": "Quatorze suit le tournant des Arcanes majeurs et apporte le mélange et la guérison. Verser d'une coupe à l'autre, c'est combiner des contraires à un rythme régulier. Le Sagittaire, son signe habituel, ajoute la vision à long terme.",
+   "upright": {
+    "core": "Mélanger patiemment des contraires et garder un rythme régulier.",
+    "light": "équilibre, patience, modération",
+    "shadow": "une tiédeur qui évite de s'engager",
+    "love": "La patience, et laisser à chacun la place d'être différent.",
+    "work": "Un rythme tenable, la collaboration, combiner les compétences.",
+    "question": "Quelles deux choses dans ma vie ont besoin d'être conciliées plutôt que de devoir choisir entre elles ?"
+   },
+   "reversed": {
+    "core": "Les choses sont déséquilibrées, ou poussées à l'extrême.",
+    "modes": [
+     "Excès : en faire trop.",
+     "Manque : l'impatience, vouloir des résultats tout de suite.",
+     "Bloqué : impossible de trouver un juste milieu."
+    ],
+    "question": "Où est-ce que j'ai trop penché d'un côté ?"
+   }
+  }
+ },
+ "major_15_devil": {
+  "name": "Le Diable",
+  "keywords": [
+   "attachement",
+   "habitude",
+   "part d'ombre"
+  ],
+  "upright": "Remarque ce qui te retient, que ce soit une habitude, une croyance ou une dépendance, et la part de choix que tu as vraiment.",
+  "reversed": "Une emprise qui se desserre. La prise de conscience est le premier pas vers la liberté.",
+  "k": {
+   "essence": "Voir ce qui te retient, et à quel point l'emprise est lâche.",
+   "imagery": "Une créature cornue est perchée sur un bloc, une main levée et l'autre tenant une torche. Un homme et une femme, chacun avec de petites cornes et une queue, se tiennent enchaînés au bloc par le cou. Les chaînes sont assez lâches pour être retirées.",
+   "why": "Quinze se situe dans le troisième acte des Arcanes majeurs, là où les attirances cachées apparaissent. Le Capricorne, son signe habituel, est terrien et pratique, et la carte parle d'attachement matériel, d'habitude et de part d'ombre. Les chaînes lâches suggèrent que l'emprise est en partie choisie. Ce n'est pas un diable au sens littéral.",
+   "upright": {
+    "core": "Voir une habitude, un attachement ou une peur que tu pourrais desserrer dès que tu la nommes.",
+    "light": "l'honnêteté sur le désir, nommer ce qui te retient",
+    "shadow": "se sentir coincé·e, répéter un schéma (si une habitude affecte ta santé, un·e professionnel·le peut t'aider)",
+    "love": "Des schémas de dépendance ou de contrôle dans la façon d'être en relation ; remarquer ta propre part.",
+    "work": "Un travail ou un arrangement que l'on garde par confort plutôt que par sens.",
+    "question": "Qu'est-ce que je tiens et que je pourrais poser ?"
+   },
+   "reversed": {
+    "core": "Une emprise se desserre, ou tu évites de la voir.",
+    "modes": [
+     "Libération : se dégager d'une emprise.",
+     "Bloqué : le déni.",
+     "Intérieur : en avoir conscience sans encore agir."
+    ],
+    "question": "Que ferais-je si j'avais confiance en ma capacité à m'en sortir ?"
+   }
+  }
+ },
+ "major_16_tower": {
+  "name": "La Tour",
+  "keywords": [
+   "bouleversement",
+   "révélation",
+   "remise à zéro"
+  ],
+  "upright": "Une secousse soudaine révèle ce qui n'était pas stable. Un terrain dégagé laisse de la place pour reconstruire.",
+  "reversed": "Peur du changement ou problème qui couve. Affronte-le plutôt que d'attendre.",
+  "k": {
+   "essence": "Ce qui n'a jamais été stable s'effondre.",
+   "imagery": "Une haute tour sur un rocher est frappée par la foudre. La couronne s'envole, des flammes jaillissent des fenêtres et deux personnages tombent. Le ciel est sombre.",
+   "why": "Seize est le nombre de la rupture. Mars, sa planète habituelle, est la planète de la force soudaine. La tour est une construction bâtie sur une base fragile, et la foudre est autant une révélation qu'un dégât.",
+   "upright": {
+    "core": "Quelque chose de bâti sur un terrain instable s'effondre, laissant la place à quelque chose de plus honnête.",
+    "light": "révélation, libération, un départ plus honnête",
+    "shadow": "le choc, la peur de perdre",
+    "love": "Une honnêteté soudaine ou un changement de schéma ; réagir à une nouvelle.",
+    "work": "Des projets qui ne tiennent plus ; reconstruire autrement.",
+    "question": "Qu'est-ce qui n'a jamais été stable et que je continue d'étayer ?"
+   },
+   "reversed": {
+    "core": "Le choc est évité, ou tu en vis les suites.",
+    "modes": [
+     "Bloqué : résister à quelque chose qui est déjà en train de se défaire.",
+     "Déclin : un lent effritement.",
+     "Intérieur : une crise vécue en privé."
+    ],
+    "question": "Quel petit changement honnête pourrais-je faire avant que les choses doivent se briser ?"
+   }
+  }
+ },
+ "major_17_star": {
+  "name": "L'Étoile",
+  "keywords": [
+   "espoir",
+   "renouveau",
+   "calme"
+  ],
+  "upright": "Un espoir doux revient après une période difficile. Repose-toi et fais confiance à une guérison lente.",
+  "reversed": "Doute ou manque de motivation. Sois indulgent·e avec toi-même et entretiens de petits espoirs.",
+  "k": {
+   "essence": "Un espoir tranquille après une période difficile.",
+   "imagery": "Une femme est agenouillée près d'un bassin et verse de l'eau de deux cruches, l'une sur la terre et l'autre dans le bassin. Une grande étoile à huit branches brille au-dessus d'elle avec sept plus petites, et un oiseau est perché dans un arbre derrière.",
+   "why": "Dix-sept vient juste après la Tour : c'est le calme après le bouleversement. Les deux cruches parlent de rendre à la terre et à soi-même. Le Verseau, son signe habituel, est le porteur d'eau, associé à l'espoir et à l'ouverture.",
+   "upright": {
+    "core": "Un renouveau en douceur et la confiance qui revient après les difficultés.",
+    "light": "espoir, guérison, honnêteté",
+    "shadow": "souhaiter sans agir, se sentir détaché·e",
+    "love": "La douceur, recommencer à faire confiance.",
+    "work": "Une motivation retrouvée ; une idée plus claire de ce vers quoi tu veux travailler.",
+    "question": "Qu'est-ce qui m'aide à garder espoir, et comment en faire davantage ?"
+   },
+   "reversed": {
+    "core": "L'espoir faiblit, ou est devenu flou.",
+    "modes": [
+     "Déclin : le découragement.",
+     "Bloqué : aucune lumière en vue.",
+     "Excès : souhaiter sans agir."
+    ],
+    "question": "Quelle petite chose pourrait me redonner un peu confiance ?"
+   }
+  }
+ },
+ "major_18_moon": {
+  "name": "La Lune",
+  "keywords": [
+   "incertitude",
+   "rêves",
+   "intuition"
+  ],
+  "upright": "Les choses ne sont pas tout à fait claires. Avance prudemment et observe tes peurs et ton instinct.",
+  "reversed": "La confusion se dissipe, ou une anxiété a besoin d'être apaisée.",
+  "k": {
+   "essence": "Les choses ne sont pas encore claires.",
+   "imagery": "Une pleine lune au visage humain brille entre deux tours. Un chien et un loup hurlent vers elle, et une écrevisse sort d'un bassin pour ramper sur un chemin sinueux qui se perd au loin.",
+   "why": "Dix-huit se situe vers la fin du voyage, là où l'inconscient parle fort. La lune donne de la lumière, mais pas assez pour voir clairement. Les Poissons, son signe habituel, sont rêveurs et sensibles.",
+   "upright": {
+    "core": "Les émotions et l'imagination colorent ce que tu vois : prends ton temps et cherche davantage de lumière.",
+    "light": "intuition, créativité, imagination",
+    "shadow": "la peur, la projection, la confusion",
+    "love": "Des sentiments flous, ou imaginer ce que pense l'autre.",
+    "work": "Travailler avec des informations incomplètes ; éviter les conclusions hâtives.",
+    "question": "De quoi ai-je peur qui ne s'est pas réellement produit ?"
+   },
+   "reversed": {
+    "core": "Le brouillard se lève, ou la confusion s'épaissit.",
+    "modes": [
+     "Déclin : les choses commencent à s'éclaircir.",
+     "Excès : une anxiété qui s'emballe.",
+     "Intérieur : une peur gardée cachée."
+    ],
+    "question": "Qu'est-ce qui paraîtrait différent à la lumière du jour ?"
+   }
+  }
+ },
+ "major_19_sun": {
+  "name": "Le Soleil",
+  "keywords": [
+   "joie",
+   "vitalité",
+   "clarté"
+  ],
+  "upright": "Chaleur, confiance et ouverture. Profite de ce qui va bien.",
+  "reversed": "Un enthousiasme terni ou trop d'ego. Cherche de petites sources de lumière.",
+  "k": {
+   "essence": "Une chaleur simple et sans complication.",
+   "imagery": "Un enfant sur un cheval blanc tient une bannière rouge sous un grand soleil. Des tournesols dépassent d'un mur derrière lui.",
+   "why": "Dix-neuf se situe vers la fin du voyage, et l'image est ouverte et lumineuse, sans rien de caché. Le Soleil est l'astre habituellement associé à la carte : vitalité et clarté.",
+   "upright": {
+    "core": "Chaleur, clarté et joie simple.",
+    "light": "optimisme, vitalité, ouverture",
+    "shadow": "l'excès de confiance, ignorer la complexité",
+    "love": "L'ouverture et l'espièglerie avec les personnes en qui tu as confiance.",
+    "work": "Te sentir confiant·e et au clair sur un travail qui te tient à cœur.",
+    "question": "Qu'est-ce qui m'apporte une joie simple et sans complication ?"
+   },
+   "reversed": {
+    "core": "La chaleur est ternie ou forcée.",
+    "modes": [
+     "Bloqué : des nuages sur le chemin.",
+     "Excès : une positivité forcée.",
+     "Déclin : la fatigue."
+    ],
+    "question": "Où est-ce que je fais semblant d'être plus lumineux·se que je ne me sens ?"
+   }
+  }
+ },
+ "major_20_judgement": {
+  "name": "Le Jugement",
+  "keywords": [
+   "réflexion",
+   "renouveau",
+   "vocation"
+  ],
+  "upright": "Un moment de bilan honnête. Pardonne le passé et réponds à ton appel intérieur.",
+  "reversed": "Autocritique ou fuite d'une décision nécessaire.",
+  "k": {
+   "essence": "Un appel à regarder en arrière et à recommencer.",
+   "imagery": "Un ange souffle dans une trompette depuis les nuages. En dessous, des personnages aux bras levés se relèvent de cercueils ouverts. Des montagnes enneigées se dressent derrière.",
+   "why": "Vingt est le nombre de l'éveil avant l'accomplissement. La trompette est un appel, et les personnages qui se relèvent sont des gens qui y répondent. La carte parle de bilan et de renouveau, pas d'un verdict prononcé.",
+   "upright": {
+    "core": "Un moment de bilan et de renouveau : entendre un appel à vivre autrement.",
+    "light": "éveil, pardon, sens",
+    "shadow": "un jugement sévère envers soi-même",
+    "love": "Le pardon, et un regard honnête sur un schéma.",
+    "work": "Réévaluer un parcours ; le sentiment d'une vocation.",
+    "question": "Qu'est-ce qui m'appelle et que je ne cesse de repousser ?"
+   },
+   "reversed": {
+    "core": "Le doute, ignorer l'appel, ou être dur·e avec toi-même.",
+    "modes": [
+     "Bloqué : ignorer ce que tu entends.",
+     "Excès : une autocritique sévère.",
+     "Intérieur : un bilan vécu en privé."
+    ],
+    "question": "Puis-je me pardonner assez pour avancer ?"
+   }
+  }
+ },
+ "major_21_world": {
+  "name": "Le Monde",
+  "keywords": [
+   "accomplissement",
+   "plénitude",
+   "réussite"
+  ],
+  "upright": "Un cycle s'achève. Fais le point sur le chemin parcouru.",
+  "reversed": "Des détails à régler ou une fin qui semble hors de portée. Il reste une dernière étape.",
+  "k": {
+   "essence": "Un cycle accompli.",
+   "imagery": "Un personnage qui danse, enveloppé d'une écharpe légère, tient deux bâtons à l'intérieur d'une grande couronne de laurier. Dans les quatre coins se trouvent un ange, un aigle, un taureau et un lion.",
+   "why": "Vingt et un est le dernier des Arcanes majeurs : c'est donc l'accomplissement. La couronne est une boucle fermée et le personnage qui danse s'y meut librement. Les quatre figures des coins sont liées aux quatre couleurs du tarot. Saturne, sa planète habituelle, est associée à l'achèvement et aux limites.",
+   "upright": {
+    "core": "L'accomplissement et la plénitude, avec le prochain cycle qui attend.",
+    "light": "accomplissement, intégration, satisfaction",
+    "shadow": "la réticence à finir ou à passer à autre chose",
+    "love": "Te sentir entier·ère en toi-même, et le partager.",
+    "work": "Terminer un projet ; intégrer ce que tu as appris.",
+    "question": "Qu'est-ce que j'ai terminé et qui mérite d'être reconnu ?"
+   },
+   "reversed": {
+    "core": "Quelque chose est presque terminé, mais pas tout à fait.",
+    "modes": [
+     "Bloqué : il manque la dernière étape.",
+     "Déclin : la clôture est proche.",
+     "Intérieur : pas tout à fait prêt·e à lâcher prise."
+    ],
+    "question": "Quelle est la dernière étape que j'évite sans cesse ?"
+   }
+  }
+ },
+ "wands_ace": {
+  "name": "As de Bâtons",
+  "keywords": [
+   "étincelle",
+   "inspiration",
+   "énergie nouvelle"
+  ],
+  "upright": "Un élan d'enthousiasme et l'occasion de lancer quelque chose d'audacieux.",
+  "reversed": "Manque d'énergie ou faux départ. Laisse mûrir l'idée avant de te précipiter.",
+  "k": {
+   "essence": "Une étincelle d'élan qui t'est offerte.",
+   "imagery": "Une main sort d'un nuage et tient un bâton robuste d'où poussent de jeunes feuilles. En dessous s'étendent une rivière, un château sur une colline et une douce campagne verdoyante.",
+   "why": "Les As sont la graine de leur couleur. Le Feu est la volonté et l'élan créatif : c'est donc l'impulsion brute, avant tout plan. Les feuilles qui poussent montrent la vie dans le bois, et la main sortant du nuage est le signe traditionnel d'un cadeau à prendre ou à laisser.",
+   "upright": {
+    "core": "Un nouvel élan d'énergie, d'inspiration ou une occasion, qui attend que tu agisses.",
+    "light": "inspiration, courage, un nouveau départ",
+    "shadow": "une idée qui ne quitte jamais le papier",
+    "love": "Une étincelle d'attirance ou un nouvel enthousiasme pour la relation.",
+    "work": "Un nouveau projet, une idée ou un regain de motivation.",
+    "question": "Qu'est-ce que j'ai l'énergie de commencer en ce moment ?"
+   },
+   "reversed": {
+    "core": "L'étincelle est retardée, mise en doute ou dépensée pour la mauvaise chose.",
+    "modes": [
+     "Bloqué : aucun débouché clair pour l'énergie.",
+     "Excès : démarrer feu et flammes, sans plan.",
+     "Déclin : un élan qui s'épuise vite."
+    ],
+    "question": "Qu'est-ce qui m'empêche d'agir sur ce qui m'enthousiasme ?"
+   }
+  }
+ },
+ "wands_two": {
+  "name": "Deux de Bâtons",
+  "keywords": [
+   "planification",
+   "choix",
+   "vision"
+  ],
+  "upright": "Tu te tiens à la limite de ce qui t'est familier. Décide où viser.",
+  "reversed": "Peur de quitter ton confort, ou des projets qui restent sur le papier.",
+  "k": {
+   "essence": "Se tenir à la limite de ce que l'on connaît.",
+   "imagery": "Un personnage en riche robe se tient sur le rempart d'un château, un petit globe à la main, l'autre main posée sur un grand bâton, tandis qu'un autre bâton est fixé à côté de lui. Il regarde vers la mer.",
+   "why": "Deux est le nombre des choix et des paires. Tenir le globe tout en regardant au loin montre la planification et l'envie d'aller au-delà de son territoire. Le rempart montre qu'il a de la sécurité, mais qu'il se demande s'il va la quitter.",
+   "upright": {
+    "core": "Un moment de décision entre le confortable et un horizon plus vaste.",
+    "light": "planification, vision, ambition",
+    "shadow": "l'agitation, trop planifier",
+    "love": "Se demander s'il faut rester installé·e ou grandir dans une nouvelle direction.",
+    "work": "Peser un grand changement face à ce que tu as construit.",
+    "question": "Qu'est-ce que je veux qui va au-delà de ce que j'ai ?"
+   },
+   "reversed": {
+    "core": "La peur de quitter le connu, ou des projets qui ne quittent jamais le papier.",
+    "modes": [
+     "Bloqué : rester sur place par peur.",
+     "Excès : planifier sans fin.",
+     "Intérieur : des rêves que tu n'as pas partagés."
+    ],
+    "question": "Est-ce la prudence qui me retient ici, ou le confort ?"
+   }
+  }
+ },
+ "wands_three": {
+  "name": "Trois de Bâtons",
+  "keywords": [
+   "anticipation",
+   "progrès",
+   "expansion"
+  ],
+  "upright": "Tes premiers efforts portent leurs fruits. Regarde plus loin et continue.",
+  "reversed": "Des retards ou une vision étroite. Élargis ton regard.",
+  "k": {
+   "essence": "Après le lancement, observer ce qui revient.",
+   "imagery": "Un personnage en riche manteau se tient sur une falaise, de dos, trois bâtons plantés autour de lui, et contemple une mer calme où voguent des navires.",
+   "why": "Trois est la croissance au-delà du premier pas. Les navires sur l'eau sont des projets déjà envoyés, et le point élevé donne du recul. Il attend et observe plutôt que de se précipiter.",
+   "upright": {
+    "core": "Tes efforts sont en route ; il s'agit maintenant d'être patient·e et de voir plus large.",
+    "light": "anticipation, expansion, patience",
+    "shadow": "l'impatience, attendre des résultats immédiats",
+    "love": "Laisser à un lien l'espace de se développer.",
+    "work": "Les premiers résultats d'un projet ; viser des horizons plus larges.",
+    "question": "Qu'est-ce que j'ai mis en route et à quoi je peux faire confiance pour l'instant ?"
+   },
+   "reversed": {
+    "core": "Des retards, ou des projets qui ne quittent pas le port.",
+    "modes": [
+     "Bloqué : des projets à l'arrêt.",
+     "Excès : attendre trop, trop vite.",
+     "Déclin : perdre l'objectif de vue."
+    ],
+    "question": "Est-ce que j'attends calmement, ou est-ce que j'évite la prochaine étape ?"
+   }
+  }
+ },
+ "wands_four": {
+  "name": "Quatre de Bâtons",
+  "keywords": [
+   "fête",
+   "stabilité",
+   "foyer"
+  ],
+  "upright": "Un moment de repos et de joie partagée après l'effort.",
+  "reversed": "Un malaise à la maison ou une fête qui sonne creux.",
+  "k": {
+   "essence": "Célébrer le fait d'avoir atteint un point stable.",
+   "imagery": "Quatre grands bâtons sont reliés par une guirlande de fleurs et de fruits, formant un portail. Deux personnages lèvent des bouquets, avec des gens qui dansent et un château derrière eux.",
+   "why": "Quatre est le nombre des fondations. Les quatre bâtons forment un cadre, une structure où faire la fête. Les guirlandes et le château évoquent le foyer, la communauté et une étape franchie.",
+   "upright": {
+    "core": "Un moment d'harmonie et de joie partagée après l'effort.",
+    "light": "fête, appartenance, sécurité",
+    "shadow": "l'autosatisfaction, s'accrocher à la fête",
+    "love": "Être ensemble, une étape importante, le sentiment d'être chez soi.",
+    "work": "Terminer une étape ; être reconnu·e par une équipe.",
+    "question": "Qu'est-ce qui mérite d'être célébré en ce moment ?"
+   },
+   "reversed": {
+    "core": "De l'instabilité à la maison, ou une fête qui sonne creux.",
+    "modes": [
+     "Bloqué : des fondations fragiles.",
+     "Déclin : un bon moment qui se termine.",
+     "Intérieur : une joie qui n'est pas partagée."
+    ],
+    "question": "Qu'est-ce qui ferait de cet endroit un vrai chez-moi ?"
+   }
+  }
+ },
+ "wands_five": {
+  "name": "Cinq de Bâtons",
+  "keywords": [
+   "compétition",
+   "frictions",
+   "débat"
+  ],
+  "upright": "Des idées qui s'affrontent et de la rivalité. La compétition peut te rendre meilleur·e si elle reste amicale.",
+  "reversed": "Éviter le conflit, ou une tension qui se retourne vers l'intérieur.",
+  "k": {
+   "essence": "Des frictions entre des énergies de force égale.",
+   "imagery": "Cinq jeunes gens brandissent chacun un bâton dans ce qui ressemble à une bagarre en terrain découvert. Personne ne semble gagner, et personne ne semble gravement blessé.",
+   "why": "Cinq est le nombre de la tension après la stabilité du quatre. Chacun tient un bâton de même taille : c'est donc une compétition entre égaux, plus proche d'un entraînement musclé que d'une guerre.",
+   "upright": {
+    "core": "Des idées et des ego qui s'affrontent ; un conflit désordonné mais peut-être productif.",
+    "light": "compétition, vigueur, mettre les idées à l'épreuve",
+    "shadow": "des disputes inutiles, des efforts dispersés",
+    "love": "Des désaccords qui ont besoin d'une direction claire plutôt que de bruit.",
+    "work": "Une rivalité ou un remue-méninges où personne ne mène.",
+    "question": "Est-ce que ce conflit me mène quelque part ?"
+   },
+   "reversed": {
+    "core": "Le conflit s'apaise, est évité ou se transforme en tension silencieuse.",
+    "modes": [
+     "Bloqué : éviter un désaccord nécessaire.",
+     "Excès : se battre pour gagner.",
+     "Déclin : la paix par épuisement."
+    ],
+    "question": "À quoi ressemblerait le fait de travailler ensemble ici ?"
+   }
+  }
+ },
+ "wands_six": {
+  "name": "Six de Bâtons",
+  "keywords": [
+   "reconnaissance",
+   "progrès",
+   "confiance"
+  ],
+  "upright": "Un succès visible ou un regain de confiance grâce à tes efforts.",
+  "reversed": "Doute de soi ou besoin d'éloges. Mesure le succès selon tes propres critères.",
+  "k": {
+   "essence": "La reconnaissance après l'effort.",
+   "imagery": "Un cavalier sur un cheval paré porte une couronne de laurier et tient un bâton surmonté d'une couronne. Une foule munie de bâtons marche à ses côtés.",
+   "why": "Six est le nombre de l'harmonie après les difficultés. La couronne de laurier est un ancien symbole de victoire, et la foule montre une reconnaissance publique. Le cavalier est vu par les autres, et c'est tout le sens de la carte.",
+   "upright": {
+    "core": "Un succès que les autres peuvent voir, et la confiance qui l'accompagne.",
+    "light": "victoire, reconnaissance, fierté",
+    "shadow": "l'ego, le besoin d'applaudissements",
+    "love": "Être fier·ère d'une réussite commune.",
+    "work": "Une victoire, une promotion, terminer quelque chose de visible.",
+    "question": "Qu'est-ce que j'ai fait dont je pourrais m'autoriser à être fier·ère ?"
+   },
+   "reversed": {
+    "core": "Le succès est retardé ou creux, ou la reconnaissance semble hors de portée.",
+    "modes": [
+     "Bloqué : une victoire qui ne porte pas.",
+     "Excès : l'orgueil.",
+     "Déclin : des efforts qui passent inaperçus."
+    ],
+    "question": "De qui est-ce que j'attends l'approbation ?"
+   }
+  }
+ },
+ "wands_seven": {
+  "name": "Sept de Bâtons",
+  "keywords": [
+   "défense",
+   "persévérance",
+   "tenir bon"
+  ],
+  "upright": "Tu tiens ta position. Reste ferme sur ce en quoi tu crois.",
+  "reversed": "Te sentir débordé·e ou abandonner trop tôt.",
+  "k": {
+   "essence": "Tenir sa position.",
+   "imagery": "Un personnage au sommet d'une colline tient un bâton et repousse six bâtons qui montent d'en bas. Il porte une chaussure différente à chaque pied.",
+   "why": "Sept est le nombre des épreuves. La hauteur est un avantage, et être en infériorité numérique met la détermination à l'épreuve. Les chaussures dépareillées suggèrent une résistance improvisée, avant d'être tout à fait prêt.",
+   "upright": {
+    "core": "Défendre une position face à la contestation.",
+    "light": "résilience, limites, courage",
+    "shadow": "être sur la défensive, voir chaque remise en question comme une attaque",
+    "love": "Défendre tes besoins ou une limite.",
+    "work": "Protéger ton travail ou ton idée sous la pression.",
+    "question": "Qu'est-ce que je défends, et est-ce que ça en vaut la peine ?"
+   },
+   "reversed": {
+    "core": "Céder sous la pression, ou s'user à la longue.",
+    "modes": [
+     "Bloqué : reculer trop vite.",
+     "Excès : combattre tout et tout le monde.",
+     "Déclin : être à court d'énergie."
+    ],
+    "question": "Est-ce une position qui vaut la peine d'être tenue ?"
+   }
+  }
+ },
+ "wands_eight": {
+  "name": "Huit de Bâtons",
+  "keywords": [
+   "vitesse",
+   "mouvement",
+   "messages"
+  ],
+  "upright": "Les choses vont vite. Agis sans tarder et garde la communication ouverte.",
+  "reversed": "Des retards ou des efforts dispersés. Ralentis pour te réorganiser.",
+  "k": {
+   "essence": "Les choses vont vite.",
+   "imagery": "Huit bâtons traversent le ciel en diagonale au-dessus d'un paysage paisible traversé par une rivière. Aucun personnage n'apparaît dans la scène.",
+   "why": "Huit est le mouvement et la maîtrise d'un domaine. Sans personne à l'image, c'est l'élan lui-même : des choses qui arrivent plus vite que quiconque ne peut les diriger, comme des messages qui arrivent.",
+   "upright": {
+    "core": "Des progrès rapides, des nouvelles ou des événements qui t'emportent.",
+    "light": "vitesse, nouvelles, élan",
+    "shadow": "la précipitation, une attention dispersée",
+    "love": "Une communication ou des évolutions rapides.",
+    "work": "Des progrès rapides, des messages, des voyages.",
+    "question": "Qu'est-ce que je suis prêt·e à laisser avancer vite ?"
+   },
+   "reversed": {
+    "core": "Des retards, des malentendus, ou des choses qui vont plus vite que tu ne peux gérer.",
+    "modes": [
+     "Bloqué : des retards et de l'attente.",
+     "Excès : la hâte et les erreurs.",
+     "Déclin : l'élan perdu."
+    ],
+    "question": "Où ai-je besoin de ralentir pour rattraper mon retard ?"
+   }
+  }
+ },
+ "wands_nine": {
+  "name": "Neuf de Bâtons",
+  "keywords": [
+   "résilience",
+   "limites",
+   "dernier effort"
+  ],
+  "upright": "Fatigué·e mais presque arrivé·e. Puise dans ta résilience.",
+  "reversed": "Épuisement ou entêtement. Se reposer est peut-être plus sage qu'un nouveau round.",
+  "k": {
+   "essence": "Épuisé, mais toujours debout.",
+   "imagery": "Un personnage couvert d'un bandage s'appuie sur un bâton et regarde avec méfiance d'un côté. Derrière lui, huit bâtons se dressent comme une palissade.",
+   "why": "Neuf est le nombre proche de la fin d'un cycle, quand les forces sont au plus bas. Le bandage montre qu'il a été blessé, et la palissade qu'il a bâti des défenses. Il tient toujours debout.",
+   "upright": {
+    "core": "La résilience après une longue lutte ; un dernier effort avant le repos.",
+    "light": "persévérance, courage, prudence",
+    "shadow": "l'entêtement, la méfiance après une période difficile",
+    "love": "Te protéger après une blessure.",
+    "work": "Approcher de la fin d'un long projet, fatigué·e mais tout près du but.",
+    "question": "De quoi ai-je besoin pour tenir jusqu'à la dernière ligne droite ?"
+   },
+   "reversed": {
+    "core": "L'épuisement, ou des défenses qui ne protègent plus.",
+    "modes": [
+     "Bloqué : le burn-out.",
+     "Excès : la paranoïa.",
+     "Déclin : abandonner près du but."
+    ],
+    "question": "Qu'est-ce que je peux poser pour me reposer ?"
+   }
+  }
+ },
+ "wands_ten": {
+  "name": "Dix de Bâtons",
+  "keywords": [
+   "fardeau",
+   "responsabilité",
+   "surcharge"
+  ],
+  "upright": "Tu portes beaucoup. Réfléchis à ce que tu peux déposer.",
+  "reversed": "Déposer un fardeau, ou avoir du mal à demander de l'aide.",
+  "k": {
+   "essence": "Porter plus que ce qui te revenait.",
+   "imagery": "Un personnage se penche en avant sous le poids de dix bâtons liés ensemble, en direction d'un village au loin.",
+   "why": "Dix est la fin d'un cycle, et ici c'est la surcharge. Les bâtons sont tous rassemblés en un seul fardeau, et le village montre que le but est proche. La question est de savoir s'il faut vraiment tout porter seul.",
+   "upright": {
+    "core": "Les responsabilités et l'effort à leur limite, et un signe qu'il faut partager la charge.",
+    "light": "dévouement, travail acharné, presque arrivé",
+    "shadow": "le surmenage, en prendre trop sur soi",
+    "love": "Tout porter seul·e dans une relation.",
+    "work": "Un emploi du temps surchargé, le burn-out, un projet presque terminé.",
+    "question": "Qu'est-ce que je peux confier à quelqu'un d'autre ou déposer ?"
+   },
+   "reversed": {
+    "core": "Déposer le fardeau, ou s'effondrer dessous.",
+    "modes": [
+     "Libération : enfin partager la charge.",
+     "Excès : refuser l'aide.",
+     "Bloqué : incapable de lâcher quoi que ce soit."
+    ],
+    "question": "Qu'est-ce que je porte qui n'a jamais été à moi ?"
+   }
+  }
+ },
+ "wands_page": {
+  "name": "Valet de Bâtons",
+  "keywords": [
+   "curiosité",
+   "enthousiasme",
+   "exploration"
+  ],
+  "upright": "Un nouveau venu plein d'entrain, impatient d'explorer et d'essayer des idées.",
+  "reversed": "De l'impatience ou des projets à moitié finis.",
+  "k": {
+   "essence": "Une étincelle de curiosité que tu as le droit de suivre.",
+   "imagery": "Un jeune personnage vêtu d'une tunique ornée de salamandres se tient dans un désert, un grand bâton à la main, et en examine le sommet. Des pyramides se dressent au loin.",
+   "why": "Les Valets sont des débutants et des messagers. Les Bâtons sont le feu : c'est donc un élan enthousiaste, encore à ses débuts. Les salamandres sont un symbole traditionnel du feu, et la terre aride suggère un talent qui n'a pas encore été mis à l'épreuve.",
+   "upright": {
+    "core": "L'enthousiasme pour quelque chose de nouveau, et la volonté de l'explorer avant d'y être doué·e.",
+    "light": "curiosité, jeu, un premier essai audacieux",
+    "shadow": "un intérêt dispersé, abandonner quand ça devient difficile",
+    "love": "Un enthousiasme tout neuf pour une personne ou une façon de se lier ; dire franchement ce qui te fait vibrer.",
+    "work": "Une nouvelle idée ou un projet parallèle ; apprendre en faisant.",
+    "question": "Qu'est-ce qui me rend assez curieux·se pour accepter de mal le faire au début ?"
+   },
+   "reversed": {
+    "core": "De l'excitation sans direction, ou une étincelle qui s'éteint trop tôt.",
+    "modes": [
+     "Bloqué : la peur d'avoir l'air débutant·e.",
+     "Excès : commencer beaucoup de choses et n'en finir aucune.",
+     "Déclin : l'intérêt qui retombe avant d'avoir été mis à l'épreuve."
+    ],
+    "question": "Laquelle de mes idées mérite une vraie semaine d'effort ?"
+   }
+  }
+ },
+ "wands_knight": {
+  "name": "Cavalier de Bâtons",
+  "keywords": [
+   "aventure",
+   "énergie",
+   "impulsion"
+  ],
+  "upright": "Une énergie audacieuse et impatiente qui fonce droit devant.",
+  "reversed": "Imprudence ou frustration. Réfléchis avant de sauter.",
+  "k": {
+   "essence": "Une énergie qui fonce, pour le meilleur ou pour le pire.",
+   "imagery": "Un cavalier en armure, coiffé d'un casque à plumet, cabre son cheval au galop en tenant un bâton. Le paysage est sec et pâle, avec des pyramides au loin.",
+   "why": "Les Cavaliers sont l'action en mouvement. Avec le feu pour élément, la vitesse et l'ardeur sont l'essentiel. Le cheval cabré montre un élan difficile à diriger, et la terre vide montre le peu de choses déjà construites.",
+   "upright": {
+    "core": "L'élan et l'aventure, avec une question : cette vitesse vise-t-elle quelque chose ?",
+    "light": "audace, passion, élan",
+    "shadow": "l'impatience, s'épuiser, partir avant d'avoir fini",
+    "love": "Une forte attirance ou un emballement des sentiments ; la question est de savoir si cela dure au-delà du frisson.",
+    "work": "Un pic de productivité, un changement de direction rapide.",
+    "question": "Ma vitesse m'emmène-t-elle vers quelque chose, ou me fait-elle fuir quelque chose ?"
+   },
+   "reversed": {
+    "core": "L'énergie est à l'arrêt, précipitée ou dispersée dans plusieurs directions.",
+    "modes": [
+     "Bloqué : vouloir bouger mais être retenu·e.",
+     "Excès : l'imprudence et la hâte.",
+     "Déclin : un enthousiasme retombé."
+    ],
+    "question": "Qu'est-ce qui changerait si je ralentissais de moitié ?"
+   }
+  }
+ },
+ "wands_queen": {
+  "name": "Reine de Bâtons",
+  "keywords": [
+   "chaleur",
+   "confiance",
+   "charisme"
+  ],
+  "upright": "Confiante, accueillante et motivée. Mène en inspirant.",
+  "reversed": "Insécurité ou jalousie. Reconnecte-toi à ta propre étincelle.",
+  "k": {
+   "essence": "Une confiance chaleureuse qui laisse les autres être eux-mêmes.",
+   "imagery": "Une femme couronnée est assise sur un trône sculpté de lions, un bâton dans une main et un tournesol dans l'autre. Un chat noir est assis à ses pieds.",
+   "why": "Les Reines vivent leur couleur de l'intérieur. Le feu tourné vers l'intérieur devient confiance et chaleur plutôt que précipitation. Les tournesols se tournent vers le soleil, et les lions évoquent un courage porté avec légèreté.",
+   "upright": {
+    "core": "Une chaleur pleine d'assurance : savoir qui tu es et le partager généreusement.",
+    "light": "charisme, loyauté, joie dans ce que tu fais",
+    "shadow": "la jalousie, le besoin d'être au centre de l'attention",
+    "love": "Une présence ouverte et affectueuse ; être à l'aise d'être vu·e.",
+    "work": "Mener par l'enthousiasme ; créer un endroit dont les gens ont envie de faire partie.",
+    "question": "Où est-ce que je me sens le plus moi-même, et est-ce que je l'apporte ici ?"
+   },
+   "reversed": {
+    "core": "La confiance vacille, ou la chaleur devient contrôlante.",
+    "modes": [
+     "Bloqué : douter de ta propre valeur.",
+     "Excès : le besoin d'être admiré·e.",
+     "Intérieur : une chaleur que tu ne laisses pas aller vers les autres."
+    ],
+    "question": "Est-ce que je cherche l'approbation, ou est-ce que je partage ce que je ressens vraiment ?"
+   }
+  }
+ },
+ "wands_king": {
+  "name": "Roi de Bâtons",
+  "keywords": [
+   "vision",
+   "leadership",
+   "audace"
+  ],
+  "upright": "Un meneur naturel à la vision claire.",
+  "reversed": "Un leadership autoritaire ou impulsif.",
+  "k": {
+   "essence": "Une vision, et la volonté de la mener.",
+   "imagery": "Un roi couronné est assis, détendu, sur un trône orné de lions et de salamandres, tenant un bâton en fleurs. Son manteau est orange et son regard se perd au loin.",
+   "why": "Les Rois tournent leur couleur vers l'extérieur, jusqu'à la maîtrise. Le feu maîtrisé devient vision et leadership. Les salamandres et les lions reprennent les thèmes du feu, et le bâton qui bourgeonne montre une croissance entre des mains sûres.",
+   "upright": {
+    "core": "Mener avec énergie et une idée claire de la direction à prendre.",
+    "light": "inspiration, esprit de décision, vision d'ensemble",
+    "shadow": "l'autoritarisme, l'impatience face aux détails ou aux gens",
+    "love": "Une passion vécue avec maturité : loyale, généreuse, directe.",
+    "work": "Prendre les rênes d'un projet ; fixer une direction que les autres suivront.",
+    "question": "Vers quoi est-ce que je construis, et qui vient avec moi ?"
+   },
+   "reversed": {
+    "core": "Le leadership glisse vers le contrôle, ou la vision manque de suivi.",
+    "modes": [
+     "Excès : l'autoritarisme, écraser les autres.",
+     "Bloqué : un plan qui ne sort jamais de ta tête.",
+     "Déclin : une énergie qui a besoin de repos."
+    ],
+    "question": "Est-ce que je guide les gens, ou est-ce que je les pousse ?"
+   }
+  }
+ },
+ "cups_ace": {
+  "name": "As de Coupes",
+  "keywords": [
+   "ouverture",
+   "sentiments nouveaux",
+   "compassion"
+  ],
+  "upright": "Un cœur qui s'ouvre. Accueille la bienveillance et le renouveau émotionnel.",
+  "reversed": "Des sentiments retenus. Autorise-toi à ressentir.",
+  "k": {
+   "essence": "Un sentiment qui veut déborder.",
+   "imagery": "Une main sortant d'un nuage tient une coupe d'où cinq filets d'eau s'écoulent dans un bassin couvert de nénuphars. Une colombe portant une petite hostie descend vers la coupe.",
+   "why": "Les As sont la graine de leur couleur. L'Eau est le sentiment : c'est donc le cœur qui s'ouvre. L'eau qui déborde montre l'abondance, les nénuphars le calme, et la colombe ajoute la paix et la grâce.",
+   "upright": {
+    "core": "Un nouveau départ émotionnel : amour, compassion, créativité ou lien.",
+    "light": "ouverture, compassion, nouvel amour",
+    "shadow": "un sentiment qui n'est pas reconnu",
+    "love": "Un nouveau départ en amour ou une intimité plus profonde.",
+    "work": "La passion pour un travail en accord avec tes valeurs.",
+    "question": "Que me laisserais-je ressentir si je ne me protégeais pas ?"
+   },
+   "reversed": {
+    "core": "Les sentiments sont retenus, bloqués ou déversés sans être vus.",
+    "modes": [
+     "Bloqué : fermé·e sur le plan émotionnel.",
+     "Excès : un trop-plein sans direction.",
+     "Intérieur : des sentiments gardés pour soi."
+    ],
+    "question": "Quel sentiment est-ce que je me cache à moi-même ?"
+   }
+  }
+ },
+ "cups_two": {
+  "name": "Deux de Coupes",
+  "keywords": [
+   "lien",
+   "partenariat",
+   "respect mutuel"
+  ],
+  "upright": "Un lien équilibré, fondé sur le respect et des sentiments partagés.",
+  "reversed": "Déséquilibre ou malentendu dans une relation.",
+  "k": {
+   "essence": "Une rencontre d'égal à égal.",
+   "imagery": "Un homme et une femme se font face et se tendent des coupes en signe d'engagement. Au-dessus d'eux flotte une tête de lion ailée, au-dessus d'un bâton autour duquel s'enroulent deux serpents. Une maison se dresse sur une colline derrière eux.",
+   "why": "Deux est le nombre des paires. C'est une image d'échange mutuel : chacun offre une coupe et chacun en reçoit une. Le lion ailé et le bâton aux serpents sont d'anciens symboles de liens forts et de guérison.",
+   "upright": {
+    "core": "Un lien fondé sur le respect mutuel, en amour ou en amitié.",
+    "light": "partenariat, attirance, équilibre",
+    "shadow": "un échange inégal, idéaliser l'autre",
+    "love": "Un lien où chacun donne et reçoit.",
+    "work": "Un bon partenariat professionnel.",
+    "question": "Ce que je donne et ce que je reçois sont-ils équilibrés ?"
+   },
+   "reversed": {
+    "core": "Déséquilibre, malentendu, ou un lien qui se distend.",
+    "modes": [
+     "Bloqué : incapable de s'ouvrir à l'autre.",
+     "Excès : fusionner trop vite.",
+     "Déclin : une proximité qui se refroidit."
+    ],
+    "question": "Où l'échange entre nous est-il inégal ?"
+   }
+  }
+ },
+ "cups_three": {
+  "name": "Trois de Coupes",
+  "keywords": [
+   "amitié",
+   "fête",
+   "communauté"
+  ],
+  "upright": "Une joie partagée avec d'autres. Profite de la bonne compagnie.",
+  "reversed": "Excès, ou te sentir mis·e à l'écart.",
+  "k": {
+   "essence": "Une joie partagée avec d'autres.",
+   "imagery": "Trois femmes lèvent leurs coupes ensemble pour fêter quelque chose, dans un jardin, avec des fruits de la récolte à leurs pieds.",
+   "why": "Trois est le nombre de la croissance et de la communauté. Les coupes levées et la récolte montrent une joie partagée pour ce qui a poussé. Le thème ici est l'amitié plus que la romance.",
+   "upright": {
+    "core": "La fête, l'amitié et le soutien d'une communauté.",
+    "light": "amitié, joie, être ensemble",
+    "shadow": "les excès, les ragots",
+    "love": "La chaleur des amis et de la communauté.",
+    "work": "La collaboration et fêter une réussite d'équipe.",
+    "question": "Avec qui ai-je envie de faire la fête ?"
+   },
+   "reversed": {
+    "core": "L'isolement, ou la fête qui tourne mal.",
+    "modes": [
+     "Bloqué : mis·e à l'écart ou en retrait.",
+     "Excès : trop se laisser aller.",
+     "Déclin : des amitiés qui s'éloignent."
+    ],
+    "question": "Qui manque dans mon entourage ?"
+   }
+  }
+ },
+ "cups_four": {
+  "name": "Quatre de Coupes",
+  "keywords": [
+   "apathie",
+   "contemplation",
+   "remise en question"
+  ],
+  "upright": "Ennui ou repli. Demande-toi ce que tu veux vraiment.",
+  "reversed": "S'ouvrir à de nouvelles options après une période terne.",
+  "k": {
+   "essence": "Ne pas voir ce qui est offert.",
+   "imagery": "Un personnage est assis sous un arbre, bras et jambes croisés, et regarde trois coupes posées au sol. Une main sortant d'un nuage lui tend une quatrième coupe, qu'il ne semble pas remarquer.",
+   "why": "Quatre est une pause. Les trois coupes retiennent son attention pendant qu'une nouvelle lui est offerte. Les bras croisés montrent le repli, et la main du nuage montre que quelque chose est proposé, s'il lève les yeux.",
+   "upright": {
+    "core": "Une pause pour réfléchir, et la question de savoir si l'ennui cache une occasion.",
+    "light": "réflexion, contemplation, réévaluation",
+    "shadow": "l'apathie, passer à côté de ce qui est offert",
+    "love": "Se sentir éteint·e dans un lien, ou ignorer une marque d'attention.",
+    "work": "L'ennui face à ce que tu as ; de l'espace pour repenser les choses.",
+    "question": "Qu'est-ce que je néglige parce que je regarde ce qui me manque ?"
+   },
+   "reversed": {
+    "core": "Prendre conscience de quelque chose que tu ignorais, ou t'enfoncer davantage dans l'apathie.",
+    "modes": [
+     "Libération : voir enfin ce qui est offert.",
+     "Bloqué : coincé·e dans le repli.",
+     "Excès : tout rejeter."
+    ],
+    "question": "Qu'est-ce que je pourrais accepter si je levais les yeux ?"
+   }
+  }
+ },
+ "cups_five": {
+  "name": "Cinq de Coupes",
+  "keywords": [
+   "perte",
+   "regret",
+   "chagrin"
+  ],
+  "upright": "L'attention est fixée sur ce qui est perdu. Souviens-toi que certaines coupes sont encore debout.",
+  "reversed": "Aller de l'avant, pardonner, et se tourner peu à peu vers ce qui reste.",
+  "k": {
+   "essence": "Un chagrin qui cache ce qui reste.",
+   "imagery": "Un personnage drapé d'une cape noire fait face à trois coupes renversées. Deux coupes sont encore debout derrière lui. Une rivière, un pont et une maison se trouvent au loin.",
+   "why": "Cinq est un nombre de perte et de tension. Les coupes renversées sont ce qui est parti, et les coupes debout ce qui reste. Le dos tourné est l'essentiel : il n'a pas encore regardé autour de lui.",
+   "upright": {
+    "core": "Pleurer ce qui a été perdu, alors qu'il reste encore quelque chose vers quoi se tourner.",
+    "light": "chagrin, regret, sentiment sincère",
+    "shadow": "ressasser la perte, l'amertume",
+    "love": "La tristesse face à une relation qui a changé.",
+    "work": "La déception face à un résultat.",
+    "question": "Qu'est-ce qui reste et que je n'ai pas encore regardé ?"
+   },
+   "reversed": {
+    "core": "Aller de l'avant, pardonner, ou rester coincé·e dans le regret.",
+    "modes": [
+     "Libération : se tourner vers ce qui reste.",
+     "Bloqué : refuser de lâcher prise.",
+     "Intérieur : un chagrin non exprimé."
+    ],
+    "question": "Qu'est-ce que je suis prêt·e à cesser de pleurer ?"
+   }
+  }
+ },
+ "cups_six": {
+  "name": "Six de Coupes",
+  "keywords": [
+   "nostalgie",
+   "innocence",
+   "gentillesse"
+  ],
+  "upright": "Des souvenirs et une générosité douce. Revisite le passé avec tendresse.",
+  "reversed": "Rester coincé·e dans le passé, ou regarder en arrière au lieu de regarder devant.",
+  "k": {
+   "essence": "La chaleur venue du passé.",
+   "imagery": "Dans la cour d'un village, un enfant tend une coupe remplie de fleurs à un enfant plus petit. D'autres coupes fleuries sont posées autour, avec un garde à l'arrière-plan.",
+   "why": "Six est le nombre de l'harmonie. La scène d'enfance évoque l'innocence et les liens anciens, avec des fleurs en guise de cadeau. Le thème est la nostalgie, ainsi que la gentillesse toute simple.",
+   "upright": {
+    "core": "Les souvenirs, la gentillesse toute simple et les liens anciens.",
+    "light": "nostalgie, gentillesse, innocence",
+    "shadow": "vivre dans le passé",
+    "love": "Retrouver un·e vieil·le ami·e, ou une tendresse sentimentale.",
+    "work": "Revenir à ce que tu aimais faire autrefois.",
+    "question": "Qu'est-ce qui, dans mon passé, mérite d'être ramené dans le présent ?"
+   },
+   "reversed": {
+    "core": "Rester coincé·e dans les souvenirs, ou lâcher le passé.",
+    "modes": [
+     "Bloqué : incapable de quitter le passé.",
+     "Libération : dépasser de vieux schémas.",
+     "Excès : idéaliser ce qui a été."
+    ],
+    "question": "Est-ce que je me souviens du passé, ou est-ce que je m'y cache ?"
+   }
+  }
+ },
+ "cups_seven": {
+  "name": "Sept de Coupes",
+  "keywords": [
+   "rêveries",
+   "options",
+   "illusion"
+  ],
+  "upright": "Beaucoup de possibilités et une part de fantasme. Trie le réel de l'imaginaire.",
+  "reversed": "La clarté arrive, ou des choix qui submergent.",
+  "k": {
+   "essence": "Beaucoup de rêves et aucun choix clair.",
+   "imagery": "Un personnage vu en silhouette se tient devant sept coupes qui flottent dans les nuages. Chacune contient quelque chose de différent : un visage, une figure voilée, un serpent, un château, des bijoux, une couronne de laurier et un dragon.",
+   "why": "Sept est un nombre d'épreuve. Les coupes sont des options, certaines attirantes, d'autres dangereuses, toutes suspendues dans les nuages plutôt que posées sur un sol solide. Le personnage les regarde et n'a pas encore choisi.",
+   "upright": {
+    "core": "Une profusion d'options et de fantasmes, qui demande un tri lucide.",
+    "light": "imagination, possibilités, rêve",
+    "shadow": "l'illusion, l'indécision, prendre ses désirs pour des réalités",
+    "love": "Des images idéalisées de l'amour face à la personne réelle.",
+    "work": "Trop d'idées ; en choisir une à laquelle s'engager.",
+    "question": "Lequel de ces rêves suis-je prêt·e à rendre réel ?"
+   },
+   "reversed": {
+    "core": "Le brouillard se dissipe, ou se perdre dans les fantasmes.",
+    "modes": [
+     "Libération : voir enfin clair.",
+     "Excès : se perdre dans l'évasion.",
+     "Bloqué : incapable de choisir."
+    ],
+    "question": "Quelle option est réelle, et laquelle est seulement séduisante ?"
+   }
+  }
+ },
+ "cups_eight": {
+  "name": "Huit de Coupes",
+  "keywords": [
+   "s'éloigner",
+   "chercher plus",
+   "tourner la page"
+  ],
+  "upright": "Quitter ce qui ne te satisfait plus pour chercher du sens.",
+  "reversed": "Errer sans but, ou avoir peur de partir.",
+  "k": {
+   "essence": "Quitter ce qui ne te comble plus.",
+   "imagery": "Un personnage en cape, un bâton à la main, s'éloigne de huit coupes empilées en direction de collines sombres. Une lune apparaît dans le ciel. Un vide dans la pile montre qu'il manque une coupe.",
+   "why": "Huit est un tournant. Les coupes empilées forment un ensemble soigné mais incomplet, et le marcheur choisit une route difficile plutôt que de rester. La lune suggère un voyage entrepris dans l'obscurité.",
+   "upright": {
+    "core": "S'éloigner de quelque chose qui a l'air bien mais ne satisfait plus.",
+    "light": "tourner la page, honnêteté, quête de sens",
+    "shadow": "fuir, partir sans regarder pourquoi",
+    "love": "Quitter, ou avoir besoin de quitter, un lien qui a fait son temps.",
+    "work": "Abandonner une voie qui ne te correspond plus.",
+    "question": "Qu'est-ce que je quitte, et vers quoi est-ce que je vais ?"
+   },
+   "reversed": {
+    "core": "Rester par peur, ou partir sans plan.",
+    "modes": [
+     "Bloqué : avoir peur de partir.",
+     "Excès : toujours passer à autre chose.",
+     "Intérieur : partir en silence."
+    ],
+    "question": "Est-ce que je pars pour aller vers quelque chose, ou seulement pour fuir quelque chose ?"
+   }
+  }
+ },
+ "cups_nine": {
+  "name": "Neuf de Coupes",
+  "keywords": [
+   "contentement",
+   "satisfaction",
+   "gratitude"
+  ],
+  "upright": "Un sentiment d'accomplissement. Apprécie ce que tu as.",
+  "reversed": "De la suffisance, ou un souhait moins satisfaisant que prévu.",
+  "k": {
+   "essence": "Un contentement dont tu peux profiter.",
+   "imagery": "Un homme coiffé d'un chapeau rouge est assis sur un banc, les bras croisés, l'air satisfait. Derrière lui, sur une table en arc de cercle, se dressent neuf coupes sous une nappe bleue.",
+   "why": "Neuf est proche de la fin d'un cycle, quand on peut profiter des résultats. Les coupes sont soigneusement exposées et sa posture est détendue. On l'appelle souvent la carte des vœux, mais elle peut aussi désigner une satisfaction personnelle.",
+   "upright": {
+    "core": "La satisfaction face à ce pour quoi tu as travaillé.",
+    "light": "contentement, gratitude, plaisir",
+    "shadow": "l'autosatisfaction, l'étalage",
+    "love": "Te sentir comblé·e et en sécurité.",
+    "work": "Atteindre un objectif personnel qui te réjouit.",
+    "question": "Qu'est-ce que j'ai déjà et qui me réjouit ?"
+   },
+   "reversed": {
+    "core": "L'insatisfaction, alors que tu as ce que tu voulais.",
+    "modes": [
+     "Bloqué : rien ne semble suffire.",
+     "Excès : trop se faire plaisir.",
+     "Intérieur : une satisfaction que tu ne partages pas."
+    ],
+    "question": "Qu'est-ce qui me semblerait suffisant ?"
+   }
+  }
+ },
+ "cups_ten": {
+  "name": "Dix de Coupes",
+  "keywords": [
+   "harmonie",
+   "famille",
+   "épanouissement"
+  ],
+  "upright": "Un épanouissement émotionnel et un sentiment d'appartenance.",
+  "reversed": "Des liens tendus, ou des valeurs qui ne s'accordent pas tout à fait.",
+  "k": {
+   "essence": "L'image d'un foyer heureux.",
+   "imagery": "Un couple se tient les bras levés sous un arc-en-ciel de dix coupes, tandis que deux enfants dansent à côté d'eux. Une petite maison se dresse dans un paysage verdoyant.",
+   "why": "Dix est l'accomplissement d'un cycle. Là où le Neuf est personnel, le Dix est partagé : une scène de famille ou de communauté. L'arc-en-ciel s'étend au-dessus de tous comme une bénédiction.",
+   "upright": {
+    "core": "Un épanouissement émotionnel partagé avec les personnes que tu aimes.",
+    "light": "harmonie, appartenance, famille",
+    "shadow": "un idéal qui cache de vrais problèmes",
+    "love": "Une proximité profonde et durable, et des valeurs partagées.",
+    "work": "Un lieu de travail où tu sens que tu as ta place.",
+    "question": "Que signifie pour moi un foyer ou une communauté où l'on est bien ?"
+   },
+   "reversed": {
+    "core": "Des tensions dans une famille ou un groupe, ou un idéal hors de portée.",
+    "modes": [
+     "Bloqué : de la distance à la maison.",
+     "Excès : la pression de paraître parfait.",
+     "Déclin : des valeurs qui ne concordent plus."
+    ],
+    "question": "Qu'est-ce qui manque à mon image de l'appartenance ?"
+   }
+  }
+ },
+ "cups_page": {
+  "name": "Valet de Coupes",
+  "keywords": [
+   "sensibilité",
+   "imagination",
+   "ouverture"
+  ],
+  "upright": "Un message tendre et créatif. Écoute tes sentiments.",
+  "reversed": "Des sautes d'humeur ou une immaturité émotionnelle.",
+  "k": {
+   "essence": "Un doux message de tes propres sentiments.",
+   "imagery": "Un jeune personnage vêtu d'une tunique fleurie se tient au bord de la mer, une coupe à la main, d'où un petit poisson sort la tête. L'eau derrière lui est calme.",
+   "why": "Les Valets sont des commencements, et les Coupes le sentiment et l'imagination. Le poisson qui sort de la coupe est une image espiègle d'une idée ou d'une émotion inattendue qui fait surface. La mer derrière représente l'inconscient profond.",
+   "upright": {
+    "core": "Une impulsion tendre et créative ; être ouvert·e aux surprises de ta vie intérieure.",
+    "light": "sensibilité, émerveillement, imagination",
+    "shadow": "les sautes d'humeur, se réfugier dans la rêverie",
+    "love": "Un geste doux ou un sentiment sincère partagé pour la première fois.",
+    "work": "Une idée créative qui a besoin d'espace ; un commencement en douceur.",
+    "question": "Quel petit sentiment essaie d'attirer mon attention ?"
+   },
+   "reversed": {
+    "core": "Les sentiments sont retenus, ou tournent au mélodrame.",
+    "modes": [
+     "Bloqué : avoir peur d'être vulnérable.",
+     "Excès : l'hypersensibilité.",
+     "Intérieur : une idée créative gardée secrète."
+    ],
+    "question": "Est-ce que j'ignore un sentiment discret parce qu'il me semble puéril ?"
+   }
+  }
+ },
+ "cups_knight": {
+  "name": "Cavalier de Coupes",
+  "keywords": [
+   "romance",
+   "charme",
+   "idéalisme"
+  ],
+  "upright": "Un rêveur qui suit son cœur. Des offres ou des invitations peuvent arriver.",
+  "reversed": "Des idées irréalistes ou des signaux contradictoires.",
+  "k": {
+   "essence": "Suivre son cœur, avec un regard romantique.",
+   "imagery": "Un chevalier en armure, au casque et aux bottes ailés, avance au pas sur un cheval blanc paisible, une coupe tendue devant lui. Une rivière et des collines lointaines s'étendent devant lui.",
+   "why": "Les Cavaliers poursuivent quelque chose, et dans les Coupes, c'est le sentiment qu'ils poursuivent. Le cheval lent montre qu'il s'agit d'une cour plutôt que d'une conquête. Les ailes du casque évoquent les idéaux et l'imagination.",
+   "upright": {
+    "core": "Poursuivre quelque chose parce que cela te touche ; une offre, une invitation, un idéal.",
+    "light": "romance, charme, idéalisme",
+    "shadow": "la rêverie, des promesses qui dépassent la réalité",
+    "love": "Un geste romantique ou l'envie d'en recevoir un ; l'écart entre l'idéal et la personne.",
+    "work": "Suivre l'inspiration ; présenter une idée avec cœur.",
+    "question": "Est-ce que je suis une personne, ou une image d'elle ?"
+   },
+   "reversed": {
+    "core": "Du charme sans fond, ou une fuite face aux sentiments.",
+    "modes": [
+     "Excès : courir après un idéal qui n'est pas réel.",
+     "Bloqué : incapable de dire ce que tu ressens.",
+     "Déclin : un enthousiasme qui se refroidit."
+    ],
+    "question": "Qu'est-ce qui changerait si j'agissais à partir de ce qui est réel, et non de ce que j'espère ?"
+   }
+  }
+ },
+ "cups_queen": {
+  "name": "Reine de Coupes",
+  "keywords": [
+   "empathie",
+   "intuition",
+   "soin"
+  ],
+  "upright": "Profondément attentionnée et intuitive. Prends soin de toi aussi.",
+  "reversed": "Un débordement émotionnel ou négliger tes propres besoins.",
+  "k": {
+   "essence": "Un sentiment profond porté avec soin.",
+   "imagery": "Une femme couronnée est assise sur un trône en forme de coquillage au bord de l'eau, tenant à deux mains une coupe fermée et ouvragée qu'elle contemple. De petits personnages décorent le trône.",
+   "why": "Les Reines incarnent leur couleur de l'intérieur. La coupe fermée et ouvragée montre des sentiments précieusement gardés, qui ne se répandent pas. Sa place au bord de l'eau la situe là où le conscient et l'inconscient se rencontrent.",
+   "upright": {
+    "core": "L'empathie et l'intuition utilisées avec soin, y compris envers toi-même.",
+    "light": "compassion, intuition, profondeur émotionnelle",
+    "shadow": "absorber l'humeur des autres, perdre tes propres limites",
+    "love": "Écouter attentivement ; être disponible sans te perdre.",
+    "work": "Des rôles de soutien, sentir ce dont une équipe a besoin.",
+    "question": "Quels sentiments est-ce que je porte et qui ne sont pas les miens ?"
+   },
+   "reversed": {
+    "core": "L'empathie bascule dans le don excessif, ou les sentiments sont mis sous clé.",
+    "modes": [
+     "Excès : prendre sur soi les problèmes de tout le monde.",
+     "Bloqué : anesthésier tes propres sentiments.",
+     "Intérieur : prendre soin des autres mais pas de toi."
+    ],
+    "question": "Où s'arrêtent mes sentiments et où commencent ceux des autres ?"
+   }
+  }
+ },
+ "cups_king": {
+  "name": "Roi de Coupes",
+  "keywords": [
+   "équilibre émotionnel",
+   "diplomatie",
+   "calme"
+  ],
+  "upright": "Mûr, stable et plein de compassion. Garde ton calme sous la pression.",
+  "reversed": "Des sentiments refoulés ou des sautes d'humeur cachées derrière un air posé.",
+  "k": {
+   "essence": "Un calme qui contient le sentiment sans se laisser gouverner par lui.",
+   "imagery": "Un roi couronné est assis sur un trône qui flotte sur une eau agitée, une coupe dans une main et un sceptre dans l'autre. Un poisson saute dans les vagues et un navire vogue derrière lui.",
+   "why": "Les Rois maîtrisent leur couleur vers l'extérieur. Le trône reste stable sur une eau tumultueuse, et c'est tout le message : le sentiment est là, mais contenu. Le poisson qui saute montre que la créativité est toujours vivante.",
+   "upright": {
+    "core": "La maturité émotionnelle : ressentir profondément et choisir malgré tout comment réagir.",
+    "light": "diplomatie, équilibre, générosité",
+    "shadow": "la distance émotionnelle, refouler ses sentiments, la manipulation",
+    "love": "Une présence stable et bienveillante dans les conversations difficiles.",
+    "work": "La médiation, le conseil, mener avec calme.",
+    "question": "Comment rester stable quand l'eau est agitée ?"
+   },
+   "reversed": {
+    "core": "La maîtrise des sentiments se durcit en froideur, ou le calme se fissure.",
+    "modes": [
+     "Bloqué : tout garder pour soi.",
+     "Excès : des humeurs qui dominent la pièce.",
+     "Intérieur : calme en surface, tempête en dessous."
+    ],
+    "question": "Est-ce que je suis calme, ou est-ce que je ne le montre simplement pas ?"
+   }
+  }
+ },
+ "swords_ace": {
+  "name": "As d'Épées",
+  "keywords": [
+   "clarté",
+   "vérité",
+   "percée"
+  ],
+  "upright": "Une idée claire tranche dans la confusion. Pense et parle simplement.",
+  "reversed": "Une pensée embrouillée ou des mots durs.",
+  "k": {
+   "essence": "Une idée claire qui tranche.",
+   "imagery": "Une main sortant d'un nuage serre une épée pointée vers le haut, avec une couronne à son extrémité d'où pendent des branches d'olivier et de palmier. Des montagnes s'étendent en dessous.",
+   "why": "Les As sont la graine de leur couleur. L'Air est la pensée et la vérité : c'est donc la clarté et la décision. La couronne et ses branches montrent à la fois la victoire et la paix, pour rappeler qu'un esprit clair peut servir l'une comme l'autre.",
+   "upright": {
+    "core": "Une intuition claire ou une décision qui tranche dans la confusion.",
+    "light": "clarté, vérité, une percée",
+    "shadow": "des mots utilisés comme des armes",
+    "love": "Une conversation honnête et directe qui assainit l'atmosphère.",
+    "work": "Une idée vive ou une décision claire.",
+    "question": "Qu'est-ce que je vois clairement maintenant ?"
+   },
+   "reversed": {
+    "core": "La confusion, ou une vérité que tu évites.",
+    "modes": [
+     "Bloqué : incapable de penser clairement.",
+     "Excès : des mots durs.",
+     "Intérieur : une vérité connue mais tue."
+    ],
+    "question": "Qu'est-ce que je ne m'autorise pas à admettre ?"
+   }
+  }
+ },
+ "swords_two": {
+  "name": "Deux d'Épées",
+  "keywords": [
+   "impasse",
+   "indécision",
+   "sur ses gardes"
+  ],
+  "upright": "Un choix difficile que tu évites. Retire le bandeau quand tu seras prêt·e.",
+  "reversed": "Des informations apparaissent, ou l'indécision s'éternise.",
+  "k": {
+   "essence": "Une décision face à laquelle tu fermes les yeux.",
+   "imagery": "Une femme aux yeux bandés est assise sur un banc, tenant deux épées croisées à hauteur de poitrine. Derrière elle s'étendent une eau calme, un croissant de lune et un rivage rocheux.",
+   "why": "Deux est le nombre des choix. Le bandeau montre un choix fait sans regarder, et les épées croisées sont un face-à-face figé, une défense contre les sentiments. La mer calme montre la paix en surface et la tension en dessous.",
+   "upright": {
+    "core": "Une impasse ; éviter une décision en refusant de regarder.",
+    "light": "équilibre, sang-froid, une pause",
+    "shadow": "l'évitement, le déni",
+    "love": "Repousser le moment d'affronter un sentiment ou un choix.",
+    "work": "Deux options et aucun moyen de choisir sans plus d'informations.",
+    "question": "Que verrais-je si j'enlevais le bandeau ?"
+   },
+   "reversed": {
+    "core": "Le choix s'impose, ou le bandeau tombe.",
+    "modes": [
+     "Libération : voir la vérité.",
+     "Excès : l'angoisse de l'indécision.",
+     "Bloqué : refuser de choisir."
+    ],
+    "question": "De quoi est-ce que je me protège en ne regardant pas ?"
+   }
+  }
+ },
+ "swords_three": {
+  "name": "Trois d'Épées",
+  "keywords": [
+   "peine de cœur",
+   "tristesse",
+   "honnêteté"
+  ],
+  "upright": "Une vérité douloureuse ou de la tristesse. Reconnais-la pour qu'elle puisse guérir.",
+  "reversed": "La guérison commence, ou tu t'accroches à la douleur.",
+  "k": {
+   "essence": "Une blessure qui mérite d'être ressentie.",
+   "imagery": "Un cœur rouge est transpercé par trois épées, sur un fond de nuages gris et de pluie.",
+   "why": "Trois est le nombre de la croissance, et dans les Épées, c'est la vérité douloureuse. L'image est volontairement dépouillée : cette carte nomme la douleur sans l'adoucir, pour qu'on puisse y faire face.",
+   "upright": {
+    "core": "Une peine de cœur ou une vérité douloureuse qu'il faut admettre.",
+    "light": "l'honnêteté face à la douleur, le chagrin, la libération",
+    "shadow": "ressasser la blessure",
+    "love": "La tristesse après une blessure ou une trahison.",
+    "work": "Une déception ou une conversation difficile.",
+    "question": "Quelle blessure suis-je prêt·e à regarder honnêtement ?"
+   },
+   "reversed": {
+    "core": "La guérison qui commence, ou s'accrocher à une vieille blessure.",
+    "modes": [
+     "Libération : la douleur s'apaise.",
+     "Bloqué : refuser de la ressentir.",
+     "Excès : revivre la blessure en boucle."
+    ],
+    "question": "À quoi ressemblerait la guérison, ici ?"
+   }
+  }
+ },
+ "swords_four": {
+  "name": "Quatre d'Épées",
+  "keywords": [
+   "repos",
+   "récupération",
+   "retraite"
+  ],
+  "upright": "Fais une pause et recharge tes batteries. Le repos est productif.",
+  "reversed": "L'agitation, ou reprendre l'action trop tôt.",
+  "k": {
+   "essence": "Le repos comme un choix.",
+   "imagery": "Le gisant de pierre d'un chevalier repose sur un tombeau, les mains jointes en prière. Trois épées sont suspendues au mur au-dessus et une quatrième repose en dessous. Un vitrail montre une figure qui prodigue des soins.",
+   "why": "Quatre est un nombre de stabilité, et ici il signifie l'immobilité. Le gisant représente le repos et la retraite, pas la mort. Le vitrail ajoute une note de guérison tranquille.",
+   "upright": {
+    "core": "Une pause nécessaire pour se reposer et récupérer.",
+    "light": "repos, récupération, calme",
+    "shadow": "se retirer trop longtemps",
+    "love": "Prendre de l'espace pour guérir.",
+    "work": "Une pause, un congé ou un temps de réflexion avant la prochaine étape.",
+    "question": "À quoi ressemblerait un vrai repos ?"
+   },
+   "reversed": {
+    "core": "L'agitation, ou revenir trop tôt.",
+    "modes": [
+     "Bloqué : incapable de se reposer.",
+     "Libération : prêt·e à revenir.",
+     "Excès : fuir la vie."
+    ],
+    "question": "Est-ce que je me repose, ou est-ce que je me cache ?"
+   }
+  }
+ },
+ "swords_five": {
+  "name": "Cinq d'Épées",
+  "keywords": [
+   "conflit",
+   "tension",
+   "victoires creuses"
+  ],
+  "upright": "Un combat qui coûte plus qu'il ne rapporte. Choisis tes batailles.",
+  "reversed": "Faire la paix, ou une rancune qui persiste.",
+  "k": {
+   "essence": "Une victoire qui a un prix.",
+   "imagery": "Au premier plan, un homme tient trois épées, l'air suffisant, tandis que deux autres gisent au sol. Deux personnages s'éloignent tête basse vers un rivage battu par l'orage.",
+   "why": "Cinq est un nombre de tension. L'homme a rassemblé les épées, mais à un prix visible : les autres s'en vont vaincus, et le ciel est orageux. La carte demande ce que vaut le fait de gagner.",
+   "upright": {
+    "core": "Un conflit où le gagnant risque de se retrouver avec peu de chose.",
+    "light": "intérêt personnel, stratégie, compétition",
+    "shadow": "la mesquinerie, les victoires creuses",
+    "love": "Une dispute gagnée au détriment du lien.",
+    "work": "Des tactiques de compétition au travail.",
+    "question": "Gagner ce combat vaut-il ce qu'il coûte ?"
+   },
+   "reversed": {
+    "core": "Faire amende honorable, ou s'éloigner d'un combat.",
+    "modes": [
+     "Libération : la réconciliation.",
+     "Excès : le besoin de gagner.",
+     "Déclin : la défaite et la honte."
+    ],
+    "question": "Contre qui est-ce que je me bats, et pourquoi ?"
+   }
+  }
+ },
+ "swords_six": {
+  "name": "Six d'Épées",
+  "keywords": [
+   "transition",
+   "tourner la page",
+   "eaux plus calmes"
+  ],
+  "upright": "S'éloigner lentement des difficultés. La guérison est en cours.",
+  "reversed": "Une résistance au changement, ou des bagages non réglés.",
+  "k": {
+   "essence": "Avancer vers des eaux plus calmes.",
+   "imagery": "Un passeur pousse à la perche une barque qui transporte une femme encapuchonnée et un enfant, avec six épées plantées debout à la proue. L'eau devant eux paraît plus calme.",
+   "why": "Six est le nombre de l'harmonie après les difficultés. Les épées sont ce qu'ils emportent avec eux. L'eau plus calme sur l'autre rive suggère une traversée difficile, avec quelque chose de meilleur devant.",
+   "upright": {
+    "core": "Une transition qui éloigne des difficultés, en emportant ses leçons avec soi.",
+    "light": "transition, guérison, laisser les difficultés derrière soi",
+    "shadow": "des bagages non réglés",
+    "love": "Dépasser une mauvaise passe, ensemble ou séparément.",
+    "work": "Changer de travail ou quitter une situation difficile.",
+    "question": "Qu'est-ce que je laisse derrière moi, et qu'est-ce que j'emporte ?"
+   },
+   "reversed": {
+    "core": "Une traversée retardée, ou des difficultés qui te suivent.",
+    "modes": [
+     "Bloqué : coincé·e sur le rivage.",
+     "Excès : fuir.",
+     "Déclin : une transition qui piétine."
+    ],
+    "question": "De quoi aurais-je besoin pour traverser ?"
+   }
+  }
+ },
+ "swords_seven": {
+  "name": "Sept d'Épées",
+  "keywords": [
+   "stratégie",
+   "secret",
+   "prudence"
+  ],
+  "upright": "Réfléchis bien ; une approche rusée demande d'être honnête sur ce qu'elle coûte.",
+  "reversed": "Avouer, ou un plan qui se retourne contre toi.",
+  "k": {
+   "essence": "Agir en douce.",
+   "imagery": "Un personnage s'éloigne sur la pointe des pieds d'un campement militaire en emportant cinq épées et en regardant derrière lui, laissant deux épées plantées dans le sol.",
+   "why": "Sept est le nombre des épreuves. Le personnage qui se faufile prend un risque seul, et les deux épées laissées derrière montrent qu'il ne pouvait pas tout emporter. La carte pose la question : le plan est-il habile, ou seulement fuyant ?",
+   "upright": {
+    "core": "La stratégie, le secret, ou éviter une approche directe.",
+    "light": "ingéniosité, stratégie, indépendance",
+    "shadow": "la tromperie, fuir ses responsabilités",
+    "love": "Quelque chose qui n'est pas dit ; des motivations cachées.",
+    "work": "Prendre des raccourcis ou contourner une règle.",
+    "question": "Où est-ce que j'évite d'être direct·e ?"
+   },
+   "reversed": {
+    "core": "Dire la vérité, ou se faire prendre.",
+    "modes": [
+     "Libération : l'aveu.",
+     "Excès : la tromperie.",
+     "Bloqué : incapable d'agir."
+    ],
+    "question": "Que me coûterait l'honnêteté ici, et que me coûte le fait de l'éviter ?"
+   }
+  }
+ },
+ "swords_eight": {
+  "name": "Huit d'Épées",
+  "keywords": [
+   "restriction",
+   "peur",
+   "se sentir piégé"
+  ],
+  "upright": "Tu te sens coincé·e, même si les options sont peut-être plus ouvertes qu'elles n'en ont l'air.",
+  "reversed": "Te libérer, et voir à nouveau des choix possibles.",
+  "k": {
+   "essence": "Se sentir prisonnier d'un piège en partie défait.",
+   "imagery": "Une femme se tient debout, les yeux bandés et ligotée, entourée de huit épées plantées dans le sol, avec une eau peu profonde à ses pieds et un château sur une colline lointaine.",
+   "why": "Huit est le mouvement et la maîtrise. Les liens sont lâches et les épées ne forment pas une cage fermée, et c'est bien là l'essentiel : la contrainte est peut-être en partie dans la tête. L'eau peu profonde suggère que la sortie n'est pas loin.",
+   "upright": {
+    "core": "Un sentiment d'être coincé·e qui tient peut-être davantage de la perception que des faits.",
+    "light": "conscience des limites, patience, une issue",
+    "shadow": "des limites qu'on s'impose, l'impuissance",
+    "love": "Se sentir piégé·e dans un schéma.",
+    "work": "Se sentir impuissant·e dans un travail ou une situation.",
+    "question": "Qu'est-ce que j'essaierais si je pensais en être capable ?"
+   },
+   "reversed": {
+    "core": "Retirer le bandeau et voir une issue.",
+    "modes": [
+     "Libération : la liberté approche.",
+     "Bloqué : rester dans le piège.",
+     "Excès : une mentalité de victime."
+    ],
+    "question": "Parmi mes limites, lesquelles sont réelles, et lesquelles sont supposées ?"
+   }
+  }
+ },
+ "swords_nine": {
+  "name": "Neuf d'Épées",
+  "keywords": [
+   "anxiété",
+   "inquiétude",
+   "nuits blanches"
+  ],
+  "upright": "L'inquiétude prend beaucoup de place. Partage-la avec quelqu'un en qui tu as confiance.",
+  "reversed": "Des peurs qui s'apaisent, ou une anxiété qui a besoin de soutien.",
+  "k": {
+   "essence": "L'inquiétude dans la nuit.",
+   "imagery": "Une personne est assise dans son lit, le visage dans les mains. Neuf épées sont suspendues au mur sombre derrière elle. La couverture est couverte de roses et de signes astrologiques.",
+   "why": "Neuf est un nombre proche de la fin d'un cycle, quand l'inquiétude atteint son sommet. Les épées flottent sur le mur, sans toucher la personne, ce qui suggère que les peurs sont davantage des pensées que des événements.",
+   "upright": {
+    "core": "L'anxiété, l'inquiétude ou la culpabilité, qui semblent plus lourdes la nuit.",
+    "light": "l'honnêteté face à la peur, la libération",
+    "shadow": "imaginer le pire, l'inquiétude qui empêche de dormir",
+    "love": "L'anxiété à propos d'une relation.",
+    "work": "Le stress lié à des résultats que tu ne peux pas contrôler.",
+    "question": "De quelles inquiétudes pourrais-je parler au lieu de les porter seul·e ?"
+   },
+   "reversed": {
+    "core": "Des peurs qui s'apaisent, ou qui sont enfouies.",
+    "modes": [
+     "Libération : la peur s'apaise.",
+     "Excès : une spirale d'angoisse.",
+     "Intérieur : une inquiétude gardée cachée."
+    ],
+    "question": "À qui pourrais-je dire ce qui m'empêche de dormir ?"
+   }
+  }
+ },
+ "swords_ten": {
+  "name": "Dix d'Épées",
+  "keywords": [
+   "fins",
+   "épuisement",
+   "toucher le fond"
+  ],
+  "upright": "Un chapitre douloureux se termine. La seule direction maintenant, c'est en avant.",
+  "reversed": "La guérison commence, ou tu t'accroches au passé.",
+  "k": {
+   "essence": "La fin de quelque chose de douloureux.",
+   "imagery": "Un personnage est étendu face contre terre, dix épées dans le dos, sous un ciel noir. À l'horizon, l'aube éclaire une mer calme.",
+   "why": "Dix est la fin d'un cycle. L'image est volontairement spectaculaire, mais l'aube à l'horizon signifie que le pire est passé : on ne peut pas descendre plus bas. C'est une douleur exagérée, pas un présage littéral.",
+   "upright": {
+    "core": "Une fin douloureuse qui ouvre la voie à un nouveau départ.",
+    "light": "libération, une fin, un nouveau départ",
+    "shadow": "dramatiser, s'accrocher au rôle de victime",
+    "love": "Clore un chapitre douloureux.",
+    "work": "Un projet ou un travail se termine ; le soulagement d'en avoir fini.",
+    "question": "Qu'est-ce qui est fini et que je peux enfin laisser derrière moi ?"
+   },
+   "reversed": {
+    "core": "La guérison qui commence lentement, ou refuser de lâcher la douleur.",
+    "modes": [
+     "Libération : l'aube après le pire.",
+     "Excès : dramatiser.",
+     "Bloqué : refuser d'y mettre fin."
+    ],
+    "question": "À quoi ressemblerait le fait de recommencer ?"
+   }
+  }
+ },
+ "swords_page": {
+  "name": "Valet d'Épées",
+  "keywords": [
+   "curiosité",
+   "vigilance",
+   "idées"
+  ],
+  "upright": "Un esprit vif et curieux. Pose des questions et rassemble des faits.",
+  "reversed": "Des ragots, de la précipitation ou des pensées dispersées.",
+  "k": {
+   "essence": "Un esprit vif qui veut savoir.",
+   "imagery": "Un jeune personnage se tient sur une colline balayée par le vent, tenant une épée dressée à deux mains et jetant un coup d'œil de côté. Des nuages filent dans le ciel et les arbres plient sous le vent.",
+   "why": "Les Valets sont des apprentis, et les Épées sont la pensée et la parole. Le vent et les nuages montrent des idées agitées, et la posture attentive est celle de quelqu'un qui observe avant de parler.",
+   "upright": {
+    "core": "Curiosité et vigilance : poser des questions et remarquer les détails.",
+    "light": "vivacité, honnêteté, apprentissage",
+    "shadow": "les ragots, des mots acérés lancés sans réfléchir",
+    "love": "Vouloir une conversation honnête ; poser des questions directes.",
+    "work": "La recherche, les études, une nouvelle façon de penser.",
+    "question": "Quelle question n'ai-je pas encore posée ?"
+   },
+   "reversed": {
+    "core": "Des mots et des idées utilisés pour blesser, ou des pensées qui tournent en rond sans conclusion.",
+    "modes": [
+     "Excès : le sarcasme, la critique tatillonne.",
+     "Bloqué : avoir peur de prendre la parole.",
+     "Intérieur : des idées qui ne sont jamais partagées."
+    ],
+    "question": "Est-ce que je cherche la vérité, ou seulement à gagner une dispute ?"
+   }
+  }
+ },
+ "swords_knight": {
+  "name": "Cavalier d'Épées",
+  "keywords": [
+   "ambition",
+   "précipitation",
+   "franchise"
+  ],
+  "upright": "Motivé et prompt à agir. Attention à la brusquerie.",
+  "reversed": "S'épuiser, ou agir sans réfléchir.",
+  "k": {
+   "essence": "Une charge droit vers une idée.",
+   "imagery": "Un chevalier en armure galope à vive allure, l'épée levée. Les arbres plient sous un vent violent et les nuages filent dans le ciel.",
+   "why": "Les Cavaliers sont l'action. Dans l'Air, l'action est la pensée et la parole à grande vitesse. Le cheval fonce contre le vent, et rien dans l'image ne le ralentit.",
+   "upright": {
+    "core": "Une pensée rapide et décidée ; la volonté de dire ce qui doit être dit.",
+    "light": "détermination, franchise, rapidité d'esprit",
+    "shadow": "la brusquerie, la précipitation, ne pas écouter",
+    "love": "Dire les choses simplement ; le risque est de les dire trop durement.",
+    "work": "Faire aboutir un plan ; des décisions rapides.",
+    "question": "Qui est-ce que je bouscule dans ma hâte d'avoir raison ?"
+   },
+   "reversed": {
+    "core": "La hâte tourne à la négligence, ou les projets s'enlisent à force de trop réfléchir.",
+    "modes": [
+     "Excès : l'agressivité, des mots sans tact.",
+     "Bloqué : des pensées dispersées.",
+     "Déclin : une motivation qui s'épuise."
+    ],
+    "question": "Que remarquerais-je si je faisais une pause avant d'agir ?"
+   }
+  }
+ },
+ "swords_queen": {
+  "name": "Reine d'Épées",
+  "keywords": [
+   "clarté",
+   "indépendance",
+   "honnêteté"
+  ],
+  "upright": "Lucide et juste. Dis la vérité avec bienveillance.",
+  "reversed": "De la froideur ou un esprit trop critique.",
+  "k": {
+   "essence": "Une vision claire, utilisée avec bienveillance ou avec froideur.",
+   "imagery": "Une femme couronnée est assise de profil sur un trône, une main levée et l'autre tenant une épée dressée. Des nuages et un oiseau se trouvent derrière elle, et les sculptures du trône représentent des papillons et des chérubins.",
+   "why": "Les Reines incarnent leur couleur de l'intérieur. L'Air tourné vers l'intérieur devient clarté et indépendance. La main levée est ouverte, et l'épée dressée montre une vérité tenue prête, pas utilisée pour frapper.",
+   "upright": {
+    "core": "Une honnêteté franche et réfléchie, ancrée dans l'expérience.",
+    "light": "clarté, indépendance, perspicacité",
+    "shadow": "la froideur, les remarques blessantes, se fermer",
+    "love": "Une communication honnête et des limites claires.",
+    "work": "Voir au-delà du bruit ce qui compte ; des retours justes et directs.",
+    "question": "Qu'est-ce que je vois clairement et que j'ai tendance à adoucir ?"
+   },
+   "reversed": {
+    "core": "La clarté devient dureté, ou la vérité est retenue.",
+    "modes": [
+     "Excès : la critique et le cynisme.",
+     "Bloqué : éviter une conversation honnête.",
+     "Intérieur : la solitude derrière l'indépendance."
+    ],
+    "question": "Mon honnêteté sert-elle quelqu'un, ou me protège-t-elle seulement ?"
+   }
+  }
+ },
+ "swords_king": {
+  "name": "Roi d'Épées",
+  "keywords": [
+   "intellect",
+   "autorité",
+   "raison"
+  ],
+  "upright": "Logique, intègre et décidé. Cherche l'équité.",
+  "reversed": "Une pensée rigide ou un abus de pouvoir.",
+  "k": {
+   "essence": "Une autorité fondée sur la raison.",
+   "imagery": "Un roi couronné est assis de face sur un trône, tenant une épée dressée d'une main et faisant un geste de l'autre. Des nuages et des oiseaux remplissent le ciel derrière lui.",
+   "why": "Les Rois tournent leur couleur vers l'extérieur, jusqu'à la maîtrise. L'Air maîtrisé, c'est le jugement, l'éthique et des règles claires. La posture de face suggère quelqu'un qui assume ses paroles.",
+   "upright": {
+    "core": "Un jugement juste et éclairé ; réfléchir aux choses et assumer le résultat.",
+    "light": "intellect, équité, intégrité",
+    "shadow": "la rigidité, utiliser l'autorité pour couper court aux autres",
+    "love": "Des accords clairs et des rapports équitables.",
+    "work": "L'analyse, des décisions fondées sur des principes, le conseil.",
+    "question": "Sur quel principe est-ce que je veux fonder mes décisions ?"
+   },
+   "reversed": {
+    "core": "La raison devient rigide ou froide, ou le jugement est troublé.",
+    "modes": [
+     "Excès : la tyrannie de la logique.",
+     "Bloqué : l'incapacité à décider.",
+     "Déclin : la confiance en ton propre jugement ébranlée."
+    ],
+    "question": "Est-ce que je suis juste, ou seulement ferme ?"
+   }
+  }
+ },
+ "pentacles_ace": {
+  "name": "As de Deniers",
+  "keywords": [
+   "opportunité",
+   "prospérité",
+   "fondations"
+  ],
+  "upright": "Une graine d'opportunité dans le travail ou l'argent. Plante-la avec soin.",
+  "reversed": "Une occasion manquée ou une mauvaise planification.",
+  "k": {
+   "essence": "Une graine concrète dans ta main.",
+   "imagery": "Une main sortant d'un nuage tient un denier d'or marqué d'une étoile. En dessous s'étend un jardin fleuri, avec une arche de pierre et un chemin qui mène vers des montagnes lointaines.",
+   "why": "Les As sont la graine de leur couleur. La Terre est le travail, le corps et l'argent : c'est donc une opportunité tangible. Le jardin et le chemin montrent que c'est un bon endroit pour faire pousser quelque chose.",
+   "upright": {
+    "core": "Une vraie opportunité, un départ solide dans le travail, la santé ou les finances.",
+    "light": "opportunité, prospérité, une bonne base",
+    "shadow": "une occasion manquée",
+    "love": "Un début stable et concret pour un lien.",
+    "work": "Un nouvel emploi, une offre ou une occasion financière.",
+    "question": "Par quelle opportunité concrète puis-je commencer ?"
+   },
+   "reversed": {
+    "core": "Une occasion manquée ou un projet sans fondations.",
+    "modes": [
+     "Bloqué : incapable de commencer.",
+     "Excès : saisir trop vite.",
+     "Déclin : une porte qui se referme."
+    ],
+    "question": "Qu'est-ce qui rendrait cette opportunité réalisable ?"
+   }
+  }
+ },
+ "pentacles_two": {
+  "name": "Deux de Deniers",
+  "keywords": [
+   "équilibre",
+   "jongler",
+   "adaptabilité"
+  ],
+  "upright": "Jongler avec les priorités en restant souple. Garde ton rythme.",
+  "reversed": "Trop d'engagements ou de la désorganisation.",
+  "k": {
+   "essence": "Garder deux choses en l'air.",
+   "imagery": "Un jeune homme coiffé d'un haut chapeau danse en jonglant avec deux deniers reliés par une boucle en forme d'infini. Derrière lui, des navires montent et descendent sur de grosses vagues.",
+   "why": "Deux est le nombre des choix et de l'équilibre. La boucle de l'infini est un va-et-vient entre deux exigences, et les vagues montrent que les conditions changent sans cesse. Il sourit, mais il doit continuer de bouger.",
+   "upright": {
+    "core": "Équilibrer des exigences concurrentes avec souplesse.",
+    "light": "adaptabilité, équilibre, jonglage",
+    "shadow": "trop s'engager, laisser tomber des choses",
+    "love": "Concilier une relation avec les autres parts de ta vie.",
+    "work": "Gérer l'argent et le temps avec des ressources limitées.",
+    "question": "Avec quoi puis-je arrêter de jongler ?"
+   },
+   "reversed": {
+    "core": "Être débordé·e, ou un équilibre qui s'effondre.",
+    "modes": [
+     "Bloqué : tout semble trop.",
+     "Excès : en prendre trop sur soi.",
+     "Déclin : l'équilibre qui se perd."
+    ],
+    "question": "Que me coûte le fait de tout faire ?"
+   }
+  }
+ },
+ "pentacles_three": {
+  "name": "Trois de Deniers",
+  "keywords": [
+   "travail d'équipe",
+   "savoir-faire",
+   "compétence"
+  ],
+  "upright": "Une collaboration compétente. Le bon travail grandit grâce à la coopération.",
+  "reversed": "Un mauvais travail d'équipe, ou un travail en dessous de ton niveau habituel.",
+  "k": {
+   "essence": "Un travail bien fait, ensemble.",
+   "imagery": "Un artisan travaille à une sculpture de pierre dans une église, tandis que deux autres personnes l'observent, des plans à la main. Trois deniers sont sculptés dans l'arche.",
+   "why": "Trois est le nombre de la croissance. C'est le travail d'équipe : le savoir-faire, la planification et un commanditaire réunis dans une même pièce. Le cadre de l'église présente l'artisanat comme quelque chose de presque sacré.",
+   "upright": {
+    "core": "La collaboration et un savoir-faire reconnu par les autres.",
+    "light": "travail d'équipe, savoir-faire, qualité",
+    "shadow": "ignorer les retours, travailler à contre-courant les uns des autres",
+    "love": "Construire quelque chose ensemble.",
+    "work": "Un projet d'équipe, développer ses compétences, recevoir des retours.",
+    "question": "De quelle expertise ai-je besoin pour bien construire ceci ?"
+   },
+   "reversed": {
+    "core": "Un mauvais travail d'équipe ou un travail fait sans fierté.",
+    "modes": [
+     "Bloqué : une collaboration qui se dégrade.",
+     "Excès : le perfectionnisme.",
+     "Déclin : perdre l'intérêt pour son métier."
+    ],
+    "question": "Est-ce que je travaille avec les autres, ou en les contournant ?"
+   }
+  }
+ },
+ "pentacles_four": {
+  "name": "Quatre de Deniers",
+  "keywords": [
+   "sécurité",
+   "épargne",
+   "contrôle"
+  ],
+  "upright": "T'accrocher à ce que tu as. La sécurité, c'est bien ; attention à ne pas t'y agripper.",
+  "reversed": "La générosité revient, ou un contrôle serré se relâche.",
+  "k": {
+   "essence": "S'accrocher fermement.",
+   "imagery": "Un personnage couronné est assis, serrant un denier contre sa poitrine, avec un autre sur la tête et deux sous les pieds. Une ville se dresse derrière lui.",
+   "why": "Quatre est le nombre des fondations et, ici, de la rigidité. Chaque denier est gardé pour que rien ne puisse être perdu, et rien ne peut donc être utilisé. La ville derrière montre le monde dont il s'est coupé.",
+   "upright": {
+    "core": "Une sécurité qui bascule dans l'agrippement, à l'argent, aux choses ou au contrôle.",
+    "light": "sécurité, épargne, limites",
+    "shadow": "l'avidité, la peur de perdre, le contrôle",
+    "love": "La possessivité ou la méfiance.",
+    "work": "Protéger les ressources ; être trop prudent·e.",
+    "question": "À quoi est-ce que je m'accroche par peur ?"
+   },
+   "reversed": {
+    "core": "Desserrer ta prise, ou dépenser sans réfléchir.",
+    "modes": [
+     "Libération : la générosité.",
+     "Excès : tout amasser.",
+     "Bloqué : la peur de manquer."
+    ],
+    "question": "Que ferais-je si je me sentais en sécurité ?"
+   }
+  }
+ },
+ "pentacles_five": {
+  "name": "Cinq de Deniers",
+  "keywords": [
+   "difficultés",
+   "inquiétude",
+   "se sentir exclu"
+  ],
+  "upright": "Une période de vaches maigres. L'aide existe si tu tends la main.",
+  "reversed": "Le rétablissement, ou refuser de demander du soutien.",
+  "k": {
+   "essence": "Se sentir laissé dehors, dans le froid.",
+   "imagery": "Deux personnages en haillons, l'un sur des béquilles, marchent dans la neige devant le vitrail éclairé d'une église. Le vitrail montre cinq deniers.",
+   "why": "Cinq est un nombre de difficulté. La fenêtre chaleureuse montre que l'aide est proche mais pas remarquée, et les personnages continuent de marcher. C'est une image du besoin et d'un abri qu'on ne voit pas.",
+   "upright": {
+    "core": "Des difficultés ou le sentiment d'être exclu·e, avec de l'aide tout près.",
+    "light": "résilience, demander de l'aide",
+    "shadow": "l'isolement, une fierté qui empêche d'être aidé·e",
+    "love": "Se sentir seul·e dans un lien.",
+    "work": "Des soucis d'argent ou de travail.",
+    "question": "À qui pourrais-je demander de l'aide ?"
+   },
+   "reversed": {
+    "core": "Le rétablissement, ou refuser l'aide.",
+    "modes": [
+     "Libération : le pire est passé.",
+     "Bloqué : trop fier·ère pour demander.",
+     "Excès : ressasser le manque."
+    ],
+    "question": "Quelle aide est proche, que je n'ai pas demandée ?"
+   }
+  }
+ },
+ "pentacles_six": {
+  "name": "Six de Deniers",
+  "keywords": [
+   "générosité",
+   "partage",
+   "équité"
+  ],
+  "upright": "Donner et recevoir de façon équilibrée. Sois juste avec les ressources.",
+  "reversed": "Une aide sous conditions, ou un échange à sens unique.",
+  "k": {
+   "essence": "Donner et recevoir avec équité.",
+   "imagery": "Un homme bien habillé tient une balance d'une main et, de l'autre, donne des deniers à deux personnages agenouillés. Une pile de deniers se trouve sur le côté.",
+   "why": "Six est le nombre de l'harmonie. La balance montre l'équité. La carte parle de la circulation des ressources, et elle demande aussi qui détient le pouvoir dans l'échange.",
+   "upright": {
+    "core": "La générosité, l'équité et le soutien mutuel.",
+    "light": "générosité, équité, soutien",
+    "shadow": "une aide sous conditions, un rapport de force inégal",
+    "love": "Donner et recevoir de l'attention de façon équilibrée.",
+    "work": "Une rémunération juste, le mentorat, le partage des ressources.",
+    "question": "L'équilibre entre donner et recevoir est-il juste dans ma vie ?"
+   },
+   "reversed": {
+    "core": "Une dette, un don à sens unique, ou une aide soumise à conditions.",
+    "modes": [
+     "Bloqué : incapable de donner ou de recevoir.",
+     "Excès : donner pour contrôler.",
+     "Déclin : un soutien qui s'épuise."
+    ],
+    "question": "Qui tient la balance dans cette situation ?"
+   }
+  }
+ },
+ "pentacles_seven": {
+  "name": "Sept de Deniers",
+  "keywords": [
+   "patience",
+   "bilan",
+   "vision à long terme"
+  ],
+  "upright": "Fais une pause pour évaluer tes efforts. La croissance prend du temps.",
+  "reversed": "L'impatience ou le doute face à tes progrès.",
+  "k": {
+   "essence": "Faire une pause pour voir ce qui a poussé.",
+   "imagery": "Un cultivateur s'appuie sur sa houe et regarde un buisson qui porte sept deniers. Un long travail a déjà été accompli.",
+   "why": "Sept est le nombre de l'épreuve. Après avoir planté et entretenu, le cultivateur s'arrête et regarde. Les deniers ont poussé mais ne sont pas encore récoltés : la question est de savoir s'il faut continuer d'attendre.",
+   "upright": {
+    "core": "Une pause pour évaluer les résultats d'un long effort.",
+    "light": "patience, bilan, vision à long terme",
+    "shadow": "l'impatience, douter de tes efforts",
+    "love": "Faire le point sur ce qu'un long investissement a produit.",
+    "work": "Faire le bilan de tes progrès et décider de la prochaine étape.",
+    "question": "La croissance que je vois vaut-elle la peine de continuer ?"
+   },
+   "reversed": {
+    "core": "La frustration face à des progrès lents, ou abandonner trop tôt.",
+    "modes": [
+     "Bloqué : l'impatience.",
+     "Excès : trop travailler.",
+     "Déclin : perdre foi en son travail."
+    ],
+    "question": "Qu'est-ce que j'ai réellement construit jusqu'ici ?"
+   }
+  }
+ },
+ "pentacles_eight": {
+  "name": "Huit de Deniers",
+  "keywords": [
+   "application",
+   "maîtrise",
+   "pratique"
+  ],
+  "upright": "Un travail régulier et concentré développe tes compétences.",
+  "reversed": "Le perfectionnisme ou un travail répétitif sans but.",
+  "k": {
+   "essence": "Un savoir-faire acquis par la pratique.",
+   "imagery": "Un artisan assis à son établi martèle un denier au ciseau. Des deniers terminés sont accrochés à un poteau et d'autres attendent, prêts. Une ville se trouve au loin.",
+   "why": "Huit est la maîtrise. L'artisan est seul et absorbé, et c'est le ton de la carte : une répétition régulière, pas la gloire. Les deniers terminés montrent les progrès accomplis.",
+   "upright": {
+    "core": "Se consacrer à l'apprentissage d'un savoir-faire, une répétition après l'autre.",
+    "light": "application, savoir-faire, concentration",
+    "shadow": "la routine pesante, le perfectionnisme",
+    "love": "Entretenir un lien avec constance.",
+    "work": "Apprendre un métier ou progresser par la pratique.",
+    "question": "Quelle compétence suis-je prêt·e à pratiquer avec patience ?"
+   },
+   "reversed": {
+    "core": "Un travail bâclé, ou l'épuisement dû à la corvée.",
+    "modes": [
+     "Bloqué : aucun progrès.",
+     "Excès : un travail obsessionnel.",
+     "Déclin : la motivation perdue."
+    ],
+    "question": "Qu'apprendrais-je si je persévérais encore un peu ?"
+   }
+  }
+ },
+ "pentacles_nine": {
+  "name": "Neuf de Deniers",
+  "keywords": [
+   "autonomie",
+   "confort",
+   "récompense"
+  ],
+  "upright": "Profite de ce que tes efforts ont construit.",
+  "reversed": "Le surmenage, ou un confort qui sonne creux.",
+  "k": {
+   "essence": "Un confort que tu as construit toi-même.",
+   "imagery": "Une femme richement vêtue se tient dans une vigne, un faucon posé sur sa main gantée. Un escargot rampe au bas de l'image. Une grande demeure se trouve derrière elle.",
+   "why": "Neuf est proche de l'achèvement et apporte le plaisir personnel des résultats. Le jardin est le fruit d'années de travail, et le faucon est dressé et calme. L'escargot suggère que le chemin a été celui d'un progrès lent.",
+   "upright": {
+    "core": "L'autonomie et le plaisir de profiter de ce que tu as gagné.",
+    "light": "indépendance, aisance, autosuffisance",
+    "shadow": "l'isolement, préférer le confort au lien",
+    "love": "Être bien seul·e.",
+    "work": "Les récompenses d'un long travail ; l'indépendance financière.",
+    "question": "Qu'est-ce que j'ai construit et dont je peux profiter ?"
+   },
+   "reversed": {
+    "core": "La dépendance, ou un confort qui sonne creux.",
+    "modes": [
+     "Bloqué : incapable d'en profiter.",
+     "Excès : vivre pour les apparences.",
+     "Intérieur : la solitude derrière la réussite."
+    ],
+    "question": "Ce que j'ai construit me ressemble-t-il vraiment ?"
+   }
+  }
+ },
+ "pentacles_ten": {
+  "name": "Dix de Deniers",
+  "keywords": [
+   "héritage",
+   "famille",
+   "sécurité durable"
+  ],
+  "upright": "Stabilité à long terme, famille et richesse partagée.",
+  "reversed": "Des tensions familiales ou une vision à court terme.",
+  "k": {
+   "essence": "Un héritage durable.",
+   "imagery": "Un vieil homme est assis avec deux chiens sous une arche. Un couple et un enfant se tiennent tout près, et dix deniers sont disposés en motif au-dessus d'un grand domaine.",
+   "why": "Dix est l'accomplissement d'un cycle. Là où le Neuf est personnel, le Dix est transmis de génération en génération : une sécurité qui se transmet. L'arche et le domaine montrent les racines et la tradition.",
+   "upright": {
+    "core": "Une sécurité à long terme, une famille ou une communauté qui dure.",
+    "light": "stabilité, héritage, appartenance",
+    "shadow": "la pression de se conformer, être lié·e aux attentes des autres",
+    "love": "Un lien durable et bien enraciné.",
+    "work": "Une entreprise durable ou une sécurité financière.",
+    "question": "Que veux-je laisser derrière moi, ou construire pour durer ?"
+   },
+   "reversed": {
+    "core": "De l'instabilité dans la famille ou les finances.",
+    "modes": [
+     "Bloqué : des fondations instables.",
+     "Excès : l'obsession du statut.",
+     "Déclin : un héritage qui se dissout."
+    ],
+    "question": "Quelles racines est-ce que je veux planter ?"
+   }
+  }
+ },
+ "pentacles_page": {
+  "name": "Valet de Deniers",
+  "keywords": [
+   "étude",
+   "ambition",
+   "sens pratique"
+  ],
+  "upright": "Un élève assidu de la vie, désireux d'apprendre et de construire.",
+  "reversed": "La procrastination ou un manque de concentration.",
+  "k": {
+   "essence": "Un premier pas patient sur un sol solide.",
+   "imagery": "Un jeune personnage se tient dans un champ verdoyant, levant un unique denier d'or qu'il examine de près. Des arbres et des collines douces s'étendent derrière lui.",
+   "why": "Les Valets commencent les choses, et les Deniers sont le monde physique. Examiner de près un seul denier est l'image d'une étude attentive. La terre fertile laisse entendre que la croissance est possible.",
+   "upright": {
+    "core": "Apprendre un savoir-faire ou commencer un objectif concret avec soin.",
+    "light": "application, curiosité pour le monde réel, constance",
+    "shadow": "la procrastination, se contenter de rêver",
+    "love": "Un intérêt lent et sincère ; montrer de l'attention par la constance.",
+    "work": "Une formation, un apprentissage, un premier pas vers un objectif.",
+    "question": "Quel pas concret puis-je faire cette semaine ?"
+   },
+   "reversed": {
+    "core": "Les projets restent des rêves, ou les efforts sont mal orientés.",
+    "modes": [
+     "Bloqué : attendre le moment parfait.",
+     "Excès : le perfectionnisme.",
+     "Déclin : une motivation qui retombe."
+    ],
+    "question": "Qu'est-ce que je repousse et qui n'a besoin que d'un premier pas ?"
+   }
+  }
+ },
+ "pentacles_knight": {
+  "name": "Cavalier de Deniers",
+  "keywords": [
+   "fiabilité",
+   "persévérance",
+   "routine"
+  ],
+  "upright": "Fiable et minutieux. Lentement mais sûrement, on arrive au but.",
+  "reversed": "L'entêtement, l'ennui ou le perfectionnisme.",
+  "k": {
+   "essence": "Un effort régulier qui finit par arriver au but.",
+   "imagery": "Un chevalier en armure sombre est assis calmement sur un cheval massif et immobile, tenant un denier qu'il contemple. Le champ autour de lui est labouré.",
+   "why": "Les Cavaliers poursuivent quelque chose, et dans les Deniers, ils le font avec régularité. C'est le seul cheval des Cavaliers qui reste immobile, ce qui montre la patience plutôt que la vitesse. Le champ labouré montre le travail déjà accompli.",
+   "upright": {
+    "core": "Fiabilité et persévérance : faire le travail et le terminer.",
+    "light": "fiabilité, routine, minutie",
+    "shadow": "l'entêtement, l'ennui, s'enliser dans la routine",
+    "love": "Montrer son amour par des gestes sur lesquels on peut compter.",
+    "work": "Mener un long projet jusqu'au bout ; des routines régulières.",
+    "question": "Où ma constance me sert-elle, et où suis-je simplement coincé·e ?"
+   },
+   "reversed": {
+    "core": "La routine devient une ornière, ou les progrès s'arrêtent.",
+    "modes": [
+     "Bloqué : coincé·e dans le même schéma.",
+     "Excès : le travail à outrance ou la rigidité.",
+     "Déclin : perdre l'intérêt pour la tâche de longue haleine."
+    ],
+    "question": "Qu'est-ce qu'un petit changement dans ma routine pourrait m'ouvrir ?"
+   }
+  }
+ },
+ "pentacles_queen": {
+  "name": "Reine de Deniers",
+  "keywords": [
+   "bienveillance",
+   "sens pratique",
+   "débrouillardise"
+  ],
+  "upright": "Chaleureuse, pragmatique et généreuse. Crée du confort pour toi et pour les autres.",
+  "reversed": "Se négliger soi-même ou étouffer les autres.",
+  "k": {
+   "essence": "Une attention concrète et chaleureuse.",
+   "imagery": "Une femme couronnée est assise dans une tonnelle de fleurs et de fruits, un denier sur les genoux, qu'elle regarde avec tendresse. Un lapin se trouve tout près.",
+   "why": "Les Reines incarnent leur couleur de l'intérieur. La Terre tenue avec tendresse, c'est le soin apporté par des choses concrètes. Le jardin et le lapin suggèrent l'abondance et la fertilité des idées et des ressources.",
+   "upright": {
+    "core": "Débrouillardise et soin : créer un foyer, un budget ou une vie qui fonctionne.",
+    "light": "générosité, sens pratique, confort",
+    "shadow": "le surmenage, se négliger pour subvenir aux besoins des autres",
+    "love": "Prendre soin par les gestes du quotidien et un foyer accueillant.",
+    "work": "Bien gérer les ressources ; créer un environnement stable.",
+    "question": "Est-ce que je prends soin de moi avec autant d'attention que j'en donne aux autres ?"
+   },
+   "reversed": {
+    "core": "Le soutien devient étouffant, ou le soin de soi est négligé.",
+    "modes": [
+     "Excès : en prendre trop sur soi.",
+     "Bloqué : la peur de manquer.",
+     "Intérieur : subvenir aux besoins des autres mais pas aux siens."
+    ],
+    "question": "De quoi ai-je besoin pour que ma propre vie me paraisse sûre ?"
+   }
+  }
+ },
+ "pentacles_king": {
+  "name": "Roi de Deniers",
+  "keywords": [
+   "abondance",
+   "stabilité",
+   "leadership"
+  ],
+  "upright": "Bien établi, généreux et serein. Mène avec constance.",
+  "reversed": "L'avidité, l'entêtement, ou faire passer l'argent avant les gens.",
+  "k": {
+   "essence": "Une stabilité construite avec le temps.",
+   "imagery": "Un roi couronné est assis sur un trône sculpté de taureaux et orné de vignes, tenant un denier et un sceptre. Un château et un jardin se trouvent derrière lui.",
+   "why": "Les Rois tournent leur couleur vers l'extérieur, jusqu'à la maîtrise. La Terre maîtrisée, c'est la sécurité durable. Les taureaux et les vignes suggèrent une force et une abondance qui ont été cultivées.",
+   "upright": {
+    "core": "La prospérité par la patience, la discipline et l'honnêteté dans les échanges.",
+    "light": "fiabilité, générosité, vision à long terme",
+    "shadow": "le matérialisme, la résistance au changement",
+    "love": "Apporter de la sécurité et de l'engagement.",
+    "work": "Construire quelque chose de durable ; de bonnes habitudes financières.",
+    "question": "Qu'est-ce que je construis qui tiendra encore debout dans cinq ans ?"
+   },
+   "reversed": {
+    "core": "La sécurité se durcit en possessivité, ou les ressources sont mal gérées.",
+    "modes": [
+     "Excès : faire passer les choses avant les gens.",
+     "Bloqué : la peur de perdre.",
+     "Déclin : des fondations négligées."
+    ],
+    "question": "À quoi ressemble « assez » pour moi ?"
+   }
+  }
+ }
+}
