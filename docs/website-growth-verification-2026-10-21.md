@@ -9,7 +9,7 @@ Implementation began 21 October and final release preparation continued 22 Octob
 - Trust: `/methodology` and About disclose Rider–Waite–Smith, shared app reference text, AI assistance, unconfirmed expert/native review, privacy and interpretive limits. Linked from card/context, Learn and footer pages. No testimonials, performance claims or invented reviewers.
 - Acquisition: three existing card pages gained original applied annotations; existing context pages gained upright/reversed workspace links; existing spread and lesson pages link into teaching. New beginner guide has accessible HTML, eight UTF-8 text downloads and browser print/PDF. Crawl/distribution/service audit and original demo scripts are in `website-growth-validation-2026-10-21.md`.
 - Repeat use: five activities with browser-local progress, reset and visible failure messages; existing single reflection gets a revisit prompt. The app's Premium journal/look-back boundary is preserved; no multi-entry history, sync, email or notifications were added.
-- All eight locales have new `growth.json` content, with no new package. Native review remains unperformed. Shared card and spread data remain authoritative. No app/backend edits, pricing/credit changes, analytics or cookies.
+- All eight locales have new `growth.json` content, with no new package. Native review remains unperformed. Shared card and spread data remain authoritative. No app/backend edits, pricing/credit changes, analytics or cookies. The English privacy page now also describes the local workspace/practice records, deletion and export.
 
 ## Automated evidence
 
