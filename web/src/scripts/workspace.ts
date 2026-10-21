@@ -42,8 +42,9 @@ for (const root of document.querySelectorAll<HTMLElement>('[data-workspace]')) {
   function fields() { draft.question = question.value; draft.impression = impression.value; draft.reflection = reflection.value; }
   function persistDraft() {
     fields();
-    try { if (!saveDraft(sessionStorage, draftKey, draft)) status.textContent = w.storageError; }
-    catch { status.textContent = w.storageError; }
+    try { if (saveDraft(sessionStorage, draftKey, draft)) return true; }
+    catch {}
+    status.textContent = w.storageError; return false;
   }
   function hydrate() { spread.value = draft.spread; question.value = draft.question; impression.value = draft.impression; reflection.value = draft.reflection; renderSlots(); }
   function renderSlots(focusIndex?: number, action?: string) {
@@ -109,7 +110,7 @@ for (const root of document.querySelectorAll<HTMLElement>('[data-workspace]')) {
     if (losesCards(draft,next) && !await confirmOverwrite(j.shrinkWarning,next.name)) {
       spread.value=draft.spread; status.textContent=j.cancelled; return;
     }
-    draft=changeSpread(draft,next); hydrate(); persistDraft(); status.textContent=j.spreadKept;
+    draft=changeSpread(draft,next); hydrate(); if(persistDraft()) status.textContent=j.spreadKept;
   }
   spread.onchange = async () => { await selectSpread(cfg.spreads.find(s=>s.id===spread.value)!); };
   [question, impression, reflection].forEach(input => input.addEventListener('input', persistDraft));
