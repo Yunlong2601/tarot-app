@@ -36,3 +36,8 @@ for (const loc of locales) {
   if(!download || readFileSync(download,'utf8').length<500) throw new Error(`Missing substantive reference download ${loc}`);
 }
 console.log('Homepage FAQ/schema consistency and eight static reference downloads passed.');
+for(const id of ['connect','reversal','reflect']) {
+  const data=readFileSync(`dist/demos/${id}.png`);
+  if(data.readUInt32BE(16)!==1080 || data.readUInt32BE(20)!==1350) throw new Error(`Invalid demo image ${id}`);
+}
+console.log('Three 1080x1350 public demo PNGs passed.');

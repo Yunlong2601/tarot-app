@@ -1,18 +1,19 @@
 ---
 import Base from '../../../layouts/Base.astro';
 import { i18n, langPaths, type Locale } from '../../../i18n';
-import { ACTIVITY_IDS } from '../../../lib/practice';
+import { ACTIVITY_IDS, ACTIVITY_LINKS } from '../../../lib/practice';
 export const getStaticPaths = langPaths;
 const { lang } = Astro.props as { lang: Locale };
 const L = i18n(lang), g = L.growth;
-const links = ['cards','learn/connected-reading','learn/reversed-cards','tools/combinations','read#saved-reflection'];
+const links = ACTIVITY_LINKS;
 const labels = [L.workspace.find,L.workspace.example,L.learn.guides['reversed-cards'].h1,L.t('footer.combinations'),g.reviewTitle];
 ---
 <Base title={g.practiceTitle} description={g.practiceLead} path="learn/practice" lang={lang} noCta>
 <header class="page-head"><h1>{g.practiceTitle}</h1><p class="lead">{g.practiceLead}</p></header>
-<section data-practice data-config={JSON.stringify(g)}>
+<section data-practice data-config={JSON.stringify({g,j:L.journey,links:links.map(p=>L.url(p))})}>
+<aside class="panel next-practice" data-next-practice hidden><h2>{L.journey.next}</h2><p data-next-copy></p><a class="btn btn-gold" data-next-link></a></aside>
 <p>{g.progressNote}</p><p data-progress-summary aria-live="polite"></p>
-<ol class="practice-activities">{ACTIVITY_IDS.map((id,i)=><li class="panel"><h2>{g.practiceSteps[i]}</h2><p>{g.practiceTasks[i]}</p><p><a href={L.url(links[i])}>{labels[i]}</a></p><label class="check-label" data-progress-control hidden><input type="checkbox" value={id}/>{g.markDone}</label></li>)}</ol>
+<ol class="practice-activities">{ACTIVITY_IDS.map((id,i)=><li class="panel"><h2>{g.practiceSteps[i]}</h2><p>{g.practiceTasks[i]}</p><p><a href={L.url(links[i])}>{labels[i]}</a></p><label class="check-label" data-progress-control hidden><input type="checkbox" value={id} aria-label={`${g.markDone}: ${g.practiceSteps[i]}`}/>{g.markDone}</label></li>)}</ol>
 <button class="btn btn-ghost" data-reset-progress hidden>{g.reset}</button><p data-progress-status role="status"></p>
 <p><a href={L.url('learn/beginner-reference')}>{g.guideTitle}</a> · <a href={L.url('methodology')}>{g.methodTitle}</a></p>
 </section></Base>

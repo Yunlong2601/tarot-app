@@ -27,3 +27,20 @@ test('practice storage denial and quota errors reach the caller for visible reco
   const denied={getItem:()=>{throw Error('denied')},setItem:()=>{throw Error('quota')},removeItem:()=>{throw Error('denied')}};
   assert.throws(()=>readProgress(denied),/denied/);assert.throws(()=>writeProgress(denied,['notice']),/quota/);
 });
+
+test('next practice follows the first untried activity without grading interpretations', async () => {
+  const {nextActivity}=await import('../src/lib/practice.ts');
+  assert.equal(nextActivity([]),0); assert.equal(nextActivity(['notice','reversal']),1);
+  assert.equal(nextActivity([...ACTIVITY_IDS]),null);assert.equal(nextActivity(['notice','position','reversal','connection']),4);
+});
+test('overwrite checks distinguish card orientation and personal text from identical restored content',async()=>{
+  const {sameDraft,hasWork,filterDeck}=await import('../src/lib/workspace.ts');
+  const d=blank({id:'three',name:'Three',positions:['1','2','3']});
+  assert.equal(hasWork(d),false);const saved=structuredClone(d);saved.reflection='Keep this';
+  assert.equal(hasWork(saved),true);assert.equal(sameDraft(saved,structuredClone(saved)),true);assert.equal(sameDraft(d,saved),false);
+  const orientation=structuredClone(saved);orientation.cards[0]!.reversed=true;assert.equal(sameDraft(saved,orientation),false);
+  const deck=[{id:'pentacles_two',name:'Deux de Deniers',englishName:'Two of Pentacles',keywords:['balance']},{id:'cups_queen',name:'Reine de Coupes',englishName:'Queen of Cups',keywords:['empathy']}];
+  assert.deepEqual(filterDeck(deck,'two coins','').map(c=>c.id),['pentacles_two']);
+  assert.deepEqual(filterDeck(deck,'empathy','pentacles_two').map(c=>c.id),['pentacles_two','cups_queen']);
+  assert.deepEqual(filterDeck(deck,'no-match','').map(c=>c.id),[]);
+});

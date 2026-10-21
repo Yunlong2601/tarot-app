@@ -1,13 +1,14 @@
-import { blank, validDraft, setPick, movePick, STORAGE_KEY, saveDraft, type Draft, type Spread } from '../lib/workspace';
+import { blank, validDraft, sameDraft, hasWork, filterDeck, setPick, movePick, STORAGE_KEY, saveDraft, type Draft, type Spread } from '../lib/workspace';
 import { applyExample } from '../lib/example';
 import type growth from '../i18n/en/growth.json';
+import type journey from '../i18n/en/journey.json';
 import { fill } from '../i18n/fill';
 import type { ReaderCard } from '../lib/data';
 import type en from '../i18n/en/workspace.json';
-type Config = { g: typeof growth; deck: ReaderCard[]; spreads: Spread[]; w: typeof en; base: string; cardsUrl: string; up: string; rev: string; more: string };
+type Config = { j: typeof journey; g: typeof growth; deck: (ReaderCard & {englishName:string})[]; spreads: Spread[]; w: typeof en; base: string; cardsUrl: string; up: string; rev: string; more: string };
 for (const root of document.querySelectorAll<HTMLElement>('[data-workspace]')) {
   const cfg: Config = JSON.parse(root.dataset.config!);
-  const { w } = cfg;
+  const { w, j } = cfg;
   root.hidden = false;
   const find = <T extends HTMLElement>(q: string) => root.querySelector<T>(q)!;
   const spread = find<HTMLSelectElement>('[data-spread]');
@@ -17,6 +18,19 @@ for (const root of document.querySelectorAll<HTMLElement>('[data-workspace]')) {
   const status = find<HTMLElement>('[data-status]');
   const slots = find<HTMLElement>('[data-slots]');
   const meanings = find<HTMLElement>('[data-meanings]');
+  function confirmOverwrite(message:string,label:string):Promise<boolean> {
+    const dialog=find<HTMLDialogElement>('[data-overwrite-dialog]');
+    find<HTMLElement>('[data-overwrite-message]').textContent=message;
+    const confirm=find<HTMLButtonElement>('[data-overwrite-confirm]');confirm.textContent=label;
+    return new Promise(resolve=>{
+      const finish=(accepted:boolean)=>{dialog.close();resolve(accepted);};
+      find<HTMLButtonElement>('[data-overwrite-cancel]').onclick=()=>finish(false);
+      confirm.onclick=()=>finish(true);
+      dialog.oncancel=event=>{event.preventDefault();finish(false);};
+      dialog.showModal();
+      find<HTMLButtonElement>('[data-overwrite-cancel]').focus();
+    });
+  }
   const draftKey = `${STORAGE_KEY}-draft`;
   const ids = cfg.deck.map(c => c.id);
   const currentSpread = () => cfg.spreads.find(s => s.id === draft.spread)!;
@@ -39,11 +53,20 @@ for (const root of document.querySelectorAll<HTMLElement>('[data-workspace]')) {
       fieldset.append(el('legend', `${i + 1}. ${positions[i]}`));
       const label = el('label', w.selectCard);
       const select = el('select'); select.dataset.pick = String(i);
-      select.append(new Option(w.selectCard, ''));
-      cfg.deck.forEach(c => { const o = new Option(c.name, c.id); o.disabled = draft.cards.some((other, j) => j !== i && other.id === c.id); select.append(o); });
-      select.value = p.id;
+      const searchLabel=el('label',j.filter); const search=el('input');search.type='search';search.dataset.pickSearch=String(i);search.autocomplete='off';
+      const hint=el('p',j.filterHint,'muted picker-hint');hint.id=`pick-hint-${i}`; search.setAttribute('aria-describedby',hint.id);
+      searchLabel.append(search);fieldset.append(searchLabel,hint);
+      const count=el('p','','muted picker-count'); count.setAttribute('role','status');
+      function options() {
+        const filtered=filterDeck(cfg.deck,search.value,draft.cards[i]!.id);
+        select.replaceChildren(new Option(w.selectCard,''));
+        filtered.forEach(c=>{const o=new Option(c.name,c.id);o.disabled=draft.cards.some((other,index)=>index!==i&&other.id===c.id);select.append(o);});
+        select.value=draft.cards[i]!.id;count.textContent=fill(j.matches,{n:filterDeck(cfg.deck,search.value,'').length});
+      }
+      search.oninput=options; options();
+      const clear=el('button',j.clear,'btn btn-ghost btn-sm');clear.type='button';clear.onclick=()=>{search.value='';options();search.focus();};
       select.onchange = () => { setPick(draft, i, select.value, draft.cards[i]!.reversed); persistDraft(); renderSlots(i, 'select'); };
-      label.append(select); fieldset.append(label);
+      label.append(select); fieldset.append(label,count,clear);
       const reverseLabel = el('label', '', 'check-label'); const check = el('input'); check.type = 'checkbox'; check.checked = p.reversed; check.dataset.reverse = String(i);
       check.onchange = () => { setPick(draft, i, p.id, check.checked); persistDraft(); renderMeanings(); };
       reverseLabel.append(check, document.createTextNode(cfg.rev)); fieldset.append(reverseLabel);
@@ -58,6 +81,7 @@ for (const root of document.querySelectorAll<HTMLElement>('[data-workspace]')) {
     }
   }
   function renderMeanings() {
+    find<HTMLElement>("[data-ready]").textContent=fill(j.ready,{n:draft.cards.filter(p=>p.id).length,total:draft.cards.length});
     meanings.replaceChildren();
     const selected = draft.cards.map((p, i) => ({ p, i, c: cfg.deck.find(c => c.id === p.id) })).filter(x => x.c);
     for (const { p, i, c: card } of selected) {
@@ -87,9 +111,16 @@ for (const root of document.querySelectorAll<HTMLElement>('[data-workspace]')) {
   };
   [question, impression, reflection].forEach(input => input.addEventListener('input', persistDraft));
   find<HTMLButtonElement>('[data-skip]').onclick = () => slots.querySelector('select')?.focus();
-  find<HTMLButtonElement>('[data-save]').onclick = () => { fields(); try { status.textContent = saveDraft(localStorage, STORAGE_KEY, draft) ? w.saved : w.storageError; } catch { status.textContent = w.storageError; } };
-  find<HTMLButtonElement>('[data-restore]').onclick = () => {
-    try { const saved: unknown = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? 'null'); if (!validDraft(saved, cfg.spreads, ids)) { status.textContent = w.invalid; return; } draft = saved; hydrate(); persistDraft(); status.textContent = w.restored; }
+  find<HTMLButtonElement>('[data-save]').onclick = async () => {
+    fields();
+    try {
+      let old:unknown=null;try{old=JSON.parse(localStorage.getItem(STORAGE_KEY)??'null');}catch{}
+      if(validDraft(old,cfg.spreads,ids) && !sameDraft(old,draft) && !await confirmOverwrite(j.saveWarning,w.save)){status.textContent=j.cancelled;return;}
+      status.textContent=saveDraft(localStorage,STORAGE_KEY,draft)?w.saved:w.storageError;
+    }catch{status.textContent=w.storageError;}
+  };
+  find<HTMLButtonElement>('[data-restore]').onclick = async () => {
+    try { const saved: unknown = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? 'null'); if (!validDraft(saved, cfg.spreads, ids)) { status.textContent = w.invalid; return; } fields(); if(hasWork(draft) && !sameDraft(draft,saved) && !await confirmOverwrite(j.restoreWarning,w.restore)){status.textContent=j.cancelled;return;} draft = saved; hydrate(); persistDraft(); status.textContent = w.restored; }
     catch { status.textContent = w.invalid; }
   };
   find<HTMLButtonElement>('[data-delete]').onclick = () => {

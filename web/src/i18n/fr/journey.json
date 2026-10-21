@@ -1,0 +1,29 @@
+{
+  "filter": "Chercher une carte pour cette position",
+  "filterHint": "Cherchez un nom, mot-clé ou « coins ». La carte choisie reste sélectionnée pendant le filtrage.",
+  "matches": "{n} cartes correspondantes",
+  "clear": "Effacer la recherche",
+  "ready": "{n} / {total} cartes saisies. Vérifiez les positions, puis explorez les significations.",
+  "next": "Votre prochaine pratique",
+  "allDone": "Vous avez essayé les cinq activités. Relisez une réflexion ou recommencez une pratique.",
+  "continuePractice": "Continuer ma pratique",
+  "restoreWarning": "Restaurer la sauvegarde et remplacer les cartes et notes de cet onglet ? Exportez d’abord pour conserver les deux versions.",
+  "saveWarning": "Remplacer la sauvegarde par cette réflexion ? Exportez d’abord l’ancienne version pour la conserver.",
+  "cancelled": "Annulé. Votre travail et la réflexion sauvegardée restent inchangés.",
+  "correction": "Proposer une correction",
+  "correctionLead": "Aidez-nous à vérifier une affirmation précise. N’incluez ni question privée, ni données de naissance, ni photo.",
+  "correctionSteps": [
+    "Indiquez URL, langue et carte ou section.",
+    "Citez le court passage, expliquez le problème et proposez un changement ou une source.",
+    "Envoyez au support. Nous évaluons les suggestions ; l’envoi ne vaut ni relecture, ni acceptation, ni approbation."
+  ],
+  "correctionSend": "Envoyer une correction par e-mail",
+  "demoTitle": "Trois fiches de pratique à partager",
+  "demoNote": "PNG en anglais avec des images du domaine public. Pour vos notes ou démonstrations ; aucune publication automatique.",
+  "demos": [
+    "Relier un tirage à trois cartes",
+    "Lire une carte renversée en contexte",
+    "Garder une réflexion portable"
+  ],
+  "cancel": "Annuler"
+}

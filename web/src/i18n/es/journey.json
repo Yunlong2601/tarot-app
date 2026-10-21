@@ -1,0 +1,29 @@
+{
+  "filter": "Buscar una carta para esta posición",
+  "filterHint": "Busca por nombre, palabra clave o «coins». La carta elegida se conserva al filtrar.",
+  "matches": "{n} cartas coincidentes",
+  "clear": "Borrar búsqueda",
+  "ready": "{n} / {total} cartas introducidas. Revisa las posiciones y explora los significados.",
+  "next": "Tu próxima práctica",
+  "allDone": "Has probado las cinco actividades. Revisa una reflexión o repite una práctica.",
+  "continuePractice": "Continuar mi práctica",
+  "restoreWarning": "¿Restaurar la copia y reemplazar las cartas y notas de esta pestaña? Exporta primero si quieres conservar ambas.",
+  "saveWarning": "¿Reemplazar la copia guardada con esta reflexión? Exporta antes la versión anterior si quieres conservarla.",
+  "cancelled": "Cancelado. Tu trabajo y la reflexión guardada siguen iguales.",
+  "correction": "Sugerir una corrección",
+  "correctionLead": "Ayúdanos a comprobar una afirmación concreta. No incluyas preguntas privadas, datos de nacimiento ni fotos.",
+  "correctionSteps": [
+    "Indica URL, idioma y carta o sección.",
+    "Cita el breve pasaje, explica el problema y propone un cambio o fuente.",
+    "Envíalo a Soporte. Evaluamos sugerencias; enviarlas no implica revisión, aceptación ni aval."
+  ],
+  "correctionSend": "Enviar corrección por correo",
+  "demoTitle": "Tres tarjetas de práctica para compartir",
+  "demoNote": "PNG en inglés con arte de dominio público. Descarga para notas o demostraciones; no se publica nada automáticamente.",
+  "demos": [
+    "Conectar una tirada de tres cartas",
+    "Leer una inversión en contexto",
+    "Guardar una reflexión portátil"
+  ],
+  "cancel": "Cancelar"
+}

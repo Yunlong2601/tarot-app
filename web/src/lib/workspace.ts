@@ -47,3 +47,13 @@ export function loadDraft(storage: StoragePort, key: string, spreads: Spread[], 
 export function saveDraft(storage: StoragePort, key: string, draft: Draft): boolean {
   try { storage.setItem(key, JSON.stringify(draft)); return true; } catch { return false; }
 }
+
+/** Detect a real overwrite, excluding property order or transient UI state. */
+export function sameDraft(a: Draft, b: Draft): boolean {
+  return a.spread===b.spread && a.question===b.question && a.impression===b.impression && a.reflection===b.reflection && a.cards.length===b.cards.length && a.cards.every((p,i)=>p.id===b.cards[i]!.id && p.reversed===b.cards[i]!.reversed);
+}
+export function hasWork(d: Draft): boolean { return d.cards.some(p=>p.id!=='') || [d.question,d.impression,d.reflection].some(v=>v.trim()!==''); }
+export function filterDeck<T extends {id:string;name:string;englishName:string;keywords:string[]}>(deck:T[],query:string,selected:string):T[] {
+  const {words}=queryParts(query);
+  return deck.filter(c=>c.id===selected || matches([c.id,c.name,c.englishName,...c.keywords].join(' '),words));
+}
