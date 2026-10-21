@@ -1,6 +1,6 @@
 # PROGRESS
 
-Last updated: 2026-10-21. Update this file at the end of every phase.
+Last updated: 2026-10-22. Update this file at the end of every phase.
 
 Primary working copy: the owner's local Mac folder. This repo is the backup and hand-off point.
 
@@ -9,6 +9,8 @@ Primary working copy: the owner's local Mac folder. This repo is the backup and 
 **2026-10-17: subscriptions stay on RevenueCat.** The owner tried Qonversion the same day, then chose RevenueCat. The Qonversion code was reverted; the credit-pack refund handler now listens for RevenueCat `CANCELLATION` of a credit-pack product, and the TRANSFER credit move on reinstall is back. A Qonversion project "ShenTarot" exists but is unused (can be deleted). The App Store In-App Purchase key ZJ84C2Q9M7 was made for it and can be reused in RevenueCat if the .p8 file is still at hand.
 
 **2026-10-21: website reference workspace (feature branch; not deployed).** Website-led homepage; searchable 78-card library with reversed queries and card carry-through; visual spread guides and worked examples; browser-local own-card workspace with correction/reorder, practice prompts and one saved/exportable reflection; beginner pathway and astrology index, in all eight languages. API-backed website AI remains unavailable pending secure browser identity/routing/access preflight; app/backend and entitlements unchanged. Build, translation validation, state tests and browser journeys verified; see `docs/website-enhancements-verification-2026-10-21.md` for evidence and limitations.
+
+**2026-10-22: competitor-gap follow-up (same website PR; release authorised).** Corrected website/app claims and homepage FAQ/schema; added a loadable annotated three-card example, methodology/review disclosures, printable/downloadable beginner reference and five local practice activities. Kept the single-reflection boundary because app journal/look-back is Premium. Focused existing card/context/spread/lesson links connect to practice. Eight locales; no analytics, newsletter, backend or app change. Distribution/measurement/consenting usability plans: `docs/website-growth-validation-2026-10-21.md`. Browser and automated evidence: `docs/website-growth-verification-2026-10-21.md`. Owner authorised merge and live publication; final merge/deployment identifiers and production verification are recorded in PR #23’s release receipt.
 
 | Phase | Scope | Status |
 |---|---|---|
