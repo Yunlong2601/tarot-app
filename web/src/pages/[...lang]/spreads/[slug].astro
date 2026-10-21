@@ -1,4 +1,5 @@
 ---
+import SpreadDiagram from "../../../components/SpreadDiagram.astro";
 import Base from "../../../layouts/Base.astro";
 import Tabs from "../../../components/Tabs.astro";
 import Reader from "../../../components/Reader.astro";
@@ -16,6 +17,7 @@ const sp = (x: string) => L.content.spreads[x as keyof typeof L.content.spreads]
 const s = SPREADS[id];
 const tr = sp(id);
 const name = tr.name;
+const w = L.workspace;
 const positions = tr.positions;
 const n = positions.length;
 const count = t("cardCount", { n });
@@ -51,6 +53,12 @@ const topicName = (title: string) => (lang === "en" ? title.toLowerCase() : titl
     <p class="lead">{tr.blurb}</p>
     <p class="answer">{faq[0]![1]}</p>
   </header>
+  <section class="spread-guide">
+    <h2>{w.diagram}</h2><p>{w.diagramHint}</p>
+    <SpreadDiagram id={id} positions={positions} label={name} />
+    <div class="action-row"><a class="btn btn-gold" href={`${u("read")}?spread=${id}`}>{w.title}</a><a class="btn btn-ghost" href="#try">{t("spread.tabTry")}</a></div>
+    {["three", "three_decision", "celtic"].includes(id) && <div class="panel worked-example"><h2>{w.example}</h2><p><b>{w.exampleQuestion}</b></p><div class="example-art">{["major_01_magician", "pentacles_two", "pentacles_eight"].map(c => <a href={u(`cards/${slug(c)}`)}><img src={`/cards/art/${c}.jpg`} alt={L.cards[c]!.name} loading="lazy" width="90" height="154" /></a>)}</div><p>{id === "three" ? w.exampleThree : id === "three_decision" ? w.exampleDecision : w.exampleCeltic}</p><p class="muted">{w.disclaimer}</p></div>}
+  </section>
   <Tabs label={t("spread.about", { name })} tabs={[
     { id: "try", label: t("spread.tabTry") },
     { id: "positions", label: t("spread.tabPositions") },

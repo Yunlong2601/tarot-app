@@ -15,6 +15,7 @@ const { t, url: u } = L;
 const c = CARDS[id];
 const tr = L.cards[id]!;
 const name = tr.name;
+const w = L.workspace;
 const k = c.k ? tr.k! : undefined;
 const nameOf = (x: CardId) => L.cards[x]!.name;
 const kind = c.arcana === "major" ? t("card.kindMajor", { n: c.number! }) : t("card.kindMinor", { suit: L.group(c.suit) });
@@ -104,6 +105,8 @@ const jsonLd = [
       <p class="answer">{answer}</p>
       {k && <p class="essence">{k.essence}</p>}
       <p class="lead">{tr.upright}</p>
+      <p><a class="btn btn-gold" data-use-card href={`${u("read")}?card=${id}`}>{w.title}</a></p>
+      <label class="card-orientation">{w.orientation}<select data-card-orientation><option value="upright">{t("card.upright")}</option><option value="reversed">{t("card.reversed")}</option></select></label>
       <ul class="chips">{tr.keywords.map((w) => <li>{w}</li>)}</ul>
       {facts && <p class="muted">{facts}</p>}
       <nav class="ctx-links" aria-label={fill(L.contexts.ui.other, { name })}>
@@ -128,8 +131,8 @@ const jsonLd = [
         <p>{k.imagery}</p>
         <p class="muted">{k.why}</p>
       </div>
-      <div class="meaning">
-        <div class="panel">
+      <div class="meaning" id="card-meanings">
+        <div class="panel" data-meaning="upright">
           <h2><span>▲</span>{t("card.upright")}</h2>
           <p>{k.upright.core}</p>
           <div class="dl">
@@ -140,7 +143,7 @@ const jsonLd = [
           </div>
           <p class="reflect">{k.upright.question}</p>
         </div>
-        <div class="panel">
+        <div class="panel" data-meaning="reversed">
           <h2><span>▼</span>{t("card.reversed")}</h2>
           <p>{k.reversed.core}</p>
           <div class="dl">{k.reversed.modes.map((m) => <div>{m}</div>)}</div>
@@ -149,9 +152,9 @@ const jsonLd = [
       </div>
     </>
   ) : (
-    <div class="meaning">
-      <div class="panel"><h2><span>▲</span>{t("card.upright")}</h2><p>{tr.upright}</p></div>
-      <div class="panel"><h2><span>▼</span>{t("card.reversed")}</h2><p>{tr.reversed}</p></div>
+    <div class="meaning" id="card-meanings">
+      <div class="panel" data-meaning="upright"><h2><span>▲</span>{t("card.upright")}</h2><p>{tr.upright}</p></div>
+      <div class="panel" data-meaning="reversed"><h2><span>▼</span>{t("card.reversed")}</h2><p>{tr.reversed}</p></div>
     </div>
   )}
     </div>
@@ -235,5 +238,19 @@ const jsonLd = [
     const row = shareButtons(() => cfg.image, cfg.share);
     row.classList.remove("center");
     root.append(row);
+  }
+</script>
+
+<script>
+  const orientation = document.querySelector<HTMLSelectElement>('[data-card-orientation]');
+  const use = document.querySelector<HTMLAnchorElement>('[data-use-card]');
+  if (orientation && use) {
+    const base = use.href;
+    orientation.value = new URLSearchParams(location.search).get('orientation') === 'reversed' ? 'reversed' : 'upright';
+    const update = () => {
+      use.href = `${base}&orientation=${orientation.value}`;
+      for (const panel of document.querySelectorAll<HTMLElement>('[data-meaning]')) panel.hidden = panel.dataset.meaning !== orientation.value;
+    };
+    orientation.addEventListener('change', update); update();
   }
 </script>

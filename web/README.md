@@ -108,3 +108,21 @@ from `dist/`.
   App integrity > App signing); update it if that key ever changes.
 - The app opens a shared link on its question screen, matching the page's
   "Ask your own question" button.
+
+## Own-card reference workspace
+
+`/read` (and each locale's `/read`) lets visitors enter a physical draw, inspect
+reference meanings and keep one browser-local reflection. Drafts survive a tab
+refresh in session storage; Save explicitly replaces the one local-storage
+snapshot. No account sync, paid app entitlement or AI response is implied.
+Visitors can copy, export text, print and delete it. Export is the portable backup.
+
+`/astrology` collects existing zodiac/tarot correspondences with an undated
+weekly practice. It does not publish forecasts or calculate live sky positions.
+
+Run `npm run check:i18n`, `npm test`, `npm run check`, `npm run build`, then
+`npm run check:reader-build`. State tests use Node's built-in TypeScript stripping
+(Node 24 used for verification); no new runtime dependency was added.
+See `../docs/website-enhancements-verification-2026-10-21.md` for browser evidence
+and the required secure browser-authentication/API handoff before website AI
+can be enabled. Do not expose the app's testing install flow to browser users.

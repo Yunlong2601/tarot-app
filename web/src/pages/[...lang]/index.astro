@@ -1,9 +1,8 @@
 ---
 import Base from "../../layouts/Base.astro";
 import Tabs from "../../components/Tabs.astro";
-import Icon from "../../components/Icon.astro";
 import StoreButtons from "../../components/StoreButtons.astro";
-import AskBox from "../../components/AskBox.astro";
+
 import { BASE, SUPPORT_EMAIL } from "../../config.ts";
 import { CARDS, cardIds, slug } from "../../lib/data.ts";
 import { TOPICS, TOPIC_ART } from "../../lib/topics.ts";
@@ -14,16 +13,9 @@ const { lang } = Astro.props as { lang: Locale };
 const L = i18n(lang);
 const { t, url: u } = L;
 
+const w = L.workspace;
 const fan = ["major_17_star", "major_00_fool", "major_02_high_priestess"];
 const majors = cardIds.filter((id) => CARDS[id].arcana === "major");
-const features = [
-  { icon: "lock", key: "photo" },
-  { icon: "spark", key: "signin" },
-  { icon: "sun", key: "daily" },
-  { icon: "chat", key: "followup" },
-  { icon: "layout", key: "spreads" },
-  { icon: "book", key: "journal" },
-] as const;
 const faq = ["free", "account", "deck", "photo", "how", "predict"].map((k) => [t(`home.faq.${k}.q`), t(`home.faq.${k}.a`)]);
 const tiles = [
   { href: "tools/yes-no", key: "yesNo", art: ["major_19_sun", "major_11_justice", "major_18_moon"] },
@@ -47,21 +39,16 @@ const jsonLd = [
   { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) },
 ];
 ---
-<Base title={t("home.title")} description={t("home.description")} path="" jsonLd={jsonLd} bare noCta lang={lang}>
+<Base title={`${w.homeTitle} · ShenTarot`} description={w.homeLead} path="" jsonLd={jsonLd} bare noCta lang={lang}>
   <section class="hero">
     <div class="wrap">
       <div>
-        <p class="eyebrow">{t("home.eyebrow")}</p>
-        <h1>{t("home.h1a")} <em>{t("home.h1b")}</em></h1>
-        <p class="lead">{t("home.lead")}</p>
-        <AskBox lang={lang} />
-        <StoreButtons lang={lang} />
+        <p class="eyebrow">ShenTarot</p>
+        <h1>{w.homeTitle}</h1>
+        <p class="lead">{w.homeLead}</p>
+        <form class="home-search" action={u("cards")} role="search"><label for="home-card-query">{w.search}</label><div class="action-row"><input id="home-card-query" name="q" type="search" placeholder={w.searchHint} /><button class="btn btn-gold" type="submit">{w.find}</button></div></form>
+        <div class="action-row hero-actions"><a class="btn btn-ghost" href={u("spreads")}>{w.choose}</a><a class="btn btn-gold" href={u("read")}>{w.title}</a></div>
         <p class="alt"><a class="link-arrow" href={u("tools/random-card")}>{t("home.drawFree")}</a></p>
-        <ul class="trust">
-          <li>{t("home.trust1")}</li>
-          <li>{t("home.trust2")}</li>
-          <li>{t("home.trust3")}</li>
-        </ul>
       </div>
       <div class="hero-art">
         <div class="fan" aria-hidden="true">
@@ -77,11 +64,11 @@ const jsonLd = [
     <div class="wrap">
       <div class="section-head">
         <p class="ornament">✦</p>
-        <h2>{t("home.stepsTitle")}</h2>
-        <p>{t("home.stepsLead")}</p>
+        <h2>{w.learnPath}</h2>
+        <p>{w.practiceHint}</p>
       </div>
       <ol class="steps">
-        {[1, 2, 3].map((n) => <li><h3>{t(`home.step${n}.title`)}</h3><p>{t(`home.step${n}.text`)}</p></li>)}
+        {[[w.find, "cards"], [w.choose, "spreads"], [w.title, "read"]].map(([name, href]) => <li><h3><a href={u(href)}>{name}</a></h3></li>)}
       </ol>
     </div>
   </section>
@@ -104,25 +91,6 @@ const jsonLd = [
             </a>
           );
         })}
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="ornament">✦</p>
-        <h2>{t("home.whyTitle")}</h2>
-        <p>{t("home.whyLead")}</p>
-      </div>
-      <div class="grid-3">
-        {features.map((f) => (
-          <div class="panel feature">
-            <div class="icon"><Icon name={f.icon} /></div>
-            <h3>{t(`home.feature.${f.key}.title`)}</h3>
-            <p>{t(`home.feature.${f.key}.text`)}</p>
-          </div>
-        ))}
       </div>
     </div>
   </section>

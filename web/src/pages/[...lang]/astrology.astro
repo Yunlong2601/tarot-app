@@ -1,0 +1,18 @@
+---
+import Base from '../../layouts/Base.astro';
+import { i18n, langPaths, type Locale } from '../../i18n';
+import { SIGNS } from '../../lib/zodiac';
+import { BASE } from '../../config';
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Locale };
+const L = i18n(lang), w = L.workspace;
+---
+<Base title={w.astrology} description={w.astroLead} path="astrology" lang={lang}>
+  <header class="page-head"><p class="eyebrow">ShenTarot</p><h1>{w.astrology}</h1><p class="lead">{w.astroLead}</p><p>{w.astroNote}</p></header>
+  <div class="grid-3">
+    {SIGNS.map(s => <a class="panel zodiac-tile" href={L.url(`zodiac/${s.slug}`)}><img src={`${BASE}cards/art/${s.major}.jpg`} alt="" loading="lazy" width="90" height="154" /><div><h2>{L.content.signs[s.slug as keyof typeof L.content.signs].name}</h2><p>{L.cards[s.major]!.name}</p><p class="muted">{L.assoc(s.element)}</p></div></a>)}
+  </div>
+  <section class="panel practice-path"><h2>{w.weekly}</h2><p>{w.weeklyPrompt}</p><a class="btn btn-gold" href={`${L.url('read')}?spread=three_decision`}>{w.practice}</a></section>
+  <section class="panel practice-path"><h2>{w.astronomy}</h2><p>{w.astronomyNote}</p><a href="https://science.nasa.gov/moon/">NASA Science</a></section>
+  <p class="muted">{w.disclaimer}</p>
+</Base>

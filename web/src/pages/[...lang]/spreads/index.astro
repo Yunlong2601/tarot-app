@@ -31,7 +31,7 @@ const sp = (id: string) => L.content.spreads[id as keyof typeof L.content.spread
       <div class="grid-3">
         {spreadIds.filter((id) => SPREADS[id].category === cat).map((id) => (
           <a class="panel spread-card" href={u(`spreads/${slug(id)}`)}>
-            <div class="layout" aria-hidden="true">{SPREADS[id].positions.map(() => <i />)}</div>
+            <div class="diagram-preview" aria-hidden="true">{SPREADS[id].positions.map((_, i) => <i>{i + 1}</i>)}</div>
             <p class="count">{t("cardCount", { n: SPREADS[id].positions.length })}</p>
             <h3>{sp(id).name}</h3>
             <p>{sp(id).blurb}</p>

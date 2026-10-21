@@ -1,0 +1,50 @@
+---
+import Base from '../../layouts/Base.astro';
+import { BASE } from '../../config';
+import { i18n, langPaths, type Locale } from '../../i18n';
+import { readerDeck, spreadIds } from '../../lib/data';
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Locale };
+const L = i18n(lang), w = L.workspace;
+const spreads = spreadIds.map(id => ({ id, name: L.content.spreads[id].name, positions: L.content.spreads[id].positions }));
+const config = { deck: readerDeck(L), spreads, w, base: BASE, cardsUrl: L.url('cards'), up: L.t('card.upright'), rev: L.t('card.reversed'), more: L.t('reader.fullMeaning') };
+---
+<Base title={w.title} description={w.description} path="read" noCta lang={lang}>
+  <header class="page-head"><p class="eyebrow">ShenTarot</p><h1>{w.title}</h1><p class="lead">{w.description}</p></header>
+  <noscript><p>{w.practiceHint}</p><p><a href={L.url('cards')}>{w.find}</a> · <a href={L.url('spreads')}>{w.choose}</a></p></noscript>
+  <div data-workspace hidden data-config={JSON.stringify(config)}>
+    <div class="workspace-grid">
+      <section class="panel workspace-input">
+        <label>{w.choose}<select data-spread>{spreads.map(s => <option value={s.id} selected={s.id === 'three'}>{s.name} ({s.positions.length})</option>)}</select></label>
+        <label>{w.question}<input data-question maxlength="5000" /></label>
+        <label>{w.impression}<textarea data-impression maxlength="5000" rows="3"></textarea></label>
+        <button class="btn btn-ghost btn-sm" data-skip type="button">{w.skip}</button>
+        <p class="muted">{w.complete}</p>
+        <div data-slots></div>
+        <a class="btn btn-ghost" href="#reference">{w.practice}</a>
+      </section>
+      <section class="workspace-output" id="reference" aria-label={w.practice}>
+        <h2>{w.practice}</h2><p>{w.practiceHint}</p>
+        <div data-meanings></div>
+        <div class="panel" data-connections hidden><h2>{w.connections}</h2><p data-connection></p></div>
+        <aside class="panel ai-availability"><h2>{w.aiTitle}</h2><p>{w.aiNote}</p></aside>
+      </section>
+    </div>
+    <section class="panel reflection-panel">
+      <label>{w.reflection}<textarea data-reflection maxlength="5000" rows="5"></textarea></label>
+      <p class="muted">{w.storageNote}</p>
+      <div class="action-row">
+        <button class="btn btn-gold" type="button" data-save>{w.save}</button>
+        <button class="btn btn-ghost" type="button" data-restore>{w.restore}</button>
+        <button class="btn btn-ghost" type="button" data-copy>{w.copy}</button>
+        <button class="btn btn-ghost" type="button" data-export>{w.export}</button>
+        <button class="btn btn-ghost" type="button" data-print>{w.print}</button>
+        <button class="btn btn-ghost" type="button" data-delete>{w.delete}</button>
+      </div>
+      <p role="status" aria-live="polite" data-status></p>
+    </section>
+    <p class="muted">{w.disclaimer}</p>
+    <article class="print-reading" data-print-reading></article>
+  </div>
+</Base>
+<script src="../../scripts/workspace.ts"></script>

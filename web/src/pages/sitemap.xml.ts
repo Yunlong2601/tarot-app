@@ -12,6 +12,8 @@ export const GET: APIRoute = () => {
   const paths = [
     "",
     "about",
+    "read",
+    "astrology",
     "cards",
     "spreads",
     "learn",
