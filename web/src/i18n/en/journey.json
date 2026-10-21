@@ -25,5 +25,12 @@
     "Read a reversal in context",
     "Keep a portable reflection"
   ],
-  "cancel": "Cancel"
+  "cancel": "Cancel",
+  "shrinkWarning": "Changing to this smaller spread removes cards from the final positions. Export first to keep the whole draw. Continue?",
+  "spreadKept": "Cards, orientations and notes kept where positions fit. Review the new position labels.",
+  "orientationWarning": "This card is already in your spread. Apply the orientation selected on the meaning page? Other cards and notes stay unchanged.",
+  "orientationUpdated": "Card orientation updated. Review its meaning in this position.",
+  "resume": "Continue my unfinished spread",
+  "resumeHint": "This tab’s draft only. Saved reflections remain separate; nothing is synced across devices.",
+  "confirmTitle": "Review this change"
 }

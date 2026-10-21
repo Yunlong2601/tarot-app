@@ -25,5 +25,12 @@
     "Eine Umkehrung im Kontext lesen",
     "Eine portable Reflexion behalten"
   ],
-  "cancel": "Abbrechen"
+  "cancel": "Abbrechen",
+  "shrinkWarning": "Ein kleineres Legesystem entfernt Karten an den letzten Positionen. Exportiere zuerst, um alle Karten zu behalten. Fortfahren?",
+  "spreadKept": "Passende Karten, Ausrichtungen und Notizen bleiben erhalten. Prüfe die neuen Positionsbezeichnungen.",
+  "orientationWarning": "Diese Karte liegt bereits aus. Die auf der Bedeutungsseite gewählte Ausrichtung übernehmen? Andere Karten und Notizen bleiben erhalten.",
+  "orientationUpdated": "Ausrichtung aktualisiert. Prüfe die Bedeutung an dieser Position.",
+  "resume": "Meine offene Legung fortsetzen",
+  "resumeHint": "Nur der Entwurf dieses Tabs. Gespeicherte Reflexionen bleiben getrennt; keine Synchronisierung zwischen Geräten.",
+  "confirmTitle": "Diese Änderung prüfen"
 }

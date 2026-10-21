@@ -1,0 +1,23 @@
+---
+import type { i18n } from '../i18n';
+import { cardIds, spreadIds } from '../lib/data';
+const { L } = Astro.props as { L: ReturnType<typeof i18n> };
+const spreads=spreadIds.map(id=>({id,name:L.content.spreads[id].name,positions:L.content.spreads[id].positions}));
+---
+<aside class="panel" data-resume-workspace hidden data-validation={JSON.stringify({spreads,ids:cardIds})}>
+  <a class="btn btn-ghost" href={L.url('read')}>{L.journey.resume}</a>
+  <p class="muted">{L.journey.resumeHint}</p>
+</aside>
+<script>
+  import { STORAGE_KEY, loadDraft, hasWork } from '../lib/workspace';
+  function updateResume() {
+    document.querySelectorAll<HTMLElement>('[data-resume-workspace]').forEach(root=>{
+      try {
+        const {spreads,ids}=JSON.parse(root.dataset.validation!);
+        const draft=loadDraft(sessionStorage,`${STORAGE_KEY}-draft`,spreads,ids);
+        root.hidden=!draft||!hasWork(draft);
+      } catch { root.hidden=true; }
+    });
+  }
+  updateResume(); window.addEventListener('pageshow',updateResume);
+</script>

@@ -25,5 +25,12 @@
     "Leer una inversión en contexto",
     "Guardar una reflexión portátil"
   ],
-  "cancel": "Cancelar"
+  "cancel": "Cancelar",
+  "shrinkWarning": "Cambiar a una tirada más pequeña elimina las cartas de las últimas posiciones. Exporta primero para conservarlas todas. ¿Continuar?",
+  "spreadKept": "Se conservan las cartas, orientaciones y notas que caben. Revisa las nuevas posiciones.",
+  "orientationWarning": "Esta carta ya está en tu tirada. ¿Aplicar la orientación elegida en la página del significado? Las demás cartas y notas se conservan.",
+  "orientationUpdated": "Orientación actualizada. Revisa su significado en esta posición.",
+  "resume": "Continuar mi tirada pendiente",
+  "resumeHint": "Solo el borrador de esta pestaña. Las reflexiones guardadas son independientes; no hay sincronización entre dispositivos.",
+  "confirmTitle": "Revisa este cambio"
 }

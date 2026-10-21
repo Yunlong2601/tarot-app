@@ -317,8 +317,9 @@ input:focus, select:focus { outline: none; border-color: var(--gold); box-shadow
 
 /* Footer */
 .site-footer { margin-top: 4rem; border-top: 1px solid var(--line); background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.35)); padding: 3.5rem 0 2rem; font-size: 0.92rem; }
+.footer-grid > * { min-width: 0; overflow-wrap: anywhere; }
 .footer-grid { display: grid; grid-template-columns: 1.6fr repeat(3, 1fr); gap: 2rem; }
-@media (max-width: 48rem) { .footer-grid { grid-template-columns: 1fr 1fr; } .footer-grid > :first-child { grid-column: 1 / -1; } }
+@media (max-width: 48rem) { .footer-grid { grid-template-columns: minmax(0,1fr) minmax(0,1fr); } .footer-grid > :first-child { grid-column: 1 / -1; } }
 .site-footer h4 { font: 600 0.75rem/1 var(--sans); letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin: 0 0 1rem; }
 .site-footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.55rem; }
 .site-footer ul a { color: #cfc8ba; text-decoration: none; }

@@ -1,4 +1,4 @@
-import { blank, validDraft, sameDraft, hasWork, filterDeck, setPick, movePick, STORAGE_KEY, saveDraft, type Draft, type Spread } from '../lib/workspace';
+import { changeSpread, losesCards, blank, validDraft, sameDraft, hasWork, filterDeck, setPick, movePick, STORAGE_KEY, saveDraft, type Draft, type Spread } from '../lib/workspace';
 import { applyExample } from '../lib/example';
 import type growth from '../i18n/en/growth.json';
 import type journey from '../i18n/en/journey.json';
@@ -7,6 +7,7 @@ import type { ReaderCard } from '../lib/data';
 import type en from '../i18n/en/workspace.json';
 type Config = { j: typeof journey; g: typeof growth; deck: (ReaderCard & {englishName:string})[]; spreads: Spread[]; w: typeof en; base: string; cardsUrl: string; up: string; rev: string; more: string };
 for (const root of document.querySelectorAll<HTMLElement>('[data-workspace]')) {
+  void (async () => {
   const cfg: Config = JSON.parse(root.dataset.config!);
   const { w, j } = cfg;
   root.hidden = false;
@@ -103,12 +104,14 @@ for (const root of document.querySelectorAll<HTMLElement>('[data-workspace]')) {
     const s = currentSpread();
     return [w.title, s.name, '', `${w.question}: ${draft.question}`, `${w.impression}: ${draft.impression}`, '', ...draft.cards.map((p, i) => { const c = cfg.deck.find(c => c.id === p.id); return `${i + 1}. ${s.positions[i]}: ${c ? `${c.name} — ${p.reversed ? cfg.rev : cfg.up}\n${p.reversed ? c.rev : c.up}` : w.selectCard}`; }), '', `${w.reflection}:\n${draft.reflection}`, '', w.practiceHint, w.disclaimer].join('\n');
   }
-  spread.onchange = () => {
-    const id = spread.value;
-    if (draft.cards.some(c => c.id) && !window.confirm(w.changeWarning)) { spread.value = draft.spread; return; }
-    const next = blank(cfg.spreads.find(s => s.id === id)!);
-    fields(); next.question = draft.question; next.impression = draft.impression; next.reflection = draft.reflection; draft = next; hydrate(); persistDraft();
-  };
+  async function selectSpread(next: Spread) {
+    fields();
+    if (losesCards(draft,next) && !await confirmOverwrite(j.shrinkWarning,next.name)) {
+      spread.value=draft.spread; status.textContent=j.cancelled; return;
+    }
+    draft=changeSpread(draft,next); hydrate(); persistDraft(); status.textContent=j.spreadKept;
+  }
+  spread.onchange = async () => { await selectSpread(cfg.spreads.find(s=>s.id===spread.value)!); };
   [question, impression, reflection].forEach(input => input.addEventListener('input', persistDraft));
   find<HTMLButtonElement>('[data-skip]').onclick = () => slots.querySelector('select')?.focus();
   find<HTMLButtonElement>('[data-save]').onclick = async () => {
@@ -136,25 +139,33 @@ for (const root of document.querySelectorAll<HTMLElement>('[data-workspace]')) {
   window.addEventListener('beforeprint', preparePrint);
   try { const saved: unknown = JSON.parse(sessionStorage.getItem(draftKey) ?? 'null'); if (validDraft(saved, cfg.spreads, ids)) draft = saved; else if (saved) status.textContent = w.invalid; }
   catch { status.textContent = w.storageError; }
+  hydrate();
   // A deep link deliberately seeds slot one without discarding other saved work.
   const params = new URLSearchParams(location.search);
   const requestedSpread = cfg.spreads.find(s => s.id === params.get('spread'));
   const card = cfg.deck.find(c => c.id === params.get('card'));
   if (requestedSpread && requestedSpread.id !== draft.spread) {
-    if (!draft.cards.some(p => p.id) || window.confirm(w.changeWarning)) draft = { ...blank(requestedSpread), question: draft.question, impression: draft.impression, reflection: draft.reflection };
+    await selectSpread(requestedSpread);
   }
-  if (card && !draft.cards.some(p => p.id === card.id)) {
+  const existing=card ? draft.cards.findIndex(p=>p.id===card.id) : -1;
+  const orientation=params.get('orientation');
+  if(card && existing>=0 && (orientation==='upright'||orientation==='reversed') && draft.cards[existing]!.reversed!==(orientation==='reversed')) {
+    if(await confirmOverwrite(j.orientationWarning,card.name)) { setPick(draft,existing,card.id,orientation==='reversed'); status.textContent=j.orientationUpdated; }
+    else status.textContent=j.cancelled;
+  }
+  if (card && existing<0) {
     const empty = draft.cards.findIndex(p => !p.id);
     if (empty >= 0) setPick(draft, empty, card.id, params.get('orientation') === 'reversed');
     // If full, ask before replacing the first card.
-    else if (window.confirm(w.replaceWarning)) setPick(draft, 0, card.id, params.get('orientation') === 'reversed');
+    else if (await confirmOverwrite(w.replaceWarning,card.name)) setPick(draft, 0, card.id, params.get('orientation') === 'reversed');
   }
   if (params.get('example') === 'creative') {
-    if (!draft.cards.some(p => p.id) || window.confirm(cfg.g.exampleWarning)) {
+    if (!draft.cards.some(p => p.id) || await confirmOverwrite(cfg.g.exampleWarning,cfg.g.exampleQuestion)) {
       draft = applyExample(draft, cfg.g.exampleQuestion); status.textContent = cfg.g.exampleLoaded;
     } else status.textContent = cfg.g.exampleKept;
   }
   // Consume seed parameters once so refresh/delete cannot re-seed old cards.
   if (params.has('card') || params.has('spread') || params.has('example')) history.replaceState(null, '', location.pathname);
   hydrate(); persistDraft();
+  })();
 }

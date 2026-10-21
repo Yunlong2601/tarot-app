@@ -57,3 +57,9 @@ export function filterDeck<T extends {id:string;name:string;englishName:string;k
   const {words}=queryParts(query);
   return deck.filter(c=>c.id===selected || matches([c.id,c.name,c.englishName,...c.keywords].join(' '),words));
 }
+
+/** Preserve the physical draw by position; callers confirm any selected tail loss. */
+export function losesCards(d: Draft, spread: Spread): boolean { return d.cards.slice(spread.positions.length).some(p=>!!p.id); }
+export function changeSpread(d: Draft, spread: Spread): Draft {
+  return { ...d, spread: spread.id, cards: spread.positions.map((_,i)=>({...(d.cards[i] ?? {id:'',reversed:false})})) };
+}
