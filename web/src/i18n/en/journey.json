@@ -32,5 +32,8 @@
   "orientationUpdated": "Card orientation updated. Review its meaning in this position.",
   "resume": "Continue my unfinished spread",
   "resumeHint": "This tab’s draft only. Saved reflections remain separate; nothing is synced across devices.",
-  "confirmTitle": "Review this change"
+  "confirmTitle": "Review this change",
+  "connectionIntro": "Use these reference prompts with the cards and positions below. They do not generate a personal reading.",
+  "wholeSpread": "Now consider the whole spread: what theme repeats, what creates tension, and how does the final position change the story? Try a different explanation, then choose one small action that fits your question.",
+  "writeReflection": "Write my interpretation"
 }

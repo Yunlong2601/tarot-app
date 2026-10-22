@@ -1,4 +1,4 @@
-import { changeSpread, losesCards, blank, validDraft, sameDraft, hasWork, filterDeck, setPick, movePick, STORAGE_KEY, saveDraft, type Draft, type Spread } from '../lib/workspace';
+import { connectionPairs, changeSpread, losesCards, blank, validDraft, sameDraft, hasWork, filterDeck, setPick, movePick, STORAGE_KEY, saveDraft, type Draft, type Spread } from '../lib/workspace';
 import { applyExample } from '../lib/example';
 import type growth from '../i18n/en/growth.json';
 import type journey from '../i18n/en/journey.json';
@@ -98,12 +98,28 @@ for (const root of document.querySelectorAll<HTMLElement>('[data-workspace]')) {
       body.append(prompt, link); panel.append(img, body); meanings.append(panel);
     }
     const connections = find<HTMLElement>('[data-connections]'); connections.hidden = selected.length < 2;
-    if (selected.length >= 2) find<HTMLElement>('[data-connection]').textContent = fill(w.connectionPrompt, { first: selected[0]!.c!.name, second: selected[1]!.c!.name });
+    const list=find<HTMLOListElement>('[data-connection]'); list.replaceChildren();
+    for(const [first,second] of connectionPairs(draft)) {
+      const item=el('li');
+      item.append(el('h3',`${positionLabel(first)} → ${positionLabel(second)}`),el('p',pairPrompt(first,second)));
+      list.append(item);
+    }
+  }
+  function positionLabel(index:number) {
+    const pick=draft.cards[index]!; const card=cfg.deck.find(c=>c.id===pick.id)!;
+    return `${index+1}. ${currentSpread().positions[index]} — ${card.name} (${pick.reversed ? cfg.rev : cfg.up})`;
+  }
+  function pairPrompt(first:number,second:number) {
+    return fill(w.connectionPrompt,{first:cfg.deck.find(c=>c.id===draft.cards[first]!.id)!.name,second:cfg.deck.find(c=>c.id===draft.cards[second]!.id)!.name});
+  }
+  function connectionText() {
+    const pairs=connectionPairs(draft);
+    return pairs.length ? [w.connections,j.connectionIntro,...pairs.flatMap(([a,b])=>[`${positionLabel(a)} → ${positionLabel(b)}`,pairPrompt(a,b)]),j.wholeSpread] : [];
   }
   function text() {
     fields();
     const s = currentSpread();
-    return [w.title, s.name, '', `${w.question}: ${draft.question}`, `${w.impression}: ${draft.impression}`, '', ...draft.cards.map((p, i) => { const c = cfg.deck.find(c => c.id === p.id); return `${i + 1}. ${s.positions[i]}: ${c ? `${c.name} — ${p.reversed ? cfg.rev : cfg.up}\n${p.reversed ? c.rev : c.up}` : w.selectCard}`; }), '', `${w.reflection}:\n${draft.reflection}`, '', w.practiceHint, w.disclaimer].join('\n');
+    return [w.title, s.name, '', `${w.question}: ${draft.question}`, `${w.impression}: ${draft.impression}`, '', ...draft.cards.map((p, i) => { const c = cfg.deck.find(c => c.id === p.id); return `${i + 1}. ${s.positions[i]}: ${c ? `${c.name} — ${p.reversed ? cfg.rev : cfg.up}\n${p.reversed ? c.rev : c.up}` : w.selectCard}`; }), '', ...connectionText(), '', `${w.reflection}:\n${draft.reflection}`, '', w.practiceHint, w.disclaimer].join('\n');
   }
   async function selectSpread(next: Spread) {
     fields();

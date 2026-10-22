@@ -1,4 +1,5 @@
 ---
+import ResumeWorkspace from "../../../components/ResumeWorkspace.astro";
 import Base from '../../../layouts/Base.astro';
 import SpreadDiagram from '../../../components/SpreadDiagram.astro';
 import { i18n, langPaths, type Locale } from '../../../i18n';
@@ -8,6 +9,7 @@ const L = i18n(lang), g = L.growth, w = L.workspace;
 ---
 <Base title={g.guideTitle} description={g.guideLead} path="learn/beginner-reference" lang={lang} noCta>
 <article class="legal guide beginner-reference" data-reference-guide><h1>{g.guideTitle}</h1><p class="lead">{g.guideLead}</p>
+<div class="no-print"><ResumeWorkspace L={L} /></div>
 <div class="action-row no-print"><a class="btn btn-gold" data-guide-download download="shentarot-beginner-reference.txt" href={L.url('learn/beginner-reference.txt')}>{g.guideDownload}</a><button class="btn btn-ghost" data-guide-print hidden>{g.guidePrint}</button></div>
 <ol>{g.guideSteps.map(p=><li>{p}</li>)}</ol>
 <SpreadDiagram id="three_decision" positions={L.content.spreads.three_decision.positions} label={L.content.spreads.three_decision.name}/>

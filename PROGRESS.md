@@ -16,6 +16,8 @@ Primary working copy: the owner's local Mac folder. This repo is the backup and 
 
 **2026-10-22: physical-draw preservation follow-up.** Fresh branch from merged #24 preserves fitting cards/orientations/notes when changing spreads, confirms selected tail loss and explicit deep-link orientation corrections, and offers validated session resume on home/cards/learn. Eight locales; no new storage, tracking, Premium history, app/backend or pricing changes. Baseline report template, prepared distribution experiment, review issue log and verification: `docs/website-draw-preservation-2026-10-22.md`. Browser AI contract and independent/native review remain external dependencies. Release identifiers will be recorded in the focused PR receipt after checks/merge/deployment.
 
+**2026-10-22: complete-spread practice and strict consumer follow-up.** Fresh branch from merged #25. Fixed observed first-two-only connection guidance; every selected position and actual orientation now participates, including export/copy/print preparation. Reused session resume across the example/guide/practice and selected lesson/card cluster; fixed German narrow title overflow. Owner confirmed no reporting/reviewer/tester material and requested an explicitly hypothetical strict consumer version. Nine-gap and strict consumer prompts, evidence/limits: `docs/website-connected-practice-verification-2026-10-22.md`. No AI/scan/sync, app/backend/Premium/pricing/tracking changes. Passing PR and production identifiers will be recorded in release receipt.
+
 | Phase | Scope | Status |
 |---|---|---|
 | Step 1 | Plan, research, costs (`docs/step1-plan.md`) | Done |

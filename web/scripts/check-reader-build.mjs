@@ -2,7 +2,7 @@
 import { readFileSync, existsSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 const locales = ['', 'zh-hans/', 'zh-hant/', 'es/', 'de/', 'ja/', 'fr/', 'ru/'];
-const routes = ['', 'read', 'astrology', 'cards', 'cards/cups-queen', 'spreads/three', 'spreads/three-decision', 'spreads/celtic', 'learn', 'zodiac/aries', 'methodology', 'learn/connected-reading', 'learn/beginner-reference', 'learn/practice', 'cards/major-17-star', 'cards/pentacles-two', 'cards/pentacles-eight'];
+const routes = ['', 'read', 'astrology', 'cards', 'cards/cups-queen', 'spreads/three', 'spreads/three-decision', 'spreads/celtic', 'learn', 'zodiac/aries', 'methodology', 'learn/connected-reading', 'learn/beginner-reference', 'learn/practice', 'cards/major-17-star', 'cards/pentacles-two', 'cards/pentacles-eight', 'cards/major-01-magician', 'learn/reversed-cards', 'learn/how-to-read-tarot'];
 function output(path) {
   const clean = decodeURIComponent(path).replace(/^\//,'');
   return [join('dist',clean || 'index.html'),join('dist',`${clean}.html`),join('dist',clean,'index.html')].find(p=>existsSync(p) && statSync(p).isFile());
@@ -18,6 +18,11 @@ for (const loc of locales) for (const route of routes) {
     const url = new URL(value.replaceAll('&amp;','&'),`https://shentarot.com/${path}`);
     if (url.origin !== 'https://shentarot.com' || !['http:','https:'].includes(url.protocol)) continue;
     if (!output(url.pathname)) throw new Error(`Broken ${attribute} in ${path}: ${url.pathname}`);
+  }
+  if (['learn/connected-reading','learn/beginner-reference','learn/practice','learn/reversed-cards','learn/how-to-read-tarot','cards/major-01-magician','cards/major-17-star','cards/pentacles-two','cards/pentacles-eight'].includes(route)) {
+    const resume=html.match(/<aside[^>]*data-resume-workspace[\s\S]*?<\/aside>/)?.[0];
+    const href=resume?.match(/href="([^"]+)"/)?.[1];
+    if(href!==`/${loc}read`) throw new Error(`Missing non-seeding resume route ${path}`);
   }
   checked++;
 }

@@ -32,5 +32,8 @@
   "orientationUpdated": "Ausrichtung aktualisiert. Prüfe die Bedeutung an dieser Position.",
   "resume": "Meine offene Legung fortsetzen",
   "resumeHint": "Nur der Entwurf dieses Tabs. Gespeicherte Reflexionen bleiben getrennt; keine Synchronisierung zwischen Geräten.",
-  "confirmTitle": "Diese Änderung prüfen"
+  "confirmTitle": "Diese Änderung prüfen",
+  "connectionIntro": "Nutze diese Referenzfragen mit den folgenden Karten und Positionen. Sie erzeugen keine persönliche Deutung.",
+  "wholeSpread": "Betrachte nun die ganze Legung: Welches Thema wiederholt sich, wo entsteht Spannung und wie verändert die letzte Position die Geschichte? Probiere eine andere Erklärung und wähle einen kleinen Schritt, der zu deiner Frage passt.",
+  "writeReflection": "Meine Deutung aufschreiben"
 }
