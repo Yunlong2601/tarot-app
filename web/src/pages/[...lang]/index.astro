@@ -1,167 +1,76 @@
 ---
 import ResumeWorkspace from "../../components/ResumeWorkspace.astro";
 import Base from "../../layouts/Base.astro";
-import Tabs from "../../components/Tabs.astro";
 import StoreButtons from "../../components/StoreButtons.astro";
-
+import Reader from "../../components/Reader.astro";
+import Logo from "../../components/Logo.astro";
 import { BASE, SUPPORT_EMAIL } from "../../config.ts";
-import { CARDS, cardIds, slug } from "../../lib/data.ts";
-import { TOPICS, TOPIC_ART } from "../../lib/topics.ts";
+import { slug } from "../../lib/data.ts";
+import { EXAMPLE } from "../../lib/example.ts";
+import { TOPICS } from "../../lib/topics.ts";
 import { i18n, langPaths, type Locale } from "../../i18n/index.ts";
-
+import { ritualCopy } from "../../i18n/ritual.ts";
 export const getStaticPaths = langPaths;
 const { lang } = Astro.props as { lang: Locale };
-const L = i18n(lang);
+const L = i18n(lang), R = ritualCopy(lang);
 const { t, url: u } = L;
-
 const w = L.workspace, g = L.growth;
-const fan = ["major_17_star", "major_00_fool", "major_02_high_priestess"];
-const majors = cardIds.filter((id) => CARDS[id].arcana === "major");
-const faq = g.faq.map(f => [f.q, f.a]);
-const tiles = [
-  { href: "tools/yes-no", key: "yesNo", art: ["major_19_sun", "major_11_justice", "major_18_moon"] },
-  { href: "tools/daily-card", key: "daily", art: ["major_17_star", "cups_ace", "major_14_temperance"] },
-  { href: "tools/random-card", key: "random", art: ["major_10_wheel_of_fortune", "cups_ace", "major_18_moon"] },
-  { href: "tools/birth-card", key: "birth", art: ["major_03_empress", "major_21_world", "major_04_emperor"] },
-];
+const gallery = ["major_00_fool", "major_02_high_priestess", "major_17_star", "major_18_moon", "major_19_sun", "major_21_world"];
 const site = new URL(u(), Astro.site).href;
 const jsonLd = [
   { "@context": "https://schema.org", "@type": "Organization", name: "ShenTech", url: Astro.site!.href, logo: new URL("icon.png", Astro.site).href, email: SUPPORT_EMAIL },
   { "@context": "https://schema.org", "@type": "WebSite", name: "ShenTarot", url: site, inLanguage: L.tag },
-  { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) },
+  { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: g.faq.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
 ];
 ---
-<Base title={`${g.homeTitle} · ShenTarot`} description={g.homeLead} path="" jsonLd={jsonLd} bare noCta lang={lang}>
-  <section class="hero">
-    <div class="wrap">
-      <div>
-        <p class="eyebrow">ShenTarot</p>
-        <h1>{g.homeTitle}</h1>
-        <p class="lead">{g.homeLead}</p>
-        <ResumeWorkspace L={L} />
-        <form class="home-search" action={u("cards")} role="search"><label for="home-card-query">{w.search}</label><div class="action-row"><input id="home-card-query" name="q" type="search" placeholder={w.searchHint} /><button class="btn btn-gold" type="submit">{w.find}</button></div></form>
-        <div class="action-row hero-actions"><a class="btn btn-ghost" href={u("spreads")}>{w.choose}</a><a class="btn btn-gold" href={u("read")}>{w.title}</a></div>
-        <p class="alt"><a class="link-arrow" href={u("tools/random-card")}>{t("home.drawFree")}</a></p>
-      </div>
-      <div class="hero-art">
-        <div class="fan" aria-hidden="true">
-          {fan.map((id, i) => (
-            <img src={`${BASE}cards/art/${id}.jpg`} alt="" width="300" height="514" fetchpriority={i === 1 ? "high" : undefined} />
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
+<Base title={`${R.heroTitle} · ShenTarot`} description={`${R.heroLead} ${R.freeNote}`} path="" jsonLd={jsonLd} bare noCta lang={lang}>
+<div class="ritual-home">
+  <section class="ritual-hero"><div class="wrap hero-grid"><div>
+    <p class="eyebrow">{R.ritualLabel}</p><h1>{R.heroTitle}</h1><p class="lead">{R.heroLead}</p>
+    <div class="action-row"><a class="btn btn-gold" href="#ritual">{R.draw} <span aria-hidden="true">↗</span></a><a class="btn btn-ghost" href={u("read")}>{w.title}</a></div>
+    <a class="hero-search-link" href={u("cards")}>{R.search} <span aria-hidden="true">→</span></a><p class="hero-footnote">{R.freeNote}</p><ResumeWorkspace L={L}/>
+  </div><div class="ritual-stage"><div class="stage-orbit" aria-hidden="true"></div>
+    <img class="stage-card left" src={`${BASE}cards/art/major_17_star.jpg`} alt="" width="300" height="514" fetchpriority="high"/>
+    <img class="stage-card right" src={`${BASE}cards/art/major_02_high_priestess.jpg`} alt="" width="300" height="514"/>
+    <a class="stage-card middle" href="#ritual" aria-label={R.draw}><img src={`${BASE}ritual-card-back.svg`} alt="" width="300" height="514"/></a>
+    <p class="stage-mark">ShenTarot <span aria-hidden="true">—</span> {R.jump}</p>
+  </div></div><div class="hero-divider"><div class="wrap"><span>{R.available}</span><a href="#card-library">{t("home.allCards")}</a><span>{R.comingSoon}</span></div></div></section>
 
-  <section class="wrap section"><div class="panel example-invitation"><p class="eyebrow">{w.example}</p><h2>{g.exampleTitle}</h2><p>{g.exampleLead}</p><div class="action-row"><a class="btn btn-gold" href={u("learn/connected-reading")}>{w.example}</a><a class="btn btn-ghost" href={u("learn/practice")}>{g.practiceTitle}</a></div></div></section>
+  <section class="ritual-section wrap" id="ritual" aria-labelledby="ritual-title"><div class="ritual-intro"><div>
+    <p class="chapter-label">01 <span>{R.draw}</span></p><h2 id="ritual-title">{R.dailyTitle}</h2><p class="lead">{R.dailyLead}</p><p class="muted">{w.practiceHint}</p><a class="link-arrow" href={u("tools")}>{R.allTools}</a>
+  </div><div><Reader positions={[R.reflection]} button={R.redraw} ritual lang={lang}/></div></div></section>
 
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="ornament">✦</p>
-        <h2>{w.learnPath}</h2>
-        <p>{w.practiceHint}</p>
-      </div>
-      <ol class="steps">
-        {[[w.find, "cards"], [w.choose, "spreads"], [w.title, "read"]].map(([name, href]) => <li><h3><a href={u(href)}>{name}</a></h3></li>)}
-      </ol>
-    </div>
-  </section>
+  <section class="ritual-section ink-section" data-connected-example aria-labelledby="connection-title"><div class="wrap">
+    <p class="chapter-label">02 <span>{R.exampleLabel}</span></p><div class="connection-heading"><div><h2 id="connection-title">{g.exampleTitle}</h2></div><div><p class="lead">{g.exampleLead}</p><p><em>{g.exampleQuestion}</em></p></div></div>
+    <div class="connection-controls" hidden aria-label={R.exampleLabel}>{[R.chapterMeaning,R.chapterPosition,R.chapterConnection].map((label,i)=><button type="button" data-example-step={i} aria-pressed={i===0?"true":"false"}>{String(i+1).padStart(2,'0')} · {label}</button>)}</div>
+    <div class="connection-grid">{EXAMPLE.cards.map((p,i)=><article class="connection-card"><span class="card-index">0{i+1} / {L.t(p.reversed?'card.reversed':'card.upright')}</span><a href={`${u(`cards/${slug(p.id)}`)}${p.reversed?'?orientation=reversed':''}`}><img class:list={{'reversed-art':p.reversed}} src={`${BASE}cards/art/${p.id}.jpg`} alt={L.cards[p.id]!.name} width="300" height="514" loading="lazy"/></a><h3>{L.cards[p.id]!.name}</h3><p data-example-symbol>{g.symbols[i]}</p><p data-example-position>{g.positions[i]}</p></article>)}</div>
+    <div class="connection-synthesis" data-example-synthesis><h3>{R.chapterConnection}</h3><p>{g.connections}</p></div><p class="example-disclosure">{g.editorial}</p><a class="link-arrow" href={u("learn/connected-reading")}>{R.exampleLink}</a>
+  </div></section>
 
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="ornament">✦</p>
-        <h2>{t("home.topicsTitle")}</h2>
-        <p>{t("home.topicsLead")}</p>
-      </div>
-      <div class="topic-tiles">
-        {TOPICS.map((tp) => {
-          const c = L.content.topics[tp.slug as keyof typeof L.content.topics];
-          return (
-            <a class="topic-tile" href={u(`topics/${tp.slug}`)}>
-              <img src={`${BASE}cards/art/${TOPIC_ART[tp.slug]}.jpg`} alt="" loading="lazy" width="300" height="514" />
-              <b>{c.name}</b>
-              <span>{c.title}</span>
-            </a>
-          );
-        })}
-      </div>
-    </div>
-  </section>
+  <section class="wrap ritual-section"><div class="benefit-heading"><p class="chapter-label">03 <span>{w.learnPath}</span></p><h2>{R.benefitsTitle}</h2></div><div class="benefits">{R.benefits.map((b,i)=><article><span aria-hidden="true">0{i+1}</span><h3>{b.title}</h3><p>{b.body}</p><a class="link-arrow" href={u(['cards','spreads','tools/daily-card'][i])}>{b.link}</a></article>)}</div></section>
 
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="ornament">✦</p>
-        <h2>{t("home.exploreTitle")}</h2>
-      </div>
-      <Tabs label={t("home.exploreTitle")} tabs={[
-        { id: "tools", label: t("home.tabTools") },
-        { id: "major-arcana", label: t("home.tabMajors") },
-        { id: "questions", label: t("home.tabQuestions") },
-      ]}>
-        <div data-panel="tools">
-          <div class="section-head">
-            <h2 class="sr-only">{t("home.toolsTitle")}</h2>
-            <p>{t("home.toolsLead")} <a href={u("tools")}>{t("home.seeAllTools")}</a></p>
-          </div>
-          <div class="grid-2">
-            {tiles.map((tl) => (
-              <a class="panel tool-tile" href={u(tl.href)}>
-                <div class="mini" aria-hidden="true">
-                  {tl.art.map((id) => <img src={`${BASE}cards/art/${id}.jpg`} alt="" loading="lazy" width="150" height="257" />)}
-                </div>
-                <div><h3>{t(`home.tile.${tl.key}.title`)}</h3><p>{t(`home.tile.${tl.key}.text`)}</p><span class="link-arrow">{t(`home.tile.${tl.key}.cta`)}</span></div>
-              </a>
-            ))}
-          </div>
-        </div>
-        <div data-panel="major-arcana">
-          <div class="section-head">
-            <h2 class="sr-only">{t("home.tabMajors")}</h2>
-            <p>{t("home.majorsLead")}</p>
-          </div>
-          <div class="card-row">
-            {majors.map((id) => (
-              <a class="tcard" href={u(`cards/${slug(id)}`)}>
-                <img src={`${BASE}cards/art/${id}.jpg`} alt="" loading="lazy" width="150" height="257" />
-                {L.cards[id]!.name}
-              </a>
-            ))}
-          </div>
-          <p class="center"><a class="btn btn-ghost" href={u("cards")}>{t("home.allCards")}</a></p>
-        </div>
-        <div data-panel="questions">
-          <div class="section-head">
-            <h2 class="sr-only">{t("home.tabQuestions")}</h2>
-          </div>
-          <div class="faq">
-            {faq.map(([q, a]) => (
-              <details>
-                <summary>{q}</summary>
-                <p>{a}</p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </Tabs>
-    </div>
-  </section>
+  <section class="intention-section"><div class="wrap intention-grid"><div><h2>{t("home.topicsTitle")}</h2><p class="muted">{t("home.topicsLead")}</p></div><div class="intention-links">{TOPICS.map(tp=><a href={u(`topics/${tp.slug}`)}>{L.content.topics[tp.slug as keyof typeof L.content.topics].name}</a>)}</div></div></section>
 
-  <section class="wrap section" id="get-app">
-    <div class="cta-band">
-      <div class="fan sm" aria-hidden="true">
-        {["major_19_sun", "major_21_world", "major_18_moon"].map((id) => (
-          <img src={`${BASE}cards/art/${id}.jpg`} alt="" loading="lazy" width="150" height="257" />
-        ))}
-      </div>
-      <h2>{g.appTitle}</h2>
-      <p>{g.appNote}</p>
-      <StoreButtons center lang={lang} />
-      <p class="muted" style="margin:1.6rem 0 0;font-size:.85rem">
-        {t("home.contact")} <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>
-      </p>
-    </div>
-  </section>
+  <section class="ritual-section library-section" id="card-library" aria-labelledby="library-title"><div class="wrap"><p class="chapter-label">04 <span>{t("nav.cards")}</span></p><div class="library-heading"><div><h2 id="library-title">{R.libraryTitle}</h2><p class="muted">{R.libraryLead}</p></div><form class="library-search" action={u("cards")} role="search"><label for="home-card-query">{w.search}</label><div><input id="home-card-query" name="q" type="search" placeholder={w.searchHint}/><button type="submit" class="btn btn-gold">{R.search}</button></div></form></div>
+    <div class="library-gallery">{gallery.map(id=><a class="tcard" href={u(`cards/${slug(id)}`)}><img src={`${BASE}cards/art/${id}.jpg`} alt="" width="300" height="514" loading="lazy"/>{L.cards[id]!.name}</a>)}</div><div class="library-bottom"><a class="link-arrow" href={u("cards")}>{t("home.allCards")}</a><a class="link-arrow" href={u("tools")}>{R.allTools}</a></div>
+  </div></section>
+
+  <section class="ritual-section wrap"><div class="trust-grid"><div><p class="chapter-label">05 <span>{g.methodTitle}</span></p><h2>{R.trustTitle}</h2><p class="lead">{R.trustLead}</p><a class="link-arrow" href={u("methodology")}>{g.methodTitle}</a></div><div class="faq">{g.faq.map(f=><details><summary>{f.q}</summary><p>{f.a}</p></details>)}</div></div></section>
+  <section class="app-section" id="get-app"><div class="wrap app-grid"><div class="app-mark" aria-hidden="true"><Logo/><span>ShenTarot</span></div><div><p class="eyebrow">{R.appLabel}</p><h2>{g.appTitle}</h2><p>{R.appNote}</p><StoreButtons lang={lang}/></div></div></section>
+  <section class="wrap final-ritual"><p class="eyebrow">ShenTarot</p><h2>{R.finalTitle}</h2><p>{R.finalLead}</p><div class="action-row"><a class="btn btn-gold" href="#ritual">{R.draw} <span aria-hidden="true">↗</span></a><a href={u("cards")}>{R.search}</a></div></section>
+</div>
 </Base>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-connected-example]').forEach(root=>{
+    const controls=root.querySelector<HTMLElement>('.connection-controls')!;
+    const buttons=root.querySelectorAll<HTMLButtonElement>('[data-example-step]');
+    const symbols=root.querySelectorAll<HTMLElement>('[data-example-symbol]');
+    const positions=root.querySelectorAll<HTMLElement>('[data-example-position]');
+    const synthesis=root.querySelector<HTMLElement>('[data-example-synthesis]')!;
+    function show(step:number) {
+      buttons.forEach((b,i)=>b.setAttribute('aria-pressed',String(i===step)));
+      symbols.forEach(p=>p.hidden=step===1); positions.forEach(p=>p.hidden=step!==1); synthesis.hidden=step!==2;
+    }
+    controls.hidden=false; buttons.forEach((b,i)=>b.addEventListener('click',()=>show(i))); show(0);
+  });
+</script>
