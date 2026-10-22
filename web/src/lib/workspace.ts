@@ -63,3 +63,9 @@ export function losesCards(d: Draft, spread: Spread): boolean { return d.cards.s
 export function changeSpread(d: Draft, spread: Spread): Draft {
   return { ...d, spread: spread.id, cards: spread.positions.map((_,i)=>({...(d.cards[i] ?? {id:'',reversed:false})})) };
 }
+
+/** Pair selected positions in reading order, preserving gaps and the whole draw. */
+export function connectionPairs(d: Draft): [number, number][] {
+  const positions=d.cards.flatMap((p,i)=>p.id ? [i] : []);
+  return positions.slice(1).map((position,i)=>[positions[i]!,position]);
+}

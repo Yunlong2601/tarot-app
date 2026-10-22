@@ -32,5 +32,8 @@
   "orientationUpdated": "已更新正逆位。請查看該位置的釋義。",
   "resume": "繼續未完成的牌陣",
   "resumeHint": "僅限本分頁草稿。已儲存的感想單獨保留，不跨裝置同步。",
-  "confirmTitle": "確認此變更"
+  "confirmTitle": "確認此變更",
+  "connectionIntro": "結合下方的牌和位置使用這些參考提示。它們不會生成個人解讀。",
+  "wholeSpread": "再看整個牌陣：什麼主題重複出現，哪裡存在張力，最後的位置如何改變故事？嘗試另一種解釋，再選擇一個符合問題的小行動。",
+  "writeReflection": "寫下我的解讀"
 }

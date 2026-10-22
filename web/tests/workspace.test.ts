@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { changeSpread, losesCards, blank, validDraft, setPick, movePick, queryParts, matches, loadDraft, saveDraft } from '../src/lib/workspace.ts';
+import { connectionPairs, changeSpread, losesCards, blank, validDraft, setPick, movePick, queryParts, matches, loadDraft, saveDraft } from '../src/lib/workspace.ts';
 const spreads = [{id:'three',name:'Three',positions:['Past','Present','Future']},{id:'single',name:'One',positions:['Card']}];
 const ids = ['cups_queen','major_00_fool','pentacles_two'];
 test('editing and reordering preserves the real draw and orientation without duplicates', () => {
@@ -49,4 +49,23 @@ test('spread changes retain the physical draw and notes, expose tail loss and co
   const shorter=changeSpread(d,spreads[1]!);assert.deepEqual(shorter.cards,[d.cards[0]]);
   const expanded=changeSpread(shorter,spreads[0]!);assert.deepEqual(expanded.cards,[d.cards[0],{id:'',reversed:false},{id:'',reversed:false}]);
   assert.equal(losesCards(expanded,spreads[1]!),false);assert.equal(validDraft(expanded,spreads,ids),true);
+});
+
+test('connection guidance covers the final card, real gaps and current reading order without changing the draw', () => {
+  const d=blank(spreads[0]!);setPick(d,0,ids[0]!,false);setPick(d,2,ids[2]!,true);
+  const snapshot=structuredClone(d);
+  assert.deepEqual(connectionPairs(d),[[0,2]]);
+  assert.deepEqual(d,snapshot);
+  setPick(d,1,ids[1]!,false);
+  assert.deepEqual(connectionPairs(d),[[0,1],[1,2]]);
+  movePick(d,2,-1);
+  assert.deepEqual(connectionPairs(d).map(([a,b])=>[d.cards[a],d.cards[b]]),[
+    [{id:ids[0],reversed:false},{id:ids[2],reversed:true}],
+    [{id:ids[2],reversed:true},{id:ids[1],reversed:false}]
+  ]);
+  setPick(d,0,'',false);setPick(d,1,'',false);
+  assert.deepEqual(connectionPairs(d),[]);
+  const large={...d,cards:Array.from({length:10},(_,i)=>({id:`card_${i}`,reversed:i%2===0}))};
+  const covered=new Set(connectionPairs(large).flat());
+  assert.equal(covered.size,10);assert.equal(covered.has(9),true);
 });

@@ -28,13 +28,13 @@ const config = { j:L.journey, g: L.growth, deck: readerDeck(L).map(c=>({...c,eng
       <section class="workspace-output" id="reference" aria-label={w.practice}>
         <h2>{w.practice}</h2><p>{w.practiceHint}</p>
         <div data-meanings></div>
-        <div class="panel" data-connections hidden><h2>{w.connections}</h2><p data-connection></p></div>
+        <section class="panel connection-guide" data-connections hidden aria-labelledby="connection-title"><h2 id="connection-title">{w.connections}</h2><p>{L.journey.connectionIntro}</p><ol data-connection></ol><p>{L.journey.wholeSpread}</p><div class="action-row"><a class="btn btn-ghost" href="#workspace-reflection">{L.journey.writeReflection}</a><a href={L.url('learn/connected-reading')}>{L.growth.exampleTitle}</a></div></section>
         <aside class="panel ai-availability"><h2>{w.aiTitle}</h2><p>{w.aiNote}</p></aside>
       </section>
     </div>
     <section class="panel reflection-panel" id="saved-reflection">
       <h2>{L.growth.reviewTitle}</h2><p>{L.growth.reviewPrompt}</p><p><a href={L.url("learn/practice")}>{L.growth.practiceTitle}</a></p>
-      <label>{w.reflection}<textarea data-reflection maxlength="5000" rows="5"></textarea></label>
+      <label>{w.reflection}<textarea id="workspace-reflection" data-reflection maxlength="5000" rows="5"></textarea></label>
       <p class="muted">{w.storageNote}</p>
       <div class="action-row">
         <button class="btn btn-gold" type="button" data-save>{w.save}</button>

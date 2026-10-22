@@ -569,3 +569,9 @@ option { background:var(--bg-2); color:var(--fg); }
 .picker-hint,.picker-count{font-size:.85rem;margin:.35rem 0}.ready-count{padding:.8rem;border:1px solid var(--line-strong);border-radius:.6rem}.next-practice{margin-bottom:1.5rem}.next-practice h2{margin-top:0}.demo-downloads li{min-height:44px}
 
 [data-overwrite-dialog]{max-width:min(34rem,calc(100vw - 2rem));border:1px solid var(--gold);border-radius:1rem;background:#14121a;color:var(--text);padding:1.4rem}[data-overwrite-dialog]::backdrop{background:#000b}[data-overwrite-dialog] h2{margin-top:0}
+
+.connection-guide ol { padding-inline-start:1.4rem; }
+.connection-guide li + li { margin-top:1.5rem; }
+.connection-guide h3 { font-size:1.05rem; line-height:1.5; overflow-wrap:anywhere; }
+/* Long translated titles must wrap within phone-sized reference pages. */
+.page-head h1 { overflow-wrap:anywhere; hyphens:auto; }

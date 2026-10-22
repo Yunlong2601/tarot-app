@@ -32,5 +32,8 @@
   "orientationUpdated": "Orientación actualizada. Revisa su significado en esta posición.",
   "resume": "Continuar mi tirada pendiente",
   "resumeHint": "Solo el borrador de esta pestaña. Las reflexiones guardadas son independientes; no hay sincronización entre dispositivos.",
-  "confirmTitle": "Revisa este cambio"
+  "confirmTitle": "Revisa este cambio",
+  "connectionIntro": "Usa estas preguntas de referencia con las cartas y posiciones de abajo. No generan una lectura personal.",
+  "wholeSpread": "Considera ahora toda la tirada: ¿qué tema se repite, qué crea tensión y cómo cambia la historia la última posición? Prueba otra explicación y elige una pequeña acción relacionada con tu pregunta.",
+  "writeReflection": "Escribir mi interpretación"
 }

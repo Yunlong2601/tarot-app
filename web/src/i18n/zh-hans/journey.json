@@ -32,5 +32,8 @@
   "orientationUpdated": "已更新正逆位。请查看该位置的释义。",
   "resume": "继续未完成的牌阵",
   "resumeHint": "仅限本标签页草稿。已保存的感想单独保留，不跨设备同步。",
-  "confirmTitle": "确认此更改"
+  "confirmTitle": "确认此更改",
+  "connectionIntro": "结合下方的牌和位置使用这些参考提示。它们不会生成个人解读。",
+  "wholeSpread": "再看整个牌阵：什么主题重复出现，哪里存在张力，最后的位置如何改变故事？尝试另一种解释，再选择一个符合问题的小行动。",
+  "writeReflection": "写下我的解读"
 }

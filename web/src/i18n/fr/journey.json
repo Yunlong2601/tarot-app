@@ -32,5 +32,8 @@
   "orientationUpdated": "Orientation mise à jour. Vérifiez son sens à cette position.",
   "resume": "Reprendre mon tirage inachevé",
   "resumeHint": "Uniquement le brouillon de cet onglet. Les réflexions enregistrées restent séparées ; aucune synchronisation entre appareils.",
-  "confirmTitle": "Vérifier cette modification"
+  "confirmTitle": "Vérifier cette modification",
+  "connectionIntro": "Utilisez ces questions de référence avec les cartes et positions ci-dessous. Elles ne génèrent pas de lecture personnelle.",
+  "wholeSpread": "Considérez maintenant tout le tirage : quel thème se répète, où se trouve la tension et comment la dernière position change-t-elle le récit ? Essayez une autre explication, puis choisissez une petite action liée à votre question.",
+  "writeReflection": "Écrire mon interprétation"
 }
