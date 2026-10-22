@@ -157,3 +157,19 @@ See `../docs/website-review-pack-2026-10-22.md` for the unperformed review and
 `../docs/website-ai-contract-proposal-2026-10-22.md` for the concrete backend
 handoff. Browser authentication/preflight/idempotency remain unsupported;
 no AI submission or testing-token workaround was enabled.
+
+## Quiet Ritual visual system
+
+The premium/editorial system lives in `src/styles/ritual.css`, on top of the
+shared reference-tool primitives in `site.css`. Cormorant Garamond and Inter
+remain locally bundled under their existing SIL OFL licences; CJK uses native
+system serif/sans fallbacks. `public/ritual-card-back.svg` is original SVG artwork.
+New presentation copy is explicit for all eight locales in `src/i18n/ritual.ts`.
+The homepage reuses `Reader.astro` rather than introducing new drawing rules or
+storage. The connected example uses the same `EXAMPLE` fixture and translations
+as the full lesson. No AI/auth/backend or existing storage schema changes.
+
+`npm run check:ritual-build` audits 240 representative output pages, including
+all tool templates and the eight redesigned homepages. It supplements (does not
+replace) browser verification. `postbuild` writes `dist/release.json` with the
+Git revision and build time for public deployment verification.

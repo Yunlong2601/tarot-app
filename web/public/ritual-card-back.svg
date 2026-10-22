@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 514" fill="none">
+<title>ShenTarot original celestial card back</title>
+<rect width="300" height="514" rx="12" fill="#243C35"/>
+<g stroke="#B69A60"><rect x="12" y="12" width="276" height="490" rx="7"/><rect x="21" y="21" width="258" height="472" rx="4" stroke-opacity=".45"/>
+<path d="M150 47C230 125 230 389 150 467C70 389 70 125 150 47Z"/>
+<path d="M150 47C41 160 41 354 150 467C259 354 259 160 150 47Z" stroke-opacity=".4"/>
+<circle cx="150" cy="257" r="86"/><circle cx="150" cy="257" r="72" stroke-opacity=".5"/>
+<path d="M64 257h172M150 171v172M89 196l122 122M89 318l122-122" stroke-opacity=".35"/>
+<path d="M150 207L160 247L200 257L160 267L150 307L140 267L100 257L140 247Z" fill="#B69A60"/>
+<circle cx="150" cy="257" r="12" fill="#243C35"/><circle cx="150" cy="257" r="5" fill="#B69A60"/>
+<path d="M150 91a24 24 0 1 0 0 48a19 19 0 0 1 0-48Z" fill="#B69A60"/>
+<circle cx="150" cy="400" r="17"/>
+<path d="M150 373v-9m0 72v-9m27-27h9m-72 0h9m46-19l7-7m-52 52l7-7m38 0l7 7m-52-52l7 7"/>
+<path d="M43 68l8 8-8 8-8-8Zm214 0l8 8-8 8-8-8ZM43 430l8 8-8 8-8-8Zm214 0l8 8-8 8-8-8Z"/>
+<path d="M43 115v277m214-277v277" stroke-opacity=".25"/>
+</g></svg>

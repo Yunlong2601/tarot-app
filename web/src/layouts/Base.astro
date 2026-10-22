@@ -6,6 +6,8 @@ import "@fontsource/cormorant-garamond/cyrillic-500.css";
 import "@fontsource/cormorant-garamond/cyrillic-600.css";
 import "@fontsource-variable/inter";
 import "../styles/site.css";
+import "../styles/ritual.css";
+import { ritualCopy } from "../i18n/ritual";
 import Logo from "../components/Logo.astro";
 import StoreButtons from "../components/StoreButtons.astro";
 import { BASE, SUPPORT_EMAIL } from "../config.ts";
@@ -34,6 +36,7 @@ interface Props {
 }
 const { title, description, path, noCta = false, image = "og.png", crumbs = [], jsonLd = [], bare = false, lang = "en", localized = true } = Astro.props;
 const L = i18n(lang);
+const R = ritualCopy(lang);
 const t = L.t;
 const nav = [
   [t("nav.cards"), "cards"],
@@ -88,25 +91,33 @@ const ld = (o: unknown) => JSON.stringify(o).replace(/</g, "\\u003c");
     <link rel="icon" href={`${base}icon.png`} type="image/png" />
     <link rel="apple-touch-icon" href={`${base}icon.png`} />
     {schema.map((o) => <script type="application/ld+json" set:html={ld(o)} />)}
-    <meta name="theme-color" content="#09080f" />
+    <meta name="theme-color" content="#f4f0e7" />
+    <meta name="shentarot-design" content="quiet-ritual-v1" />
   </head>
   <body>
     <a class="skip" href="#main">{t("base.skip")}</a>
     <header class="site-header">
-      <div class="wrap">
+      <div class="wrap header-inner">
         <a class="brand" href={u()} aria-label={t("base.home")}><Logo />ShenTarot</a>
-        <nav class="site-nav" aria-label={t("base.mainNav")}>
-          {nav.map(([name, p]) => (
-            <a href={u(p)} aria-current={path === p || (p !== "tools" && path.startsWith(`${p}/`)) || (p === "tools" && path.startsWith("tools/") && path !== "tools/yes-no") ? "page" : undefined}>{name}</a>
-          ))}
+        <nav class="desktop-nav" aria-label={t("base.mainNav")}>
+          {nav.slice(0,3).map(([name,p]) => <a href={u(p)} aria-current={path === p || path.startsWith(`${p}/`) ? "page" : undefined}>{name}</a>)}
+          <details class="nav-more"><summary>{t("nav.tools")}</summary><ul>
+            {nav.slice(3).map(([name,p]) => <li><a href={u(p)}>{name}</a></li>)}
+            <li><a href={`${u()}#get-app`}>{R.comingSoon}</a></li>
+          </ul></details>
         </nav>
-        <details class="lang-menu">
-          <summary aria-label={t("base.language")}><span aria-hidden="true">🌐</span> {LOCALE_INFO[lang].name}</summary>
-          <ul>
-            {LOCALES.map((l) => <li><a href={localized ? here(l).replace(Astro.site!.origin, "") : `${base}${prefix(l)}`.replace(/\/$/, "") || "/"} hreflang={LOCALE_INFO[l].tag} lang={LOCALE_INFO[l].tag} aria-current={l === lang ? "true" : undefined}>{LOCALE_INFO[l].name}</a></li>)}
-          </ul>
+        <details class="header-search nav-more"><summary aria-label={R.search}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></summary>
+          <form action={u("cards")} role="search"><label for="nav-card-query">{L.workspace.search}</label><input id="nav-card-query" name="q" type="search" placeholder={L.workspace.searchHint}/><button class="btn btn-gold btn-sm" type="submit">{R.search}</button></form>
         </details>
-        <a class="btn btn-gold btn-sm header-cta" href={`${u()}#get-app`}>{t("base.getApp")}</a>
+        <details class="lang-menu">
+          <summary aria-label={t("base.language")}>{LOCALE_INFO[lang].name}</summary>
+          <ul>{LOCALES.map((l) => <li><a href={localized ? here(l).replace(Astro.site!.origin, "") : `${base}${prefix(l)}`.replace(/\/$/, "") || "/"} hreflang={LOCALE_INFO[l].tag} lang={LOCALE_INFO[l].tag} aria-current={l === lang ? "true" : undefined}>{LOCALE_INFO[l].name}</a></li>)}</ul>
+        </details>
+        <a class="btn btn-gold btn-sm header-cta" href={`${u()}#ritual`} aria-label={R.draw}><span class="cta-word">{R.draw}</span><span class="cta-symbol" aria-hidden="true">✦</span></a>
+        <details class="mobile-menu"><summary>{R.menu}</summary><nav aria-label={t("base.mainNav")}>
+          {nav.map(([name,p]) => <a href={u(p)} aria-current={path === p || path.startsWith(`${p}/`) ? "page" : undefined}>{name}</a>)}
+          <a href={`${u()}#ritual`}>{R.draw}</a><a href={`${u()}#get-app`}>{R.comingSoon}</a>
+        </nav></details>
       </div>
     </header>
     <main id="main">
@@ -116,7 +127,7 @@ const ld = (o: unknown) => JSON.stringify(o).replace(/</g, "\\u003c");
           <div class="cta-band">
             <p class="eyebrow">{L.growth.appTitle}</p>
             <h2>{L.growth.appTitle}</h2>
-            <p>{L.growth.appNote}</p>
+            <p>{R.appNote}</p>
             <StoreButtons center lang={lang} />
           </div>
         </section>
@@ -171,5 +182,14 @@ const ld = (o: unknown) => JSON.stringify(o).replace(/</g, "\\u003c");
         </div>
       </div>
     </footer>
+    <script>
+      const disclosures = document.querySelectorAll<HTMLDetailsElement>('.site-header details');
+      disclosures.forEach(detail => {
+        detail.addEventListener('toggle', () => { if(detail.open) disclosures.forEach(other=>{if(other!==detail) other.open=false;}); });
+        detail.addEventListener('keydown', event=>{ if(event.key==='Escape' && detail.open) { detail.open=false; detail.querySelector('summary')?.focus(); } });
+        detail.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{detail.open=false;}));
+      });
+      document.addEventListener('click',event=>{ if(event.target instanceof Node) disclosures.forEach(detail=>{if(!detail.contains(event.target as Node)) detail.open=false;}); });
+    </script>
   </body>
 </html>

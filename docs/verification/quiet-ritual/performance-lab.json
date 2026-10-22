@@ -1,0 +1,19 @@
+{
+  "conditions": {
+    "viewport": "390x844",
+    "cpuSlowdown": 4,
+    "latencyMs": 150,
+    "downloadBytesPerSec": 200000,
+    "cacheDisabled": true,
+    "origin": "localhost production build"
+  },
+  "result": {
+    "result": {
+      "type": "object",
+      "value": {
+        "cls": 0.039389306216916366,
+        "lcp": 584
+      }
+    }
+  }
+}

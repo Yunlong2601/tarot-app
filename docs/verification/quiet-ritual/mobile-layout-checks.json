@@ -1,0 +1,82 @@
+[
+  {
+    "brokenImages": [],
+    "overflow": [],
+    "path": "/de",
+    "scroll": 375,
+    "title": "Entdecke die Geschichte deiner Karten.",
+    "width": 390
+  },
+  {
+    "brokenImages": [],
+    "overflow": [],
+    "path": "/ja",
+    "scroll": 375,
+    "title": "カードに映る物語を見つけよう。",
+    "width": 390
+  },
+  {
+    "brokenImages": [],
+    "overflow": [],
+    "path": "/zh-hans",
+    "scroll": 375,
+    "title": "看见牌中的故事。",
+    "width": 390
+  },
+  {
+    "brokenImages": [],
+    "overflow": [],
+    "path": "/cards",
+    "scroll": 375,
+    "title": "Tarot card meanings",
+    "width": 390
+  },
+  {
+    "brokenImages": [],
+    "overflow": [],
+    "path": "/cards/major-17-star",
+    "scroll": 375,
+    "title": "The Star",
+    "width": 390
+  },
+  {
+    "brokenImages": [],
+    "overflow": [],
+    "path": "/spreads/three",
+    "scroll": 375,
+    "title": "Past, Present, Future",
+    "width": 390
+  },
+  {
+    "brokenImages": [],
+    "overflow": [],
+    "path": "/learn/connected-reading",
+    "scroll": 375,
+    "title": "One question, three cards, a connected story",
+    "width": 390
+  },
+  {
+    "brokenImages": [],
+    "overflow": [],
+    "path": "/read",
+    "scroll": 375,
+    "title": "Interpret my cards",
+    "width": 390
+  },
+  {
+    "brokenImages": [],
+    "overflow": [],
+    "path": "/tools/random-card",
+    "scroll": 375,
+    "title": "Draw a tarot card",
+    "width": 390
+  },
+  {
+    "brokenImages": [],
+    "overflow": [],
+    "path": "/about",
+    "scroll": 375,
+    "title": "About ShenTarot",
+    "width": 390
+  }
+]

@@ -160,3 +160,6 @@ Google Play prep (branch `google-play-prep`): app id `com.shentech.shentarot`, u
 - Nothing has been built or run on iOS or Android; only `flutter analyze` and 17 tests (in a Linux sandbox, all passing).
 - Card art: 78 Commons scans (all report licence "Public domain", dated 1910, 1909 Pamela Colman Smith deck) are in the repo; I spot-checked 3 by eye. Owner must still open the Commons file pages (listed in `app/assets/cards/art/CREDITS.md`) and confirm none is a 1971+ US Games recolour before release.
 - Store fees, prices and policies in the plan were checked on the web on 2026-10-16 and must be re-verified before launch.
+
+## 2026-10-22: Quiet Ritual website redesign
+Authorised implementation and public release. Premium/editorial homepage with original SVG card back, shared Reader reveal, connected example, library and honest app status; shared light reading surfaces, dark editorial chapters, responsive navigation and eight-locale copy. Existing storage keys/schema, app/backend and production hosting are unchanged. See `docs/quiet-ritual-redesign-2026-10-22.md` for checks, screenshots, release identifiers and limitations.
