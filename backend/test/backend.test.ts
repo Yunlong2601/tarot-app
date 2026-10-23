@@ -1357,3 +1357,13 @@ describe("whole-spread photo", () => {
     expect(called).toBe(false);
   });
 });
+
+describe("daily credits by sign-in", () => {
+  it("guests get 1 daily credit and signed-in users 2 once sign-in is offered", async () => {
+    const s = setup({ credits: true, google: "client.apps.googleusercontent.com" });
+    const daily = async () => (await (await s.call("/v1/credits/daily", { method: "POST", headers: await authHeaders(s.env) })).json()) as { dailyAmount: number };
+    expect((await daily()).dailyAmount).toBe(1);
+    await s.accounts.link(await hashId(UUID, "salt"), "acct-1");
+    expect((await daily()).dailyAmount).toBe(2);
+  });
+});

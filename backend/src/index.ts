@@ -228,11 +228,13 @@ export function createApp(deps: Deps = defaultDeps) {
   const spentToday = async (usage: UsageStore, key: string, day: string) =>
     (await usage.count(key, day, "reading")) + (await usage.count(key, day, "followup"));
   /** Grants today's daily credits and, for Premium, this month's; returns how many were added. */
-  const grantCredits = async (who: { appUserId: string; usageKey: string }, env: Env, premium: boolean, day: string, now: number) => {
+  const grantCredits = async (who: { appUserId: string; usageKey: string; accountId?: string | null }, env: Env, premium: boolean, day: string, now: number) => {
     const store = deps.credits(env);
     // One-time welcome gift per owner (the txn id makes it idempotent).
     let granted = (await store.add(who.usageKey, WELCOME_CREDITS, `welcome:${who.usageKey}`, "welcome")) ? WELCOME_CREDITS : 0;
-    granted += await store.claimDaily(who.usageKey, day, FREE_DAILY_CREDITS, FREE_DAILY_CREDITS * DAILY_BANK_DAYS);
+    // Guests get fewer daily credits than signed-in users once sign-in is offered.
+    const daily = freeReadingsFor(env, who.accountId);
+    granted += await store.claimDaily(who.usageKey, day, daily, daily * DAILY_BANK_DAYS);
     const monthly = await monthlyFor(who, env, premium, now);
     if (monthly > 0) granted += await store.claimMonthly(who.usageKey, day.slice(0, 7), monthly, monthly * MONTHLY_BANK_MONTHS);
     return granted;
@@ -686,7 +688,7 @@ export function createApp(deps: Deps = defaultDeps) {
     const used = await spentToday(deps.usage(c.env), who.usageKey, utcDay(now));
     return c.json({
       balance: await deps.credits(c.env).balance(who.usageKey),
-      daily: { amount: FREE_DAILY_CREDITS, monthlyAmount: await monthlyFor(who, c.env, premium, now), spendGuard: DAILY_SPEND_GUARD, spentToday: used, premium },
+      daily: { amount: freeReadingsFor(c.env, who.accountId), monthlyAmount: await monthlyFor(who, c.env, premium, now), spendGuard: DAILY_SPEND_GUARD, spentToday: used, premium },
     });
   });
 
@@ -702,7 +704,7 @@ export function createApp(deps: Deps = defaultDeps) {
     return c.json({
       granted,
       balance: await deps.credits(c.env).balance(who.usageKey),
-      dailyAmount: FREE_DAILY_CREDITS,
+      dailyAmount: freeReadingsFor(c.env, who.accountId),
       monthlyAmount: await monthlyFor(who, c.env, premium, now),
     });
   });

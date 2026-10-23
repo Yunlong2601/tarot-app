@@ -175,7 +175,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
             tr('All spreads, follow-ups, 50 readings a day'),
             if (creditsEnabled)
               tr(
-                '90 to 150 new credits every month by plan (free: 2 a day), and unused credits roll over',
+                '90 to 150 new credits every month by plan (free: 1 a day, 2 when signed in), and unused credits roll over',
               ),
             tr('A clarifier card to shed light on a reading'),
             tr('A look back a week later, with a reminder'),
@@ -466,7 +466,7 @@ class _CreditPacksCard extends StatelessWidget {
           Text(
             tr(
               tr(
-                'Buy a few credits once. One credit pays for a reading or a follow-up, and credits never expire. Premium costs less per credit and also includes 90 to 150 new credits every month and the 5, 7 and 10-card spreads. Free users get 2 new credits a day. Premium members keep their credits if they reinstall and restore purchases.',
+                'Buy a few credits once. One credit pays for a reading or a follow-up, and credits never expire. Premium costs less per credit and also includes 90 to 150 new credits every month and the 5, 7 and 10-card spreads. Free users get 1 new credit a day, or 2 when signed in. Premium members keep their credits if they reinstall and restore purchases.',
               ),
             ),
           ),
