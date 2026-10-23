@@ -598,6 +598,24 @@ class AppState extends ChangeNotifier {
     }
   }
 
+  /// Asked for after a purchase: a heads-up 2 days before a free trial or
+  /// intro price ends, even with the daily reminder off. Returns the reminder
+  /// time, or null if there is no intro period or notifications are refused.
+  Future<DateTime?> remindBeforeIntroEnds() async {
+    try {
+      final end = await subscriptions.introEndsAt();
+      if (end == null) return null;
+      final at = end.subtract(const Duration(days: 2));
+      if (!at.isAfter(DateTime.now())) return null;
+      if (!await reminders.requestPermission()) return null;
+      await reminders.scheduleIntroEnding(at);
+      return at;
+    } catch (e) {
+      debugPrint('Intro reminder failed: $e');
+      return null;
+    }
+  }
+
   void setPremium(bool value) {
     if (isPremium == value) return;
     isPremium = value;

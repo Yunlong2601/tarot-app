@@ -30,7 +30,7 @@ class SpreadLayoutView extends StatelessWidget {
 
   /// Width / height of the layout box for each spread shape.
   static double aspectOf(SpreadType t) => switch (t) {
-    SpreadType.single => 1.0,
+    SpreadType.single || SpreadType.yesNo => 1.0,
     SpreadType.threeCard ||
     SpreadType.threeDecision ||
     SpreadType.threeHhh ||

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../app/app_scope.dart';
 import '../../app/brand.dart';
 import '../../app/theme.dart';
 import '../../app/i18n.dart';
@@ -217,6 +218,7 @@ class _WelcomePremiumScreenState extends State<WelcomePremiumScreen>
                       ],
                     ),
                   ),
+                  if (!widget.restored) const _IntroReminder(),
                   const SizedBox(height: 16),
                 ],
               ),
@@ -240,6 +242,74 @@ class _WelcomePremiumScreenState extends State<WelcomePremiumScreen>
           ],
         ),
       ),
+    );
+  }
+}
+
+/// Offers a heads-up 2 days before a free trial or intro price ends. Hidden
+/// when the plan has no intro period.
+class _IntroReminder extends StatefulWidget {
+  const _IntroReminder();
+
+  @override
+  State<_IntroReminder> createState() => _IntroReminderState();
+}
+
+class _IntroReminderState extends State<_IntroReminder> {
+  bool _hasIntro = false;
+  DateTime? _set;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    AppScope.of(context).subscriptions
+        .introEndsAt()
+        .then((end) {
+          if (mounted && end != null) setState(() => _hasIntro = true);
+        })
+        .catchError((_) {});
+  }
+
+  Future<void> _remind() async {
+    final at = await AppScope.of(context).remindBeforeIntroEnds();
+    if (!mounted) return;
+    if (at == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            tr(
+              'Turn on notifications for ShenTarot in your phone settings to get the reminder.',
+            ),
+          ),
+        ),
+      );
+    } else {
+      setState(() => _set = at);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (!_hasIntro) return const SizedBox.shrink();
+    final set = _set;
+    return Padding(
+      padding: const EdgeInsets.only(top: 12),
+      child: set != null
+          ? Text(
+              tr('We will remind you on {0}.', [
+                MaterialLocalizations.of(context).formatMediumDate(set),
+              ]),
+              textAlign: TextAlign.center,
+              style: const TextStyle(color: AppColors.textMuted),
+            )
+          : OutlinedButton.icon(
+              style: OutlinedButton.styleFrom(
+                minimumSize: const Size.fromHeight(48),
+              ),
+              onPressed: _remind,
+              icon: const Icon(Icons.notifications_outlined),
+              label: Text(tr('Remind me 2 days before it ends')),
+            ),
     );
   }
 }

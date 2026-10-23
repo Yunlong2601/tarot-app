@@ -32,6 +32,7 @@ enum SpreadType {
   careerStrengths,
   threeHhh,
   growthShadowLight,
+  yesNo,
 }
 
 class SpreadDef {
@@ -246,6 +247,14 @@ const spreadDefs = <SpreadType, SpreadDef>{
     positions: ['My light', 'My shadow', 'Bringing them together'],
     layout: _row3,
   ),
+  SpreadType.yesNo: SpreadDef(
+    wire: 'yes_no',
+    name: 'Yes or No',
+    category: SpreadCategory.classics,
+    blurb: 'A quick question: one card shows which way it leans.',
+    positions: ['The leaning'],
+    layout: [Offset(0.5, 0.5)],
+  ),
 };
 
 extension SpreadInfo on SpreadType {
@@ -302,6 +311,11 @@ SpreadType recommendSpread(String question) {
   }
   if (any(['job', 'career', 'work', 'boss', 'promotion', 'study', 'school'])) {
     return SpreadType.careerPath;
+  }
+  if (q.startsWith('should i ') ||
+      q.startsWith('will i ') ||
+      q.contains('yes or no')) {
+    return SpreadType.yesNo;
   }
   if (any(['decide', 'decision', 'choose', 'choice', 'option', 'whether'])) {
     return SpreadType.threeDecision;

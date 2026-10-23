@@ -25,6 +25,9 @@ abstract class ReminderService {
   /// One-off reminder 2 days before a paid introductory period (e.g. the
   /// US$1.99 first month) ends and the full price is charged.
   Future<void> scheduleIntroEnding(DateTime at);
+
+  /// Asks for notification permission without turning on the daily reminder.
+  Future<bool> requestPermission();
 }
 
 const _introEndingId = 2;
@@ -45,6 +48,8 @@ class NoopReminderService implements ReminderService {
   Future<void> cancelLookBack(String readingId) async {}
   @override
   Future<void> scheduleIntroEnding(DateTime at) async {}
+  @override
+  Future<bool> requestPermission() async => false;
 }
 
 class LocalNotificationReminderService implements ReminderService {
@@ -75,7 +80,7 @@ class LocalNotificationReminderService implements ReminderService {
   static const _firstDailyId = 100;
 
   @override
-  Future<bool> enable(TimeOfDay time, {bool skipToday = false}) async {
+  Future<bool> requestPermission() async {
     await _init();
     final ios = _plugin
         .resolvePlatformSpecificImplementation<
@@ -85,11 +90,14 @@ class LocalNotificationReminderService implements ReminderService {
         .resolvePlatformSpecificImplementation<
           AndroidFlutterLocalNotificationsPlugin
         >();
-    final granted =
-        (await ios?.requestPermissions(alert: true, sound: true)) ??
+    return (await ios?.requestPermissions(alert: true, sound: true)) ??
         (await android?.requestNotificationsPermission()) ??
         false;
-    if (!granted) return false;
+  }
+
+  @override
+  Future<bool> enable(TimeOfDay time, {bool skipToday = false}) async {
+    if (!await requestPermission()) return false;
 
     await _cancelDaily();
     final now = tz.TZDateTime.now(tz.local);
@@ -170,9 +178,9 @@ class LocalNotificationReminderService implements ReminderService {
     await _init();
     await _plugin.zonedSchedule(
       id: _introEndingId,
-      title: tr('Your first month ends in 2 days'),
+      title: tr('Your introductory offer ends in 2 days'),
       body: tr(
-        'Premium then renews at the yearly price. You can manage or cancel in your store subscription settings.',
+        'Premium then renews at the full price. You can manage or cancel in your store subscription settings.',
       ),
       scheduledDate: tz.TZDateTime.from(at, tz.local),
       notificationDetails: NotificationDetails(

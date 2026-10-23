@@ -89,6 +89,11 @@ export const SPREADS = {
     purpose: "Self-understanding: a strength, a hidden side, and how to bring them together.",
     positions: ["My light", "My shadow", "Bringing them together"],
   },
+  yes_no: {
+    name: "Yes or No", category: "classics",
+    purpose: "A quick yes-or-no question. Start with a gentle leaning in plain words (leans yes, leans no, or not clear yet) taken from the card, then say why and what would help. It is a leaning to reflect on, never a certain answer, and the choice stays the user's. For health, legal, money or safety questions give no leaning, only reflection.",
+    positions: ["The leaning"],
+  },
 } as const satisfies Record<string, SpreadDef>;
 
 export type Spread = keyof typeof SPREADS;

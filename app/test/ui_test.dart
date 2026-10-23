@@ -198,7 +198,7 @@ void main() {
     await t.pumpAndSettle();
     // Classics is the first tab and selected by default.
     expect(find.text('One-Card Reading'), findsOneWidget);
-    expect(find.text('1 card'), findsOneWidget);
+    expect(find.text('Yes or No'), findsOneWidget);
     await tapVisible(t, find.text('Love'));
     expect(find.text('Love & Relationship'), findsOneWidget);
   });

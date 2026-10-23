@@ -98,6 +98,14 @@ class CardDetailScreen extends StatelessWidget {
               style: const TextStyle(fontStyle: FontStyle.italic),
             ),
           ],
+          const SizedBox(height: 24),
+          Text(
+            tr(
+              'Art: Pamela Colman Smith, 1909. Public domain, not AI-generated.',
+            ),
+            textAlign: TextAlign.center,
+            style: const TextStyle(fontSize: 12, color: AppColors.textMuted),
+          ),
         ],
       ),
     );

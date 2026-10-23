@@ -61,6 +61,9 @@ class FakeReminders implements ReminderService {
 
   bool? skippedToday;
   @override
+  Future<bool> requestPermission() async => allow;
+
+  @override
   Future<bool> enable(TimeOfDay time, {bool skipToday = false}) async {
     if (!allow) return false;
     scheduled = time;

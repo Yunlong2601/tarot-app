@@ -302,6 +302,31 @@ class _PaywallScreenState extends State<PaywallScreen> {
               // Same weight as the button: what you pay after the offer.
               style: TextStyle(fontSize: 14),
             ),
+          if (plan != null) ...[
+            SizedBox(height: 8),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.verified_user_outlined,
+                  size: 16,
+                  color: AppColors.gold,
+                ),
+                SizedBox(width: 6),
+                Flexible(
+                  child: Text(
+                    plan.trialLabel != null
+                        ? tr(
+                            'No surprise charges: cancel anytime, and we can remind you 2 days before it ends.',
+                          )
+                        : tr('No surprise charges: cancel anytime.'),
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 13, color: AppColors.gold),
+                  ),
+                ),
+              ],
+            ),
+          ],
           SizedBox(height: 4),
           Text(
             Platform.isIOS
