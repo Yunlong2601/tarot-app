@@ -8,7 +8,9 @@ This repository is meant to be self-contained: any developer or AI coding tool c
 
 | Read this | For |
 |---|---|
-| [AGENTS.md](AGENTS.md) | Project rules, decisions, conventions (for people and AI tools) |
+| [CLAUDE.md](CLAUDE.md) | App and backend rules, decisions, conventions (Claude works here) |
+| [AGENTS.md](AGENTS.md) | Website rules, state and to-dos (Codex works here) |
+| [SHARED-FACTS.md](SHARED-FACTS.md) | Names, links, prices, brand and API shape the app and site share |
 | [PROGRESS.md](PROGRESS.md) | What is done, what is next, open to-dos, known issues |
 | [docs/step1-plan.md](docs/step1-plan.md) | Architecture, data model, roadmap, cost model, break-even, store and Singapore notes |
 | [app/README.md](app/README.md) | App-specific commands and layout |
@@ -49,4 +51,4 @@ See [backend/README.md](backend/README.md), [docs/phase-e-subscriptions-setup.md
 No API keys or secrets, ever. The Anthropic key lives only in the backend as a Cloudflare secret (`wrangler secret put`). Card art (public domain scans) is not committed yet; see `app/README.md` for how to fetch and verify it.
 
 ## Working on it with any tool
-Keep to the conventions in AGENTS.md, make small commits on a branch per phase, and update PROGRESS.md when you finish something. The remaining roadmap (Phases C to G, with hour estimates) is in docs/step1-plan.md.
+The app and backend follow CLAUDE.md, the website (`web/`) follows AGENTS.md, and both keep SHARED-FACTS.md current. Keep to those conventions, make small commits on a branch per phase, and update PROGRESS.md when you finish something. The remaining roadmap (Phases C to G, with hour estimates) is in docs/step1-plan.md.

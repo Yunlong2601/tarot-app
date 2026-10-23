@@ -25,7 +25,7 @@ if ! grep -E "bool testerMode" "$F" | grep -q 'kReleaseMode'; then
   bad "app/lib/app/flags.dart: testerMode is not guarded by kReleaseMode."
 fi
 # 4. No store build command in the docs may pass TESTER_MODE.
-if grep -rEn 'flutter build (appbundle|ipa|apk|ios)[^`]*TESTER_MODE|TESTER_MODE[^`]*flutter build (appbundle|ipa|apk)' "$ROOT/docs" "$ROOT/README.md" "$ROOT/AGENTS.md" 2>/dev/null | grep -v 'release-check' | grep -q .; then
+if grep -rEn 'flutter build (appbundle|ipa|apk|ios)[^`]*TESTER_MODE|TESTER_MODE[^`]*flutter build (appbundle|ipa|apk)' "$ROOT/docs" "$ROOT/README.md" "$ROOT/AGENTS.md" "$ROOT/CLAUDE.md" 2>/dev/null | grep -v 'release-check' | grep -q .; then
   bad "a documented store build command passes TESTER_MODE."
 fi
 
