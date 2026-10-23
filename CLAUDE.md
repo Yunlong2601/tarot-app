@@ -1,3 +1,59 @@
-# CLAUDE.md
+# CLAUDE.md: ShenTarot app (Flutter + backend)
 
-See [AGENTS.md](AGENTS.md) for project instructions and [PROGRESS.md](PROGRESS.md) for current status.
+Claude works on the **mobile app** (`app/`) and its **backend** (`backend/`), plus the ML pipeline (`ml/`). Codex works on the **website** (`web/`, see `AGENTS.md`). Read this file, then `SHARED-FACTS.md` (names, links, prices, brand, API shape both sides must agree on), then `PROGRESS.md` (status and next steps). The full plan is `docs/step1-plan.md`.
+
+## Goal
+ShenTarot: AI Lens, a tarot subscription app for the Apple App Store and Google Play. The user scans a physical Rider-Waite-Smith card with the camera, the app identifies it on device (manual card picker as fallback, digital draw also available), and the backend returns an AI reading. Entertainment and self-reflection only; no medical, legal, financial or life-or-death predictions. Ship it store-compliant and profitable.
+
+## Stack (decided)
+- Flutter (iOS + Android), Material 3 dark black-and-gold theme (`lib/app/theme.dart`), go_router (`lib/app/router.dart`), plain `ChangeNotifier` state.
+- Cloudflare Workers backend (TypeScript, Hono, KV + D1) proxies all AI calls. LLM: Claude Haiku 5.5 (`claude-haiku-5-5`, effort low; model name in a backend env var), GPT-6 Luna as fallback. Whole-spread photos use Sonnet (Haiku refused images with this key).
+- RevenueCat for StoreKit and Google Play Billing; entitlement `premium`.
+- SQLite on device for history and journal. No user accounts required (optional sign-in is built, off until set up).
+- On-device card recognition (TFLite), baseline model in `app/assets/models/`, not yet validated on real photos.
+- English first; keep strings easy to localise.
+
+## Decisions (do not re-litigate without the owner)
+Prices, plans, free/Premium limits, names and ids are in `SHARED-FACTS.md`. Also:
+- Credits are the one currency when the wallet is on (`CREDITS_ENABLED` / `CREDITS`); v1 ships with credits, referrals and creator **off**. Details: `docs/credits-setup.md`, `docs/referral-setup.md`, `docs/creator-setup.md`. With the wallet off, free gets 2 readings a day (`FREE_READINGS_PER_DAY = 2`), Premium up to 50.
+- Free spreads must match in `backend/src/spreads.ts` (`isFreeSpread`) and `app/lib/data/spreads.dart` (`SpreadInfo.isFree`).
+- Device attestation (App Attest + Play Integrity) must be built before the public launch (owner decision 2026-10-16). Production never runs `ALLOW_UNATTESTED_INSTALLS`.
+- The bundle id `com.shentech.shentarot` and the `shentarot.db` file name are final.
+
+## Security rules
+- No secrets or LLM keys in the app, ever. Secrets live in backend env vars (`wrangler secret put`). Never commit keys, `.dev.vars` or signing keys.
+- Validate and rate-limit all backend input: per-install daily caps, per-minute limits (install and IP), a global daily token cap, and token usage logged per request (`usage` table). Questions and readings are not stored on the server.
+- Prompt-injection defence: the user's question, impression and earlier reading text go only in the user turn inside tags and are treated as untrusted; check the model output.
+- Minimal data: every item collected is listed and justified in `docs/data-inventory.md` and the privacy policy. Update both when you add one.
+- Single-card camera frames are never stored or uploaded; any temp photo file is deleted immediately. The optional whole-spread photo is sent once to the server and Anthropic and then deleted, after the user agrees. Any other photo upload or storage needs the owner's approval first.
+- Dependency audit before each release (see README): `flutter pub outdated`, `npm audit --omit=dev` with 0 vulnerabilities, licences checked.
+
+## Store compliance rules
+- Paywall shows price, billing period and auto-renew terms, with Privacy and Terms links next to the buy button.
+- Restore Purchases, and an in-app link to manage or cancel the subscription.
+- Camera permission rationale text on both platforms.
+- Account deletion in the app whenever sign-in is on (`/v1/account/delete`, web page `https://shentarot.com/delete-account`).
+- "Report a reading" stays (Play AI content policy). The entertainment disclaimer stays on every reading screen.
+- Do not invent store policy facts; say where to verify current rules (App Store Review Guidelines, Play Console policy centre).
+- Card art: public-domain 1909 RWS scans or original art only (`app/assets/cards/art/CREDITS.md`).
+
+## Run and test
+```bash
+cd app && flutter pub get && flutter analyze && flutter test
+cd app && flutter run --dart-define-from-file=config/live.json   # against the live test backend
+cd backend && npm ci && npm run typecheck && npm test && npm audit --omit=dev
+cd backend && npm run dev   # local Worker; see backend/README.md for .dev.vars and migrations
+```
+Toolchain: Flutter 3.47.7 stable, Node 24. CI (`.github/workflows/ci.yml`) runs the app, backend and web jobs on every push. Card text in `app/assets/cards/cards.json` is generated by `app/tools/make_cards.py`; edit the script, regenerate, keep the 78-card tests green.
+
+## How to work
+- One phase or feature at a time. After each, list: what was built, how to run it, how to test it, what is next. Then stop for the owner's "continue".
+- Small commits, a branch per piece of work, PR to `main`; never push to `main` directly. Commit trailers: `Co-Authored-By` and `Claude-Session` as in existing commits.
+- Anything that needs the owner (accounts, keys, assets, legal review, device testing) goes under "I need to do". Never guess or mock a missing secret or service.
+- Say what was not verified (devices, store rules, licences) instead of assuming. Keep `PROGRESS.md` current.
+- Cost: cheapest model that reads well, cache card meanings, keep `docs/unit-economics.md` up to date.
+- The owner's Mac folder is the primary working copy; this repo is the backup and hand-off point. Keep the repo self-contained; no cloud-only paths or secrets.
+
+## Boundary with the website
+- Do not edit `web/` unless the owner asks. If an app or backend change affects the site (card or spread data, prices, privacy wording, API shape, share links), update `SHARED-FACTS.md` and note "website follow-up needed" in the PR.
+- The website reads `backend/src/cards.ts`, `backend/src/spreads.ts`, `app/lib/data/spreads.dart` and `app/assets/cards/art`. Changing these changes the site; run the web build too (`cd web && npm ci && npm run build`).
