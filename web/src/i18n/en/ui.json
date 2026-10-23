@@ -79,8 +79,8 @@
   "whyLead": "Thoughtful readings that respect your privacy.",
   "feature": {
    "photo": {
-    "title": "Your photo stays on your phone",
-    "text": "Cards are recognised on the device. The photo is never uploaded."
+    "title": "Card scans stay on your phone",
+    "text": "Single cards are recognised on the device and the photo is never uploaded. A photo of a whole spread is sent only if you choose it, and is deleted straight after."
    },
    "signin": {
     "title": "One-tap sign-in for AI readings",
@@ -902,7 +902,7 @@
    },
    {
     "title": "How the AI readings work",
-    "text": "In the app, ShenTarot picks a spread for your question, then writes a reading from the cards you drew, their positions and whether they are upright or reversed. Only AI readings need you to sign in, with Google or Apple. Photos of your cards are recognised on your phone and never uploaded."
+    "text": "In the app, ShenTarot picks a spread for your question, then writes a reading from the cards you drew, their positions and whether they are upright or reversed. Only AI readings need you to sign in, with Google or Apple. Card photos scanned one at a time are recognised on your phone and never uploaded. A photo of a whole spread is sent only if you choose it, and is deleted once the cards are named."
    },
    {
     "title": "What it is for",
