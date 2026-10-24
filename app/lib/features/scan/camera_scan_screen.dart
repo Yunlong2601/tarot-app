@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../app/app_scope.dart';
 import '../../app/theme.dart';
@@ -41,6 +42,21 @@ class _CameraScanScreenState extends State<CameraScanScreen> {
     if (_started) return;
     _started = true;
     _init();
+    _showTipsOnce();
+  }
+
+  /// Three tips the first time someone scans; never again after that.
+  Future<void> _showTipsOnce() async {
+    const key = 'scan_tips_seen';
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      if (prefs.getBool(key) == true || !mounted) return;
+      await prefs.setBool(key, true);
+    } catch (_) {
+      return;
+    }
+    if (!mounted) return;
+    await showScanTips(context);
   }
 
   Future<void> _init() async {
@@ -369,5 +385,65 @@ class _GuideOverlay extends StatelessWidget {
         ],
       );
     },
+  );
+}
+
+/// The first-scan coach: three short tips in a sheet.
+Future<void> showScanTips(BuildContext context) {
+  final tips = [
+    (
+      Icons.crop_portrait,
+      tr('One card at a time'),
+      tr('Fill the frame with the card, picture side up.'),
+    ),
+    (
+      Icons.light_mode_outlined,
+      tr('Good light, no glare'),
+      tr(
+        'Daylight or a lamp beside you works best. Tilt the card if it shines.',
+      ),
+    ),
+    (
+      Icons.touch_app_outlined,
+      tr('Not sure it is right?'),
+      tr('You can always change the card or pick it from the list.'),
+    ),
+  ];
+  return showModalBottomSheet<void>(
+    context: context,
+    builder: (ctx) => SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(24, 8, 24, 16),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              tr('Before you scan'),
+              style: Theme.of(ctx).textTheme.titleLarge,
+            ),
+            const SizedBox(height: 12),
+            for (final (icon, title, body) in tips)
+              ListTile(
+                contentPadding: EdgeInsets.zero,
+                leading: Icon(icon, color: AppColors.gold),
+                title: Text(title),
+                subtitle: Text(
+                  body,
+                  style: const TextStyle(color: AppColors.textMuted),
+                ),
+              ),
+            const SizedBox(height: 8),
+            FilledButton(
+              style: FilledButton.styleFrom(
+                minimumSize: const Size.fromHeight(48),
+              ),
+              onPressed: () => Navigator.pop(ctx),
+              child: Text(tr('Got it')),
+            ),
+          ],
+        ),
+      ),
+    ),
   );
 }

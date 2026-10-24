@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../app/app_scope.dart';
+import '../../app/brand.dart';
 import '../../app/theme.dart';
 import '../../core/reading_service.dart';
 import '../../data/models.dart';
@@ -10,6 +11,7 @@ import '../spreads/spread_layout.dart';
 import '../scan/orientation_dialog.dart';
 import 'reading_sections.dart';
 import 'report_reading.dart';
+import 'share_card.dart';
 import 'reading_problem.dart';
 
 import 'dart:math';
@@ -404,6 +406,11 @@ class ReadingScreen extends StatelessWidget {
         title: Text(reading.spread.label),
         actions: [
           IconButton(
+            tooltip: tr('Share your reading'),
+            icon: const Icon(Icons.ios_share),
+            onPressed: () => shareReading(context, reading),
+          ),
+          IconButton(
             tooltip: tr('Report a problem with this reading'),
             icon: const Icon(Icons.flag_outlined),
             onPressed: () => reportReading(context, reading),
@@ -445,13 +452,19 @@ class ReadingScreen extends StatelessWidget {
                 constraints: const BoxConstraints(maxWidth: 380),
                 child: SpreadLayoutView(
                   type: reading.spread,
-                  slotBuilder: (i, w, h) => InkWell(
-                    onTap: () =>
-                        context.push('/card/${reading.cards[i].card.id}'),
-                    child: CardArt(
-                      card: reading.cards[i].card,
-                      reversed: reading.cards[i].reversed,
-                      width: w,
+                  // Press and hold a card to see which position it sits in.
+                  slotBuilder: (i, w, h) => Tooltip(
+                    triggerMode: TooltipTriggerMode.longPress,
+                    message:
+                        '${i + 1}. ${reading.spread.positions[i]} · ${cardLabel(reading.cards[i].card.name, reading.cards[i].reversed)}',
+                    child: InkWell(
+                      onTap: () =>
+                          context.push('/card/${reading.cards[i].card.id}'),
+                      child: CardArt(
+                        card: reading.cards[i].card,
+                        reversed: reading.cards[i].reversed,
+                        width: w,
+                      ),
                     ),
                   ),
                 ),
@@ -540,61 +553,90 @@ class _ReadingText extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        for (final s in sections)
-          switch (s.kind) {
-            SectionKind.overview => panel(
-              highlight: true,
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(s.title, style: heading),
-                  const SizedBox(height: 6),
-                  Text(s.body, style: t.bodyLarge),
-                ],
+        for (final (i, s) in sections.indexed)
+          _FadeIn(
+            index: i,
+            child: switch (s.kind) {
+              SectionKind.overview => panel(
+                highlight: true,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(s.title, style: heading),
+                    const SizedBox(height: 6),
+                    Text(s.body, style: t.bodyLarge),
+                  ],
+                ),
               ),
-            ),
-            SectionKind.card => panel(_CardSection(reading, s)),
-            SectionKind.reflect || SectionKind.step => panel(
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Icon(
-                    s.kind == SectionKind.reflect
-                        ? Icons.lightbulb_outline
-                        : Icons.directions_walk,
-                    color: AppColors.gold,
-                  ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(s.title, style: heading),
-                        const SizedBox(height: 4),
-                        Text(
-                          s.body,
-                          style: s.kind == SectionKind.reflect
-                              ? const TextStyle(fontStyle: FontStyle.italic)
-                              : null,
-                        ),
-                      ],
+              SectionKind.card => panel(_CardSection(reading, s)),
+              SectionKind.reflect || SectionKind.step => panel(
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Icon(
+                      s.kind == SectionKind.reflect
+                          ? Icons.lightbulb_outline
+                          : Icons.directions_walk,
+                      color: AppColors.gold,
                     ),
-                  ),
-                ],
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(s.title, style: heading),
+                          const SizedBox(height: 4),
+                          Text(
+                            s.body,
+                            style: s.kind == SectionKind.reflect
+                                ? const TextStyle(fontStyle: FontStyle.italic)
+                                : null,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            SectionKind.other => Padding(
-              padding: const EdgeInsets.only(bottom: 12),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  if (s.title.isNotEmpty) Text(s.title, style: heading),
-                  Text(s.body),
-                ],
+              SectionKind.other => Padding(
+                padding: const EdgeInsets.only(bottom: 12),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    if (s.title.isNotEmpty) Text(s.title, style: heading),
+                    Text(s.body),
+                  ],
+                ),
               ),
-            ),
-          },
+            },
+          ),
       ],
+    );
+  }
+}
+
+/// Sections of a reading arrive one after another, softly, instead of all at
+/// once. Skipped when the user asked for less motion.
+class _FadeIn extends StatelessWidget {
+  const _FadeIn({required this.index, required this.child});
+  final int index;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    if (!brandAnimations || MediaQuery.disableAnimationsOf(context)) {
+      return child;
+    }
+    final delay = (index * 0.12).clamp(0.0, 0.6);
+    return TweenAnimationBuilder<double>(
+      tween: Tween(begin: 0, end: 1),
+      duration: Duration(milliseconds: 420 + (delay * 1000).round()),
+      curve: Interval(delay / (0.42 + delay), 1, curve: Curves.easeOut),
+      builder: (_, v, c) => Opacity(
+        opacity: v,
+        child: Transform.translate(offset: Offset(0, 12 * (1 - v)), child: c),
+      ),
+      child: child,
     );
   }
 }

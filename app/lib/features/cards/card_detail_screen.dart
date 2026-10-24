@@ -31,7 +31,25 @@ class CardDetailScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(24),
         children: [
-          Center(child: CardArt(card: card, width: 160)),
+          Center(
+            child: Semantics(
+              button: true,
+              label: tr('Zoom in on the card'),
+              child: GestureDetector(
+                onTap: () => Navigator.of(context).push(
+                  PageRouteBuilder<void>(
+                    opaque: false,
+                    barrierColor: Colors.black87,
+                    pageBuilder: (_, _, _) => _Lightbox(card: card),
+                  ),
+                ),
+                child: Hero(
+                  tag: 'art-${card.id}',
+                  child: CardArt(card: card, width: 160),
+                ),
+              ),
+            ),
+          ),
           const SizedBox(height: 16),
           Text(
             _subtitle(card),
@@ -130,3 +148,46 @@ List<Widget> _richSections(CardKnowledge k, TextTheme t) => [
   Text(k.why),
   const SizedBox(height: 20),
 ];
+
+/// The card art full screen: pinch to zoom, tap anywhere to close.
+class _Lightbox extends StatelessWidget {
+  const _Lightbox({required this.card});
+  final TarotCard card;
+
+  @override
+  Widget build(BuildContext context) => GestureDetector(
+    onTap: () => Navigator.pop(context),
+    child: Scaffold(
+      backgroundColor: Colors.transparent,
+      body: SafeArea(
+        child: Stack(
+          children: [
+            Center(
+              child: InteractiveViewer(
+                maxScale: 5,
+                child: Hero(
+                  tag: 'art-${card.id}',
+                  child: LayoutBuilder(
+                    builder: (context, box) => CardArt(
+                      card: card,
+                      width: (box.maxHeight / 1.6).clamp(0, box.maxWidth - 32),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              top: 8,
+              right: 8,
+              child: IconButton(
+                tooltip: tr('Close'),
+                icon: const Icon(Icons.close, color: Colors.white),
+                onPressed: () => Navigator.pop(context),
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
+  );
+}

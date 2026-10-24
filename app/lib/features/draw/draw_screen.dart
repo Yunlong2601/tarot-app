@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -54,6 +55,7 @@ class _DrawScreenState extends State<DrawScreen> {
   @override
   void dispose() {
     _flying?.remove();
+    _ritual?.cancel();
     super.dispose();
   }
 
@@ -73,6 +75,26 @@ class _DrawScreenState extends State<DrawScreen> {
       _flipped = {};
       _shuffleCount++;
     });
+  }
+
+  Timer? _ritual;
+
+  void _startRitual() {
+    _shuffle();
+    HapticFeedback.mediumImpact();
+    setState(() {
+      _ritual = Timer.periodic(const Duration(milliseconds: 900), (_) {
+        _shuffle();
+        HapticFeedback.mediumImpact();
+      });
+    });
+  }
+
+  void _stopRitual() {
+    if (_ritual == null) return;
+    _ritual!.cancel();
+    HapticFeedback.heavyImpact();
+    setState(() => _ritual = null);
   }
 
   void _onPick(FanPick pick) {
@@ -214,13 +236,33 @@ class _DrawScreenState extends State<DrawScreen> {
                 onPick: _onPick,
               ),
               Center(
-                child: TextButton.icon(
-                  // Reshuffling is only offered before the first card is down.
-                  onPressed: placed == 0 && _flying == null ? _shuffle : null,
-                  icon: const Icon(Icons.shuffle),
-                  label: Text(tr('Shuffle again')),
+                // Tap to shuffle once, or press and hold to keep shuffling
+                // while you focus on your question. Only before the first card.
+                child: GestureDetector(
+                  onLongPressStart: placed == 0 && _flying == null
+                      ? (_) => _startRitual()
+                      : null,
+                  onLongPressEnd: (_) => _stopRitual(),
+                  child: TextButton.icon(
+                    onPressed: placed == 0 && _flying == null ? _shuffle : null,
+                    icon: const Icon(Icons.shuffle),
+                    label: Text(
+                      _ritual != null
+                          ? tr('Shuffling... let go when ready')
+                          : tr('Shuffle again'),
+                    ),
+                  ),
                 ),
               ),
+              if (placed == 0)
+                Text(
+                  tr('Press and hold to keep shuffling'),
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 12,
+                    color: AppColors.textMuted,
+                  ),
+                ),
             ] else
               _Results(
                 spread: _spread,
