@@ -57,6 +57,30 @@ void main() {
     await t.pumpAndSettle();
   }
 
+  testWidgets('Your deck: cards from readings turn face up', (t) async {
+    final s = AppState(deck: deck, onboarded: true);
+    s.addReading(
+      Reading(
+        id: 'r1',
+        createdAt: DateTime(2026, 10, 1),
+        spread: SpreadType.threeCard,
+        cards: [
+          for (final c in deck.cards.take(3))
+            DrawnCard(card: c, reversed: false),
+        ],
+        interpretation: 'x',
+      ),
+    );
+    await start(t, s);
+    await t.tap(find.text('You').last);
+    await t.pumpAndSettle();
+    expect(find.text('3 of 78 cards met'), findsOneWidget);
+    await t.tap(find.text('Your deck'));
+    await t.pumpAndSettle();
+    expect(find.text('3 of 78 cards met'), findsOneWidget);
+    expect(find.bySemanticsLabel('Not met yet'), findsWidgets);
+  });
+
   testWidgets('five tabs: Today first, Draw, the Scan button, Learn, You', (
     t,
   ) async {

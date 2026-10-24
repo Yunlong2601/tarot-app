@@ -25,6 +25,7 @@ import '../features/scan/camera_scan_screen.dart';
 import '../features/scan/card_picker_screen.dart';
 import '../features/scan/scan_screen.dart';
 import '../features/settings/legal_screen.dart';
+import '../features/collection/collection_screen.dart';
 import '../features/you/you_screen.dart';
 import 'app_state.dart';
 import 'motion.dart';
@@ -81,6 +82,7 @@ GoRouter buildRouter(AppState state) {
         pageBuilder: (_, s) => modalPage(s, const DailyCardScreen()),
       ),
       GoRoute(path: '/history', builder: (_, _) => const HistoryScreen()),
+      GoRoute(path: '/collection', builder: (_, _) => const CollectionScreen()),
       GoRoute(path: '/account', builder: (_, _) => const AccountScreen()),
       GoRoute(path: '/invite', builder: (_, _) => const InviteScreen()),
       GoRoute(path: '/creator', builder: (_, _) => const CreatorScreen()),

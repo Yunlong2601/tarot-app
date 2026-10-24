@@ -8,6 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../app/app_scope.dart';
 import '../../app/i18n.dart';
 import '../../app/motion.dart';
+import '../../app/ritual_loader.dart';
 import '../../app/theme.dart';
 import '../../core/reading_service.dart';
 import '../../data/models.dart';
@@ -59,7 +60,7 @@ Future<List<DrawnCard>?> scanWholeSpread(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const CircularProgressIndicator(),
+              const RitualLoader(),
               const SizedBox(height: 16),
               Text(tr('Reading card...')),
             ],

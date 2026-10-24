@@ -9,6 +9,7 @@ import '../../core/reading_service.dart';
 import '../../data/mock_data.dart';
 import '../../data/models.dart';
 import '../../app/motion.dart';
+import '../../app/ritual_loader.dart';
 import '../../app/i18n.dart';
 import '../../app/theme.dart';
 import 'reading_problem.dart';
@@ -260,7 +261,7 @@ class _WaitingState extends State<_Waiting> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const CircularProgressIndicator(),
+              const RitualLoader(),
               const SizedBox(height: 20),
               Semantics(
                 liveRegion: true,

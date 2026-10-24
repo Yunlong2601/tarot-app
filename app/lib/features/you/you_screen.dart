@@ -7,6 +7,7 @@ import '../../app/brand.dart';
 import '../../app/flags.dart';
 import '../../app/theme.dart';
 import '../../core/account_service.dart';
+import '../collection/collection_screen.dart';
 import '../../app/i18n.dart';
 
 /// Days in a row (ending today or yesterday) with at least one reading.
@@ -55,6 +56,15 @@ class YouScreen extends StatelessWidget {
                 title: tr('Reading History'),
                 subtitle: tr('{0} saved', [state.history.length]),
                 onTap: () => context.push('/history'),
+              ),
+              _Tile(
+                icon: Icons.style_outlined,
+                title: tr('Your deck'),
+                subtitle: tr('{0} of {1} cards met', [
+                  metCardIds(state).length,
+                  state.deck.cards.length,
+                ]),
+                onTap: () => context.push('/collection'),
               ),
               if (referralsEnabled)
                 _Tile(
