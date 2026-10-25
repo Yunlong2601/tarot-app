@@ -75,7 +75,21 @@ class _FlyingCardState extends State<FlyingCard>
                 angle: angle,
                 child: Transform.scale(
                   scale: 1 + math.sin(t * math.pi) * 0.12,
-                  child: CardBack(width: w),
+                  // A soft gold glow while the card is in the air.
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(6),
+                      boxShadow: [
+                        BoxShadow(
+                          color: const Color(0xFFEBD48C)
+                              .withValues(alpha: 0.55 * math.sin(t * math.pi)),
+                          blurRadius: 22,
+                          spreadRadius: 2,
+                        ),
+                      ],
+                    ),
+                    child: CardBack(width: w),
+                  ),
                 ),
               ),
             ),

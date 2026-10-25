@@ -126,6 +126,8 @@ class AppState extends ChangeNotifier {
     final perMonth = monthlyCredits > 0 ? monthlyCredits : 90;
     final plan = isPremium
         ? tr('{0} new credits every month, and {1} a day', [perMonth, perDay])
+        : perDay == 1
+        ? tr('1 new credit every day')
         : tr('{0} new credits every day', [perDay]);
     if (credits > 0) {
       return tr('{0} credits · {1}, unused credits roll over', [credits, plan]);

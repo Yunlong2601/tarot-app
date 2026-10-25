@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../app/app_scope.dart';
+import '../../app/flags.dart';
 import '../../app/theme.dart';
 import '../../app/i18n.dart';
 
@@ -16,7 +17,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   final _controller = PageController();
   int _page = 0;
 
-  static const _pages = [
+  static List<(IconData, String, String)> get _pages => [
     (
       Icons.center_focus_strong,
       'Hold the cards. We explain them.',
@@ -25,7 +26,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     (
       Icons.auto_awesome,
       'Readings that fit your question',
-      'Ask what is on your mind and get a thoughtful, plain-language reading of your cards. Two free readings every day, and a free taste of the longer spreads.',
+      creditsEnabled
+          ? 'Ask what is on your mind and get a thoughtful, plain-language reading of your cards. Start with 10 free readings, then get a free one every day.'
+          : 'Ask what is on your mind and get a thoughtful, plain-language reading of your cards. Two free readings every day, and a free taste of the longer spreads.',
     ),
   ];
 
