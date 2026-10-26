@@ -113,7 +113,7 @@ void main() {
       find.byType(TextField),
       'What should I focus on this week?',
     );
-    await t.tap(find.text('Next'));
+    await t.tap(find.byKey(const ValueKey('ask-send')));
     await t.pumpAndSettle();
     expect(find.text('Select a Spread'), findsOneWidget);
     expect(find.text('Recommended'), findsOneWidget);
@@ -184,7 +184,7 @@ void main() {
       find.byType(TextField),
       'How do I heal after my breakup?',
     );
-    await t.tap(find.text('Next'));
+    await t.tap(find.byKey(const ValueKey('ask-send')));
     await t.pumpAndSettle();
     expect(find.text('Healing & Reconnection'), findsOneWidget);
     expect(find.text('Recommended'), findsOneWidget);
