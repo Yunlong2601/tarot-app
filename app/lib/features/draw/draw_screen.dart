@@ -359,7 +359,12 @@ class _EmptySlot extends StatelessWidget {
       child: Text(
         '$number',
         textScaler: TextScaler.noScaling,
-        style: const TextStyle(color: AppColors.textMuted),
+        style: TextStyle(
+          fontFamily: displayFont,
+          fontFamilyFallback: displayFallback,
+          fontSize: 18,
+          color: highlighted ? AppColors.gold : AppColors.textMuted,
+        ),
       ),
     ),
   );

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -443,9 +444,9 @@ class ReadingScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: ListView(
-        padding: const EdgeInsets.all(24),
-        children: [
+      body: _ReadingBody(
+        reading: reading,
+        head: [
           if (reading.cards.length >= 5)
             Center(
               child: ConstrainedBox(
@@ -511,8 +512,8 @@ class ReadingScreen extends StatelessWidget {
               ),
             ),
           ],
-          const SizedBox(height: 20),
-          _ReadingText(reading),
+        ],
+        tail: [
           const SizedBox(height: 20),
           _FollowUps(reading: reading),
           const SizedBox(height: 12),
@@ -528,8 +529,11 @@ class ReadingScreen extends StatelessWidget {
 /// (with its art and a "Why this card" note to expand), then the question to
 /// reflect on and a small step. Plain older readings show as text.
 class _ReadingText extends StatelessWidget {
-  const _ReadingText(this.reading);
+  const _ReadingText(this.reading, {this.cardKeys = const {}});
   final Reading reading;
+
+  /// One key per card section, so the pinned strip knows which is on screen.
+  final Map<int, GlobalKey> cardKeys;
 
   @override
   Widget build(BuildContext context) {
@@ -568,7 +572,10 @@ class _ReadingText extends StatelessWidget {
                   ],
                 ),
               ),
-              SectionKind.card => panel(_CardSection(reading, s)),
+              SectionKind.card => KeyedSubtree(
+                key: cardKeys[s.cardIndex],
+                child: panel(_CardSection(reading, s)),
+              ),
               SectionKind.reflect || SectionKind.step => panel(
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -678,7 +685,7 @@ class _CardSectionState extends State<_CardSection> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    position.toUpperCase(),
+                    '${i + 1} · ${position.toUpperCase()}',
                     style: const TextStyle(
                       fontSize: 11,
                       letterSpacing: 1.2,
@@ -717,4 +724,181 @@ class _CardSectionState extends State<_CardSection> {
       ],
     );
   }
+}
+
+/// The reading page: the spread and question, then a strip of the drawn cards
+/// that pins under the app bar while the reading scrolls. The card you are
+/// reading about is lit; tap a card to jump to its section.
+class _ReadingBody extends StatefulWidget {
+  const _ReadingBody({
+    required this.reading,
+    required this.head,
+    required this.tail,
+  });
+  final Reading reading;
+  final List<Widget> head;
+  final List<Widget> tail;
+
+  @override
+  State<_ReadingBody> createState() => _ReadingBodyState();
+}
+
+class _ReadingBodyState extends State<_ReadingBody> {
+  final _scroll = ScrollController();
+  final _stripKey = GlobalKey();
+  late final Map<int, GlobalKey> _keys = {
+    for (var i = 0; i < widget.reading.cards.length; i++) i: GlobalKey(),
+  };
+  final _active = ValueNotifier<int>(0);
+
+  @override
+  void initState() {
+    super.initState();
+    _scroll.addListener(_track);
+  }
+
+  @override
+  void dispose() {
+    _scroll.dispose();
+    _active.dispose();
+    super.dispose();
+  }
+
+  /// The active card is the last section whose top has passed under the strip.
+  void _track() {
+    final strip = _stripKey.currentContext?.findRenderObject() as RenderBox?;
+    if (strip == null || !strip.attached) return;
+    final line = strip.localToGlobal(Offset(0, strip.size.height)).dy + 48;
+    var active = 0;
+    for (final e in _keys.entries) {
+      final box = e.value.currentContext?.findRenderObject() as RenderBox?;
+      if (box == null || !box.attached) continue;
+      if (box.localToGlobal(Offset.zero).dy <= line) active = e.key;
+    }
+    _active.value = active;
+  }
+
+  void _jumpTo(int i) {
+    final ctx = _keys[i]?.currentContext;
+    if (ctx == null) return;
+    Scrollable.ensureVisible(
+      ctx,
+      duration: MediaQuery.disableAnimationsOf(context)
+          ? Duration.zero
+          : const Duration(milliseconds: 420),
+      curve: Curves.easeInOutCubic,
+      alignment: 0.08,
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final hasSections =
+        parseReading(widget.reading.interpretation)
+            ?.any((s) => s.kind == SectionKind.card) ??
+        false;
+    return CustomScrollView(
+      controller: _scroll,
+      slivers: [
+        SliverPadding(
+          padding: const EdgeInsets.fromLTRB(24, 24, 24, 12),
+          sliver: SliverList.list(children: widget.head),
+        ),
+        if (hasSections && widget.reading.cards.length > 1)
+          PinnedHeaderSliver(
+            child: _SpreadStrip(
+              key: _stripKey,
+              reading: widget.reading,
+              active: _active,
+              onTap: _jumpTo,
+            ),
+          ),
+        SliverPadding(
+          padding: const EdgeInsets.fromLTRB(24, 12, 24, 24),
+          sliver: SliverList.list(
+            children: [
+              _ReadingText(widget.reading, cardKeys: _keys),
+              ...widget.tail,
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+/// Numbered thumbnails of the drawn cards on a hairline, like the plates
+/// listed at the head of a chapter.
+class _SpreadStrip extends StatelessWidget {
+  const _SpreadStrip({
+    super.key,
+    required this.reading,
+    required this.active,
+    required this.onTap,
+  });
+  final Reading reading;
+  final ValueListenable<int> active;
+  final ValueChanged<int> onTap;
+
+  @override
+  Widget build(BuildContext context) => Container(
+    color: AppColors.background,
+    padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+    child: Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        SizedBox(
+          height: 72,
+          child: ValueListenableBuilder<int>(
+            valueListenable: active,
+            builder: (context, a, _) => ListView.separated(
+              scrollDirection: Axis.horizontal,
+              itemCount: reading.cards.length,
+              separatorBuilder: (_, _) => const SizedBox(width: 10),
+              itemBuilder: (context, i) {
+                final d = reading.cards[i];
+                final on = i == a;
+                return Semantics(
+                  button: true,
+                  selected: on,
+                  label:
+                      '${i + 1}. ${reading.spread.positions[i]}: ${cardLabel(d.card.name, d.reversed)}',
+                  excludeSemantics: true,
+                  child: GestureDetector(
+                    onTap: () => onTap(i),
+                    child: AnimatedOpacity(
+                      duration: const Duration(milliseconds: 200),
+                      opacity: on ? 1 : 0.55,
+                      child: Column(
+                        children: [
+                          CardArt(
+                            card: d.card,
+                            reversed: d.reversed,
+                            width: 28,
+                          ),
+                          const SizedBox(height: 3),
+                          Text(
+                            '${i + 1}',
+                            textScaler: TextScaler.noScaling,
+                            style: TextStyle(
+                              fontFamily: displayFont,
+                              fontFamilyFallback: displayFallback,
+                              fontSize: 12,
+                              color: on ? AppColors.gold : AppColors.textMuted,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+        ),
+        const SizedBox(height: 6),
+        const Divider(height: 1, thickness: 0.6, color: AppColors.goldDeep),
+      ],
+    ),
+  );
 }

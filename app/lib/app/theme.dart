@@ -15,7 +15,25 @@ class AppColors {
   static const textMuted = Color(0xFFA9A59B);
   static const onGold = Color(0xFF17130A);
   static const success = Color(0xFF3FD6A0);
+
+  /// Fine rules and borders: warm, barely there, like a printed hairline.
+  static const hairline = Color(0xFF34302A);
 }
+
+/// Editorial display face for titles and card names. Baskerville and Georgia
+/// ship with iOS, so nothing is downloaded; Android falls back to its serif.
+const displayFont = 'Baskerville';
+const displayFallback = ['Georgia', 'Noto Serif', 'serif'];
+
+TextStyle _display(double size, {FontWeight weight = FontWeight.w500}) =>
+    TextStyle(
+      fontFamily: displayFont,
+      fontFamilyFallback: displayFallback,
+      fontSize: size,
+      fontWeight: weight,
+      height: 1.15,
+      letterSpacing: 0.2,
+    );
 
 ThemeData buildTheme() {
   final scheme =
@@ -32,9 +50,19 @@ ThemeData buildTheme() {
         outline: const Color(0xFF3A372F),
         outlineVariant: const Color(0xFF2A2822),
       );
+  final base = ThemeData(brightness: Brightness.dark).textTheme;
   return ThemeData(
     useMaterial3: true,
     colorScheme: scheme,
+    textTheme: base.copyWith(
+      displayLarge: base.displayLarge?.merge(_display(52)),
+      displayMedium: base.displayMedium?.merge(_display(44)),
+      displaySmall: base.displaySmall?.merge(_display(36)),
+      headlineLarge: base.headlineLarge?.merge(_display(32)),
+      headlineMedium: base.headlineMedium?.merge(_display(28)),
+      headlineSmall: base.headlineSmall?.merge(_display(24)),
+      titleLarge: base.titleLarge?.merge(_display(22)),
+    ),
     scaffoldBackgroundColor: AppColors.background,
     appBarTheme: const AppBarTheme(
       backgroundColor: AppColors.background,
@@ -42,8 +70,11 @@ ThemeData buildTheme() {
       centerTitle: true,
       scrolledUnderElevation: 0,
       titleTextStyle: TextStyle(
-        fontSize: 20,
+        fontFamily: displayFont,
+        fontFamilyFallback: displayFallback,
+        fontSize: 21,
         fontWeight: FontWeight.w600,
+        letterSpacing: 0.3,
         color: Colors.white,
       ),
     ),
@@ -51,8 +82,8 @@ ThemeData buildTheme() {
       color: AppColors.surface,
       elevation: 0,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
-        side: const BorderSide(color: Color(0xFF2A2822)),
+        borderRadius: BorderRadius.circular(6),
+        side: const BorderSide(color: AppColors.hairline),
       ),
     ),
     filledButtonTheme: FilledButtonThemeData(
@@ -60,15 +91,19 @@ ThemeData buildTheme() {
         minimumSize: const Size.fromHeight(54),
         backgroundColor: AppColors.gold,
         foregroundColor: AppColors.onGold,
-        textStyle: const TextStyle(fontSize: 17, fontWeight: FontWeight.w700),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+        textStyle: const TextStyle(
+          fontSize: 17,
+          fontWeight: FontWeight.w700,
+          letterSpacing: 0.4,
+        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
       ),
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
         foregroundColor: Colors.white,
-        side: const BorderSide(color: Color(0xFF3A372F)),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+        side: const BorderSide(color: AppColors.goldDeep, width: 0.8),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
       ),
     ),
     textButtonTheme: TextButtonThemeData(
@@ -135,11 +170,13 @@ ThemeData buildTheme() {
       surfaceTintColor: Colors.transparent,
       elevation: 0,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(28),
+        borderRadius: BorderRadius.circular(8),
         side: BorderSide(color: AppColors.gold.withValues(alpha: 0.35)),
       ),
       titleTextStyle: const TextStyle(
-        fontSize: 22,
+        fontFamily: displayFont,
+        fontFamilyFallback: displayFallback,
+        fontSize: 23,
         fontWeight: FontWeight.w500,
         color: AppColors.goldLight,
       ),
@@ -168,7 +205,7 @@ ThemeData buildTheme() {
       showDragHandle: true,
       dragHandleColor: Color(0xFF4A463C),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
+        borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
       ),
     ),
     pageTransitionsTheme: const PageTransitionsTheme(
@@ -183,15 +220,15 @@ ThemeData buildTheme() {
       filled: true,
       fillColor: AppColors.surface,
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(16),
-        borderSide: const BorderSide(color: Color(0xFF2A2822)),
+        borderRadius: BorderRadius.circular(4),
+        borderSide: const BorderSide(color: AppColors.hairline),
       ),
       enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(16),
-        borderSide: const BorderSide(color: Color(0xFF2A2822)),
+        borderRadius: BorderRadius.circular(4),
+        borderSide: const BorderSide(color: AppColors.hairline),
       ),
       focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(4),
         borderSide: const BorderSide(color: AppColors.goldDeep),
       ),
     ),
