@@ -172,7 +172,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
           ),
           SizedBox(height: 16),
           for (final f in [
-            tr('All spreads, follow-ups, 50 readings a day'),
+            tr('Every spread, including the 10-card Celtic Cross'),
             if (creditsEnabled)
               tr(
                 '90 to 150 new credits every month by plan (free: 1 a day, 2 when signed in), and unused credits roll over',

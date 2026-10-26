@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../app/app_scope.dart';
+import '../../app/flags.dart';
 import '../../app/brand.dart';
 import '../../app/ritual_loader.dart';
 import '../../app/theme.dart';
@@ -218,7 +219,9 @@ class _FollowUpsState extends State<_FollowUps> {
         if (!open)
           ReaderWhisper(
             icon: Icons.lock_outline,
-            text: tr('Ask a follow-up (Premium)'),
+            text: creditsEnabled
+                ? tr('Ask a follow-up (get credits)')
+                : tr('Ask a follow-up (Premium)'),
             onTap: () => context.push('/paywall'),
           )
         else if (!_busy) ...[
@@ -306,7 +309,9 @@ class _FollowUpsState extends State<_FollowUps> {
         if (!open)
           ReaderWhisper(
             icon: Icons.lock_outline,
-            text: tr('Draw a clarifier card (Premium)'),
+            text: creditsEnabled
+                ? tr('Draw a clarifier card (get credits)')
+                : tr('Draw a clarifier card (Premium)'),
             onTap: () => context.push('/paywall'),
           ),
       ],

@@ -224,9 +224,9 @@ class _PremiumCard extends StatelessWidget {
                   const SizedBox(height: 2),
                   Text(
                     premium
-                        ? tr('All spreads, follow-ups, 50 readings a day.')
+                        ? tr('Every spread and 90 to 150 credits a month.')
                         : tr(
-                            'All spreads, follow-ups, 50 readings a day, plus the clarifier card and a look back.',
+                            'Every spread, 90 to 150 credits a month, the clarifier card and a look back.',
                           ),
                     style: const TextStyle(color: AppColors.textMuted),
                   ),

@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../app/app_scope.dart';
 import '../../app/app_state.dart';
+import '../../app/flags.dart';
 import '../../core/reading_service.dart';
 import '../../data/mock_data.dart';
 import '../../data/models.dart';
@@ -34,7 +35,11 @@ Future<void> startReading(
   if (!simulated) {
     String? impression;
     if (state.lookFirst) {
-      impression = await _lookFirst(context, cards);
+      impression = await _lookFirst(
+        context,
+        cards,
+        state.spendLabel(tr('Read'), spread: spread),
+      );
       if (!context.mounted) return;
       if (impression == null) return; // backed out
     }
@@ -48,7 +53,18 @@ Future<void> startReading(
     );
     if (result == null || !context.mounted) return;
     text = result.text;
-    state.refreshCredits(); // a credit may have paid for this reading
+    // A credit paid for this reading (unless it was the free try): say so,
+    // with what is left.
+    final paid = creditsEnabled && !state.usesTrial(spread);
+    await state.refreshCredits();
+    if (!context.mounted) return;
+    if (paid && state.creditsKnown) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(tr('1 credit used · {0} left', [state.credits])),
+        ),
+      );
+    }
   }
   final id = 'r${DateTime.now().microsecondsSinceEpoch}';
   state.addReading(
@@ -166,7 +182,11 @@ Future<ReadingResult?> _interpret(
 
 /// "Look first": before the reading, a moment to notice the cards yourself.
 /// Returns the typed impression ('' if skipped), or null if the user backs out.
-Future<String?> _lookFirst(BuildContext context, List<DrawnCard> cards) {
+Future<String?> _lookFirst(
+  BuildContext context,
+  List<DrawnCard> cards,
+  String readLabel,
+) {
   final names = cards.map((c) => cardLabel(c.card.name, c.reversed)).join(', ');
   final controller = TextEditingController();
   return showAppDialog<String>(
@@ -210,7 +230,7 @@ Future<String?> _lookFirst(BuildContext context, List<DrawnCard> cards) {
         FilledButton(
           style: FilledButton.styleFrom(minimumSize: const Size(0, 44)),
           onPressed: () => Navigator.pop(ctx, controller.text.trim()),
-          child: Text(tr('Read')),
+          child: Text(readLabel),
         ),
       ],
     ),
@@ -327,7 +347,7 @@ Future<void> showSignInNudge(BuildContext context) => showAppDialog<void>(
     title: Text(tr('Get a second free reading every day')),
     content: Text(
       tr(
-        'Guests get 1 free reading a day. Sign in and you get 2, and your Premium follows you to a new phone. Your readings stay on this phone either way.',
+        'Guests get 1 free credit a day. Sign in and you get 2, and your Premium follows you to a new phone. Your readings stay on this phone either way.',
       ),
     ),
     actions: [

@@ -837,6 +837,30 @@ describe("reading credits", () => {
     expect((await read(s)).status).toBe(429); // today's credits are already granted and spent
   });
 
+  it("a reading the model declines gives the credit back", async () => {
+    let refuse = false;
+    const s = setup({ credits: true, llm: async () => ({ text: refuse ? "" : GOOD, inputTokens: 1, outputTokens: 1, refused: refuse }) });
+    const hash = await hashId(UUID, "salt");
+    expect((await read(s)).status).toBe(200);
+    const before = await s.credits.balance(hash);
+    refuse = true;
+    s.kv.m.clear();
+    expect((await read(s)).status).toBe(422);
+    expect(await s.credits.balance(hash)).toBe(before);
+  });
+
+  it("the one free try of a longer spread takes no credit", async () => {
+    const s = setup({ credits: true });
+    const hash = await hashId(UUID, "salt");
+    expect((await read(s)).status).toBe(200); // grants today's credits, spends 1
+    const before = await s.credits.balance(hash);
+    const fiveCross = { spread: "five_cross", cards: ["major_00_fool", "major_01_magician", "major_02_high_priestess", "major_03_empress", "major_04_emperor"].map((id) => ({ id, reversed: false })) };
+    s.kv.m.clear();
+    const res = await s.call("/v1/reading", { method: "POST", headers: await authHeaders(s.env), body: JSON.stringify(fiveCross) });
+    expect(res.status).toBe(200);
+    expect(await s.credits.balance(hash)).toBe(before);
+  });
+
   it("a credit pays for a follow-up just like a reading; off by default (2 free a day)", async () => {
     const off = setup();
     const body = JSON.stringify({ spread: "single", cards: [{ id: "major_00_fool", reversed: false }], reading: "The Fool.", followup: "More?" });
@@ -1140,6 +1164,23 @@ describe("creator program", () => {
     expect((await s.creator.get(1))?.screenshotKey).toBeNull();
     expect((await s.creator.get(2))?.screenshotKey).not.toBeNull();
     expect(await purgeScreenshots(s.env, { creator: () => s.creator, shots: () => s.shots, now: () => NOW + 31 * DAY })).toBe(0);
+  });
+});
+describe("signing in moves credits without a second welcome gift", () => {
+  it("the account keeps the install's credits and gets no extra 10", async () => {
+    const s = setup({ credits: true, google: "web-client" });
+    const headers = await authHeaders(s.env);
+    const read = () => s.call("/v1/reading", { method: "POST", headers, body: JSON.stringify(single) });
+    expect((await read()).status).toBe(200);
+    const install = await hashId(UUID, "salt");
+    const held = await s.credits.balance(install);
+    const signin = await s.call("/v1/account/signin", { method: "POST", headers, body: JSON.stringify({ provider: "google", idToken: "good:778" }) });
+    const { accountId } = (await signin.json()) as { accountId: string };
+    const acct = await hashId(`acct:${accountId}`, "salt");
+    expect(await s.credits.balance(acct)).toBe(held);
+    s.kv.m.clear();
+    expect((await read()).status).toBe(200); // the account's own daily credits (2), minus 1
+    expect(await s.credits.balance(acct)).toBe(held + 2 - 1); // no 10-credit welcome on top
   });
 });
 describe("account deletion covers everything held for the account", () => {

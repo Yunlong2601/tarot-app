@@ -320,7 +320,13 @@ class _Results extends StatelessWidget {
             ),
           if (ready) ...[
             const SizedBox(height: 12),
-            FilledButton(onPressed: onRead, child: Text(tr('Get my reading'))),
+            FilledButton(
+              onPressed: onRead,
+              child: Text(
+                AppScope.of(context)
+                    .spendLabel(tr('Get my reading'), spread: spread),
+              ),
+            ),
           ],
         ],
       ),

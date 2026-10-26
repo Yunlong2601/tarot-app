@@ -69,7 +69,7 @@ class _GuideScreenState extends State<GuideScreen> {
     (
       Icons.dashboard_customize_outlined,
       'Pick a spread',
-      'One card is a quick answer. Three cards show past, present and future. The Celtic Cross uses ten cards for a deeper look. One and three-card spreads are free (two AI readings a day); the 5, 7 and 10-card spreads are part of Premium, with one free try.',
+      'One card is a quick answer. Three cards show past, present and future. The Celtic Cross uses ten cards for a deeper look. One and three-card spreads are open to everyone, and each reading uses 1 credit; the 5, 7 and 10-card spreads are part of Premium, with one free try.',
     ),
     (
       Icons.edit_note,

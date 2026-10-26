@@ -129,8 +129,16 @@ class AppState extends ChangeNotifier {
         : perDay == 1
         ? tr('1 new credit every day')
         : tr('{0} new credits every day', [perDay]);
+    if (!creditsKnown) return tr('Checking your credits...');
     if (credits > 0) {
       return tr('{0} credits · {1}, unused credits roll over', [credits, plan]);
+    }
+    if (perDay == 1) {
+      return isPremium
+          ? tr('No credits left. 1 new credit arrives tomorrow.')
+          : tr(
+              'No credits left. 1 new credit arrives tomorrow, or go Premium.',
+            );
     }
     return isPremium
         ? tr('No credits left. {0} new credits arrive tomorrow.', [perDay])
@@ -343,6 +351,13 @@ class AppState extends ChangeNotifier {
   /// True when this spread would use the one-time free trial reading.
   bool usesTrial(SpreadType spread) =>
       !isPremium && !spread.isFree && !trialUsed;
+
+  /// A button that spends a credit says so: "Get my reading · 1 credit". The
+  /// free try of a longer spread costs nothing, so it keeps its plain label.
+  String spendLabel(String label, {SpreadType? spread}) =>
+      creditsEnabled && !(spread != null && usesTrial(spread))
+      ? tr('{0} · 1 credit', [label])
+      : label;
 
   /// Language chosen in Settings, or null to follow the phone.
   String? languageChoice;

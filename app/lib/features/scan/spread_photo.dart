@@ -262,7 +262,10 @@ class _CheckCardsScreenState extends State<CheckCardsScreen> {
               minimumSize: const Size.fromHeight(52),
             ),
             onPressed: ready ? () => Navigator.pop(context, _cards) : null,
-            child: Text(tr('Get my reading')),
+            child: Text(
+              AppScope.of(context)
+                  .spendLabel(tr('Get my reading'), spread: widget.spread),
+            ),
           ),
         ],
       ),

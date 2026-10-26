@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:shentarot/app/app_state.dart';
+import 'package:shentarot/app/flags.dart';
 import 'package:shentarot/data/deck.dart';
 import 'package:shentarot/data/models.dart';
 import 'package:shentarot/features/collection/insights.dart';
@@ -80,5 +82,21 @@ void main() {
       MaterialApp(home: ShareCard(reading: r, withQuestion: true)),
     );
     expect(find.textContaining('secret plan'), findsOneWidget);
+  });
+
+  test('buttons that spend a credit say so; the free try does not', () {
+    creditsEnabled = true;
+    addTearDown(() => creditsEnabled = false);
+    final state = AppState(deck: deck, onboarded: true);
+    expect(state.spendLabel('Get my reading'), 'Get my reading · 1 credit');
+    expect(
+      state.spendLabel('Get my reading', spread: SpreadType.celticCross),
+      'Get my reading',
+    );
+    state.trialUsed = true;
+    expect(
+      state.spendLabel('Get my reading', spread: SpreadType.celticCross),
+      'Get my reading · 1 credit',
+    );
   });
 }

@@ -47,8 +47,8 @@ class _WelcomePremiumScreenState extends State<WelcomePremiumScreen>
     ),
     (
       Icons.all_inclusive,
-      'Up to 50 readings a day',
-      'Read as often as you like',
+      '90 to 150 credits a month',
+      'Unused credits roll over',
     ),
     (Icons.history, 'A look back', 'Revisit a reading a week later'),
   ];

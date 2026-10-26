@@ -431,7 +431,9 @@ export function createApp(deps: Deps = defaultDeps) {
     // One credit per reading: daily credits first, then bonus credits.
     let creditLot: number | null = null;
     // The owner's release test (scripts/quality-check.mjs) is not charged.
-    if (!user.target && !isQa(c.env, c.req.header("x-qa-token"))) {
+    // The one free try of a longer spread really is free: no credit taken.
+    const freeTry = !isFreeSpread(req.spread) && !premium;
+    if (!user.target && !freeTry && !isQa(c.env, c.req.header("x-qa-token"))) {
       const paid = await charge(who, c.env, premium, usage, day, now);
       if (!paid.ok) return c.json({ error: "daily_limit", premium, limit: paid.limit, guest: !premium && paid.limit === GUEST_READINGS_PER_DAY && !who.accountId }, 429);
       creditLot = paid.lot;
@@ -456,7 +458,9 @@ export function createApp(deps: Deps = defaultDeps) {
         inTok += result.inputTokens;
         outTok += result.outputTokens;
         if (result.refused) {
+          // The model declined: the user gets their credit back.
           await usage.finalize(slot, inTok, outTok);
+          if (creditLot !== null) await deps.credits(c.env).refund(creditLot);
           return c.json({ error: "declined" }, 422);
         }
         const redirect = parseOffTopic(result.text);
@@ -471,6 +475,7 @@ export function createApp(deps: Deps = defaultDeps) {
         structured = parseModelReply(result.text, req);
         if (structured?.crisis) {
           await usage.finalize(slot, inTok, outTok);
+          if (creditLot !== null) await deps.credits(c.env).refund(creditLot);
           return c.json({ crisis: true, message: CRISIS_MESSAGE });
         }
         if (structured) {
@@ -586,6 +591,7 @@ export function createApp(deps: Deps = defaultDeps) {
         outTok += result.outputTokens;
         if (result.refused) {
           await usage.finalize(slot, inTok, outTok);
+          if (followupLot !== null) await deps.credits(c.env).refund(followupLot);
           return c.json({ error: "declined" }, 422);
         }
         const checked = checkOutput(result.text);
@@ -638,7 +644,11 @@ export function createApp(deps: Deps = defaultDeps) {
     }
     // Signing in keeps the credits earned on this install.
     if (c.env.CREDITS_ENABLED === "true") {
-      await deps.credits(c.env).move(installHash, await hashId(`acct:${accountId}`, c.env.HASH_SALT));
+      const acctKey = await hashId(`acct:${accountId}`, c.env.HASH_SALT);
+      const store = deps.credits(c.env);
+      await store.move(installHash, acctKey);
+      // The welcome gift came with the install; the account doesn't get a second one.
+      await store.add(acctKey, 0, `welcome:${acctKey}`, "welcome");
     }
     return c.json({ accountId, provider });
   });
