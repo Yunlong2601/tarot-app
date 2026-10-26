@@ -384,6 +384,7 @@
  "Reading not found": "ไม่พบการอ่านไพ่",
  "Reading settings": "การตั้งค่าการอ่านไพ่",
  "Reading your cards...": "กำลังอ่านไพ่ของคุณ...",
+ "Reading {0} against your question...": "กำลังอ่าน {0} ตามคำถามของคุณ...",
  "Readings on 7 days in a row": "อ่านไพ่ 7 วันติดต่อกัน",
  "Readings that fit your question": "คำอ่านที่ตรงกับคำถามของคุณ",
  "Recent past": "อดีตที่ผ่านมาไม่นาน",

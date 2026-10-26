@@ -202,7 +202,9 @@ class _FollowUpsState extends State<_FollowUps> {
               const SizedBox(width: 12),
               Expanded(
                 child: Text(
-                  tr('The reader is reflecting...'),
+                  first == null
+                      ? tr('The reader is reflecting...')
+                      : tr('Reading {0} against your question...', [first]),
                   style: const TextStyle(
                     fontFamily: displayFont,
                     fontFamilyFallback: displayFallback,
@@ -224,7 +226,16 @@ class _FollowUpsState extends State<_FollowUps> {
         else if (!_busy) ...[
           if (_thread.isEmpty)
             for (final idea in ideas)
-              ReaderWhisper(text: idea, onTap: () => _ask(idea)),
+              ReaderWhisper(
+                text: idea,
+                // Fills the line instead of sending: asking costs a credit.
+                onTap: () {
+                  _composer.text = idea;
+                  _composer.selection = TextSelection.collapsed(
+                    offset: idea.length,
+                  );
+                },
+              ),
           const SizedBox(height: 4),
           Row(
             crossAxisAlignment: CrossAxisAlignment.end,
