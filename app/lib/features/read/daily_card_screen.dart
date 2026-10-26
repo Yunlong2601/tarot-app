@@ -101,7 +101,7 @@ class _DailyCardScreenState extends State<DailyCardScreen> {
               const SizedBox(height: 16),
               Text(
                 tr('To reflect on today: {0}', [question]),
-                style: const TextStyle(fontStyle: FontStyle.italic),
+                style: const TextStyle(fontWeight: FontWeight.w500),
               ),
             ] else ...[
               const SizedBox(height: 12),

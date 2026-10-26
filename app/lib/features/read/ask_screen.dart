@@ -252,11 +252,7 @@ class _Composer extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 6, right: 8),
             child: Text(
               nudge!,
-              style: const TextStyle(
-                fontSize: 13,
-                fontStyle: FontStyle.italic,
-                color: AppColors.gold,
-              ),
+              style: const TextStyle(fontSize: 13, color: AppColors.gold),
             ),
           ),
         Row(
@@ -275,9 +271,7 @@ class _Composer extends StatelessWidget {
                 decoration: InputDecoration(
                   hintText: tr('Ask the cards...'),
                   hintStyle: const TextStyle(
-                    fontFamily: displayFont,
-                    fontFamilyFallback: displayFallback,
-                    fontSize: 18,
+                    fontSize: 17,
                     color: Color(0xFF8F8A80),
                   ),
                   filled: false,

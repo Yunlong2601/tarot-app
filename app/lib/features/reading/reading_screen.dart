@@ -206,9 +206,7 @@ class _FollowUpsState extends State<_FollowUps> {
                       ? tr('The reader is reflecting...')
                       : tr('Reading {0} against your question...', [first]),
                   style: const TextStyle(
-                    fontFamily: displayFont,
-                    fontFamilyFallback: displayFallback,
-                    fontSize: 18,
+                    fontSize: 17,
                     color: Color(0xFF8F8A80),
                   ),
                 ),
@@ -252,9 +250,7 @@ class _FollowUpsState extends State<_FollowUps> {
                   decoration: InputDecoration(
                     hintText: tr('Ask the reader more...'),
                     hintStyle: const TextStyle(
-                      fontFamily: displayFont,
-                      fontFamilyFallback: displayFallback,
-                      fontSize: 18,
+                      fontSize: 17,
                       color: Color(0xFF8F8A80),
                     ),
                     filled: false,
@@ -373,18 +369,11 @@ class _JournalState extends State<_Journal> {
               maxLines: 10,
               maxLength: 1000,
               textCapitalization: TextCapitalization.sentences,
-              style: const TextStyle(
-                fontFamily: displayFont,
-                fontFamilyFallback: displayFallback,
-                fontSize: 18,
-                height: 1.6,
-              ),
+              style: const TextStyle(fontSize: 17, height: 1.55),
               decoration: InputDecoration(
                 hintText: tr('What did you notice in these cards?'),
                 hintStyle: const TextStyle(
-                  fontFamily: displayFont,
-                  fontFamilyFallback: displayFallback,
-                  fontSize: 18,
+                  fontSize: 17,
                   color: Color(0xFF8F8A80),
                 ),
                 filled: false,
@@ -626,10 +615,7 @@ class ReadingScreen extends StatelessWidget {
             const SizedBox(height: 20),
             Text(
               '“${reading.question}”',
-              style: const TextStyle(
-                fontStyle: FontStyle.italic,
-                color: AppColors.textMuted,
-              ),
+              style: const TextStyle(color: AppColors.textMuted),
             ),
           ],
         ],
@@ -716,7 +702,7 @@ class _ReadingText extends StatelessWidget {
                           Text(
                             s.body,
                             style: s.kind == SectionKind.reflect
-                                ? const TextStyle(fontStyle: FontStyle.italic)
+                                ? const TextStyle(fontWeight: FontWeight.w500)
                                 : null,
                           ),
                         ],
@@ -833,13 +819,7 @@ class _CardSectionState extends State<_CardSection> {
             label: Text(tr('Why this card')),
           ),
           if (_why)
-            Text(
-              s.why!,
-              style: const TextStyle(
-                color: AppColors.textMuted,
-                fontStyle: FontStyle.italic,
-              ),
-            ),
+            Text(s.why!, style: const TextStyle(color: AppColors.textMuted)),
         ],
       ],
     );

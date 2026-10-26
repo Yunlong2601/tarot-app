@@ -81,10 +81,11 @@ class ReaderLine extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final serif = !muted && !body;
     final style = TextStyle(
-      fontFamily: displayFont,
-      fontFamilyFallback: displayFallback,
-      fontSize: muted ? 17 : (body ? 19 : 23),
+      fontFamily: serif ? displayFont : null,
+      fontFamilyFallback: serif ? displayFallback : null,
+      fontSize: muted ? 16 : (body ? 17 : 23),
       height: body ? 1.5 : 1.35,
       fontWeight: muted ? FontWeight.w400 : FontWeight.w500,
       color: muted ? const Color(0xFFC9C4B8) : const Color(0xFFF4F0E6),
@@ -158,9 +159,8 @@ class ReaderWhisper extends StatelessWidget {
               child: Text(
                 text,
                 style: const TextStyle(
-                  fontFamily: displayFont,
-                  fontFamilyFallback: displayFallback,
-                  fontSize: 18,
+                  fontSize: 16,
+                  height: 1.35,
                   fontWeight: FontWeight.w500,
                   color: AppColors.goldLight,
                 ),

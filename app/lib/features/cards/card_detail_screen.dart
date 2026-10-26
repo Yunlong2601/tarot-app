@@ -96,7 +96,7 @@ class CardDetailScreen extends StatelessWidget {
             const SizedBox(height: 6),
             Text(
               tr('To reflect on: {0}', [card.knowledge!.uprightQuestion]),
-              style: const TextStyle(fontStyle: FontStyle.italic),
+              style: const TextStyle(fontWeight: FontWeight.w500),
             ),
           ],
           const SizedBox(height: 20),
@@ -113,7 +113,7 @@ class CardDetailScreen extends StatelessWidget {
             const SizedBox(height: 6),
             Text(
               tr('To reflect on: {0}', [card.knowledge!.reversedQuestion]),
-              style: const TextStyle(fontStyle: FontStyle.italic),
+              style: const TextStyle(fontWeight: FontWeight.w500),
             ),
           ],
           const SizedBox(height: 24),

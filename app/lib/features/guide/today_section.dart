@@ -83,9 +83,7 @@ class TodaySection extends StatelessWidget {
                                 const SizedBox(height: 8),
                                 Text(
                                   tr('Today\'s guidance: {0}', [question]),
-                                  style: const TextStyle(
-                                    fontStyle: FontStyle.italic,
-                                  ),
+                                  style: const TextStyle(),
                                 ),
                               ],
                             ],
