@@ -166,16 +166,26 @@ class _AskScreenState extends State<AskScreen> {
               ),
             ),
             if (sent == null)
-              _Composer(
-                controller: _controller,
-                focus: _focus,
-                length: len,
-                nudge: _nudge,
-                onSend: _send,
-                onSkip: () {
-                  _controller.clear();
-                  _send();
-                },
+              // With very large text the composer scrolls inside itself
+              // rather than pushing the conversation off screen.
+              ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxHeight: MediaQuery.sizeOf(context).height * 0.45,
+                ),
+                child: SingleChildScrollView(
+                  reverse: true,
+                  child: _Composer(
+                    controller: _controller,
+                    focus: _focus,
+                    length: len,
+                    nudge: _nudge,
+                    onSend: _send,
+                    onSkip: () {
+                      _controller.clear();
+                      _send();
+                    },
+                  ),
+                ),
               ),
           ],
         ),
@@ -267,8 +277,8 @@ class _Composer extends StatelessWidget {
                   hintStyle: const TextStyle(
                     fontFamily: displayFont,
                     fontFamilyFallback: displayFallback,
-                    fontStyle: FontStyle.italic,
-                    color: AppColors.textMuted,
+                    fontSize: 18,
+                    color: Color(0xFF8F8A80),
                   ),
                   filled: false,
                   isDense: true,

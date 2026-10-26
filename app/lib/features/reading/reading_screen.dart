@@ -208,8 +208,8 @@ class _FollowUpsState extends State<_FollowUps> {
                   style: const TextStyle(
                     fontFamily: displayFont,
                     fontFamilyFallback: displayFallback,
-                    fontStyle: FontStyle.italic,
-                    color: AppColors.textMuted,
+                    fontSize: 18,
+                    color: Color(0xFF8F8A80),
                   ),
                 ),
               ),
@@ -254,8 +254,8 @@ class _FollowUpsState extends State<_FollowUps> {
                     hintStyle: const TextStyle(
                       fontFamily: displayFont,
                       fontFamilyFallback: displayFallback,
-                      fontStyle: FontStyle.italic,
-                      color: AppColors.textMuted,
+                      fontSize: 18,
+                      color: Color(0xFF8F8A80),
                     ),
                     filled: false,
                     isDense: true,
@@ -384,8 +384,8 @@ class _JournalState extends State<_Journal> {
                 hintStyle: const TextStyle(
                   fontFamily: displayFont,
                   fontFamilyFallback: displayFallback,
-                  fontStyle: FontStyle.italic,
-                  color: AppColors.textMuted,
+                  fontSize: 18,
+                  color: Color(0xFF8F8A80),
                 ),
                 filled: false,
                 border: InputBorder.none,

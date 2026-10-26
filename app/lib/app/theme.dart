@@ -62,6 +62,21 @@ ThemeData buildTheme() {
       headlineMedium: base.headlineMedium?.merge(_display(28)),
       headlineSmall: base.headlineSmall?.merge(_display(24)),
       titleLarge: base.titleLarge?.merge(_display(22)),
+      // Reading text: tighter tracking and more line height than Material's
+      // defaults, which space letters too widely for long passages.
+      bodyLarge: base.bodyLarge?.copyWith(
+        fontSize: 17,
+        height: 1.5,
+        letterSpacing: 0.1,
+      ),
+      bodyMedium: base.bodyMedium?.copyWith(
+        fontSize: 15.5,
+        height: 1.45,
+        letterSpacing: 0.1,
+      ),
+      bodySmall: base.bodySmall?.copyWith(letterSpacing: 0.15),
+      titleMedium: base.titleMedium?.copyWith(letterSpacing: 0.05),
+      labelLarge: base.labelLarge?.copyWith(letterSpacing: 0.2),
     ),
     scaffoldBackgroundColor: AppColors.background,
     appBarTheme: const AppBarTheme(

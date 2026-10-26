@@ -84,10 +84,10 @@ class ReaderLine extends StatelessWidget {
     final style = TextStyle(
       fontFamily: displayFont,
       fontFamilyFallback: displayFallback,
-      fontSize: muted ? 15 : (body ? 18 : 21),
+      fontSize: muted ? 17 : (body ? 19 : 23),
       height: body ? 1.5 : 1.35,
-      fontStyle: muted || body ? FontStyle.normal : FontStyle.italic,
-      color: muted ? AppColors.textMuted : const Color(0xFFF2EEE3),
+      fontWeight: muted ? FontWeight.w400 : FontWeight.w500,
+      color: muted ? const Color(0xFFC9C4B8) : const Color(0xFFF4F0E6),
     );
     Widget line(String shown) => Container(
       padding: const EdgeInsetsDirectional.only(start: 14, bottom: 6, top: 2),
@@ -160,9 +160,9 @@ class ReaderWhisper extends StatelessWidget {
                 style: const TextStyle(
                   fontFamily: displayFont,
                   fontFamilyFallback: displayFallback,
-                  fontSize: 16,
-                  fontStyle: FontStyle.italic,
-                  color: AppColors.gold,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                  color: AppColors.goldLight,
                 ),
               ),
             ),
