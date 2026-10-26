@@ -1,12 +1,10 @@
-import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../app/app_scope.dart';
-import '../../app/brand.dart';
 import '../../app/theme.dart';
 import 'question_nudge.dart';
+import 'reader_voice.dart';
 import '../../app/i18n.dart';
 import '../../app/motion.dart';
 
@@ -129,18 +127,18 @@ class _AskScreenState extends State<AskScreen> {
               child: ListView(
                 padding: const EdgeInsets.fromLTRB(24, 8, 24, 16),
                 children: [
-                  const _ReaderSigil(),
+                  const ReaderSigil(),
                   const SizedBox(height: 20),
-                  _ReaderLine(
+                  ReaderLine(
                     tr('Take a breath. Let the noise of the day settle.'),
                   ),
-                  _ReaderLine(
+                  ReaderLine(
                     tr('What would you like to ask the cards?'),
                     delay: 0.35,
                   ),
                   if (sent == null) ...[
                     const SizedBox(height: 14),
-                    _ReaderLine(
+                    ReaderLine(
                       tr(
                         'An open question works best. You can also leave it blank for a general reading.',
                       ),
@@ -149,13 +147,13 @@ class _AskScreenState extends State<AskScreen> {
                     ),
                     const SizedBox(height: 16),
                     for (final s in _starters.map(tr))
-                      _Whisper(
+                      ReaderWhisper(
                         text: '${s.trim()}...',
                         onTap: () => _useStarter(s),
                       ),
                   ] else ...[
                     const SizedBox(height: 20),
-                    _UserLine(
+                    UserLine(
                       sent.isEmpty ? tr('A general reading, please.') : sent,
                     ),
                     const SizedBox(height: 20),
@@ -186,178 +184,6 @@ class _AskScreenState extends State<AskScreen> {
   }
 }
 
-bool _calm(BuildContext context) =>
-    !brandAnimations || MediaQuery.disableAnimationsOf(context);
-
-/// A small candle-lit mark with an honest label: the reader is AI.
-class _ReaderSigil extends StatelessWidget {
-  const _ReaderSigil();
-
-  @override
-  Widget build(BuildContext context) => Row(
-    children: [
-      Container(
-        width: 44,
-        height: 44,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          border: Border.all(color: AppColors.goldDeep, width: 0.8),
-          gradient: RadialGradient(
-            colors: [
-              AppColors.gold.withValues(alpha: 0.28),
-              AppColors.background.withValues(alpha: 0),
-            ],
-          ),
-        ),
-        alignment: Alignment.center,
-        child: const BrandMark(size: 22),
-      ),
-      const SizedBox(width: 12),
-      Expanded(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              tr('The reader'),
-              style: const TextStyle(
-                fontFamily: displayFont,
-                fontFamilyFallback: displayFallback,
-                fontSize: 18,
-                color: AppColors.gold,
-              ),
-            ),
-            Text(
-              tr('AI · for reflection, not prediction'),
-              style: const TextStyle(fontSize: 12, color: AppColors.textMuted),
-            ),
-          ],
-        ),
-      ),
-    ],
-  );
-}
-
-/// One line from the reader: serif, with a fine gold rule in the margin. It
-/// writes itself in like ink, unless the user asked for less motion.
-class _ReaderLine extends StatelessWidget {
-  const _ReaderLine(this.text, {this.delay = 0, this.muted = false});
-  final String text;
-  final double delay;
-  final bool muted;
-
-  @override
-  Widget build(BuildContext context) {
-    final style = TextStyle(
-      fontFamily: displayFont,
-      fontFamilyFallback: displayFallback,
-      fontSize: muted ? 15 : 21,
-      height: 1.35,
-      fontStyle: muted ? FontStyle.normal : FontStyle.italic,
-      color: muted ? AppColors.textMuted : const Color(0xFFF2EEE3),
-    );
-    Widget line(String shown) => Container(
-      padding: const EdgeInsetsDirectional.only(start: 14, bottom: 6, top: 2),
-      decoration: const BoxDecoration(
-        border: BorderDirectional(
-          start: BorderSide(color: AppColors.goldDeep, width: 0.8),
-        ),
-      ),
-      child: Stack(
-        children: [
-          // The full text keeps the line's height steady while it writes in.
-          Opacity(opacity: 0, child: Text(text, style: style)),
-          Text(shown, style: style),
-        ],
-      ),
-    );
-    if (_calm(context)) {
-      return Semantics(
-        label: text,
-        child: ExcludeSemantics(child: line(text)),
-      );
-    }
-    final ms = 450 + text.length * 14;
-    return Semantics(
-      label: text,
-      child: ExcludeSemantics(
-        child: TweenAnimationBuilder<double>(
-          tween: Tween(begin: 0, end: 1),
-          duration: Duration(milliseconds: ms + (delay * 1000).round()),
-          builder: (_, v, _) {
-            final start = delay * 1000 / (ms + delay * 1000);
-            final p = ((v - start) / (1 - start)).clamp(0.0, 1.0);
-            final n = (text.length * Curves.easeOut.transform(p)).round();
-            return line(text.substring(0, math.min(n, text.length)));
-          },
-        ),
-      ),
-    );
-  }
-}
-
-/// A suggested opening, offered quietly rather than as a button.
-class _Whisper extends StatelessWidget {
-  const _Whisper({required this.text, required this.onTap});
-  final String text;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) => Semantics(
-    button: true,
-    child: InkWell(
-      onTap: onTap,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10),
-        child: Row(
-          children: [
-            const Icon(Icons.auto_awesome, size: 14, color: AppColors.goldDeep),
-            const SizedBox(width: 10),
-            Expanded(
-              child: Text(
-                text,
-                style: const TextStyle(
-                  fontFamily: displayFont,
-                  fontFamilyFallback: displayFallback,
-                  fontSize: 16,
-                  fontStyle: FontStyle.italic,
-                  color: AppColors.gold,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    ),
-  );
-}
-
-/// The user's question once sent: set right, in quotation marks.
-class _UserLine extends StatelessWidget {
-  const _UserLine(this.text);
-  final String text;
-
-  @override
-  Widget build(BuildContext context) => Align(
-    alignment: AlignmentDirectional.centerEnd,
-    child: ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 300),
-      child: Container(
-        padding: const EdgeInsetsDirectional.only(end: 14, top: 2, bottom: 6),
-        decoration: const BoxDecoration(
-          border: BorderDirectional(
-            end: BorderSide(color: AppColors.textMuted, width: 0.8),
-          ),
-        ),
-        child: Text(
-          '“$text”',
-          textAlign: TextAlign.end,
-          style: const TextStyle(fontSize: 17, height: 1.4),
-        ),
-      ),
-    ),
-  );
-}
-
 /// The reader's answer to the question: writes in, holds a beat, moves on.
 class _Reply extends StatelessWidget {
   const _Reply({required this.text, required this.onDone});
@@ -366,16 +192,16 @@ class _Reply extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (_calm(context)) {
+    if (readerCalm(context)) {
       WidgetsBinding.instance.addPostFrameCallback((_) => onDone());
-      return _ReaderLine(text);
+      return ReaderLine(text);
     }
     return TweenAnimationBuilder<double>(
       tween: Tween(begin: 0, end: 1),
       duration: const Duration(milliseconds: 1500),
       onEnd: onDone,
       builder: (_, _, child) => child!,
-      child: _ReaderLine(text),
+      child: ReaderLine(text),
     );
   }
 }

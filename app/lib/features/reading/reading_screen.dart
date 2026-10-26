@@ -4,11 +4,13 @@ import 'package:go_router/go_router.dart';
 
 import '../../app/app_scope.dart';
 import '../../app/brand.dart';
+import '../../app/ritual_loader.dart';
 import '../../app/theme.dart';
 import '../../core/reading_service.dart';
 import '../../data/models.dart';
 import '../cards/card_art.dart';
 import '../spreads/spread_layout.dart';
+import '../read/reader_voice.dart';
 import '../scan/orientation_dialog.dart';
 import 'reading_sections.dart';
 import 'report_reading.dart';
@@ -20,49 +22,6 @@ import 'dart:math';
 import '../../app/motion.dart';
 import '../../app/i18n.dart';
 
-class _AskDialog extends StatefulWidget {
-  const _AskDialog();
-
-  @override
-  State<_AskDialog> createState() => _AskDialogState();
-}
-
-class _AskDialogState extends State<_AskDialog> {
-  final _controller = TextEditingController();
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) => AlertDialog(
-    title: Text(tr('Ask a follow-up')),
-    content: TextField(
-      controller: _controller,
-      autofocus: true,
-      maxLength: 300,
-      maxLines: 3,
-      decoration: InputDecoration(
-        hintText: tr('What would you like to explore?'),
-      ),
-    ),
-    actions: [
-      TextButton(
-        onPressed: () => Navigator.pop(context),
-        child: Text(tr('Cancel')),
-      ),
-      FilledButton(
-        onPressed: () => Navigator.pop(context, _controller.text.trim()),
-        child: Text(tr('Ask')),
-      ),
-    ],
-  );
-}
-
-/// Follow-up questions about this reading (Premium). Answers are shown here
-/// for this visit only; they are not saved (save what matters in the journal).
 class _FollowUps extends StatefulWidget {
   const _FollowUps({required this.reading});
   final Reading reading;
@@ -78,12 +37,19 @@ class _FollowUpsState extends State<_FollowUps> {
   static const clarifierPrompt =
       'I drew a clarifier card. What does it add to this reading?';
 
-  Future<void> _ask() async {
-    final text = await showAppDialog<String>(
-      context: context,
-      builder: (_) => const _AskDialog(),
-    );
-    if (text == null || text.isEmpty || !mounted) return;
+  final _composer = TextEditingController();
+
+  @override
+  void dispose() {
+    _composer.dispose();
+    super.dispose();
+  }
+
+  Future<void> _ask([String? preset]) async {
+    final text = (preset ?? _composer.text).trim();
+    if (text.isEmpty || _busy) return;
+    FocusScope.of(context).unfocus();
+    _composer.clear();
     await _send(text, text);
   }
 
@@ -184,62 +150,158 @@ class _FollowUpsState extends State<_FollowUps> {
   @override
   Widget build(BuildContext context) {
     final state = AppScope.of(context);
+    final open = state.isPremium || state.hasCredits;
+    final cost = state.isPremium ? '' : tr('1 credit');
+    final first = widget.reading.cards.isEmpty
+        ? null
+        : widget.reading.cards.first.card.name;
+    final ideas = [
+      tr('What should I watch out for?'),
+      tr('What can I do about this this week?'),
+      if (first != null) tr('Tell me more about {0}.', [first]),
+    ];
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        for (final (q, a) in _thread) ...[
-          Text(
-            '“$q”',
-            style: const TextStyle(
-              fontStyle: FontStyle.italic,
-              color: AppColors.textMuted,
+        const SizedBox(height: 8),
+        Row(
+          children: [
+            const Expanded(child: Divider(color: AppColors.hairline)),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              child: Text(
+                tr('Ask the reader'),
+                style: const TextStyle(
+                  fontFamily: displayFont,
+                  fontFamilyFallback: displayFallback,
+                  fontSize: 18,
+                  color: AppColors.gold,
+                ),
+              ),
             ),
+            const Expanded(child: Divider(color: AppColors.hairline)),
+          ],
+        ),
+        Center(
+          child: Text(
+            tr('AI · for reflection, not prediction'),
+            style: const TextStyle(fontSize: 12, color: AppColors.textMuted),
           ),
-          const SizedBox(height: 6),
-          Text(a),
+        ),
+        const SizedBox(height: 16),
+        for (final (q, a) in _thread) ...[
+          UserLine(q),
+          const SizedBox(height: 14),
+          ReaderLine(a, body: true),
+          const SizedBox(height: 22),
+        ],
+        if (_busy) ...[
+          Row(
+            children: [
+              const RitualLoader(size: 36),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Text(
+                  tr('The reader is reflecting...'),
+                  style: const TextStyle(
+                    fontFamily: displayFont,
+                    fontFamilyFallback: displayFallback,
+                    fontStyle: FontStyle.italic,
+                    color: AppColors.textMuted,
+                  ),
+                ),
+              ),
+            ],
+          ),
           const SizedBox(height: 16),
         ],
-        OutlinedButton.icon(
-          onPressed: _busy
-              ? null
-              : (state.isPremium || state.hasCredits
-                    ? _ask
-                    : () => context.push('/paywall')),
-          icon: Icon(
-            state.isPremium || state.hasCredits
-                ? Icons.chat_bubble_outline
-                : Icons.lock_outline,
+        if (!open)
+          ReaderWhisper(
+            icon: Icons.lock_outline,
+            text: tr('Ask a follow-up (Premium)'),
+            onTap: () => context.push('/paywall'),
+          )
+        else if (!_busy) ...[
+          if (_thread.isEmpty)
+            for (final idea in ideas)
+              ReaderWhisper(text: idea, onTap: () => _ask(idea)),
+          const SizedBox(height: 4),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Expanded(
+                child: TextField(
+                  key: const ValueKey('followup-input'),
+                  controller: _composer,
+                  maxLength: 300,
+                  minLines: 1,
+                  maxLines: 4,
+                  textCapitalization: TextCapitalization.sentences,
+                  style: const TextStyle(fontSize: 17, height: 1.35),
+                  decoration: InputDecoration(
+                    hintText: tr('Ask the reader more...'),
+                    hintStyle: const TextStyle(
+                      fontFamily: displayFont,
+                      fontFamilyFallback: displayFallback,
+                      fontStyle: FontStyle.italic,
+                      color: AppColors.textMuted,
+                    ),
+                    filled: false,
+                    isDense: true,
+                    contentPadding: const EdgeInsets.symmetric(vertical: 10),
+                    border: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: AppColors.hairline),
+                    ),
+                    enabledBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: AppColors.hairline),
+                    ),
+                    focusedBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: AppColors.goldDeep),
+                    ),
+                    counter: const SizedBox.shrink(),
+                  ),
+                ),
+              ),
+              const SizedBox(width: 8),
+              IconButton.filled(
+                key: const ValueKey('followup-send'),
+                tooltip: tr('Ask'),
+                style: IconButton.styleFrom(
+                  backgroundColor: AppColors.gold,
+                  foregroundColor: AppColors.onGold,
+                  minimumSize: const Size(44, 44),
+                ),
+                onPressed: () => _ask(),
+                icon: const Icon(Icons.north),
+              ),
+            ],
           ),
-          label: Text(
-            _busy
-                ? tr('Thinking...')
-                : state.isPremium
-                ? tr('Ask a follow-up')
-                : state.hasCredits
-                ? tr('Ask a follow-up (1 credit)')
-                : tr('Ask a follow-up (Premium)'),
-          ),
-        ),
-        const SizedBox(height: 8),
-        OutlinedButton.icon(
-          onPressed: _busy
-              ? null
-              : (state.isPremium || state.hasCredits
-                    ? _clarify
-                    : () => context.push('/paywall')),
-          icon: Icon(
-            state.isPremium || state.hasCredits
-                ? Icons.add_card_outlined
-                : Icons.lock_outline,
-          ),
-          label: Text(
-            state.isPremium
+          if (cost.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.only(top: 4),
+              child: Text(
+                tr('Each question uses {0}.', [cost]),
+                style: const TextStyle(
+                  fontSize: 12,
+                  color: AppColors.textMuted,
+                ),
+              ),
+            ),
+          const SizedBox(height: 10),
+          ReaderWhisper(
+            icon: Icons.add_card_outlined,
+            text: state.isPremium
                 ? tr('Draw a clarifier card')
-                : state.hasCredits
-                ? tr('Draw a clarifier card (1 credit)')
-                : tr('Draw a clarifier card (Premium)'),
+                : tr('Draw a clarifier card (1 credit)'),
+            onTap: _clarify,
           ),
-        ),
+        ],
+        if (!open)
+          ReaderWhisper(
+            icon: Icons.lock_outline,
+            text: tr('Draw a clarifier card (Premium)'),
+            onTap: () => context.push('/paywall'),
+          ),
       ],
     );
   }
@@ -269,24 +331,71 @@ class _JournalState extends State<_Journal> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        TextField(
-          controller: _controller,
-          maxLines: 4,
-          maxLength: 1000,
-          decoration: InputDecoration(
-            labelText: tr('Your journal note'),
-            border: OutlineInputBorder(),
+        const SizedBox(height: 20),
+        Text(
+          tr('Your journal'),
+          style: const TextStyle(
+            fontFamily: displayFont,
+            fontFamilyFallback: displayFallback,
+            fontSize: 18,
+            color: AppColors.gold,
+          ),
+        ),
+        Text(
+          tr('Private, kept on this phone. The reader never sees it.'),
+          style: const TextStyle(fontSize: 12, color: AppColors.textMuted),
+        ),
+        const SizedBox(height: 8),
+        // Ruled like a notebook page: writing on lines, not in a box.
+        DecoratedBox(
+          decoration: const BoxDecoration(
+            border: BorderDirectional(
+              start: BorderSide(color: AppColors.goldDeep, width: 0.8),
+            ),
+          ),
+          child: Padding(
+            padding: const EdgeInsetsDirectional.only(start: 14),
+            child: TextField(
+              key: const ValueKey('journal-input'),
+              controller: _controller,
+              minLines: 3,
+              maxLines: 10,
+              maxLength: 1000,
+              textCapitalization: TextCapitalization.sentences,
+              style: const TextStyle(
+                fontFamily: displayFont,
+                fontFamilyFallback: displayFallback,
+                fontSize: 18,
+                height: 1.6,
+              ),
+              decoration: InputDecoration(
+                hintText: tr('What did you notice in these cards?'),
+                hintStyle: const TextStyle(
+                  fontFamily: displayFont,
+                  fontFamilyFallback: displayFallback,
+                  fontStyle: FontStyle.italic,
+                  color: AppColors.textMuted,
+                ),
+                filled: false,
+                border: InputBorder.none,
+                enabledBorder: InputBorder.none,
+                focusedBorder: InputBorder.none,
+                counter: const SizedBox.shrink(),
+              ),
+            ),
           ),
         ),
         Align(
           alignment: AlignmentDirectional.centerEnd,
-          child: FilledButton(
+          child: TextButton.icon(
             onPressed: () {
               state.setNote(widget.reading.id, _controller.text);
+              FocusScope.of(context).unfocus();
               ScaffoldMessenger.of(context)
                   .showSnackBar(SnackBar(content: Text(tr('Note saved'))));
             },
-            child: Text(tr('Save note')),
+            icon: const Icon(Icons.edit_note, size: 20),
+            label: Text(tr('Save note')),
           ),
         ),
       ],

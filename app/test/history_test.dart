@@ -374,7 +374,10 @@ void main() {
       await tester.tap(find.textContaining('Past, Present, Future'));
       await tester.pumpAndSettle();
       expect(find.text('Ask a follow-up (Premium)'), findsOneWidget);
-      await tester.enterText(find.byType(TextField), 'My note');
+      await tester.enterText(
+        find.byKey(const ValueKey('journal-input')),
+        'My note',
+      );
       await tester.tap(find.text('Save note'));
       await tester.pump();
       expect(state.history.single.note, 'My note');
@@ -389,7 +392,10 @@ void main() {
       await goHistory(tester);
       await tester.tap(find.textContaining('Past, Present, Future'));
       await tester.pumpAndSettle();
-      await tester.enterText(find.byType(TextField), 'My note');
+      await tester.enterText(
+        find.byKey(const ValueKey('journal-input')),
+        'My note',
+      );
       await tester.tap(find.text('Save note'));
       await tester.pump();
       expect(state.history.single.note, 'My note');
@@ -416,10 +422,11 @@ void main() {
       await goHistory(tester);
       await tester.tap(find.textContaining('Past, Present, Future'));
       await tester.pumpAndSettle();
-      await tester.tap(find.text('Ask a follow-up'));
-      await tester.pumpAndSettle();
-      await tester.enterText(find.byType(TextField).last, 'What next?');
-      await tester.tap(find.text('Ask'));
+      await tester.enterText(
+        find.byKey(const ValueKey('followup-input')),
+        'What next?',
+      );
+      await tester.tap(find.byKey(const ValueKey('followup-send')));
       await tester.pumpAndSettle();
       expect(find.text('Here is more to explore.'), findsOneWidget);
       expect(fake.calls.single['followUp'], 'What next?');
