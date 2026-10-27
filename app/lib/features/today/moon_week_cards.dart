@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -104,6 +107,60 @@ class WeekCard extends StatelessWidget {
             logEvent('week_card');
             context.push('/collection');
           },
+        ),
+      ),
+    );
+  }
+}
+
+/// After a 7-day streak (iPhone): how to add the Card of the Day widget.
+/// Widgets are rarely found without a nudge; this shows once until closed.
+class WidgetTipCard extends StatelessWidget {
+  const WidgetTipCard({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final state = AppScope.of(context);
+    if (kIsWeb || !Platform.isIOS || state.widgetTipSeen || state.streak < 7) {
+      return const SizedBox.shrink();
+    }
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12),
+      child: Card(
+        key: const ValueKey('widget-tip'),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 8, 4, 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  const Icon(Icons.widgets_outlined, color: AppColors.gold),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Text(
+                      tr('A week in a row. Keep your card on your Home Screen'),
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
+                  ),
+                  IconButton(
+                    tooltip: tr('Close'),
+                    icon: const Icon(Icons.close, size: 20),
+                    onPressed: () {
+                      logEvent('widget_tip', {'action': 'close'});
+                      state.closeWidgetTip();
+                    },
+                  ),
+                ],
+              ),
+              Text(
+                tr(
+                  'Touch and hold an empty spot on your Home Screen, tap Edit, then Add Widget, and search for ShenTarot. It shows today\'s card and your streak. It also fits the Lock Screen.',
+                ),
+                style: const TextStyle(color: AppColors.textMuted),
+              ),
+            ],
+          ),
         ),
       ),
     );

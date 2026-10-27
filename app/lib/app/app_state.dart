@@ -17,6 +17,7 @@ import '../core/reading_service.dart';
 import '../core/reminder_service.dart';
 import '../core/subscription_service.dart';
 import '../core/user_key_store.dart';
+import '../core/widget_bridge.dart';
 import '../data/deck.dart';
 import '../data/history_repository.dart';
 import '../data/models.dart';
@@ -394,6 +395,9 @@ class AppState extends ChangeNotifier {
   /// A Sunday evening note: your week in cards (needs the daily reminder).
   bool weeklyNotes = true;
 
+  /// The "add the widget" tip was closed.
+  bool widgetTipSeen = false;
+
   // Local mirror of today's free-reading count. The backend enforces the real
   // limit; this only drives the UI.
   String _usedDay = '';
@@ -425,6 +429,7 @@ class AppState extends ChangeNotifier {
   static const _kFirstOfferDismissed = 'first_offer_dismissed';
   static const _kMoonNotes = 'moon_notes';
   static const _kWeeklyNotes = 'weekly_notes';
+  static const _kWidgetTip = 'widget_tip_seen';
 
   String get _today => _dayKey(_clock());
 
@@ -544,6 +549,7 @@ class AppState extends ChangeNotifier {
       firstOfferDismissed = prefs.getBool(_kFirstOfferDismissed) ?? false;
       moonNotes = prefs.getBool(_kMoonNotes) ?? true;
       weeklyNotes = prefs.getBool(_kWeeklyNotes) ?? true;
+      widgetTipSeen = prefs.getBool(_kWidgetTip) ?? false;
       final arm = prefs.getString(_kTestArm);
       if (arm != null) {
         testArm = arm;
@@ -569,6 +575,7 @@ class AppState extends ChangeNotifier {
     if (firstReadingDay == null && history.isNotEmpty) {
       firstReadingDay = _dayKey(history.last.createdAt);
     }
+    refreshWidget();
     notifyListeners();
   }
 
@@ -606,6 +613,7 @@ class AppState extends ChangeNotifier {
       await prefs.setBool(_kFirstOfferDismissed, firstOfferDismissed);
       await prefs.setBool(_kMoonNotes, moonNotes);
       await prefs.setBool(_kWeeklyNotes, weeklyNotes);
+      await prefs.setBool(_kWidgetTip, widgetTipSeen);
     } catch (e) {
       debugPrint('Could not save settings: $e');
     }
@@ -690,6 +698,7 @@ class AppState extends ChangeNotifier {
     _savePrefs();
     // Today's card is drawn: no reminder today.
     if (reminderEnabled) _guard(() => _scheduleDaily(skipToday: true));
+    refreshWidget();
     if (notify) notifyListeners();
     return DrawnCard(card: card, reversed: _dailyReversed);
   }
@@ -755,6 +764,12 @@ class AppState extends ChangeNotifier {
       );
     }
   });
+
+  void closeWidgetTip() {
+    widgetTipSeen = true;
+    _savePrefs();
+    notifyListeners();
+  }
 
   Future<void> setMoonNotes(bool on) async {
     moonNotes = on;
@@ -854,6 +869,24 @@ class AppState extends ChangeNotifier {
     'decision' => tr('your decision'),
     _ => null,
   };
+
+  /// Sends today's card (or the face-down prompt) and the streak to the
+  /// home screen widget.
+  void refreshWidget() {
+    final today = dailyCardIfDrawn;
+    final days = streak;
+    final word = today == null || today.card.keywords.isEmpty
+        ? ''
+        : today.card.keywords.first;
+    WidgetBridge.update(
+      day: _today,
+      card: today?.card,
+      theme: word,
+      streak: days,
+      prompt: tr('Tap to draw today\'s card'),
+      streakLabel: days < 2 ? '' : tr('{0}-day streak', [days]),
+    );
+  }
 
   /// Days in a row with a reading.
   int get streak =>
@@ -1088,6 +1121,7 @@ class AppState extends ChangeNotifier {
     _scheduleLookBack(reading);
     _refreshStreakNudge();
     _refreshNotes();
+    refreshWidget();
     if (firstReadingDay == null) {
       firstReadingDay = _dayKey(reading.createdAt);
       _savePrefs();

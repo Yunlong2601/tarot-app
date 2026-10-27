@@ -1,0 +1,2 @@
+// Version numbers from Flutter, so the widget matches the app.
+#include "../Flutter/Generated.xcconfig"

@@ -40,6 +40,7 @@ class TodayScreen extends StatelessWidget {
             ],
             const MoonCard(),
             const WeekCard(),
+            const WidgetTipCard(),
             const TodaySection(),
             const SizedBox(height: 16),
             Text(

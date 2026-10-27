@@ -4,6 +4,7 @@ import Flutter
 import StoreKit
 import UIKit
 import UserNotifications
+import WidgetKit
 
 @main
 @objc class AppDelegate: FlutterAppDelegate, FlutterImplicitEngineDelegate {
@@ -23,6 +24,9 @@ import UserNotifications
     }
     if let registrar = engineBridge.pluginRegistry.registrar(forPlugin: "RefundPlugin") {
       RefundPlugin.register(with: registrar)
+    }
+    if let registrar = engineBridge.pluginRegistry.registrar(forPlugin: "WidgetBridgePlugin") {
+      WidgetBridgePlugin.register(with: registrar)
     }
   }
 }
@@ -130,6 +134,38 @@ final class RefundPlugin: NSObject, FlutterPlugin {
           result(FlutterError(code: "failed", message: error.localizedDescription, details: nil))
         }
       }
+    default:
+      result(FlutterMethodNotImplemented)
+    }
+  }
+}
+
+/// Card-of-the-day widget data for lib/core/widget_bridge.dart: writes to the
+/// shared App Group and asks WidgetKit to redraw.
+final class WidgetBridgePlugin: NSObject, FlutterPlugin {
+  static let group = "group.com.shentech.shentarot"
+
+  static func register(with registrar: FlutterPluginRegistrar) {
+    let channel = FlutterMethodChannel(
+      name: "shentarot/widget", binaryMessenger: registrar.messenger())
+    registrar.addMethodCallDelegate(WidgetBridgePlugin(), channel: channel)
+  }
+
+  func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
+    switch call.method {
+    case "containerPath":
+      result(FileManager.default
+        .containerURL(forSecurityApplicationGroupIdentifier: Self.group)?.path)
+    case "update":
+      guard let args = call.arguments as? [String: Any],
+        let defaults = UserDefaults(suiteName: Self.group)
+      else {
+        result(false)
+        return
+      }
+      for (key, value) in args { defaults.set(value, forKey: key) }
+      WidgetCenter.shared.reloadAllTimelines()
+      result(true)
     default:
       result(FlutterMethodNotImplemented)
     }

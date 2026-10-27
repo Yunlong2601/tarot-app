@@ -18,6 +18,7 @@ export const EVENT_NAMES = [
   "offer_card",
   "moon_card",
   "week_card",
+  "widget_tip",
 ] as const;
 export type EventName = (typeof EVENT_NAMES)[number];
 
