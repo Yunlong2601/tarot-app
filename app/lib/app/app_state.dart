@@ -25,19 +25,39 @@ enum ReadMode { photo, digital }
 /// A one-off question asked when the user closes a reading.
 enum AfterReadingAsk { none, reminder, review }
 
-/// Days in a row with at least one reading, counting back from today (or
-/// from yesterday when today has none yet).
-int readingStreak(List<DateTime> dates, DateTime now) {
+/// Reading days in a row, counting back from today (or from yesterday when
+/// today has none yet). One missed day a week (Monday to Sunday) is a rest
+/// day and keeps the streak, as long as it sits after an earlier reading
+/// day. Returns the count and the latest rest day used, if any.
+({int days, DateTime? rested}) streakWithRest(
+  List<DateTime> dates,
+  DateTime now,
+) {
   final days = {for (final d in dates) DateTime(d.year, d.month, d.day)};
+  DateTime back(DateTime d) => DateTime(d.year, d.month, d.day - 1);
   var day = DateTime(now.year, now.month, now.day);
-  if (!days.contains(day)) day = day.subtract(const Duration(days: 1));
+  if (!days.contains(day)) day = back(day);
   var n = 0;
-  while (days.contains(day)) {
-    n++;
-    day = day.subtract(const Duration(days: 1));
+  DateTime? rested;
+  final restWeeks = <DateTime>{};
+  while (true) {
+    if (days.contains(day)) {
+      n++;
+      day = back(day);
+      continue;
+    }
+    final monday = DateTime(day.year, day.month, day.day - (day.weekday - 1));
+    if (days.contains(back(day)) && restWeeks.add(monday)) {
+      rested ??= day;
+      day = back(day);
+      continue;
+    }
+    return (days: n, rested: rested);
   }
-  return n;
 }
+
+int readingStreak(List<DateTime> dates, DateTime now) =>
+    streakWithRest(dates, now).days;
 
 /// App-wide state: onboarding, premium, today's free reading, saved history
 /// (on device only) and the daily reminder.
@@ -766,6 +786,13 @@ class AppState extends ChangeNotifier {
     if (!reminderEnabled || !streakNudgeOn || readToday) return;
     final days = streak;
     if (days < 3) return;
+    // This week's rest day still covers today: nothing to break tonight.
+    final now0 = _clock();
+    final tomorrow = DateTime(now0.year, now0.month, now0.day + 1, 12);
+    if (readingStreak([for (final r in history) r.createdAt], tomorrow) >=
+        days) {
+      return;
+    }
     final hour = max(20, reminderTime.hour + 2);
     if (hour > 22) return;
     final now = _clock();
@@ -1027,10 +1054,16 @@ class AppState extends ChangeNotifier {
   /// Whether [r] is old enough (7+ days) and recent enough (under 60) to ask
   /// "how did this turn out?", and has not been answered or dismissed.
   bool revisitDue(Reading r, {DateTime? now}) {
-    if (!isPremium || r.revisit != null) return false;
+    if (r.revisit != null) return false;
+    // Free users get one look back, so they see what Premium offers.
+    if (!isPremium && usedFreeLookBack) return false;
     final age = (now ?? DateTime.now()).difference(r.createdAt);
     return age.inDays >= 7 && age.inDays < 60;
   }
+
+  /// A free user has already written their one free look back.
+  bool get usedFreeLookBack =>
+      history.any((r) => r.revisit != null && r.revisit!.isNotEmpty);
 
   /// The newest reading waiting for a look-back, if any.
   Reading? get dueRevisit => history.where(revisitDue).firstOrNull;

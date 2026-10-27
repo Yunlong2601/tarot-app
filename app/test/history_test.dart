@@ -185,7 +185,7 @@ void main() {
       expect((await repo.load(deck)).single.revisit, 'It went fine.');
     });
 
-    test('due only for Premium, 7 to 59 days old, once', () {
+    test('7 to 59 days old, once; free users get one look back', () {
       final now = DateTime(2026, 10, 16);
       final s = AppState(deck: deck)..setPremium(true);
       final r = reading('a', now.subtract(const Duration(days: 8)));
@@ -205,7 +205,12 @@ void main() {
         isFalse,
       );
       expect(s.revisitDue(r.withRevisit(''), now: now), isFalse);
-      expect((AppState(deck: deck)).revisitDue(r, now: now), isFalse);
+      // Free: the first look back is open, then no more.
+      final free = AppState(deck: deck);
+      expect(free.revisitDue(r, now: now), isTrue);
+      free.addReading(reading('old', now.subtract(const Duration(days: 9))));
+      free.setRevisit('old', 'It went fine.');
+      expect(free.revisitDue(r, now: now), isFalse);
     });
 
     testWidgets('Read tab links to the reading; the answer is saved', (
@@ -309,8 +314,9 @@ void main() {
       expect(titles.length, greaterThan(1));
     });
 
-    test('streak nudge: only for a 3-day streak not yet read today', () async {
+    test('streak nudge: only when tonight would really break the streak', () async {
       final fake = FakeReminders();
+      // Mon 19 Oct 2026 starts the week. Read Sat, Sun, Mon.
       var now = DateTime(2026, 10, 20, 9);
       final s = AppState(deck: deck, reminders: fake, clock: () => now);
       await s.setReminder(true);
@@ -318,13 +324,17 @@ void main() {
         s.addReading(reading('r$d', DateTime(2026, 10, d, 12)));
       }
       await s.refreshReminders();
-      expect(fake.streakNudge, DateTime(2026, 10, 20, 20));
-      expect(fake.streakCopy!.title, contains('3'));
-      s.addReading(reading('r20', DateTime(2026, 10, 20, 10)));
+      // This week's rest day would cover today: no nudge.
+      expect(fake.streakNudge, isNull);
+      // Rest Tue, read Wed. On Thursday the rest day is used up.
+      s.addReading(reading('r21', DateTime(2026, 10, 21, 12)));
+      now = DateTime(2026, 10, 22, 9);
+      await s.refreshReminders();
+      expect(fake.streakNudge, DateTime(2026, 10, 22, 20));
+      expect(fake.streakCopy!.title, contains('4'));
+      s.addReading(reading('r22', DateTime(2026, 10, 22, 10)));
       await Future<void>.delayed(Duration.zero);
       expect(fake.streakNudge, isNull);
-      // Turned off in Settings: nothing scheduled.
-      now = DateTime(2026, 10, 21, 9);
       await s.setStreakNudge(false);
       expect(fake.streakNudge, isNull);
     });

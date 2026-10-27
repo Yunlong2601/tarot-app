@@ -577,6 +577,18 @@ class _RevisitState extends State<_Revisit> {
             ),
             const SizedBox(height: 4),
             Text(saved),
+            if (!state.isPremium) ...[
+              const SizedBox(height: 8),
+              Text(
+                tr(
+                  'That was your free look back. Premium looks back on every reading, with a reminder.',
+                ),
+                style: const TextStyle(
+                  fontSize: 13,
+                  color: AppColors.textMuted,
+                ),
+              ),
+            ],
           ],
         ),
       );

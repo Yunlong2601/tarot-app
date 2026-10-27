@@ -88,9 +88,14 @@ class _ProfileCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final streak = readingStreak([
+    final now = DateTime.now();
+    final run = streakWithRest([
       for (final r in state.history) r.createdAt,
-    ], DateTime.now());
+    ], now);
+    final streak = run.days;
+    final rested = run.rested;
+    final restedRecently =
+        rested != null && now.difference(rested).inDays < 7 && streak > 0;
     final signedIn = state.account != null;
     Widget stat(String value, String label) => Expanded(
       child: Column(
@@ -159,6 +164,21 @@ class _ProfileCard extends StatelessWidget {
                 if (creditsEnabled) stat('${state.credits}', 'credits'),
               ],
             ),
+            if (restedRecently) ...[
+              const SizedBox(height: 8),
+              Text(
+                tr(
+                  'Your practice rested on {0}. One rest day a week keeps your streak.',
+                  [weekdayName(rested.weekday)],
+                ),
+                key: const ValueKey('streak-rested'),
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 12,
+                  color: AppColors.goldLight,
+                ),
+              ),
+            ],
             const SizedBox(height: 10),
             Text(
               tr('Your readings and notes stay on this phone.'),
@@ -280,3 +300,14 @@ class _Tile extends StatelessWidget {
     ),
   );
 }
+
+/// The weekday's name in the app language (1 = Monday).
+String weekdayName(int weekday) => switch (weekday) {
+  1 => tr('Monday'),
+  2 => tr('Tuesday'),
+  3 => tr('Wednesday'),
+  4 => tr('Thursday'),
+  5 => tr('Friday'),
+  6 => tr('Saturday'),
+  _ => tr('Sunday'),
+};
