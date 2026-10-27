@@ -23,6 +23,8 @@ import 'dart:math';
 
 import '../../app/motion.dart';
 import '../../app/i18n.dart';
+import '../../core/analytics.dart';
+import '../onboarding/focus_questions.dart';
 
 class _FollowUps extends StatefulWidget {
   const _FollowUps({required this.reading});
@@ -419,6 +421,128 @@ class _JournalState extends State<_Journal> {
 
 /// About a week later (Premium): "how did this turn out?" Shows the saved
 /// answer once written; hidden when dismissed or not due yet.
+/// "You also drew The Star on 12 Oct": cards from this reading that turned
+/// up in an earlier one, so the reading visibly belongs to this user.
+class _SeenBefore extends StatelessWidget {
+  const _SeenBefore({required this.reading});
+  final Reading reading;
+
+  @override
+  Widget build(BuildContext context) {
+    final state = AppScope.of(context);
+    final lines = <String>[];
+    for (final c in reading.cards) {
+      final earlier = state.history
+          .where(
+            (r) =>
+                r.id != reading.id &&
+                r.createdAt.isBefore(reading.createdAt) &&
+                r.cards.any((d) => d.card.id == c.card.id),
+          )
+          .firstOrNull;
+      if (earlier == null) continue;
+      lines.add(
+        tr('You also drew {0} on {1}', [
+          c.card.name,
+          MaterialLocalizations.of(context).formatMediumDate(earlier.createdAt),
+        ]),
+      );
+      if (lines.length == 2) break;
+    }
+    if (lines.isEmpty) return const SizedBox.shrink();
+    return Padding(
+      padding: const EdgeInsets.only(top: 12),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          for (final l in lines)
+            Padding(
+              padding: const EdgeInsets.only(top: 4),
+              child: Row(
+                children: [
+                  const Icon(Icons.history, size: 16, color: AppColors.gold),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      l,
+                      style: const TextStyle(
+                        fontSize: 13,
+                        color: AppColors.textMuted,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+/// A gentle offer under the first reading (test arm "offer" only). Closing it
+/// changes nothing else; free credits work as before.
+class _FirstOffer extends StatelessWidget {
+  const _FirstOffer({required this.onClose});
+  final VoidCallback onClose;
+
+  @override
+  Widget build(BuildContext context) {
+    final area = AppScope.of(context).focusArea;
+    final topic = focusAreaTopic(area);
+    return Container(
+      key: const ValueKey('first-offer'),
+      padding: const EdgeInsets.fromLTRB(16, 8, 4, 16),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(6),
+        border: Border.all(color: AppColors.gold.withValues(alpha: 0.6)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  topic == null
+                      ? tr('Keep exploring what is on your mind')
+                      : tr('Keep exploring your question about {0}', [topic]),
+                  style: Theme.of(context).textTheme.titleMedium
+                      ?.copyWith(color: AppColors.goldLight),
+                ),
+              ),
+              IconButton(
+                key: const ValueKey('first-offer-close'),
+                tooltip: tr('Close'),
+                icon: const Icon(Icons.close, size: 20),
+                onPressed: () {
+                  logEvent('offer_card', {'action': 'close'});
+                  onClose();
+                },
+              ),
+            ],
+          ),
+          Text(
+            tr(
+              'Premium opens every spread, follow-up questions and 90 to 150 credits a month. Your free credits stay yours either way.',
+            ),
+            style: const TextStyle(color: AppColors.textMuted),
+          ),
+          const SizedBox(height: 12),
+          OutlinedButton(
+            key: const ValueKey('first-offer-plans'),
+            onPressed: () {
+              logEvent('offer_card', {'action': 'plans'});
+              openPaywall(context, PaywallReason.firstReading);
+            },
+            child: Text(tr('See plans')),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class _Revisit extends StatefulWidget {
   const _Revisit({required this.reading});
   final Reading reading;
@@ -632,9 +756,14 @@ class ReadingScreen extends StatelessWidget {
               style: const TextStyle(color: AppColors.textMuted),
             ),
           ],
+          _SeenBefore(reading: reading),
         ],
         tail: [
           const SizedBox(height: 20),
+          if (state.showsFirstOffer(reading)) ...[
+            _FirstOffer(onClose: state.dismissFirstOffer),
+            const SizedBox(height: 12),
+          ],
           _FollowUps(reading: reading),
           const SizedBox(height: 12),
           _Journal(reading: reading),

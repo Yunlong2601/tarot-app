@@ -201,6 +201,21 @@ void main() {
       await tester.pumpAndSettle();
       await tester.tap(find.text('Get started'));
       await tester.pumpAndSettle();
+      // Two optional questions, then a line on how the first reading uses them.
+      await tester.tap(find.byKey(const ValueKey('focus-work')));
+      await tester.pump();
+      await tester.tap(find.byKey(const ValueKey('focus-next')));
+      await tester.pumpAndSettle();
+      await tester.tap(find.byKey(const ValueKey('focus-stuck')));
+      await tester.pump();
+      await tester.tap(find.byKey(const ValueKey('focus-next')));
+      await tester.pump();
+      expect(
+        find.text('Focusing your first reading on work and feeling stuck.'),
+        findsOneWidget,
+      );
+      await tester.pump(const Duration(seconds: 3));
+      await tester.pumpAndSettle();
       // The Today tab, with the 5-tab bar and the Scan button in the middle.
       expect(find.text('Draw today\'s card'), findsOneWidget);
       expect(find.text('Scan'), findsOneWidget);

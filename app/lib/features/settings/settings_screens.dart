@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../app/app_scope.dart';
 import '../../app/theme.dart';
 import '../../app/i18n.dart';
+import '../onboarding/focus_questions.dart';
+
+extension on String {
+  String ifEmpty(String other) => isEmpty ? other : this;
+}
 
 /// Reminders: the daily card reminder and its time.
 class ReminderSettingsScreen extends StatelessWidget {
@@ -134,6 +140,19 @@ class ReadingSettingsScreen extends StatelessWidget {
       appBar: AppBar(title: Text(tr('Reading settings'))),
       body: ListView(
         children: [
+          ListTile(
+            key: const ValueKey('your-focus'),
+            leading: const Icon(Icons.center_focus_weak),
+            title: Text(tr('Your focus')),
+            subtitle: Text(
+              [
+                if (state.focusArea case final a?) focusAreaLabel(a),
+                if (state.focusFeeling case final f?) focusFeelingLabel(f),
+              ].join(' · ').ifEmpty(tr('Not set')),
+            ),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => context.push('/settings/focus'),
+          ),
           SwitchListTile(
             secondary: const Icon(Icons.visibility_outlined),
             title: Text(tr('Look first')),

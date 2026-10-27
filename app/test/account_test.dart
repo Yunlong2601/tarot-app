@@ -175,6 +175,10 @@ void main() {
     await t.pumpAndSettle();
     await t.tap(find.text('Get started'));
     await t.pumpAndSettle();
+    for (var i = 0; i < 2; i++) {
+      await t.tap(find.byKey(const ValueKey('focus-skip')));
+      await t.pumpAndSettle();
+    }
     expect(find.text('Continue with Google'), findsOneWidget);
     await t.tap(find.text('Continue with Google'));
     await t.pumpAndSettle();
@@ -193,6 +197,10 @@ void main() {
     await t.pumpAndSettle();
     await t.tap(find.text('Get started'));
     await t.pumpAndSettle();
+    for (var i = 0; i < 2; i++) {
+      await t.tap(find.byKey(const ValueKey('focus-skip')));
+      await t.pumpAndSettle();
+    }
     expect(find.text('Draw today\'s card'), findsOneWidget);
   });
 }

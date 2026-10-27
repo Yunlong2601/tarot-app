@@ -7,7 +7,14 @@ import '../../app/theme.dart';
 import '../../core/analytics.dart';
 
 /// Why the paywall opened, so its headline can match what the user was doing.
-enum PaywallReason { general, outOfCredits, lockedSpread, followUp, recap }
+enum PaywallReason {
+  general,
+  outOfCredits,
+  lockedSpread,
+  followUp,
+  recap,
+  firstReading,
+}
 
 /// Opens the paywall for [reason].
 void openPaywall(

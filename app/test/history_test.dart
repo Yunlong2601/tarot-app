@@ -357,6 +357,43 @@ void main() {
       expect(fake.introReminder, DateTime(2099, 11, 15, 10));
     });
 
+    test('the day after the first reading, the reminder follows it up', () async {
+      final fake = FakeReminders();
+      final s = AppState(deck: deck, reminders: fake)
+        ..setFocus('work', 'stuck');
+      await s.setReminder(true);
+      s.addReading(reading('a', DateTime(2026, 10, 20, 12)));
+      await Future<void>.delayed(Duration.zero);
+      final next = fake.copy!(DateTime(2026, 10, 21));
+      expect(next.title, "Yesterday's reading about work");
+      // Other days still name the planned card.
+      final later = fake.copy!(DateTime(2026, 10, 22));
+      expect(later.title, isNot(contains('Yesterday')));
+    });
+
+    test('focus answers go with readings; skipping sends nothing', () {
+      final s = AppState(deck: deck);
+      expect(s.focusPayload, isNull);
+      s.setFocus('love', null);
+      expect(s.focusPayload, {'area': 'love'});
+    });
+
+    test('first-reading offer: offer arm only, first reading, until closed', () {
+      final s = AppState(deck: deck)..testArm = 'offer';
+      final r = reading('a', DateTime(2026, 10, 20));
+      s.addReading(r);
+      expect(s.showsFirstOffer(r), isTrue);
+      s.dismissFirstOffer();
+      expect(s.showsFirstOffer(r), isFalse);
+      final holdout = AppState(deck: deck)..testArm = 'holdout';
+      holdout.addReading(r);
+      expect(holdout.showsFirstOffer(r), isFalse);
+      final second = AppState(deck: deck)..testArm = 'offer';
+      second.addReading(reading('x', DateTime(2026, 10, 19)));
+      second.addReading(r);
+      expect(second.showsFirstOffer(r), isFalse);
+    });
+
     test('offers stay off until the user turns them on', () async {
       final s = AppState(deck: deck, reminders: FakeReminders(allow: false));
       expect(s.offersOptIn, isFalse);

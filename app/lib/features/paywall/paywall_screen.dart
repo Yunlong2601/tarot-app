@@ -9,6 +9,7 @@ import '../../app/flags.dart';
 import '../../app/brand.dart';
 import '../../app/theme.dart';
 import '../../core/analytics.dart';
+import '../onboarding/focus_questions.dart';
 import '../../core/subscription_service.dart';
 
 import 'package:url_launcher/url_launcher.dart';
@@ -190,7 +191,8 @@ class _PaywallScreenState extends State<PaywallScreen> {
           SizedBox(height: 4),
           Center(child: BrandWordmark(size: 13)),
           SizedBox(height: 12),
-          if (_reasonLine(widget.reason) case final line?)
+          if (_reasonLine(widget.reason, AppScope.of(context).focusArea)
+              case final line?)
             Text(
               line,
               style: TextStyle(color: AppColors.gold, fontSize: 15),
@@ -610,7 +612,11 @@ final previewPlans = [
   ),
 ];
 
-String? _reasonLine(PaywallReason r) => switch (r) {
+String? _reasonLine(PaywallReason r, String? area) => switch (r) {
+  PaywallReason.firstReading => switch (focusAreaTopic(area)) {
+    final topic? => tr('Keep exploring your question about {0}', [topic]),
+    null => tr('Keep exploring what is on your mind'),
+  },
   PaywallReason.general => null,
   PaywallReason.outOfCredits => tr('Keep reading: more credits, your way'),
   PaywallReason.lockedSpread => tr('This spread is part of Premium'),

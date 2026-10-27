@@ -14,6 +14,24 @@ export interface ReadingRequest {
   impression?: string | null;
   /** App language code (see language.ts); defaults to English. */
   lang?: string;
+  /** What the user said is on their mind at onboarding (tap answers only). */
+  focus?: Focus | null;
+}
+
+export const FOCUS_AREAS = ["love", "work", "self", "family", "decision", "curious"] as const;
+export const FOCUS_FEELINGS = ["hopeful", "stuck", "uncertain", "curious"] as const;
+export interface Focus {
+  area: (typeof FOCUS_AREAS)[number] | null;
+  feeling: (typeof FOCUS_FEELINGS)[number] | null;
+}
+
+/** Only known tap answers are kept; anything else is dropped, never echoed. */
+export function parseFocus(raw: unknown): Focus | null {
+  if (typeof raw !== "object" || raw === null) return null;
+  const o = raw as Record<string, unknown>;
+  const area = (FOCUS_AREAS as readonly unknown[]).includes(o.area) ? (o.area as Focus["area"]) : null;
+  const feeling = (FOCUS_FEELINGS as readonly unknown[]).includes(o.feeling) ? (o.feeling as Focus["feeling"]) : null;
+  return area || feeling ? { area, feeling } : null;
 }
 
 export type Parsed<T> = { ok: true; value: T } | { ok: false; error: string };
@@ -66,7 +84,7 @@ export function parseReadingRequest(body: unknown): Parsed<ReadingRequest> {
   if (!q.ok) return q;
   const imp = parseText(b.impression, MAX_QUESTION_LENGTH, "impression");
   if (!imp.ok) return imp;
-  return { ok: true, value: { ...sc.value, question: q.value, impression: imp.value, lang: parseLang(b.lang) } };
+  return { ok: true, value: { ...sc.value, question: q.value, impression: imp.value, lang: parseLang(b.lang), focus: parseFocus(b.focus) } };
 }
 
 export const MAX_FOLLOWUP_LENGTH = 300;

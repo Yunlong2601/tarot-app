@@ -64,6 +64,21 @@ export function readingMaxTokens(spread: Spread): number {
   return n <= 1 ? 2200 : n <= 3 ? 3000 : n <= 5 ? 3800 : n <= 7 ? 4400 : 5000;
 }
 
+const AREA_WORDS: Record<string, string> = {
+  love: "love and relationships", work: "work", self: "themself", family: "family",
+  decision: "a decision", curious: "nothing in particular, just curious",
+};
+
+/** The user's onboarding answers, as context the overview acknowledges. */
+function focusLine(focus: ReadingRequest["focus"]): string | null {
+  if (!focus) return null;
+  const parts = [
+    focus.area ? `on their mind: ${AREA_WORDS[focus.area]}` : null,
+    focus.feeling ? `how it feels right now: ${focus.feeling}` : null,
+  ].filter(Boolean);
+  return `What the user told us when they started (tapped answers): ${parts.join("; ")}. Begin the overview by gently naming this in one short clause, then let the cards speak to it. If a question was asked, the question comes first.`;
+}
+
 export function buildReadingMessage(req: ReadingRequest): string {
   const positions = POSITIONS[req.spread];
   const lang = replyLanguage(req.lang ?? "en", req.question);
@@ -76,6 +91,7 @@ export function buildReadingMessage(req: ReadingRequest): string {
     `Cards:\n${blocks.join("\n")}`,
     req.question ? `<question>${req.question}</question>` : "No question was asked. Give a general reading.",
     req.impression ? `<impression>${req.impression}</impression>` : null,
+    focusLine(req.focus),
     `Reply language: ${lang.name}. Write every field in ${lang.name}, including each card's reading and why, the overview, the reflection question and the small step. Only "card" and "position" stay in English.`,
   ].filter(Boolean).join("\n\n");
 }

@@ -353,6 +353,20 @@ class AppState extends ChangeNotifier {
   /// Whether anonymous usage events are sent (Settings > Privacy).
   bool shareUsage = true;
 
+  /// Onboarding answers (wire values, see focus_questions.dart). Sent with
+  /// reading requests only; null when skipped.
+  String? focusArea;
+  String? focusFeeling;
+
+  /// Test arm for the first-reading offer: "offer" or "holdout" for installs
+  /// new since the test started, "control" for everyone else.
+  String testArm = 'control';
+
+  /// Day of the first reading ('y-m-d'), for the next-day follow-up reminder.
+  String? firstReadingDay;
+
+  bool firstOfferDismissed = false;
+
   // Local mirror of today's free-reading count. The backend enforces the real
   // limit; this only drives the UI.
   String _usedDay = '';
@@ -377,6 +391,11 @@ class AppState extends ChangeNotifier {
   static const _kReminderAsked = 'reminder_asked';
   static const _kReviewAsked = 'review_asked_at';
   static const _kShareUsage = 'share_usage';
+  static const _kFocusArea = 'focus_area';
+  static const _kFocusFeeling = 'focus_feeling';
+  static const _kTestArm = 'test_arm';
+  static const _kFirstReadingDay = 'first_reading_day';
+  static const _kFirstOfferDismissed = 'first_offer_dismissed';
 
   String get _today => _dayKey(_clock());
 
@@ -490,6 +509,21 @@ class AppState extends ChangeNotifier {
       reviewAskedAt = prefs.getInt(_kReviewAsked) ?? 0;
       shareUsage = prefs.getBool(_kShareUsage) ?? true;
       Analytics.instance.enabled = shareUsage;
+      focusArea = prefs.getString(_kFocusArea);
+      focusFeeling = prefs.getString(_kFocusFeeling);
+      firstReadingDay = prefs.getString(_kFirstReadingDay);
+      firstOfferDismissed = prefs.getBool(_kFirstOfferDismissed) ?? false;
+      final arm = prefs.getString(_kTestArm);
+      if (arm != null) {
+        testArm = arm;
+      } else {
+        // Only brand-new installs join the test; half see the offer.
+        testArm = onboarded
+            ? 'control'
+            : (Random().nextBool() ? 'offer' : 'holdout');
+        await prefs.setString(_kTestArm, testArm);
+      }
+      Analytics.instance.variant = testArm;
     } catch (e) {
       debugPrint('Could not load settings: $e');
     }
@@ -499,6 +533,10 @@ class AppState extends ChangeNotifier {
         ..addAll(await _repo.load(deck));
     } catch (e) {
       debugPrint('Could not load history: $e');
+    }
+    // Readers from before the follow-up existed: their first reading is old.
+    if (firstReadingDay == null && history.isNotEmpty) {
+      firstReadingDay = _dayKey(history.last.createdAt);
     }
     notifyListeners();
   }
@@ -529,6 +567,12 @@ class AppState extends ChangeNotifier {
       await prefs.setBool(_kReminderAsked, reminderAsked);
       await prefs.setInt(_kReviewAsked, reviewAskedAt);
       await prefs.setBool(_kShareUsage, shareUsage);
+      Future<void> putOrRemove(String key, String? v) =>
+          v == null ? prefs.remove(key) : prefs.setString(key, v);
+      await putOrRemove(_kFocusArea, focusArea);
+      await putOrRemove(_kFocusFeeling, focusFeeling);
+      await putOrRemove(_kFirstReadingDay, firstReadingDay);
+      await prefs.setBool(_kFirstOfferDismissed, firstOfferDismissed);
     } catch (e) {
       debugPrint('Could not save settings: $e');
     }
@@ -655,6 +699,19 @@ class AppState extends ChangeNotifier {
   /// The daily reminder's text for [day]: names the card waiting that day
   /// and what it is about, in one of five rotating wordings.
   ReminderCopy reminderCopy(DateTime day) {
+    final first = firstReadingDay;
+    final topic = _focusTopic();
+    if (first != null && topic != null) {
+      final [y, m, d] = [
+        for (final p in first.split('-')) int.tryParse(p) ?? 0,
+      ];
+      if (day == DateTime(y, m, d + 1)) {
+        return (
+          title: tr('Yesterday\'s reading about {0}', [topic]),
+          body: tr('What has shifted since? Draw a card to see.'),
+        );
+      }
+    }
     final card = plannedCard(day);
     final word = card.keywords.isEmpty ? card.name : card.keywords.first;
     final theme = I18n.code == 'en' ? word.toLowerCase() : word;
@@ -685,6 +742,16 @@ class AppState extends ChangeNotifier {
       ),
     };
   }
+
+  /// The focus area as it reads in a sentence, in the app language.
+  String? _focusTopic() => switch (focusArea) {
+    'love' => tr('love'),
+    'work' => tr('work'),
+    'self' => tr('yourself'),
+    'family' => tr('family'),
+    'decision' => tr('your decision'),
+    _ => null,
+  };
 
   /// Days in a row with a reading.
   int get streak =>
@@ -763,6 +830,39 @@ class AppState extends ChangeNotifier {
     Analytics.instance.enabled = on;
     if (!on) Analytics.instance.clear();
     await _savePrefs();
+    notifyListeners();
+  }
+
+  /// Saves the onboarding answers (null = skipped).
+  void setFocus(String? area, String? feeling) {
+    focusArea = area;
+    focusFeeling = feeling;
+    logEvent('focus_set', {
+      'area': area ?? 'none',
+      'feeling': feeling ?? 'none',
+    });
+    _savePrefs();
+    notifyListeners();
+  }
+
+  /// The answers as the reading request sends them, or null.
+  Map<String, String>? get focusPayload =>
+      focusArea == null && focusFeeling == null
+      ? null
+      : {'area': ?focusArea, 'feeling': ?focusFeeling};
+
+  /// The soft offer under the first reading: only in the test's "offer" arm,
+  /// for free users, on their very first reading, until dismissed.
+  bool showsFirstOffer(Reading r) =>
+      testArm == 'offer' &&
+      !isPremium &&
+      !firstOfferDismissed &&
+      history.length == 1 &&
+      history.first.id == r.id;
+
+  void dismissFirstOffer() {
+    firstOfferDismissed = true;
+    _savePrefs();
     notifyListeners();
   }
 
@@ -878,6 +978,14 @@ class AppState extends ChangeNotifier {
     _guard(() => _repo.add(reading));
     _scheduleLookBack(reading);
     _refreshStreakNudge();
+    if (firstReadingDay == null) {
+      firstReadingDay = _dayKey(reading.createdAt);
+      _savePrefs();
+      // Tomorrow's reminder now follows up on this reading's topic.
+      if (reminderEnabled) {
+        _guard(() => _scheduleDaily(skipToday: dailyCardIfDrawn != null));
+      }
+    }
     notifyListeners();
   }
 
@@ -936,6 +1044,9 @@ class AppState extends ChangeNotifier {
 
   Future<void> deleteAllData() async {
     history.clear();
+    focusArea = null;
+    focusFeeling = null;
+    await _savePrefs();
     await removeOwnKey();
     notifyListeners();
     await _guard(_repo.clear);

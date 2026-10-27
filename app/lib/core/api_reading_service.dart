@@ -30,6 +30,7 @@ class ApiReadingService
     this.baseUrl, {
     HttpClient Function()? clientFactory,
     this.userKey,
+    this.focus,
     DeviceProof? deviceProof,
   }) : _newClient = clientFactory ?? HttpClient.new,
        _proof = deviceProof ?? AppAttest();
@@ -39,6 +40,9 @@ class ApiReadingService
   /// Premium own-key mode: the key goes in headers to our server, which passes
   /// it to the provider for this one call and never stores or logs it.
   final Future<UserKey?> Function()? userKey;
+
+  /// The user's onboarding answers (life area, feeling), sent with readings.
+  final Map<String, String>? Function()? focus;
   final HttpClient Function() _newClient;
   final DeviceProof _proof;
   String? _token;
@@ -59,6 +63,7 @@ class ApiReadingService
       if (impression != null && impression.trim().isNotEmpty)
         'impression': impression.trim(),
       'lang': I18n.code,
+      'focus': ?focus?.call(),
     };
     return _send('/v1/reading', body, 'reading');
   }

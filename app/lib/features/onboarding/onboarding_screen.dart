@@ -6,6 +6,7 @@ import '../../app/flags.dart';
 import '../../app/theme.dart';
 import '../../core/analytics.dart';
 import '../../app/i18n.dart';
+import 'focus_questions.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -17,6 +18,9 @@ class OnboardingScreen extends StatefulWidget {
 class _OnboardingScreenState extends State<OnboardingScreen> {
   final _controller = PageController();
   int _page = 0;
+
+  /// After the slides: the two optional focus questions.
+  bool _asking = false;
 
   static List<(IconData, String, String)> get _pages => [
     (
@@ -39,8 +43,31 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     super.dispose();
   }
 
+  void _finish(String? area, String? feeling) {
+    final state = AppScope.of(context);
+    final router = GoRouter.of(context);
+    state.setFocus(area, feeling);
+    logEvent('onboarding_done');
+    state.completeOnboarding();
+    // Offer sign-in once, right after install. Always skippable: the app
+    // works fully without an account.
+    if (state.accountsAvailable && state.account == null) {
+      router.push('/account');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    if (_asking) {
+      return Scaffold(
+        body: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(24),
+            child: FocusQuestions(onDone: _finish),
+          ),
+        ),
+      );
+    }
     final last = _page == _pages.length - 1;
     return Scaffold(
       body: SafeArea(
@@ -105,15 +132,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               FilledButton(
                 onPressed: () {
                   if (last) {
-                    final state = AppScope.of(context);
-                    final router = GoRouter.of(context);
-                    logEvent('onboarding_done');
-                    state.completeOnboarding();
-                    // Offer sign-in once, right after install. Always
-                    // skippable: the app works fully without an account.
-                    if (state.accountsAvailable && state.account == null) {
-                      router.push('/account');
-                    }
+                    logEvent('onboarding_step', {'page': 'focus'});
+                    setState(() => _asking = true);
                   } else {
                     _controller.nextPage(
                       duration: const Duration(milliseconds: 250),

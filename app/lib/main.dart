@@ -38,7 +38,11 @@ Future<void> main() async {
   final reminders = LocalNotificationReminderService();
   final api = apiBaseUrl.isEmpty
       ? null
-      : ApiReadingService(apiBaseUrl, userKey: () => state.activeUserKey());
+      : ApiReadingService(
+          apiBaseUrl,
+          userKey: () => state.activeUserKey(),
+          focus: () => state.focusPayload,
+        );
   state = AppState(
     deck: deck,
     userKeys: SecureUserKeyStore(),

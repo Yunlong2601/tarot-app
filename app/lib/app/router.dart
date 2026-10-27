@@ -17,6 +17,7 @@ import '../features/read/daily_card_screen.dart';
 import '../features/read/spread_picker_screen.dart';
 import '../features/read/read_home_screen.dart';
 import '../features/home/home_shell.dart';
+import '../features/onboarding/focus_questions.dart';
 import '../features/onboarding/onboarding_screen.dart';
 import '../features/paywall/paywall_screen.dart';
 import '../features/paywall/welcome_premium_screen.dart';
@@ -95,6 +96,10 @@ GoRouter buildRouter(AppState state) {
       GoRoute(
         path: '/settings/reading',
         builder: (_, _) => const ReadingSettingsScreen(),
+      ),
+      GoRoute(
+        path: '/settings/focus',
+        builder: (_, _) => const FocusSettingsScreen(),
       ),
       GoRoute(
         path: '/card/:id',
