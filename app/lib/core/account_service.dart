@@ -36,7 +36,7 @@ const googleServerClientId = String.fromEnvironment('GOOGLE_SERVER_CLIENT_ID');
 
 /// Sign in with Apple waits for Apple Developer enrollment. Not so tests
 /// can turn it on.
-bool appleSignInEnabled = bool.fromEnvironment('APPLE_SIGNIN');
+bool appleSignInEnabled = const bool.fromEnvironment('APPLE_SIGNIN');
 
 /// Sign-in buttons to show on this platform. On iOS, Google is only offered
 /// together with Sign in with Apple (App Review guideline 4.8; verify current

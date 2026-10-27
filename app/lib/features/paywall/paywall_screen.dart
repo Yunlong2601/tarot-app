@@ -275,9 +275,6 @@ class _PaywallScreenState extends State<PaywallScreen> {
                 ],
               ),
             ),
-          if (creditsEnabled && plans != null)
-            // With no store products yet the card is a preview: shown, not buyable.
-            _CreditPacksCard(packs: _packs, busy: _busy, onBuy: _buyPack),
           if (plan != null && plan.trialLabel != null) _Timeline(plan: plan),
           SizedBox(height: 8),
           FilledButton(
@@ -361,6 +358,11 @@ class _PaywallScreenState extends State<PaywallScreen> {
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 12, color: AppColors.textMuted),
           ),
+          // One-time packs after the subscription and its terms, so the
+          // timeline and price above read as one offer.
+          if (creditsEnabled && plans != null)
+            // With no store products yet the card is a preview: shown, not buyable.
+            _CreditPacksCard(packs: _packs, busy: _busy, onBuy: _buyPack),
           Wrap(
             alignment: WrapAlignment.center,
             children: [
@@ -536,10 +538,9 @@ class _CreditPacksCard extends StatelessWidget {
               ),
             )
           else
-            Wrap(
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               spacing: 8,
-              runSpacing: 8,
-              alignment: WrapAlignment.end,
               children: [
                 for (final pack in packs)
                   OutlinedButton(
