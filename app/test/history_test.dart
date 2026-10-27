@@ -104,6 +104,16 @@ class FakeReminders implements ReminderService {
 
   @override
   Future<void> cancelStreakNudge() async => streakNudge = null;
+
+  final notes = <NoteKind, (DateTime, ReminderCopy)>{};
+  @override
+  Future<void> scheduleNote(
+    NoteKind kind,
+    DateTime at,
+    ReminderCopy copy,
+  ) async => notes[kind] = (at, copy);
+  @override
+  Future<void> cancelNote(NoteKind kind) async => notes.remove(kind);
 }
 
 void main() {
@@ -314,30 +324,33 @@ void main() {
       expect(titles.length, greaterThan(1));
     });
 
-    test('streak nudge: only when tonight would really break the streak', () async {
-      final fake = FakeReminders();
-      // Mon 19 Oct 2026 starts the week. Read Sat, Sun, Mon.
-      var now = DateTime(2026, 10, 20, 9);
-      final s = AppState(deck: deck, reminders: fake, clock: () => now);
-      await s.setReminder(true);
-      for (final d in [17, 18, 19]) {
-        s.addReading(reading('r$d', DateTime(2026, 10, d, 12)));
-      }
-      await s.refreshReminders();
-      // This week's rest day would cover today: no nudge.
-      expect(fake.streakNudge, isNull);
-      // Rest Tue, read Wed. On Thursday the rest day is used up.
-      s.addReading(reading('r21', DateTime(2026, 10, 21, 12)));
-      now = DateTime(2026, 10, 22, 9);
-      await s.refreshReminders();
-      expect(fake.streakNudge, DateTime(2026, 10, 22, 20));
-      expect(fake.streakCopy!.title, contains('4'));
-      s.addReading(reading('r22', DateTime(2026, 10, 22, 10)));
-      await Future<void>.delayed(Duration.zero);
-      expect(fake.streakNudge, isNull);
-      await s.setStreakNudge(false);
-      expect(fake.streakNudge, isNull);
-    });
+    test(
+      'streak nudge: only when tonight would really break the streak',
+      () async {
+        final fake = FakeReminders();
+        // Mon 19 Oct 2026 starts the week. Read Sat, Sun, Mon.
+        var now = DateTime(2026, 10, 20, 9);
+        final s = AppState(deck: deck, reminders: fake, clock: () => now);
+        await s.setReminder(true);
+        for (final d in [17, 18, 19]) {
+          s.addReading(reading('r$d', DateTime(2026, 10, d, 12)));
+        }
+        await s.refreshReminders();
+        // This week's rest day would cover today: no nudge.
+        expect(fake.streakNudge, isNull);
+        // Rest Tue, read Wed. On Thursday the rest day is used up.
+        s.addReading(reading('r21', DateTime(2026, 10, 21, 12)));
+        now = DateTime(2026, 10, 22, 9);
+        await s.refreshReminders();
+        expect(fake.streakNudge, DateTime(2026, 10, 22, 20));
+        expect(fake.streakCopy!.title, contains('4'));
+        s.addReading(reading('r22', DateTime(2026, 10, 22, 10)));
+        await Future<void>.delayed(Duration.zero);
+        expect(fake.streakNudge, isNull);
+        await s.setStreakNudge(false);
+        expect(fake.streakNudge, isNull);
+      },
+    );
 
     test('after a reading: reminder offer first, rating after the 3rd', () {
       final s = AppState(deck: deck);
@@ -367,19 +380,22 @@ void main() {
       expect(fake.introReminder, DateTime(2099, 11, 15, 10));
     });
 
-    test('the day after the first reading, the reminder follows it up', () async {
-      final fake = FakeReminders();
-      final s = AppState(deck: deck, reminders: fake)
-        ..setFocus('work', 'stuck');
-      await s.setReminder(true);
-      s.addReading(reading('a', DateTime(2026, 10, 20, 12)));
-      await Future<void>.delayed(Duration.zero);
-      final next = fake.copy!(DateTime(2026, 10, 21));
-      expect(next.title, "Yesterday's reading about work");
-      // Other days still name the planned card.
-      final later = fake.copy!(DateTime(2026, 10, 22));
-      expect(later.title, isNot(contains('Yesterday')));
-    });
+    test(
+      'the day after the first reading, the reminder follows it up',
+      () async {
+        final fake = FakeReminders();
+        final s = AppState(deck: deck, reminders: fake)
+          ..setFocus('work', 'stuck');
+        await s.setReminder(true);
+        s.addReading(reading('a', DateTime(2026, 10, 20, 12)));
+        await Future<void>.delayed(Duration.zero);
+        final next = fake.copy!(DateTime(2026, 10, 21));
+        expect(next.title, "Yesterday's reading about work");
+        // Other days still name the planned card.
+        final later = fake.copy!(DateTime(2026, 10, 22));
+        expect(later.title, isNot(contains('Yesterday')));
+      },
+    );
 
     test('focus answers go with readings; skipping sends nothing', () {
       final s = AppState(deck: deck);
@@ -388,21 +404,52 @@ void main() {
       expect(s.focusPayload, {'area': 'love'});
     });
 
-    test('first-reading offer: offer arm only, first reading, until closed', () {
-      final s = AppState(deck: deck)..testArm = 'offer';
-      final r = reading('a', DateTime(2026, 10, 20));
-      s.addReading(r);
-      expect(s.showsFirstOffer(r), isTrue);
-      s.dismissFirstOffer();
-      expect(s.showsFirstOffer(r), isFalse);
-      final holdout = AppState(deck: deck)..testArm = 'holdout';
-      holdout.addReading(r);
-      expect(holdout.showsFirstOffer(r), isFalse);
-      final second = AppState(deck: deck)..testArm = 'offer';
-      second.addReading(reading('x', DateTime(2026, 10, 19)));
-      second.addReading(r);
-      expect(second.showsFirstOffer(r), isFalse);
-    });
+    test(
+      'first-reading offer: offer arm only, first reading, until closed',
+      () {
+        final s = AppState(deck: deck)..testArm = 'offer';
+        final r = reading('a', DateTime(2026, 10, 20));
+        s.addReading(r);
+        expect(s.showsFirstOffer(r), isTrue);
+        s.dismissFirstOffer();
+        expect(s.showsFirstOffer(r), isFalse);
+        final holdout = AppState(deck: deck)..testArm = 'holdout';
+        holdout.addReading(r);
+        expect(holdout.showsFirstOffer(r), isFalse);
+        final second = AppState(deck: deck)..testArm = 'offer';
+        second.addReading(reading('x', DateTime(2026, 10, 19)));
+        second.addReading(r);
+        expect(second.showsFirstOffer(r), isFalse);
+      },
+    );
+
+    test(
+      'moon nights and the Sunday recap are scheduled, and can be off',
+      () async {
+        final fake = FakeReminders();
+        final now = DateTime(2026, 10, 21, 9); // a Wednesday
+        final s = AppState(deck: deck, reminders: fake, clock: () => now);
+        await s.setReminder(true);
+        expect(
+          fake.notes.keys,
+          containsAll([NoteKind.newMoon, NoteKind.fullMoon]),
+        );
+        expect(fake.notes[NoteKind.newMoon]!.$1.hour, 19);
+        expect(
+          fake.notes.containsKey(NoteKind.week),
+          isFalse,
+        ); // under 2 readings
+        s.addReading(reading('a', DateTime(2026, 10, 20, 9)));
+        s.addReading(reading('b', DateTime(2026, 10, 21, 8)));
+        await Future<void>.delayed(Duration.zero);
+        final week = fake.notes[NoteKind.week]!;
+        expect(week.$1, DateTime(2026, 10, 25, 18));
+        expect(week.$2.body, contains('2'));
+        await s.setMoonNotes(false);
+        await s.setWeeklyNotes(false);
+        expect(fake.notes, isEmpty);
+      },
+    );
 
     test('offers stay off until the user turns them on', () async {
       final s = AppState(deck: deck, reminders: FakeReminders(allow: false));

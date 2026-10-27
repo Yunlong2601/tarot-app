@@ -121,4 +121,22 @@ void main() {
     final d = untilNextFreeCredit(DateTime.utc(2026, 10, 27, 22, 30));
     expect(d, const Duration(hours: 1, minutes: 30));
   });
+
+  test('week in cards: Sunday shows this week, Monday last week', () {
+    // Week of Mon 19 Oct 2026.
+    final h = [
+      reading(DateTime(2026, 10, 20), [fool, other]),
+      reading(DateTime(2026, 10, 23), [fool]),
+      reading(DateTime(2026, 10, 12), [other]),
+    ];
+    final sunday = weekToShow(h, DateTime(2026, 10, 25, 9))!;
+    expect(sunday.thisWeek, isTrue);
+    expect(sunday.recap.readings, 2);
+    expect(sunday.recap.topCards.single.$1.id, fool.id);
+    final monday = weekToShow(h, DateTime(2026, 10, 26, 9))!;
+    expect(monday.thisWeek, isFalse);
+    expect(monday.recap.readings, 2);
+    expect(weekToShow(h, DateTime(2026, 10, 22)), isNull); // Thursday
+    expect(weekToShow(h.take(1).toList(), DateTime(2026, 10, 25)), isNull);
+  });
 }

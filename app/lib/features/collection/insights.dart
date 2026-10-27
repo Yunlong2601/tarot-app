@@ -18,10 +18,39 @@ class MonthRecap {
   int get cardCount => groups.values.fold(0, (a, b) => a + b);
 }
 
-MonthRecap recapFor(List<Reading> history, DateTime now) {
+MonthRecap recapFor(List<Reading> history, DateTime now) => recapBetween(
+  history,
+  DateTime(now.year, now.month),
+  DateTime(now.year, now.month + 1),
+);
+
+/// Monday 00:00 of [d]'s week.
+DateTime weekStart(DateTime d) =>
+    DateTime(d.year, d.month, d.day - (d.weekday - 1));
+
+/// "Your week in cards": shown on Sunday for this week, and on Monday and
+/// Tuesday for the week just ended. Null on other days or with fewer than
+/// 2 readings in that week.
+({MonthRecap recap, bool thisWeek})? weekToShow(
+  List<Reading> history,
+  DateTime now,
+) {
+  if (now.weekday != DateTime.sunday && now.weekday > DateTime.tuesday) {
+    return null;
+  }
+  final thisWeek = now.weekday == DateTime.sunday;
+  final from = thisWeek
+      ? weekStart(now)
+      : weekStart(now).subtract(const Duration(days: 7));
+  final recap = recapBetween(history, from, from.add(const Duration(days: 7)));
+  return recap.readings < 2 ? null : (recap: recap, thisWeek: thisWeek);
+}
+
+/// The recap of readings made from [from] (inclusive) to [to] (exclusive).
+MonthRecap recapBetween(List<Reading> history, DateTime from, DateTime to) {
   final month = [
     for (final r in history)
-      if (r.createdAt.year == now.year && r.createdAt.month == now.month) r,
+      if (!r.createdAt.isBefore(from) && r.createdAt.isBefore(to)) r,
   ];
   final counts = <String, (TarotCard, int)>{};
   final groups = <String, int>{

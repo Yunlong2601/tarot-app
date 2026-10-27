@@ -12,6 +12,7 @@ import '../core/creator_service.dart';
 import '../core/referral_service.dart';
 import 'flags.dart';
 import '../core/install_id.dart';
+import '../core/moon.dart';
 import '../core/reading_service.dart';
 import '../core/reminder_service.dart';
 import '../core/subscription_service.dart';
@@ -387,6 +388,12 @@ class AppState extends ChangeNotifier {
 
   bool firstOfferDismissed = false;
 
+  /// Quiet notes on New and Full Moon nights (needs the daily reminder).
+  bool moonNotes = true;
+
+  /// A Sunday evening note: your week in cards (needs the daily reminder).
+  bool weeklyNotes = true;
+
   // Local mirror of today's free-reading count. The backend enforces the real
   // limit; this only drives the UI.
   String _usedDay = '';
@@ -416,6 +423,8 @@ class AppState extends ChangeNotifier {
   static const _kTestArm = 'test_arm';
   static const _kFirstReadingDay = 'first_reading_day';
   static const _kFirstOfferDismissed = 'first_offer_dismissed';
+  static const _kMoonNotes = 'moon_notes';
+  static const _kWeeklyNotes = 'weekly_notes';
 
   String get _today => _dayKey(_clock());
 
@@ -533,6 +542,8 @@ class AppState extends ChangeNotifier {
       focusFeeling = prefs.getString(_kFocusFeeling);
       firstReadingDay = prefs.getString(_kFirstReadingDay);
       firstOfferDismissed = prefs.getBool(_kFirstOfferDismissed) ?? false;
+      moonNotes = prefs.getBool(_kMoonNotes) ?? true;
+      weeklyNotes = prefs.getBool(_kWeeklyNotes) ?? true;
       final arm = prefs.getString(_kTestArm);
       if (arm != null) {
         testArm = arm;
@@ -593,6 +604,8 @@ class AppState extends ChangeNotifier {
       await putOrRemove(_kFocusFeeling, focusFeeling);
       await putOrRemove(_kFirstReadingDay, firstReadingDay);
       await prefs.setBool(_kFirstOfferDismissed, firstOfferDismissed);
+      await prefs.setBool(_kMoonNotes, moonNotes);
+      await prefs.setBool(_kWeeklyNotes, weeklyNotes);
     } catch (e) {
       debugPrint('Could not save settings: $e');
     }
@@ -686,6 +699,75 @@ class AppState extends ChangeNotifier {
     if (!reminderEnabled) return;
     await _guard(() => _scheduleDaily(skipToday: dailyCardIfDrawn != null));
     await _refreshStreakNudge();
+    await _refreshNotes();
+  }
+
+  /// Schedules (or cancels) the moon-night and Sunday notes.
+  Future<void> _refreshNotes() => _guard(() async {
+    final now = _clock();
+    if (!reminderEnabled || !weeklyNotes) {
+      await reminders.cancelNote(NoteKind.week);
+    } else {
+      final monday = DateTime(now.year, now.month, now.day - (now.weekday - 1));
+      final sunday = DateTime(monday.year, monday.month, monday.day + 6, 18);
+      final n = history
+          .where(
+            (r) =>
+                !r.createdAt.isBefore(monday) &&
+                r.createdAt.isBefore(sunday.add(const Duration(hours: 6))),
+          )
+          .length;
+      if (n < 2) {
+        await reminders.cancelNote(NoteKind.week);
+      } else {
+        await reminders.scheduleNote(NoteKind.week, sunday, (
+          title: tr('Your week in cards'),
+          body: tr('{0} readings this week. See which cards kept coming up.', [
+            n,
+          ]),
+        ));
+      }
+    }
+    if (!reminderEnabled || !moonNotes) {
+      await reminders.cancelNote(NoteKind.newMoon);
+      await reminders.cancelNote(NoteKind.fullMoon);
+      return;
+    }
+    for (final p in moonPhasesAfter(DateTime(now.year, now.month, now.day))) {
+      final day = p.at.toLocal();
+      final at = DateTime(day.year, day.month, day.day, 19);
+      await reminders.scheduleNote(
+        p.full ? NoteKind.fullMoon : NoteKind.newMoon,
+        at,
+        p.full
+            ? (
+                title: tr('Full Moon tonight'),
+                body: tr(
+                  'A three-card reflection: what has grown, what to let go, what to celebrate.',
+                ),
+              )
+            : (
+                title: tr('New Moon tonight'),
+                body: tr(
+                  'A three-card intention spread: what to release, what to plant, a first step.',
+                ),
+              ),
+      );
+    }
+  });
+
+  Future<void> setMoonNotes(bool on) async {
+    moonNotes = on;
+    await _savePrefs();
+    notifyListeners();
+    await _refreshNotes();
+  }
+
+  Future<void> setWeeklyNotes(bool on) async {
+    weeklyNotes = on;
+    await _savePrefs();
+    notifyListeners();
+    await _refreshNotes();
   }
 
   Future<bool> _scheduleDaily({required bool skipToday}) async {
@@ -1005,6 +1087,7 @@ class AppState extends ChangeNotifier {
     _guard(() => _repo.add(reading));
     _scheduleLookBack(reading);
     _refreshStreakNudge();
+    _refreshNotes();
     if (firstReadingDay == null) {
       firstReadingDay = _dayKey(reading.createdAt);
       _savePrefs();
@@ -1100,6 +1183,7 @@ class AppState extends ChangeNotifier {
     await _savePrefs();
     notifyListeners();
     await _refreshStreakNudge();
+    await _refreshNotes();
     if (reminderEnabled) {
       logEvent('reminder_set', {'hour': reminderTime.hour});
     }

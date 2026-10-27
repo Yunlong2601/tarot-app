@@ -35,6 +35,8 @@ class SpreadLayoutView extends StatelessWidget {
     SpreadType.threeDecision ||
     SpreadType.threeHhh ||
     SpreadType.growthShadowLight ||
+    SpreadType.newMoon ||
+    SpreadType.fullMoon ||
     SpreadType.loveConnection ||
     SpreadType.loveBring ||
     SpreadType.careerPath => 2.1,

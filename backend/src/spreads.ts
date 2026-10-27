@@ -94,6 +94,16 @@ export const SPREADS = {
     purpose: "A quick yes-or-no question. Start with a gentle leaning in plain words (leans yes, leans no, or not clear yet) taken from the card, then say why and what would help. It is a leaning to reflect on, never a certain answer, and the choice stays the user's. For health, legal, money or safety questions give no leaning, only reflection.",
     positions: ["The leaning"],
   },
+  new_moon: {
+    name: "New Moon Intentions", category: "growth",
+    purpose: "A New Moon intention ritual: what the user can release, what they want to plant, and one small first step. Reflective and practical; the moon is a moment for reflection, not a cause of events.",
+    positions: ["What to release", "What to plant", "A first step"],
+  },
+  full_moon: {
+    name: "Full Moon Reflection", category: "growth",
+    purpose: "A Full Moon reflection: what has grown since the last new moon, what the user can let go of, and what to celebrate. Warm and grounded; the moon is a moment for reflection, not a cause of events.",
+    positions: ["What has grown", "What to let go", "What to celebrate"],
+  },
 } as const satisfies Record<string, SpreadDef>;
 
 export type Spread = keyof typeof SPREADS;

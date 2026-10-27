@@ -33,6 +33,8 @@ enum SpreadType {
   threeHhh,
   growthShadowLight,
   yesNo,
+  newMoon,
+  fullMoon,
 }
 
 class SpreadDef {
@@ -254,6 +256,22 @@ const spreadDefs = <SpreadType, SpreadDef>{
     blurb: 'A quick question: one card shows which way it leans.',
     positions: ['The leaning'],
     layout: [Offset(0.5, 0.5)],
+  ),
+  SpreadType.newMoon: SpreadDef(
+    wire: 'new_moon',
+    name: 'New Moon Intentions',
+    category: SpreadCategory.growth,
+    blurb: 'A fresh start: what to release, what to plant, a first step.',
+    positions: ['What to release', 'What to plant', 'A first step'],
+    layout: _row3,
+  ),
+  SpreadType.fullMoon: SpreadDef(
+    wire: 'full_moon',
+    name: 'Full Moon Reflection',
+    category: SpreadCategory.growth,
+    blurb: 'What has grown, what to let go, what to celebrate.',
+    positions: ['What has grown', 'What to let go', 'What to celebrate'],
+    layout: _row3,
   ),
 };
 

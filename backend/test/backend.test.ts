@@ -256,7 +256,9 @@ describe("prompt", () => {
     if (!parsed.ok) throw new Error("parse");
     const msg = buildReadingMessage(parsed.value);
     expect(msg).toContain("on their mind: work; how it feels right now: stuck");
-    expect(buildReadingMessage(parseReadingRequest(single).value as never)).not.toContain("on their mind");
+    const plain = parseReadingRequest(single);
+    if (!plain.ok) throw new Error("parse");
+    expect(buildReadingMessage(plain.value)).not.toContain("on their mind");
   });
   it("output check rejects empty, leaked and oversized replies", () => {
     expect(checkOutput("ok").ok).toBe(false);

@@ -41,12 +41,27 @@ abstract class ReminderService {
   Future<void> scheduleStreakNudge(DateTime at, ReminderCopy copy);
   Future<void> cancelStreakNudge();
 
+  /// A one-off quiet note of [kind] (moon nights, the Sunday weekly recap).
+  /// Scheduling a kind again replaces the earlier one.
+  Future<void> scheduleNote(NoteKind kind, DateTime at, ReminderCopy copy);
+  Future<void> cancelNote(NoteKind kind);
+
   /// Asks for notification permission without turning on the daily reminder.
   Future<bool> requestPermission();
 }
 
 const _introEndingId = 2;
 const _streakNudgeId = 3;
+
+/// One-off notes, each with its own notification id.
+enum NoteKind {
+  week(4),
+  newMoon(5),
+  fullMoon(6);
+
+  const NoteKind(this.id);
+  final int id;
+}
 
 /// Stable notification id for a reading's look-back (1 is the daily reminder).
 int lookBackNotificationId(String readingId) =>
@@ -74,6 +89,14 @@ class NoopReminderService implements ReminderService {
   Future<void> scheduleStreakNudge(DateTime at, ReminderCopy copy) async {}
   @override
   Future<void> cancelStreakNudge() async {}
+  @override
+  Future<void> scheduleNote(
+    NoteKind kind,
+    DateTime at,
+    ReminderCopy copy,
+  ) async {}
+  @override
+  Future<void> cancelNote(NoteKind kind) async {}
   @override
   Future<bool> requestPermission() async => false;
 }
@@ -285,5 +308,43 @@ class LocalNotificationReminderService implements ReminderService {
   Future<void> cancelStreakNudge() async {
     await _init();
     await _plugin.cancel(id: _streakNudgeId);
+  }
+
+  @override
+  Future<void> scheduleNote(
+    NoteKind kind,
+    DateTime at,
+    ReminderCopy copy,
+  ) async {
+    await _init();
+    await _plugin.cancel(id: kind.id);
+    if (!at.isAfter(DateTime.now())) return;
+    await _plugin.zonedSchedule(
+      id: kind.id,
+      title: copy.title,
+      body: copy.body,
+      scheduledDate: tz.TZDateTime.from(at, tz.local),
+      payload: kind.name,
+      notificationDetails: NotificationDetails(
+        iOS: DarwinNotificationDetails(
+          interruptionLevel: InterruptionLevel.passive,
+        ),
+        android: AndroidNotificationDetails(
+          'notes',
+          tr('Moon and weekly notes'),
+          channelDescription: tr(
+            'New and Full Moon nights, and your week in cards',
+          ),
+          importance: Importance.low,
+        ),
+      ),
+      androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
+    );
+  }
+
+  @override
+  Future<void> cancelNote(NoteKind kind) async {
+    await _init();
+    await _plugin.cancel(id: kind.id);
   }
 }

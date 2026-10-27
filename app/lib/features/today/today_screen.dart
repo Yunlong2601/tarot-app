@@ -8,6 +8,7 @@ import '../../app/i18n.dart';
 import '../../app/theme.dart';
 import '../guide/today_section.dart';
 import '../paywall/annual_upgrade_card.dart';
+import 'moon_week_cards.dart';
 
 /// The Today tab, the daily home: Card of the Day, your journey, a reading
 /// to look back on. Readings start from the Draw tab and the Scan button.
@@ -37,6 +38,8 @@ class TodayScreen extends StatelessWidget {
               ),
               const SizedBox(height: 12),
             ],
+            const MoonCard(),
+            const WeekCard(),
             const TodaySection(),
             const SizedBox(height: 16),
             Text(

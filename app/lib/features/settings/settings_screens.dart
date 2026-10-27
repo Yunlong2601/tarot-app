@@ -74,6 +74,30 @@ class ReminderSettingsScreen extends StatelessWidget {
               value: state.streakNudgeOn,
               onChanged: state.setStreakNudge,
             ),
+          if (state.reminderEnabled)
+            SwitchListTile(
+              key: const ValueKey('moon-notes'),
+              secondary: const Icon(Icons.nightlight_outlined),
+              title: Text(tr('New and Full Moon')),
+              subtitle: Text(
+                tr('A quiet note on moon nights, with a spread for each.'),
+              ),
+              value: state.moonNotes,
+              onChanged: state.setMoonNotes,
+            ),
+          if (state.reminderEnabled)
+            SwitchListTile(
+              key: const ValueKey('weekly-notes'),
+              secondary: const Icon(Icons.calendar_view_week_outlined),
+              title: Text(tr('Your week in cards')),
+              subtitle: Text(
+                tr(
+                  'A Sunday evening note when you read at least twice that week.',
+                ),
+              ),
+              value: state.weeklyNotes,
+              onChanged: state.setWeeklyNotes,
+            ),
           Padding(
             padding: EdgeInsets.all(16),
             child: Text(
