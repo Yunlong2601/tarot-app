@@ -2,7 +2,7 @@
 
 > DRAFT. Not legal advice. Have it reviewed (PDPA; GDPR/UK GDPR if you launch there; Apple and Google requirements) before publishing. Replace the bracketed items. Host the final text at a public URL; both stores require a URL. The same text is bundled in the app at `app/assets/legal/privacy.txt`.
 
-**ShenTarot** ("the app") is provided by ShenTech, Singapore. Contact: shenyunlongbusiness@gmail.com. Effective date: 16 October 2026.
+**ShenTarot** ("the app") is provided by ShenTech, Singapore. Contact: shenyunlongbusiness@gmail.com. Effective date: 27 October 2026.
 
 The app is for entertainment and self-reflection only.
 
@@ -17,6 +17,7 @@ The app is for entertainment and self-reflection only.
 - **Purchases.** Subscriptions are handled by Apple or Google and by RevenueCat, which receives your anonymous ID and purchase status so we can unlock Premium and restore purchases. We do not receive your payment details.
 - **Stored on your device only.** Your reading history, journal notes, reminder time and settings stay on your phone. You can delete them in Settings > Delete all my data, or by uninstalling the app.
 - **Reminders.** The daily reminder, the evening streak reminder and the heads-up before an introductory price ends are local notifications scheduled on your phone. We do not send push notifications from a server. Notifications about offers and news are sent only if you turn on "Offers and news" in Settings > Reminders.
+- **Refunds.** "Request a refund" in Settings opens Apple's own refund form. Apple handles the request and decides; we do not receive what you write there.
 
 ## What we do not do
 Accounts are optional. No advertising, no tracking across other apps or websites, no sale of data.
