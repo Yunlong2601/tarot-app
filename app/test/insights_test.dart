@@ -6,7 +6,10 @@ import 'package:shentarot/app/app_state.dart';
 import 'package:shentarot/app/flags.dart';
 import 'package:shentarot/data/deck.dart';
 import 'package:shentarot/data/models.dart';
+import 'package:shentarot/core/subscription_service.dart';
 import 'package:shentarot/features/collection/insights.dart';
+import 'package:shentarot/features/paywall/out_of_credits.dart';
+import 'package:shentarot/features/paywall/paywall_screen.dart';
 import 'package:shentarot/features/reading/share_card.dart';
 
 void main() {
@@ -98,5 +101,24 @@ void main() {
       state.spendLabel('Get my reading', spread: SpreadType.celticCross),
       'Get my reading · 1 credit',
     );
+  });
+
+  test('credit packs show a price per reading in the store currency', () {
+    PlanOption pack(String price, double value, String id) => PlanOption(
+      id: id,
+      title: '10 credits',
+      priceString: price,
+      periodLabel: 'one time',
+      price: value,
+      productId: id,
+    );
+    expect(perReading(pack('\$1.99', 1.99, 'shentarot_credits_10')), '\$0.20');
+    expect(perReading(pack('1,99 €', 1.99, 'shentarot_credits_10')), '0,20 €');
+    expect(perReading(pack('\$5.99', 5.99, 'shentarot_credits_40')), '\$0.15');
+  });
+
+  test('the next free credit is at midnight UTC', () {
+    final d = untilNextFreeCredit(DateTime.utc(2026, 10, 27, 22, 30));
+    expect(d, const Duration(hours: 1, minutes: 30));
   });
 }

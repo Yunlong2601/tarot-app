@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../paywall/out_of_credits.dart';
 import '../../app/app_scope.dart';
 import '../../app/app_state.dart';
 import '../../app/flags.dart';
@@ -27,7 +28,11 @@ Future<void> startReading(
 }) async {
   final state = AppScope.of(context);
   if (!state.canStart(spread)) {
-    context.push('/paywall');
+    if (creditsEnabled && !state.hasCredits) {
+      await showOutOfCredits(context);
+    } else {
+      openPaywall(context, PaywallReason.lockedSpread);
+    }
     return;
   }
   final q = (question ?? '').trim();
@@ -149,9 +154,16 @@ Future<ReadingResult?> _interpret(
     } else if (failure.kind == ReadingErrorKind.dailyLimit &&
         state.guestCouldSignIn) {
       await showSignInNudge(context);
+    } else if (failure.kind == ReadingErrorKind.dailyLimit && creditsEnabled) {
+      await showOutOfCredits(context);
     } else if (failure.kind == ReadingErrorKind.premiumRequired ||
         failure.kind == ReadingErrorKind.dailyLimit) {
-      context.push('/paywall');
+      openPaywall(
+        context,
+        failure.kind == ReadingErrorKind.premiumRequired
+            ? PaywallReason.lockedSpread
+            : PaywallReason.outOfCredits,
+      );
     } else {
       final canRetry =
           failure.kind == ReadingErrorKind.network ||
@@ -358,7 +370,7 @@ Future<void> showSignInNudge(BuildContext context) => showAppDialog<void>(
       TextButton(
         onPressed: () {
           Navigator.pop(ctx);
-          context.push('/paywall');
+          openPaywall(context, PaywallReason.outOfCredits);
         },
         child: Text(tr('Go Premium')),
       ),

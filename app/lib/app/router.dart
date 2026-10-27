@@ -26,6 +26,7 @@ import '../features/scan/card_picker_screen.dart';
 import '../features/scan/scan_screen.dart';
 import '../features/settings/legal_screen.dart';
 import '../features/collection/collection_screen.dart';
+import '../features/paywall/out_of_credits.dart';
 import '../features/you/you_screen.dart';
 import 'app_state.dart';
 import 'motion.dart';
@@ -110,7 +111,14 @@ GoRouter buildRouter(AppState state) {
       ),
       GoRoute(
         path: '/paywall',
-        pageBuilder: (_, s) => modalPage(s, const PaywallScreen()),
+        pageBuilder: (_, s) => modalPage(
+          s,
+          PaywallScreen(
+            reason: s.extra is PaywallReason
+                ? s.extra! as PaywallReason
+                : PaywallReason.general,
+          ),
+        ),
       ),
       GoRoute(
         path: '/welcome-premium',

@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../paywall/out_of_credits.dart';
 import '../../app/app_scope.dart';
 import '../../app/flags.dart';
 import '../../app/brand.dart';
@@ -131,7 +132,11 @@ class _FollowUpsState extends State<_FollowUps> {
     } on ReadingException catch (e) {
       if (!mounted) return;
       if (e.kind == ReadingErrorKind.premiumRequired) {
-        context.push('/paywall');
+        if (creditsEnabled) {
+          showOutOfCredits(context);
+        } else {
+          openPaywall(context, PaywallReason.followUp);
+        }
       } else if (e.kind == ReadingErrorKind.network ||
           e.kind == ReadingErrorKind.failed) {
         showReadingProblem(
@@ -222,7 +227,9 @@ class _FollowUpsState extends State<_FollowUps> {
             text: creditsEnabled
                 ? tr('Ask a follow-up (get credits)')
                 : tr('Ask a follow-up (Premium)'),
-            onTap: () => context.push('/paywall'),
+            onTap: () => creditsEnabled
+                ? showOutOfCredits(context)
+                : openPaywall(context, PaywallReason.followUp),
           )
         else if (!_busy) ...[
           if (_thread.isEmpty)
@@ -312,7 +319,9 @@ class _FollowUpsState extends State<_FollowUps> {
             text: creditsEnabled
                 ? tr('Draw a clarifier card (get credits)')
                 : tr('Draw a clarifier card (Premium)'),
-            onTap: () => context.push('/paywall'),
+            onTap: () => creditsEnabled
+                ? showOutOfCredits(context)
+                : openPaywall(context, PaywallReason.followUp),
           ),
       ],
     );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../paywall/out_of_credits.dart';
 import '../../app/app_scope.dart';
 import '../../app/app_state.dart';
 import '../../app/theme.dart';
@@ -205,7 +206,7 @@ class _SpreadPickerScreenState extends State<SpreadPickerScreen> {
             child: FilledButton(
               onPressed: () {
                 if (!state.canStart(chosen) || locked) {
-                  context.push('/paywall');
+                  openPaywall(context, PaywallReason.lockedSpread);
                   return;
                 }
                 state.selectSpread(chosen);

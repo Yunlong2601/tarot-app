@@ -9,6 +9,11 @@ import '../../app/flags.dart';
 import '../../app/brand.dart';
 import '../../app/theme.dart';
 import '../../core/subscription_service.dart';
+
+import 'package:url_launcher/url_launcher.dart';
+
+import '../../core/credit_service.dart';
+import 'out_of_credits.dart';
 import '../../app/i18n.dart';
 
 /// Paywall. Prices, periods and the trial come from the store through
@@ -17,7 +22,10 @@ import '../../app/i18n.dart';
 /// buy button, as the store guidelines require (verify current rules in
 /// docs/step1-plan.md).
 class PaywallScreen extends StatefulWidget {
-  const PaywallScreen({super.key});
+  const PaywallScreen({super.key, this.reason = PaywallReason.general});
+
+  /// What the user was doing, so the page can say why it opened.
+  final PaywallReason reason;
 
   @override
   State<PaywallScreen> createState() => _PaywallScreenState();
@@ -141,6 +149,13 @@ class _PaywallScreenState extends State<PaywallScreen> {
     }
   }
 
+  Future<void> _manage() async {
+    final url = Uri.parse(await AppScope.of(context).subscriptions.manageUrl());
+    if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
+      _toast(tr('Open Settings > Subscriptions on your device.'));
+    }
+  }
+
   void _toast(String m) =>
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(m)));
 
@@ -165,6 +180,12 @@ class _PaywallScreenState extends State<PaywallScreen> {
           SizedBox(height: 4),
           Center(child: BrandWordmark(size: 13)),
           SizedBox(height: 12),
+          if (_reasonLine(widget.reason) case final line?)
+            Text(
+              line,
+              style: TextStyle(color: AppColors.gold, fontSize: 15),
+              textAlign: TextAlign.center,
+            ),
           Text(
             tr('Unlock Premium'),
             style: Theme.of(context).textTheme.headlineMedium,
@@ -257,6 +278,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
           if (creditsEnabled && plans != null)
             // With no store products yet the card is a preview: shown, not buyable.
             _CreditPacksCard(packs: _packs, busy: _busy, onBuy: _buyPack),
+          if (plan != null && plan.trialLabel != null) _Timeline(plan: plan),
           SizedBox(height: 8),
           FilledButton(
             onPressed: (plan == null || _busy || plan.id.startsWith('preview-'))
@@ -346,6 +368,15 @@ class _PaywallScreenState extends State<PaywallScreen> {
                 onPressed: _busy ? null : _restore,
                 child: Text(tr('Restore Purchases')),
               ),
+              TextButton(
+                onPressed: _manage,
+                child: Text(tr('Manage subscription')),
+              ),
+              if (AppScope.of(context).guestCouldSignIn)
+                TextButton(
+                  onPressed: () => context.push('/account'),
+                  child: Text(tr('Sign in for 2 free credits a day')),
+                ),
               TextButton(
                 onPressed: () => context.push('/legal/privacy'),
                 child: Text(tr('Privacy Policy')),
@@ -491,7 +522,7 @@ class _CreditPacksCard extends StatelessWidget {
           Text(
             tr(
               tr(
-                'Buy a few credits once. One credit pays for a reading or a follow-up, and credits never expire. Premium costs less per credit and also includes 90 to 150 new credits every month and the 5, 7 and 10-card spreads. Free users get 1 new credit a day, or 2 when signed in. Premium members keep their credits if they reinstall and restore purchases.',
+                'Buy a few credits once, no subscription. 1 credit = 1 reading or follow-up, and credits never expire.',
               ),
             ),
           ),
@@ -513,7 +544,22 @@ class _CreditPacksCard extends StatelessWidget {
                 for (final pack in packs)
                   OutlinedButton(
                     onPressed: busy ? null : () => onBuy(pack),
-                    child: Text('${pack.title} · ${pack.priceString}'),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(vertical: 6),
+                      child: Column(
+                        children: [
+                          Text('${pack.title} · ${pack.priceString}'),
+                          if (perReading(pack) case final each?)
+                            Text(
+                              tr('about {0} a reading', [each]),
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: AppColors.textMuted,
+                              ),
+                            ),
+                        ],
+                      ),
+                    ),
                   ),
               ],
             ),
@@ -552,3 +598,102 @@ final previewPlans = [
     price: 6.99,
   ),
 ];
+
+String? _reasonLine(PaywallReason r) => switch (r) {
+  PaywallReason.general => null,
+  PaywallReason.outOfCredits => tr('Keep reading: more credits, your way'),
+  PaywallReason.lockedSpread => tr('This spread is part of Premium'),
+  PaywallReason.followUp => tr('Keep the conversation going'),
+  PaywallReason.recap => tr('See your whole month'),
+};
+
+/// The price of one reading in a credit pack, written like the store price
+/// ("\$1.99" -> "\$0.20"). Null when the price or credit count is unknown.
+String? perReading(PlanOption pack) {
+  final price = pack.price;
+  final credits = creditsInPack(pack.productId ?? '');
+  if (price == null || credits <= 0) return null;
+  final m = RegExp(r'[0-9][0-9.,\s]*[0-9]|[0-9]').firstMatch(pack.priceString);
+  if (m == null) return null;
+  final comma = RegExp(r',[0-9]{2}$').hasMatch(m.group(0)!);
+  var each = (price / credits).toStringAsFixed(2);
+  if (comma) each = each.replaceAll('.', ',');
+  return pack.priceString.replaceRange(m.start, m.end, each);
+}
+
+/// What happens with an introductory offer, step by step: today, the reminder,
+/// and the full price after. Plain and visible before the buy button.
+class _Timeline extends StatelessWidget {
+  const _Timeline({required this.plan});
+  final PlanOption plan;
+
+  @override
+  Widget build(BuildContext context) {
+    final steps = [
+      (
+        tr('Today'),
+        plan.trialIsFree
+            ? tr('Free, with everything in Premium')
+            : tr('{0}, with everything in Premium', [
+                plan.trialPrice ?? plan.trialLabel!,
+              ]),
+      ),
+      (tr('2 days before it ends'), tr('We send you a reminder')),
+      (
+        tr('After {0}', [plan.trialDuration ?? plan.trialLabel!]),
+        tr('{0} {1}, unless you cancel', [plan.priceString, plan.periodLabel]),
+      ),
+    ];
+    return Padding(
+      padding: EdgeInsets.only(top: 12, bottom: 4),
+      child: Column(
+        children: [
+          for (final (i, (at, what)) in steps.indexed)
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Column(
+                  children: [
+                    Container(
+                      width: 10,
+                      height: 10,
+                      margin: EdgeInsets.only(top: 5),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: i == 0 ? AppColors.gold : Colors.transparent,
+                        border: Border.all(color: AppColors.gold),
+                      ),
+                    ),
+                    if (i < steps.length - 1)
+                      Container(
+                        width: 1,
+                        height: 26,
+                        color: AppColors.goldDeep,
+                      ),
+                  ],
+                ),
+                SizedBox(width: 12),
+                Expanded(
+                  child: Text.rich(
+                    TextSpan(
+                      children: [
+                        TextSpan(
+                          text: '$at  ',
+                          style: TextStyle(
+                            color: AppColors.gold,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        TextSpan(text: what),
+                      ],
+                    ),
+                    style: TextStyle(fontSize: 14),
+                  ),
+                ),
+              ],
+            ),
+        ],
+      ),
+    );
+  }
+}

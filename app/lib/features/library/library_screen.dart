@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../paywall/out_of_credits.dart';
 import '../../app/app_scope.dart';
 import '../../app/app_state.dart';
 import '../../app/theme.dart';
@@ -111,7 +112,7 @@ class _SpreadsListState extends State<_SpreadsList> {
                   child: InkWell(
                     onTap: () {
                       if (!state.canStart(t)) {
-                        context.push('/paywall');
+                        openPaywall(context, PaywallReason.lockedSpread);
                         return;
                       }
                       _startSpread(context, state, t);

@@ -435,7 +435,7 @@ export function createApp(deps: Deps = defaultDeps) {
     const freeTry = !isFreeSpread(req.spread) && !premium;
     if (!user.target && !freeTry && !isQa(c.env, c.req.header("x-qa-token"))) {
       const paid = await charge(who, c.env, premium, usage, day, now);
-      if (!paid.ok) return c.json({ error: "daily_limit", premium, limit: paid.limit, guest: !premium && paid.limit === GUEST_READINGS_PER_DAY && !who.accountId }, 429);
+      if (!paid.ok) return c.json({ error: "daily_limit", premium, limit: paid.limit, guest: !premium && !who.accountId && freeReadingsFor(c.env, null) < freeReadingsFor(c.env, "signed-in") }, 429);
       creditLot = paid.lot;
     }
 

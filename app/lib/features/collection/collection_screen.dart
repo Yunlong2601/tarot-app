@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../paywall/out_of_credits.dart';
 import '../../app/app_scope.dart';
 import '../../app/app_state.dart';
 import '../../app/brand.dart';
@@ -241,7 +242,7 @@ class _MonthCard extends StatelessWidget {
               const SizedBox(height: 4),
               TextButton.icon(
                 style: TextButton.styleFrom(padding: EdgeInsets.zero),
-                onPressed: () => context.push('/paywall'),
+                onPressed: () => openPaywall(context, PaywallReason.recap),
                 icon: const Icon(Icons.lock_outline, size: 18),
                 label: Text(tr('See your full month with Premium')),
               ),
