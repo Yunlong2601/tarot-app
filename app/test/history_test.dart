@@ -63,11 +63,17 @@ class FakeReminders implements ReminderService {
   @override
   Future<bool> requestPermission() async => allow;
 
+  ReminderCopy Function(DateTime day)? copy;
   @override
-  Future<bool> enable(TimeOfDay time, {bool skipToday = false}) async {
+  Future<bool> enable(
+    TimeOfDay time, {
+    bool skipToday = false,
+    ReminderCopy Function(DateTime day)? copy,
+  }) async {
     if (!allow) return false;
     scheduled = time;
     skippedToday = skipToday;
+    this.copy = copy;
     return true;
   }
 
@@ -85,6 +91,19 @@ class FakeReminders implements ReminderService {
   DateTime? introReminder;
   @override
   Future<void> scheduleIntroEnding(DateTime at) async => introReminder = at;
+  @override
+  Future<void> cancelIntroEnding() async => introReminder = null;
+
+  DateTime? streakNudge;
+  ReminderCopy? streakCopy;
+  @override
+  Future<void> scheduleStreakNudge(DateTime at, ReminderCopy copy) async {
+    streakNudge = at;
+    streakCopy = copy;
+  }
+
+  @override
+  Future<void> cancelStreakNudge() async => streakNudge = null;
 }
 
 void main() {
@@ -272,6 +291,79 @@ void main() {
   });
 
   group('reminder', () {
+    test('the daily push names the card that will be drawn that day', () async {
+      final fake = FakeReminders();
+      final now = DateTime(2026, 10, 20, 7);
+      final s = AppState(deck: deck, reminders: fake, clock: () => now);
+      await s.setReminder(true);
+      final today = DateTime(2026, 10, 20);
+      final copy = fake.copy!(today);
+      final planned = s.plannedCard(today);
+      expect('${copy.title} ${copy.body}', contains(planned.name));
+      expect(s.drawDailyCard().card.id, planned.id);
+      // The wording rotates from day to day.
+      final titles = {
+        for (var d = 0; d < 5; d++)
+          fake.copy!(today.add(Duration(days: d))).title,
+      };
+      expect(titles.length, greaterThan(1));
+    });
+
+    test('streak nudge: only for a 3-day streak not yet read today', () async {
+      final fake = FakeReminders();
+      var now = DateTime(2026, 10, 20, 9);
+      final s = AppState(deck: deck, reminders: fake, clock: () => now);
+      await s.setReminder(true);
+      for (final d in [17, 18, 19]) {
+        s.addReading(reading('r$d', DateTime(2026, 10, d, 12)));
+      }
+      await s.refreshReminders();
+      expect(fake.streakNudge, DateTime(2026, 10, 20, 20));
+      expect(fake.streakCopy!.title, contains('3'));
+      s.addReading(reading('r20', DateTime(2026, 10, 20, 10)));
+      await Future<void>.delayed(Duration.zero);
+      expect(fake.streakNudge, isNull);
+      // Turned off in Settings: nothing scheduled.
+      now = DateTime(2026, 10, 21, 9);
+      await s.setStreakNudge(false);
+      expect(fake.streakNudge, isNull);
+    });
+
+    test('after a reading: reminder offer first, rating after the 3rd', () {
+      final s = AppState(deck: deck);
+      expect(s.afterReadingAsk, AfterReadingAsk.none);
+      s.addReading(reading('a', DateTime(2026, 10, 1)));
+      expect(s.afterReadingAsk, AfterReadingAsk.reminder);
+      s.markReminderAsked();
+      expect(s.afterReadingAsk, AfterReadingAsk.none);
+      s.addReading(reading('b', DateTime(2026, 10, 2)));
+      s.addReading(reading('c', DateTime(2026, 10, 3)));
+      expect(s.afterReadingAsk, AfterReadingAsk.review);
+      s.markReviewAsked();
+      expect(s.afterReadingAsk, AfterReadingAsk.none);
+    });
+
+    test('billing reminder can be turned off and back on', () async {
+      final fake = FakeReminders();
+      final subs = _IntroSubs(DateTime(2099, 11, 17, 10));
+      final s = AppState(deck: deck, reminders: fake, subscriptions: subs);
+      await s.setReminder(true);
+      s.setPremium(true);
+      await Future<void>.delayed(Duration.zero);
+      expect(fake.introReminder, isNotNull);
+      await s.setBillingReminders(false);
+      expect(fake.introReminder, isNull);
+      await s.setBillingReminders(true);
+      expect(fake.introReminder, DateTime(2099, 11, 15, 10));
+    });
+
+    test('offers stay off until the user turns them on', () async {
+      final s = AppState(deck: deck, reminders: FakeReminders(allow: false));
+      expect(s.offersOptIn, isFalse);
+      expect(await s.setOffersOptIn(true), isFalse); // permission refused
+      expect(s.offersOptIn, isFalse);
+    });
+
     test('no reminder today once the Card of the Day is drawn', () async {
       final fake = FakeReminders();
       final s = AppState(deck: deck, reminders: fake);

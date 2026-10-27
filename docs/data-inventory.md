@@ -1,6 +1,6 @@
 # Data inventory (what the app and backend handle)
 
-Single source for the privacy policy, Apple privacy labels and Google Data safety form. Update this first whenever data handling changes. Last checked against the code: 2026-10-16 (phase-f branch).
+Single source for the privacy policy, Apple privacy labels and Google Data safety form. Update this first whenever data handling changes. Last checked against the code: 2026-10-27 (product events added).
 
 | Data | Collected? | Where it goes | Why | Linked to a person? | Retention |
 |---|---|---|---|---|---|
@@ -17,7 +17,7 @@ Single source for the privacy policy, Apple privacy labels and Google Data safet
 | Purchase / subscription status | Yes | Apple / Google, RevenueCat; our server asks RevenueCat | Unlock Premium, restore | Via install ID | Per store and RevenueCat policies |
 | Reading history, journal notes, look-back answers | Yes | Device only (SQLite) | Feature | n/a | Until the user deletes it or uninstalls |
 | Reminder time, onboarding flag, daily count | Yes | Device only | Feature | n/a | Until uninstall |
-| Analytics | **No** (TelemetryDeck was planned but is not implemented) | n/a | n/a | n/a | If added, update this file, the policy and the store forms |
+| Product events (funnel steps: onboarding, reading done, paywall view and reason, buy tap, out-of-credits choice, reminder prompt, review prompt, push opened, offers opt-in, refund sheet) | Yes, unless turned off in Settings > Share anonymous usage stats | App -> our Worker -> D1 `events` (allow-listed names, max 6 short props, no question or reading text). Test arm also set as a RevenueCat subscriber attribute `test_variant` | Measure which changes help (Tier 3 #21) | Pseudonymous (hashed install ID; linkable to an account through account_installs) | 180 days (daily cron); deleted with the account |
 | Ads / ad IDs / third-party trackers | No | n/a | n/a | n/a | n/a |
 | Creator program: post link, platform, screenshot of the post | Yes, only if the user sends a post | Our D1 (link, platform, result, likes the owner counted, owner key) and a private R2 bucket (the screenshot); the screenshot is looked at only by the owner | Check the post, give credits and the free month | Yes (owner key, RevenueCat app user id) | Screenshot deleted after 30 days; link and result kept until the account is deleted (account deletion also removes credits, referral records and creator posts for the account and its installs) |
 | Optional account (Google / Apple sign-in) | Yes, only if the user signs in | Our D1: random account id, provider, salted hash of the provider user id; linked to the hashed install ids; account id shared with RevenueCat as the app user id | Premium across devices, per-account limits | Yes (account id) | Until the user deletes the account (in app, or by email via the deletion page) |

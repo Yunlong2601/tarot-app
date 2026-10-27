@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:shentarot/features/you/you_screen.dart';
+import 'package:shentarot/app/app_state.dart';
 
 void main() {
   test('reading streak counts days in a row ending today or yesterday', () {

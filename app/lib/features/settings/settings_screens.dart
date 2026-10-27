@@ -55,6 +55,19 @@ class ReminderSettingsScreen extends StatelessWidget {
                 if (t != null) await state.setReminder(true, time: t);
               },
             ),
+          if (state.reminderEnabled)
+            SwitchListTile(
+              key: const ValueKey('streak-nudge'),
+              secondary: const Icon(Icons.local_fire_department_outlined),
+              title: Text(tr('Streak reminder')),
+              subtitle: Text(
+                tr(
+                  'One quiet evening note when a 3-day streak would end. Silent, no sound.',
+                ),
+              ),
+              value: state.streakNudgeOn,
+              onChanged: state.setStreakNudge,
+            ),
           Padding(
             padding: EdgeInsets.all(16),
             child: Text(
@@ -65,6 +78,44 @@ class ReminderSettingsScreen extends StatelessWidget {
               ),
               style: TextStyle(color: AppColors.textMuted),
             ),
+          ),
+          const Divider(),
+          SwitchListTile(
+            key: const ValueKey('billing-reminders'),
+            secondary: const Icon(Icons.receipt_long_outlined),
+            title: Text(tr('Before an intro price ends')),
+            subtitle: Text(
+              tr(
+                'A heads-up 2 days before a first-month price ends and the full price starts.',
+              ),
+            ),
+            value: state.billingReminders,
+            onChanged: state.setBillingReminders,
+          ),
+          SwitchListTile(
+            key: const ValueKey('offers-opt-in'),
+            secondary: const Icon(Icons.campaign_outlined),
+            title: Text(tr('Offers and news')),
+            subtitle: Text(
+              tr(
+                'Occasional notifications about discounts and new features. Off unless you turn it on, and you can turn it off here any time.',
+              ),
+            ),
+            value: state.offersOptIn,
+            onChanged: (on) async {
+              final messenger = ScaffoldMessenger.of(context);
+              if (!await state.setOffersOptIn(on)) {
+                messenger.showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      tr(
+                        'Notifications are off for this app. Turn them on in your phone Settings.',
+                      ),
+                    ),
+                  ),
+                );
+              }
+            },
           ),
         ],
       ),

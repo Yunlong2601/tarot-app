@@ -1,3 +1,4 @@
+import { D1EventStore, parseEvents, type EventStore } from "./events";
 import { Hono } from "hono";
 import { hashId, safeEqual, signToken, verifyToken } from "./auth";
 import type { Env } from "./env";
@@ -61,6 +62,8 @@ export interface Deps {
   appleFetch?: typeof fetch;
   /** Names the cards in a spread photo (Claude vision). */
   vision?: VisionFn;
+  /** Product events; defaults to D1. */
+  events?: (env: Env) => EventStore;
   /** Sends an owner alert (ALERT_WEBHOOK_URL). Optional so tests can capture it. */
   alert?: (message: string, env: Env) => Promise<void>;
 }
@@ -83,9 +86,13 @@ const defaultDeps: Deps = {
   shots: (env) => (env.SHOTS ? new R2ShotStorage(env.SHOTS) : null),
   grantMonth: async (appUserId, env) => (env.REVENUECAT_SECRET_KEY ? grantFreeMonth(appUserId, env.REVENUECAT_SECRET_KEY) : false),
   verifyIdToken: (p, t, a, kv, n) => verifyIdToken(p, t, a, kv, n),
+  events: (env) => new D1EventStore(env.DB),
 };
 
 const MAX_BODY_BYTES = 4096;
+/** Event batches accepted per install per minute. */
+export const EVENT_BATCHES_PER_MINUTE = 6;
+export const EVENT_RETENTION_DAYS = 180;
 
 /** New install ids allowed per IP per UTC day while installs are unattested.
  * Generous on purpose: shared networks are not treated as abuse. */
@@ -688,6 +695,21 @@ export function createApp(deps: Deps = defaultDeps) {
     return c.json({ deleted: true });
   });
 
+  // Anonymous funnel events (see events.ts). Small batches, rate-limited.
+  app.post("/v1/events", async (c) => {
+    const now = deps.now();
+    const installId = await installFrom(c.req.header("authorization"), c.env, now);
+    if (!installId) return c.json({ error: "unauthorized" }, 401);
+    const installHash = await hashId(installId, c.env.HASH_SALT);
+    if (!(await allowWithinMinute(c.env.KV, `events:${installHash}`, EVENT_BATCHES_PER_MINUTE, now))) {
+      return c.json({ error: "rate_limited" }, 429);
+    }
+    const batch = parseEvents(await c.req.json().catch(() => null), now);
+    if (!batch) return c.json({ error: "invalid_request" }, 400);
+    await (deps.events ?? defaultDeps.events!)(c.env).add(installHash, batch.variant, batch.events);
+    return c.json({ stored: batch.events.length });
+  });
+
   app.post("/v1/credits/me", async (c) => {
     if (c.env.CREDITS_ENABLED !== "true") return c.json({ error: "credits_off" }, 404);
     const installId = await installFrom(c.req.header("authorization"), c.env, deps.now());
@@ -1033,11 +1055,18 @@ export async function purgeScreenshots(env: Env, deps: Pick<Deps, "creator" | "s
   return stale.length;
 }
 
+/** Events are kept 180 days. */
+export async function purgeOldEvents(env: Env, nowMs: number): Promise<void> {
+  const cutoff = new Date(nowMs - EVENT_RETENTION_DAYS * 86_400_000).toISOString().slice(0, 10);
+  await env.DB.prepare("DELETE FROM events WHERE day < ?1").bind(cutoff).run();
+}
+
 const worker = createApp();
 export default {
   fetch: worker.fetch,
   async scheduled(_event: ScheduledEvent, env: Env, ctx: ExecutionContext) {
     ctx.waitUntil(grantReferralCredits(env, { referrals: (e) => new D1ReferralStore(e.DB), now: () => Date.now() }));
     ctx.waitUntil(purgeScreenshots(env, defaultDeps));
+    ctx.waitUntil(purgeOldEvents(env, Date.now()));
   },
 };

@@ -13,7 +13,9 @@ import '../../app/flags.dart';
 import '../../core/install_id.dart';
 import '../../core/user_key_store.dart';
 import '../../app/theme.dart';
+import '../../core/refund_service.dart';
 import '../../core/subscription_service.dart';
+import 'refund_sheet.dart';
 import '../../app/motion.dart';
 import '../../app/i18n.dart';
 
@@ -107,6 +109,14 @@ class SettingsScreen extends StatelessWidget {
             title: Text(tr('Restore Purchases')),
             onTap: restore,
           ),
+          if (const RefundService().isSupported)
+            ListTile(
+              key: const ValueKey('request-refund'),
+              leading: const Icon(Icons.undo),
+              title: Text(tr('Request a refund')),
+              subtitle: Text(tr('Apple reviews every request')),
+              onTap: () => showRefundSheet(context),
+            ),
           section(tr('Preferences')),
           ListTile(
             leading: const Icon(Icons.notifications_outlined),
@@ -200,6 +210,18 @@ class SettingsScreen extends StatelessWidget {
               onTap: state.signOut,
             ),
           ],
+          SwitchListTile(
+            key: const ValueKey('share-usage'),
+            secondary: const Icon(Icons.insights_outlined),
+            title: Text(tr('Share anonymous usage stats')),
+            subtitle: Text(
+              tr(
+                'Which screens are used, never your questions or readings. Sent only to ShenTarot, kept 180 days.',
+              ),
+            ),
+            value: state.shareUsage,
+            onChanged: state.setShareUsage,
+          ),
           ListTile(
             leading: const Icon(Icons.delete_outline),
             title: Text(tr('Delete all my data')),

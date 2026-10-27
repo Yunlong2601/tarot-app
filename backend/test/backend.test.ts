@@ -1,3 +1,4 @@
+import type { AppEvent, EventStore } from "../src/events";
 import { describe, expect, it } from "vitest";
 import { hashId, signToken, verifyToken } from "../src/auth";
 import { CARDS } from "../src/cards";
@@ -1406,5 +1407,61 @@ describe("daily credits by sign-in", () => {
     expect((await daily()).dailyAmount).toBe(1);
     await s.accounts.link(await hashId(UUID, "salt"), "acct-1");
     expect((await daily()).dailyAmount).toBe(2);
+  });
+});
+
+describe("events", () => {
+  class MemEvents implements EventStore {
+    rows: { hash: string; variant: string; name: string; props: Record<string, unknown>; at: number }[] = [];
+    async add(hash: string, variant: string, events: AppEvent[]) {
+      for (const e of events) this.rows.push({ hash, variant, ...e });
+    }
+  }
+  const withEvents = () => {
+    const s = setup();
+    const events = new MemEvents();
+    s.deps.events = () => events;
+    return { ...s, events };
+  };
+
+  it("needs an install token", async () => {
+    const { call } = withEvents();
+    const res = await call("/v1/events", { method: "POST", body: JSON.stringify({ events: [] }) });
+    expect(res.status).toBe(401);
+  });
+
+  it("keeps known events, drops unknown ones and odd props", async () => {
+    const { call, env, events } = withEvents();
+    const res = await call("/v1/events", {
+      method: "POST",
+      headers: await authHeaders(env),
+      body: JSON.stringify({
+        variant: "control",
+        events: [
+          { name: "paywall_view", at: NOW - 1000, props: { reason: "outOfCredits", Bad: 1, long: "x".repeat(100) } },
+          { name: "steal_secrets", at: NOW },
+          { name: "reading_done", at: NOW + 999_999, props: { spread: "three", n: 2, first: true, obj: { a: 1 } } },
+        ],
+      }),
+    });
+    expect(res.status).toBe(200);
+    expect(events.rows.map((r) => r.name)).toEqual(["paywall_view", "reading_done"]);
+    expect(events.rows[0].props).toEqual({ reason: "outOfCredits", long: "x".repeat(40) });
+    expect(events.rows[1].at).toBe(NOW); // future clock replaced by server time
+    expect(events.rows[1].props).toEqual({ spread: "three", n: 2, first: true });
+    expect(events.rows[0].hash).not.toBe(UUID); // stored hashed
+  });
+
+  it("rejects oversized batches and limits batches per minute", async () => {
+    const { call, env } = withEvents();
+    const big = { events: Array.from({ length: 21 }, () => ({ name: "reading_done" })) };
+    expect((await call("/v1/events", { method: "POST", headers: await authHeaders(env), body: JSON.stringify(big) })).status).toBe(400);
+    const small = JSON.stringify({ events: [{ name: "reading_done" }] });
+    const statuses: number[] = [];
+    for (let i = 0; i < 7; i++) {
+      statuses.push((await call("/v1/events", { method: "POST", headers: await authHeaders(env), body: small })).status);
+    }
+    // The rejected batch counted too: 6 allowed in all, so the last 2 wait.
+    expect(statuses.filter((s) => s === 429)).toHaveLength(2);
   });
 });

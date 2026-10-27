@@ -132,6 +132,7 @@ export class D1AccountStore implements AccountStore {
     await this.db.batch([
       // usage rows of every install that was signed in to this account
       this.db.prepare("DELETE FROM usage WHERE install_hash IN (SELECT install_hash FROM account_installs WHERE account_id = ?1)").bind(accountId),
+      this.db.prepare("DELETE FROM events WHERE install_hash IN (SELECT install_hash FROM account_installs WHERE account_id = ?1)").bind(accountId),
       this.db.prepare("DELETE FROM account_installs WHERE account_id = ?1").bind(accountId),
       this.db.prepare("DELETE FROM usage WHERE install_hash = ?1").bind(usageKey),
       this.db.prepare("DELETE FROM accounts WHERE id = ?1").bind(accountId),

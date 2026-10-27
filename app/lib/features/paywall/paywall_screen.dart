@@ -8,6 +8,7 @@ import '../../app/app_scope.dart';
 import '../../app/flags.dart';
 import '../../app/brand.dart';
 import '../../app/theme.dart';
+import '../../core/analytics.dart';
 import '../../core/subscription_service.dart';
 
 import 'package:url_launcher/url_launcher.dart';
@@ -44,6 +45,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
     super.didChangeDependencies();
     if (_started) return;
     _started = true;
+    logEvent('paywall_view', {'reason': widget.reason.name});
     _load();
   }
 
@@ -85,6 +87,10 @@ class _PaywallScreenState extends State<PaywallScreen> {
   }
 
   Future<void> _buyPack(PlanOption pack) async {
+    logEvent('paywall_buy_tap', {
+      'product': pack.productId ?? pack.id,
+      'reason': widget.reason.name,
+    });
     final state = AppScope.of(context);
     final messenger = ScaffoldMessenger.of(context);
     setState(() => _busy = true);
@@ -108,6 +114,10 @@ class _PaywallScreenState extends State<PaywallScreen> {
   }
 
   Future<void> _buy(PlanOption plan) async {
+    logEvent('paywall_buy_tap', {
+      'product': plan.productId ?? plan.id,
+      'reason': widget.reason.name,
+    });
     final state = AppScope.of(context);
     setState(() => _busy = true);
     try {

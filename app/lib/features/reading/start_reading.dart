@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../paywall/out_of_credits.dart';
+import 'after_reading.dart';
 import '../../app/app_scope.dart';
 import '../../app/app_state.dart';
 import '../../app/flags.dart';
@@ -86,7 +87,10 @@ Future<void> startReading(
   // spread screens again.
   final router = GoRouter.of(context);
   router.go('/today');
-  router.push('/reading/$id');
+  router.push('/reading/$id').then((_) {
+    final ctx = router.routerDelegate.navigatorKey.currentContext;
+    if (ctx != null && ctx.mounted) afterReadingClosed(ctx, state);
+  });
 }
 
 Future<ReadingResult?> _interpret(

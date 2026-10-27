@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../../app/app_scope.dart';
 import '../../app/flags.dart';
 import '../../app/theme.dart';
+import '../../core/analytics.dart';
 import '../../app/i18n.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -50,7 +51,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               Expanded(
                 child: PageView(
                   controller: _controller,
-                  onPageChanged: (i) => setState(() => _page = i),
+                  onPageChanged: (i) {
+                    setState(() => _page = i);
+                    logEvent('onboarding_step', {'page': i});
+                  },
                   children: [
                     for (final p in _pages)
                       Center(
@@ -103,6 +107,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   if (last) {
                     final state = AppScope.of(context);
                     final router = GoRouter.of(context);
+                    logEvent('onboarding_done');
                     state.completeOnboarding();
                     // Offer sign-in once, right after install. Always
                     // skippable: the app works fully without an account.

@@ -11,18 +11,6 @@ import '../collection/collection_screen.dart';
 import '../../app/i18n.dart';
 
 /// Days in a row (ending today or yesterday) with at least one reading.
-int readingStreak(List<DateTime> dates, DateTime now) {
-  final days = {for (final d in dates) DateTime(d.year, d.month, d.day)};
-  var day = DateTime(now.year, now.month, now.day);
-  if (!days.contains(day)) day = day.subtract(const Duration(days: 1));
-  var n = 0;
-  while (days.contains(day)) {
-    n++;
-    day = day.subtract(const Duration(days: 1));
-  }
-  return n;
-}
-
 /// The You tab: your profile and progress, Premium, and shortcuts. All
 /// settings live on the Settings page.
 class YouScreen extends StatelessWidget {

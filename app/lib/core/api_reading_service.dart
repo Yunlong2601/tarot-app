@@ -4,6 +4,7 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import '../data/models.dart';
+import 'analytics.dart';
 import 'app_attest.dart';
 import 'install_id.dart';
 import 'account_service.dart';
@@ -23,7 +24,8 @@ class ApiReadingService
         ReferralBackend,
         CreditBackend,
         CreatorBackend,
-        SpreadIdentifier {
+        SpreadIdentifier,
+        EventSink {
   ApiReadingService(
     this.baseUrl, {
     HttpClient Function()? clientFactory,
@@ -276,6 +278,17 @@ class ApiReadingService
         tr('Something went wrong. Please try again.'),
       ),
     };
+  }
+
+  @override
+  Future<void> sendEvents(
+    String variant,
+    List<Map<String, Object?>> events,
+  ) async {
+    await _post('/v1/events', {
+      'variant': variant,
+      'events': events,
+    }, auth: true);
   }
 
   Future<_Response> _post(

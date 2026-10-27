@@ -2,6 +2,9 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+
+import 'core/analytics.dart';
+
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:go_router/go_router.dart';
 
@@ -32,6 +35,7 @@ Future<void> main() async {
   const androidKey = String.fromEnvironment('REVENUECAT_ANDROID_KEY');
   final storeKey = Platform.isIOS ? iosKey : androidKey;
   late final AppState state;
+  final reminders = LocalNotificationReminderService();
   final api = apiBaseUrl.isEmpty
       ? null
       : ApiReadingService(apiBaseUrl, userKey: () => state.activeUserKey());
@@ -44,13 +48,15 @@ Future<void> main() async {
     creatorApi: api ?? const UnconfiguredCreatorBackend(),
     readingService: api ?? const UnconfiguredReadingService(),
     historyRepository: SqliteHistoryRepository(),
-    reminders: LocalNotificationReminderService(),
+    reminders: reminders,
     subscriptions: storeKey.isEmpty
         ? const UnconfiguredSubscriptionService()
         : RevenueCatSubscriptionService(storeKey),
   );
   await state.loadLanguage();
   await state.loadPersisted();
+  Analytics.instance.sink = api;
+  unawaited(reminders.listenForOpens());
   unawaited(state.refreshReminders());
   unawaited(state.claimDailyCredit());
   unawaited(state.startSubscriptions());

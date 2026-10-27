@@ -1,6 +1,10 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/services.dart';
+
+import 'analytics.dart';
+
 import 'package:purchases_flutter/purchases_flutter.dart';
 
 import 'credit_service.dart';
@@ -198,6 +202,11 @@ class RevenueCatSubscriptionService implements SubscriptionService {
     final config = PurchasesConfiguration(apiKey)..appUserID = appUserId;
     await Purchases.configure(config);
     _started = true;
+    // Lets RevenueCat split revenue by the app's test arm.
+    unawaited(
+      Purchases.setAttributes({'test_variant': Analytics.instance.variant})
+          .catchError((Object _) {}),
+    );
     Purchases.addCustomerInfoUpdateListener(
       (info) => onPremiumChanged(_isPremium(info)),
     );

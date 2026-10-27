@@ -1,6 +1,7 @@
 import CryptoKit
 import DeviceCheck
 import Flutter
+import StoreKit
 import UIKit
 import UserNotifications
 
@@ -19,6 +20,9 @@ import UserNotifications
     GeneratedPluginRegistrant.register(with: engineBridge.pluginRegistry)
     if let registrar = engineBridge.pluginRegistry.registrar(forPlugin: "AppAttestPlugin") {
       AppAttestPlugin.register(with: registrar)
+    }
+    if let registrar = engineBridge.pluginRegistry.registrar(forPlugin: "RefundPlugin") {
+      RefundPlugin.register(with: registrar)
     }
   }
 }
@@ -66,6 +70,64 @@ final class AppAttestPlugin: NSObject, FlutterPlugin {
       } else {
         service.generateAssertion(keyId, clientDataHash: hash) { assertion, error in
           reply(assertion?.base64EncodedString(), error)
+        }
+      }
+    default:
+      result(FlutterMethodNotImplemented)
+    }
+  }
+}
+
+/// Apple's own refund request sheet for lib/core/refund_service.dart. Apple
+/// decides every refund; the app only opens the sheet for a purchase.
+final class RefundPlugin: NSObject, FlutterPlugin {
+  static func register(with registrar: FlutterPluginRegistrar) {
+    let channel = FlutterMethodChannel(
+      name: "shentarot/refund", binaryMessenger: registrar.messenger())
+    registrar.addMethodCallDelegate(RefundPlugin(), channel: channel)
+  }
+
+  func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
+    switch call.method {
+    case "recentPurchases":
+      Task {
+        // Newest first, last 90 days: older purchases are rarely refundable.
+        let since = Date().addingTimeInterval(-90 * 24 * 3600)
+        var items: [[String: Any]] = []
+        for await entry in Transaction.all {
+          guard case .verified(let t) = entry, t.revocationDate == nil,
+            t.purchaseDate > since
+          else { continue }
+          items.append([
+            "id": String(t.id),
+            "productId": t.productID,
+            "date": Int(t.purchaseDate.timeIntervalSince1970 * 1000),
+          ])
+        }
+        items.sort { ($0["date"] as! Int) > ($1["date"] as! Int) }
+        let list = Array(items.prefix(10))
+        await MainActor.run { result(list) }
+      }
+    case "requestRefund":
+      guard let idString = (call.arguments as? [String: Any])?["id"] as? String,
+        let id = UInt64(idString)
+      else {
+        result(FlutterError(code: "bad_args", message: "id needed", details: nil))
+        return
+      }
+      Task { @MainActor in
+        guard
+          let scene = UIApplication.shared.connectedScenes
+            .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene
+        else {
+          result(FlutterError(code: "no_window", message: "No active window", details: nil))
+          return
+        }
+        do {
+          let status = try await Transaction.beginRefundRequest(for: id, in: scene)
+          result(status == .success ? "success" : "cancelled")
+        } catch {
+          result(FlutterError(code: "failed", message: error.localizedDescription, details: nil))
         }
       }
     default:

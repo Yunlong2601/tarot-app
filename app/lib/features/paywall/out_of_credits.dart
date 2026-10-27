@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../../app/app_scope.dart';
 import '../../app/i18n.dart';
 import '../../app/theme.dart';
+import '../../core/analytics.dart';
 
 /// Why the paywall opened, so its headline can match what the user was doing.
 enum PaywallReason { general, outOfCredits, lockedSpread, followUp, recap }
@@ -61,6 +62,7 @@ Future<void> showOutOfCredits(BuildContext context) {
                 title: tr('Sign in for 2 free credits a day'),
                 subtitle: tr('Free. Your readings stay on this phone.'),
                 onTap: () {
+                  logEvent('out_of_credits_choice', {'choice': 'sign_in'});
                   Navigator.pop(ctx);
                   context.push('/account');
                 },
@@ -70,6 +72,7 @@ Future<void> showOutOfCredits(BuildContext context) {
               title: tr('Buy a few credits'),
               subtitle: tr('One-time packs, no subscription.'),
               onTap: () {
+                logEvent('out_of_credits_choice', {'choice': 'packs'});
                 Navigator.pop(ctx);
                 openPaywall(context, PaywallReason.outOfCredits);
               },
@@ -81,6 +84,7 @@ Future<void> showOutOfCredits(BuildContext context) {
                 '90 to 150 credits a month and every spread. Cancel anytime.',
               ),
               onTap: () {
+                logEvent('out_of_credits_choice', {'choice': 'premium'});
                 Navigator.pop(ctx);
                 openPaywall(context, PaywallReason.outOfCredits);
               },
@@ -89,7 +93,10 @@ Future<void> showOutOfCredits(BuildContext context) {
             Align(
               alignment: AlignmentDirectional.centerEnd,
               child: TextButton(
-                onPressed: () => Navigator.pop(ctx),
+                onPressed: () {
+                  logEvent('out_of_credits_choice', {'choice': 'wait'});
+                  Navigator.pop(ctx);
+                },
                 child: Text(tr('I will wait')),
               ),
             ),
