@@ -79,8 +79,8 @@
   "whyLead": "Des lectures réfléchies qui respectent ta vie privée.",
   "feature": {
    "photo": {
-    "title": "Ta photo reste sur ton téléphone",
-    "text": "Les cartes sont reconnues sur l'appareil. La photo n'est jamais envoyée."
+    "title": "Tes scans restent sur ton téléphone",
+    "text": "Les cartes scannées une par une sont reconnues sur l'appareil et la photo n'est jamais envoyée. Une photo du tirage entier n'est envoyée que si tu le choisis, puis elle est supprimée aussitôt."
    },
    "signin": {
     "title": "Connexion en un geste pour les tirages par IA",
@@ -943,7 +943,7 @@
    },
    {
     "title": "Comment fonctionnent les lectures par IA",
-    "text": "Dans l’application, ShenTarot choisit un tirage pour votre question, puis rédige une lecture à partir des cartes tirées, de leurs positions et de leur sens, à l’endroit ou renversé. Seules les lectures par IA demandent une connexion, avec Google ou Apple. Les photos de vos cartes sont reconnues sur votre téléphone et ne sont jamais envoyées."
+    "text": "Dans l’application, ShenTarot choisit un tirage pour votre question, puis rédige une lecture à partir des cartes tirées, de leurs positions et de leur sens, à l’endroit ou renversé. Seules les lectures par IA demandent une connexion, avec Google ou Apple. Les photos de cartes scannées une par une sont reconnues sur votre téléphone et ne sont jamais envoyées. Une photo du tirage entier n'est envoyée que si vous le choisissez, puis elle est supprimée dès que les cartes sont reconnues."
    },
    {
     "title": "À quoi ça sert",

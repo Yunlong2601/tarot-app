@@ -1,39 +1,46 @@
-# AGENTS.md: ShenTarot tarot scan app
+# AGENTS.md: ShenTarot website (for Codex)
 
-Read this first, then `PROGRESS.md` (current status and next steps), then `docs/step1-plan.md` (full plan, costs, store notes). Keep `PROGRESS.md` updated at the end of every phase.
+Codex works on the **website** in `web/`. Claude works on the Flutter app (`app/`), the backend (`backend/`) and `ml/`; its rules are in `CLAUDE.md`. Read this file, then `SHARED-FACTS.md` (names, links, prices, brand, API shape both sides must agree on), then `web/README.md` (how the site is built). Recent website history is in `PROGRESS.md` and the `docs/website-*.md` files.
 
-## What it is
-Flutter app (iOS + Android). The user scans a physical Rider-Waite-Smith tarot card with the camera; an on-device model identifies it (manual picker fallback); a backend returns an AI reading. Credits are the one currency (owner decision 2026-10-17): 1 credit = one AI reading or one follow-up. Everyone gets 2 credits the first time they use the app each UTC day; Premium also gets monthly credits the first time they use it each UTC month: annual 150, 3 months 120, monthly 90. Unused credits roll over and never expire; daily credits stop arriving once 10 days' worth are held, monthly ones once 2 months' worth are held, bought/referral credits are outside the caps, and nobody can spend more than 50 credits a day. Free users can read 1 to 3-card spreads; the 5, 7 and 10-card spreads are Premium after one free trial reading (`isFreeSpread` in `backend/src/spreads.ts` and `SpreadInfo.isFree` in `app/lib/data/spreads.dart` must match). New users get 10 welcome credits once. Referral: when a friend redeems a code and finishes a first reading, both get 10 credits (the referrer for up to 20 friends a year; needs `REFERRALS_ENABLED` and `CREDITS_ENABLED`). Signing in moves the install's credits to the account. Creator program (`CREATOR_ENABLED` + `CREDITS_ENABLED`, app flag `CREATOR`, needs an R2 bucket `SHOTS` and `ADMIN_TOKEN`): anyone posts with #shentarot and sends the link and a screenshot for 10 credits (1 a day, 8 a month, each post once); 50 likes, checked by the owner through `/v1/admin/creator/*`, earns 1 free month (60-day cooldown, 6 a year); screenshots are deleted after 30 days (`docs/creator-setup.md`). Premium also has follow-ups, the clarifier card, look back and journal notes. Premium users keep credits across reinstall via restore; free users lose them on delete unless signed in. The wallet is behind `CREDITS_ENABLED` (server) and `CREDITS` (app); with it off, free gets 2 readings a day (owner decision 2026-10-17, was 1; `FREE_READINGS_PER_DAY = 2`) and Premium up to 50 a day. Entertainment and self-reflection only; no medical, legal, financial or life-or-death predictions.
+## What the site is
+The companion site for the ShenTarot: AI Lens app at https://shentarot.com: card meanings (78 cards, plus love, career, feelings and yes-or-no pages), 14 spreads, topics, zodiac and birth-card pages, a browser-local reading workspace (`/read`), Learn guides and practice, a card-of-the-day widget, `llms.txt`, and the privacy, terms and account-deletion pages the store listings link to. Eight languages (English at the root; `zh-hans`, `zh-hant`, `es`, `de`, `ja`, `fr`, `ru`). Static pages, no tracking, no cookies. The site is reference-only: no AI readings, scanning or account sync in the browser.
 
-## Decisions (do not re-litigate without the owner)
-- Store name: **ShenTarot: AI Lens** (the name on the App Store Connect record created for ShenTarot, 2026-10-17; it replaced the earlier pick "ShenTarot: AI Scan & Read"; brand from ShenTech). Earlier candidates dropped: "Veilscan" (a cybersecurity product called VeilScan exists) and "ShenScan: Tarot Card Scanner". A quick web search found no ShenTarot app or trademark, but that is not a registry check: owner still searches IPOS and the stores. Audience: people who own a physical deck and don't know how to read what they drew. Copy: `docs/store-listing.md`. The bundle id `com.shentech.shentarot` is final (App Store Connect app 6823779463, SKU `shentarot`); the `shentarot.db` file name stays.
-- Flutter; Cloudflare Workers backend (TypeScript, KV + D1); LLM Claude Haiku 5.5 (`claude-haiku-5-5`, effort low, model name in a backend env var); RevenueCat; no user accounts; SQLite on device for history; English first (strings should be easy to localise later).
-- Deck: Rider-Waite-Smith only. Card art must be public domain (1909 scans) or original. Never use 1971+ US Games art. Do not use "Rider-Waite" in the app name, icon or keywords.
-- The mobile app never contains an LLM API key. Secrets live in backend env vars (`wrangler secret put`). Never commit keys.
-- Prices (USD, to be re-set in SGD per storefront): annual $39.99 with $1.99 for the first month (no free trial), 3 months $14.99, monthly $6.99; no weekly (owner decision 2026-10-17, repriced from 99.99/34.99/14.99 the same day).
-- Owner is a student in Singapore (PDPA, tax forms, store account rules are in the plan addendum; all items are "to verify").
+## Current state (2026-10-23)
+- Astro 7 static build, served by the Cloudflare Worker `shentarot-site` (`web/wrangler.jsonc`) on the custom domain shentarot.com. Only `/s/*` (shared readings) runs `web/worker/index.js`, which forwards to the backend Worker `shentarot-api` through a service binding.
+- Latest release: the "Quiet Ritual" editorial redesign (PR #27, merged to `main`); evidence and rollback reference in `docs/quiet-ritual-redesign-2026-10-22.md`.
+- `APP_STORE_URL` and `PLAY_STORE_URL` in `web/src/config.ts` are empty, so download buttons say "Coming soon".
+- `.well-known/apple-app-site-association` and `assetlinks.json` are in `web/public/` for links that open the app.
 
-## Layout
-```
-app/        Flutter app (lib/app, lib/data, lib/features/*, assets/cards, tools/, test/)
-backend/    Cloudflare Worker (Phase D, see backend/README.md)
-ml/         Training pipeline for the card classifier (Phase C)
-docs/       step1-plan.md and later docs (privacy, terms drafts, store checklists in Phase G)
-```
-
-## Working copy
-The owner's local folder on their Mac (`/Users/syl/tarot-app`) is the primary working copy. This GitHub repo is the backup and the hand-off point between tools. The repo must stay self-contained and tool-agnostic: any AI tool or developer should be able to continue from README.md, AGENTS.md, PROGRESS.md and docs/ alone. Never put cloud-only paths or secrets in the repo.
-
-## Run and test
+## Deploy
 ```bash
-cd app && flutter pub get && flutter analyze && flutter test && flutter run
+cd web
+npm ci
+npm run check:i18n && npm test && npm run check && npm run build && npm run check:reader-build && npm run check:ritual-build
+npx wrangler login     # owner, once, on their Mac
+npm run deploy         # build + wrangler deploy + IndexNow ping
 ```
-Toolchain used so far: Flutter 3.47.7 stable. (In one cloud sandbox a hook forced the test run through an MCP tool; that is an environment quirk, not a project rule. Run `flutter pub get` first or the test run reports a missing flutter_test dependency.)
+Deploy only after the owner says so, from `main` once the PR is merged. The backend must be deployed before the site if `/s/*` changes. After a deploy check `https://shentarot.com/release.json`, `/privacy` and `/terms`. CI runs the same checks plus `npm audit --omit=dev`.
 
-## Conventions
-- Small commits, one branch per phase (`phase-x-name`), PR to `main`, never push to `main` directly. Commit trailers: `Co-Authored-By` and `Claude-Session` lines as used in existing commits.
-- Match existing style: Material 3 dark theme in `lib/app/theme.dart`, go_router in `lib/app/router.dart`, plain `ChangeNotifier` state (`lib/app/app_state.dart`) until Phase E/F replace the mocks.
-- Card text in `app/assets/cards/cards.json` is generated by `app/tools/make_cards.py`; edit the script, regenerate, and keep the 78-card tests green.
-- Every screen that shows a reading keeps the "for entertainment and self-reflection only" disclaimer.
-- Camera frames are never stored or uploaded. If a temp photo file is created it must be deleted immediately.
-- Say what was NOT verified (devices, store rules, licences) instead of assuming.
+## Remaining to-dos
+1. Privacy page: the Camera paragraph must describe the optional whole-spread photo, matching the GitHub Pages copy. Open PR #21 has the text but targets the stale `google-play-prep` branch; rebase onto `main` or redo it. Check the effective date matches the GitHub Pages copy.
+2. Store links: fill `APP_STORE_URL` and `PLAY_STORE_URL` when the owner gives the live URLs (update `SHARED-FACTS.md` too).
+3. Once shentarot.com/privacy and /terms are verified identical to the GitHub Pages copies, tell the owner so the store listings can switch to shentarot.com.
+4. Browser AI stays off until the backend owner builds browser identity, access preflight and idempotent charging (`docs/website-ai-contract-proposal-2026-10-22.md`). Do not add a workaround.
+5. Native-speaker check of the seven translations (machine-made); see `docs/website-review-pack-2026-10-22.md`.
+6. Owner marketing steps from the growth work: resubmit the sitemap in Search Console and Bing after deploys, Pinterest bulk upload, outreach texts.
+7. If the credit wallet, referrals or creator program are switched on, the privacy page needs those sections checked (wording for credits already exists).
+
+## Rules
+- **Secrets:** none in the repo or in the built site. No API keys, tokens, `.dev.vars`, Cloudflare credentials or install tokens in HTML, JavaScript or local storage. The IndexNow key file in `web/public/` is public by design. Never expose the app's testing install flow (`/v1/install`, `ALLOW_UNATTESTED_INSTALLS`) to browsers.
+- **Scope:** edit only `web/` and website docs. Do not change `app/`, `backend/` or `ml/`; if the site needs a backend change, write the request in a doc or PR description for the owner. The site reads card and spread data from `backend/src/cards.ts`, `backend/src/spreads.ts`, `app/lib/data/spreads.dart` and `app/assets/cards/art`; treat them as read-only.
+- **Facts:** names, prices, plans, links and brand come from `SHARED-FACTS.md`. Do not invent prices, store policy, features or reviews. Do not promise features that are off (credits, referrals, creator program) or not in the app.
+- **Privacy:** no analytics, cookies, trackers or third-party scripts without the owner's approval. Keep fonts and assets self-hosted. Privacy, terms and deletion pages stay in English and must match the GitHub Pages copies.
+- **Content:** keep the disclaimer (entertainment and self-reflection only, not professional advice) wherever reading text appears. Card art is the public-domain 1909 scans or original art; no other decks, no "Rider-Waite" in names or keywords.
+- **i18n:** every new string goes into all eight locales; run `npm run check:i18n`.
+- **Git:** a branch per change, PR to `main`, never push to `main` directly; small commits. Say what you did not verify (devices, browsers, live production) instead of assuming. Add a short dated note to `PROGRESS.md` for each website release.
+- Anything that needs the owner (accounts, DNS, Search Console, legal review, translations) goes under "I need to do" in the PR or reply; never guess a missing value.
+
+## Commands
+```bash
+cd web && npm ci && npm run dev    # http://localhost:4321
+```

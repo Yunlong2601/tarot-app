@@ -79,8 +79,8 @@
   "whyLead": "Durchdachte Deutungen, die deine Privatsphäre respektieren.",
   "feature": {
    "photo": {
-    "title": "Dein Foto bleibt auf deinem Handy",
-    "text": "Die Karten werden direkt auf dem Gerät erkannt. Das Foto wird nie hochgeladen."
+    "title": "Kartenscans bleiben auf deinem Handy",
+    "text": "Einzelne Karten werden direkt auf dem Gerät erkannt, das Foto wird nie hochgeladen. Ein Foto der ganzen Legung wird nur gesendet, wenn du das wählst, und gleich danach gelöscht."
    },
    "signin": {
     "title": "Anmeldung mit einem Tipp für KI-Deutungen",
@@ -941,7 +941,7 @@
    },
    {
     "title": "Wie die KI-Deutungen funktionieren",
-    "text": "In der App wählt ShenTarot ein Legesystem für deine Frage und schreibt eine Deutung aus den gezogenen Karten, ihren Positionen und ob sie aufrecht oder umgekehrt liegen. Nur KI-Deutungen erfordern eine Anmeldung, mit Google oder Apple. Fotos deiner Karten werden auf deinem Handy erkannt und nie hochgeladen."
+    "text": "In der App wählt ShenTarot ein Legesystem für deine Frage und schreibt eine Deutung aus den gezogenen Karten, ihren Positionen und ob sie aufrecht oder umgekehrt liegen. Nur KI-Deutungen erfordern eine Anmeldung, mit Google oder Apple. Einzeln gescannte Kartenfotos werden auf deinem Handy erkannt und nie hochgeladen. Ein Foto der ganzen Legung wird nur gesendet, wenn du das wählst, und gelöscht, sobald die Karten erkannt sind."
    },
    {
     "title": "Wofür es gedacht ist",

@@ -79,8 +79,8 @@
   "whyLead": "Lecturas reflexivas que respetan tu privacidad.",
   "feature": {
    "photo": {
-    "title": "Tu foto se queda en tu teléfono",
-    "text": "Las cartas se reconocen en el propio dispositivo. La foto nunca se sube."
+    "title": "Tus escaneos se quedan en tu teléfono",
+    "text": "Las cartas sueltas se reconocen en el propio dispositivo y la foto nunca se sube. Una foto de toda la tirada solo se envía si tú lo eliges, y se borra justo después."
    },
    "signin": {
     "title": "Inicio de sesión en un toque para las lecturas con IA",
@@ -978,7 +978,7 @@
    },
    {
     "title": "Cómo funcionan las lecturas con IA",
-    "text": "En la app, ShenTarot elige una tirada para tu pregunta y escribe una lectura a partir de las cartas que sacaste, sus posiciones y si salieron al derecho o invertidas. Solo las lecturas con IA requieren iniciar sesión, con Google o Apple. Las fotos de tus cartas se reconocen en tu teléfono y nunca se suben."
+    "text": "En la app, ShenTarot elige una tirada para tu pregunta y escribe una lectura a partir de las cartas que sacaste, sus posiciones y si salieron al derecho o invertidas. Solo las lecturas con IA requieren iniciar sesión, con Google o Apple. Las fotos de cartas escaneadas una a una se reconocen en tu teléfono y nunca se suben. Una foto de toda la tirada solo se envía si tú lo eliges, y se borra en cuanto se identifican las cartas."
    },
    {
     "title": "Para qué sirve",
