@@ -313,7 +313,7 @@
  },
  "reader": {
   "draw": "Barajar y sacar",
-  "questionLabel": "Tu pregunta (opcional, se queda en esta página)",
+  "questionLabel": "Tu pregunta (opcional, se guarda en este navegador)",
   "placeholderYesNo": "¿Debería aceptar el nuevo trabajo?",
   "placeholder": "¿Qué necesito saber sobre…?",
   "askNote": "Hemos elegido esta tirada para tu pregunta. Baraja cuando estés listo.",

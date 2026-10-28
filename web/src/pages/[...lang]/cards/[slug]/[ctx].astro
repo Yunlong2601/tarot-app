@@ -1,5 +1,6 @@
 ---
 import Base from "../../../../layouts/Base.astro";
+import SearchGrowthNotes from "../../../../components/SearchGrowthNotes.astro";
 import { BASE } from "../../../../config.ts";
 import { cardIds, slug, type CardId } from "../../../../lib/data.ts";
 import { CONTEXTS, CONTEXT_KEY, type Context } from "../../../../lib/contexts.ts";
@@ -72,6 +73,7 @@ const tryHref = u(ctx === "yes-or-no" ? "tools/yes-no" : ctx === "career" ? "top
     </div>
   </section>
   <p><a href={u("methodology")}>{L.growth.methodTitle}</a></p>
+  {lang === 'en' && id === 'pentacles_ace' && ctx === 'love' && <SearchGrowthNotes kind="love" />}
   <section class="section" style="padding-bottom:0">
     <div class="meaning">
       <div class="panel"><h2><span>▲</span>{ui.upright}</h2><p>{body.up}</p><a href={`${u("read")}?card=${id}`}>{L.workspace.title}</a></div>

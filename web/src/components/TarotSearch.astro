@@ -1,0 +1,18 @@
+---
+import type { I18n } from '../i18n';
+const { L } = Astro.props as {L:I18n};
+const I=L.interactions;
+---
+<dialog id="tarot-search" class="ritual-dialog search-dialog" aria-labelledby="index-title" data-index-url={L.url('search-index.json')} data-copy={JSON.stringify({...I,cards:L.t('nav.cards'),spreads:L.t('nav.spreads'),learn:L.learn.nav,reversed:L.t('card.reversed')})}>
+  <div class="dialog-heading"><div><p class="eyebrow">ShenTarot</p><h2 id="index-title">{I.title}</h2></div><button type="button" class="icon-button" data-dialog-close aria-label={I.close}>×</button></div>
+  <p class="muted">{I.lead}</p>
+  <form action={L.url('search')} role="search" data-index-form>
+    <label class="sr-only" for="index-query">{I.title}</label>
+    <div class="index-entry"><input id="index-query" type="search" name="q" placeholder={I.placeholder} autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="index-options" aria-describedby="index-help"/><button type="submit" class="icon-button" aria-label={I.allResults}>↗</button></div>
+  </form>
+  <div class="search-meta"><button type="button" data-remove-reversal class="orientation-chip" hidden>{L.t('card.reversed')} ×</button><p id="index-status" role="status" aria-live="polite"></p></div>
+  <div id="index-options" role="listbox" aria-label={I.title} class="index-options"></div>
+  <div data-index-start class="index-start">{[['cards',L.t('nav.cards')],['spreads',L.t('nav.spreads')],['learn/connected-reading',L.growth.exampleTitle]].map(([path,title],i)=><a href={L.url(path)}><span aria-hidden="true">0{i+1}</span>{title}<span aria-hidden="true">↗</span></a>)}</div>
+  <div class="dialog-footer"><small id="index-help">{I.help}</small><a data-index-all href={L.url('search')}>{I.allResults} →</a><button type="button" data-index-retry class="btn btn-ghost btn-sm" hidden>{I.retry}</button></div>
+</dialog>
+<script src="../scripts/search-bootstrap.ts"></script>

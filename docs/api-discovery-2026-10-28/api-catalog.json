@@ -1,0 +1,1 @@
+{"linkset":[{"anchor":"https://shentarot-api.shentech.workers.dev","service-desc":[{"href":"https://shentarot.com/api/openapi.json","type":"application/vnd.oai.openapi+json"}],"service-doc":[{"href":"https://shentarot.com/api/docs","type":"text/html"}],"status":[{"href":"https://shentarot-api.shentech.workers.dev/health","type":"application/json"}]}]}

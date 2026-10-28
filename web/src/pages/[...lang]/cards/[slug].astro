@@ -2,6 +2,7 @@
 import ResumeWorkspace from "../../../components/ResumeWorkspace.astro";
 import Base from "../../../layouts/Base.astro";
 import Tabs from "../../../components/Tabs.astro";
+import SearchGrowthNotes from "../../../components/SearchGrowthNotes.astro";
 import { BASE } from "../../../config.ts";
 import { CARDS, cardIds, slug, type CardId } from "../../../lib/data.ts";
 import { CONTEXTS, CONTEXT_KEY } from "../../../lib/contexts.ts";
@@ -83,7 +84,7 @@ const jsonLd = [
 ];
 ---
 <Base
-  title={t("card.title", { name })}
+  title={lang === 'en' && id === 'major_20_judgement' ? 'Judgement (20) tarot card meaning: upright & reversed · ShenTarot' : t("card.title", { name })}
   description={t("card.description", { name, keywords: tr.keywords.join(sep), essence: k?.essence ?? tr.upright })}
   path={`cards/${slug(id)}`}
   image={`og/cards/${id}.jpg`}
@@ -222,6 +223,7 @@ const jsonLd = [
     </section>
     </div>}
   </Tabs>
+  {lang === 'en' && id === 'major_20_judgement' && <SearchGrowthNotes kind="judgement" />}
   <nav class="pager" aria-label={t("card.moreCards")}>
     <a class="panel" href={u(`cards/${slug(prev)}`)}>
       <img src={`${BASE}cards/art/${prev}.jpg`} alt="" loading="lazy" width="150" height="257" />

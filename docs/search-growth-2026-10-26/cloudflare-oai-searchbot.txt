@@ -1,0 +1,190 @@
+Analyze AI traffic patterns and referral trends
+
+Documentation
+Add filter
+Clear all
+Last 7 days
+Total requests
+979
+Allowed requests
+967
+Unsuccessful requests
+12
+Requests over time
+
+Review AI crawler requests over time for your domain.
+
+2xx
+3xx
+4xx
+5xx
+All
+Group by:
+Crawler
+Category
+Operator
+Host
+Content type
+OAI-SearchBot
+967
+Oct 21, 02:00
+Oct 22, 03:00
+Oct 23, 04:00
+Oct 24, 06:00
+Oct 25, 08:00
+Oct 26, 22:00
+50
+100
+150
+200
+250
+300
+Data transfer over time
+
+Review data transferred by AI crawlers over time for your domain.
+
+Group by:
+Crawler
+Category
+Operator
+Host
+Content type
+OAI-SearchBot
+10.48 MB
+Oct 21, 01:00
+Oct 22, 02:00
+Oct 23, 04:00
+Oct 24, 06:00
+Oct 25, 08:00
+Oct 26, 22:00
+500 kB
+1 MB
+1.5 MB
+2 MB
+2.5 MB
+Content format
+
+Compare what crawlers ask for against what your site delivers.
+
+Comparison
+Request type
+Response type
+Matched
+0
+Unmatched
+0
+No content format data available
+Status code distribution
+
+View the distribution of HTTP status codes for AI crawler requests over time.
+
+2xx
+200
+967 Requests
+967
+4xx
+404
+11 Requests
+405
+1 Requests
+12
+Oct 21, 02:00
+Oct 22, 03:00
+Oct 23, 04:00
+Oct 24, 06:00
+Oct 25, 08:00
+Oct 26, 22:00
+50
+100
+150
+200
+250
+300
+Most crawled paths
+
+View the most crawled paths by AI crawlers.
+
+2xx
+3xx
+4xx
+5xx
+All
+Paths
+Patterns
+Path
+Host
+Content type
+Bytes Transferred
+Requests
+Referral Traffic
+/de/cards/pentacles-ace/career
+shentarot.com
+HTML
+51.6 kB
+10
+—
+/ja/learn/beginner-reference
+shentarot.com
+HTML
+75.52 kB
+10
+—
+/tools/elements
+shentarot.com
+HTML
+58.41 kB
+4
+—
+/_astro/cormorant-garamond-latin-500-italic.Y14P-dkT.woff2
+shentarot.com
+Fonts
+97.97 kB
+4
+—
+/_astro/share.CqFkoMWx.js
+shentarot.com
+JavaScript
+11.09 kB
+4
+—
+/_astro/_slug_.astro_astro_type_script_index_0_lang.CbNakBAy.js
+shentarot.com
+JavaScript
+3 kB
+4
+—
+/_astro/inter-latin-wght-normal.Dx4kXJAl.woff2
+shentarot.com
+Fonts
+195.3 kB
+4
+—
+/_astro/Base.Iweq1bip.css
+shentarot.com
+CSS
+55.06 kB
+4
+—
+/_astro/cormorant-garamond-latin-600-normal.Co1r35X9.woff2
+shentarot.com
+Fonts
+95.83 kB
+4
+—
+/_astro/cormorant-garamond-cyrillic-500-normal.CyAY5ZLS.woff2
+shentarot.com
+Fonts
+40.45 kB
+3
+—
+Requests: Sorted descending.
+Showing 1-10 of 902
+Support
+System Status
+Careers
+Terms of Use
+Report Security Issues
+Privacy Policy
+Cookie Preferences
+© 2026 Cloudflare, Inc.
+50

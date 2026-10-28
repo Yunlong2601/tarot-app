@@ -1,0 +1,27 @@
+---
+import Base from '../../layouts/Base.astro';
+import { i18n, langPaths, type Locale } from '../../i18n';
+import { buildSearchIndex } from '../../lib/search-index';
+export const getStaticPaths=langPaths;
+const {lang}=Astro.props as {lang:Locale}; const L=i18n(lang), I=L.interactions;
+const entries=buildSearchIndex(lang);
+const labels={cards:L.t('nav.cards'),spreads:L.t('nav.spreads'),learn:L.learn.nav};
+---
+<Base title={`${I.title} · ShenTarot`} description={I.lead} path="search" lang={lang}>
+  <header class="page-head"><p class="eyebrow">ShenTarot</p><h1>{I.title}</h1><p class="lead">{I.lead}</p></header>
+  <form action={L.url('search')} role="search" class="index-page-form"><label for="page-query">{I.title}</label><div class="index-entry"><input id="page-query" name="q" type="search" placeholder={I.placeholder} autocomplete="off"/><button class="btn btn-gold" type="submit">{I.allResults}</button></div></form>
+  <div data-search-page data-copy={JSON.stringify(I)}>
+    <p data-search-count role="status"></p>
+    <button type="button" class="orientation-chip" data-page-reversal hidden>{L.t('card.reversed')} ×</button>
+    <div data-search-empty hidden><p>{I.empty}</p><nav class="index-start" aria-label={I.title}>
+      <a href={L.url('cards')}>{labels.cards} →</a><a href={L.url('spreads')}>{labels.spreads} →</a><a href={L.url('learn')}>{labels.learn} →</a>
+    </nav></div>
+    {(['cards','spreads','learn'] as const).map(type=><section class="search-section" data-result-group={type}>
+      <h2>{labels[type]}</h2><div class="search-page-grid">{entries.filter(e=>e.type===type).map(entry=><a class="search-page-result" href={entry.href} data-result={JSON.stringify(entry)}>
+        {entry.image?<img src={entry.image} alt="" width="42" height="72" loading="lazy"/>:entry.diagram?<svg viewBox="0 0 100 100" class="result-diagram" aria-hidden="true">{entry.diagram.map(([x,y])=><rect x={x*80+2} y={y*65+2} width="12" height="20" rx="2"/>)}</svg>:<span class="result-mark" aria-hidden="true">↗</span>}
+        <span><strong>{entry.title}</strong><small>{labels[type]} · {entry.description}</small></span>
+      </a>)}</div>
+    </section>)}
+  </div>
+  <script src="../../scripts/search-page.ts"></script>
+</Base>

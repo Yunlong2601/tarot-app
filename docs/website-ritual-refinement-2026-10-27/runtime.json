@@ -1,0 +1,169 @@
+{
+  "desktopWidths": [
+    {
+      "documentWidth": 305,
+      "selectedPair": "1. Card 1 → 2. Card 2",
+      "slots": 4,
+      "width": 320
+    },
+    {
+      "documentWidth": 375,
+      "selectedPair": "1. Card 1 → 2. Card 2",
+      "slots": 4,
+      "width": 390
+    },
+    {
+      "documentWidth": 753,
+      "selectedPair": "1. Card 1 → 2. Card 2",
+      "slots": 4,
+      "width": 768
+    },
+    {
+      "documentWidth": 1425,
+      "selectedPair": "1. Card 1 → 2. Card 2",
+      "slots": 4,
+      "width": 1440
+    }
+  ],
+  "threeCardDraw": [
+    {
+      "id": "swords_five",
+      "reversed": "false"
+    },
+    {
+      "id": "wands_nine",
+      "reversed": "false"
+    },
+    {
+      "id": "major_12_hanged_man",
+      "reversed": "false"
+    }
+  ],
+  "freeDraw": [
+    {
+      "id": "cups_ten",
+      "reversed": "true"
+    },
+    {
+      "id": "pentacles_five",
+      "reversed": "false"
+    },
+    {
+      "id": "major_16_tower",
+      "reversed": "false"
+    },
+    {
+      "id": "swords_knight",
+      "reversed": "false"
+    }
+  ],
+  "freeDrawReturnMatched": true,
+  "savedSnapshotUnchanged": true,
+  "chineseSevenCardDraw": [
+    {
+      "id": "pentacles_nine",
+      "reversed": "false"
+    },
+    {
+      "id": "cups_eight",
+      "reversed": "false"
+    },
+    {
+      "id": "swords_two",
+      "reversed": "false"
+    },
+    {
+      "id": "major_14_temperance",
+      "reversed": "false"
+    },
+    {
+      "id": "wands_eight",
+      "reversed": "false"
+    },
+    {
+      "id": "cups_ten",
+      "reversed": "false"
+    },
+    {
+      "id": "pentacles_six",
+      "reversed": "false"
+    }
+  ],
+  "chineseHandoffMatched": true,
+  "celticDraw": [
+    {
+      "id": "wands_ten",
+      "position": "1",
+      "reversed": "false"
+    },
+    {
+      "id": "major_01_magician",
+      "position": "2",
+      "reversed": "false"
+    },
+    {
+      "id": "pentacles_page",
+      "position": "3",
+      "reversed": "true"
+    },
+    {
+      "id": "major_07_chariot",
+      "position": "4",
+      "reversed": "false"
+    },
+    {
+      "id": "swords_nine",
+      "position": "5",
+      "reversed": "false"
+    },
+    {
+      "id": "major_14_temperance",
+      "position": "6",
+      "reversed": "true"
+    },
+    {
+      "id": "major_03_empress",
+      "position": "7",
+      "reversed": "true"
+    },
+    {
+      "id": "wands_three",
+      "position": "8",
+      "reversed": "false"
+    },
+    {
+      "id": "major_20_judgement",
+      "position": "9",
+      "reversed": "false"
+    },
+    {
+      "id": "major_02_high_priestess",
+      "position": "10",
+      "reversed": "false"
+    }
+  ],
+  "celticHandoffMatched": true,
+  "ribbonCheck": {
+    "highlighted": [
+      "6",
+      "7"
+    ],
+    "overflow": false,
+    "ribbonScroll": 879,
+    "width": 390
+  },
+  "homepage": {
+    "count": 1,
+    "spread": "single",
+    "returnedCards": 1
+  },
+  "acceptedRedraw": {
+    "question": "How can I make steady creative progress?",
+    "placed": 0,
+    "focus": "Choose face-down card 1"
+  },
+  "yesNoMeaningReturn": {
+    "restoredLean": "Leaning yes\n\nUpright cards lean yes and reversed cards lean no. With three cards, the middle one counts double. Read it as a tendency, not a fixed answer: the meanings above show what could shift it.",
+    "matched": true
+  }
+}

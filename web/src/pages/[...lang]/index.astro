@@ -2,8 +2,11 @@
 import ResumeWorkspace from "../../components/ResumeWorkspace.astro";
 import Base from "../../layouts/Base.astro";
 import StoreButtons from "../../components/StoreButtons.astro";
+import BetaInvite from "../../components/BetaInvite.astro";
 import Reader from "../../components/Reader.astro";
 import Logo from "../../components/Logo.astro";
+import MotionControl from "../../components/MotionControl.astro";
+import "../../styles/thread-stage.css";
 import { BASE, SUPPORT_EMAIL } from "../../config.ts";
 import { slug } from "../../lib/data.ts";
 import { EXAMPLE } from "../../lib/example.ts";
@@ -15,6 +18,11 @@ const { lang } = Astro.props as { lang: Locale };
 const L = i18n(lang), R = ritualCopy(lang);
 const { t, url: u } = L;
 const w = L.workspace, g = L.growth;
+const positions = L.content.spreads.three_decision.positions;
+// The existing, authored example has one opening sentence for the first pair.
+// Retain all remaining sentences together, including Japanese's three-sentence form.
+const firstSentence = g.connections.match(/^.*?[.!?。！？](?:\s|$|(?=[^\u0000-\u007f]))/u)?.[0] ?? g.connections;
+const connections = [firstSentence.trim(), g.connections.slice(firstSentence.length).trim()];
 const gallery = ["major_00_fool", "major_02_high_priestess", "major_17_star", "major_18_moon", "major_19_sun", "major_21_world"];
 const site = new URL(u(), Astro.site).href;
 const jsonLd = [
@@ -28,7 +36,7 @@ const jsonLd = [
   <section class="ritual-hero"><div class="wrap hero-grid"><div>
     <p class="eyebrow">{R.ritualLabel}</p><h1>{R.heroTitle}</h1><p class="lead">{R.heroLead}</p>
     <div class="action-row"><a class="btn btn-gold" href="#ritual">{R.draw} <span aria-hidden="true">↗</span></a><a class="btn btn-ghost" href={u("read")}>{w.title}</a></div>
-    <a class="hero-search-link" href={u("cards")}>{R.search} <span aria-hidden="true">→</span></a><p class="hero-footnote">{R.freeNote}</p><ResumeWorkspace L={L}/>
+    <a class="hero-search-link" href={u("search")} data-open-search>{R.search} <span aria-hidden="true">→</span></a><p class="hero-footnote">{R.freeNote}</p><ResumeWorkspace L={L}/>
   </div><div class="ritual-stage"><div class="stage-orbit" aria-hidden="true"></div>
     <img class="stage-card left" src={`${BASE}cards/art/major_17_star.jpg`} alt="" width="300" height="514" fetchpriority="high"/>
     <img class="stage-card right" src={`${BASE}cards/art/major_02_high_priestess.jpg`} alt="" width="300" height="514"/>
@@ -40,11 +48,24 @@ const jsonLd = [
     <p class="chapter-label">01 <span>{R.draw}</span></p><h2 id="ritual-title">{R.dailyTitle}</h2><p class="lead">{R.dailyLead}</p><p class="muted">{w.practiceHint}</p><a class="link-arrow" href={u("tools")}>{R.allTools}</a>
   </div><div><Reader positions={[R.reflection]} button={R.redraw} ritual lang={lang}/></div></div></section>
 
-  <section class="ritual-section ink-section" data-connected-example aria-labelledby="connection-title"><div class="wrap">
+  <section class="ritual-section ink-section thread-stage" data-connected-example aria-labelledby="connection-title"><div class="wrap">
     <p class="chapter-label">02 <span>{R.exampleLabel}</span></p><div class="connection-heading"><div><h2 id="connection-title">{g.exampleTitle}</h2></div><div><p class="lead">{g.exampleLead}</p><p><em>{g.exampleQuestion}</em></p></div></div>
-    <div class="connection-controls" hidden aria-label={R.exampleLabel}>{[R.chapterMeaning,R.chapterPosition,R.chapterConnection].map((label,i)=><button type="button" data-example-step={i} aria-pressed={i===0?"true":"false"}>{String(i+1).padStart(2,'0')} · {label}</button>)}</div>
-    <div class="connection-grid">{EXAMPLE.cards.map((p,i)=><article class="connection-card"><span class="card-index">0{i+1} / {L.t(p.reversed?'card.reversed':'card.upright')}</span><a href={`${u(`cards/${slug(p.id)}`)}${p.reversed?'?orientation=reversed':''}`}><img class:list={{'reversed-art':p.reversed}} src={`${BASE}cards/art/${p.id}.jpg`} alt={L.cards[p.id]!.name} width="300" height="514" loading="lazy"/></a><h3>{L.cards[p.id]!.name}</h3><p data-example-symbol>{g.symbols[i]}</p><p data-example-position>{g.positions[i]}</p></article>)}</div>
-    <div class="connection-synthesis" data-example-synthesis><h3>{R.chapterConnection}</h3><p>{g.connections}</p></div><p class="example-disclosure">{g.editorial}</p><a class="link-arrow" href={u("learn/connected-reading")}>{R.exampleLink}</a>
+    <div class="thread-toolbar"><div class="connection-controls" hidden role="group" aria-label={R.exampleLabel}>{[R.chapterMeaning,R.chapterPosition,R.chapterConnection].map((label,i)=><button type="button" data-example-step={i} aria-pressed={i===0?"true":"false"}>{String(i+1).padStart(2,'0')} · {label}</button>)}</div><MotionControl L={L}/></div>
+    <div class="connection-grid">{EXAMPLE.cards.map((p,i)=><>
+      <article class="connection-card" data-thread-card={i}>
+        <span class="card-index">0{i+1} / {L.t(p.reversed?'card.reversed':'card.upright')}</span>
+        <a class="thread-art" href={`${u(`cards/${slug(p.id)}`)}${p.reversed?'?orientation=reversed':''}`}><img class:list={{'reversed-art':p.reversed}} src={`${BASE}cards/art/${p.id}.jpg`} alt={L.cards[p.id]!.name} width="300" height="514" loading="lazy"/></a>
+        <h3>{L.cards[p.id]!.name}</h3>
+        <p class="thread-position" data-position-label>{positions[i]}</p>
+        <p data-example-symbol>{g.symbols[i]}</p><p data-example-position>{g.positions[i]}</p>
+      </article>
+      {i < 2 && <div class="thread-connector" data-thread-connector hidden>
+        <svg class="thread-line thread-line-horizontal" aria-hidden="true" viewBox="0 0 100 48" fill="none"><path d="M0 24C30 4 70 44 100 24" pathLength="1"/></svg>
+        <svg class="thread-line thread-line-vertical" aria-hidden="true" viewBox="0 0 48 100" fill="none"><path d="M24 0C4 30 44 70 24 100" pathLength="1"/></svg>
+        <button type="button" class="thread-pair" data-thread-pair={i} aria-pressed="false" aria-controls={`thread-explanation-${i}`}><span class="thread-number">0{i+1}</span><span class="thread-pair-label">{positions[i]} <span>→</span> {positions[i+1]}</span></button>
+      </div>}
+    </>)}</div>
+    <div class="connection-synthesis" data-example-synthesis><h3>{L.interactions.thread}</h3><div class="thread-explanations">{connections.map((text,i)=><p id={`thread-explanation-${i}`} data-thread-explanation={i}><span class="thread-explanation-number" aria-hidden="true">0{i+1}</span>{text}</p>)}</div></div><p class="example-disclosure">{g.editorial}</p><a class="link-arrow" href={u("learn/connected-reading")}>{R.exampleLink}</a>
   </div></section>
 
   <section class="wrap ritual-section"><div class="benefit-heading"><p class="chapter-label">03 <span>{w.learnPath}</span></p><h2>{R.benefitsTitle}</h2></div><div class="benefits">{R.benefits.map((b,i)=><article><span aria-hidden="true">0{i+1}</span><h3>{b.title}</h3><p>{b.body}</p><a class="link-arrow" href={u(['cards','spreads','tools/daily-card'][i])}>{b.link}</a></article>)}</div></section>
@@ -56,7 +77,7 @@ const jsonLd = [
   </div></section>
 
   <section class="ritual-section wrap"><div class="trust-grid"><div><p class="chapter-label">05 <span>{g.methodTitle}</span></p><h2>{R.trustTitle}</h2><p class="lead">{R.trustLead}</p><a class="link-arrow" href={u("methodology")}>{g.methodTitle}</a></div><div class="faq">{g.faq.map(f=><details><summary>{f.q}</summary><p>{f.a}</p></details>)}</div></div></section>
-  <section class="app-section" id="get-app"><div class="wrap app-grid"><div class="app-mark" aria-hidden="true"><Logo/><span>ShenTarot</span></div><div><p class="eyebrow">{R.appLabel}</p><h2>{g.appTitle}</h2><p>{R.appNote}</p><StoreButtons lang={lang}/></div></div></section>
+  <section class="app-section" id="get-app"><div class="wrap app-grid"><div class="app-mark" aria-hidden="true"><Logo/><span>ShenTarot</span></div><div><p class="eyebrow">{R.appLabel}</p><h2>{g.appTitle}</h2><p>{R.appNote}</p><StoreButtons lang={lang}/><BetaInvite lang={lang}/></div></div></section>
   <section class="wrap final-ritual"><p class="eyebrow">ShenTarot</p><h2>{R.finalTitle}</h2><p>{R.finalLead}</p><div class="action-row"><a class="btn btn-gold" href="#ritual">{R.draw} <span aria-hidden="true">↗</span></a><a href={u("cards")}>{R.search}</a></div></section>
 </div>
 </Base>
@@ -66,11 +87,30 @@ const jsonLd = [
     const buttons=root.querySelectorAll<HTMLButtonElement>('[data-example-step]');
     const symbols=root.querySelectorAll<HTMLElement>('[data-example-symbol]');
     const positions=root.querySelectorAll<HTMLElement>('[data-example-position]');
+    const labels=root.querySelectorAll<HTMLElement>('[data-position-label]');
     const synthesis=root.querySelector<HTMLElement>('[data-example-synthesis]')!;
-    function show(step:number) {
-      buttons.forEach((b,i)=>b.setAttribute('aria-pressed',String(i===step)));
-      symbols.forEach(p=>p.hidden=step===1); positions.forEach(p=>p.hidden=step!==1); synthesis.hidden=step!==2;
+    const connectors=root.querySelectorAll<HTMLElement>('[data-thread-connector]');
+    const pairButtons=root.querySelectorAll<HTMLButtonElement>('[data-thread-pair]');
+    const cards=root.querySelectorAll<HTMLElement>('[data-thread-card]');
+    const explanations=root.querySelectorAll<HTMLElement>('[data-thread-explanation]');
+    let selectedPair=0;
+    function selectPair(pair:number) {
+      selectedPair=pair;
+      pairButtons.forEach((button,index)=>button.setAttribute('aria-pressed',String(index===pair)));
+      cards.forEach((card,index)=>card.dataset.threadActive=String(index===pair||index===pair+1));
+      explanations.forEach((explanation,index)=>explanation.dataset.threadActive=String(index===pair));
+      connectors.forEach((connector,index)=>connector.dataset.threadActive=String(index===pair));
     }
+    function show(step:number) {
+      root.dataset.exampleStep=String(step);
+      buttons.forEach((b,i)=>b.setAttribute('aria-pressed',String(i===step)));
+      symbols.forEach(p=>p.hidden=step!==0); positions.forEach(p=>p.hidden=step===0);
+      labels.forEach(p=>p.hidden=step===0); synthesis.hidden=step!==2;
+      connectors.forEach(connector=>connector.hidden=step!==2);
+      if(step===2) selectPair(selectedPair);
+      else cards.forEach(card=>delete card.dataset.threadActive);
+    }
+    pairButtons.forEach((button,pair)=>{button.addEventListener('click',()=>selectPair(pair));button.addEventListener('focus',()=>selectPair(pair));});
     controls.hidden=false; buttons.forEach((b,i)=>b.addEventListener('click',()=>show(i))); show(0);
   });
 </script>

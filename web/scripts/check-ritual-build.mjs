@@ -2,6 +2,8 @@
 import { readFileSync, existsSync, statSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { ritualCopy } from '../src/i18n/ritual.ts';
+import { drawCopy } from '../src/i18n/draw.ts';
+import { spreadIds, slug } from '../src/lib/data.ts';
 import { APP_STORE_URL, PLAY_STORE_URL } from '../src/config.ts';
 const locales = ['en','zh-hans','zh-hant','es','de','ja','fr','ru'];
 const origin = 'https://shentarot.com';
@@ -14,12 +16,15 @@ const decode = text => text.replace(/&#(x[\da-f]+|\d+);/gi,(_,n)=>String.fromCod
 const plain = html => decode(html.replace(/<[^>]*>/g,' ')).replace(/\s+/g,' ').trim();
 const includesText = (html,text)=>plain(html).includes(text.replace(/\s+/g,' ').trim());
 const tools = readdirSync('src/pages/[...lang]/tools').filter(f=>f.endsWith('.astro')).map(f=>`tools${f==='index.astro'?'':`/${f.slice(0,-6)}`}`);
-const routes = ['', 'read','cards','cards/major-17-star','cards/cups-queen/love','spreads','spreads/three','learn','learn/connected-reading','learn/practice','questions','topics/love','astrology','zodiac/aries','about','methodology',...tools];
+const routes = [...new Set(['', 'read','cards','cards/major-17-star','cards/cups-queen/love','spreads','spreads/three','learn','learn/connected-reading','learn/practice','questions','topics/love','astrology','zodiac/aries','about','methodology',...tools,...spreadIds.map(id=>`spreads/${slug(id)}`)])];
 let pages=0,references=0;
 for(const locale of locales) {
   const prefix=locale==='en'?'':`${locale}/`;
   const homeFile=output(`/${prefix}`); if(!homeFile) fail(`Missing homepage ${locale}`);
   const home=readFileSync(homeFile,'utf8'), copy=ritualCopy(locale);
+  const drawing=drawCopy(locale);
+  if(!drawing || Object.values(drawing).some(value=>typeof value!=='string'||!value.trim())) fail(`Missing explicit draw copy ${locale}`);
+  if(!includesText(home,drawing.title)||!home.includes('data-draw-fan')||!home.includes('data-draw-skip')) fail(`Missing localized drawing table ${locale}`);
   if(!copy) fail(`Missing explicit ritual copy ${locale}`);
   const headings=[...home.matchAll(/<h[12]\b[^>]*>([\s\S]*?)<\/h[12]>/gi)].map(m=>plain(m[1]));
   for(const key of ['heroTitle','dailyTitle','libraryTitle','trustTitle','finalTitle']) if(!headings.includes(copy[key])) fail(`Missing localized heading ${key}: ${locale}`);
@@ -35,6 +40,13 @@ for(const locale of locales) {
   for(const route of routes) {
     const path=`/${prefix}${route}`,file=output(path);if(!file) fail(`Missing representative route ${path}`);
     const html=readFileSync(file,'utf8');
+    if(html.includes('data-reader')) for(const marker of ['data-draw-deck','data-draw-fan','data-draw-previous','data-draw-next','data-draw-progress','data-draw-skip']) if(!html.includes(marker)) fail(`Missing draw control ${marker}: ${path}`);
+    if(route.startsWith('spreads/')) {
+      const configs=[...html.matchAll(/<script\b[^>]*type="application\/json"[^>]*data-config[^>]*>([\s\S]*?)<\/script>/g)].map(m=>JSON.parse(m[1]));
+      const reader=configs.find(c=>Array.isArray(c.deck));
+      const id=route.slice('spreads/'.length).replaceAll('-','_');
+      if(!reader?.spread||reader.spread.id!==id||reader.spread.layout.length!==reader.positions.length||!html.includes('data-spread-board'))fail(`Draw/layout binding missing: ${path}`);
+    }
     if(!/<nav\b[^>]*aria-label=/.test(html)||!/<main\b[^>]*id="main"/.test(html)||!/<footer\b/.test(html)) fail(`Missing semantic shell ${path}`);
     if(!html.includes('rel="canonical"')||!html.includes('hreflang="x-default"')) fail(`Missing locale metadata ${path}`);
     for(const [,attribute,raw] of html.matchAll(/\b(href|src|poster)="([^"]+)"/g)) {

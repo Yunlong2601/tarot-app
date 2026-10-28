@@ -1,0 +1,70 @@
+---
+import Base from '../layouts/Base.astro';
+import { BASE, SUPPORT_EMAIL } from '../config';
+import { ANDROID_BETA_GROUP, ANDROID_BETA_OPT_IN, ANDROID_BETA_STORE, TESTFLIGHT_APP, TESTFLIGHT_INVITE, TESTFLIGHT_ACCEPTING_TESTERS } from '../lib/beta';
+const support = `mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent('ShenTarot beta access')}`;
+---
+<Base title="Join the ShenTarot beta: Android & iPhone · ShenTarot" description="Join ShenTarot’s Android closed test or check iPhone TestFlight access. Follow the account, opt-in and installation steps, with help if you get stuck." path="beta" noCta localized={false}>
+  <header class="beta-hero">
+    <p class="eyebrow">ShenTarot · A work in progress</p>
+    <h1>Be part of<br/><em>the next chapter.</em></h1>
+    <p class="lead">Join the ShenTarot beta. Choose your phone, follow the steps, and help us make the app better.</p>
+    <nav class="beta-jump" aria-label="Choose your phone"><a href="#android">Android <span aria-hidden="true">↘</span></a><a href="#iphone">iPhone <span aria-hidden="true">↘</span></a></nav>
+    <p class="muted">This guide is in English. Beta access is separate from the free website tools.</p>
+  </header>
+  <div class="beta-paths">
+    <section id="android" aria-labelledby="android-title" class="beta-path">
+      <p class="eyebrow">01 / Google Play closed test</p><h2 id="android-title">Android</h2>
+      <p class="beta-status">Accepting testers</p>
+      <p>Use the <strong>same Google account</strong> for the group, the opt-in page and Google Play on your phone.</p>
+      <ol class="beta-steps" role="list">
+        <li><h3>Join the tester group</h3><p>Sign in to Google Groups and choose Join group. Already a member? Go to step two. Joining this group does not install the app.</p><a class="btn btn-ghost" href={ANDROID_BETA_GROUP} target="_blank" rel="noopener noreferrer">Join Android tester group ↗</a></li>
+        <li><h3>Become a tester</h3><p>Open the invitation and choose Become a tester. Group membership alone does not opt you into the Play test.</p><a class="btn btn-gold" href={ANDROID_BETA_OPT_IN} target="_blank" rel="noopener noreferrer">Open Google Play invitation ↗</a></li>
+        <li><h3>Install on your phone</h3><p>After opting in, follow the download link from Google Play or open the listing below. Keep the tester account selected in the Play Store.</p><a href={ANDROID_BETA_STORE} target="_blank" rel="noopener noreferrer">Install ShenTarot from Google Play ↗</a></li>
+      </ol>
+      <details><summary>“App not available” or “You’re not eligible”?</summary><p>Check that you joined the group and that the same account is selected on the invitation page and Play Store. Return to the invitation after joining. Availability also depends on your country and device. If you joined a different testing track, tell us which one before changing it.</p><a href={support}>Get help with Android access</a></details>
+    </section>
+    <section id="iphone" aria-labelledby="iphone-title" class="beta-path">
+      <p class="eyebrow">02 / Apple TestFlight</p><h2 id="iphone-title">iPhone</h2>
+      <p class="beta-status" data-ios-status>{TESTFLIGHT_ACCEPTING_TESTERS && TESTFLIGHT_INVITE ? 'Accepting testers' : 'Not accepting new testers right now'}</p>
+      {TESTFLIGHT_ACCEPTING_TESTERS && TESTFLIGHT_INVITE ? <p>Join through Apple’s TestFlight app. You do not need a developer account or a redemption code when using our public invitation.</p> : <p>When checked on 27 October 2026, Apple said this beta was not accepting new testers. You can check the invitation below for its current status or email us for help. Opening the link does not guarantee immediate access.</p>}
+      <ol class="beta-steps" role="list">
+        <li><h3>Install TestFlight</h3><p>Install Apple’s free TestFlight app on your iPhone. TestFlight alone will not add ShenTarot to your apps.</p><a class="btn btn-ghost" href={TESTFLIGHT_APP} target="_blank" rel="noopener noreferrer">Get Apple TestFlight ↗</a></li>
+        <li><h3>{TESTFLIGHT_INVITE ? 'Open the ShenTarot invitation' : 'Request a TestFlight invitation'}</h3><p>{TESTFLIGHT_INVITE ? 'Return here on your iPhone and open the invitation below. If Apple is accepting testers and your device meets the requirements, accept the invitation in TestFlight.' : 'Email us from an address where you can receive an invitation. Do not send your Apple password or payment details.'}</p><a class="btn btn-gold" href={TESTFLIGHT_INVITE || support} {...(TESTFLIGHT_INVITE ? {target:'_blank',rel:'noopener noreferrer'} : {})}>{TESTFLIGHT_INVITE ? 'Open TestFlight invitation ↗' : 'Request iPhone beta access →'}</a>{!TESTFLIGHT_ACCEPTING_TESTERS && TESTFLIGHT_INVITE && <p><a href={support}>Request iPhone beta access by email →</a></p>}</li>
+        <li><h3>Install ShenTarot in TestFlight</h3><p>Once invited, tap Accept, then Install. If you already installed TestFlight, open the invitation again rather than looking for a redemption code.</p></li>
+      </ol>
+      <details><summary>Invitation full, expired or not accepting testers?</summary><p>Public invitations can close and builds expire. Use the current invitation on this page; if it is unavailable, contact us. Installing TestFlight or emailing us does not by itself enrol you.</p><a href={support}>Get help with iPhone access</a></details>
+    </section>
+  </div>
+  <section class="beta-feedback">
+    <p class="eyebrow">Your observations matter</p><h2>Try a little. Tell us what happened.</h2>
+    <p>Explore the features available in your build. Check card names and orientations, try a spread, and note any confusing steps or crashes. Beta software may be unstable. Keep a separate copy of anything important.</p>
+    <p>Send your phone model, app version, steps to reproduce and expected result. Screenshots are helpful, but remove personal questions or other private information first. On iPhone, you can also use Send Beta Feedback in TestFlight.</p>
+    <p><a class="btn btn-ghost" href={`mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent('ShenTarot beta feedback')}`}>Send beta feedback →</a></p>
+    <p>No email app configured? Contact <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>.</p>
+    <p class="muted">Beta enrolment and installation happen on Google or Apple services, under their terms and privacy notices. No account credentials are collected on this page. For entertainment and self-reflection.</p>
+    <p><a href={`${BASE}privacy`}>Privacy</a> · <a href={`${BASE}tools`}>Use the website tools while you wait →</a></p>
+  </section>
+</Base>
+<style>
+  .beta-hero { max-width:850px; padding:4rem 0 3rem; }
+  .beta-hero h1 { font-size:clamp(3rem,7vw,6rem); line-height:1.03; }
+  .beta-hero h1 em { color:var(--green,#243c35); font-weight:inherit; }
+  .beta-hero .lead { max-width:42ch; }
+  .beta-jump { display:flex; gap:2rem; margin:2rem 0; }
+  .beta-jump a { font-size:1.2rem; padding:.6rem 0; min-height:44px; border-bottom:1px solid currentColor; }
+  .beta-paths { display:grid; grid-template-columns:1fr 1fr; gap:4rem; border-block:1px solid #b8bdaf; }
+  .beta-path { padding:2.5rem 0; min-width:0; scroll-margin-top:110px; }
+  .beta-path h2 { font-size:3rem; margin:.4rem 0; }
+  .beta-path h3 { font-size:1.5rem; margin:.3rem 0; }
+  .beta-status { font-weight:600; color:#243c35; }
+  .beta-steps { list-style:none; counter-reset:steps; padding:0; }
+  .beta-steps > li { counter-increment:steps; position:relative; padding:1.4rem 0 1.6rem 2.5rem; border-bottom:1px solid #c9ccbf; }
+  .beta-steps > li::before { content:counter(steps,decimal-leading-zero); position:absolute; left:0; top:1.6rem; font-size:.8rem; }
+  .beta-path a:not(.btn), .beta-feedback a:not(.btn) { text-decoration:underline; text-underline-offset:.2em; }
+  .beta-path .btn { white-space:normal; text-align:center; }
+  .beta-path details { margin-top:1.5rem; }
+  .beta-path summary { cursor:pointer; padding:.8rem 0; min-height:44px; }
+  .beta-feedback { max-width:72ch; padding:3rem 0; }
+  @media(max-width:760px) { .beta-paths { grid-template-columns:1fr; gap:0; } .beta-path + .beta-path { border-top:1px solid #b8bdaf; } .beta-hero { padding-top:2rem; } }
+</style>

@@ -1,0 +1,83 @@
+[
+  {
+    "category": "canonical alternative",
+    "canonical": "https://shentarot.com/cards/cups-two",
+    "h1": "Two of Cups",
+    "meaningLinks": [
+      "/",
+      "/cards",
+      "/cards#cups",
+      "https://shentarot.com/read?card=cups_two&orientation=reversed",
+      "/cards/cups-two/love",
+      "/cards/cups-two/career",
+      "/cards/cups-two/feelings",
+      "/cards/cups-two/yes-or-no",
+      "/methodology",
+      "/cards#cups",
+      "/cards/major-02-high-priestess",
+      "/cards/wands-two"
+    ],
+    "robots": [],
+    "title": "Two of Cups tarot card meaning: upright and reversed · ShenTarot",
+    "url": "https://shentarot.com/cards/cups-two?orientation=reversed"
+  },
+  {
+    "category": "redirect",
+    "canonical": "https://shentarot.com/ru/read",
+    "h1": "Прочитать мои карты",
+    "meaningLinks": [
+      "#reference",
+      "/ru/cards/swords-eight",
+      "#workspace-reflection",
+      "/ru/learn/connected-reading",
+      "/ru/learn/practice"
+    ],
+    "robots": [],
+    "title": "Прочитать мои карты",
+    "url": "https://shentarot.com/ru/read"
+  },
+  {
+    "category": "discovered",
+    "canonical": "https://shentarot.com/cards/cups-queen/feelings",
+    "h1": "Queen of Cups as feelings",
+    "meaningLinks": [
+      "/",
+      "/cards",
+      "/cards/cups-queen",
+      "/cards/cups-queen",
+      "/cards/cups-queen/love",
+      "/cards/cups-queen/career",
+      "/cards/cups-queen/feelings",
+      "/cards/cups-queen/yes-or-no",
+      "/methodology",
+      "/read?card=cups_queen",
+      "/read?card=cups_queen&orientation=reversed",
+      "/topics/love"
+    ],
+    "robots": [],
+    "title": "Queen of Cups as feelings: how do they feel about you? · ShenTarot",
+    "url": "https://shentarot.com/cards/cups-queen/feelings"
+  },
+  {
+    "category": "crawled",
+    "canonical": "https://shentarot.com/zh-hans/cards/swords-eight",
+    "h1": "宝剑八",
+    "meaningLinks": [
+      "/zh-hans",
+      "/zh-hans/cards",
+      "/zh-hans/cards#swords",
+      "/zh-hans/read?card=swords_eight",
+      "/zh-hans/cards/swords-eight/love",
+      "/zh-hans/cards/swords-eight/career",
+      "/zh-hans/cards/swords-eight/feelings",
+      "/zh-hans/cards/swords-eight/yes-or-no",
+      "/zh-hans/methodology",
+      "/zh-hans/cards#swords",
+      "/zh-hans/cards/major-08-strength",
+      "/zh-hans/cards/wands-eight"
+    ],
+    "robots": [],
+    "title": "宝剑八塔罗牌含义：正位与逆位 · ShenTarot",
+    "url": "https://shentarot.com/zh-hans/cards/swords-eight"
+  }
+]

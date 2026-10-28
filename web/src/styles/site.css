@@ -7,6 +7,7 @@
   --fg: #17171b; --muted: #625e57; --gold: #795d30; --gold-2: #6d5128;
   --violet: #55435d; --radius: 6px; --wrap: 78rem;
   --display: "Cormorant Garamond", "Iowan Old Style", Georgia, "Songti SC", "Noto Serif CJK SC", "Hiragino Mincho ProN", serif;
+  --serif: var(--display);
   --sans: "Inter Variable", -apple-system, system-ui, "Segoe UI", "PingFang SC", "Hiragino Sans", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
 }
 

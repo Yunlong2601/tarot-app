@@ -274,7 +274,7 @@
  },
  "reader": {
   "draw": "洗牌並抽牌",
-  "questionLabel": "你的問題（選填，只會留在這個頁面）",
+  "questionLabel": "你的問題（選填，只會留在此瀏覽器）",
   "placeholderYesNo": "我該接受新工作嗎？",
   "placeholder": "關於……我需要知道什麼？",
   "askNote": "我們為你的問題挑選了這個牌陣。準備好了就洗牌吧。",

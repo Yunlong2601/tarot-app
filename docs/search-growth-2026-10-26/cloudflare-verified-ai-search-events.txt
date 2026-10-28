@@ -1,0 +1,15 @@
+Captured 2026-10-26, authenticated UI.
+Security Events
+Filter
+1
+Last 24 hours
+Create security rule
+
+Verified Bot Category
+
+AI Search
+
+Clear filters
+Sampled logs
+No firewall events found matching your filters
+Sampling and selected 24-hour window do not prove absence of older events. No security setting changed.

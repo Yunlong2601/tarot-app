@@ -278,7 +278,7 @@
  },
  "reader": {
   "draw": "Mélanger et tirer",
-  "questionLabel": "Ta question (facultative, elle reste sur cette page)",
+  "questionLabel": "Ta question (facultative, conservée dans ce navigateur)",
   "placeholderYesNo": "Dois-je accepter ce nouveau poste ?",
   "placeholder": "Que dois-je savoir sur…",
   "askNote": "Nous avons choisi ce tirage pour ta question. Mélange les cartes dès que tu le souhaites.",

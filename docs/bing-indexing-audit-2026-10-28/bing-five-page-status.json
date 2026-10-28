@@ -1,0 +1,28 @@
+[
+  {
+    "url": "https://shentarot.com/",
+    "status": "Discovered but not crawled",
+    "discovered": "2026-10-18",
+    "live": "Can be indexed"
+  },
+  {
+    "url": "https://shentarot.com/read",
+    "status": "Discovered but not crawled",
+    "discovered": "2026-10-22"
+  },
+  {
+    "url": "https://shentarot.com/cards",
+    "status": "Discovered but not crawled",
+    "discovered": "2026-10-18"
+  },
+  {
+    "url": "https://shentarot.com/tools/random-card",
+    "status": "Discovered but not crawled",
+    "discovered": "2026-10-18"
+  },
+  {
+    "url": "https://shentarot.com/learn/how-to-read-tarot",
+    "status": "Discovered but not crawled",
+    "discovered": "2026-10-22"
+  }
+]

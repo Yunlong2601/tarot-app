@@ -1,22 +1,32 @@
-import { connectionPairs, changeSpread, losesCards, blank, validDraft, sameDraft, hasWork, filterDeck, setPick, movePick, STORAGE_KEY, saveDraft, type Draft, type Spread } from '../lib/workspace';
+import { createReadingDesk } from '../lib/reading-desk';
+import type { DeskCopy } from '../i18n/reading-desk';
+import type { SpreadPoint } from '../lib/spread-stage';
+import { DRAW_TRANSFER_KEY, readDrawTransfer } from '../lib/draw-transfer';
+import type { DrawCopy } from '../i18n/draw';
+import { connectionPairs, changeSpread, losesCards, blank, validDraft, sameDraft, hasWork, setPick, movePick, STORAGE_KEY, saveDraft, type Draft, type Spread } from '../lib/workspace';
+import { createCardPicker } from '../lib/card-picker';
+import { openDialog, setupDialog } from '../lib/dialogs';
+import type interactionCopy from '../i18n/en/interactions.json';
 import { applyExample } from '../lib/example';
 import type growth from '../i18n/en/growth.json';
 import type journey from '../i18n/en/journey.json';
 import { fill } from '../i18n/fill';
 import type { ReaderCard } from '../lib/data';
 import type en from '../i18n/en/workspace.json';
-type Config = { j: typeof journey; g: typeof growth; deck: (ReaderCard & {englishName:string})[]; spreads: Spread[]; w: typeof en; base: string; cardsUrl: string; up: string; rev: string; more: string };
+type Config = { desk:DeskCopy; draw:DrawCopy; i: typeof interactionCopy; j: typeof journey; g: typeof growth; deck: (ReaderCard & {englishName:string})[]; spreads: (Spread & {layout?:SpreadPoint[]})[]; w: typeof en; base: string; cardsUrl: string; up: string; rev: string; more: string };
 for (const root of document.querySelectorAll<HTMLElement>('[data-workspace]')) {
   void (async () => {
   const cfg: Config = JSON.parse(root.dataset.config!);
   const { w, j } = cfg;
   root.hidden = false;
+  const loading=document.querySelector<HTMLElement>('[data-workspace-loading]');
   const find = <T extends HTMLElement>(q: string) => root.querySelector<T>(q)!;
   const spread = find<HTMLSelectElement>('[data-spread]');
-  const question = find<HTMLInputElement>('[data-question]');
+  const question = find<HTMLTextAreaElement>('[data-question]');
   const impression = find<HTMLTextAreaElement>('[data-impression]');
   const reflection = find<HTMLTextAreaElement>('[data-reflection]');
   const status = find<HTMLElement>('[data-status]');
+  const draftStatus = find<HTMLElement>('[data-draft-status]');
   const slots = find<HTMLElement>('[data-slots]');
   const meanings = find<HTMLElement>('[data-meanings]');
   function confirmOverwrite(message:string,label:string):Promise<boolean> {
@@ -24,53 +34,59 @@ for (const root of document.querySelectorAll<HTMLElement>('[data-workspace]')) {
     find<HTMLElement>('[data-overwrite-message]').textContent=message;
     const confirm=find<HTMLButtonElement>('[data-overwrite-confirm]');confirm.textContent=label;
     return new Promise(resolve=>{
-      const finish=(accepted:boolean)=>{dialog.close();resolve(accepted);};
+      let accepted=false;
+      const finish=(value:boolean)=>{accepted=value;dialog.close();};
+      dialog.addEventListener('close',()=>resolve(accepted),{once:true});
       find<HTMLButtonElement>('[data-overwrite-cancel]').onclick=()=>finish(false);
       confirm.onclick=()=>finish(true);
       dialog.oncancel=event=>{event.preventDefault();finish(false);};
-      dialog.showModal();
+      openDialog(dialog);
       find<HTMLButtonElement>('[data-overwrite-cancel]').focus();
     });
   }
+  setupDialog(find<HTMLDialogElement>('[data-overwrite-dialog]'));
   const draftKey = `${STORAGE_KEY}-draft`;
   const ids = cfg.deck.map(c => c.id);
   const currentSpread = () => cfg.spreads.find(s => s.id === draft.spread)!;
   let draft: Draft = blank(cfg.spreads.find(s => s.id === 'three')!);
+  const openPicker=createCardPicker(find<HTMLDialogElement>('#card-picker'),cfg.deck,cfg.i,()=>draft,(index,id,reversed)=>{
+    if(setPick(draft,index,id,reversed)){desk.select(index);persistDraft();renderSlots(index,'select');}
+  });
+  const desk=createReadingDesk(root,cfg,()=>draft,(index,trigger)=>openPicker(index,trigger));
+  function writingState() {
+    [question,impression,reflection].forEach((input,index)=>{
+      input.style.height='auto';
+      const line=parseFloat(getComputedStyle(input).lineHeight)||24;
+      input.style.height=`${Math.min(Math.max(input.scrollHeight,line*(index===0?2:3)+24),line*6+24)}px`;
+      const counter=find<HTMLElement>(`[data-counter-for="${['question','impression','reflection'][index]}"]`);
+      counter.hidden=input.value.length<4000;counter.textContent=fill(cfg.i.counter,{n:input.value.length,total:5000});
+    });
+  }
   function el<K extends keyof HTMLElementTagNameMap>(tag: K, text = '', cls = '') {
     const e = document.createElement(tag); e.textContent = text; e.className = cls; return e;
   }
   function fields() { draft.question = question.value; draft.impression = impression.value; draft.reflection = reflection.value; }
   function persistDraft() {
     fields();
-    try { if (saveDraft(sessionStorage, draftKey, draft)) return true; }
+    try { if (saveDraft(sessionStorage, draftKey, draft)) { draftStatus.textContent=hasWork(draft)?cfg.i.draftKept:'';return true; } }
     catch {}
-    status.textContent = w.storageError; return false;
+    draftStatus.textContent = w.storageError; return false;
   }
-  function hydrate() { spread.value = draft.spread; question.value = draft.question; impression.value = draft.impression; reflection.value = draft.reflection; renderSlots(); }
+  function hydrate() { spread.value = draft.spread; question.value = draft.question; impression.value = draft.impression; reflection.value = draft.reflection; renderSlots(); writingState(); }
   function renderSlots(focusIndex?: number, action?: string) {
     slots.replaceChildren();
     const positions = currentSpread().positions;
     draft.cards.forEach((p, i) => {
       const fieldset = el('fieldset', '', 'card-slot');
       fieldset.append(el('legend', `${i + 1}. ${positions[i]}`));
-      const label = el('label', w.selectCard);
-      const select = el('select'); select.dataset.pick = String(i);
-      const searchLabel=el('label',j.filter); const search=el('input');search.type='search';search.dataset.pickSearch=String(i);search.autocomplete='off';
-      const hint=el('p',j.filterHint,'muted picker-hint');hint.id=`pick-hint-${i}`; search.setAttribute('aria-describedby',hint.id);
-      searchLabel.append(search);fieldset.append(searchLabel,hint);
-      const count=el('p','','muted picker-count'); count.setAttribute('role','status');
-      function options() {
-        const filtered=filterDeck(cfg.deck,search.value,draft.cards[i]!.id);
-        select.replaceChildren(new Option(w.selectCard,''));
-        filtered.forEach(c=>{const o=new Option(c.name,c.id);o.disabled=draft.cards.some((other,index)=>index!==i&&other.id===c.id);select.append(o);});
-        select.value=draft.cards[i]!.id;count.textContent=fill(j.matches,{n:filterDeck(cfg.deck,search.value,'').length});
-      }
-      search.oninput=options; options();
-      const clear=el('button',j.clear,'btn btn-ghost btn-sm');clear.type='button';clear.onclick=()=>{search.value='';options();search.focus();};
-      select.onchange = () => { setPick(draft, i, select.value, draft.cards[i]!.reversed); persistDraft(); renderSlots(i, 'select'); };
-      label.append(select); fieldset.append(label,count,clear);
+      const pick=el('button','','card-pick-trigger');pick.type='button';pick.dataset.pick=String(i);pick.setAttribute('aria-haspopup','dialog');
+      const chosen=cfg.deck.find(c=>c.id===p.id);fieldset.dataset.selected=String(!!chosen);
+      if(focusIndex===i&&action==='select')pick.classList.add('card-placed');
+      const image=el('img');image.loading='lazy';image.src=chosen?`${cfg.base}cards/art/${chosen.id}.jpg`:`${cfg.base}ritual-card-back.svg`;image.alt='';image.width=62;image.height=106;image.classList.toggle('reversed-art',!!chosen&&p.reversed);
+      const text=el('span');text.append(el('small',cfg.i.pickerTitle),el('strong',chosen?.name??w.selectCard),el('small',chosen?(p.reversed?cfg.rev:cfg.up):cfg.i.pickerHelp));
+      pick.append(image,text,el('span',chosen?'✓':'↗'));pick.onclick=()=>openPicker(i,pick);fieldset.append(pick);
       const reverseLabel = el('label', '', 'check-label'); const check = el('input'); check.type = 'checkbox'; check.checked = p.reversed; check.dataset.reverse = String(i);
-      check.onchange = () => { setPick(draft, i, p.id, check.checked); persistDraft(); renderMeanings(); };
+      check.onchange = () => { setPick(draft, i, p.id, check.checked); persistDraft(); renderSlots(i, 'reverse'); };
       reverseLabel.append(check, document.createTextNode(cfg.rev)); fieldset.append(reverseLabel);
       const actions = el('div', '', 'action-row');
       [-1, 1].forEach(delta => { const button = el('button', delta < 0 ? w.moveUp : w.moveDown, 'btn btn-ghost btn-sm'); button.type = 'button'; button.disabled = i + delta < 0 || i + delta >= draft.cards.length; button.dataset.move = String(delta); button.onclick = () => { movePick(draft, i, delta); persistDraft(); renderSlots(i + delta, String(delta)); }; actions.append(button); });
@@ -79,7 +95,11 @@ for (const root of document.querySelectorAll<HTMLElement>('[data-workspace]')) {
     renderMeanings();
     if (focusIndex !== undefined) {
       const fieldset = slots.children[focusIndex];
-      (fieldset?.querySelector(action === 'select' ? 'select' : `[data-move="${action}"]`) as HTMLElement | null)?.focus();
+      const selector = action === 'select' ? '[data-pick]' : action === 'reverse' ? '[data-reverse]' : `[data-move="${action}"]`;
+      const target = fieldset?.querySelector<HTMLElement>(`${selector}:not(:disabled)`)
+        ?? fieldset?.querySelector<HTMLElement>('[data-pick]');
+      if (find<HTMLDetailsElement>('[data-card-editor]').open) target?.focus();
+      else desk.focus(focusIndex);
     }
   }
   function renderMeanings() {
@@ -88,22 +108,16 @@ for (const root of document.querySelectorAll<HTMLElement>('[data-workspace]')) {
     const selected = draft.cards.map((p, i) => ({ p, i, c: cfg.deck.find(c => c.id === p.id) })).filter(x => x.c);
     for (const { p, i, c: card } of selected) {
       const c = card!;
-      const panel = el('article', '', 'panel reference-card');
-      const img = el('img'); img.src = `${cfg.base}cards/art/${c.id}.jpg`; img.alt = c.name; img.width = 150; img.height = 257; img.classList.toggle('reversed-art', p.reversed);
+      const panel = el('article', '', 'panel reference-card');panel.dataset.position=String(i);panel.id=`reading-card-${i}`;panel.tabIndex=-1;
+      const img = el('img'); img.loading = 'lazy'; img.src = `${cfg.base}cards/art/${c.id}.jpg`; img.alt = c.name; img.width = 150; img.height = 257; img.classList.toggle('reversed-art', p.reversed);
       const body = el('div');
       body.append(el('p', `${i + 1}. ${currentSpread().positions[i]}`, 'eyebrow'), el('h3', c.name), el('p', p.reversed ? cfg.rev : cfg.up, 'muted'), el('p', p.reversed ? c.rev : c.up));
       const prompt = el('details'); prompt.append(el('summary', w.practice));
       prompt.append(el('p', fill(w.positionPrompt, { position: currentSpread().positions[i]! })), el('p', p.reversed ? c.revQ : c.upQ));
-      const link = el('a', cfg.more); link.href = `${cfg.cardsUrl}/${c.slug}${p.reversed ? '?orientation=reversed#meanings' : ''}`;
+      const link = el('a', cfg.more); link.href = `${cfg.cardsUrl}/${c.slug}${p.reversed ? '?orientation=reversed#card-meanings' : ''}`;
       body.append(prompt, link); panel.append(img, body); meanings.append(panel);
     }
-    const connections = find<HTMLElement>('[data-connections]'); connections.hidden = selected.length < 2;
-    const list=find<HTMLOListElement>('[data-connection]'); list.replaceChildren();
-    for(const [first,second] of connectionPairs(draft)) {
-      const item=el('li');
-      item.append(el('h3',`${positionLabel(first)} → ${positionLabel(second)}`),el('p',pairPrompt(first,second)));
-      list.append(item);
-    }
+    desk.render();
   }
   function positionLabel(index:number) {
     const pick=draft.cards[index]!; const card=cfg.deck.find(c=>c.id===pick.id)!;
@@ -129,10 +143,19 @@ for (const root of document.querySelectorAll<HTMLElement>('[data-workspace]')) {
     draft=changeSpread(draft,next); hydrate(); if(persistDraft()) status.textContent=j.spreadKept;
   }
   spread.onchange = async () => { await selectSpread(cfg.spreads.find(s=>s.id===spread.value)!); };
-  [question, impression, reflection].forEach(input => input.addEventListener('input', persistDraft));
-  find<HTMLButtonElement>('[data-skip]').onclick = () => slots.querySelector('select')?.focus();
+  [question, impression, reflection].forEach(input => input.addEventListener('input', ()=>{input.setCustomValidity('');input.removeAttribute('aria-invalid');writingState();persistDraft();}));
+  root.querySelectorAll<HTMLButtonElement>('[data-question-prompt]').forEach(button=>button.onclick=()=>{
+    const start=question.selectionStart??question.value.length,end=question.selectionEnd??start;
+    if(question.value.length-(end-start)+button.dataset.questionPrompt!.length>5000){
+      question.setCustomValidity(cfg.i.limitError);question.setAttribute('aria-invalid','true');draftStatus.textContent=cfg.i.limitError;question.focus();question.reportValidity();return;
+    }
+    question.setRangeText(button.dataset.questionPrompt!,start,end,'end');
+    question.dispatchEvent(new Event('input'));question.focus();
+  });
+  find<HTMLButtonElement>('[data-skip]').onclick = () => desk.focus(0);
   find<HTMLButtonElement>('[data-save]').onclick = async () => {
     fields();
+    const invalid=[question,impression,reflection].find(input=>!input.checkValidity());if(invalid){invalid.focus();invalid.reportValidity();return;}
     try {
       let old:unknown=null;try{old=JSON.parse(localStorage.getItem(STORAGE_KEY)??'null');}catch{}
       if(validDraft(old,cfg.spreads,ids) && !sameDraft(old,draft) && !await confirmOverwrite(j.saveWarning,w.save)){status.textContent=j.cancelled;return;}
@@ -144,7 +167,7 @@ for (const root of document.querySelectorAll<HTMLElement>('[data-workspace]')) {
     catch { status.textContent = w.invalid; }
   };
   find<HTMLButtonElement>('[data-delete]').onclick = () => {
-    try { localStorage.removeItem(STORAGE_KEY); sessionStorage.removeItem(draftKey); draft = blank(currentSpread()); hydrate(); status.textContent = w.deleted; }
+    try { localStorage.removeItem(STORAGE_KEY); sessionStorage.removeItem(draftKey); draft = blank(currentSpread()); hydrate(); draftStatus.textContent = ''; status.textContent = w.deleted; }
     catch { status.textContent = w.storageError; }
   };
   find<HTMLButtonElement>('[data-copy]').onclick = async () => { try { await navigator.clipboard.writeText(text()); status.textContent = w.copied; } catch { status.textContent = w.copyError; } };
@@ -157,8 +180,22 @@ for (const root of document.querySelectorAll<HTMLElement>('[data-workspace]')) {
   try { const saved: unknown = JSON.parse(sessionStorage.getItem(draftKey) ?? 'null'); if (validDraft(saved, cfg.spreads, ids)) draft = saved; else if (saved) status.textContent = w.invalid; }
   catch { status.textContent = w.storageError; }
   hydrate();
+  // Initialization is complete even when a seed needs the reader's confirmation.
+  if (loading) loading.hidden = true;
   // A deep link deliberately seeds slot one without discarding other saved work.
   const params = new URLSearchParams(location.search);
+  let transferred = false;
+  if (params.get('draw') === '1') {
+    let incoming: Draft | null = null;
+    try { incoming = readDrawTransfer(sessionStorage, cfg.spreads, ids); } catch {}
+    if (incoming) {
+      const next = { ...incoming, impression: draft.impression, reflection: draft.reflection };
+      if (!hasWork(draft) || sameDraft(draft, next) || await confirmOverwrite(cfg.draw.transferWarning, cfg.draw.continueDraw)) {
+        draft = next; transferred = true; status.textContent = cfg.draw.transferLoaded;
+      } else status.textContent = j.cancelled;
+    } else status.textContent = cfg.draw.transferInvalid;
+    try { sessionStorage.removeItem(DRAW_TRANSFER_KEY); } catch {}
+  }
   const requestedSpread = cfg.spreads.find(s => s.id === params.get('spread'));
   const card = cfg.deck.find(c => c.id === params.get('card'));
   if (requestedSpread && requestedSpread.id !== draft.spread) {
@@ -182,7 +219,20 @@ for (const root of document.querySelectorAll<HTMLElement>('[data-workspace]')) {
     } else status.textContent = cfg.g.exampleKept;
   }
   // Consume seed parameters once so refresh/delete cannot re-seed old cards.
-  if (params.has('card') || params.has('spread') || params.has('example')) history.replaceState(null, '', location.pathname);
+  if (params.has('card') || params.has('spread') || params.has('example') || params.has('draw')) history.replaceState(null, '', location.pathname);
   hydrate(); persistDraft();
-  })();
+  if (transferred) {
+    const heading = find<HTMLElement>('[data-reference-title]');
+    heading.focus({ preventScroll: true });
+    heading.scrollIntoView({ block: 'start', behavior: 'instant' });
+  } else if (params.get('draw') === '1') spread.focus({ preventScroll: true });
+  })().catch(()=>{
+    root.hidden = true;
+    const loading = document.querySelector<HTMLElement>('[data-workspace-loading]');
+    if (loading) loading.hidden = false;
+    const failed = document.querySelector<HTMLElement>('[data-workspace-failed]');
+    if (failed) failed.hidden = false;
+    const pending = document.querySelector<HTMLElement>('[data-workspace-pending]');
+    if (pending) pending.hidden = true;
+  });
 }

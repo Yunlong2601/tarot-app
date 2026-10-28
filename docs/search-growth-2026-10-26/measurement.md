@@ -1,0 +1,13 @@
+# Search growth: next complete 28-day comparison
+
+Status as of 27 October 2026: **not started**. Changes are local. No release date or post-change data exists. This file is a handoff, not a scheduled automation or a completed measurement.
+
+1. After a separately authorised production release, record its time/version. Start the observation window on the next full reporting day; use the same Search Console date conventions for all snapshots.
+2. After 28 complete days, allow for the report's displayed processing delay. Collect each of the same five canonical URLs with exact page filters, Web search type, and no extra country/device/query filter. Record start/end dates and capture time; retain clicks, impressions, CTR and average position plus disclosed query/country/device rows. Record an empty/omitted row explicitly rather than assigning zero.
+3. Capture the separate Google generative-AI page report for the identical dates. Keep AI impressions separate from web clicks. If a page is absent, label it unlisted; do not claim it received no AI exposure.
+4. Compare with `search-baseline.json` (eight available activity days, 17–24 October). Show absolute counts AND per-day counts for unequal windows, CTR in percentage points and average position with query-mix caveats. This descriptive comparison cannot isolate the effect of copy from site age, recrawling, demand or other releases. Follow with a second complete 28-day window for a more comparable trend.
+5. Review each page's disclosed queries and locale/device shifts, not only aggregate rank. Check whether the target page remains the selected canonical and whether useful canonical exclusions changed. Do not resubmit thousands of URLs or treat accepted submissions as indexing evidence.
+6. Report completed readings only if an existing, explicitly verified source measures that action. Otherwise keep it **unverified**, not zero. Cloudflare page views/visits and AI citations are not completed readings. ChatGPT/Perplexity referrals likewise require an actual referrer report and its attribution limitations; no new tracking is authorised here.
+7. If click counts remain small, report uncertainty and extend observation by another complete window. Do not label the experiment successful because impressions alone increased. Keep the original baseline immutable and retain the new raw snapshot alongside a dated comparison report.
+
+Comparison report fields per page: observed window and days; canonical URL; clicks; impressions; CTR; average position; disclosed query rows; disclosed countries/devices; Google AI impressions or unlisted; completed readings or unverified; referral counts or unverified; changes/releases during window; interpretation and sample-size limitation.
