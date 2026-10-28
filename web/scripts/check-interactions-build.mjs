@@ -19,7 +19,7 @@ for(const [i,locale] of locales.entries()){
  assert.equal(searchEntries(entries,'coins').filter(e=>e.type==='cards').length,14);
  assert.deepEqual(searchEntries(entries,'zz_nonexistent_tarot_word_zz'),[]);
  const search=readFileSync(output('/'+locale+'search'),'utf8');assert.ok(search.includes('data-search-empty')&&search.includes('search-page-result'));
- const read=readFileSync(output('/'+locale+'read'),'utf8');for(const marker of ['data-workspace-loading','data-workspace-failed','id="card-picker"','data-draft-status','id="companion-concept"','data-spread-context','data-motion-toggle'])assert.ok(read.includes(marker),`${locale} missing ${marker}`);
+ const read=readFileSync(output('/'+locale+'read'),'utf8');for(const marker of ['data-workspace-loading','data-workspace-failed','id="card-picker"','data-draft-status','id="companion-concept"','data-desk-board','data-desk-spread-name','data-desk-connections','data-motion-toggle'])assert.ok(read.includes(marker),`${locale} missing ${marker}`);
 }
 console.log(`Interaction build audit passed: 8 localized indexes; ${count} real result routes and thumbnail files; aliases, translated reversals, card counts, and workspace recovery markup.`);
 console.log('Does not replace keyboard, visual, native-device, screen-reader or consumer testing.');
