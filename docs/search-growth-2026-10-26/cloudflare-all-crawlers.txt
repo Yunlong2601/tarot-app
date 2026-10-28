@@ -1,0 +1,219 @@
+Analyze AI traffic patterns and referral trends
+
+Documentation
+Add filter
+Last 7 days
+Total requests
+23k
+2027.41%
+Allowed requests
+23k
+2033.24%
+Unsuccessful requests
+64
+966.67%
+Requests over time
+
+Review AI crawler requests over time for your domain.
+
+2xx
+3xx
+4xx
+5xx
+All
+Group by:
+Crawler
+Category
+Operator
+Host
+Content type
+Googlebot
+6.7k
+Meta-ExternalAgent
+6.68k
+ClaudeBot
+6.41k
+Applebot
+1.65k
+OAI-SearchBot
+967
++9 More
+882
+Oct 21, 02:00
+Oct 22, 03:00
+Oct 23, 04:00
+Oct 24, 06:00
+Oct 25, 08:00
+Oct 26, 22:00
+1k
+2k
+3k
+4k
+5k
+6k
+Data transfer over time
+
+Review data transferred by AI crawlers over time for your domain.
+
+Group by:
+Crawler
+Category
+Operator
+Host
+Content type
+Meta-ExternalAgent
+90.49 MB
+ClaudeBot
+83.27 MB
+Googlebot
+65.13 MB
+Amazonbot
+14.87 MB
+Applebot
+11.11 MB
++9 More
+16.56 MB
+Oct 21, 01:00
+Oct 22, 02:00
+Oct 23, 04:00
+Oct 24, 06:00
+Oct 25, 08:00
+Oct 26, 22:00
+20 MB
+40 MB
+60 MB
+80 MB
+Content format
+
+Compare what crawlers ask for against what your site delivers.
+
+Comparison
+Request type
+Response type
+Matched
+0
+Unmatched
+0
+No content format data available
+Status code distribution
+
+View the distribution of HTTP status codes for AI crawler requests over time.
+
+2xx
+200
+23.29k Requests
+204
+2 Requests
+23.29k
+4xx
+403
+2 Requests
+404
+61 Requests
+405
+1 Requests
+64
+3xx
+304
+4 Requests
+4
+Oct 21, 02:00
+Oct 22, 03:00
+Oct 23, 04:00
+Oct 24, 06:00
+Oct 25, 08:00
+Oct 26, 22:00
+1k
+2k
+3k
+4k
+5k
+6k
+Most crawled paths
+
+View the most crawled paths by AI crawlers.
+
+2xx
+3xx
+4xx
+5xx
+All
+Paths
+Patterns
+Path
+Host
+Content type
+Bytes Transferred
+Requests
+Referral Traffic
+/read
+shentarot.com
+HTML
+11.44 MB
+507
+—
+/zh-hans/read
+shentarot.com
+HTML
+11.88 MB
+478
+—
+/zh-hant/read
+shentarot.com
+HTML
+11.07 MB
+445
+—
+/fr/read
+shentarot.com
+HTML
+10.9 MB
+444
+—
+/ru/read
+shentarot.com
+HTML
+12.43 MB
+439
+—
+/es/read
+shentarot.com
+HTML
+10.13 MB
+435
+—
+/ja/read
+shentarot.com
+HTML
+11.37 MB
+429
+—
+/de/read
+shentarot.com
+HTML
+10.18 MB
+420
+—
+/_astro/Base.Iweq1bip.css
+shentarot.com
+CSS
+3.42 MB
+256
+—
+/tools/combinations
+shentarot.com
+HTML
+3.53 MB
+233
+—
+Requests: Sorted descending.
+Showing 1-10 of 4102
+Support
+System Status
+Careers
+Terms of Use
+Report Security Issues
+Privacy Policy
+Cookie Preferences
+© 2026 Cloudflare, Inc.
+20000000

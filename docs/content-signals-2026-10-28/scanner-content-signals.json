@@ -1,0 +1,144 @@
+{
+  "status": "pass",
+  "message": "Content Signals found in robots.txt",
+  "messageRef": {
+    "code": "check.contentSignals.found"
+  },
+  "details": {
+    "signals": [
+      {
+        "userAgent": "GPTBot",
+        "path": null,
+        "aiTrain": "no",
+        "search": "yes",
+        "aiInput": "no"
+      },
+      {
+        "userAgent": "OAI-SearchBot",
+        "path": null,
+        "aiTrain": "no",
+        "search": "yes",
+        "aiInput": "no"
+      },
+      {
+        "userAgent": "ChatGPT-User",
+        "path": null,
+        "aiTrain": "no",
+        "search": "yes",
+        "aiInput": "no"
+      },
+      {
+        "userAgent": "ClaudeBot",
+        "path": null,
+        "aiTrain": "no",
+        "search": "yes",
+        "aiInput": "no"
+      },
+      {
+        "userAgent": "Claude-SearchBot",
+        "path": null,
+        "aiTrain": "no",
+        "search": "yes",
+        "aiInput": "no"
+      },
+      {
+        "userAgent": "Claude-User",
+        "path": null,
+        "aiTrain": "no",
+        "search": "yes",
+        "aiInput": "no"
+      },
+      {
+        "userAgent": "PerplexityBot",
+        "path": null,
+        "aiTrain": "no",
+        "search": "yes",
+        "aiInput": "no"
+      },
+      {
+        "userAgent": "Perplexity-User",
+        "path": null,
+        "aiTrain": "no",
+        "search": "yes",
+        "aiInput": "no"
+      },
+      {
+        "userAgent": "Google-Extended",
+        "path": null,
+        "aiTrain": "no",
+        "search": "yes",
+        "aiInput": "no"
+      },
+      {
+        "userAgent": "Applebot-Extended",
+        "path": null,
+        "aiTrain": "no",
+        "search": "yes",
+        "aiInput": "no"
+      },
+      {
+        "userAgent": "Bingbot",
+        "path": null,
+        "aiTrain": "no",
+        "search": "yes",
+        "aiInput": "no"
+      },
+      {
+        "userAgent": "CCBot",
+        "path": null,
+        "aiTrain": "no",
+        "search": "yes",
+        "aiInput": "no"
+      },
+      {
+        "userAgent": "*",
+        "path": null,
+        "aiTrain": "no",
+        "search": "yes",
+        "aiInput": "no"
+      }
+    ],
+    "signalCount": 13
+  },
+  "evidence": [
+    {
+      "action": "fetch",
+      "label": "GET /robots.txt",
+      "request": {
+        "url": "https://shentarot.com/robots.txt",
+        "method": "GET"
+      },
+      "response": {
+        "status": 200,
+        "statusText": "OK",
+        "headers": {
+          "content-type": "text/plain",
+          "content-length": "1171",
+          "cf-ray": "a5132646b8693f63-SIN"
+        },
+        "bodyPreview": "User-agent: GPTBot\nContent-Signal: ai-train=no, search=yes, ai-input=no\nAllow: /\n\nUser-agent: OAI-SearchBot\nContent-Signal: ai-train=no, search=yes, ai-input=no\nAllow: /\n\nUser-agent: ChatGPT-User\nContent-Signal: ai-train=no, search=yes, ai-input=no\nAllow: /\n\nUser-agent: ClaudeBot\nContent-Signal: ai-train=no, search=yes, ai-input=no\nAllow: /\n\nUser-agent: Claude-SearchBot\nContent-Signal: ai-train=no, search=yes, ai-input=no\nAllow: /\n\nUser-agent: Claude-User\nContent-Signal: ai-train=no, search=yes,..."
+      },
+      "finding": {
+        "outcome": "positive",
+        "summary": "Received valid robots.txt (200, text/plain)"
+      }
+    },
+    {
+      "action": "parse",
+      "label": "Parse Content-Signal directives",
+      "finding": {
+        "outcome": "positive",
+        "summary": "Found 13 Content-Signal directive(s)"
+      }
+    },
+    {
+      "action": "conclude",
+      "label": "Conclusion",
+      "finding": {
+        "outcome": "positive",
+        "summary": "Content Signals found in robots.txt"
+      }
+    }
+  ],
+  "durationMs": 0
+}

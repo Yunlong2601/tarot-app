@@ -1,53 +1,77 @@
 ---
+import '../../styles/reading-desk.css';
+import { deskCopy } from '../../i18n/reading-desk';
+import type { SpreadPoint } from '../../lib/spread-stage';
+import CompanionConcept from "../../components/CompanionConcept.astro";
+import MotionControl from "../../components/MotionControl.astro";
 import Base from '../../layouts/Base.astro';
+import { drawCopy } from '../../i18n/draw';
+import type { Spread } from '../../lib/workspace';
+import { freeDrawSpreads } from '../../lib/draw-transfer';
 import { BASE } from '../../config';
 import { i18n, langPaths, type Locale } from '../../i18n';
-import { readerDeck, spreadIds } from '../../lib/data';
+import { readerDeck, spreadIds, APP_SPREADS } from '../../lib/data';
 export const getStaticPaths = langPaths;
 const { lang } = Astro.props as { lang: Locale };
-const L = i18n(lang), w = L.workspace;
-const spreads = spreadIds.map(id => ({ id, name: L.content.spreads[id].name, positions: L.content.spreads[id].positions }));
+const L = i18n(lang), w = L.workspace, D = drawCopy(lang), desk = deskCopy(lang);
+const spreads: (Spread & {layout?:SpreadPoint[]})[] = spreadIds.map(id => ({ id, name: L.content.spreads[id].name, positions: L.content.spreads[id].positions, layout:APP_SPREADS[id]!.layout }));
+spreads.push(...freeDrawSpreads(D.freeSpread, D.position));
 const english = i18n("en");
-const config = { j:L.journey, g: L.growth, deck: readerDeck(L).map(c=>({...c,englishName:english.cards[c.id]!.name})), spreads, w, base: BASE, cardsUrl: L.url('cards'), up: L.t('card.upright'), rev: L.t('card.reversed'), more: L.t('reader.fullMeaning') };
+const config = { desk, draw:D, i:L.interactions, j:L.journey, g: L.growth, deck: readerDeck(L).map(c=>({...c,englishName:english.cards[c.id]!.name})), spreads, w, base: BASE, cardsUrl: L.url('cards'), up: L.t('card.upright'), rev: L.t('card.reversed'), more: L.t('reader.fullMeaning') };
 ---
 <Base title={w.title} description={w.description} path="read" noCta lang={lang}>
-  <header class="page-head"><p class="eyebrow">ShenTarot</p><h1>{w.title}</h1><p class="lead">{w.description}</p></header>
-  <noscript><p>{w.practiceHint}</p><p><a href={L.url('cards')}>{w.find}</a> · <a href={L.url('spreads')}>{w.choose}</a></p></noscript>
+  <header class="page-head reading-head"><p class="eyebrow">ShenTarot / {desk.eyebrow}</p><h1>{desk.title}</h1><p class="lead">{w.description}</p></header>
+  <noscript><style>.workspace-loading{display:none!important}</style><p>{w.practiceHint}</p><p><a href={L.url('cards')}>{w.find}</a> · <a href={L.url('spreads')}>{w.choose}</a></p></noscript>
+  <aside class="workspace-loading panel" data-workspace-loading role="status"><p data-workspace-pending>{L.interactions.workspaceLoading}</p><p hidden data-workspace-failed>{L.interactions.workspaceFailed} <a href={L.url('read')}>{L.interactions.retry}</a> · <a href={L.url('cards')}>{w.find}</a></p></aside>
   <div data-workspace hidden data-config={JSON.stringify(config)}>
     <dialog data-overwrite-dialog aria-labelledby="overwrite-title" aria-describedby="overwrite-message"><h2 id="overwrite-title">{L.journey.confirmTitle}</h2><p id="overwrite-message" data-overwrite-message></p><div class="action-row"><button class="btn btn-ghost" data-overwrite-cancel type="button">{L.journey.cancel}</button><button class="btn btn-gold" data-overwrite-confirm type="button"></button></div></dialog>
-    <div class="workspace-grid">
-      <section class="panel workspace-input">
-        <label>{w.choose}<select data-spread>{spreads.map(s => <option value={s.id} selected={s.id === 'three'}>{s.name} ({s.positions.length})</option>)}</select></label>
-        <label>{w.question}<input data-question maxlength="5000" /></label>
-        <label>{w.impression}<textarea data-impression maxlength="5000" rows="3"></textarea></label>
-        <button class="btn btn-ghost btn-sm" data-skip type="button">{w.skip}</button>
-        <p class="muted">{w.complete}</p>
-        <p class="ready-count" data-ready role="status"></p><div data-slots></div>
-        <a class="btn btn-ghost" href="#reference">{w.practice}</a>
-      </section>
-      <section class="workspace-output" id="reference" aria-label={w.practice}>
-        <h2>{w.practice}</h2><p>{w.practiceHint}</p>
-        <div data-meanings></div>
-        <section class="panel connection-guide" data-connections hidden aria-labelledby="connection-title"><h2 id="connection-title">{w.connections}</h2><p>{L.journey.connectionIntro}</p><ol data-connection></ol><p>{L.journey.wholeSpread}</p><div class="action-row"><a class="btn btn-ghost" href="#workspace-reflection">{L.journey.writeReflection}</a><a href={L.url('learn/connected-reading')}>{L.growth.exampleTitle}</a></div></section>
-        <aside class="panel ai-availability"><h2>{w.aiTitle}</h2><p>{w.aiNote}</p></aside>
-      </section>
-    </div>
-    <section class="panel reflection-panel" id="saved-reflection">
-      <h2>{L.growth.reviewTitle}</h2><p>{L.growth.reviewPrompt}</p><p><a href={L.url("learn/practice")}>{L.growth.practiceTitle}</a></p>
-      <label>{w.reflection}<textarea id="workspace-reflection" data-reflection maxlength="5000" rows="5"></textarea></label>
-      <p class="muted">{w.storageNote}</p>
-      <div class="action-row">
-        <button class="btn btn-gold" type="button" data-save>{w.save}</button>
-        <button class="btn btn-ghost" type="button" data-restore>{w.restore}</button>
-        <button class="btn btn-ghost" type="button" data-copy>{w.copy}</button>
-        <button class="btn btn-ghost" type="button" data-export>{w.export}</button>
-        <button class="btn btn-ghost" type="button" data-print>{w.print}</button>
-        <button class="btn btn-ghost" type="button" data-delete>{w.delete}</button>
+    <dialog id="card-picker" class="ritual-dialog picker-dialog" aria-labelledby="picker-title" data-art-base={`${BASE}cards/art/`}>
+      <div class="dialog-heading"><div><p class="eyebrow" data-picker-position></p><h2 id="picker-title">{L.interactions.pickerTitle}</h2></div><button class="icon-button" type="button" data-dialog-close aria-label={L.interactions.close}>×</button></div>
+      <p id="picker-help" class="muted">{L.interactions.pickerHelp}</p>
+      <label for="picker-query">{L.journey.filter}</label><input id="picker-query" type="search" data-picker-query role="combobox" aria-autocomplete="list" aria-controls="picker-options" aria-expanded="false" aria-describedby="picker-help" autocomplete="off"/>
+      <p role="status" data-picker-count></p><div class="picker-columns"><div id="picker-options" role="listbox" aria-label={w.selectCard} data-picker-options></div><aside class="picker-preview" data-picker-preview aria-label={L.interactions.preview}></aside></div>
+      <div class="dialog-footer"><small>{L.interactions.help}</small><button type="button" class="btn btn-ghost btn-sm" data-picker-clear>{L.interactions.clearCard}</button></div>
+    </dialog>
+    <section class="reading-brief" aria-label={w.title}>
+      <div class="reading-question"><label>{w.question}<textarea data-question data-writing maxlength="5000" rows="2" placeholder={L.interactions.prompts[0]} aria-describedby="question-count"></textarea><small id="question-count" data-counter-for="question" hidden></small></label>
+        <div class="writing-prompts" aria-label={L.interactions.promptLabel}>{L.interactions.prompts.map(prompt=><button type="button" data-question-prompt={prompt}>{prompt}</button>)}</div>
       </div>
-      <p role="status" aria-live="polite" data-status></p>
+      <div class="reading-brief-margin"><label>{w.choose}<select data-spread>{spreads.map(s => <option value={s.id} selected={s.id === 'three'}>{s.name}{!s.id.startsWith("draw_") && ` (${s.positions.length})`}</option>)}</select></label>
+        <details class="reading-first-look"><summary>{w.impression}</summary><label>{w.impression}<textarea data-impression data-writing maxlength="5000" rows="3" aria-describedby="impression-count"></textarea><small id="impression-count" data-counter-for="impression" hidden></small></label></details>
+        <p class="draft-status" data-draft-status role="status" aria-live="polite"></p>
+      </div>
     </section>
-    <p class="muted">{w.disclaimer}</p>
+    <section class="reading-desk" data-reading-desk id="reference" aria-labelledby="connection-title">
+      <header class="desk-header"><div><p class="eyebrow">01 / {desk.positions}</p><h2 id="connection-title" data-reference-title tabindex="-1" data-desk-spread-name></h2></div><p class="ready-count" data-ready role="status"></p></header>
+      <div class="desk-body">
+        <div class="desk-canvas"><div class="desk-board" data-desk-board role="group" aria-label={w.diagram}></div><div class="desk-position-nav" data-desk-nav role="group" aria-label={desk.positions}></div></div>
+        <aside class="desk-margin" aria-label={w.practice}>
+          <div class="desk-mode" role="group" aria-label={w.practice}><button type="button" data-desk-cards aria-pressed="true">{desk.cards}</button><button type="button" data-desk-connections aria-pressed="false">{desk.connections}</button></div>
+          <div class="desk-note" data-desk-note></div>
+          <div class="desk-note-actions"><button type="button" data-desk-edit>{desk.edit}</button><a data-desk-more href={L.url('cards')}>{L.t('reader.fullMeaning')} ↗</a></div>
+          <div class="desk-pagination"><button type="button" data-desk-previous aria-label={desk.previous}>←</button><span data-desk-counter></span><button type="button" data-desk-next aria-label={desk.next}>→</button></div>
+          <a class="desk-reflect-link" href="#workspace-reflection">{L.journey.writeReflection} <span aria-hidden="true">↗</span></a>
+        </aside>
+      </div>
+      <footer class="desk-footer"><MotionControl L={L}/><p>{w.practiceHint}</p></footer>
+    </section>
+    <div class="reading-reference-tools">
+      <details class="desk-editor" data-card-editor><summary><span>↗</span> {desk.editSpread}</summary><p>{w.complete}</p><button class="btn btn-ghost btn-sm" data-skip type="button">{w.skip}</button><div data-slots></div></details>
+      <details class="desk-all-meanings"><summary><span>↗</span> {desk.allMeanings}</summary><div data-meanings></div></details>
+    </div>
+    <section class="reflection-panel reading-reflection" id="saved-reflection">
+      <div class="reflection-heading"><p class="eyebrow">02 / {w.reflection}</p><h2>{desk.reflectionTitle}</h2><p>{desk.reflectionNote}</p></div>
+      <div class="reflection-writing"><label>{w.reflection}<textarea id="workspace-reflection" data-reflection data-writing maxlength="5000" rows="5" aria-describedby="reflection-count"></textarea><small id="reflection-count" data-counter-for="reflection" hidden></small></label>
+        <div class="action-row"><button class="btn btn-gold" type="button" data-save>{w.save}</button><button class="btn btn-ghost" type="button" data-export>{w.export} ↗</button><details class="reflection-options"><summary>{desk.options}</summary><div><button type="button" data-restore>{w.restore}</button><button type="button" data-copy>{w.copy}</button><button type="button" data-print>{w.print}</button><button type="button" data-delete>{w.delete}</button></div></details></div>
+        <p role="status" aria-live="polite" data-status></p><p class="reflection-storage">{w.storageNote}</p>
+      </div>
+    </section>
+    <details class="reading-availability"><summary>{w.aiTitle}</summary><p>{w.aiNote}</p><CompanionConcept L={L}/></details>
+    <p class="muted reading-disclaimer">{w.disclaimer}</p>
     <article class="print-reading" data-print-reading></article>
   </div>
 </Base>
+<script is:inline>
+  setTimeout(()=>{const loading=document.querySelector('[data-workspace-loading]');if(loading&&!loading.hidden){const failure=loading.querySelector('[data-workspace-failed]');if(failure)failure.hidden=false;const pending=loading.querySelector('[data-workspace-pending]');if(pending)pending.hidden=true;}},10000);
+</script>
 <script src="../../scripts/workspace.ts"></script>

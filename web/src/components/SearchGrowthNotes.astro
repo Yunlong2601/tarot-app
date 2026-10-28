@@ -1,0 +1,99 @@
+---
+// Original editorial examples, deliberately limited to the five audited URLs.
+// Static HTML only: no generated readings, analytics or client-side dependency.
+import { BASE } from '../config';
+interface Props { kind: 'library' | 'love' | 'draw' | 'arcana' | 'judgement' }
+const { kind } = Astro.props;
+---
+<section class="growth-notes" data-growth-notes={kind}>
+  {kind === 'library' && <>
+    <p class="eyebrow">从牌面开始，而不是背答案</p>
+    <h2>怎样查找塔罗牌的正位与逆位含义？</h2>
+    <p>先搜索牌名，再选择正位或逆位。每张牌的详情会解释图像、关键词与常见解读；含义是参考，不是对未来或他人想法的确定判断。</p>
+    <ol>
+      <li><a href="#major">大阿尔卡那：22张牌</a>，从愚者到世界，常用于讨论较长的主题。</li>
+      <li><a href="#wands">权杖</a>、<a href="#cups">圣杯</a>、<a href="#swords">宝剑</a>、<a href="#pentacles">星币</a>：56张小阿尔卡那，提供日常情境的线索。</li>
+      <li>把牌义放回问题与牌阵位置，再比较相邻的牌。不要只凭一张牌下结论。</li>
+    </ol>
+    <p>可以先看<a href={`${BASE}zh-hans/cards/major-00-fool`}>愚者的开始</a>、<a href={`${BASE}zh-hans/cards/cups-queen`}>圣杯王后的关怀</a>与<a href={`${BASE}zh-hans/cards/major-20-judgement`}>审判的回顾</a>，或读<a href={`${BASE}zh-hans/learn/major-and-minor-arcana`}>大、小阿尔卡那的区别</a>。想理解情绪线索，可进一步看<a href={`${BASE}zh-hans/cards/cups-queen/feelings`}>圣杯王后作为感受的解读</a>；想了解逆位，先读<a href={`${BASE}zh-hans/learn/reversed-cards`}>逆位牌入门</a>。</p>
+  </>}
+  {kind === 'love' && <>
+    <p class="eyebrow">A meaning in context</p>
+    <h2>Ace of Pentacles in love: a beginning you can build on</h2>
+    <p>In a love reading, the Ace of Pentacles can represent an opportunity to build something steady through practical care. Reversed, it can invite a closer look at readiness, follow-through or a missing foundation. Neither orientation proves another person’s feelings or promises an outcome.</p>
+    <h3>If you are single</h3>
+    <p>Consider a small, realistic opening: accepting an invitation, making time to meet people, or deciding what reliability looks like to you. The card offers a reflection on your next step, not a promise that someone will arrive.</p>
+    <h3>If you are in a relationship</h3>
+    <p>Look for care you can observe: keeping an agreement, sharing responsibilities or setting aside time together. Reversed, ask which commitment is still an idea rather than a shared plan.</p>
+    <h3>As a possible outcome</h3>
+    <p>Read the Ace as potential that needs attention. A promising start is different from an established relationship. Check the question, position and surrounding cards before treating it as reassurance.</p>
+    <h3>Worked example: opportunity → obstacle → next step</h3>
+    <p><a href={`${BASE}cards/pentacles-ace`}>Ace of Pentacles upright</a> in opportunity suggests a practical opening. <a href={`${BASE}cards/pentacles-two?orientation=reversed`}>Two of Pentacles reversed</a> in obstacle introduces competing demands. <a href={`${BASE}cards/major-14-temperance`}>Temperance</a> in next step suggests a manageable pace. Together: make one small agreement you can both keep, rather than a large promise.</p>
+    <p>This is an authored example, not an AI or personal reading. Looking specifically for emotional interpretations? See <a href={`${BASE}cards/pentacles-ace/feelings`}>Ace of Pentacles as feelings</a>.</p>
+    <p><a class="btn btn-ghost" href={`${BASE}read?card=pentacles_ace`}>Use this card in a spread</a></p>
+  </>}
+  {kind === 'draw' && <>
+    <h2>How to shuffle, choose and reveal your tarot cards</h2>
+    <ol>
+      <li>Choose free draw or a named spread. Named spreads set the number of cards and their positions.</li>
+      <li>Write an optional question, then shuffle. The deck order is randomised in your browser before you pick.</li>
+      <li>Choose a face-down card, or use Choose for me. Each card moves into the next spread position. The same card cannot appear twice in one draw.</li>
+      <li>Turn all the cards over, then choose “Explore & reflect” to carry the draw and question into <a href={`${BASE}read`}>Interpret my cards</a>.</li>
+    </ol>
+    <h3>What does the shuffle change?</h3>
+    <p>The generator uses your browser’s cryptographic random source to shuffle all 78 cards. Reversed orientations are set before selection, with a one-in-four probability per card in ordinary draws and one-in-two in Yes or No; an individual spread may contain any number of reversed cards. Animation presents the draw and does not determine its outcome.</p>
+    <p>You can use the keyboard, Choose for me, Skip, or the motion control without changing the selected cards. Shuffle again asks before replacing chosen cards. Cancel to keep the draw, or copy anything you want to retain before starting another.</p>
+    <p>For a structured start, try the <a href={`${BASE}spreads/horseshoe#try`}>seven-card Horseshoe</a> or <a href={`${BASE}spreads/celtic#try`}>ten-card Celtic Cross</a>. The <a href={`${BASE}learn/connected-reading`}>connected-reading example</a> shows how to move beyond isolated meanings.</p>
+    <p>Reference meanings and practice prompts only. This tool does not send your question to an AI service.</p>
+  </>}
+  {kind === 'arcana' && <>
+    <h2>大阿尔卡那与小阿尔卡那：一眼比较</h2>
+    <table>
+      <caption>常见的莱德-韦特-史密斯解读框架，并非预测规则</caption>
+      <thead><tr><th scope="col">比较</th><th scope="col">大阿尔卡那</th><th scope="col">小阿尔卡那</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">数量</th><td>22张，编号0至21</td><td>56张，四个牌组各14张</td></tr>
+        <tr><th scope="row">常见关注点</th><td>价值观、变化与较长的主题</td><td>日常行动、情绪、想法与资源</td></tr>
+        <tr><th scope="row">例子</th><td><a href={`${BASE}zh-hans/cards/major-01-magician`}>魔术师</a>：如何运用已有资源</td><td><a href={`${BASE}zh-hans/cards/pentacles-eight`}>星币八</a>：如何练习一项技能</td></tr>
+      </tbody>
+    </table>
+    <figure class="growth-pair">
+      <div><img src={`${BASE}cards/art/major_01_magician.jpg`} alt="魔术师：举起的魔杖与桌上的工具" width="150" height="257" loading="lazy"/><img src={`${BASE}cards/art/pentacles_eight.jpg`} alt="星币八：工匠反复雕刻星币" width="150" height="257" loading="lazy"/></div>
+      <figcaption>原创练习示例：魔术师放在“主题”位置，星币八放在“行动”位置，可以把“运用资源”落实为“每天练习十分钟”。位置和问题比单纯计算两类牌的比例更有用。</figcaption>
+    </figure>
+  </>}
+  {kind === 'judgement' && <>
+    <p class="eyebrow">Read the image, then the position</p>
+    <h2>Which tarot card is number 20?</h2>
+    <p>Card 20 (XX) in the Rider-Waite-Smith Major Arcana is Judgement. Its trumpet and rising figures are commonly read as symbols of awakening, reflection and renewal. The Fool is numbered 0, so card number 20 is not the twentieth card when counting from the Fool.</p>
+    <h2>Judgement upright and reversed at a glance</h2>
+    <p>Upright, Judgement can suggest honest review, forgiveness and a decision to live differently. Reversed, it can point to avoiding that review or turning it into harsh self-criticism. It is a reflection framework, not a verdict or a prediction.</p>
+    <h3>From symbol to meaning</h3>
+    <p>The trumpet makes a call visible; the rising figures suggest a response. This supports an interpretation of noticing something and choosing how to answer it. The image does not establish that a reunion, decision or external event will happen.</p>
+    <h3>The same card in two positions</h3>
+    <p>In “what to recognise,” Judgement upright might ask you to acknowledge a pattern you have outgrown. In “what makes change difficult,” Judgement reversed might ask whether fear of getting it wrong has become a reason to postpone a small decision.</p>
+    <h3>A connected-card example</h3>
+    <p>Judgement in review, <a href={`${BASE}cards/pentacles-eight`}>Eight of Pentacles</a> in action and <a href={`${BASE}cards/major-14-temperance`}>Temperance</a> in pace suggest: name one lesson, practise one change, and leave time to adjust. This authored example is not a generated reading.</p>
+    <p><a class="btn btn-ghost" href={`${BASE}read?card=major_20_judgement`}>Reflect with Judgement in a spread</a> · <a href={`${BASE}cards/major-20-judgement?orientation=reversed#card-meanings`}>Open its reversed meaning</a></p>
+  </>}
+  <footer class="growth-credit">
+    {kind === 'library' || kind === 'arcana'
+      ? <p>ShenTarot 编辑示例 · 仅供娱乐与自我反思。<a href={`${BASE}zh-hans/methodology`}>了解我们的编写方法与审核限制</a>。</p>
+      : <p>Original editorial guidance by ShenTarot · For entertainment and self-reflection. <a href={`${BASE}methodology`}>How our meanings are written and reviewed</a>.</p>}
+  </footer>
+</section>
+<style>
+  .growth-notes { max-width: 72ch; margin: 3rem auto; padding: 1.5rem 0; border-block: 1px solid var(--line, #c5c3b5); }
+  .growth-notes h2 { margin-top: 0; }
+  .growth-notes h3 { margin: 1.6rem 0 .5rem; }
+  .growth-notes li { margin-block: .65rem; }
+  .growth-notes a:not(.btn) { text-decoration: underline; text-underline-offset: .2em; }
+  .growth-notes table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: .95rem; }
+  .growth-notes th, .growth-notes td { padding: .7rem .4rem; border-bottom: 1px solid #b9bcaf; text-align: start; vertical-align: top; overflow-wrap: anywhere; }
+  .growth-notes caption { text-align: start; margin-bottom: .8rem; }
+  .growth-pair { margin: 2rem 0; }
+  .growth-pair > div { display: flex; gap: 1rem; }
+  .growth-pair img { width: min(35%, 150px); height: auto; object-fit: contain; }
+  .growth-pair figcaption { margin-top: 1rem; }
+  .growth-credit { font-size: .85rem; margin-top: 2rem; }
+</style>

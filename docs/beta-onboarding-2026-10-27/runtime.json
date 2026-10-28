@@ -1,0 +1,237 @@
+[
+  {
+    "headerHeight": 85,
+    "links": [
+      {
+        "href": "https://groups.google.com/g/shentarot-testers",
+        "text": "Join Android tester group ↗"
+      },
+      {
+        "href": "https://play.google.com/apps/testing/com.shentech.shentarot",
+        "text": "Open Google Play invitation ↗"
+      },
+      {
+        "href": "https://play.google.com/store/apps/details?id=com.shentech.shentarot",
+        "text": "Install ShenTarot from Google Play ↗"
+      },
+      {
+        "href": "mailto:shenyunlongbusiness@gmail.com?subject=ShenTarot%20beta%20access",
+        "text": ""
+      },
+      {
+        "href": "https://apps.apple.com/app/testflight/id899247664",
+        "text": "Get Apple TestFlight ↗"
+      },
+      {
+        "href": "mailto:shenyunlongbusiness@gmail.com?subject=ShenTarot%20beta%20access",
+        "text": "Request iPhone beta access →"
+      },
+      {
+        "href": "mailto:shenyunlongbusiness@gmail.com?subject=ShenTarot%20beta%20access",
+        "text": ""
+      }
+    ],
+    "overflow": false,
+    "paths": [
+      {
+        "id": "android",
+        "right": 600.5,
+        "width": 541.40625
+      },
+      {
+        "id": "iphone",
+        "right": 1205.90625,
+        "width": 541.40625
+      }
+    ],
+    "width": 1280
+  },
+  {
+    "headerHeight": 85,
+    "links": [
+      {
+        "href": "https://groups.google.com/g/shentarot-testers",
+        "text": "Join Android tester group ↗"
+      },
+      {
+        "href": "https://play.google.com/apps/testing/com.shentech.shentarot",
+        "text": "Open Google Play invitation ↗"
+      },
+      {
+        "href": "https://play.google.com/store/apps/details?id=com.shentech.shentarot",
+        "text": "Install ShenTarot from Google Play ↗"
+      },
+      {
+        "href": "mailto:shenyunlongbusiness@gmail.com?subject=ShenTarot%20beta%20access",
+        "text": ""
+      },
+      {
+        "href": "https://apps.apple.com/app/testflight/id899247664",
+        "text": "Get Apple TestFlight ↗"
+      },
+      {
+        "href": "mailto:shenyunlongbusiness@gmail.com?subject=ShenTarot%20beta%20access",
+        "text": "Request iPhone beta access →"
+      },
+      {
+        "href": "mailto:shenyunlongbusiness@gmail.com?subject=ShenTarot%20beta%20access",
+        "text": ""
+      }
+    ],
+    "overflow": false,
+    "paths": [
+      {
+        "id": "android",
+        "right": 472.5,
+        "width": 432.140625
+      },
+      {
+        "id": "iphone",
+        "right": 968.640625,
+        "width": 432.140625
+      }
+    ],
+    "width": 1024
+  },
+  {
+    "headerHeight": 85,
+    "links": [
+      {
+        "href": "https://groups.google.com/g/shentarot-testers",
+        "text": "Join Android tester group ↗"
+      },
+      {
+        "href": "https://play.google.com/apps/testing/com.shentech.shentarot",
+        "text": "Open Google Play invitation ↗"
+      },
+      {
+        "href": "https://play.google.com/store/apps/details?id=com.shentech.shentarot",
+        "text": "Install ShenTarot from Google Play ↗"
+      },
+      {
+        "href": "mailto:shenyunlongbusiness@gmail.com?subject=ShenTarot%20beta%20access",
+        "text": ""
+      },
+      {
+        "href": "https://apps.apple.com/app/testflight/id899247664",
+        "text": "Get Apple TestFlight ↗"
+      },
+      {
+        "href": "mailto:shenyunlongbusiness@gmail.com?subject=ShenTarot%20beta%20access",
+        "text": "Request iPhone beta access →"
+      },
+      {
+        "href": "mailto:shenyunlongbusiness@gmail.com?subject=ShenTarot%20beta%20access",
+        "text": ""
+      }
+    ],
+    "overflow": false,
+    "paths": [
+      {
+        "id": "android",
+        "right": 411,
+        "width": 375.5625
+      },
+      {
+        "id": "iphone",
+        "right": 850.5625,
+        "width": 375.5625
+      }
+    ],
+    "width": 901
+  },
+  {
+    "headerHeight": 71,
+    "links": [
+      {
+        "href": "https://groups.google.com/g/shentarot-testers",
+        "text": "Join Android tester group ↗"
+      },
+      {
+        "href": "https://play.google.com/apps/testing/com.shentech.shentarot",
+        "text": "Open Google Play invitation ↗"
+      },
+      {
+        "href": "https://play.google.com/store/apps/details?id=com.shentech.shentarot",
+        "text": "Install ShenTarot from Google Play ↗"
+      },
+      {
+        "href": "mailto:shenyunlongbusiness@gmail.com?subject=ShenTarot%20beta%20access",
+        "text": ""
+      },
+      {
+        "href": "https://apps.apple.com/app/testflight/id899247664",
+        "text": "Get Apple TestFlight ↗"
+      },
+      {
+        "href": "mailto:shenyunlongbusiness@gmail.com?subject=ShenTarot%20beta%20access",
+        "text": "Request iPhone beta access →"
+      },
+      {
+        "href": "mailto:shenyunlongbusiness@gmail.com?subject=ShenTarot%20beta%20access",
+        "text": ""
+      }
+    ],
+    "overflow": false,
+    "paths": [
+      {
+        "id": "android",
+        "right": 355,
+        "width": 335
+      },
+      {
+        "id": "iphone",
+        "right": 355,
+        "width": 335
+      }
+    ],
+    "width": 390
+  },
+  {
+    "headerHeight": 71,
+    "links": [
+      {
+        "href": "https://groups.google.com/g/shentarot-testers",
+        "text": "Join Android tester group ↗"
+      },
+      {
+        "href": "https://play.google.com/apps/testing/com.shentech.shentarot",
+        "text": "Open Google Play invitation ↗"
+      },
+      {
+        "href": "https://play.google.com/store/apps/details?id=com.shentech.shentarot",
+        "text": "Install ShenTarot from Google Play ↗"
+      },
+      {
+        "href": "mailto:shenyunlongbusiness@gmail.com?subject=ShenTarot%20beta%20access",
+        "text": ""
+      },
+      {
+        "href": "https://apps.apple.com/app/testflight/id899247664",
+        "text": "Get Apple TestFlight ↗"
+      },
+      {
+        "href": "mailto:shenyunlongbusiness@gmail.com?subject=ShenTarot%20beta%20access",
+        "text": "Request iPhone beta access →"
+      },
+      {
+        "href": "mailto:shenyunlongbusiness@gmail.com?subject=ShenTarot%20beta%20access",
+        "text": ""
+      }
+    ],
+    "overflow": false,
+    "paths": [
+      {
+        "id": "android",
+        "right": 285,
+        "width": 265
+      },
+      {
+        "id": "iphone",
+        "right": 285,
+        "width": 265
+      }
+    ],
+    "width": 320
+  }
+]

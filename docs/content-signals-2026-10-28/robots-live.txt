@@ -1,0 +1,53 @@
+User-agent: GPTBot
+Content-Signal: ai-train=no, search=yes, ai-input=no
+Allow: /
+
+User-agent: OAI-SearchBot
+Content-Signal: ai-train=no, search=yes, ai-input=no
+Allow: /
+
+User-agent: ChatGPT-User
+Content-Signal: ai-train=no, search=yes, ai-input=no
+Allow: /
+
+User-agent: ClaudeBot
+Content-Signal: ai-train=no, search=yes, ai-input=no
+Allow: /
+
+User-agent: Claude-SearchBot
+Content-Signal: ai-train=no, search=yes, ai-input=no
+Allow: /
+
+User-agent: Claude-User
+Content-Signal: ai-train=no, search=yes, ai-input=no
+Allow: /
+
+User-agent: PerplexityBot
+Content-Signal: ai-train=no, search=yes, ai-input=no
+Allow: /
+
+User-agent: Perplexity-User
+Content-Signal: ai-train=no, search=yes, ai-input=no
+Allow: /
+
+User-agent: Google-Extended
+Content-Signal: ai-train=no, search=yes, ai-input=no
+Allow: /
+
+User-agent: Applebot-Extended
+Content-Signal: ai-train=no, search=yes, ai-input=no
+Allow: /
+
+User-agent: Bingbot
+Content-Signal: ai-train=no, search=yes, ai-input=no
+Allow: /
+
+User-agent: CCBot
+Content-Signal: ai-train=no, search=yes, ai-input=no
+Allow: /
+
+User-agent: *
+Content-Signal: ai-train=no, search=yes, ai-input=no
+Allow: /
+
+Sitemap: https://shentarot.com/sitemap.xml

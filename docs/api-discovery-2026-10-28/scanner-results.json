@@ -1,0 +1,204 @@
+{
+  "discovery.apiCatalog": {
+    "status": "pass",
+    "message": "API Catalog found with 1 API listed",
+    "messageRef": {
+      "code": "check.apiCatalog.found",
+      "params": {
+        "apiCount": 1
+      }
+    },
+    "details": {
+      "apiCount": 1,
+      "linksetEntries": 1,
+      "hasItems": false,
+      "hasNestedCatalogs": false,
+      "correctContentType": true
+    },
+    "evidence": [
+      {
+        "action": "fetch",
+        "label": "GET /.well-known/api-catalog",
+        "request": {
+          "url": "https://shentarot.com/.well-known/api-catalog",
+          "method": "GET",
+          "headers": {
+            "Accept": "application/linkset+json, application/json"
+          }
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "content-type": "application/linkset+json; charset=utf-8",
+            "content-length": "353",
+            "cf-ray": "a5133efd8f26fd41-SIN"
+          },
+          "bodyPreview": "{\"linkset\":[{\"anchor\":\"https://shentarot-api.shentech.workers.dev\",\"service-desc\":[{\"href\":\"https://shentarot.com/api/openapi.json\",\"type\":\"application/vnd.oai.openapi+json\"}],\"service-doc\":[{\"href\":\"https://shentarot.com/api/docs\",\"type\":\"text/html\"}],\"status\":[{\"href\":\"https://shentarot-api.shentech.workers.dev/health\",\"type\":\"application/json\"}]}]}"
+        },
+        "finding": {
+          "outcome": "positive",
+          "summary": "Received 200 with valid JSON response"
+        }
+      },
+      {
+        "action": "validate",
+        "label": "Validate Linkset structure",
+        "finding": {
+          "outcome": "positive",
+          "summary": "Found \"linkset\" array with 1 entries"
+        }
+      },
+      {
+        "action": "validate",
+        "label": "Analyze linkset entries",
+        "finding": {
+          "outcome": "positive",
+          "summary": "1 API listed, correct content-type"
+        }
+      },
+      {
+        "action": "conclude",
+        "label": "Conclusion",
+        "finding": {
+          "outcome": "positive",
+          "summary": "API Catalog found with 1 API listed"
+        }
+      }
+    ],
+    "durationMs": 108
+  },
+  "discoverability.linkHeaders": {
+    "status": "pass",
+    "message": "Found agent-useful Link relations: api-catalog, service-desc, service-doc, describedby",
+    "messageRef": {
+      "code": "check.linkHeaders.found",
+      "params": {
+        "relationNames": [
+          "api-catalog",
+          "service-desc",
+          "service-doc",
+          "describedby"
+        ]
+      }
+    },
+    "details": {
+      "relationsFound": [
+        {
+          "rel": "api-catalog",
+          "href": "https://shentarot.com/.well-known/api-catalog",
+          "type": "application/linkset+json"
+        },
+        {
+          "rel": "service-desc",
+          "href": "https://shentarot.com/api/openapi.json",
+          "type": "application/vnd.oai.openapi+json"
+        },
+        {
+          "rel": "service-doc",
+          "href": "https://shentarot.com/api/docs",
+          "type": "text/html"
+        },
+        {
+          "rel": "describedby",
+          "href": "https://shentarot.com/llms.txt",
+          "type": "text/plain"
+        }
+      ],
+      "totalLinks": 4
+    },
+    "evidence": [
+      {
+        "action": "fetch",
+        "label": "GET /",
+        "request": {
+          "url": "https://shentarot.com",
+          "method": "GET"
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "content-type": "text/html",
+            "link": "<https://shentarot.com/.well-known/api-catalog>; rel=\"api-catalog\"; type=\"application/linkset+json\", <https://shentarot.com/api/openapi.json>; rel=\"service-desc\"; type=\"application/vnd.oai.openapi+json\", <https://shentarot.com/api/docs>; rel=\"service-doc\"; type=\"text/html\", <https://shentarot.com/llms.txt>; rel=\"describedby\"; type=\"text/plain\"",
+            "cf-ray": "a5133efdbf58fd41-SIN"
+          }
+        },
+        "finding": {
+          "outcome": "positive",
+          "summary": "Target page returned 200 with Link header"
+        }
+      },
+      {
+        "action": "parse",
+        "label": "Parse Link header (RFC 8288)",
+        "finding": {
+          "outcome": "neutral",
+          "summary": "Parsed 4 link(s) from header"
+        }
+      },
+      {
+        "action": "parse",
+        "label": "Match agent-useful relations",
+        "finding": {
+          "outcome": "positive",
+          "summary": "Found agent-useful relations: api-catalog, service-desc, service-doc, describedby"
+        }
+      },
+      {
+        "action": "conclude",
+        "label": "Conclusion",
+        "finding": {
+          "outcome": "positive",
+          "summary": "Found agent-useful Link relations: api-catalog, service-desc, service-doc, describedby"
+        }
+      }
+    ],
+    "durationMs": 149
+  },
+  "contentAccessibility.markdownNegotiation": {
+    "status": "pass",
+    "message": "Site supports Markdown for Agents",
+    "messageRef": {
+      "code": "check.markdownNegotiation.supported"
+    },
+    "details": {
+      "contentType": "text/markdown; charset=utf-8"
+    },
+    "evidence": [
+      {
+        "action": "fetch",
+        "label": "GET target page (Accept: text/markdown)",
+        "request": {
+          "url": "https://shentarot.com",
+          "method": "GET",
+          "headers": {
+            "accept": "text/markdown",
+            "cache-control": "no-cache"
+          }
+        },
+        "finding": {
+          "outcome": "positive",
+          "summary": "Response content-type is text/markdown; charset=utf-8 -- site supports markdown negotiation"
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "content-type": "text/markdown; charset=utf-8",
+            "cf-ray": "a5133f0cf99ffe0d-SIN"
+          }
+        }
+      },
+      {
+        "action": "conclude",
+        "label": "Conclusion",
+        "finding": {
+          "outcome": "positive",
+          "summary": "Site supports Markdown for Agents"
+        }
+      }
+    ],
+    "durationMs": 560
+  }
+}

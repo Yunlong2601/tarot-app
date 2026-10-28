@@ -1,0 +1,168 @@
+{
+  "authMd": {
+    "status": "pass",
+    "message": "Auth.md support detected (ID-JAG, verified email, anonymous)",
+    "messageRef": {
+      "code": "check.authMd.detected",
+      "params": {
+        "methods": [
+          "id-jag",
+          "verified-email",
+          "anonymous"
+        ]
+      }
+    },
+    "details": {
+      "authMdUrl": "https://shentarot.com/auth.md",
+      "sourceField": "auth.md",
+      "registrationEndpoints": [
+        "https://shentarot-api.shentech.workers.dev/v1/install",
+        "/v1/install",
+        "/v1/reading",
+        "/v1/followup",
+        "/v1/account/signin"
+      ],
+      "credentialTypesSupported": [],
+      "supportsAnonymous": true,
+      "supportsIdJag": true,
+      "supportsVerifiedEmail": true,
+      "markerCount": 3,
+      "warnings": [
+        "OAuth Protected Resource Metadata was not found; using auth.md instructions only"
+      ]
+    },
+    "evidence": [
+      {
+        "action": "fetch",
+        "label": "GET /auth.md",
+        "request": {
+          "url": "https://shentarot.com/auth.md",
+          "method": "GET",
+          "headers": {
+            "Accept": "text/markdown, text/plain, */*"
+          }
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "content-type": "text/markdown; charset=utf-8",
+            "content-length": "4186",
+            "cf-ray": "a515b813adb73f63-SIN"
+          },
+          "bodyPreview": "# ShenTarot auth.md\n\n## 1. Audience and supported access\n\nFor agents helping a user understand ShenTarot or integrate its supported mobile\napp. Public pages, Markdown representations, API documentation and service health\nneed no credential. API resource server:\nhttps://shentarot-api.shentech.workers.dev\n\nIndependent agent registration and delegated account registration are not\nsupported. This document describes the existing app provisioning method; it does\nnot introduce an agent identity, claim ..."
+        },
+        "finding": {
+          "outcome": "positive",
+          "summary": "Received 200 response with content-type: text/markdown; charset=utf-8"
+        }
+      },
+      {
+        "action": "parse",
+        "label": "Detect Auth.md registration markers",
+        "finding": {
+          "outcome": "positive",
+          "summary": "Found 3 Auth.md marker(s)"
+        }
+      },
+      {
+        "action": "parse",
+        "label": "Detect self-contained Auth.md registration flow",
+        "finding": {
+          "outcome": "positive",
+          "summary": "Found 5 registration endpoint(s) and 2 credential marker(s)"
+        }
+      },
+      {
+        "action": "fetch",
+        "label": "GET /.well-known/oauth-protected-resource",
+        "request": {
+          "url": "https://shentarot.com/.well-known/oauth-protected-resource",
+          "method": "GET",
+          "headers": {
+            "Accept": "application/json"
+          }
+        },
+        "response": {
+          "status": 404,
+          "statusText": "Not Found",
+          "headers": {
+            "content-type": "text/html",
+            "cf-ray": "a515b8146dfc3f63-SIN"
+          }
+        },
+        "finding": {
+          "outcome": "negative",
+          "summary": "OAuth Protected Resource Metadata returned 404"
+        }
+      },
+      {
+        "action": "conclude",
+        "label": "Conclusion",
+        "finding": {
+          "outcome": "positive",
+          "summary": "Auth.md support detected (ID-JAG, verified email, anonymous)"
+        }
+      }
+    ],
+    "durationMs": 189
+  },
+  "oauthDiscovery": {
+    "status": "fail",
+    "message": "No OAuth/OIDC discovery metadata found",
+    "messageRef": {
+      "code": "check.oauthDiscovery.notFound"
+    },
+    "evidence": [
+      {
+        "action": "fetch",
+        "label": "GET /.well-known/openid-configuration",
+        "request": {
+          "url": "https://shentarot.com/.well-known/openid-configuration",
+          "method": "GET"
+        },
+        "response": {
+          "status": 404,
+          "statusText": "Not Found",
+          "headers": {
+            "content-type": "text/html",
+            "cf-ray": "a515b8136d973f63-SIN"
+          }
+        },
+        "finding": {
+          "outcome": "negative",
+          "summary": "openid-configuration returned 404"
+        }
+      },
+      {
+        "action": "fetch",
+        "label": "GET /.well-known/oauth-authorization-server",
+        "request": {
+          "url": "https://shentarot.com/.well-known/oauth-authorization-server",
+          "method": "GET"
+        },
+        "response": {
+          "status": 404,
+          "statusText": "Not Found",
+          "headers": {
+            "content-type": "text/html",
+            "cf-ray": "a515b8136d9a3f63-SIN"
+          }
+        },
+        "finding": {
+          "outcome": "negative",
+          "summary": "oauth-authorization-server returned 404"
+        }
+      },
+      {
+        "action": "conclude",
+        "label": "Conclusion",
+        "finding": {
+          "outcome": "negative",
+          "summary": "No OAuth/OIDC discovery metadata found at either well-known path"
+        }
+      }
+    ],
+    "durationMs": 47
+  }
+}

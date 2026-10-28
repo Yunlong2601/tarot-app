@@ -1,0 +1,9 @@
+---
+import { BASE } from '../config';
+import { betaLabels } from '../lib/beta';
+import type { Locale } from '../i18n';
+const { lang = 'en' } = Astro.props as { lang?: Locale };
+const copy = betaLabels[lang];
+---
+<p class="beta-invite"><a class="btn btn-ghost" href={`${BASE}beta`} hreflang="en">{copy.cta} ↗</a><small>{copy.note}</small></p>
+<style>.beta-invite { margin-top:1.5rem; } .beta-invite small { display:block; margin-top:.6rem; }</style>

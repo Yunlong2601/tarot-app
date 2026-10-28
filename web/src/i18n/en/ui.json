@@ -237,7 +237,7 @@
  },
  "reader": {
   "draw": "Shuffle and draw",
-  "questionLabel": "Your question (optional, stays on this page)",
+  "questionLabel": "Your question (optional, kept in this browser)",
   "placeholderYesNo": "Should I take the new job?",
   "placeholder": "What do I need to know about…",
   "askNote": "We picked this spread for your question. Shuffle when you're ready.",
@@ -798,11 +798,11 @@
   "takeaway": "What I take from this reading"
  },
  "random": {
-  "title": "Random tarot card generator: draw 1 to 10 cards · ShenTarot",
-  "description": "Draw random tarot cards from the full 78-card Rider-Waite-Smith deck. Tap a card to turn it over and read its meaning.",
+  "title": "Random tarot card generator: shuffle, pick & reveal · ShenTarot",
+  "description": "Shuffle all 78 tarot cards in your browser. Choose 1 to 10 cards or a named spread, reveal upright and reversed meanings, and reflect without an account or AI request.",
   "crumb": "Draw random cards",
-  "h1": "Draw a tarot card",
-  "lead": "Shuffled in your browser from all 78 cards. Tap a card to turn it over. About one card in four comes up reversed.",
+  "h1": "Random tarot card generator",
+  "lead": "Shuffle all 78 cards, choose intentionally, and reveal your spread. Draw 1 to 10 cards freely or let a named spread set the positions. No account or AI request needed.",
   "howMany": "How many cards",
   "turnOver": "Turn over this card"
  },

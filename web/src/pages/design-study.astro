@@ -1,0 +1,57 @@
+---
+import Base from '../layouts/Base.astro';
+import Reader from '../components/Reader.astro';
+import CompanionConcept from '../components/CompanionConcept.astro';
+import { i18n } from '../i18n';
+import { buildSearchIndex } from '../lib/search-index';
+import '../styles/design-study.css';
+const L=i18n('en');
+const index=buildSearchIndex('en');
+// Use the deck's actual shared identifiers, not a second catalogue.
+const cards=index.filter(e=>e.type==='cards');
+const art=[cards.find(c=>c.id==='major_18_moon')!,cards.find(c=>c.title==='The High Priestess')!,cards.find(c=>c.id==='major_17_star')!];
+---
+<Base title="ShenTarot — Creative interaction studies" description="Local, original prototypes for an illustrated tarot field guide." path="design-study" bare noCta localized={false} noIndex>
+<div id="design-study" data-direction="field" data-study-index-url={L.url('search-index.json')}>
+  <div class="study-utility"><span>SHENTAROT / LOCAL DESIGN STUDY</span><span>01 — THREE WAYS TO READ THE ROOM</span></div>
+  <div class="study-directions" role="group" aria-label="Choose a layout concept">
+    <button type="button" data-direction-choice="field" aria-pressed="true"><span>01</span> The Field Guide</button>
+    <button type="button" data-direction-choice="observatory" aria-pressed="false"><span>02</span> The Observatory</button>
+    <button type="button" data-direction-choice="reading" aria-pressed="false"><span>03</span> The Reading Room</button>
+  </div>
+  <section class="study-hero" aria-labelledby="study-title">
+    <div class="study-hero-copy"><p class="study-kicker" data-study-kicker>A FIELD GUIDE TO YOUR INNER WORLD</p><h1 id="study-title">A little space.<br/><em>A different perspective.</em></h1><p class="study-introduction" data-study-intro>Not every question needs an immediate answer. Begin with an image. Notice what it brings to the surface.</p>
+      <nav class="study-intents" aria-label="Begin your reading">
+        <a href="#study-draw"><span>01</span> Draw a spread <span aria-hidden="true">↗</span></a>
+        <a href={L.url('read')}><span>02</span> Interpret my cards <span aria-hidden="true">↗</span></a>
+        <button type="button" data-study-index-open><span>03</span> Open the illustrated index <span aria-hidden="true">↗</span></button>
+      </nav>
+    </div>
+    <div class="study-hero-art" role="group" aria-label="Three card illustrations">
+      <svg class="study-orbit" viewBox="0 0 600 600" aria-hidden="true"><ellipse cx="300" cy="300" rx="264" ry="221" transform="rotate(-24 300 300)"/><circle cx="300" cy="300" r="182"/><path d="M52 300H548M300 52V548"/><path d="M292 58L300 42L308 58L300 74Z"/></svg>
+      {art.map((card,i)=><figure class="study-hero-card" style={`--i:${i}`}><img src={card.image} alt={card.title} width="140" height="240" loading={i===1?'eager':'lazy'}/><figcaption><span>0{i+1}</span> {card.title}</figcaption></figure>)}
+      <span class="study-hero-seal" aria-hidden="true">✧</span><p class="study-art-note" data-study-art-note>Images to contemplate.<br/>Meanings to make your own.</p>
+    </div>
+  </section>
+  <div class="study-concept-note" role="status" data-study-concept-note>01 / The Field Guide — an open index, generous margins, images as invitations.</div>
+  <section class="study-drawing" id="study-draw" aria-labelledby="study-drawing-title">
+    <header class="study-section-head"><p class="study-kicker">02 / A QUESTION BECOMES A CONSTELLATION</p><h2 id="study-drawing-title">Let the cards<br/><em>find their place.</em></h2><p>Choose a spread, shuffle, then select a card back. Each card finds its numbered position. After revealing, focus a card to inspect it in the margin.</p></header>
+    <Reader positions={L.content.spreads.horseshoe.positions} spreadId="horseshoe" countSelectable lang="en"/>
+    <section class="study-inspector" data-study-inspector hidden aria-label="Card in focus">
+      <p class="study-kicker" data-inspector-position></p><img data-inspector-image alt="" width="140" height="240" loading="lazy"/>
+      <div><h3 data-inspector-title></h3><p data-inspector-orientation></p><p data-inspector-meaning></p><a data-inspector-link class="study-text-link">Open full meaning ↗</a></div>
+      <div class="study-inspector-controls"><button type="button" data-inspector-previous aria-label="Inspect previous revealed card">←</button><span data-inspector-progress></span><button type="button" data-inspector-next aria-label="Inspect next revealed card">→</button></div>
+      <p class="sr-only" data-inspector-announcement role="status"></p>
+      <p class="study-small">A reference meaning, not an AI interpretation. For entertainment and self-reflection.</p>
+    </section>
+  </section>
+  <section class="study-writing" id="study-writing" aria-labelledby="study-writing-title"><div><p class="study-kicker">03 / LEAVE YOURSELF A MARGIN</p><h2 id="study-writing-title">What stayed<br/><em>with you?</em></h2><p>A reading becomes useful when you find words of your own.</p><span class="study-margin-mark" aria-hidden="true">✧</span></div><div class="study-writing-page"><label for="study-reflection">A note to yourself</label><p id="study-writing-help">Try “I noticed…” or “One small thing I can do…”</p><textarea id="study-reflection" rows="4" maxlength="5000" aria-describedby="study-writing-help study-writing-status"></textarea><p id="study-writing-status" role="status">Prototype note — kept on this page only.</p><a class="study-text-link" href={L.url('read')}>Use the workspace to save a reflection ↗</a><CompanionConcept L={L}/></div></section>
+  <p class="study-endnote">Local research prototypes. The companion is an interface concept with example responses. Nothing here calls a production AI service or charges credits.</p>
+</div>
+<dialog id="study-index" class="ritual-dialog study-index" aria-labelledby="study-index-title">
+  <header><div><p class="study-kicker">THE SHENTAROT FIELD GUIDE</p><h2 id="study-index-title">Follow your curiosity.</h2></div><button type="button" data-dialog-close class="study-close" aria-label="Close illustrated index">×</button></header>
+  <div class="study-index-body"><section class="study-index-list"><label for="study-index-query">Find a card, spread, or lesson</label><input id="study-index-query" type="text" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="study-index-results" aria-describedby="study-index-status"/><div class="study-index-intents"><button type="button" data-study-search="moon">The Moon</button><button type="button" data-study-search="horseshoe">A seven-card spread</button><button type="button" data-study-search="connect">Connecting cards</button></div><p id="study-index-status" role="status"></p><button type="button" class="study-text-link" data-study-index-retry hidden>Try loading the index again</button><div id="study-index-results" role="listbox" aria-label="Index results"></div><a href={L.url('search')} class="study-text-link" data-study-all-results>All results ↗</a></section><aside class="study-index-preview" aria-label="Illustrated result preview"><div data-study-preview-art></div><p class="study-kicker" data-study-preview-type></p><h3 data-study-preview-title></h3><p data-study-preview-description></p><p class="study-small">Type to search. Arrow keys to explore. Enter to open.</p></aside></div>
+</dialog>
+<dialog id="study-redraw" class="ritual-dialog study-redraw" aria-labelledby="study-redraw-title"><h2 id="study-redraw-title">Begin a new draw?</h2><p>The cards on this table will be replaced. Your question and prototype reflection will stay.</p><div><button type="button" data-study-keep>Keep this draw</button><button type="button" data-study-restart>Shuffle a new draw</button></div></dialog>
+<script>import '../scripts/design-study';</script>
+</Base>

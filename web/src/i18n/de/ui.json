@@ -276,7 +276,7 @@
  },
  "reader": {
   "draw": "Mischen und ziehen",
-  "questionLabel": "Deine Frage (optional, bleibt auf dieser Seite)",
+  "questionLabel": "Deine Frage (optional, bleibt in diesem Browser)",
   "placeholderYesNo": "Soll ich den neuen Job annehmen?",
   "placeholder": "Was muss ich wissen über …",
   "askNote": "Wir haben diese Legung für deine Frage ausgewählt. Misch, wenn du bereit bist.",

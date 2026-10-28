@@ -1,0 +1,140 @@
+import type { Locale } from './index';
+export type DrawCopy = {
+  keepDraw: string; redrawMessage: string; continueDraw: string; transferNote: string;
+  transferLoaded: string; transferWarning: string; transferInvalid: string; freeSpread: string;
+  title: string; steps: string; shuffle: string; again: string; idle: string; choose: string;
+  fan: string; candidate: string; previous: string; next: string; range: string;
+  progress: string; pickForMe: string; ready: string; skip: string; hint: string; position: string;
+};
+const copy: Record<Locale, DrawCopy> = {
+  en: {
+    keepDraw: "Keep these cards",
+    redrawMessage: "Shuffle again? Your current cards will be replaced. Your question stays.",
+    continueDraw: "Explore & reflect",
+    transferNote: "Carry these cards, their orientations and your question into the reflection workspace. No AI request is made.",
+    transferLoaded: "Your draw is ready. Explore the connections, then write your reflection.",
+    transferWarning: "Use this draw? This replaces this tab’s current cards and question. Your impressions, reflection notes and saved snapshot stay unchanged.",
+    transferInvalid: "This draw could not be loaded. Your current workspace is unchanged. Return to the drawing page and try again.",
+    freeSpread: "Free draw · {n}",
+
+    title: 'The drawing table', steps: 'Shuffle · Choose · Turn', shuffle: 'Shuffle & choose', again: 'Shuffle again', position: 'Card {n}',
+    idle: 'A small pause. Then let your hand choose.', choose: 'Choose a card for: {position}',
+    fan: 'Face-down cards', candidate: 'Choose face-down card {n}', previous: 'Previous cards', next: 'Next cards',
+    range: 'Cards {from}–{to} of {total}', progress: '{picked} / {total} chosen', pickForMe: 'Choose for me',
+    ready: 'Your cards are on the table.', skip: 'Skip animation',
+    hint: 'Choose any card back. Browse the whole shuffled deck with the arrows. Your cards stay face down until you turn them.',
+  },
+  'zh-hans': {
+    keepDraw: "保留这些牌",
+    redrawMessage: "重新洗牌会替换当前的牌，你的问题会保留。",
+    continueDraw: "串联这次抽牌",
+    transferNote: "将这些牌、正逆位和问题带入反思空间，不会发起 AI 请求。",
+    transferLoaded: "抽牌已载入。探索牌与牌的联系，再写下你的感想。",
+    transferWarning: "使用这次抽牌？这会替换本标签页的牌和问题。第一印象、感想和已保存的快照保持不变。",
+    transferInvalid: "无法载入这次抽牌，当前工作区未更改。请返回抽牌页面重试。",
+    freeSpread: "自由抽牌 · {n} 张",
+
+    title: '抽牌桌', steps: '洗牌 · 选牌 · 翻牌', shuffle: '洗牌并选牌', again: '重新洗牌', position: '第 {n} 张牌',
+    idle: '停一停，再选一张心仪的牌。', choose: '为这个位置选牌：{position}',
+    fan: '背面朝上的牌', candidate: '选择第 {n} 张背面朝上的牌', previous: '前一组牌', next: '后一组牌',
+    range: '第 {from}–{to} 张，共 {total} 张', progress: '已选 {picked} / {total} 张', pickForMe: '帮我选一张',
+    ready: '牌已放在桌上。', skip: '跳过动画', hint: '选择任意牌背，用箭头浏览整副洗好的牌。选中的牌会保持背面朝上，直到你主动翻开。',
+  },
+  'zh-hant': {
+    keepDraw: "保留這些牌",
+    redrawMessage: "重新洗牌會替換目前的牌，你的問題會保留。",
+    continueDraw: "串聯這次抽牌",
+    transferNote: "將這些牌、正逆位和問題帶入反思空間，不會發起 AI 請求。",
+    transferLoaded: "抽牌已載入。探索牌與牌的聯繫，再寫下你的感想。",
+    transferWarning: "使用這次抽牌？這會替換本分頁的牌和問題。第一印象、感想和已儲存的快照保持不變。",
+    transferInvalid: "無法載入這次抽牌，目前工作區未更改。請返回抽牌頁面重試。",
+    freeSpread: "自由抽牌 · {n} 張",
+
+    title: '抽牌桌', steps: '洗牌 · 選牌 · 翻牌', shuffle: '洗牌並選牌', again: '重新洗牌', position: '第 {n} 張牌',
+    idle: '停一停，再選一張心儀的牌。', choose: '為這個位置選牌：{position}',
+    fan: '背面朝上的牌', candidate: '選擇第 {n} 張背面朝上的牌', previous: '前一組牌', next: '後一組牌',
+    range: '第 {from}–{to} 張，共 {total} 張', progress: '已選 {picked} / {total} 張', pickForMe: '幫我選一張',
+    ready: '牌已放在桌上。', skip: '略過動畫', hint: '選擇任意牌背，用箭頭瀏覽整副洗好的牌。選中的牌會保持背面朝上，直到你主動翻開。',
+  },
+  es: {
+    keepDraw: "Conservar estas cartas",
+    redrawMessage: "¿Barajar de nuevo? Se sustituirán tus cartas actuales. Tu pregunta se conserva.",
+    continueDraw: "Conectar esta tirada",
+    transferNote: "Lleva las cartas, sus orientaciones y tu pregunta al espacio de reflexión. No se solicita una lectura de IA.",
+    transferLoaded: "Tu tirada está lista. Explora las conexiones y escribe tu reflexión.",
+    transferWarning: "¿Usar esta tirada? Sustituye las cartas y la pregunta de esta pestaña. Tus impresiones, notas y reflexión guardada se conservan.",
+    transferInvalid: "No se pudo cargar la tirada. Tu espacio actual no ha cambiado. Vuelve al tiraje e inténtalo de nuevo.",
+    freeSpread: "Tirada libre · {n} cartas",
+
+    title: 'La mesa de cartas', steps: 'Barajar · Elegir · Revelar', shuffle: 'Barajar y elegir', again: 'Barajar de nuevo', position: 'Carta {n}',
+    idle: 'Una pequeña pausa. Después, elige una carta.', choose: 'Elige una carta para: {position}',
+    fan: 'Cartas boca abajo', candidate: 'Elegir la carta boca abajo {n}', previous: 'Cartas anteriores', next: 'Cartas siguientes',
+    range: 'Cartas {from}–{to} de {total}', progress: '{picked} / {total} elegidas', pickForMe: 'Elegir por mí',
+    ready: 'Tus cartas están sobre la mesa.', skip: 'Omitir animación', hint: 'Elige cualquier dorso. Recorre toda la baraja con las flechas. Las cartas elegidas siguen boca abajo hasta que las reveles.',
+  },
+  de: {
+    keepDraw: "Diese Karten behalten",
+    redrawMessage: "Erneut mischen? Deine aktuellen Karten werden ersetzt. Deine Frage bleibt erhalten.",
+    continueDraw: "Diese Karten verbinden",
+    transferNote: "Übernimm Karten, Ausrichtungen und Frage in deinen Reflexionsbereich. Es wird keine KI-Anfrage gesendet.",
+    transferLoaded: "Deine Karten sind bereit. Erkunde die Verbindungen und schreibe deine Reflexion.",
+    transferWarning: "Diese Karten übernehmen? Die Karten und die Frage dieses Tabs werden ersetzt. Eindrücke, Notizen und gespeicherte Reflexion bleiben erhalten.",
+    transferInvalid: "Die Karten konnten nicht geladen werden. Dein Bereich bleibt unverändert. Kehre zur Ziehung zurück und versuche es erneut.",
+    freeSpread: "Freie Ziehung · {n} Karten",
+
+    title: 'Der Kartentisch', steps: 'Mischen · Wählen · Aufdecken', shuffle: 'Mischen und wählen', again: 'Erneut mischen', position: 'Karte {n}',
+    idle: 'Ein kurzer Moment. Dann wähle deine Karte.', choose: 'Wähle eine Karte für: {position}',
+    fan: 'Verdeckte Karten', candidate: 'Verdeckte Karte {n} wählen', previous: 'Vorherige Karten', next: 'Nächste Karten',
+    range: 'Karten {from}–{to} von {total}', progress: '{picked} / {total} gewählt', pickForMe: 'Für mich wählen',
+    ready: 'Deine Karten liegen auf dem Tisch.', skip: 'Animation überspringen', hint: 'Wähle eine Kartenrückseite. Mit den Pfeilen erreichst du das ganze gemischte Deck. Deine Karten bleiben verdeckt, bis du sie aufdeckst.',
+  },
+  ja: {
+    keepDraw: "このカードを残す",
+    redrawMessage: "もう一度混ぜますか？今のカードは置き換わります。質問は残ります。",
+    continueDraw: "このカードをつなげて読む",
+    transferNote: "カードと正逆位置、質問を振り返りの画面へ引き継ぎます。AIへの送信はありません。",
+    transferLoaded: "カードを引き継ぎました。つながりを考え、振り返りを書きましょう。",
+    transferWarning: "このカードを使いますか？このタブのカードと質問を置き換えます。第一印象、振り返り、保存済みの内容は残ります。",
+    transferInvalid: "カードを読み込めませんでした。今の内容は変わりません。抽選画面に戻って再試行してください。",
+    freeSpread: "自由な抽選 · {n}枚",
+
+    title: 'カードを選ぶ場所', steps: '混ぜる · 選ぶ · めくる', shuffle: '混ぜて選ぶ', again: 'もう一度混ぜる', position: 'カード {n}',
+    idle: 'ひと息ついてから、一枚を選びましょう。', choose: 'この位置のカードを選ぶ：{position}',
+    fan: '裏向きのカード', candidate: '裏向きのカード {n} を選ぶ', previous: '前のカード', next: '次のカード',
+    range: '{total} 枚中 {from}–{to} 枚目', progress: '{total} 枚中 {picked} 枚を選択', pickForMe: '代わりに選ぶ',
+    ready: '選んだカードをテーブルに並べました。', skip: 'アニメーションを省略', hint: '気になる裏向きのカードを選びましょう。矢印ですべてのカードを見られます。選んだカードは、自分でめくるまで裏向きのままです。',
+  },
+  fr: {
+    keepDraw: "Garder ces cartes",
+    redrawMessage: "Mélanger à nouveau ? Vos cartes actuelles seront remplacées. Votre question reste.",
+    continueDraw: "Relier ce tirage",
+    transferNote: "Transférez les cartes, leurs orientations et votre question dans l’espace de réflexion. Aucune requête IA n’est envoyée.",
+    transferLoaded: "Votre tirage est prêt. Explorez les liens, puis écrivez votre réflexion.",
+    transferWarning: "Utiliser ce tirage ? Il remplace les cartes et la question de cet onglet. Vos impressions, notes et réflexion enregistrée sont conservées.",
+    transferInvalid: "Impossible de charger ce tirage. Votre espace actuel reste inchangé. Revenez au tirage et réessayez.",
+    freeSpread: "Tirage libre · {n} cartes",
+
+    title: 'La table de tirage', steps: 'Mélanger · Choisir · Retourner', shuffle: 'Mélanger et choisir', again: 'Mélanger à nouveau', position: 'Carte {n}',
+    idle: 'Une petite pause. Puis choisissez une carte.', choose: 'Choisissez une carte pour : {position}',
+    fan: 'Cartes face cachée', candidate: 'Choisir la carte face cachée {n}', previous: 'Cartes précédentes', next: 'Cartes suivantes',
+    range: 'Cartes {from}–{to} sur {total}', progress: '{picked} / {total} choisies', pickForMe: 'Choisir pour moi',
+    ready: 'Vos cartes sont sur la table.', skip: 'Passer l’animation', hint: 'Choisissez un dos de carte. Parcourez tout le jeu mélangé avec les flèches. Vos cartes restent cachées jusqu’à ce que vous les retourniez.',
+  },
+  ru: {
+    keepDraw: "Оставить эти карты",
+    redrawMessage: "Перемешать снова? Текущие карты будут заменены. Вопрос сохранится.",
+    continueDraw: "Связать этот расклад",
+    transferNote: "Перенесите карты, их ориентации и вопрос в пространство для размышлений. Запрос к ИИ не отправляется.",
+    transferLoaded: "Расклад готов. Изучите связи и запишите свои мысли.",
+    transferWarning: "Использовать этот расклад? Он заменит карты и вопрос в этой вкладке. Впечатления, заметки и сохранённый снимок останутся.",
+    transferInvalid: "Не удалось загрузить расклад. Текущая работа не изменена. Вернитесь к выбору карт и повторите попытку.",
+    freeSpread: "Свободный расклад · {n} карт",
+
+    title: 'Карточный стол', steps: 'Перемешать · Выбрать · Открыть', shuffle: 'Перемешать и выбрать', again: 'Перемешать снова', position: 'Карта {n}',
+    idle: 'Небольшая пауза. Затем выберите карту.', choose: 'Выберите карту для позиции: {position}',
+    fan: 'Карты рубашкой вверх', candidate: 'Выбрать закрытую карту {n}', previous: 'Предыдущие карты', next: 'Следующие карты',
+    range: 'Карты {from}–{to} из {total}', progress: 'Выбрано {picked} / {total}', pickForMe: 'Выбрать за меня',
+    ready: 'Ваши карты на столе.', skip: 'Пропустить анимацию', hint: 'Выберите любую рубашку. Стрелки позволяют просмотреть всю перемешанную колоду. Выбранные карты остаются закрытыми, пока вы их не перевернёте.',
+  },
+};
+export const drawCopy = (locale: Locale): DrawCopy => copy[locale];

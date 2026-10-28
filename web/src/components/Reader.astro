@@ -1,10 +1,14 @@
 ---
 // A reading table in the browser: shuffle, draw one card per position, turn
 // them over and read the short meanings. Nothing leaves the page.
-import { readerDeck } from "../lib/data.ts";
+import { readerDeck, APP_SPREADS, spreadIds, type SpreadId } from "../lib/data.ts";
 import { BASE } from "../config.ts";
 import { ritualCopy } from "../i18n/ritual";
 import { i18n, type Locale } from "../i18n/index.ts";
+import { drawCopy } from '../i18n/draw';
+import MotionControl from './MotionControl.astro';
+import '../styles/draw.css';
+import '../styles/spread-stage.css';
 
 interface Props {
   positions: string[];
@@ -15,56 +19,100 @@ interface Props {
   /** Chance that a card comes up reversed. */
   reversals?: number;
   button?: string;
+  /** Apply the generator's count only when starting another shuffle. */
+  countSelectable?: boolean;
+  spreadId?: SpreadId;
   lang?: Locale;
 }
-const { positions, mode = "spread", reversals = 0.25, lang = "en", ritual = false } = Astro.props;
+const { positions, mode = "spread", reversals = 0.25, lang = "en", ritual = false, countSelectable = false, spreadId } = Astro.props;
 const L = i18n(lang);
 const { t } = L;
 const button = Astro.props.button ?? t("reader.draw");
 const ritualText = ritualCopy(lang);
-const config = JSON.stringify({ ritual, revealLabel: ritualText.reveal, positions, mode, reversals, base: BASE, cards: L.url("cards"), deck: readerDeck(L), t: L.ui.reader, share: L.ui.share, suits: L.ui.suits, sense: L.ui.suitSense, date: L.tag });
+const D = drawCopy(lang);
+const spreads = spreadIds.map(id => ({ id, name:L.content.spreads[id].name, positions:L.content.spreads[id].positions, layout:APP_SPREADS[id]!.layout }));
+const spread = spreads.find(s => s.id === spreadId);
+const questionHelpId = `draw-question-help-${spreadId ?? mode}`;
+const questionCountId = `draw-question-count-${spreadId ?? mode}`;
+const config = JSON.stringify({ ritual, revealLabel: ritualText.reveal, positions, mode, reversals, base: BASE, cards: L.url("cards"), deck: readerDeck(L), t: L.ui.reader, share: L.ui.share, suits: L.ui.suits, sense: L.ui.suitSense, date: L.tag, draw: D, spread, spreads:countSelectable ? spreads : [], boardTitle:L.workspace.diagram, counterText:L.interactions.counter, readUrl:L.url("read"), storageError:L.workspace.storageError });
 ---
 <div class:list={["reader", {"ritual-reader": ritual}]} data-reader>
   <script type="application/json" data-config set:html={config.replace(/</g, "\\u003c")} />
   {mode !== "daily" && !ritual && (
     <div class="panel tool-panel">
+      {countSelectable && <><label>{L.workspace.choose}<select data-draw-spread><option value="">{t('random.crumb')}</option>{spreads.map(s=><option value={s.id} selected={s.id===spreadId}>{s.name} ({s.positions.length})</option>)}</select></label><label>{t('random.howMany')}<select data-draw-count disabled={!!spreadId}>{Array.from({length:10},(_,i)=><option value={i+1} selected={i+1===positions.length}>{i+1}</option>)}</select></label></>}
       <label class="grow">{t("reader.questionLabel")}
-        <input type="text" data-question maxlength="200" placeholder={mode === "yesno" ? t("reader.placeholderYesNo") : t("reader.placeholder")} />
+        <textarea data-question maxlength="5000" rows="2" aria-describedby={`${questionHelpId} ${questionCountId}`}></textarea>
+        <small id={questionHelpId} class="draw-question-help">{mode === "yesno" ? t("reader.placeholderYesNo") : t("reader.placeholder")}</small>
+        <small id={questionCountId} data-draw-question-count hidden></small>
       </label>
-      <button class="btn btn-gold" type="button" data-draw>{button}</button>
     </div>
   )}
-  {(mode === "daily" || ritual) && (
-    <p class="center"><button class="btn btn-gold" type="button" data-draw>{button}</button></p>
-  )}
+  <dialog class="ritual-dialog redraw-dialog" data-redraw-dialog aria-label={D.again}>
+    <h2>{D.again}</h2><p>{D.redrawMessage}</p>
+    <div class="action-row"><button type="button" class="btn btn-ghost" data-keep-draw>{D.keepDraw}</button><button type="button" class="btn btn-gold" data-confirm-redraw>{D.again}</button></div>
+  </dialog>
   <p class="ask-note" data-ask-note hidden>{t("reader.askNote")}</p>
+  <div class="draw-layout" data-draw-layout>
+  <section class="spread-stage" data-spread-stage hidden>
+    <header class="spread-stage-heading"><div><p class="spread-stage-eyebrow">{L.workspace.diagram}</p><h3 data-spread-name>{spread?.name ?? L.workspace.diagram}</h3></div><p data-spread-progress></p></header>
+    <div class="spread-stage-actions" data-spread-actions></div>
+    <div class="spread-board" data-spread-board role="group" tabindex="0" aria-label={spread?.name ?? L.workspace.diagram}></div>
+    <ol class="spread-stage-key" data-spread-key hidden></ol>
+    <p class="spread-stage-next" data-spread-next></p>
+  </section>
+  <section class="draw-experience" data-draw-deck data-state="idle" aria-label={D.title}>
+    <div class="draw-heading"><div><p class="draw-eyebrow">{D.title}</p><p class="draw-steps">{D.steps}</p></div><MotionControl L={L}/></div>
+    <div class="draw-stage" data-draw-stage>
+      <div class="draw-stack" data-draw-stack aria-hidden="true">
+        {Array.from({length:5},(_,i)=><span style={`--layer:${i}`}><img src={`${BASE}ritual-card-back.svg`} width="114" height="195" alt="" /></span>)}
+        <span class="draw-stack-caption">78</span>
+      </div>
+      <div class="draw-fan" data-draw-fan role="group" aria-label={D.fan} hidden></div>
+    </div>
+    <div class="draw-browse" data-draw-browse hidden>
+      <button class="draw-arrow" type="button" data-draw-previous aria-label={D.previous}>←</button>
+      <span data-draw-range></span>
+      <button class="draw-arrow" type="button" data-draw-next aria-label={D.next}>→</button>
+    </div>
+    <div class="draw-actions"><button class="btn btn-gold" type="button" data-draw>{button}</button><button class="draw-text-button" type="button" data-draw-auto hidden>{D.pickForMe}</button><button class="draw-text-button" type="button" data-draw-skip hidden>{D.skip}</button></div>
+    <div class="draw-receipt"><p data-draw-status role="status">{D.idle}</p><span data-draw-progress></span></div>
+    <p class="draw-hint" data-draw-hint>{D.hint}</p>
+  </section>
+  </div>
+    <aside class="draw-continue" data-draw-continue hidden>
+      <a class="btn btn-gold" href={L.url('read')} data-continue-draw>{D.continueDraw} <span aria-hidden="true">↗</span></a>
+      <p>{D.transferNote}</p>
+    </aside>
   <div class="table" data-table aria-live="polite"></div>
-  {ritual && <p class="ritual-hint">{ritualText.reveal}</p>}
   <noscript><p><a href={L.url("cards")}>{L.workspace.find}</a> · {L.workspace.practiceHint}</p></noscript>
   <div class="reader-foot" data-foot hidden>
     <div class="lean" data-lean hidden></div>
     <div class="panel summary" data-summary hidden></div>
+
     <p class="center">
-      <button class="btn btn-ghost btn-sm" type="button" data-reveal>{t("reader.revealAll")}</button>
+      <button class="btn btn-ghost btn-sm" type="button" data-reveal hidden>{t("reader.revealAll")}</button>
       <button class="btn btn-ghost btn-sm" type="button" data-copy hidden>{t("reader.copy")}</button>
     </p>
   </div>
 </div>
 
 <script>
+  import { DRAW_TRANSFER_KEY, drawReturnKey, makeDrawTransfer, readDrawTransfer, freeDrawSpreads } from '../lib/draw-transfer';
+  import { setupDialog, openDialog } from '../lib/dialogs';
+  import { saveDraft } from '../lib/workspace';
   import { ASK_KEY } from "../lib/recommend.ts";
   import { shareButtons, type ShareText } from "../lib/share.ts";
+  import { shuffleDeck, takeCard, type DrawnCard } from '../lib/draw-deck';
+  import { createDrawMotion } from '../lib/draw-motion';
+  import type { DrawCopy } from '../i18n/draw';
+  import { spreadPoints, spreadKind, type SpreadPoint } from '../lib/spread-stage';
 
   type Card = { id: string; slug: string; name: string; suit: string | null; n: number | null; keywords: string[]; up: string; rev: string; upQ: string; revQ: string };
-  type Config = { ritual: boolean; revealLabel: string; positions: string[]; mode: "spread" | "yesno" | "daily"; reversals: number; base: string; cards: string; deck: Card[]; t: Record<string, string>; share: ShareText & Record<string, string>; suits: Record<string, string>; sense: Record<string, string>; date: string };
+  type Spread = { id:string; name:string; positions:string[]; layout:SpreadPoint[] };
+  type Config = { ritual: boolean; revealLabel: string; positions: string[]; mode: "spread" | "yesno" | "daily"; reversals: number; base: string; cards: string; deck: Card[]; t: Record<string, string>; share: ShareText & Record<string, string>; suits: Record<string, string>; sense: Record<string, string>; date: string; draw: DrawCopy; spread?:Spread; spreads:Spread[]; boardTitle:string; counterText:string; readUrl:string; storageError:string };
   const fill = (s: string, v: Record<string, string | number>) => s.replace(/\{(\w+)\}/g, (m, k: string) => (k in v ? String(v[k]) : m));
-  type Drawn = { card: Card; reversed: boolean; open: boolean };
-
-  const rand = (n: number) => {
-    const r = new Uint32Array(1);
-    crypto.getRandomValues(r);
-    return r[0]! % n;
-  };
+  type Drawn = DrawnCard<Card>;
   const el = <K extends keyof HTMLElementTagNameMap>(tag: K, cls?: string, text?: string) => {
     const e = document.createElement(tag);
     if (cls) e.className = cls;
@@ -73,7 +121,9 @@ const config = JSON.stringify({ ritual, revealLabel: ritualText.reveal, position
   };
   const today = () => new Date().toLocaleDateString("en-CA");
 
+  let readerIndex = 0;
   for (const root of document.querySelectorAll<HTMLElement>("[data-reader]")) {
+    const meaningPrefix = `draw-reading-${readerIndex++}`;
     const cfg = JSON.parse(root.querySelector("[data-config]")!.textContent!) as Config;
     const T = cfg.t;
     const table = root.querySelector<HTMLElement>("[data-table]")!;
@@ -82,8 +132,51 @@ const config = JSON.stringify({ ritual, revealLabel: ritualText.reveal, position
     const summary = root.querySelector<HTMLElement>("[data-summary]")!;
     const revealAll = root.querySelector<HTMLButtonElement>("[data-reveal]")!;
     const copy = root.querySelector<HTMLButtonElement>("[data-copy]")!;
-    const question = root.querySelector<HTMLInputElement>("[data-question]");
+    const continueArea = root.querySelector<HTMLElement>('[data-draw-continue]')!;
+    const continueLink = root.querySelector<HTMLAnchorElement>('[data-continue-draw]')!;
+    const redrawDialog = root.querySelector<HTMLDialogElement>('[data-redraw-dialog]')!;
+    setupDialog(redrawDialog);
+    const footActions = foot.querySelector<HTMLElement>('p.center')!;
+    const question = root.querySelector<HTMLTextAreaElement>("[data-question]");
+    function resizeQuestion() {
+      if (!question) return;
+      const style=getComputedStyle(question), line=parseFloat(style.lineHeight)||24;
+      const padding=parseFloat(style.paddingTop)+parseFloat(style.paddingBottom)+parseFloat(style.borderTopWidth)+parseFloat(style.borderBottomWidth);
+      question.style.height='auto';
+      question.style.height=`${Math.min(Math.max(question.scrollHeight+2,line*2+padding),line*6+padding)}px`;
+      const counter=root.querySelector<HTMLElement>('[data-draw-question-count]')!;
+      counter.hidden=question.value.length<4000;
+      counter.textContent=fill(cfg.counterText,{n:question.value.length,total:question.maxLength});
+    }
+    question?.addEventListener('input',resizeQuestion);
+    if(question) { window.addEventListener('resize',resizeQuestion); document.fonts.ready.then(resizeQuestion); }
+    const countSelect = root.querySelector<HTMLSelectElement>('[data-draw-count]');
+    const spreadSelect = root.querySelector<HTMLSelectElement>('[data-draw-spread]');
+    const drawLayout = root.querySelector<HTMLElement>('[data-draw-layout]')!;
+    const boardSection = root.querySelector<HTMLElement>('[data-spread-stage]')!;
+    const board = root.querySelector<HTMLElement>('[data-spread-board]')!;
+    const boardKey = root.querySelector<HTMLOListElement>('[data-spread-key]')!;
+    const boardActive = () => !cfg.ritual && cfg.positions.length > 1;
+    const D = cfg.draw;
+    const deckView = root.querySelector<HTMLElement>('[data-draw-deck]')!;
+    const stage = root.querySelector<HTMLElement>('[data-draw-stage]')!;
+    const stack = root.querySelector<HTMLElement>('[data-draw-stack]')!;
+    const fan = root.querySelector<HTMLElement>('[data-draw-fan]')!;
+    const browse = root.querySelector<HTMLElement>('[data-draw-browse]')!;
+    const range = root.querySelector<HTMLElement>('[data-draw-range]')!;
+    const drawStatus = root.querySelector<HTMLElement>('[data-draw-status]')!;
+    const progress = root.querySelector<HTMLElement>('[data-draw-progress]')!;
+    const drawButton = root.querySelector<HTMLButtonElement>('[data-draw]')!;
+    const automatic = root.querySelector<HTMLButtonElement>('[data-draw-auto]')!;
+    const skip = root.querySelector<HTMLButtonElement>('[data-draw-skip]')!;
+    const motion = createDrawMotion(skip, drawButton);
+    const returnKey = drawReturnKey(location.pathname);
+    const narrow = matchMedia('(max-width:650px)');
+    const pageSize = () => narrow.matches || stage.clientWidth < 430 ? 5 : 9;
     let drawn: Drawn[] = [];
+    let pool: Drawn[] = [], offset = 0;
+    root.dataset.drawEnhanced = '';
+    drawButton.textContent = D.shuffle;
     // A share image for a day's card or a short reading (longer spreads don't fit one picture).
     const shareRow = shareButtons(() => {
       const one = drawn.length === 1;
@@ -99,13 +192,132 @@ const config = JSON.stringify({ ritual, revealLabel: ritualText.reveal, position
     }, cfg.share);
     foot.append(shareRow);
 
-    function shuffle(): Drawn[] {
-      const d = cfg.deck.slice();
-      for (let i = d.length - 1; i > 0; i--) {
-        const j = rand(i + 1);
-        [d[i], d[j]] = [d[j]!, d[i]!];
+    function revealCard(i: number) {
+      const selected = drawn[i]; if (!selected) return;
+      motion.stop(); selected.open = true; render();
+      const artwork = boardActive() ? board.querySelector<HTMLElement>(`[data-slot="${i}"] .spread-card`) : table.querySelectorAll('.spot')[i]?.querySelector<HTMLElement>('.face>a');
+      if (artwork) motion.play(artwork, [{ transform:'perspective(700px) rotateY(-78deg) scale(.96)', opacity:.5 }, { transform:'perspective(700px) rotateY(0deg) scale(1)', opacity:1 }], { duration:420 });
+      artwork?.focus({ preventScroll:true });
+    }
+
+    function renderBoard() {
+      const active = boardActive(); boardSection.hidden = !active;
+      drawLayout.classList.toggle('has-spread', active); table.classList.toggle('spread-readings', active);
+      if (!active) { footActions.prepend(revealAll); return; }
+      boardSection.querySelector('[data-spread-actions]')!.append(revealAll);
+      const id = cfg.spread?.id ?? 'free', kind = spreadKind(id, cfg.positions.length);
+      const points = spreadPoints(cfg.spread?.layout, cfg.positions.length);
+      board.dataset.kind = kind; board.dataset.spreadId = id;
+      boardSection.querySelector<HTMLElement>('[data-spread-name]')!.textContent = cfg.spread?.name ?? cfg.boardTitle;
+      boardSection.querySelector<HTMLElement>('[data-spread-progress]')!.textContent = fill(D.progress, { picked:drawn.length,total:cfg.positions.length });
+      boardSection.querySelector<HTMLElement>('[data-spread-next]')!.textContent = drawn.length < cfg.positions.length ? fill(D.choose,{position:cfg.positions[drawn.length]!}) : D.ready;
+      board.setAttribute('aria-label',cfg.spread?.name ?? cfg.boardTitle);
+      board.replaceChildren(); boardKey.replaceChildren(); boardKey.hidden = kind !== 'celtic';
+      const ns = 'http://www.w3.org/2000/svg', threads = document.createElementNS(ns,'svg');
+      threads.classList.add('spread-threads'); threads.setAttribute('viewBox','0 0 1000 1000'); threads.setAttribute('preserveAspectRatio','none'); threads.setAttribute('aria-hidden','true');
+      for (let i=1;i<points.length;i++) {
+        const a=points[i-1]!,b=points[i]!,path=document.createElementNS(ns,'path');
+        path.setAttribute('d',`M${a[0]*1000},${a[1]*1000} Q${(a[0]+b[0])*500},${Math.min(a[1],b[1])*1000-30} ${b[0]*1000},${b[1]*1000}`);
+        if(i<drawn.length)path.classList.add('thread-placed'); threads.append(path);
       }
-      return cfg.positions.map((_, i) => ({ card: d[i]!, reversed: rand(1000) < cfg.reversals * 1000, open: false }));
+      board.append(threads);
+      cfg.positions.forEach((position,i)=>{
+        const point=points[i]!, chosen=drawn[i], place=el('figure','spread-place');
+        place.dataset.slot=String(i);place.dataset.position=String(i+1);place.style.setProperty('--slot-x',`${point[0]*100}%`);place.style.setProperty('--slot-y',`${point[1]*100}%`);
+        place.setAttribute('aria-label',`${i+1}. ${position}`);
+        if(i===drawn.length){place.dataset.next='';place.setAttribute('aria-current','step');}
+        if(chosen) {
+          place.dataset.filled='';place.dataset.cardId=chosen.card.id;place.dataset.reversed=String(chosen.reversed);
+          const card=chosen.open?el('a','spread-card'):el('button','spread-card');
+          if(card instanceof HTMLAnchorElement)card.href=`#${meaningPrefix}-${i}`;
+          if(card instanceof HTMLButtonElement){card.type='button';card.setAttribute('aria-label',fill(T.turnOver!,{n:i+1,pos:position}));card.onclick=()=>revealCard(i);}
+          const frame=el('span','spread-art-frame'),img=el('img',chosen.open&&chosen.reversed?'rev':'');
+          img.src=chosen.open?`${cfg.base}cards/art/${chosen.card.id}.jpg`:`${cfg.base}ritual-card-back.svg`;
+          img.width=140;img.height=240;img.alt=chosen.open?(chosen.reversed?fill(T.nameReversed!,{name:chosen.card.name}):chosen.card.name):'';
+          frame.append(img);card.append(frame);place.append(card);
+          if(chosen.open)place.dataset.revealed='';
+        } else {
+          const knot=el('span','spread-knot');knot.setAttribute('aria-hidden','true');knot.append(el('span','',String(i+1).padStart(2,'0')));place.append(knot);
+        }
+        const caption=el('figcaption','spread-caption');caption.append(el('span','spread-position-number',String(i+1).padStart(2,'0')),el('span','',position));place.append(caption);board.append(place);
+        const keyItem=el('li','');
+        if(chosen) {
+          const keyAction=chosen.open?el('a','',position):el('button','',position);
+          if(keyAction instanceof HTMLAnchorElement)keyAction.href=`#${meaningPrefix}-${i}`;
+          if(keyAction instanceof HTMLButtonElement){keyAction.type='button';keyAction.setAttribute('aria-label',fill(T.turnOver!,{n:i+1,pos:position}));keyAction.onclick=()=>revealCard(i);}
+          keyItem.append(keyAction);
+        } else keyItem.textContent=position;
+        boardKey.append(keyItem);
+      });
+    }
+
+    function renderFan() {
+      const choosing = pool.length > 0 && drawn.length < cfg.positions.length;
+      deckView.dataset.state = choosing ? 'choosing' : drawn.length ? 'complete' : 'idle';
+      fan.hidden = browse.hidden = automatic.hidden = !choosing;
+      stack.hidden = choosing || drawn.length > 0;
+      stage.hidden = drawn.length >= cfg.positions.length;
+      root.querySelector<HTMLElement>('[data-draw-hint]')!.hidden = !choosing;
+      drawButton.textContent = drawn.length || pool.length ? D.again : D.shuffle;
+      progress.textContent = fill(D.progress, { picked: drawn.length, total: cfg.positions.length });
+      drawStatus.textContent = choosing ? fill(D.choose, { position: cfg.positions[drawn.length]! }) : drawn.length ? D.ready : D.idle;
+      fan.replaceChildren();
+      if (!choosing) return;
+      const size = pageSize();
+      offset = Math.min(offset, Math.max(0, pool.length - 1));
+      const count = Math.min(size, pool.length - offset);
+      fan.style.setProperty('--visible', String(count));
+      range.textContent = fill(D.range, { from: offset + 1, to: offset + count, total: pool.length });
+      browse.querySelectorAll<HTMLButtonElement>('button').forEach(b => b.disabled = pool.length <= size);
+      for (let i = 0; i < count; i++) {
+        const index = offset + i, distance = i - (count - 1) / 2;
+        const button = el('button', 'draw-choice'); button.type = 'button';
+        button.dataset.deckIndex = String(index);
+        button.setAttribute('aria-label', fill(D.candidate, { n: index + 1 }));
+        button.style.setProperty('--fan-x', `${distance * 44}px`);
+        button.style.setProperty('--fan-angle', `${distance * 4}deg`);
+        button.style.setProperty('--fan-arc', `${Math.abs(distance) * 5}px`);
+        const art = el('span', 'draw-card-art'); art.setAttribute('aria-hidden', 'true');
+        const image = el('img'); image.src = `${cfg.base}ritual-card-back.svg`; image.alt = ''; image.width = 114; image.height = 195;
+        art.append(image); button.append(art, el('span', 'draw-card-number', String(index + 1)));
+        button.onclick = () => { if (button.isConnected) choose(index, button); };
+        button.onkeydown = event => {
+          const buttons = [...fan.querySelectorAll<HTMLButtonElement>('button')];
+          const next = event.key === 'ArrowRight' ? (i + 1) % count : event.key === 'ArrowLeft' ? (i + count - 1) % count : event.key === 'Home' ? 0 : event.key === 'End' ? count - 1 : -1;
+          if (next >= 0) { event.preventDefault(); buttons[next]?.focus(); }
+        };
+        fan.append(button);
+      }
+    }
+
+    function choose(index: number, source?: HTMLElement) {
+      if (drawn.length >= cfg.positions.length) return;
+      const scrollBefore = { x: scrollX, y: scrollY };
+      const start = source?.querySelector('.draw-card-art')?.getBoundingClientRect();
+      const picked = takeCard(pool, index); if (!picked) return;
+      // Warm only the chosen artwork while its back is still visible.
+      const preload = new Image(); preload.src = `${cfg.base}cards/art/${picked.card.id}.jpg`;
+      motion.stop(); drawn.push(picked);
+      render(); renderFan();
+      const destination = boardActive() ? board.querySelector<HTMLElement>(`[data-slot="${drawn.length-1}"] .spread-card`) : table.querySelectorAll<HTMLElement>('.spot')[drawn.length-1]?.querySelector<HTMLElement>('.back');
+      if(boardActive() && matchMedia('(max-width:850px)').matches && destination) {
+        const place=destination.closest<HTMLElement>('.spread-place')!;
+        board.scrollTo({ left:Math.max(0,place.offsetLeft-board.clientWidth/2+place.clientWidth/2),behavior:'instant' });
+      }
+      if (drawn.length === cfg.positions.length) (boardActive()?board.querySelector<HTMLElement>('.spread-card:not(a)'):table.querySelector<HTMLElement>('.back'))?.focus();
+      else fan.querySelector<HTMLElement>('button')?.focus({ preventScroll: true });
+      if (start && destination && !motion.reduced()) {
+        const end = destination.getBoundingClientRect(), flight = el('div', 'draw-flight');
+        const left = start.left + scrollBefore.x - scrollX, top = start.top + scrollBefore.y - scrollY;
+        flight.setAttribute('aria-hidden', 'true');
+        Object.assign(flight.style, { left: `${left}px`, top: `${top}px`, width: `${start.width}px`, height: `${start.height}px`, backgroundImage: `url("${cfg.base}ritual-card-back.svg")` });
+        document.body.append(flight);
+        motion.play(flight, [
+          { transform: 'translate(0,0) rotate(0deg)', opacity: 1 },
+          { transform: `translate(${(end.left - left) * .55}px,${Math.min(-35,(end.top - top) * .4)}px) rotate(-6deg)`, offset: .45, opacity: 1 },
+          { transform: `translate(${end.left - left}px,${end.top - top}px) scale(${end.width / start.width},${end.height / start.height}) rotate(0deg)`, opacity: 0 },
+        ], { duration: 420 }, () => flight.remove());
+      }
     }
 
     function face(i: number) {
@@ -132,23 +344,35 @@ const config = JSON.stringify({ ritual, revealLabel: ritualText.reveal, position
       return box;
     }
 
+    function completedTransfer() {
+      return makeDrawTransfer({
+        id: cfg.spread?.id ?? (drawn.length === 1 ? 'single' : `draw_${drawn.length}`),
+        name: cfg.spread?.name ?? cfg.boardTitle, positions: cfg.positions,
+      }, drawn, question?.value ?? '', cfg.deck.map(card => card.id));
+    }
+    function keepCompletedDraw() {
+      if (drawn.length !== cfg.positions.length || cfg.mode === 'daily') return;
+      const receipt = completedTransfer();
+      if (receipt) try { saveDraft(sessionStorage, returnKey, receipt); } catch {}
+    }
+    question?.addEventListener('input', keepCompletedDraw);
+
     function render() {
+      renderBoard();
       table.replaceChildren();
       table.dataset.count = String(drawn.length);
       drawn.forEach((d, i) => {
+        if(boardActive() && !d.open)return;
         const slot = el("div", "spot");
-        slot.append(el("p", "pos", `${cfg.positions.length > 1 ? `${i + 1}. ` : ""}${cfg.positions[i]}`));
+        slot.id=`${meaningPrefix}-${i}`;
+        slot.append(el("p", "pos", `${cfg.positions.length > 1 && !countSelect ? `${i + 1}. ` : ""}${cfg.positions[i]}`));
         if (d.open) {
           slot.append(face(i));
         } else {
           const back = el("button", "back");
           back.type = "button";
           back.setAttribute("aria-label", cfg.ritual ? cfg.revealLabel : fill(T.turnOver!, { n: i + 1, pos: cfg.positions[i]! }));
-          back.onclick = () => {
-            d.open = true;
-            render();
-            (table.querySelectorAll(".spot")[i]?.querySelector("a") as HTMLElement | null)?.focus();
-          };
+          back.onclick = () => revealCard(i);
           slot.append(back);
         }
         table.append(slot);
@@ -157,13 +381,15 @@ const config = JSON.stringify({ ritual, revealLabel: ritualText.reveal, position
       foot.hidden = drawn.length === 0;
       revealAll.hidden = allOpen || drawn.length < 2;
       copy.hidden = !allOpen;
+      continueArea.hidden = !allOpen || drawn.length !== cfg.positions.length;
+      if (!continueArea.hidden) keepCompletedDraw();
       shareRow.hidden = !(allOpen && drawn.length <= 3);
       leanBox.hidden = !(allOpen && cfg.mode === "yesno");
       if (allOpen && cfg.mode === "yesno") showLean();
       summary.hidden = !(allOpen && drawn.length >= 3);
       if (!summary.hidden) showSummary();
-      if (cfg.mode === "daily" && drawn.length) root.querySelector<HTMLElement>("[data-draw]")!.closest("p")!.hidden = true;
       if (cfg.mode === "daily" && allOpen) {
+        deckView.hidden = true;
         try {
           localStorage.setItem("shentarot-daily", JSON.stringify({ day: today(), id: drawn[0]!.card.id, reversed: drawn[0]!.reversed }));
         } catch {}
@@ -213,25 +439,93 @@ const config = JSON.stringify({ ritual, revealLabel: ritualText.reveal, position
       }
     }
 
-    if (cfg.ritual) {
-      const reset = root.querySelector<HTMLButtonElement>("[data-draw]")!;
-      reset.classList.add("ritual-reset", "btn-ghost");
-      reset.classList.remove("btn-gold");
-      root.append(reset);
-      drawn = shuffle();
-      render();
-    }
-
     function draw() {
-      drawn = shuffle();
-      render();
-      (table.querySelector(".back") as HTMLElement | null)?.focus();
+      motion.stop();
+      try { sessionStorage.removeItem(returnKey); } catch {}
+      if (spreadSelect) {
+        cfg.spread=cfg.spreads.find(s=>s.id===spreadSelect.value);
+        cfg.mode=cfg.spread?.id==='yes_no'?'yesno':'spread';
+        cfg.reversals=cfg.spread?.id==='yes_no'?.5:.25;
+      }
+      if (cfg.spread) cfg.positions=cfg.spread.positions.slice();
+      else if (countSelect) cfg.positions = Array.from({ length: Number(countSelect.value) }, (_, i) => fill(D.position, { n: i + 1 }));
+      pool = shuffleDeck(cfg.deck, cfg.reversals); drawn = []; offset = 0;
+      render(); renderFan();
+      (boardActive()?drawLayout:deckView).scrollIntoView({ block:boardActive()?'start':'nearest', behavior:'instant' });
+      if (!motion.reduced()) {
+        const layer = el('div', 'draw-shuffle-layer'); layer.setAttribute('aria-hidden', 'true'); stage.append(layer);
+        for (let i = 0; i < 5; i++) {
+          const card = el('span', 'draw-shuffle-card'); card.style.backgroundImage = `url("${cfg.base}ritual-card-back.svg")`; layer.append(card);
+          const direction = i % 2 ? -1 : 1;
+          motion.play(card, [
+            { transform: `translate(-50%,0) rotate(${i - 2}deg)`, opacity: 1 },
+            { transform: `translate(calc(-50% + ${direction * 66}px),-12px) rotate(${direction * 12}deg)`, offset: .3, opacity: 1 },
+            { transform: `translate(calc(-50% - ${direction * 45}px),4px) rotate(${-direction * 7}deg)`, offset: .64, opacity: 1 },
+            { transform: 'translate(-50%,0) rotate(0deg)', opacity: 0 },
+          ], { duration: 620, delay: i * 18 }, () => { card.remove(); if (!layer.childElementCount) layer.remove(); });
+        }
+        fan.querySelectorAll<HTMLElement>('.draw-card-art').forEach((art, i) => {
+          motion.play(art, [{ transform: 'translate(calc(-50% - var(--fan-x)),12px) rotate(0deg)', opacity: .6 }, { transform: getComputedStyle(art).transform, opacity: 1 }], { duration: 700, delay: i * 16 });
+        });
+      }
+      fan.querySelector<HTMLElement>('button')?.focus({ preventScroll: true });
     }
 
-    root.querySelector<HTMLButtonElement>("[data-draw]")!.onclick = draw;
+    let confirmedRedraw = false;
+    root.querySelector<HTMLButtonElement>('[data-keep-draw]')!.onclick = () => redrawDialog.close();
+    root.querySelector<HTMLButtonElement>('[data-confirm-redraw]')!.onclick = () => { confirmedRedraw = true; redrawDialog.close(); };
+    // Restore modal focus first; the new fan can then take focus safely.
+    redrawDialog.addEventListener('close', () => {
+      if (confirmedRedraw) { confirmedRedraw = false; draw(); }
+    });
+    drawButton.onclick = () => {
+      if (drawn.length) { motion.stop(); openDialog(redrawDialog, drawButton); }
+      else draw();
+    };
+    continueLink.onclick = event => {
+      event.preventDefault();
+      const transfer = completedTransfer();
+      if (!transfer) { drawStatus.textContent = D.transferInvalid; return; }
+      let saved = false;
+      try {
+        saved = saveDraft(sessionStorage, DRAW_TRANSFER_KEY, transfer);
+        if (saved) saved = saveDraft(sessionStorage, returnKey, transfer);
+      } catch {}
+      if (!saved) { drawStatus.textContent = cfg.storageError; return; }
+      location.assign(`${cfg.readUrl}?draw=1#reference`);
+    };
+    let freeCount=countSelect?.value;
+    if(spreadSelect)spreadSelect.onchange=()=>{
+      if(countSelect){
+        if(!countSelect.disabled)freeCount=countSelect.value;
+        const pending=cfg.spreads.find(s=>s.id===spreadSelect.value);
+        countSelect.disabled=Boolean(pending);
+        countSelect.value=pending?String(pending.positions.length):freeCount!;
+      }
+      drawStatus.textContent=T.askNote!;
+    };
+    automatic.onclick = () => choose(offset);
+    for (const [attribute, direction] of [['data-draw-previous', -1], ['data-draw-next', 1]] as const) {
+      root.querySelector<HTMLButtonElement>(`[${attribute}]`)!.onclick = () => {
+        motion.stop(); const size = pageSize();
+        offset = direction > 0 ? (offset + size >= pool.length ? 0 : offset + size) : (offset === 0 ? Math.floor((pool.length - 1) / size) * size : Math.max(0, offset - size));
+        renderFan();
+      };
+    }
+    narrow.addEventListener('change', () => {
+      const focused = fan.contains(document.activeElement); motion.stop(); renderFan();
+      if (focused) fan.querySelector<HTMLElement>('button')?.focus({ preventScroll: true });
+    });
+    if (typeof ResizeObserver !== 'undefined') new ResizeObserver(() => {
+      if (fan.hidden || fan.childElementCount === Math.min(pageSize(), pool.length - offset)) return;
+      const focused = fan.contains(document.activeElement); motion.stop(); renderFan();
+      if (focused) fan.querySelector<HTMLElement>('button')?.focus({ preventScroll: true });
+    }).observe(stage);
     revealAll.onclick = () => {
+      motion.stop();
       drawn.forEach((d) => (d.open = true));
       render();
+      (boardActive()?board.querySelector<HTMLElement>('a.spread-card'):table.querySelector<HTMLElement>('.face>a'))?.focus({ preventScroll: true });
     };
     copy.onclick = async () => {
       const lines = [fill(T.copyTitle!, { date: today() })];
@@ -250,15 +544,18 @@ const config = JSON.stringify({ ritual, revealLabel: ritualText.reveal, position
     };
 
     // A question asked on the home page arrives with the spread it was matched to.
+    let arrivedQuestion = false;
     if (question) {
       try {
         const asked = sessionStorage.getItem(ASK_KEY);
         if (asked) {
           sessionStorage.removeItem(ASK_KEY);
           question.value = asked;
+          arrivedQuestion = true;
           root.querySelector<HTMLElement>("[data-ask-note]")!.hidden = false;
         }
       } catch {}
+      resizeQuestion();
     }
 
     // The daily card stays the same for the rest of the day.
@@ -272,5 +569,30 @@ const config = JSON.stringify({ ritual, revealLabel: ritualText.reveal, position
         }
       } catch {}
     }
+    // Keep a completed draw when returning from the workspace or a meaning page.
+    // A deliberately new question takes precedence; shuffle clears the receipt.
+    try {
+      if (arrivedQuestion) sessionStorage.removeItem(returnKey);
+      else {
+        const free = freeDrawSpreads(D.freeSpread, D.position);
+        const candidates = spreadSelect ? [...cfg.spreads, ...free] : cfg.spread ? [cfg.spread] :
+          [{ id:'single', name:cfg.boardTitle, positions:cfg.ritual ? cfg.positions : [D.position.replace('{n}','1')] }];
+        const receipt = readDrawTransfer(sessionStorage, candidates, cfg.deck.map(card => card.id), returnKey);
+        if (receipt && cfg.mode !== 'daily' && (!cfg.ritual || receipt.cards.length === 1)) {
+          cfg.spread = [...cfg.spreads, ...(cfg.spread ? [cfg.spread] : [])].find(s => s.id === receipt.spread);
+          cfg.positions = (candidates.find(s => s.id === receipt.spread)!).positions.slice();
+          if (countSelect) { countSelect.value = String(receipt.cards.length); countSelect.disabled = Boolean(cfg.spread); }
+          if (spreadSelect) {
+            spreadSelect.value = cfg.spread?.id ?? '';
+            cfg.mode = cfg.spread?.id === 'yes_no' ? 'yesno' : 'spread';
+            cfg.reversals = cfg.spread?.id === 'yes_no' ? .5 : .25;
+          }
+          if (question) { question.value = receipt.question; resizeQuestion(); }
+          drawn = receipt.cards.map(p => ({ card:cfg.deck.find(c => c.id === p.id)!, reversed:p.reversed, open:true }));
+          render();
+        }
+      }
+    } catch {}
+    renderBoard();renderFan();
   }
 </script>

@@ -1,0 +1,84 @@
+[
+  {
+    "canonical": "https://shentarot.com/",
+    "description": "Explore meanings, connect your spread, and make space for reflection. Free reference tools · No account needed",
+    "emptyAlt": 9,
+    "h1": [
+      "See the story in your cards."
+    ],
+    "internalLinks": 80,
+    "missingAlt": [],
+    "schemas": [
+      "{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"name\":\"ShenTech\",\"url\":\"https://shentarot.com/\",\"logo\":\"https://shentarot.com/icon.png\",\"email\":\"shenyunlongbusiness@gmail.com\"}",
+      "{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"ShenTarot\",\"url\":\"https://shentarot.com/\",\"inLanguage\":\"en\"}",
+      "{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"What can I use here today?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Search all 78 cards, explore spreads, enter your own cards and save or export one browser-local reflection. No account or AI request is needed.\"}},{\"@type\":\"Question\",\"name\":\"Does the website interpret my cards with AI?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Not yet. This website provides reference meanings and practice prompts. It does not submit your questions or cards to an AI service or consume credits.\"}},{\"@type\":\"Question\",\"name\":\"Where is my reflection saved?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Only in this browser on this device. Save replaces one snapshot; there is no account sync. Export a copy before clearing browser data or changing devices.\"}},{\"@type\":\"Question\",\"name\":\"Can I scan cards or download the app?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"The companion app is upcoming. On the website, enter your physical cards manually or use the existing digital draw tools.\"}}]}"
+    ],
+    "textLength": 36239,
+    "title": "See the story in your cards. · ShenTarot",
+    "url": "https://shentarot.com/"
+  },
+  {
+    "canonical": "https://shentarot.com/read",
+    "description": "Choose a spread, enter your cards and explore their meanings. Save a reflection on this browser or export it.",
+    "emptyAlt": 0,
+    "h1": [
+      "Interpret my cards"
+    ],
+    "internalLinks": 54,
+    "missingAlt": [],
+    "schemas": [],
+    "textLength": 5991,
+    "title": "Interpret my cards",
+    "url": "https://shentarot.com/read"
+  },
+  {
+    "canonical": "https://shentarot.com/cards",
+    "description": "Meanings of all 78 Rider-Waite-Smith tarot cards, upright and reversed, with what each card shows and why.",
+    "emptyAlt": 78,
+    "h1": [
+      "Tarot card meanings"
+    ],
+    "internalLinks": 129,
+    "missingAlt": [],
+    "schemas": [
+      "{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"ShenTarot\",\"item\":\"https://shentarot.com/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Card meanings\",\"item\":\"https://shentarot.com/cards\"}]}"
+    ],
+    "textLength": 6313,
+    "title": "Tarot card meanings: all 78 cards · ShenTarot",
+    "url": "https://shentarot.com/cards"
+  },
+  {
+    "canonical": "https://shentarot.com/tools/random-card",
+    "description": "Draw random tarot cards from the full 78-card Rider-Waite-Smith deck. Tap a card to turn it over and read its meaning.",
+    "emptyAlt": 0,
+    "h1": [
+      "Draw a tarot card"
+    ],
+    "internalLinks": 50,
+    "missingAlt": [],
+    "schemas": [
+      "{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"ShenTarot\",\"item\":\"https://shentarot.com/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Free tools\",\"item\":\"https://shentarot.com/tools\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Draw random cards\",\"item\":\"https://shentarot.com/tools/random-card\"}]}"
+    ],
+    "textLength": 9051,
+    "title": "Random tarot card generator: draw 1 to 10 cards · ShenTarot",
+    "url": "https://shentarot.com/tools/random-card"
+  },
+  {
+    "canonical": "https://shentarot.com/learn/how-to-read-tarot",
+    "description": "How to read tarot cards step by step: ask a clear question, shuffle, lay out a spread, read each card in its position and link the cards into one story.",
+    "emptyAlt": 0,
+    "h1": [
+      "How to read tarot cards"
+    ],
+    "internalLinks": 71,
+    "missingAlt": [],
+    "schemas": [
+      "{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"How to read tarot cards\",\"description\":\"How to read tarot cards step by step: ask a clear question, shuffle, lay out a spread, read each card in its position and link the cards into one story.\",\"inLanguage\":\"en\",\"url\":\"https://shentarot.com/learn/how-to-read-tarot\",\"mainEntityOfPage\":\"https://shentarot.com/learn/how-to-read-tarot\",\"image\":\"https://shentarot.com/og.png\",\"author\":{\"@type\":\"Organization\",\"name\":\"ShenTech\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"ShenTech\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://shentarot.com/icon.png\"}},\"isPartOf\":{\"@type\":\"Course\",\"name\":\"Learn tarot\",\"url\":\"https://shentarot.com/learn\"}}",
+      "{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"inLanguage\":\"en\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Can anyone read tarot?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Yes. Reading tarot is a skill you learn by practising with the pictures and meanings. You don't need any special gift.\"}},{\"@type\":\"Question\",\"name\":\"Do I need to memorise all 78 cards?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"No. Start by learning the 22 Major Arcana and the meaning of the four suits and the numbers. With those, you can work out most Minor Arcana cards on your own.\"}},{\"@type\":\"Question\",\"name\":\"How many cards should a beginner draw?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"One to three. A single card or a three-card spread is easy to read in depth, and you learn more from three cards read well than ten read quickly.\"}}]}",
+      "{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"ShenTarot\",\"item\":\"https://shentarot.com/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Learn tarot\",\"item\":\"https://shentarot.com/learn\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"How to read tarot cards\",\"item\":\"https://shentarot.com/learn/how-to-read-tarot\"}]}"
+    ],
+    "textLength": 3882,
+    "title": "How to read tarot cards: a beginner's guide · ShenTarot",
+    "url": "https://shentarot.com/learn/how-to-read-tarot"
+  }
+]

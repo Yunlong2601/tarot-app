@@ -66,14 +66,14 @@ const topicName = (title: string) => (lang === "en" ? title.toLowerCase() : titl
     ...(related.length ? [{ id: "related", label: t("spread.tabRelated") }] : []),
     { id: "faq", label: t("spread.tabFaq") },
   ]}>
-    <div data-panel="try">
+    <div id="try" data-panel="try">
   <section>
     <div class="section-head">
       <p class="ornament">✦</p>
       <h2>{t("spread.tryTitle")}</h2>
       <p>{t("spread.tryLead")}</p>
     </div>
-    <Reader positions={positions} mode={id === "yes_no" ? "yesno" : "spread"} reversals={id === "yes_no" ? 0.5 : 0.25} lang={lang} />
+    <Reader positions={positions} spreadId={id} mode={id === "yes_no" ? "yesno" : "spread"} reversals={id === "yes_no" ? 0.5 : 0.25} lang={lang} />
   </section>
     </div>
     <div data-panel="positions">

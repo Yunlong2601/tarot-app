@@ -1,0 +1,45 @@
+{
+  "status": "pass",
+  "message": "Site supports Markdown for Agents",
+  "messageRef": {
+    "code": "check.markdownNegotiation.supported"
+  },
+  "details": {
+    "contentType": "text/markdown; charset=utf-8"
+  },
+  "evidence": [
+    {
+      "action": "fetch",
+      "label": "GET target page (Accept: text/markdown)",
+      "request": {
+        "url": "https://shentarot.com",
+        "method": "GET",
+        "headers": {
+          "accept": "text/markdown",
+          "cache-control": "no-cache"
+        }
+      },
+      "finding": {
+        "outcome": "positive",
+        "summary": "Response content-type is text/markdown; charset=utf-8 -- site supports markdown negotiation"
+      },
+      "response": {
+        "status": 200,
+        "statusText": "OK",
+        "headers": {
+          "content-type": "text/markdown; charset=utf-8",
+          "cf-ray": "a5133898ccdd834b-SIN"
+        }
+      }
+    },
+    {
+      "action": "conclude",
+      "label": "Conclusion",
+      "finding": {
+        "outcome": "positive",
+        "summary": "Site supports Markdown for Agents"
+      }
+    }
+  ],
+  "durationMs": 1305
+}

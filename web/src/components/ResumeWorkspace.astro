@@ -1,8 +1,13 @@
 ---
+import { drawCopy } from '../i18n/draw';
+import { freeDrawSpreads } from '../lib/draw-transfer';
+import type { Spread } from '../lib/workspace';
 import type { i18n } from '../i18n';
 import { cardIds, spreadIds } from '../lib/data';
 const { L } = Astro.props as { L: ReturnType<typeof i18n> };
-const spreads=spreadIds.map(id=>({id,name:L.content.spreads[id].name,positions:L.content.spreads[id].positions}));
+const spreads: Spread[]=spreadIds.map(id=>({id,name:L.content.spreads[id].name,positions:L.content.spreads[id].positions}));
+const D=drawCopy(L.loc);
+spreads.push(...freeDrawSpreads(D.freeSpread,D.position));
 ---
 <aside class="panel" data-resume-workspace hidden data-validation={JSON.stringify({spreads,ids:cardIds})}>
   <a class="btn btn-ghost" href={L.url('read')}>{L.journey.resume}</a>

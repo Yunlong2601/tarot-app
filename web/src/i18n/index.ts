@@ -12,6 +12,7 @@ import enZodiac from "./en/zodiac.json";
 import enWorkspace from "./en/workspace.json";
 import enGrowth from "./en/growth.json";
 import enJourney from "./en/journey.json";
+import enInteractions from "./en/interactions.json";
 
 export const LOCALES = ["en", "zh-hans", "zh-hant", "es", "de", "ja", "fr", "ru"] as const;
 export type Locale = (typeof LOCALES)[number];
@@ -95,6 +96,7 @@ function build(loc: Locale) {
   const workspace = load<typeof enWorkspace>(loc, "workspace", enWorkspace);
   const growth = load<typeof enGrowth>(loc, "growth", enGrowth);
   const journey = load<typeof enJourney>(loc, "journey", enJourney);
+  const interactions = load<typeof enInteractions>(loc, "interactions", enInteractions);
   const rules = new Intl.PluralRules(LOCALE_INFO[loc].tag);
   /** Looks up a dotted key in ui.json ("card.related") and fills placeholders. */
   const t = (key: string, vars?: Record<string, string | number>): string => {
@@ -122,6 +124,6 @@ function build(loc: Locale) {
   };
   /** What the browser tools need to link a card in this language (see lib/cardView.ts). */
   const view = { base: BASE, cards: url("cards"), more: ui.reader.fullMeaning };
-  return { loc, tag: LOCALE_INFO[loc].tag, ui, t, list, url, cards, content, learn, contexts, zodiac, workspace, growth, journey, group, assoc, view };
+  return { loc, tag: LOCALE_INFO[loc].tag, ui, t, list, url, cards, content, learn, contexts, zodiac, workspace, growth, journey, interactions, group, assoc, view };
 }
 export type I18n = ReturnType<typeof i18n>;

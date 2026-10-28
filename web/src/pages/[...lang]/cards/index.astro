@@ -1,6 +1,7 @@
 ---
 import ResumeWorkspace from "../../../components/ResumeWorkspace.astro";
 import CardSearch from "../../../components/CardSearch.astro";
+import SearchGrowthNotes from "../../../components/SearchGrowthNotes.astro";
 import Base from "../../../layouts/Base.astro";
 import { i18n, langPaths, type Locale } from "../../../i18n/index.ts";
 
@@ -24,4 +25,5 @@ const { t } = L;
   </header>
   <ResumeWorkspace L={L} />
   <CardSearch L={L} />
+  {lang === 'zh-hans' && <SearchGrowthNotes kind="library" />}
 </Base>

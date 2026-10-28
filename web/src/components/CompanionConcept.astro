@@ -1,0 +1,214 @@
+---
+import type { I18n } from '../i18n';
+import { companionCopy } from '../i18n/companion';
+import { EXAMPLE } from '../lib/example';
+import { BASE } from '../config';
+const { L } = Astro.props as { L: I18n };
+const I = L.interactions, C = companionCopy(L.loc), g = L.growth;
+const spread = L.content.spreads.three_decision;
+---
+<button type="button" class="btn btn-ghost" data-concept-open hidden>{I.conceptOpen} ↗</button>
+<dialog id="companion-concept" class="ritual-dialog companion-dialog" aria-labelledby="companion-title" aria-describedby="companion-notice">
+  <div class="dialog-heading companion-heading">
+    <div><p class="eyebrow">{I.conceptLabel}</p><h2 id="companion-title" tabindex="-1">{I.conceptTitle}</h2></div>
+    <button type="button" class="icon-button" data-dialog-close aria-label={I.close}>×</button>
+  </div>
+  <p id="companion-notice" class="concept-notice">{I.conceptNote}</p>
+  <details class="concept-context" open>
+    <summary>{I.conceptContext}</summary>
+    <p class="concept-spread-name">{spread.name}</p>
+    <p class="concept-confirmed-question" data-example-question data-original-question={g.exampleQuestion}>{g.exampleQuestion}</p>
+    <button type="button" class="concept-text-action" data-edit-context aria-expanded="false" aria-controls="concept-context-editor">{C.editContext}</button>
+    <form id="concept-context-editor" class="concept-context-editor" data-context-form hidden>
+      <label for="concept-original-question">{L.workspace.question}</label>
+      <p id="concept-context-help" class="muted">{C.contextHelp}</p>
+      <textarea id="concept-original-question" rows="3" maxlength="300" required aria-describedby="concept-context-help concept-context-limit">{g.exampleQuestion}</textarea>
+      <small id="concept-context-limit">{C.limit}</small>
+      <div class="concept-actions"><button class="btn btn-gold" type="submit">{C.confirmContext}</button><button class="btn btn-ghost" type="button" data-context-cancel>{C.cancel}</button></div>
+    </form>
+    <div class="concept-context-notice" data-context-changed hidden>
+      <p role="status">{C.contextEdited}</p>
+      <button type="button" class="concept-text-action" data-context-reset>{C.resetContext}</button>
+    </div>
+    <div class="concept-cards" role="group" aria-label={C.selectedCards}>
+      {EXAMPLE.cards.map((card, index) => <details id={`concept-card-${index}`} data-concept-card={index}>
+        <summary>
+          <img src={`${BASE}cards/art/${card.id}.jpg`} alt="" width="44" height="75" loading="lazy" class:list={{ 'reversed-art': card.reversed }}/>
+          <span>{L.cards[card.id]!.name}<small>{index + 1} · {spread.positions[index]} · {L.t(card.reversed ? 'card.reversed' : 'card.upright')}</small><small class="concept-meaning-hint">{C.showMeaning} ↓</small></span>
+        </summary>
+        <p>{card.reversed ? L.cards[card.id]!.reversed : L.cards[card.id]!.upright}</p>
+      </details>)}
+    </div>
+  </details>
+
+  <details class="concept-fixtures">
+    <summary>{C.states}</summary>
+    <div class="concept-states" role="group" aria-label={C.states}>
+      {I.conceptStates.map((label, index) => <button type="button" data-concept-state={index} aria-pressed={index === 0}>{label}</button>)}
+    </div>
+  </details>
+  <section class="concept-response" aria-label={I.conceptLabel}>
+    <p data-concept-status role="status" tabindex="-1" data-messages={JSON.stringify(I.conceptMessages)} data-resolved={C.statusResolved}>{I.conceptMessages[0]}</p>
+    <div class="concept-actions" data-state-actions hidden>
+      <button type="button" class="btn btn-ghost" data-example-action="stop" hidden>{C.stop}</button>
+      <button type="button" class="btn btn-gold" data-example-action="finish" hidden>{C.finish}</button>
+      <button type="button" class="btn btn-gold" data-example-action="resume" hidden>{C.resume}</button>
+      <button type="button" class="btn btn-gold" data-example-action="retry" hidden>{I.retry}</button>
+      <button type="button" class="btn btn-gold" data-example-action="restore" hidden>{C.restoreAccess}</button>
+      <button type="button" class="btn btn-gold" data-example-action="status" hidden>{C.checkStatus}</button>
+    </div>
+    <article class="concept-answer" data-concept-answer>
+      <p class="eyebrow">{I.conceptLabel}</p>
+      <details class="concept-original-reference"><summary>{C.originalExample}</summary><p>{g.exampleQuestion}</p></details>
+      <h3>{C.possible}</h3><p>{g.positions[0]}</p>
+      <h3>{C.connect}</h3><p>{g.connections}</p>
+      <div class="concept-reference-links" role="group" aria-label={C.selectedCards}>{EXAMPLE.cards.map((card, index) => <button type="button" data-card-reference={index}>{index + 1} · {L.cards[card.id]!.name} ↗</button>)}</div>
+      <h3>{C.consider}</h3><p>{L.journey.wholeSpread}</p>
+    </article>
+  </section>
+
+  <form class="concept-composer" data-concept-form>
+    <label for="companion-question">{C.followup}</label>
+    <p class="muted" id="concept-composer-help">{C.composerHelp}</p>
+    <textarea id="companion-question" maxlength="300" rows="3" aria-describedby="concept-composer-help concept-limit concept-draft-notice"></textarea>
+    <div class="writing-prompts">{C.followups.map(prompt => <button type="button" data-concept-prompt={prompt}>{prompt}</button>)}</div>
+    <p class="muted" id="concept-limit">{C.limit}</p>
+    <div class="dialog-footer"><small data-concept-counter data-template={I.counter}>{I.counter.replace('{n}', '0').replace('{total}', '300')}</small><button class="btn btn-gold" data-concept-send type="submit">{I.conceptSend}</button></div>
+    <p class="muted" id="concept-draft-notice">{C.draftNotice}</p>
+  </form>
+  <p class="muted concept-disclaimer">{L.workspace.disclaimer}</p>
+</dialog>
+<script>
+  import { openDialog, setupDialog } from '../lib/dialogs';
+  const dialog = document.querySelector<HTMLDialogElement>('#companion-concept');
+  const trigger = document.querySelector<HTMLButtonElement>('[data-concept-open]');
+  if (dialog && trigger) {
+    setupDialog(dialog);
+    trigger.hidden = false;
+    trigger.onclick = () => {
+      openDialog(dialog, trigger);
+      dialog.querySelector<HTMLElement>('#companion-title')!.focus({ preventScroll: true });
+    };
+    const status = dialog.querySelector<HTMLElement>('[data-concept-status]')!;
+    const messages: string[] = JSON.parse(status.dataset.messages!);
+    const answer = dialog.querySelector<HTMLElement>('[data-concept-answer]')!;
+    const input = dialog.querySelector<HTMLTextAreaElement>('#companion-question')!;
+    const counter = dialog.querySelector<HTMLElement>('[data-concept-counter]')!;
+    const send = dialog.querySelector<HTMLButtonElement>('[data-concept-send]')!;
+    const actions = dialog.querySelector<HTMLElement>('[data-state-actions]')!;
+    const actionButtons = [...dialog.querySelectorAll<HTMLButtonElement>('[data-example-action]')];
+    const availableActions: Record<number, string[]> = { 0: [], 1: ['stop', 'finish'], 2: ['resume'], 3: ['retry'], 4: ['restore'], 5: ['retry'], 6: ['status'] };
+    function state(index: number, focus = false, recovered = false) {
+      status.textContent = recovered ? status.dataset.resolved! : messages[index]!;
+      answer.hidden = index !== 0;
+      send.disabled = index === 1;
+      actions.hidden = index === 0;
+      actionButtons.forEach(button => { button.hidden = !availableActions[index]!.includes(button.dataset.exampleAction!); });
+      dialog!.querySelectorAll<HTMLElement>('[data-concept-state]').forEach((button, item) => button.setAttribute('aria-pressed', String(item === index)));
+      if (focus) status.focus({ preventScroll: true });
+    }
+    dialog.querySelectorAll<HTMLButtonElement>('[data-concept-state]').forEach(button => button.onclick = () => state(Number(button.dataset.conceptState)));
+    actionButtons.forEach(button => button.onclick = () => {
+      const action = button.dataset.exampleAction;
+      state(action === 'stop' ? 2 : action === 'finish' || action === 'status' ? 0 : 1, true, action === 'status');
+    });
+    const count = () => { counter.textContent = counter.dataset.template!.replace('{n}', String(input.value.length)).replace('{total}', '300'); };
+    input.addEventListener('input', count);
+    dialog.querySelectorAll<HTMLButtonElement>('[data-concept-prompt]').forEach(button => button.onclick = () => {
+      input.value = button.dataset.conceptPrompt!;
+      count();
+      input.focus();
+    });
+    dialog.querySelector<HTMLFormElement>('[data-concept-form]')!.onsubmit = event => {
+      event.preventDefault();
+      state(1, true);
+      status.scrollIntoView({ block: 'nearest' });
+    };
+    dialog.querySelectorAll<HTMLButtonElement>('[data-card-reference]').forEach(button => button.onclick = () => {
+      const card = dialog.querySelector<HTMLDetailsElement>(`[data-concept-card="${button.dataset.cardReference}"]`)!;
+      dialog.querySelector<HTMLDetailsElement>('.concept-context')!.open = true;
+      card.open = true;
+      card.querySelector<HTMLElement>('summary')!.focus();
+      card.scrollIntoView({ block: 'nearest' });
+    });
+    const editButton = dialog.querySelector<HTMLButtonElement>('[data-edit-context]')!;
+    const contextForm = dialog.querySelector<HTMLFormElement>('[data-context-form]')!;
+    const contextInput = dialog.querySelector<HTMLTextAreaElement>('#concept-original-question')!;
+    const question = dialog.querySelector<HTMLElement>('[data-example-question]')!;
+    const contextChanged = dialog.querySelector<HTMLElement>('[data-context-changed]')!;
+    const original = question.dataset.originalQuestion!;
+    function finishEditing() {
+      contextForm.hidden = true;
+      editButton.setAttribute('aria-expanded', 'false');
+      editButton.focus();
+    }
+    editButton.onclick = () => {
+      contextForm.hidden = false;
+      editButton.setAttribute('aria-expanded', 'true');
+      contextInput.value = question.textContent!;
+      contextInput.focus();
+    };
+    contextForm.onsubmit = event => {
+      event.preventDefault();
+      question.textContent = contextInput.value;
+      contextChanged.hidden = contextInput.value === original;
+      finishEditing();
+    };
+    dialog.querySelector<HTMLButtonElement>('[data-context-cancel]')!.onclick = finishEditing;
+    dialog.querySelector<HTMLButtonElement>('[data-context-reset]')!.onclick = () => {
+      question.textContent = original;
+      contextChanged.hidden = true;
+      finishEditing();
+    };
+  }
+</script>
+<style>
+  .companion-dialog { margin: 0 0 0 auto; width: min(740px, 58vw); height: 100dvh; max-height: 100dvh; max-width: 100vw; border-radius: 8px 0 0 8px; padding: 1.5rem 2rem; overflow-y: auto; overscroll-behavior: contain; }
+  .companion-heading { align-items: start; }
+  .companion-heading h2 { font-size: clamp(2rem, 3vw, 2.8rem); }
+  .companion-heading h2:focus { outline: none; }
+  .concept-notice { background: #e8ebdf; border-left: 3px solid #243c35; padding: .8rem 1rem; font-size: .85rem; line-height: 1.6; }
+  .concept-context { margin: 1.25rem 0; border-block: 1px solid #c8c4b8; padding: .9rem 0; }
+  .concept-context > summary, .concept-fixtures > summary { font-size: .85rem; font-weight: 600; min-height: 44px; align-content: center; cursor: pointer; }
+  .concept-spread-name { font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; margin-bottom: .5rem; }
+  .concept-confirmed-question { font-family: var(--serif); font-size: 1.5rem; line-height: 1.25; overflow-wrap: anywhere; }
+  .concept-text-action { color: #243c35; border: 0; padding: .5rem 0; background: transparent; text-decoration: underline; text-underline-offset: .2em; font: inherit; font-size: .8rem; cursor: pointer; min-height: 44px; }
+  .concept-cards { display: grid; gap: .25rem; margin-top: .75rem; }
+  .concept-cards details { border-bottom: 1px solid #d8d4c9; }
+  .concept-cards summary { display: flex; gap: .8rem; padding: .65rem 0; cursor: pointer; font-size: .85rem; }
+  .concept-cards summary img { width: 32px; height: 55px; object-fit: cover; border-radius: 3px; flex-shrink: 0; }
+  .concept-cards summary span { display: block; }
+  .concept-cards small { display: block; font-size: .7rem; color: #4c5b51; line-height: 1.5; }
+  .concept-cards .concept-meaning-hint { text-decoration: underline; text-underline-offset: .15em; margin-top: .2rem; }
+  .concept-cards details > p { font-size: .9rem; padding: 0 .1rem .75rem 2.8rem; }
+  .concept-context-editor { margin-top: .8rem; padding: 1rem; background: #ece9df; border-radius: 4px; }
+  .concept-context-editor label, .concept-composer label { display: block; margin-bottom: .5rem; font-size: .9rem; font-weight: 600; }
+  .concept-context-editor textarea, .concept-composer textarea { width: 100%; resize: vertical; font: inherit; padding: .75rem; border-radius: 4px; }
+  .concept-context-editor small { display: block; font-size: .75rem; line-height: 1.5; }
+  .concept-context-notice { font-size: .85rem; padding: .75rem; background: #e8ebdf; border-radius: 4px; }
+  .concept-states, .concept-actions, .concept-reference-links { display: flex; flex-wrap: wrap; gap: .5rem; }
+  .concept-states button, .concept-reference-links button { min-height: 44px; font: inherit; font-size: .75rem; color: #243c35; background: transparent; padding: .45rem .65rem; border: 1px solid #a8aea2; border-radius: 4px; cursor: pointer; text-align: left; }
+  .concept-states [aria-pressed="true"] { color: #fffdf7; background: #243c35; border-color: #243c35; }
+  .concept-response > [role="status"] { font-size: .8rem; color: #4c5b51; }
+  .concept-actions { margin-block: .8rem; }
+  .concept-actions .btn { white-space: normal; text-align: center; }
+  .concept-answer { background: #fffdf7; border: 1px solid #d8d4c9; padding: 1.25rem; border-radius: 6px; margin-block: 1rem; }
+  .concept-answer h3 { font-size: 1.6rem; margin: 1.3rem 0 .5rem; }
+  .concept-answer p { font-size: .95rem; line-height: 1.7; }
+  .concept-answer .eyebrow { font-size: .65rem; }
+  .concept-original-reference { font-size: .75rem; }
+  .concept-original-reference summary { cursor: pointer; min-height: 44px; align-content: center; }
+  .concept-original-reference p { font-size: .85rem; }
+  .concept-composer { border-top: 1px solid #c8c4b8; margin-top: 1.5rem; padding-top: 1.25rem; }
+  .concept-composer .muted, .concept-context-editor .muted, .concept-disclaimer { font-size: .75rem; line-height: 1.6; }
+  .concept-composer .writing-prompts { margin-top: .65rem; }
+  .concept-composer .writing-prompts button { min-height: 44px; text-align: left; }
+  .concept-composer .dialog-footer { align-items: center; flex-wrap: wrap; }
+  .concept-composer .btn { white-space: normal; }
+  @media (max-width: 900px) {
+    .companion-dialog { width: 100vw; max-width: 100vw; margin: 0; border-radius: 0; padding: 1.2rem; }
+    .companion-heading h2 { font-size: 2rem; }
+    .concept-answer { padding: 1rem; }
+    .concept-cards details > p { padding-left: 0; }
+  }
+</style>

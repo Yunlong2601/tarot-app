@@ -1,0 +1,1280 @@
+{
+  "captured": "2026-10-26",
+  "source": "Authenticated Google Search Console UI",
+  "filter": "3 months; chart activity 2026-10-17 to 2026-10-24",
+  "limitations": "Dimension rows are the report-disclosed sample and do not reconcile to headline totals. Do not calculate total audience mix from them. Unlisted AI rows are not proof of no AI exposure. Empty lesson tables mean no disclosed rows, not no traffic.",
+  "pages": [
+    {
+      "path": "/zh-hans/cards",
+      "queries": {
+        "pagination": "1-4 of 4",
+        "tables": [
+          [
+            [
+              "Top queries",
+              "Clicks",
+              "Impressions",
+              "CTR",
+              "Position"
+            ],
+            [
+              "塔罗牌 ta的心思牌阵 牌阵结构",
+              "0",
+              "2",
+              "0%",
+              "4.0"
+            ],
+            [
+              "塔罗牌",
+              "0",
+              "2",
+              "0%",
+              "61.0"
+            ],
+            [
+              "塔罗",
+              "0",
+              "1",
+              "0%",
+              "59.0"
+            ],
+            [
+              "塔 罗 牌",
+              "0",
+              "1",
+              "0%",
+              "70.0"
+            ]
+          ]
+        ],
+        "url": "https://search.google.com/search-console/performance/search-analytics?resource_id=sc-domain%3Ashentarot.com&breakdown=query&page=!https%3A%2F%2Fshentarot.com%2Fzh-hans%2Fcards"
+      },
+      "countries": {
+        "pagination": "1-3 of 3",
+        "url": "https://search.google.com/search-console/performance/search-analytics?resource_id=sc-domain%3Ashentarot.com&breakdown=country&page=!https%3A%2F%2Fshentarot.com%2Fzh-hans%2Fcards",
+        "tables": [
+          [
+            [
+              "Country",
+              "Clicks",
+              "Impressions",
+              "CTR",
+              "Position"
+            ],
+            [
+              "United States",
+              "0",
+              "4",
+              "0%",
+              "32.5"
+            ],
+            [
+              "Canada",
+              "0",
+              "1",
+              "0%",
+              "59.0"
+            ],
+            [
+              "Malaysia",
+              "0",
+              "1",
+              "0%",
+              "70.0"
+            ]
+          ]
+        ]
+      },
+      "devices": {
+        "pagination": "1-1 of 1",
+        "url": "https://search.google.com/search-console/performance/search-analytics?resource_id=sc-domain%3Ashentarot.com&breakdown=device&page=!https%3A%2F%2Fshentarot.com%2Fzh-hans%2Fcards",
+        "tables": [
+          [
+            [
+              "Device",
+              "Clicks",
+              "Impressions",
+              "CTR",
+              "Position"
+            ],
+            [
+              "Desktop",
+              "0",
+              "6",
+              "0%",
+              "43.2"
+            ]
+          ]
+        ]
+      },
+      "metrics": {
+        "clicks": 0,
+        "impressions": 155,
+        "ctr": 0,
+        "position": 7.6
+      },
+      "ai": "Not listed in 96-row report"
+    },
+    {
+      "path": "/cards/pentacles-ace/love",
+      "queries": {
+        "pagination": "1-3 of 3",
+        "tables": [
+          [
+            [
+              "Top queries",
+              "Clicks",
+              "Impressions",
+              "CTR",
+              "Position"
+            ],
+            [
+              "ace of pentacles feelings",
+              "0",
+              "2",
+              "0%",
+              "57.5"
+            ],
+            [
+              "ace of pentacles love outcome",
+              "0",
+              "1",
+              "0%",
+              "51.0"
+            ],
+            [
+              "ace of pentacles love",
+              "0",
+              "1",
+              "0%",
+              "63.0"
+            ]
+          ]
+        ],
+        "url": "https://search.google.com/search-console/performance/search-analytics?resource_id=sc-domain%3Ashentarot.com&metrics=CLICKS%2CIMPRESSIONS%2CCTR%2CPOSITION&breakdown=query&page=!https%3A%2F%2Fshentarot.com%2Fcards%2Fpentacles-ace%2Flove"
+      },
+      "countries": {
+        "pagination": "1-2 of 2",
+        "tables": [
+          [
+            [
+              "Country",
+              "Clicks",
+              "Impressions",
+              "CTR",
+              "Position"
+            ],
+            [
+              "United States",
+              "0",
+              "3",
+              "0%",
+              "59.3"
+            ],
+            [
+              "Thailand",
+              "0",
+              "1",
+              "0%",
+              "51.0"
+            ]
+          ]
+        ],
+        "url": "https://search.google.com/search-console/performance/search-analytics?resource_id=sc-domain%3Ashentarot.com&metrics=CLICKS%2CIMPRESSIONS%2CCTR%2CPOSITION&breakdown=country&page=!https%3A%2F%2Fshentarot.com%2Fcards%2Fpentacles-ace%2Flove"
+      },
+      "devices": {
+        "pagination": "1-1 of 1",
+        "tables": [
+          [
+            [
+              "Device",
+              "Clicks",
+              "Impressions",
+              "CTR",
+              "Position"
+            ],
+            [
+              "Desktop",
+              "0",
+              "4",
+              "0%",
+              "57.3"
+            ]
+          ]
+        ],
+        "url": "https://search.google.com/search-console/performance/search-analytics?resource_id=sc-domain%3Ashentarot.com&metrics=CLICKS%2CIMPRESSIONS%2CCTR%2CPOSITION&breakdown=device&page=!https%3A%2F%2Fshentarot.com%2Fcards%2Fpentacles-ace%2Flove"
+      },
+      "metrics": {
+        "clicks": 0,
+        "impressions": 128,
+        "ctr": 0,
+        "position": 10.7
+      },
+      "ai": "Not listed in 96-row report"
+    },
+    {
+      "path": "/tools/random-card",
+      "queries": {
+        "pagination": "1-10 of 23",
+        "tables": [
+          [
+            [
+              "Top queries",
+              "Clicks",
+              "Impressions",
+              "CTR",
+              "Position"
+            ],
+            [
+              "random trot",
+              "1",
+              "2",
+              "50%",
+              "8.5"
+            ],
+            [
+              "tarot card shuffle",
+              "0",
+              "19",
+              "0%",
+              "9.5"
+            ],
+            [
+              "tarot shuffle",
+              "0",
+              "11",
+              "0%",
+              "7.9"
+            ],
+            [
+              "random tarot card",
+              "0",
+              "5",
+              "0%",
+              "68.4"
+            ],
+            [
+              "tarot cards shuffle",
+              "0",
+              "4",
+              "0%",
+              "8.8"
+            ],
+            [
+              "pick a card",
+              "0",
+              "4",
+              "0%",
+              "84.0"
+            ],
+            [
+              "random tarot",
+              "0",
+              "3",
+              "0%",
+              "71.3"
+            ],
+            [
+              "random tarot card generator",
+              "0",
+              "3",
+              "0%",
+              "75.0"
+            ],
+            [
+              "tarot gen",
+              "0",
+              "3",
+              "0%",
+              "76.7"
+            ],
+            [
+              "shuffle tarot",
+              "0",
+              "2",
+              "0%",
+              "9.0"
+            ],
+            [
+              "serennu pick a card",
+              "0",
+              "1",
+              "0%",
+              "6.0"
+            ],
+            [
+              "tarot card shuffler",
+              "0",
+              "1",
+              "0%",
+              "6.0"
+            ],
+            [
+              "pick a card serennu",
+              "0",
+              "1",
+              "0%",
+              "7.0"
+            ],
+            [
+              "serennu cards",
+              "0",
+              "1",
+              "0%",
+              "7.0"
+            ],
+            [
+              "serenu tarot",
+              "0",
+              "1",
+              "0%",
+              "7.0"
+            ],
+            [
+              "serennu tarot",
+              "0",
+              "1",
+              "0%",
+              "8.0"
+            ],
+            [
+              "serennu tarot card picker",
+              "0",
+              "1",
+              "0%",
+              "9.0"
+            ],
+            [
+              "tarot cards serennu",
+              "0",
+              "1",
+              "0%",
+              "9.0"
+            ],
+            [
+              "tarot shuffler",
+              "0",
+              "1",
+              "0%",
+              "12.0"
+            ],
+            [
+              "random tarot generator",
+              "0",
+              "1",
+              "0%",
+              "64.0"
+            ],
+            [
+              "tarot card generator",
+              "0",
+              "1",
+              "0%",
+              "65.0"
+            ],
+            [
+              "tarot card random",
+              "0",
+              "1",
+              "0%",
+              "66.0"
+            ],
+            [
+              "pull a card",
+              "0",
+              "1",
+              "0%",
+              "98.0"
+            ]
+          ]
+        ],
+        "url": "https://search.google.com/search-console/performance/search-analytics?resource_id=sc-domain%3Ashentarot.com&metrics=CLICKS%2CIMPRESSIONS%2CCTR%2CPOSITION&breakdown=query&page=!https%3A%2F%2Fshentarot.com%2Ftools%2Frandom-card"
+      },
+      "countries": {
+        "pagination": "1-10 of 21",
+        "tables": [
+          [
+            [
+              "Country",
+              "Clicks",
+              "Impressions",
+              "CTR",
+              "Position"
+            ],
+            [
+              "Croatia",
+              "1",
+              "2",
+              "50%",
+              "8.5"
+            ],
+            [
+              "India",
+              "0",
+              "24",
+              "0%",
+              "9.2"
+            ],
+            [
+              "Indonesia",
+              "0",
+              "8",
+              "0%",
+              "8.5"
+            ],
+            [
+              "United States",
+              "0",
+              "5",
+              "0%",
+              "37.6"
+            ],
+            [
+              "Turkey",
+              "0",
+              "5",
+              "0%",
+              "49.6"
+            ],
+            [
+              "Canada",
+              "0",
+              "3",
+              "0%",
+              "65.7"
+            ],
+            [
+              "Finland",
+              "0",
+              "3",
+              "0%",
+              "70.7"
+            ],
+            [
+              "Thailand",
+              "0",
+              "2",
+              "0%",
+              "6.5"
+            ],
+            [
+              "Iraq",
+              "0",
+              "2",
+              "0%",
+              "8.0"
+            ],
+            [
+              "Australia",
+              "0",
+              "2",
+              "0%",
+              "65.5"
+            ],
+            [
+              "Sweden",
+              "0",
+              "2",
+              "0%",
+              "75.0"
+            ],
+            [
+              "Philippines",
+              "0",
+              "2",
+              "0%",
+              "91.5"
+            ],
+            [
+              "Brazil",
+              "0",
+              "1",
+              "0%",
+              "6.0"
+            ],
+            [
+              "Ireland",
+              "0",
+              "1",
+              "0%",
+              "6.0"
+            ],
+            [
+              "Iran",
+              "0",
+              "1",
+              "0%",
+              "7.0"
+            ],
+            [
+              "Italy",
+              "0",
+              "1",
+              "0%",
+              "10.0"
+            ],
+            [
+              "Ukraine",
+              "0",
+              "1",
+              "0%",
+              "51.0"
+            ],
+            [
+              "Germany",
+              "0",
+              "1",
+              "0%",
+              "69.0"
+            ],
+            [
+              "Japan",
+              "0",
+              "1",
+              "0%",
+              "74.0"
+            ],
+            [
+              "United Kingdom",
+              "0",
+              "1",
+              "0%",
+              "84.0"
+            ],
+            [
+              "Estonia",
+              "0",
+              "1",
+              "0%",
+              "98.0"
+            ]
+          ]
+        ],
+        "url": "https://search.google.com/search-console/performance/search-analytics?resource_id=sc-domain%3Ashentarot.com&metrics=CLICKS%2CIMPRESSIONS%2CCTR%2CPOSITION&breakdown=country&page=!https%3A%2F%2Fshentarot.com%2Ftools%2Frandom-card"
+      },
+      "devices": {
+        "pagination": "1-3 of 3",
+        "tables": [
+          [
+            [
+              "Device",
+              "Clicks",
+              "Impressions",
+              "CTR",
+              "Position"
+            ],
+            [
+              "Mobile",
+              "1",
+              "46",
+              "2.2%",
+              "13.3"
+            ],
+            [
+              "Desktop",
+              "0",
+              "22",
+              "0%",
+              "65.1"
+            ],
+            [
+              "Tablet",
+              "0",
+              "1",
+              "0%",
+              "6.0"
+            ]
+          ]
+        ],
+        "url": "https://search.google.com/search-console/performance/search-analytics?resource_id=sc-domain%3Ashentarot.com&metrics=CLICKS%2CIMPRESSIONS%2CCTR%2CPOSITION&breakdown=device&page=!https%3A%2F%2Fshentarot.com%2Ftools%2Frandom-card"
+      },
+      "metrics": {
+        "clicks": 2,
+        "impressions": 116,
+        "ctr": 1.7,
+        "position": 26.7
+      },
+      "ai": "Not listed in 96-row report"
+    },
+    {
+      "path": "/zh-hans/learn/major-and-minor-arcana",
+      "queries": {
+        "tables": [
+          [
+            [
+              "Top queries",
+              "Clicks",
+              "Impressions",
+              "CTR",
+              "Position"
+            ]
+          ]
+        ],
+        "url": "https://search.google.com/search-console/performance/search-analytics?resource_id=sc-domain%3Ashentarot.com&metrics=CLICKS%2CIMPRESSIONS%2CCTR%2CPOSITION&breakdown=query&page=!https%3A%2F%2Fshentarot.com%2Fzh-hans%2Flearn%2Fmajor-and-minor-arcana"
+      },
+      "countries": {
+        "tables": [
+          [
+            [
+              "Country",
+              "Clicks",
+              "Impressions",
+              "CTR",
+              "Position"
+            ]
+          ]
+        ],
+        "url": "https://search.google.com/search-console/performance/search-analytics?resource_id=sc-domain%3Ashentarot.com&metrics=CLICKS%2CIMPRESSIONS%2CCTR%2CPOSITION&breakdown=country&page=!https%3A%2F%2Fshentarot.com%2Fzh-hans%2Flearn%2Fmajor-and-minor-arcana"
+      },
+      "devices": {
+        "tables": [
+          [
+            [
+              "Device",
+              "Clicks",
+              "Impressions",
+              "CTR",
+              "Position"
+            ]
+          ]
+        ],
+        "url": "https://search.google.com/search-console/performance/search-analytics?resource_id=sc-domain%3Ashentarot.com&metrics=CLICKS%2CIMPRESSIONS%2CCTR%2CPOSITION&breakdown=device&page=!https%3A%2F%2Fshentarot.com%2Fzh-hans%2Flearn%2Fmajor-and-minor-arcana"
+      },
+      "metrics": {
+        "clicks": 0,
+        "impressions": 70,
+        "ctr": 0,
+        "position": 7.5
+      },
+      "ai": "Not listed in 96-row report"
+    },
+    {
+      "path": "/cards/major-20-judgement",
+      "queries": {
+        "pagination": "1-10 of 13",
+        "tables": [
+          [
+            [
+              "Top queries",
+              "Clicks",
+              "Impressions",
+              "CTR",
+              "Position"
+            ],
+            [
+              "20 tarot card",
+              "0",
+              "10",
+              "0%",
+              "6.5"
+            ],
+            [
+              "card 20 tarot",
+              "0",
+              "2",
+              "0%",
+              "7.0"
+            ],
+            [
+              "tarot card 20",
+              "0",
+              "2",
+              "0%",
+              "8.0"
+            ],
+            [
+              "muestramelas en imagen",
+              "0",
+              "1",
+              "0%",
+              "2.0"
+            ],
+            [
+              "показать карты",
+              "0",
+              "1",
+              "0%",
+              "2.0"
+            ],
+            [
+              "tarot 20 card",
+              "0",
+              "1",
+              "0%",
+              "7.0"
+            ],
+            [
+              "tarot card number 20",
+              "0",
+              "1",
+              "0%",
+              "7.0"
+            ],
+            [
+              "分別長怎樣",
+              "0",
+              "1",
+              "0%",
+              "8.0"
+            ],
+            [
+              "20 card tarot",
+              "0",
+              "1",
+              "0%",
+              "9.0"
+            ],
+            [
+              "20 card in tarot",
+              "0",
+              "1",
+              "0%",
+              "10.0"
+            ],
+            [
+              "20th tarot card",
+              "0",
+              "1",
+              "0%",
+              "11.0"
+            ],
+            [
+              "upright judgement",
+              "0",
+              "1",
+              "0%",
+              "66.0"
+            ],
+            [
+              "judgement upright in pluto",
+              "0",
+              "1",
+              "0%",
+              "94.0"
+            ]
+          ]
+        ],
+        "url": "https://search.google.com/search-console/performance/search-analytics?resource_id=sc-domain%3Ashentarot.com&metrics=CLICKS%2CIMPRESSIONS%2CCTR%2CPOSITION&breakdown=query&page=!https%3A%2F%2Fshentarot.com%2Fcards%2Fmajor-20-judgement"
+      },
+      "countries": {
+        "pagination": "1-10 of 10",
+        "tables": [
+          [
+            [
+              "Country",
+              "Clicks",
+              "Impressions",
+              "CTR",
+              "Position"
+            ],
+            [
+              "United Kingdom",
+              "0",
+              "12",
+              "0%",
+              "14.1"
+            ],
+            [
+              "Netherlands",
+              "0",
+              "2",
+              "0%",
+              "7.0"
+            ],
+            [
+              "Japan",
+              "0",
+              "2",
+              "0%",
+              "8.0"
+            ],
+            [
+              "United States",
+              "0",
+              "2",
+              "0%",
+              "37.5"
+            ],
+            [
+              "Mexico",
+              "0",
+              "1",
+              "0%",
+              "2.0"
+            ],
+            [
+              "Russia",
+              "0",
+              "1",
+              "0%",
+              "2.0"
+            ],
+            [
+              "Guatemala",
+              "0",
+              "1",
+              "0%",
+              "7.0"
+            ],
+            [
+              "Hong Kong",
+              "0",
+              "1",
+              "0%",
+              "7.0"
+            ],
+            [
+              "Taiwan",
+              "0",
+              "1",
+              "0%",
+              "8.0"
+            ],
+            [
+              "Turkey",
+              "0",
+              "1",
+              "0%",
+              "11.0"
+            ]
+          ]
+        ],
+        "url": "https://search.google.com/search-console/performance/search-analytics?resource_id=sc-domain%3Ashentarot.com&metrics=CLICKS%2CIMPRESSIONS%2CCTR%2CPOSITION&breakdown=country&page=!https%3A%2F%2Fshentarot.com%2Fcards%2Fmajor-20-judgement"
+      },
+      "devices": {
+        "pagination": "1-2 of 2",
+        "tables": [
+          [
+            [
+              "Device",
+              "Clicks",
+              "Impressions",
+              "CTR",
+              "Position"
+            ],
+            [
+              "Mobile",
+              "0",
+              "17",
+              "0%",
+              "6.5"
+            ],
+            [
+              "Desktop",
+              "0",
+              "7",
+              "0%",
+              "28.6"
+            ]
+          ]
+        ],
+        "url": "https://search.google.com/search-console/performance/search-analytics?resource_id=sc-domain%3Ashentarot.com&metrics=CLICKS%2CIMPRESSIONS%2CCTR%2CPOSITION&breakdown=device&page=!https%3A%2F%2Fshentarot.com%2Fcards%2Fmajor-20-judgement"
+      },
+      "metrics": {
+        "clicks": 0,
+        "impressions": 42,
+        "ctr": 0,
+        "position": 20.5
+      },
+      "ai": "12"
+    }
+  ],
+  "aiReportRows": [
+    [
+      "Top pages",
+      "Impressions"
+    ],
+    [
+      "https://shentarot.com/cards/major-20-judgement",
+      "12"
+    ],
+    [
+      "https://shentarot.com/de/cards/swords-seven",
+      "9"
+    ],
+    [
+      "https://shentarot.com/de/cards/major-05-hierophant",
+      "5"
+    ],
+    [
+      "https://shentarot.com/de/cards/major-12-hanged-man",
+      "3"
+    ],
+    [
+      "https://shentarot.com/de/cards/major-20-judgement",
+      "3"
+    ],
+    [
+      "https://shentarot.com/es/cards/pentacles-four",
+      "3"
+    ],
+    [
+      "https://shentarot.com/es/cards/swords-king/love",
+      "3"
+    ],
+    [
+      "https://shentarot.com/es/zodiac/libra",
+      "3"
+    ],
+    [
+      "https://shentarot.com/ru/cards/pentacles-eight",
+      "3"
+    ],
+    [
+      "http://shentarot.com/",
+      "2"
+    ],
+    [
+      "https://shentarot.com/cards/major-16-tower",
+      "2"
+    ],
+    [
+      "https://shentarot.com/de/cards/cups-ace\nCopy URL to clipboard\nOpen in new tab\nInspect URL",
+      "2"
+    ],
+    [
+      "https://shentarot.com/de/cards/major-02-high-priestess",
+      "2"
+    ],
+    [
+      "https://shentarot.com/de/cards/major-07-chariot",
+      "2"
+    ],
+    [
+      "https://shentarot.com/de/cards/pentacles-knight/love",
+      "2"
+    ],
+    [
+      "https://shentarot.com/es/cards/pentacles-eight/career",
+      "2"
+    ],
+    [
+      "https://shentarot.com/es/cards/swords-king",
+      "2"
+    ],
+    [
+      "https://shentarot.com/es/zodiac/scorpio",
+      "2"
+    ],
+    [
+      "https://shentarot.com/es/zodiac/virgo",
+      "2"
+    ],
+    [
+      "https://shentarot.com/ru/cards/cups-ace",
+      "2"
+    ],
+    [
+      "https://shentarot.com/ru/cards/major-16-tower/yes-or-no",
+      "2"
+    ],
+    [
+      "https://shentarot.com/spreads",
+      "2"
+    ],
+    [
+      "https://shentarot.com/cards/cups-ace",
+      "1"
+    ],
+    [
+      "https://shentarot.com/cards/major-00-fool",
+      "1"
+    ],
+    [
+      "https://shentarot.com/cards/major-03-empress/feelings",
+      "1"
+    ],
+    [
+      "https://shentarot.com/cards/major-07-chariot",
+      "1"
+    ],
+    [
+      "https://shentarot.com/cards/major-10-wheel-of-fortune",
+      "1"
+    ],
+    [
+      "https://shentarot.com/cards/major-12-hanged-man/career",
+      "1"
+    ],
+    [
+      "https://shentarot.com/cards/major-13-death",
+      "1"
+    ],
+    [
+      "https://shentarot.com/cards/major-16-tower/yes-or-no",
+      "1"
+    ],
+    [
+      "https://shentarot.com/cards/major-18-moon",
+      "1"
+    ],
+    [
+      "https://shentarot.com/cards/major-20-judgement/feelings",
+      "1"
+    ],
+    [
+      "https://shentarot.com/cards/pentacles-eight",
+      "1"
+    ],
+    [
+      "https://shentarot.com/cards/pentacles-eight/yes-or-no",
+      "1"
+    ],
+    [
+      "https://shentarot.com/cards/swords-king/career",
+      "1"
+    ],
+    [
+      "https://shentarot.com/cards/swords-two/career",
+      "1"
+    ],
+    [
+      "https://shentarot.com/cards/wands-four/feelings",
+      "1"
+    ],
+    [
+      "https://shentarot.com/de/birth-cards/major-00-fool",
+      "1"
+    ],
+    [
+      "https://shentarot.com/de/birth-cards/major-04-emperor",
+      "1"
+    ],
+    [
+      "https://shentarot.com/de/cards/major-00-fool/career",
+      "1"
+    ],
+    [
+      "https://shentarot.com/de/cards/major-00-fool/love",
+      "1"
+    ],
+    [
+      "https://shentarot.com/de/cards/major-01-magician",
+      "1"
+    ],
+    [
+      "https://shentarot.com/de/cards/major-01-magician/yes-or-no",
+      "1"
+    ],
+    [
+      "https://shentarot.com/de/cards/major-05-hierophant/career",
+      "1"
+    ],
+    [
+      "https://shentarot.com/de/cards/major-09-hermit",
+      "1"
+    ],
+    [
+      "https://shentarot.com/de/cards/major-10-wheel-of-fortune",
+      "1"
+    ],
+    [
+      "https://shentarot.com/de/cards/pentacles-eight",
+      "1"
+    ],
+    [
+      "https://shentarot.com/de/cards/pentacles-eight/feelings",
+      "1"
+    ],
+    [
+      "https://shentarot.com/de/cards/swords-king",
+      "1"
+    ],
+    [
+      "https://shentarot.com/de/cards/swords-two",
+      "1"
+    ],
+    [
+      "https://shentarot.com/de/cards/wands-four",
+      "1"
+    ],
+    [
+      "https://shentarot.com/de/zodiac/virgo",
+      "1"
+    ],
+    [
+      "https://shentarot.com/es/birth-cards/major-03-empress",
+      "1"
+    ],
+    [
+      "https://shentarot.com/es/birth-cards/major-09-hermit",
+      "1"
+    ],
+    [
+      "https://shentarot.com/es/birth-cards/major-10-wheel-of-fortune",
+      "1"
+    ],
+    [
+      "https://shentarot.com/es/birth-cards/major-13-death",
+      "1"
+    ],
+    [
+      "https://shentarot.com/es/cards/cups-ace",
+      "1"
+    ],
+    [
+      "https://shentarot.com/es/cards/cups-eight",
+      "1"
+    ],
+    [
+      "https://shentarot.com/es/cards/cups-eight/love",
+      "1"
+    ],
+    [
+      "https://shentarot.com/es/cards/major-00-fool/love",
+      "1"
+    ],
+    [
+      "https://shentarot.com/es/cards/major-03-empress/career",
+      "1"
+    ],
+    [
+      "https://shentarot.com/es/cards/major-04-emperor/love",
+      "1"
+    ],
+    [
+      "https://shentarot.com/es/cards/major-05-hierophant",
+      "1"
+    ],
+    [
+      "https://shentarot.com/es/cards/major-06-lovers",
+      "1"
+    ],
+    [
+      "https://shentarot.com/es/cards/major-07-chariot",
+      "1"
+    ],
+    [
+      "https://shentarot.com/es/cards/major-07-chariot/love",
+      "1"
+    ],
+    [
+      "https://shentarot.com/es/cards/major-09-hermit",
+      "1"
+    ],
+    [
+      "https://shentarot.com/es/cards/major-10-wheel-of-fortune",
+      "1"
+    ],
+    [
+      "https://shentarot.com/es/cards/major-10-wheel-of-fortune/feelings",
+      "1"
+    ],
+    [
+      "https://shentarot.com/es/cards/major-13-death/love",
+      "1"
+    ],
+    [
+      "https://shentarot.com/es/cards/major-18-moon/career",
+      "1"
+    ],
+    [
+      "https://shentarot.com/es/cards/major-20-judgement/love",
+      "1"
+    ],
+    [
+      "https://shentarot.com/es/cards/swords-two",
+      "1"
+    ],
+    [
+      "https://shentarot.com/es/cards/wands-ten/feelings",
+      "1"
+    ],
+    [
+      "https://shentarot.com/fr/cards/major-07-chariot",
+      "1"
+    ],
+    [
+      "https://shentarot.com/fr/cards/major-09-hermit",
+      "1"
+    ],
+    [
+      "https://shentarot.com/fr/cards/major-10-wheel-of-fortune/career",
+      "1"
+    ],
+    [
+      "https://shentarot.com/ja/cards/cups-ace",
+      "1"
+    ],
+    [
+      "https://shentarot.com/ja/cards/major-04-emperor",
+      "1"
+    ],
+    [
+      "https://shentarot.com/ja/cards/swords-two",
+      "1"
+    ],
+    [
+      "https://shentarot.com/ru/cards/major-02-high-priestess/love",
+      "1"
+    ],
+    [
+      "https://shentarot.com/ru/cards/major-03-empress/love",
+      "1"
+    ],
+    [
+      "https://shentarot.com/ru/cards/major-04-emperor/yes-or-no",
+      "1"
+    ],
+    [
+      "https://shentarot.com/ru/cards/major-05-hierophant",
+      "1"
+    ],
+    [
+      "https://shentarot.com/ru/cards/major-08-strength/love",
+      "1"
+    ],
+    [
+      "https://shentarot.com/ru/cards/major-09-hermit/yes-or-no",
+      "1"
+    ],
+    [
+      "https://shentarot.com/ru/cards/major-14-temperance/love",
+      "1"
+    ],
+    [
+      "https://shentarot.com/ru/cards/major-20-judgement",
+      "1"
+    ],
+    [
+      "https://shentarot.com/ru/cards/pentacles-four",
+      "1"
+    ],
+    [
+      "https://shentarot.com/ru/cards/pentacles-knight",
+      "1"
+    ],
+    [
+      "https://shentarot.com/ru/cards/swords-king",
+      "1"
+    ],
+    [
+      "https://shentarot.com/ru/cards/swords-king/career",
+      "1"
+    ],
+    [
+      "https://shentarot.com/ru/cards/swords-king/yes-or-no",
+      "1"
+    ],
+    [
+      "https://shentarot.com/ru/cards/swords-two/yes-or-no",
+      "1"
+    ],
+    [
+      "https://shentarot.com/ru/spreads/horseshoe",
+      "1"
+    ],
+    [
+      "https://shentarot.com/terms",
+      "1"
+    ]
+  ],
+  "activityPeriod": {
+    "start": "2026-10-17",
+    "end": "2026-10-24",
+    "days": 8
+  },
+  "productionReleaseOfThisChange": null,
+  "completedReadings": null,
+  "chatgptPerplexityReferrals": null
+}

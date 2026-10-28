@@ -2,6 +2,7 @@
 import ResumeWorkspace from "../../../components/ResumeWorkspace.astro";
 import Base from "../../../layouts/Base.astro";
 import Linked from "../../../components/Linked.astro";
+import SearchGrowthNotes from "../../../components/SearchGrowthNotes.astro";
 import { plain } from "../../../lib/learn.ts";
 import { LEARN_SLUGS, fill, i18n, langPathsFor, type Locale } from "../../../i18n/index.ts";
 
@@ -45,6 +46,7 @@ const jsonLd = [
     <p class="eyebrow">{fill(ix.step, { n: i + 1 })} · {fill(ix.minutes, { n: g.minutes })}</p>
     <h1>{g.h1}</h1>
     <p class="lead">{g.answer}</p>
+    {lang === 'zh-hans' && slug === 'major-and-minor-arcana' && <SearchGrowthNotes kind="arcana" />}
     {["how-to-read-tarot","reversed-cards"].includes(slug) && <ResumeWorkspace L={L} />}
     <aside class="panel"><p><a href={u("learn/connected-reading")}>{L.growth.exampleTitle}</a></p><p><a href={u("learn/practice")}>{L.growth.practiceTitle}</a> · <a href={u("methodology")}>{L.growth.methodTitle}</a></p></aside>
     <nav class="toc" aria-label={pg.inThis}>
