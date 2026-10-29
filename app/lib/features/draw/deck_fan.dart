@@ -5,6 +5,7 @@ import 'package:flutter/physics.dart';
 import 'package:flutter/services.dart';
 
 import '../../app/brand.dart';
+import '../../app/theme.dart';
 import '../../app/i18n.dart';
 
 /// Where a picked card sat on screen, so it can fly from there to its slot.
@@ -357,8 +358,7 @@ class _DeckFanState extends State<DeckFan> with TickerProviderStateMixin {
                           borderRadius: BorderRadius.circular(6),
                           boxShadow: [
                             BoxShadow(
-                              color: const Color(0xFFEBD48C)
-                                  .withValues(alpha: glow),
+                              color: AppColors.gold.withValues(alpha: glow),
                               blurRadius: 16,
                               spreadRadius: 1,
                             ),

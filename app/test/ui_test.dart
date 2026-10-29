@@ -304,8 +304,9 @@ void main() {
     s.history.addAll([r, r]);
     s.drawDailyCard(Random(3), false);
     await start(t, s);
-    expect(find.text('TODAY\'S CARD'), findsOneWidget);
+    expect(find.text('Card of the Day'), findsOneWidget);
     expect(find.text('Your journey'), findsOneWidget);
+    expect(find.text('2 readings so far · 1 of 78 cards met'), findsOneWidget);
     expect(find.textContaining('The Sun (2 times)'), findsOneWidget);
   });
 

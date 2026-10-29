@@ -5,7 +5,7 @@ principles, never logos, fonts we don't own, or signature layouts.
 
 | Taken from | What we keep |
 |---|---|
-| Bugatti | Near-black canvas, hairline borders instead of shadows, small letterspaced uppercase labels, one accent only |
+| Bugatti | Near-black canvas, hairline borders instead of shadows, one accent only, nothing decorative |
 | Oura | Warm editorial serif at light weight for titles, earthy golds instead of yellow, generous calm whitespace |
 | Apple | Native iOS rhythm: SF Pro for body text, 44pt touch targets, translucent bars, content first |
 
@@ -38,7 +38,6 @@ glow. No pure `#FFFFFF` or `#000000`.
 |---|---|---|---|
 | Display (card name, screen hero) | Baskerville (ships with iOS) | 34–44 / Regular | Tracking 0, line height 1.1 |
 | Title | Baskerville | 22–28 / Regular | |
-| Eyebrow label | SF Pro | 12 / Semibold, UPPERCASE | Tracking +1.5, gold-deep |
 | Body (reading text) | SF Pro | 17 / Regular | Line height 1.5, max ~34 characters per line on cards |
 | Caption | SF Pro | 13 / Regular | ink-muted |
 
@@ -48,7 +47,7 @@ buttons or long text in the serif.
 ## Shape and space
 
 - Spacing scale: 4, 8, 12, 16, 24, 32, 48. Screen side padding 20.
-- Radius: cards 12, buttons 12, chips full pill, tarot cards 8.
+- Radius: cards and sheets 10, buttons 8, chips full pill, tarot cards 6.
 - No drop shadows. Depth comes from surface steps and a hairline.
 - One primary button per screen, full width, 54pt tall.
 
@@ -60,4 +59,6 @@ buttons or long text in the serif.
 ## Not allowed
 
 - Copying another brand's logo, wordmark, custom font or exact layout.
+- Small uppercase labels above headings; the heading carries itself.
+- Pure white text: use ink.
 - Copyrighted tarot artwork (public-domain 1909 RWS or our own art only).

@@ -187,10 +187,9 @@ class _PaywallScreenState extends State<PaywallScreen> {
       body: ListView(
         padding: EdgeInsets.all(24),
         children: [
-          Center(child: CardFan(cardWidth: 64)),
-          SizedBox(height: 4),
-          Center(child: BrandWordmark(size: 13)),
-          SizedBox(height: 12),
+          // Kept small so the plans and their prices show without scrolling.
+          Center(child: CardFan(cardWidth: 48)),
+          SizedBox(height: 16),
           if (_reasonLine(widget.reason, AppScope.of(context).focusArea)
               case final line?)
             Text(
@@ -203,7 +202,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
             style: Theme.of(context).textTheme.headlineMedium,
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 16),
+          SizedBox(height: 12),
           for (final f in [
             tr('Every spread, including the 10-card Celtic Cross'),
             if (creditsEnabled)
@@ -215,10 +214,14 @@ class _PaywallScreenState extends State<PaywallScreen> {
             tr('Helps keep ShenTarot running'),
           ])
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 4),
+              padding: EdgeInsets.symmetric(vertical: 3),
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Icon(Icons.check_circle, color: AppColors.gold, size: 20),
+                  Padding(
+                    padding: EdgeInsets.only(top: 2),
+                    child: Icon(Icons.check, color: AppColors.gold, size: 18),
+                  ),
                   SizedBox(width: 12),
                   Expanded(child: Text(f)),
                 ],
@@ -258,27 +261,42 @@ class _PaywallScreenState extends State<PaywallScreen> {
                   for (final p in plans)
                     Card(
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(14),
+                        borderRadius: BorderRadius.circular(AppRadius.card),
                         side: BorderSide(
                           color: p.id == _selected
                               ? AppColors.gold
-                              : Colors.transparent,
-                          width: 2,
+                              : AppColors.hairline,
+                          width: p.id == _selected ? 1.5 : 1,
                         ),
                       ),
                       child: RadioListTile<String>(
                         value: p.id,
-                        title: Row(
+                        // The billed price stays in the title row, the most
+                        // prominent text on the tile (Apple 3.1.2(c)).
+                        // Name (and badge) over the billed price, the same
+                        // on every tile and in every language.
+                        title: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Expanded(
-                              child: Text(
-                                '${tr(p.title)} · ${p.priceString} ${p.periodLabel}',
-                                style: TextStyle(fontWeight: FontWeight.w600),
-                              ),
+                            Wrap(
+                              spacing: 8,
+                              runSpacing: 4,
+                              crossAxisAlignment: WrapCrossAlignment.center,
+                              children: [
+                                Text(
+                                  tr(p.title),
+                                  style: TextStyle(fontWeight: FontWeight.w600),
+                                ),
+                                if (p.title == 'Annual' &&
+                                    annualSaving(plans) != null)
+                                  _Badge(tr('Best value')),
+                              ],
                             ),
-                            if (p.title == 'Annual' &&
-                                annualSaving(plans) != null)
-                              _Badge(tr('Best value')),
+                            SizedBox(height: 2),
+                            Text(
+                              '${p.priceString} ${p.periodLabel}',
+                              style: TextStyle(fontWeight: FontWeight.w600),
+                            ),
                           ],
                         ),
                         subtitle: _planDetails(p, plans),
@@ -352,7 +370,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
                           )
                         : tr('No surprise charges: cancel anytime.'),
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 13, color: AppColors.gold),
+                    style: TextStyle(fontSize: 13, color: AppColors.textMuted),
                   ),
                 ),
               ],
@@ -442,7 +460,7 @@ class _Badge extends StatelessWidget {
     padding: EdgeInsets.symmetric(horizontal: 8, vertical: 3),
     decoration: BoxDecoration(
       color: AppColors.gold,
-      borderRadius: BorderRadius.circular(8),
+      borderRadius: BorderRadius.circular(99),
     ),
     child: Text(
       text,

@@ -3,6 +3,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 import '../../app/brand.dart';
+import '../../app/theme.dart';
 
 /// Flies a face-down card across the screen in an overlay, from where it was
 /// picked to its slot in the spread, then calls [onLanded].
@@ -81,8 +82,9 @@ class _FlyingCardState extends State<FlyingCard>
                       borderRadius: BorderRadius.circular(6),
                       boxShadow: [
                         BoxShadow(
-                          color: const Color(0xFFEBD48C)
-                              .withValues(alpha: 0.55 * math.sin(t * math.pi)),
+                          color: AppColors.gold.withValues(
+                            alpha: 0.55 * math.sin(t * math.pi),
+                          ),
                           blurRadius: 22,
                           spreadRadius: 2,
                         ),

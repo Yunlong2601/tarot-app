@@ -215,7 +215,7 @@ class _FollowUpsState extends State<_FollowUps> {
                       : tr('Reading {0} against your question...', [first]),
                   style: const TextStyle(
                     fontSize: 17,
-                    color: Color(0xFF8F8A80),
+                    color: AppColors.textMuted,
                   ),
                 ),
               ),
@@ -263,7 +263,7 @@ class _FollowUpsState extends State<_FollowUps> {
                     hintText: tr('Ask the reader more...'),
                     hintStyle: const TextStyle(
                       fontSize: 17,
-                      color: Color(0xFF8F8A80),
+                      color: AppColors.textMuted,
                     ),
                     filled: false,
                     isDense: true,
@@ -390,7 +390,7 @@ class _JournalState extends State<_Journal> {
                 hintText: tr('What did you notice in these cards?'),
                 hintStyle: const TextStyle(
                   fontSize: 17,
-                  color: Color(0xFF8F8A80),
+                  color: AppColors.textMuted,
                 ),
                 filled: false,
                 border: InputBorder.none,
@@ -494,8 +494,8 @@ class _FirstOffer extends StatelessWidget {
       key: const ValueKey('first-offer'),
       padding: const EdgeInsets.fromLTRB(16, 8, 4, 16),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(6),
-        border: Border.all(color: AppColors.gold.withValues(alpha: 0.6)),
+        borderRadius: BorderRadius.circular(AppRadius.card),
+        border: Border.all(color: AppColors.goldDeep),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -670,15 +670,15 @@ class ReadingScreen extends StatelessWidget {
             icon: const Icon(Icons.ios_share),
             onPressed: () => shareReading(context, reading),
           ),
-          IconButton(
-            tooltip: tr('Report a problem with this reading'),
-            icon: const Icon(Icons.flag_outlined),
-            onPressed: () => reportReading(context, reading),
-          ),
-          IconButton(
-            tooltip: tr('Delete reading'),
-            icon: const Icon(Icons.delete_outline),
-            onPressed: () async {
+          // Report and delete are rare: one menu keeps the title readable.
+          PopupMenuButton<String>(
+            tooltip: tr('More'),
+            icon: const Icon(Icons.more_horiz),
+            onSelected: (v) async {
+              if (v == 'report') {
+                reportReading(context, reading);
+                return;
+              }
               final ok = await showAppDialog<bool>(
                 context: context,
                 builder: (c) => AlertDialog(
@@ -700,6 +700,24 @@ class ReadingScreen extends StatelessWidget {
                 context.pop();
               }
             },
+            itemBuilder: (_) => [
+              PopupMenuItem(
+                value: 'report',
+                child: ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  leading: const Icon(Icons.flag_outlined),
+                  title: Text(tr('Report a problem with this reading')),
+                ),
+              ),
+              PopupMenuItem(
+                value: 'delete',
+                child: ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  leading: const Icon(Icons.delete_outline),
+                  title: Text(tr('Delete reading')),
+                ),
+              ),
+            ],
           ),
         ],
       ),
@@ -807,10 +825,10 @@ class _ReadingText extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: highlight ? AppColors.goldTint : AppColors.surface,
-        borderRadius: BorderRadius.circular(16),
+        color: AppColors.surface,
+        borderRadius: BorderRadius.circular(AppRadius.card),
         border: Border.all(
-          color: highlight ? AppColors.goldDeep : const Color(0xFF2A2822),
+          color: highlight ? AppColors.goldDeep : AppColors.hairline,
         ),
       ),
       child: child,
@@ -945,19 +963,20 @@ class _CardSectionState extends State<_CardSection> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // Name first, in the display serif; the position (with its
+                  // order, which matters in a spread) sits quietly under it.
                   Text(
-                    '${i + 1} · ${position.toUpperCase()}',
-                    style: const TextStyle(
-                      fontSize: 11,
-                      letterSpacing: 1.2,
-                      color: AppColors.textMuted,
-                    ),
+                    name,
+                    style: Theme.of(context).textTheme.titleLarge
+                        ?.copyWith(color: AppColors.goldLight),
                   ),
                   const SizedBox(height: 2),
                   Text(
-                    name,
-                    style: Theme.of(context).textTheme.titleMedium
-                        ?.copyWith(color: AppColors.gold),
+                    '${i + 1}. $position',
+                    style: const TextStyle(
+                      fontSize: 13,
+                      color: AppColors.textMuted,
+                    ),
                   ),
                 ],
               ),

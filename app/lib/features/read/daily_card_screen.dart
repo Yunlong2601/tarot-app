@@ -117,10 +117,7 @@ class _DailyCardScreenState extends State<DailyCardScreen> {
                 spread: SpreadType.single,
                 cards: [drawn],
               ),
-              child: Text(
-                AppScope.of(context)
-                    .spendLabel(tr('Go deeper: reading for this card')),
-              ),
+              child: Text(AppScope.of(context).spendLabel(tr('Go deeper'))),
             ),
             TextButton(
               onPressed: () => context.push('/card/${card.id}'),

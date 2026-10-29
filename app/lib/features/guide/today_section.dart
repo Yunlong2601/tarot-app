@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../app/app_scope.dart';
 import '../../app/app_state.dart';
+import '../../app/brand.dart';
 import '../../app/theme.dart';
 import '../cards/card_art.dart';
 import '../../app/i18n.dart';
@@ -28,25 +29,30 @@ class TodaySection extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(16),
             child: daily == null
-                ? Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(tr('Today'), style: t.titleLarge),
-                      const SizedBox(height: 6),
-                      Text(
-                        tr(
+                // Not drawn yet: the face-down card is the invitation.
+                ? InkWell(
+                    onTap: () => context.push('/daily'),
+                    child: Column(
+                      children: [
+                        const SizedBox(height: 8),
+                        const CardBack(width: 104),
+                        const SizedBox(height: 20),
+                        Text(tr('Card of the Day'), style: t.headlineSmall),
+                        const SizedBox(height: 6),
+                        Text(
                           tr(
                             'Draw your Card of the Day for a question to carry with you today. Free, every day.',
                           ),
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(color: AppColors.textMuted),
                         ),
-                        style: TextStyle(color: AppColors.textMuted),
-                      ),
-                      const SizedBox(height: 12),
-                      FilledButton(
-                        onPressed: () => context.push('/daily'),
-                        child: Text(tr('Draw today\'s card')),
-                      ),
-                    ],
+                        const SizedBox(height: 16),
+                        FilledButton(
+                          onPressed: () => context.push('/daily'),
+                          child: Text(tr('Draw today\'s card')),
+                        ),
+                      ],
+                    ),
                   )
                 : InkWell(
                     onTap: () => context.push('/daily'),
@@ -64,17 +70,16 @@ class TodaySection extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                tr('TODAY\'S CARD'),
-                                style: TextStyle(
-                                  fontSize: 11,
-                                  letterSpacing: 1.2,
-                                  color: AppColors.textMuted,
+                                cardLabel(daily.card.name, daily.reversed),
+                                style: t.titleLarge?.copyWith(
+                                  color: AppColors.goldLight,
                                 ),
                               ),
                               Text(
-                                cardLabel(daily.card.name, daily.reversed),
-                                style: t.titleMedium?.copyWith(
-                                  color: AppColors.gold,
+                                tr('Card of the Day'),
+                                style: const TextStyle(
+                                  fontSize: 13,
+                                  color: AppColors.textMuted,
                                 ),
                               ),
                               const SizedBox(height: 8),
@@ -83,7 +88,9 @@ class TodaySection extends StatelessWidget {
                                 const SizedBox(height: 8),
                                 Text(
                                   tr('Today\'s guidance: {0}', [question]),
-                                  style: const TextStyle(),
+                                  style: const TextStyle(
+                                    color: AppColors.textMuted,
+                                  ),
                                 ),
                               ],
                             ],
@@ -118,78 +125,51 @@ class _Journey extends StatelessWidget {
     }
     final top = counts.entries.toList()
       ..sort((a, b) => b.value.compareTo(a.value));
-    Widget stat(String value, String label) => Expanded(
-      child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 8),
-        decoration: BoxDecoration(
-          color: AppColors.goldTint,
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: Column(
-          children: [
-            Text(
-              value,
-              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                color: AppColors.gold,
-                fontWeight: FontWeight.w600,
+    return SizedBox(
+      width: double.infinity,
+      child: Card(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                tr('Your journey'),
+                style: Theme.of(context).textTheme.titleMedium,
               ),
-            ),
-            const SizedBox(height: 2),
-            Text(
-              tr(label),
-              textAlign: TextAlign.center,
-              maxLines: 2,
-              style: const TextStyle(fontSize: 13, color: AppColors.textMuted),
-            ),
-          ],
-        ),
-      ),
-    );
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              tr('Your journey'),
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
-            const SizedBox(height: 12),
-            Row(
-              children: [
-                stat('${h.length}', h.length == 1 ? 'reading' : 'readings'),
-                const SizedBox(width: 12),
-                stat('${counts.length}', 'different cards'),
-              ],
-            ),
-            if (top.isNotEmpty && top.first.value > 1) ...[
-              const SizedBox(height: 14),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.only(top: 2),
-                    child: Icon(
-                      Icons.auto_awesome,
-                      size: 18,
-                      color: AppColors.gold,
-                    ),
-                  ),
-                  const SizedBox(width: 8),
-                  Expanded(
-                    child: Text(
-                      tr(
-                        'The card that keeps appearing: {0} ({1} times). What might it be asking of you?',
-                        [top.first.key, top.first.value],
+              const SizedBox(height: 4),
+              Text(
+                '${h.length == 1 ? tr('1 reading so far') : tr('{0} readings so far', [h.length])} · ${tr('{0} of {1} cards met', [counts.length, 78])}',
+                style: const TextStyle(color: AppColors.textMuted),
+              ),
+              if (top.isNotEmpty && top.first.value > 1) ...[
+                const SizedBox(height: 14),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.only(top: 2),
+                      child: Icon(
+                        Icons.auto_awesome,
+                        size: 18,
+                        color: AppColors.gold,
                       ),
-                      style: const TextStyle(color: AppColors.textMuted),
                     ),
-                  ),
-                ],
-              ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Text(
+                        tr(
+                          'The card that keeps appearing: {0} ({1} times). What might it be asking of you?',
+                          [top.first.key, top.first.value],
+                        ),
+                        style: const TextStyle(color: AppColors.textMuted),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ],
-          ],
+          ),
         ),
       ),
     );

@@ -1,23 +1,35 @@
 import 'package:flutter/cupertino.dart' show CupertinoPageTransitionsBuilder;
 import 'package:flutter/material.dart';
 
-/// Black and gold. Neutral blacks and charcoals with a warm gold accent.
+/// Candlelit table: warm blacks, paper-white ink and one earthy gold accent.
+/// The card art is the brightest thing on screen. See docs/DESIGN.md.
 class AppColors {
-  static const background = Color(0xFF0B0B0B);
-  static const surface = Color(0xFF151515);
-  static const surfaceHigh = Color(0xFF1F1D19);
+  static const background = Color(0xFF0A0908);
+  static const surface = Color(0xFF141210);
+  static const surfaceHigh = Color(0xFF1E1A16);
 
   /// Selected segment / chip fill: a dark, warm gold tint.
-  static const goldTint = Color(0xFF2B261B);
-  static const gold = Color(0xFFEBD48C);
-  static const goldLight = Color(0xFFF6E8B8);
-  static const goldDeep = Color(0xFFC9A24D);
-  static const textMuted = Color(0xFFA9A59B);
-  static const onGold = Color(0xFF17130A);
-  static const success = Color(0xFF3FD6A0);
+  static const goldTint = Color(0xFF29221A);
+  static const gold = Color(0xFFD9B46A);
+  static const goldLight = Color(0xFFEBD9A8);
+  static const goldDeep = Color(0xFF9C7A3C);
+
+  /// Primary text: warm paper white, never pure white.
+  static const ink = Color(0xFFF3EEE4);
+  static const textMuted = Color(0xFFA39C8F);
+  static const onGold = Color(0xFF17120A);
+  static const success = Color(0xFF8FA08A);
+  static const error = Color(0xFFD0644A);
 
   /// Fine rules and borders: warm, barely there, like a printed hairline.
-  static const hairline = Color(0xFF34302A);
+  static const hairline = Color(0xFF2E2922);
+}
+
+/// Corner radii, one per role.
+class AppRadius {
+  static const card = 10.0;
+  static const control = 8.0;
+  static const tarot = 6.0;
 }
 
 /// Editorial display face for titles and card names. Baskerville and Georgia
@@ -47,10 +59,13 @@ ThemeData buildTheme() {
         secondary: AppColors.goldDeep,
         primaryContainer: AppColors.goldTint,
         onPrimaryContainer: AppColors.gold,
-        outline: const Color(0xFF3A372F),
-        outlineVariant: const Color(0xFF2A2822),
+        onSurface: AppColors.ink,
+        error: AppColors.error,
+        outline: AppColors.hairline,
+        outlineVariant: AppColors.hairline,
       );
-  final base = ThemeData(brightness: Brightness.dark).textTheme;
+  final base = ThemeData(brightness: Brightness.dark).textTheme
+      .apply(bodyColor: AppColors.ink, displayColor: AppColors.ink);
   return ThemeData(
     useMaterial3: true,
     colorScheme: scheme,
@@ -62,21 +77,25 @@ ThemeData buildTheme() {
       headlineMedium: base.headlineMedium?.merge(_display(28)),
       headlineSmall: base.headlineSmall?.merge(_display(24)),
       titleLarge: base.titleLarge?.merge(_display(22)),
-      // Reading text: tighter tracking and more line height than Material's
-      // defaults, which space letters too widely for long passages.
+      // Reading text: iOS tracking (slightly negative at body sizes) and
+      // generous line height. Material's positive tracking reads as spaced
+      // out in long passages.
       bodyLarge: base.bodyLarge?.copyWith(
         fontSize: 17,
         height: 1.5,
-        letterSpacing: 0.1,
+        letterSpacing: -0.2,
       ),
       bodyMedium: base.bodyMedium?.copyWith(
         fontSize: 15.5,
         height: 1.45,
-        letterSpacing: 0.1,
+        letterSpacing: -0.15,
       ),
-      bodySmall: base.bodySmall?.copyWith(letterSpacing: 0.15),
-      titleMedium: base.titleMedium?.copyWith(letterSpacing: 0.05),
-      labelLarge: base.labelLarge?.copyWith(letterSpacing: 0.2),
+      bodySmall: base.bodySmall?.copyWith(letterSpacing: 0),
+      titleMedium: base.titleMedium?.copyWith(
+        fontWeight: FontWeight.w600,
+        letterSpacing: -0.2,
+      ),
+      labelLarge: base.labelLarge?.copyWith(letterSpacing: -0.1),
     ),
     scaffoldBackgroundColor: AppColors.background,
     appBarTheme: const AppBarTheme(
@@ -90,14 +109,14 @@ ThemeData buildTheme() {
         fontSize: 21,
         fontWeight: FontWeight.w600,
         letterSpacing: 0.3,
-        color: Colors.white,
+        color: AppColors.ink,
       ),
     ),
     cardTheme: CardThemeData(
       color: AppColors.surface,
       elevation: 0,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(6),
+        borderRadius: BorderRadius.circular(AppRadius.card),
         side: const BorderSide(color: AppColors.hairline),
       ),
     ),
@@ -108,17 +127,21 @@ ThemeData buildTheme() {
         foregroundColor: AppColors.onGold,
         textStyle: const TextStyle(
           fontSize: 17,
-          fontWeight: FontWeight.w700,
-          letterSpacing: 0.4,
+          fontWeight: FontWeight.w600,
+          letterSpacing: -0.2,
         ),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(AppRadius.control),
+        ),
       ),
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
-        foregroundColor: Colors.white,
+        foregroundColor: AppColors.ink,
         side: const BorderSide(color: AppColors.goldDeep, width: 0.8),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(AppRadius.control),
+        ),
       ),
     ),
     textButtonTheme: TextButtonThemeData(
@@ -127,8 +150,9 @@ ThemeData buildTheme() {
     chipTheme: ChipThemeData(
       backgroundColor: AppColors.surface,
       selectedColor: AppColors.goldTint,
-      side: const BorderSide(color: Color(0xFF2A2822)),
-      labelStyle: const TextStyle(color: Colors.white),
+      side: const BorderSide(color: AppColors.hairline),
+      shape: const StadiumBorder(),
+      labelStyle: const TextStyle(color: AppColors.ink),
       secondaryLabelStyle: const TextStyle(color: AppColors.gold),
       checkmarkColor: AppColors.gold,
     ),
@@ -145,7 +169,7 @@ ThemeData buildTheme() {
               : AppColors.textMuted,
         ),
         side: const WidgetStatePropertyAll(
-          BorderSide(color: Color(0xFF2A2822)),
+          BorderSide(color: AppColors.hairline),
         ),
       ),
     ),
@@ -172,12 +196,14 @@ ThemeData buildTheme() {
     ),
     switchTheme: SwitchThemeData(
       thumbColor: WidgetStateProperty.resolveWith(
-        (s) => s.contains(WidgetState.selected) ? AppColors.gold : Colors.grey,
+        (s) => s.contains(WidgetState.selected)
+            ? AppColors.gold
+            : AppColors.textMuted,
       ),
       trackColor: WidgetStateProperty.resolveWith(
         (s) => s.contains(WidgetState.selected)
             ? AppColors.goldTint
-            : const Color(0xFF2A2822),
+            : AppColors.hairline,
       ),
     ),
     dialogTheme: DialogThemeData(
@@ -185,8 +211,8 @@ ThemeData buildTheme() {
       surfaceTintColor: Colors.transparent,
       elevation: 0,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8),
-        side: BorderSide(color: AppColors.gold.withValues(alpha: 0.35)),
+        borderRadius: BorderRadius.circular(AppRadius.card),
+        side: const BorderSide(color: AppColors.hairline),
       ),
       titleTextStyle: const TextStyle(
         fontFamily: displayFont,
@@ -198,7 +224,7 @@ ThemeData buildTheme() {
       contentTextStyle: const TextStyle(
         fontSize: 16,
         height: 1.4,
-        color: Color(0xFFE6E2D8),
+        color: AppColors.ink,
       ),
     ),
     snackBarTheme: SnackBarThemeData(
@@ -207,10 +233,10 @@ ThemeData buildTheme() {
       elevation: 0,
       insetPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-        side: BorderSide(color: AppColors.gold.withValues(alpha: 0.35)),
+        borderRadius: BorderRadius.circular(AppRadius.card),
+        side: const BorderSide(color: AppColors.hairline),
       ),
-      contentTextStyle: const TextStyle(fontSize: 15, color: Colors.white),
+      contentTextStyle: const TextStyle(fontSize: 15, color: AppColors.ink),
       actionTextColor: AppColors.gold,
       showCloseIcon: false,
     ),
@@ -220,7 +246,9 @@ ThemeData buildTheme() {
       showDragHandle: true,
       dragHandleColor: Color(0xFF4A463C),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(AppRadius.card),
+        ),
       ),
     ),
     pageTransitionsTheme: const PageTransitionsTheme(
@@ -230,20 +258,20 @@ ThemeData buildTheme() {
         TargetPlatform.android: FadeForwardsPageTransitionsBuilder(),
       },
     ),
-    dividerTheme: const DividerThemeData(color: Color(0xFF242320)),
+    dividerTheme: const DividerThemeData(color: AppColors.hairline),
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: AppColors.surface,
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(4),
+        borderRadius: BorderRadius.circular(AppRadius.control),
         borderSide: const BorderSide(color: AppColors.hairline),
       ),
       enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(4),
+        borderRadius: BorderRadius.circular(AppRadius.control),
         borderSide: const BorderSide(color: AppColors.hairline),
       ),
       focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(4),
+        borderRadius: BorderRadius.circular(AppRadius.control),
         borderSide: const BorderSide(color: AppColors.goldDeep),
       ),
     ),

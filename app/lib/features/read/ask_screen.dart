@@ -272,7 +272,7 @@ class _Composer extends StatelessWidget {
                   hintText: tr('Ask the cards...'),
                   hintStyle: const TextStyle(
                     fontSize: 17,
-                    color: Color(0xFF8F8A80),
+                    color: AppColors.textMuted,
                   ),
                   filled: false,
                   isDense: true,

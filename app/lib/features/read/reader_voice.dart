@@ -88,7 +88,7 @@ class ReaderLine extends StatelessWidget {
       fontSize: muted ? 16 : (body ? 17 : 23),
       height: body ? 1.5 : 1.35,
       fontWeight: muted ? FontWeight.w400 : FontWeight.w500,
-      color: muted ? const Color(0xFFC9C4B8) : const Color(0xFFF4F0E6),
+      color: muted ? const Color(0xFFC9C4B8) : AppColors.ink,
     );
     Widget line(String shown) => Container(
       padding: const EdgeInsetsDirectional.only(start: 14, bottom: 6, top: 2),

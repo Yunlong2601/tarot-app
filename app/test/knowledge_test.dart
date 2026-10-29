@@ -123,10 +123,10 @@ void main() {
       await t.pumpAndSettle();
       await t.tap(find.text('Draw today\'s card'));
       await t.pumpAndSettle();
-      expect(find.text('Go deeper: reading for this card'), findsNothing);
+      expect(find.text('Go deeper'), findsNothing);
       await t.tap(find.bySemanticsLabel(RegExp('Face-down card')));
       await t.pumpAndSettle();
-      expect(find.text('Go deeper: reading for this card'), findsOneWidget);
+      expect(find.text('Go deeper'), findsOneWidget);
     });
   });
 
@@ -217,7 +217,9 @@ void main() {
       await t.pumpAndSettle();
       await t.tap(find.textContaining('The Fool'));
       await t.pumpAndSettle();
-      await t.tap(find.byTooltip('Report a problem with this reading'));
+      await t.tap(find.byTooltip('More'));
+      await t.pumpAndSettle();
+      await t.tap(find.text('Report a problem with this reading'));
       await t.pumpAndSettle();
       expect(find.text('What is wrong with this reading?'), findsOneWidget);
       expect(find.text('Offensive or harmful'), findsOneWidget);
