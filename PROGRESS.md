@@ -230,3 +230,7 @@ Installed the requested design skill sources locally and retained Awesome Design
 ## 2026-10-29 — Eight-language beta recruitment journey
 
 Implemented localized platform guides, explicit confirmations, recoverable local progress, localized QR handoff, troubleshooting, feedback templates, testing checklist, mobile next-step action and contextual invitations. Corrected stale TestFlight closure wording without claiming physical installation. Screenshot/video publication remains gated on distributed-build evidence. [Coverage and verification](docs/beta-conversion-2026-10-29/README.md).
+
+## 2026-10-29 — More natural Chinese beta copy
+
+Rewrote Simplified and Traditional Chinese beta-page copy, shared recruitment invitations and FAQ answers in a conversational voice. Preserved availability, account, payment, privacy and local-progress facts. No joining-flow or legal-page changes.

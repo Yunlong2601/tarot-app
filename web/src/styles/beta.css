@@ -67,3 +67,7 @@
  .beta-mobile-action a { display:flex;text-align:center;justify-content:center; }
  body:has(.beta-page) { padding-bottom:calc(6rem + env(safe-area-inset-bottom)); }
 }
+/* Keep Chinese clauses together so the headline reads like a spoken question. */
+.beta-hero h1:lang(zh-Hans),.beta-hero h1:lang(zh-Hant) {
+ font-size:clamp(2.5rem,5vw,5rem);word-break:keep-all;overflow-wrap:normal;max-width:none;
+}
