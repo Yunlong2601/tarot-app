@@ -1,0 +1,112 @@
+{
+  "nav": "Join beta",
+  "title": "Your cards. A clearer place to start.",
+  "lead": "Try ShenTarot with your physical deck, explore your spread, and help us improve the experience.",
+  "choose": "Choose your phone",
+  "heroInvite": "Have a physical deck? Explore the app beta",
+  "contextInvite": "Reading with your own deck? See what the app beta offers.",
+  "appTitle": "Try the app before its public release.",
+  "appNote": "Check beta access for Android and iPhone. Public-store release is separate from beta testing.",
+  "available": "Accepting tester applications",
+  "unavailable": "Not currently available",
+  "check": "Check current availability",
+  "checked": "Last checked",
+  "before": "Before you join",
+  "requirements": "Access depends on your device, region and the platform invitation. Check the official invitation for current requirements. External pages may use a different language. No website registration is required.",
+  "costs": "Check the access conditions and any purchase screens in your build. Beta access does not promise permanent free Premium. Ask us if a charge or limit is unclear.",
+  "account": "Use the same Google account for the tester group, invitation and Google Play on your phone.",
+  "androidTitles": [
+    "Join the tester group",
+    "Become a tester",
+    "Install on your phone"
+  ],
+  "androidBodies": [
+    "Open Google Groups and choose Join group. Group membership alone does not enrol you in the Play test.",
+    "Open the Google Play invitation and choose Become a tester. Return here once you have opted in.",
+    "Open the listing on your phone. In Google Play, tap your profile image and check that the tester account is selected."
+  ],
+  "androidActions": [
+    "Join Android tester group",
+    "Open Google Play invitation",
+    "Open Google Play listing"
+  ],
+  "iphoneTitles": [
+    "Get TestFlight",
+    "Open the ShenTarot invitation",
+    "Install ShenTarot"
+  ],
+  "iphoneBodies": [
+    "Install Apple’s TestFlight app on your iPhone. Installing TestFlight alone does not add ShenTarot.",
+    "Open our official invitation on your iPhone. Apple shows current availability and device requirements.",
+    "If a compatible build is offered, tap Accept, then Install in TestFlight. Returning testers can use Update or Open."
+  ],
+  "iphoneActions": [
+    "Get Apple TestFlight",
+    "Check ShenTarot invitation",
+    "Open ShenTarot invitation again"
+  ],
+  "confirm": "I completed this step",
+  "showAll": "Show all steps",
+  "already": "Already in the tester group? Continue to the Google Play invitation.",
+  "progress": "Progress is saved only in this browser. Confirmations are yours; they do not verify enrolment or installation.",
+  "reset": "Reset guide progress",
+  "storageFailed": "Browser storage is unavailable. You can continue; progress will not be remembered.",
+  "saved": "Your guide progress has been saved.",
+  "handoff": "Continue on your phone",
+  "copy": "Copy guide link",
+  "copied": "Copied.",
+  "copyFailed": "Copy failed. Select and copy the visible text instead.",
+  "help": "Get help",
+  "troubleTitle": "Having trouble joining?",
+  "troubleNames": [
+    "App not available",
+    "Not eligible",
+    "Joined the group but cannot install",
+    "Invitation unavailable",
+    "Already installed and looking for an update"
+  ],
+  "troubleBodies": [
+    "Check the invitation’s device and country requirements. On Android, check the Google Play account. Retry the invitation below.",
+    "On Android, join the tester group first, then opt in with the same account. On iPhone, check the criteria in Apple’s invitation.",
+    "Group membership is only the first step. Open the Play invitation, opt in, and check the account selected in Google Play.",
+    "Open the current official invitation below. If it is closed or expired, email us; access cannot be guaranteed.",
+    "Open the store or TestFlight with the account used to join. Look for Update or Open. If no build is offered, contact us."
+  ],
+  "compare": "Website or app?",
+  "webLabel": "Available on this website",
+  "appLabel": "The app beta",
+  "webFacts": [
+    "78-card reference library and free browser tools.",
+    "A reading workspace with a reflection saved in this browser; no account sync."
+  ],
+  "appFacts": [
+    "A mobile app accessed through Google Play testing or Apple TestFlight.",
+    "Features, limits and availability depend on the build offered to your device. Ask us about a specific feature before joining."
+  ],
+  "mission": "Your first test: try one reading.",
+  "missionNote": "Optional: use a non-sensitive example. This website cannot detect whether you installed the app or completed a reading.",
+  "tasks": [
+    "Choose a familiar spread.",
+    "Check the card names and orientations.",
+    "Read the explanation available in your build.",
+    "Note one confusing moment."
+  ],
+  "checklist": "My testing checklist",
+  "feedback": "Tell us what happened.",
+  "feedbackNote": "Remove private questions and personal information from screenshots. On iPhone you can also use Send Beta Feedback in TestFlight. No email app? Copy the template and send it to the address below.",
+  "send": "Send beta feedback",
+  "template": "Phone model:\nApp version:\nExpected behaviour:\nWhat happened:\nSteps to reproduce:\n",
+  "copyTemplate": "Copy feedback template",
+  "recent": "Recently improved",
+  "releaseNote": "Website update · 29 October 2026: clearer homepage typography, larger mobile card artwork and more readable reading controls. App release notes will appear only after verification of a distributed build.",
+  "disclaimer": "For entertainment and self-reflection only; not predictions or professional advice. Beta software may be unstable. Keep a separate copy of important notes.",
+  "privacy": "Privacy",
+  "tools": "Use the free website tools",
+  "next": "Continue the guide",
+  "stepLabel": "Step",
+  "guideLink": "Open this guide on your phone",
+  "emailSubject": "ShenTarot beta access",
+  "feedbackSubject": "ShenTarot beta feedback",
+  "guideProgress": "Installation guide",
+  "testProgress": "First-test checklist"
+}

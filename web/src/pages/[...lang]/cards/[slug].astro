@@ -1,4 +1,5 @@
 ---
+import BetaInvite from "../../../components/BetaInvite.astro";
 import ResumeWorkspace from "../../../components/ResumeWorkspace.astro";
 import Base from "../../../layouts/Base.astro";
 import Tabs from "../../../components/Tabs.astro";
@@ -234,6 +235,7 @@ const jsonLd = [
       <img src={`${BASE}cards/art/${next}.jpg`} alt="" loading="lazy" width="150" height="257" />
     </a>
   </nav>
+<BetaInvite lang={lang} contextual/>
 </Base>
 
 <script>

@@ -1,4 +1,5 @@
 ---
+import BetaInvite from "./BetaInvite.astro";
 // A reading table in the browser: shuffle, draw one card per position, turn
 // them over and read the short meanings. Nothing leaves the page.
 import { readerDeck, APP_SPREADS, spreadIds, type SpreadId } from "../lib/data.ts";
@@ -87,6 +88,7 @@ const config = JSON.stringify({ ritual, revealLabel: ritualText.reveal, position
   <div class="table" data-table aria-live="polite"></div>
   <noscript><p><a href={L.url("cards")}>{L.workspace.find}</a> · {L.workspace.practiceHint}</p></noscript>
   <div class="reader-foot" data-foot hidden>
+    <div data-beta-after-draw hidden><BetaInvite lang={lang} contextual/></div>
     <div class="lean" data-lean hidden></div>
     <div class="panel summary" data-summary hidden></div>
 
@@ -379,6 +381,7 @@ const config = JSON.stringify({ ritual, revealLabel: ritualText.reveal, position
       });
       const allOpen = drawn.length > 0 && drawn.every((d) => d.open);
       foot.hidden = drawn.length === 0;
+      root.querySelector<HTMLElement>('[data-beta-after-draw]')!.hidden = !allOpen || drawn.length !== cfg.positions.length;
       revealAll.hidden = allOpen || drawn.length < 2;
       copy.hidden = !allOpen;
       continueArea.hidden = !allOpen || drawn.length !== cfg.positions.length;

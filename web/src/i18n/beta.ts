@@ -1,0 +1,12 @@
+import en from './en/beta.json';
+import hans from './zh-hans/beta.json';
+import hant from './zh-hant/beta.json';
+import es from './es/beta.json';
+import de from './de/beta.json';
+import ja from './ja/beta.json';
+import fr from './fr/beta.json';
+import ru from './ru/beta.json';
+import type {Locale} from './index';
+export type BetaCopy = typeof en;
+const copies:Record<Locale,BetaCopy> = {en,'zh-hans':hans,'zh-hant':hant,es,de,ja,fr,ru};
+export const betaCopy = (lang:Locale):BetaCopy => copies[lang];

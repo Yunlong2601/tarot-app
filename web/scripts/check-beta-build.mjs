@@ -1,39 +1,38 @@
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
-const html = readFileSync('dist/beta.html', 'utf8');
-const betaSource = readFileSync('src/lib/beta.ts', 'utf8');
-const constants = Object.fromEntries([...betaSource.matchAll(/export const (\w+)(?:: string)? = '([^']*)'/g)].map(m => [m[1],m[2]]));
-assert.ok(html.includes('href="https://shentarot.com/beta"'));
-assert.ok(!/<link\b[^>]*hreflang=/.test(html), 'English-only page must not advertise nonexistent translations');
-assert.ok(!/name="robots"[^>]*noindex/.test(html));
-assert.equal((html.match(/<h1\b/g)||[]).length, 1);
-for (const id of ['android','iphone']) assert.ok(html.includes(`id="${id}"`));
-for (const key of ['ANDROID_BETA_GROUP','ANDROID_BETA_OPT_IN','ANDROID_BETA_STORE','TESTFLIGHT_APP']) assert.ok(html.includes(`href="${constants[key]}"`), `missing ${key}`);
-assert.ok(html.includes('same Google account'));
-assert.ok(html.indexOf(constants.ANDROID_BETA_GROUP) < html.indexOf(constants.ANDROID_BETA_OPT_IN));
-assert.ok(html.indexOf(constants.ANDROID_BETA_OPT_IN) < html.indexOf(constants.ANDROID_BETA_STORE));
-assert.ok(!/href="(?:#|)"/.test(html), 'No dead invitation actions');
-const main = html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1] || '';
-assert.ok(main && !/<form\b/.test(main), 'Beta content must not collect account credentials');
-if (constants.TESTFLIGHT_INVITE) {
-  assert.match(constants.TESTFLIGHT_INVITE, /^https:\/\/testflight\.apple\.com\/join\/[A-Za-z0-9]+$/);
-  assert.ok(html.includes(`href="${constants.TESTFLIGHT_INVITE}"`));
-  if (betaSource.includes('TESTFLIGHT_ACCEPTING_TESTERS = false')) {
-    const ios = html.split('id="iphone"')[1].split('</section>')[0];
-    assert.ok(ios.includes('Not accepting new testers right now'));
-    assert.ok(!ios.includes('>Accepting testers<'));
-    assert.ok(ios.includes('Request iPhone beta access by email'));
-  }
-} else {
-  assert.ok(html.includes('Not accepting new testers right now'));
-  assert.ok(html.includes('Request iPhone beta access'));
-  assert.ok(!html.includes('Join ShenTarot on TestFlight'));
+import {readFileSync,existsSync} from 'node:fs';
+import {parseHTML} from 'linkedom';
+const locales=['en','zh-hans','zh-hant','es','de','ja','fr','ru'];
+const sitemap=readFileSync('dist/sitemap.xml','utf8');
+for(const lang of locales){
+ const prefix=lang==='en'?'':`${lang}/`,route=`/${prefix}beta`;
+ const html=readFileSync(`dist/${prefix}beta.html`,'utf8');
+ const copy=JSON.parse(readFileSync(`src/i18n/${lang}/beta.json`,'utf8'));
+ const {document:d}=parseHTML(html);
+ assert.equal(d.querySelectorAll('h1').length,1);
+ assert.equal(d.querySelector('h1').textContent,copy.title);
+ assert.equal(d.querySelector('link[rel=canonical]').getAttribute('href'),`https://shentarot.com${route}`);
+ for(const other of locales){const target=`https://shentarot.com/${other==='en'?'':other+'/'}beta`;assert.ok([...d.querySelectorAll('link[rel=alternate]')].some(l=>l.getAttribute('href')===target));}
+ assert.ok(sitemap.includes(`<loc>https://shentarot.com${route}</loc>`));
+ for(const p of ['android','iphone']){
+  const section=d.getElementById(p);assert.ok(section&&!section.hasAttribute('hidden'));
+  assert.equal(section.querySelectorAll('details[data-step][open]').length,3,'static/no-JS instructions must remain open');
+  assert.equal(section.querySelectorAll('[data-confirm]').length,3);
+  const url=`https://shentarot.com${route}#${p}`;
+  assert.equal(section.querySelector('[data-copy-text]').getAttribute('data-copy-text'),url);
+  assert.ok(section.querySelector('.beta-qr svg'),'QR must be local SVG');
+  assert.equal(section.querySelector('[data-status]').textContent,copy.check);
+ }
+ const links=[...d.querySelector('#android').querySelectorAll('.beta-step-body>a')].map(a=>a.getAttribute('href'));
+ assert.deepEqual(links,['https://groups.google.com/g/shentarot-testers','https://play.google.com/apps/testing/com.shentech.shentarot','https://play.google.com/store/apps/details?id=com.shentech.shentarot']);
+ assert.ok(!d.querySelector('main form'),'no website credential collection');
+ assert.equal(d.querySelectorAll('[data-beta-task]').length,4);
+ assert.ok(d.querySelector('#beta-feedback-template').textContent.includes(copy.template.trim()));
+ assert.ok(!html.includes('Not accepting new testers right now'));
+ assert.ok(!d.querySelector('.beta-demo video'),'unverified video must not ship');
+ assert.ok(!d.querySelector('.beta-product-story'),'unverified captures must not ship');
+ for(const path of ['index.html','cards/major-17-star.html']){
+   const page=readFileSync(`dist/${prefix}${path}`,'utf8');assert.ok(page.includes(`href="${route}"`),`${lang} localized invitation missing`);
+ }
+ assert.ok(existsSync(`dist/${prefix}learn/beginner-reference.html`));
 }
-for (const lang of ['', 'zh-hans/', 'zh-hant/', 'es/', 'de/', 'ja/', 'fr/', 'ru/']) {
-  const home = readFileSync('dist/' + lang + 'index.html', 'utf8');
-  const header = home.split('</header>')[0];
-  assert.ok(header.includes('href="/beta"'), `${lang}: header invitation`);
-  assert.ok(home.split('id="get-app"')[1]?.includes('href="/beta"'), `${lang}: companion invitation`);
-}
-assert.ok(readFileSync('dist/sitemap.xml','utf8').includes('<loc>https://shentarot.com/beta</loc>'));
-console.log('Beta build: real Android destinations/order, honest iOS gate, no credential collection, English metadata, eight-locale navigation/companion links and sitemap passed. Does not prove native installation or Apple approval.');
+console.log('Beta journey: eight localized routes/alternates/sitemap, cautious availability, ordered platform steps, no-JS instructions, local QR artwork, feedback and contextual invitations passed. Physical installation and native-speaker review remain separate.');

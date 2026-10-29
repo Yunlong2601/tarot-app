@@ -1,6 +1,6 @@
 # ShenTarot website
 
-Beta onboarding: `/beta` is an English joining guide with verified Android group/opt-in/store destinations and an honest pending iPhone invitation request. Every locale's header/menu and companion-app panel links to it. Keep `src/lib/beta.ts` separate from production store URLs; populate TestFlight only after external approval and public-link verification. Run `npm run check:beta-build` after building. [Setup evidence and remaining Apple review fields](../docs/beta-onboarding-2026-10-27/README.md). Local only, not deployed.
+Beta onboarding: `/beta` and all seven localized `/beta` routes provide explicit platform selection, ordered joining steps, user-confirmed local progress, QR handoff, troubleshooting and feedback. `src/lib/beta.ts` centralizes destinations and cautious availability metadata. The guide does not detect installation or enrolment. Verified native media remains gated; do not reuse concept previews or older store captures as current-build evidence. Run `npm run check:beta-build` after building. [Coverage, checks and remaining device/media verification](../docs/beta-conversion-2026-10-29/README.md).
 
 Local creative prototypes: `/design-study` (English-only, `noindex, nofollow`). Field Guide, Observatory and Reading Room compare original layouts while sharing the real draw engine. The illustrated index loads on demand; the margin inspector and redraw guard are study-scoped. [Research, code, licence notes and verification](../docs/creative-code-study-2026-10-26/README.md). Not deployed.
 

@@ -1,0 +1,48 @@
+---
+import Base from '../../layouts/Base.astro';
+import '../../styles/beta.css';
+import QRCode from 'qrcode';
+import {i18n,langPaths,LOCALE_INFO,type Locale} from '../../i18n';
+import {betaCopy} from '../../i18n/beta';
+import {BETA_PLATFORMS,BETA_SCREENSHOTS,BETA_VIDEO,availabilityKey,type BetaPlatform} from '../../lib/beta';
+import {SUPPORT_EMAIL} from '../../config';
+export const getStaticPaths=langPaths;
+const {lang}=Astro.props as {lang:Locale};
+const L=i18n(lang), B=betaCopy(lang);
+const platforms=['android','iphone'] as BetaPlatform[];
+const names={android:'Android',iphone:'iPhone'};
+const guides=await Promise.all(platforms.map(async platform=>{
+ const guide=new URL(`${L.url('beta')}#${platform}`,Astro.site).href;
+ const svg=await QRCode.toString(guide,{type:'svg',errorCorrectionLevel:'M',margin:4,color:{dark:'#243c35',light:'#fffdf8'}});
+ return {platform,guide,svg,meta:BETA_PLATFORMS[platform]};
+}));
+const mail=(subject:string,body='')=>`mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+const help=mail(B.emailSubject);
+const video=BETA_VIDEO as {src:string;poster:string;captions:Record<Locale,string>;transcript:Record<Locale,string>}|null;
+---
+<Base title={`${B.nav} · ShenTarot`} description={B.lead} path="beta" noCta lang={lang}>
+ <div class="beta-page" data-beta data-config={JSON.stringify({saved:B.saved,storageFailed:B.storageFailed,copied:B.copied,copyFailed:B.copyFailed,next:B.next,choose:B.choose})}>
+  <header class="beta-hero"><div><h1>{B.title}</h1><p class="lead">{B.lead}</p><p>{B.appNote}</p></div><div class="beta-hero-art" aria-hidden="true"><img src="/ritual-card-back.svg" width="180" height="309" alt=""/><span>ShenTarot</span></div></header>
+  <nav id="choose-phone" class="beta-selector" aria-label={B.choose}><h2>{B.choose}</h2><div>{platforms.map(p=><a class="btn btn-ghost" href={`#${p}`} data-platform={p}>{names[p]}</a>)}</div></nav>
+  {BETA_SCREENSHOTS.length===3 && <section class="beta-product-story">{BETA_SCREENSHOTS.map(s=><figure><img src={s.src} width="390" height="844" loading="lazy" alt={s.text[lang].alt}/><figcaption>{s.text[lang].caption}</figcaption></figure>)}</section>}
+  {video && <section class="beta-demo"><video controls preload="none" poster={video.poster}><source src={video.src} type="video/mp4"/><track kind="captions" src={video.captions[lang]} srclang={LOCALE_INFO[lang].tag} label={LOCALE_INFO[lang].name} default/></video><p>{video.transcript[lang]}</p></section>}
+  <section class="beta-before"><h2>{B.before}</h2><div><p>{B.requirements}</p><p>{B.costs}</p></div></section>
+  <div class="beta-guides">{guides.map(({platform:p,guide,svg,meta})=><section class="beta-platform" id={p} data-guide={p} aria-labelledby={`${p}-title`}>
+   <header class="beta-platform-heading"><h2 id={`${p}-title`}>{names[p]}</h2><div><p class="beta-status" data-status={meta.status}>{B[availabilityKey(meta.status)]}</p><p class="beta-checked">{B.checked}: <time datetime={meta.checkedAt}>{new Intl.DateTimeFormat(LOCALE_INFO[lang].tag,{dateStyle:'long',timeZone:'UTC'}).format(new Date(`${meta.checkedAt}T00:00:00Z`))}</time></p></div></header>
+   {p==='android' && <><p class="beta-account">{B.account}</p><a href="#android-step-2" data-beta-shortcut>{B.already}</a></>}
+   <div class="beta-guide-layout"><div><p class="beta-guide-progress" data-guide-progress aria-live="polite"></p><button type="button" class="beta-text-action" data-show-all={p} hidden>{B.showAll}</button>
+    <ol class="beta-steps">{meta.steps.map((href,i)=><li><details open data-step={i} id={`${p}-step-${i+1}`}><summary><span>{B.stepLabel} {i+1}</span><h3>{B[`${p}Titles`][i]}</h3></summary><div class="beta-step-body"><p>{B[`${p}Bodies`][i]}</p>{p==='android' && i<2 && <p class="beta-account">{B.account}</p>}<a class="btn btn-gold" href={href} target="_blank" rel="noopener noreferrer">{B[`${p}Actions`][i]}</a><label class="beta-confirm" hidden><input type="checkbox" data-confirm={i}/>{B.confirm}</label></div></details></li>)}</ol>
+   </div><aside class="beta-handoff"><h3>{B.handoff}</h3><div class="beta-qr" role="img" aria-label={`${B.guideLink} · ${names[p]}`} set:html={svg}/><a href={guide}>{B.guideLink} · {names[p]}</a><p class="beta-copy-value">{guide}</p><button type="button" class="btn btn-ghost btn-sm" data-copy-text={guide} hidden>{B.copy}</button><p role="status" data-copy-status></p></aside></div>
+   <p><a href={help}>{B.help}</a></p>
+  </section>)}</div>
+  <section class="beta-progress-controls"><h2>{B.guideProgress}</h2><p data-progress-note hidden>{B.progress}</p><button type="button" class="btn btn-ghost" data-beta-reset hidden>{B.reset}</button><p role="status" data-beta-status></p></section>
+  <section class="beta-troubleshooting"><h2>{B.troubleTitle}</h2>{B.troubleNames.map((title,i)=><details><summary>{title}</summary><p>{B.troubleBodies[i]}</p><p>{platforms.map(p=><a href={BETA_PLATFORMS[p].invitation} target="_blank" rel="noopener noreferrer">{names[p]} · {B.check}</a>)}<a href={help}>{B.help}</a></p></details>)}</section>
+  <section class="beta-comparison"><h2>{B.compare}</h2><div>{[[B.webLabel,B.webFacts],[B.appLabel,B.appFacts]].map(([label,facts])=><article><h3>{label}</h3><ul>{(facts as string[]).map(f=><li>{f}</li>)}</ul></article>)}</div></section>
+  <section class="beta-mission" id="first-test"><h2>{B.mission}</h2><p>{B.missionNote}</p><fieldset><legend>{B.checklist}</legend>{B.tasks.map((task,i)=><label><input type="checkbox" data-beta-task={i}/>{task}</label>)}</fieldset><p><a href={L.url('learn/beginner-reference')}>{L.learn.nav}</a></p></section>
+  <section class="beta-feedback"><h2>{B.feedback}</h2><p>{B.feedbackNote}</p><a class="btn btn-gold" href={mail(B.feedbackSubject,B.template)}>{B.send}</a><label for="beta-feedback-template">{B.feedback}</label><textarea id="beta-feedback-template" readonly rows="7">{B.template}</textarea><button class="btn btn-ghost" type="button" data-copy-text={B.template} hidden>{B.copyTemplate}</button><p role="status" data-copy-status></p><p><a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a></p></section>
+  <section class="beta-recent"><h2>{B.recent}</h2><p>{B.releaseNote}</p></section>
+  <footer class="beta-notes"><p>{B.disclaimer}</p><a href="/privacy">{B.privacy}</a><a href={L.url('tools')}>{B.tools}</a></footer>
+  <div class="beta-mobile-action" data-beta-sticky hidden><a class="btn btn-gold" href="#choose-phone" data-beta-next>{B.choose}</a></div>
+ </div>
+</Base>
+<script>import '../../scripts/beta';</script>

@@ -225,3 +225,8 @@ Authorised implementation and public release. Premium/editorial homepage with or
 ## 2026-10-29 — Website frontend design refinement (not deployed)
 
 Installed the requested design skill sources locally and retained Awesome Design MD as a reference collection. Refined the existing homepage hierarchy, phone card library, reading-desk control typography and touch spacing, and mobile SVG menu icon. Website-only scope; eight locales and reading/save/export hooks preserved. Verification and source mapping: [frontend design report](docs/frontend-design-polish-2026-10-29/README.md).
+
+
+## 2026-10-29 — Eight-language beta recruitment journey
+
+Implemented localized platform guides, explicit confirmations, recoverable local progress, localized QR handoff, troubleshooting, feedback templates, testing checklist, mobile next-step action and contextual invitations. Corrected stale TestFlight closure wording without claiming physical installation. Screenshot/video publication remains gated on distributed-build evidence. [Coverage and verification](docs/beta-conversion-2026-10-29/README.md).

@@ -1,0 +1,112 @@
+{
+  "nav": "Rejoindre la bêta",
+  "title": "Vos cartes. Un point de départ plus clair.",
+  "lead": "Essayez ShenTarot avec votre jeu physique, explorez votre tirage et aidez-nous à améliorer l’expérience.",
+  "choose": "Choisissez votre téléphone",
+  "heroInvite": "Un jeu physique ? Découvrez la bêta de l’application",
+  "contextInvite": "Vous utilisez vos propres cartes ? Découvrez ce que propose la bêta.",
+  "appTitle": "Essayez l’application avant sa sortie publique.",
+  "appNote": "Consultez l’accès bêta Android et iPhone. La sortie en boutique est distincte de la bêta.",
+  "available": "Candidatures de test acceptées",
+  "unavailable": "Indisponible actuellement",
+  "check": "Vérifier la disponibilité actuelle",
+  "checked": "Dernière vérification",
+  "before": "Avant de participer",
+  "requirements": "L’accès dépend de l’appareil, de la région et de l’invitation. Consultez les exigences dans l’invitation officielle. Les pages externes peuvent être dans une autre langue. Aucune inscription sur ce site n’est requise.",
+  "costs": "Vérifiez les conditions et les écrans d’achat de votre version. La bêta ne promet pas Premium gratuit à vie. Contactez-nous si un tarif ou une limite est ambigu.",
+  "account": "Utilisez le même compte Google pour le groupe, l’invitation et Google Play sur votre téléphone.",
+  "androidTitles": [
+    "Rejoindre le groupe de test",
+    "Devenir testeur",
+    "Installer sur votre téléphone"
+  ],
+  "androidBodies": [
+    "Ouvrez Google Groups et rejoignez le groupe. Cette adhésion seule ne vous inscrit pas au test Play.",
+    "Ouvrez l’invitation Google Play et choisissez de devenir testeur. Revenez ensuite ici.",
+    "Ouvrez la fiche sur votre téléphone. Dans Google Play, touchez votre photo de profil et vérifiez le compte de test sélectionné."
+  ],
+  "androidActions": [
+    "Rejoindre le groupe Android",
+    "Ouvrir l’invitation Google Play",
+    "Ouvrir la fiche Google Play"
+  ],
+  "iphoneTitles": [
+    "Installer TestFlight",
+    "Ouvrir l’invitation ShenTarot",
+    "Installer ShenTarot"
+  ],
+  "iphoneBodies": [
+    "Installez TestFlight d’Apple sur votre iPhone. Cela n’ajoute pas automatiquement ShenTarot.",
+    "Ouvrez notre invitation officielle sur votre iPhone. Apple indique la disponibilité et les exigences actuelles.",
+    "Si une version compatible est proposée, touchez Accepter puis Installer dans TestFlight. Sinon, utilisez Mettre à jour ou Ouvrir si vous participez déjà."
+  ],
+  "iphoneActions": [
+    "Obtenir Apple TestFlight",
+    "Consulter l’invitation ShenTarot",
+    "Rouvrir l’invitation"
+  ],
+  "confirm": "J’ai terminé cette étape",
+  "showAll": "Afficher toutes les étapes",
+  "already": "Déjà dans le groupe ? Passez à l’invitation Google Play.",
+  "progress": "La progression reste dans ce navigateur. Vos confirmations ne vérifient ni l’inscription ni l’installation.",
+  "reset": "Réinitialiser la progression",
+  "storageFailed": "Le stockage est indisponible. Vous pouvez continuer, mais la progression ne sera pas conservée.",
+  "saved": "Votre progression est enregistrée.",
+  "handoff": "Continuer sur votre téléphone",
+  "copy": "Copier le lien du guide",
+  "copied": "Copié.",
+  "copyFailed": "Copie impossible. Sélectionnez et copiez le texte affiché.",
+  "help": "Obtenir de l’aide",
+  "troubleTitle": "Un problème pour participer ?",
+  "troubleNames": [
+    "Application indisponible",
+    "Conditions non remplies",
+    "Dans le groupe, mais installation impossible",
+    "Invitation indisponible",
+    "Déjà installé, à la recherche d’une mise à jour"
+  ],
+  "troubleBodies": [
+    "Vérifiez les exigences d’appareil et de pays. Sur Android, vérifiez le compte Google Play. Réessayez l’invitation ci-dessous.",
+    "Sur Android, rejoignez le groupe puis inscrivez-vous avec le même compte. Sur iPhone, consultez les critères d’Apple.",
+    "Le groupe n’est que la première étape. Ouvrez l’invitation Play, inscrivez-vous et vérifiez le compte sélectionné.",
+    "Ouvrez l’invitation officielle ci-dessous. Si elle est fermée ou expirée, écrivez-nous ; l’accès ne peut être garanti.",
+    "Ouvrez la boutique ou TestFlight avec le compte utilisé pour participer. Cherchez Mettre à jour ou Ouvrir. Sans version disponible, contactez-nous."
+  ],
+  "compare": "Site ou application ?",
+  "webLabel": "Disponible sur ce site",
+  "appLabel": "La bêta de l’application",
+  "webFacts": [
+    "Références de 78 cartes et outils gratuits dans le navigateur.",
+    "Espace de lecture avec une réflexion enregistrée dans ce navigateur ; sans synchronisation de compte."
+  ],
+  "appFacts": [
+    "Une application mobile via les tests Google Play ou Apple TestFlight.",
+    "Les fonctions, limites et disponibilités dépendent de la version proposée à votre appareil. Interrogez-nous sur une fonction avant de participer."
+  ],
+  "mission": "Premier test : essayez une lecture.",
+  "missionNote": "Facultatif : utilisez un exemple sans données sensibles. Ce site ne détecte ni l’installation ni une lecture terminée.",
+  "tasks": [
+    "Choisissez un tirage familier.",
+    "Vérifiez les noms et orientations des cartes.",
+    "Lisez l’explication disponible dans votre version.",
+    "Notez un moment confus."
+  ],
+  "checklist": "Ma liste de test",
+  "feedback": "Racontez-nous ce qui s’est passé.",
+  "feedbackNote": "Retirez les questions privées et informations personnelles des captures. Sur iPhone, vous pouvez aussi envoyer un retour dans TestFlight. Sans application mail, copiez le modèle et envoyez-le à l’adresse ci-dessous.",
+  "send": "Envoyer un retour bêta",
+  "template": "Modèle du téléphone :\nVersion de l’application :\nRésultat attendu :\nRésultat constaté :\nÉtapes de reproduction :\n",
+  "copyTemplate": "Copier le modèle",
+  "recent": "Améliorations récentes",
+  "releaseNote": "Mise à jour du site · 29 octobre 2026 : typographie plus claire, cartes plus grandes sur mobile et commandes plus lisibles. Les nouveautés de l’application seront publiées après vérification d’une version distribuée.",
+  "disclaimer": "Pour le divertissement et la réflexion personnelle uniquement ; ni prédictions ni conseils professionnels. La bêta peut être instable. Conservez une copie des notes importantes.",
+  "privacy": "Confidentialité",
+  "tools": "Utiliser les outils web gratuits",
+  "next": "Continuer le guide",
+  "stepLabel": "Étape",
+  "guideLink": "Ouvrez ce guide sur votre téléphone",
+  "emailSubject": "Accès à la bêta ShenTarot",
+  "feedbackSubject": "Retour sur la bêta ShenTarot",
+  "guideProgress": "Guide d’installation",
+  "testProgress": "Liste du premier test"
+}

@@ -1,7 +1,7 @@
 ---
+import {betaCopy} from "../../i18n/beta";
 import ResumeWorkspace from "../../components/ResumeWorkspace.astro";
 import Base from "../../layouts/Base.astro";
-import StoreButtons from "../../components/StoreButtons.astro";
 import BetaInvite from "../../components/BetaInvite.astro";
 import Reader from "../../components/Reader.astro";
 import Logo from "../../components/Logo.astro";
@@ -17,7 +17,7 @@ export const getStaticPaths = langPaths;
 const { lang } = Astro.props as { lang: Locale };
 const L = i18n(lang), R = ritualCopy(lang);
 const { t, url: u } = L;
-const w = L.workspace, g = L.growth;
+const w = L.workspace, g = L.growth, B = betaCopy(lang);
 const positions = L.content.spreads.three_decision.positions;
 // The existing, authored example has one opening sentence for the first pair.
 // Retain all remaining sentences together, including Japanese's three-sentence form.
@@ -36,13 +36,13 @@ const jsonLd = [
   <section class="ritual-hero"><div class="wrap hero-grid"><div>
     <h1>{R.heroTitle}</h1><p class="lead">{R.heroLead}</p>
     <div class="action-row"><a class="btn btn-gold" href="#ritual">{R.draw} <span aria-hidden="true">↗</span></a><a class="btn btn-ghost" href={u("read")}>{w.title}</a></div>
-    <a class="hero-search-link" href={u("search")} data-open-search>{R.search} <span aria-hidden="true">→</span></a><p class="hero-footnote">{R.freeNote}</p><ResumeWorkspace L={L}/>
+    <a class="hero-search-link" href={u("beta")}>{B.heroInvite} <span aria-hidden="true">→</span></a><br/><a class="hero-search-link" href={u("search")} data-open-search>{R.search} <span aria-hidden="true">→</span></a><p class="hero-footnote">{R.freeNote}</p><ResumeWorkspace L={L}/>
   </div><div class="ritual-stage"><div class="stage-orbit" aria-hidden="true"></div>
     <img class="stage-card left" src={`${BASE}cards/art/major_17_star.jpg`} alt="" width="300" height="514" fetchpriority="high"/>
     <img class="stage-card right" src={`${BASE}cards/art/major_02_high_priestess.jpg`} alt="" width="300" height="514"/>
     <a class="stage-card middle" href="#ritual" aria-label={R.draw}><img src={`${BASE}ritual-card-back.svg`} alt="" width="300" height="514"/></a>
     <p class="stage-mark">ShenTarot <span aria-hidden="true">—</span> {R.jump}</p>
-  </div></div><div class="hero-divider"><div class="wrap"><span>{R.available}</span><a href="#card-library">{t("home.allCards")}</a><span>{R.comingSoon}</span></div></div></section>
+  </div></div><div class="hero-divider"><div class="wrap"><span>{R.available}</span><a href="#card-library">{t("home.allCards")}</a><a href={u("beta")}>{B.nav}</a></div></div></section>
 
   <section class="ritual-section wrap" id="ritual" aria-labelledby="ritual-title"><div class="ritual-intro"><div>
     <h2 id="ritual-title">{R.dailyTitle}</h2><p class="lead">{R.dailyLead}</p><p class="muted">{w.practiceHint}</p><a class="link-arrow" href={u("tools")}>{R.allTools}</a>
@@ -77,7 +77,7 @@ const jsonLd = [
   </div></section>
 
   <section class="ritual-section wrap"><div class="trust-grid"><div><h2>{R.trustTitle}</h2><p class="lead">{R.trustLead}</p><a class="link-arrow" href={u("methodology")}>{g.methodTitle}</a></div><div class="faq">{g.faq.map(f=><details><summary>{f.q}</summary><p>{f.a}</p></details>)}</div></div></section>
-  <section class="app-section" id="get-app"><div class="wrap app-grid"><div class="app-mark" aria-hidden="true"><Logo/><span>ShenTarot</span></div><div><h2>{g.appTitle}</h2><p>{R.appNote}</p><StoreButtons lang={lang}/><BetaInvite lang={lang}/></div></div></section>
+  <section class="app-section" id="get-app"><div class="wrap app-grid"><div class="app-mark" aria-hidden="true"><Logo/><span>ShenTarot</span></div><div><h2>{B.appTitle}</h2><p>{B.appNote}</p><BetaInvite lang={lang}/></div></div></section>
   <section class="wrap final-ritual"><h2>{R.finalTitle}</h2><p>{R.finalLead}</p><div class="action-row"><a class="btn btn-gold" href="#ritual">{R.draw} <span aria-hidden="true">↗</span></a><a href={u("cards")}>{R.search}</a></div></section>
 </div>
 </Base>
