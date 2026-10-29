@@ -124,11 +124,11 @@ const ld = (o: unknown) => JSON.stringify(o).replace(/</g, "\\u003c");
           <ul>{LOCALES.map((l) => <li><a href={localized ? here(l).replace(Astro.site!.origin, "") : `${base}${prefix(l)}`.replace(/\/$/, "") || "/"} hreflang={LOCALE_INFO[l].tag} lang={LOCALE_INFO[l].tag} aria-current={l === lang ? "true" : undefined}>{LOCALE_INFO[l].name}</a></li>)}</ul>
         </details>
         <a class="btn btn-gold btn-sm header-cta" href={`${u()}#ritual`} aria-label={R.draw}><span class="cta-word">{R.draw}</span><span class="cta-symbol" aria-hidden="true">✦</span></a>
-        <details class="mobile-menu mobile-fallback"><summary>{R.menu}</summary><nav aria-label={t("base.mainNav")}>
+        <details class="mobile-menu mobile-fallback"><summary>{R.menu}<svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></summary><nav aria-label={t("base.mainNav")}>
           <a href={`${u()}#ritual`}>{R.draw}</a>{nav.map(([name,p])=><a href={u(p)}>{name}</a>)}<a href={`${base}beta`} hreflang="en">{beta.cta}</a>
           <div class="fallback-languages">{LOCALES.map(l=><a href={localized?here(l).replace(Astro.site!.origin,""):`${base}${prefix(l)}`.replace(/\/$/, "") || "/"} lang={LOCALE_INFO[l].tag}>{LOCALE_INFO[l].name}</a>)}</div>
         </nav></details>
-        <button type="button" class="mobile-menu-trigger" data-open-mobile hidden aria-haspopup="dialog">{R.menu} ☰</button>
+        <button type="button" class="mobile-menu-trigger" data-open-mobile hidden aria-haspopup="dialog">{R.menu}<svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
       </div>
     </header>
     <TarotSearch L={L}/>

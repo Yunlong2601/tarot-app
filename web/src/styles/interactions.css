@@ -129,7 +129,7 @@ textarea { resize:vertical;line-height:1.65; }
 @media(max-width:900px) {
  .site-header .header-search { margin-left:auto; }
  .site-header .lang-menu,.site-header .header-cta { display:none; }
- .mobile-menu-trigger { display:block; }
+ .mobile-menu-trigger { display:flex; align-items:center; gap:.5rem; }
  .mobile-nav-dialog nav { display:flex;flex-direction:column;gap:.2rem;margin:1.6rem 0; }
  .mobile-nav-dialog nav a { display:flex;align-items:center;justify-content:space-between;min-height:48px;padding:.6rem .2rem;border-bottom:1px solid #ced0c4; }
  .mobile-nav-dialog nav .btn { padding:.8rem 1rem;justify-content:center;margin-bottom:.8rem; }
@@ -231,3 +231,5 @@ html[data-motion=reduce] .tcard img { transform:none!important; }
 .workspace-output .reference-card { border:0;border-top:1px solid #b8baa8;border-radius:0;background:transparent;box-shadow:none;padding:1.4rem 1rem; }
 .workspace-output .reference-card.connection-highlight { background:#b69a600c;box-shadow:inset 3px 0 0 #8a713f; }
 @media(max-width:48rem) { [data-workspace] .workspace-input { border-right:0;border-bottom:1px solid #b8baa8;padding:0 0 1.75rem; } }
+
+.mobile-menu-trigger .menu-icon { width:20px; height:20px; flex:none; }

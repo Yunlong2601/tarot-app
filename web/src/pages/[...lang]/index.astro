@@ -34,7 +34,7 @@ const jsonLd = [
 <Base title={`${R.heroTitle} · ShenTarot`} description={`${R.heroLead} ${R.freeNote}`} path="" jsonLd={jsonLd} bare noCta lang={lang}>
 <div class="ritual-home">
   <section class="ritual-hero"><div class="wrap hero-grid"><div>
-    <p class="eyebrow">{R.ritualLabel}</p><h1>{R.heroTitle}</h1><p class="lead">{R.heroLead}</p>
+    <h1>{R.heroTitle}</h1><p class="lead">{R.heroLead}</p>
     <div class="action-row"><a class="btn btn-gold" href="#ritual">{R.draw} <span aria-hidden="true">↗</span></a><a class="btn btn-ghost" href={u("read")}>{w.title}</a></div>
     <a class="hero-search-link" href={u("search")} data-open-search>{R.search} <span aria-hidden="true">→</span></a><p class="hero-footnote">{R.freeNote}</p><ResumeWorkspace L={L}/>
   </div><div class="ritual-stage"><div class="stage-orbit" aria-hidden="true"></div>
@@ -45,11 +45,11 @@ const jsonLd = [
   </div></div><div class="hero-divider"><div class="wrap"><span>{R.available}</span><a href="#card-library">{t("home.allCards")}</a><span>{R.comingSoon}</span></div></div></section>
 
   <section class="ritual-section wrap" id="ritual" aria-labelledby="ritual-title"><div class="ritual-intro"><div>
-    <p class="chapter-label">01 <span>{R.draw}</span></p><h2 id="ritual-title">{R.dailyTitle}</h2><p class="lead">{R.dailyLead}</p><p class="muted">{w.practiceHint}</p><a class="link-arrow" href={u("tools")}>{R.allTools}</a>
+    <h2 id="ritual-title">{R.dailyTitle}</h2><p class="lead">{R.dailyLead}</p><p class="muted">{w.practiceHint}</p><a class="link-arrow" href={u("tools")}>{R.allTools}</a>
   </div><div><Reader positions={[R.reflection]} button={R.redraw} ritual lang={lang}/></div></div></section>
 
   <section class="ritual-section ink-section thread-stage" data-connected-example aria-labelledby="connection-title"><div class="wrap">
-    <p class="chapter-label">02 <span>{R.exampleLabel}</span></p><div class="connection-heading"><div><h2 id="connection-title">{g.exampleTitle}</h2></div><div><p class="lead">{g.exampleLead}</p><p><em>{g.exampleQuestion}</em></p></div></div>
+    <div class="connection-heading"><div><h2 id="connection-title">{g.exampleTitle}</h2></div><div><p class="lead">{g.exampleLead}</p><p><em>{g.exampleQuestion}</em></p></div></div>
     <div class="thread-toolbar"><div class="connection-controls" hidden role="group" aria-label={R.exampleLabel}>{[R.chapterMeaning,R.chapterPosition,R.chapterConnection].map((label,i)=><button type="button" data-example-step={i} aria-pressed={i===0?"true":"false"}>{String(i+1).padStart(2,'0')} · {label}</button>)}</div><MotionControl L={L}/></div>
     <div class="connection-grid">{EXAMPLE.cards.map((p,i)=><>
       <article class="connection-card" data-thread-card={i}>
@@ -68,17 +68,17 @@ const jsonLd = [
     <div class="connection-synthesis" data-example-synthesis><h3>{L.interactions.thread}</h3><div class="thread-explanations">{connections.map((text,i)=><p id={`thread-explanation-${i}`} data-thread-explanation={i}><span class="thread-explanation-number" aria-hidden="true">0{i+1}</span>{text}</p>)}</div></div><p class="example-disclosure">{g.editorial}</p><a class="link-arrow" href={u("learn/connected-reading")}>{R.exampleLink}</a>
   </div></section>
 
-  <section class="wrap ritual-section"><div class="benefit-heading"><p class="chapter-label">03 <span>{w.learnPath}</span></p><h2>{R.benefitsTitle}</h2></div><div class="benefits">{R.benefits.map((b,i)=><article><span aria-hidden="true">0{i+1}</span><h3>{b.title}</h3><p>{b.body}</p><a class="link-arrow" href={u(['cards','spreads','tools/daily-card'][i])}>{b.link}</a></article>)}</div></section>
+  <section class="wrap ritual-section"><div class="benefit-heading"><h2>{R.benefitsTitle}</h2></div><div class="benefits">{R.benefits.map((b,i)=><article><h3>{b.title}</h3><p>{b.body}</p><a class="link-arrow" href={u(['cards','spreads','tools/daily-card'][i])}>{b.link}</a></article>)}</div></section>
 
   <section class="intention-section"><div class="wrap intention-grid"><div><h2>{t("home.topicsTitle")}</h2><p class="muted">{t("home.topicsLead")}</p></div><div class="intention-links">{TOPICS.map(tp=><a href={u(`topics/${tp.slug}`)}>{L.content.topics[tp.slug as keyof typeof L.content.topics].name}</a>)}</div></div></section>
 
-  <section class="ritual-section library-section" id="card-library" aria-labelledby="library-title"><div class="wrap"><p class="chapter-label">04 <span>{t("nav.cards")}</span></p><div class="library-heading"><div><h2 id="library-title">{R.libraryTitle}</h2><p class="muted">{R.libraryLead}</p></div><form class="library-search" action={u("cards")} role="search"><label for="home-card-query">{w.search}</label><div><input id="home-card-query" name="q" type="search" placeholder={w.searchHint}/><button type="submit" class="btn btn-gold">{R.search}</button></div></form></div>
+  <section class="ritual-section library-section" id="card-library" aria-labelledby="library-title"><div class="wrap"><div class="library-heading"><div><h2 id="library-title">{R.libraryTitle}</h2><p class="muted">{R.libraryLead}</p></div><form class="library-search" action={u("cards")} role="search"><label for="home-card-query">{w.search}</label><div><input id="home-card-query" name="q" type="search" placeholder={w.searchHint}/><button type="submit" class="btn btn-gold">{R.search}</button></div></form></div>
     <div class="library-gallery">{gallery.map(id=><a class="tcard" href={u(`cards/${slug(id)}`)}><img src={`${BASE}cards/art/${id}.jpg`} alt="" width="300" height="514" loading="lazy"/>{L.cards[id]!.name}</a>)}</div><div class="library-bottom"><a class="link-arrow" href={u("cards")}>{t("home.allCards")}</a><a class="link-arrow" href={u("tools")}>{R.allTools}</a></div>
   </div></section>
 
-  <section class="ritual-section wrap"><div class="trust-grid"><div><p class="chapter-label">05 <span>{g.methodTitle}</span></p><h2>{R.trustTitle}</h2><p class="lead">{R.trustLead}</p><a class="link-arrow" href={u("methodology")}>{g.methodTitle}</a></div><div class="faq">{g.faq.map(f=><details><summary>{f.q}</summary><p>{f.a}</p></details>)}</div></div></section>
-  <section class="app-section" id="get-app"><div class="wrap app-grid"><div class="app-mark" aria-hidden="true"><Logo/><span>ShenTarot</span></div><div><p class="eyebrow">{R.appLabel}</p><h2>{g.appTitle}</h2><p>{R.appNote}</p><StoreButtons lang={lang}/><BetaInvite lang={lang}/></div></div></section>
-  <section class="wrap final-ritual"><p class="eyebrow">ShenTarot</p><h2>{R.finalTitle}</h2><p>{R.finalLead}</p><div class="action-row"><a class="btn btn-gold" href="#ritual">{R.draw} <span aria-hidden="true">↗</span></a><a href={u("cards")}>{R.search}</a></div></section>
+  <section class="ritual-section wrap"><div class="trust-grid"><div><h2>{R.trustTitle}</h2><p class="lead">{R.trustLead}</p><a class="link-arrow" href={u("methodology")}>{g.methodTitle}</a></div><div class="faq">{g.faq.map(f=><details><summary>{f.q}</summary><p>{f.a}</p></details>)}</div></div></section>
+  <section class="app-section" id="get-app"><div class="wrap app-grid"><div class="app-mark" aria-hidden="true"><Logo/><span>ShenTarot</span></div><div><h2>{g.appTitle}</h2><p>{R.appNote}</p><StoreButtons lang={lang}/><BetaInvite lang={lang}/></div></div></section>
+  <section class="wrap final-ritual"><h2>{R.finalTitle}</h2><p>{R.finalLead}</p><div class="action-row"><a class="btn btn-gold" href="#ritual">{R.draw} <span aria-hidden="true">↗</span></a><a href={u("cards")}>{R.search}</a></div></section>
 </div>
 </Base>
 <script>
