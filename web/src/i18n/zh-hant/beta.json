@@ -1,0 +1,112 @@
+{
+  "nav": "加入測試版",
+  "title": "你的牌，一個更清晰的起點。",
+  "lead": "用你的實體牌組體驗 ShenTarot，探索牌陣，幫助我們改善使用體驗。",
+  "choose": "選擇你的手機",
+  "heroInvite": "有實體牌組？了解應用程式測試版",
+  "contextInvite": "正在用自己的牌？看看應用程式測試版能提供什麼。",
+  "appTitle": "在正式發布前體驗應用程式。",
+  "appNote": "查看 Android 和 iPhone 測試資格。正式商店發布與測試版不同。",
+  "available": "接受測試申請",
+  "unavailable": "目前無法加入",
+  "check": "查看目前開放情況",
+  "checked": "上次查核",
+  "before": "加入前請了解",
+  "requirements": "能否加入取決於裝置、地區及平台邀請。請在官方邀請頁面查看最新要求。外部頁面可能使用其他語言。無須在本網站註冊。",
+  "costs": "請查看目前版本的使用條件和購買頁面。參加測試不代表永久免費獲得進階功能。如對收費或限制有疑問，請聯絡我們。",
+  "account": "加入測試群組、接受邀請和在手機上使用 Google Play 時，請使用同一個 Google 帳號。",
+  "androidTitles": [
+    "加入測試群組",
+    "成為測試人員",
+    "在手機上安裝"
+  ],
+  "androidBodies": [
+    "開啟 Google Groups 並選擇加入群組。僅加入群組並不代表已加入 Play 測試。",
+    "開啟 Google Play 邀請並選擇成為測試人員。完成後返回本指南。",
+    "在手機上開啟商店頁面。在 Google Play 點選頭像，確認選中測試時使用的帳號。"
+  ],
+  "androidActions": [
+    "加入 Android 測試群組",
+    "開啟 Google Play 邀請",
+    "開啟 Google Play 應用程式頁面"
+  ],
+  "iphoneTitles": [
+    "安裝 TestFlight",
+    "開啟 ShenTarot 邀請",
+    "安裝 ShenTarot"
+  ],
+  "iphoneBodies": [
+    "在 iPhone 上安裝 Apple 的 TestFlight。僅安裝 TestFlight 不會自動加入 ShenTarot。",
+    "在 iPhone 上開啟官方邀請。Apple 會顯示目前開放情況和裝置要求。",
+    "如果提供相容版本，在 TestFlight 中點選接受，再點選安裝。已加入的測試人員可選擇更新或開啟。"
+  ],
+  "iphoneActions": [
+    "取得 Apple TestFlight",
+    "查看 ShenTarot 邀請",
+    "再次開啟 ShenTarot 邀請"
+  ],
+  "confirm": "我已完成這一步",
+  "showAll": "顯示全部步驟",
+  "already": "已經加入測試群組？繼續開啟 Google Play 邀請。",
+  "progress": "進度僅儲存在此瀏覽器中。完成情況由你確認，並不代表系統已驗證入組或安裝。",
+  "reset": "重設指南進度",
+  "storageFailed": "瀏覽器儲存空間無法使用。你仍可繼續，但進度不會被記住。",
+  "saved": "已儲存你的指南進度。",
+  "handoff": "在手機上繼續",
+  "copy": "複製指南連結",
+  "copied": "已複製。",
+  "copyFailed": "複製失敗。請選取並複製顯示的文字。",
+  "help": "取得協助",
+  "troubleTitle": "加入時遇到問題？",
+  "troubleNames": [
+    "應用程式無法使用",
+    "不符合資格",
+    "已入群但無法安裝",
+    "邀請無法使用",
+    "已安裝，想要更新"
+  ],
+  "troubleBodies": [
+    "檢查邀請中的裝置和地區要求。Android 使用者還需檢查 Google Play 帳號，然後重試下方邀請。",
+    "Android 使用者先入群，再用同一帳號接受測試邀請。iPhone 使用者請查看 Apple 邀請中的條件。",
+    "入群只是第一步。開啟 Play 邀請，加入測試，並檢查 Google Play 目前使用的帳號。",
+    "開啟下方最新官方邀請。如果已關閉或過期，請寄信聯絡我們；無法保證立即獲得資格。",
+    "用加入時的帳號開啟商店或 TestFlight，尋找更新或開啟。如果沒有可用版本，請聯絡我們。"
+  ],
+  "compare": "網站還是應用程式？",
+  "webLabel": "本網站可用",
+  "appLabel": "應用程式測試版",
+  "webFacts": [
+    "78 張牌的參考牌義和免費瀏覽器工具。",
+    "解讀工作區和儲存在此瀏覽器中的反思；不與帳號同步。"
+  ],
+  "appFacts": [
+    "透過 Google Play 測試或 Apple TestFlight 存取的手機應用程式。",
+    "功能、限制和開放情況取決於提供給你裝置的版本。加入前可向我們詢問具體功能。"
+  ],
+  "mission": "第一次測試：嘗試一次解讀。",
+  "missionNote": "可選任務：使用不含隱私的範例。本網站無法偵測你是否已安裝應用程式或完成解讀。",
+  "tasks": [
+    "選擇一個熟悉的牌陣。",
+    "檢查牌名及正逆位。",
+    "閱讀目前版本提供的解釋。",
+    "記下一個令人困惑的地方。"
+  ],
+  "checklist": "我的測試清單",
+  "feedback": "告訴我們發生了什麼。",
+  "feedbackNote": "請從截圖中移除私人問題和個人資訊。iPhone 使用者也可在 TestFlight 中傳送測試回饋。沒有郵件應用程式？複製範本並寄至下方信箱。",
+  "send": "傳送測試回饋",
+  "template": "手機型號：\n應用程式版本：\n預期行為：\n實際情況：\n重現步驟：\n",
+  "copyTemplate": "複製回饋範本",
+  "recent": "最近的改進",
+  "releaseNote": "網站更新 · 2026 年 10 月 29 日：更清晰的首頁排版、更大的手機版牌圖和更易讀的解讀控制項。應用程式更新紀錄將在已分發版本查核後發布。",
+  "disclaimer": "僅供娛樂與自我反思，不用於預測或專業建議。測試軟體可能不穩定，請另外備份重要筆記。",
+  "privacy": "隱私",
+  "tools": "使用免費網站工具",
+  "next": "繼續指南",
+  "stepLabel": "步驟",
+  "guideLink": "在手機上開啟此指南",
+  "emailSubject": "ShenTarot 測試資格諮詢",
+  "feedbackSubject": "ShenTarot 測試回饋",
+  "guideProgress": "安裝指南",
+  "testProgress": "首次測試清單"
+}

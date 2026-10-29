@@ -1,0 +1,112 @@
+{
+  "nav": "Unirse a la beta",
+  "title": "Tus cartas. Un punto de partida más claro.",
+  "lead": "Prueba ShenTarot con tu baraja física, explora tu tirada y ayúdanos a mejorar la experiencia.",
+  "choose": "Elige tu teléfono",
+  "heroInvite": "¿Tienes una baraja física? Descubre la beta de la app",
+  "contextInvite": "¿Lees con tus propias cartas? Descubre qué ofrece la beta.",
+  "appTitle": "Prueba la app antes de su lanzamiento público.",
+  "appNote": "Consulta el acceso beta para Android y iPhone. La publicación en tiendas es independiente de la beta.",
+  "available": "Se aceptan solicitudes de prueba",
+  "unavailable": "No disponible actualmente",
+  "check": "Consultar disponibilidad actual",
+  "checked": "Última comprobación",
+  "before": "Antes de unirte",
+  "requirements": "El acceso depende del dispositivo, la región y la invitación. Consulta los requisitos actuales en la invitación oficial. Las páginas externas pueden estar en otro idioma. No necesitas registrarte en esta web.",
+  "costs": "Consulta las condiciones y las pantallas de compra de tu versión. La beta no garantiza Premium gratis para siempre. Pregúntanos si un cargo o límite no está claro.",
+  "account": "Usa la misma cuenta de Google para el grupo, la invitación y Google Play en tu teléfono.",
+  "androidTitles": [
+    "Únete al grupo de prueba",
+    "Conviértete en tester",
+    "Instala en tu teléfono"
+  ],
+  "androidBodies": [
+    "Abre Google Groups y elige unirte. Pertenecer al grupo no te inscribe por sí solo en la prueba de Play.",
+    "Abre la invitación de Google Play y elige convertirte en tester. Después, vuelve a esta guía.",
+    "Abre la ficha en tu teléfono. En Google Play, toca tu foto de perfil y comprueba que esté seleccionada la cuenta de prueba."
+  ],
+  "androidActions": [
+    "Unirse al grupo Android",
+    "Abrir invitación de Google Play",
+    "Abrir ficha de Google Play"
+  ],
+  "iphoneTitles": [
+    "Obtén TestFlight",
+    "Abre la invitación de ShenTarot",
+    "Instala ShenTarot"
+  ],
+  "iphoneBodies": [
+    "Instala TestFlight de Apple en tu iPhone. Esto no añade ShenTarot automáticamente.",
+    "Abre nuestra invitación oficial en tu iPhone. Apple muestra la disponibilidad y los requisitos actuales.",
+    "Si hay una versión compatible, toca Aceptar e Instalar en TestFlight. Si ya participas, usa Actualizar o Abrir."
+  ],
+  "iphoneActions": [
+    "Obtener Apple TestFlight",
+    "Consultar invitación de ShenTarot",
+    "Volver a abrir la invitación"
+  ],
+  "confirm": "He completado este paso",
+  "showAll": "Mostrar todos los pasos",
+  "already": "¿Ya estás en el grupo? Continúa a la invitación de Google Play.",
+  "progress": "El progreso se guarda solo en este navegador. Tus confirmaciones no verifican la inscripción ni la instalación.",
+  "reset": "Restablecer progreso",
+  "storageFailed": "El almacenamiento no está disponible. Puedes continuar, pero no se recordará el progreso.",
+  "saved": "Se ha guardado tu progreso.",
+  "handoff": "Continúa en tu teléfono",
+  "copy": "Copiar enlace de la guía",
+  "copied": "Copiado.",
+  "copyFailed": "No se pudo copiar. Selecciona y copia el texto visible.",
+  "help": "Obtener ayuda",
+  "troubleTitle": "¿Problemas para unirte?",
+  "troubleNames": [
+    "App no disponible",
+    "No cumplo los requisitos",
+    "Estoy en el grupo, pero no puedo instalar",
+    "Invitación no disponible",
+    "Ya instalé y busco una actualización"
+  ],
+  "troubleBodies": [
+    "Comprueba los requisitos de dispositivo y país. En Android, comprueba la cuenta de Google Play. Reintenta la invitación de abajo.",
+    "En Android, únete primero al grupo y acepta con la misma cuenta. En iPhone, consulta los criterios de Apple.",
+    "El grupo es solo el primer paso. Abre la invitación de Play, inscríbete y comprueba la cuenta seleccionada.",
+    "Abre la invitación oficial de abajo. Si está cerrada o caducada, escríbenos; no podemos garantizar el acceso.",
+    "Abre la tienda o TestFlight con la cuenta usada al unirte. Busca Actualizar o Abrir. Si no hay una versión disponible, contáctanos."
+  ],
+  "compare": "¿Web o app?",
+  "webLabel": "Disponible en esta web",
+  "appLabel": "La beta de la app",
+  "webFacts": [
+    "Biblioteca de referencia de 78 cartas y herramientas gratuitas.",
+    "Espacio de lectura con una reflexión guardada en este navegador; sin sincronización de cuenta."
+  ],
+  "appFacts": [
+    "Una app móvil mediante las pruebas de Google Play o Apple TestFlight.",
+    "Las funciones, los límites y la disponibilidad dependen de la versión ofrecida a tu dispositivo. Consúltanos sobre una función antes de unirte."
+  ],
+  "mission": "Tu primera prueba: haz una lectura.",
+  "missionNote": "Opcional: usa un ejemplo sin datos sensibles. Esta web no detecta si instalaste la app o completaste una lectura.",
+  "tasks": [
+    "Elige una tirada conocida.",
+    "Comprueba nombres y orientaciones.",
+    "Lee la explicación disponible en tu versión.",
+    "Anota un momento confuso."
+  ],
+  "checklist": "Mi lista de prueba",
+  "feedback": "Cuéntanos qué ocurrió.",
+  "feedbackNote": "Elimina preguntas privadas y datos personales de las capturas. En iPhone también puedes enviar comentarios desde TestFlight. ¿Sin app de correo? Copia la plantilla y envíala a la dirección indicada.",
+  "send": "Enviar comentarios de la beta",
+  "template": "Modelo de teléfono:\nVersión de la app:\nResultado esperado:\nQué ocurrió:\nPasos para reproducir:\n",
+  "copyTemplate": "Copiar plantilla",
+  "recent": "Mejoras recientes",
+  "releaseNote": "Actualización web · 29 de octubre de 2026: tipografía más clara, imágenes de cartas más grandes en móvil y controles más legibles. Las novedades de la app se publicarán tras verificar una versión distribuida.",
+  "disclaimer": "Solo para entretenimiento y reflexión personal; no son predicciones ni asesoramiento profesional. La beta puede ser inestable. Guarda otra copia de tus notas importantes.",
+  "privacy": "Privacidad",
+  "tools": "Usar las herramientas web gratuitas",
+  "next": "Continuar la guía",
+  "stepLabel": "Paso",
+  "guideLink": "Abre esta guía en tu teléfono",
+  "emailSubject": "Acceso a la beta de ShenTarot",
+  "feedbackSubject": "Comentarios de la beta de ShenTarot",
+  "guideProgress": "Guía de instalación",
+  "testProgress": "Lista de primera prueba"
+}

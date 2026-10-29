@@ -1,9 +1,8 @@
 ---
-import { BASE } from '../config';
-import { betaLabels } from '../lib/beta';
-import type { Locale } from '../i18n';
-const { lang = 'en' } = Astro.props as { lang?: Locale };
-const copy = betaLabels[lang];
+import {i18n,type Locale} from '../i18n';
+import {betaCopy} from '../i18n/beta';
+const {lang='en',contextual=false}=Astro.props as {lang?:Locale;contextual?:boolean};
+const L=i18n(lang),copy=betaCopy(lang);
 ---
-<p class="beta-invite"><a class="btn btn-ghost" href={`${BASE}beta`} hreflang="en">{copy.cta} ↗</a><small>{copy.note}</small></p>
-<style>.beta-invite { margin-top:1.5rem; } .beta-invite small { display:block; margin-top:.6rem; }</style>
+<p class:list={['beta-invite',{'beta-invite-context':contextual}]}><a class:list={{btn:!contextual,'btn-ghost':!contextual}} href={L.url('beta')}>{contextual?copy.contextInvite:copy.nav}<span aria-hidden="true"> →</span></a></p>
+<style>.beta-invite{margin-top:1.5rem}.beta-invite small{display:block;margin-top:.6rem;max-width:55ch}.beta-invite-context a{display:inline-flex;align-items:center;min-height:44px;font-size:.9375rem;text-underline-offset:.25em;white-space:normal}</style>

@@ -1,0 +1,112 @@
+{
+  "nav": "Beta beitreten",
+  "title": "Deine Karten. Ein klarerer Anfang.",
+  "lead": "Teste ShenTarot mit deinem physischen Kartendeck, erkunde deine Legung und hilf uns, die Erfahrung zu verbessern.",
+  "choose": "Wähle dein Smartphone",
+  "heroInvite": "Ein eigenes Kartendeck? Entdecke die App-Beta",
+  "contextInvite": "Du legst deine eigenen Karten? Entdecke die App-Beta.",
+  "appTitle": "Teste die App vor der öffentlichen Veröffentlichung.",
+  "appNote": "Prüfe den Beta-Zugang für Android und iPhone. Die Veröffentlichung im Store ist davon getrennt.",
+  "available": "Testbewerbungen möglich",
+  "unavailable": "Derzeit nicht verfügbar",
+  "check": "Aktuelle Verfügbarkeit prüfen",
+  "checked": "Zuletzt geprüft",
+  "before": "Vor der Teilnahme",
+  "requirements": "Der Zugang hängt von Gerät, Region und Einladung ab. Aktuelle Anforderungen stehen in der offiziellen Einladung. Externe Seiten können eine andere Sprache verwenden. Auf dieser Website ist keine Registrierung nötig.",
+  "costs": "Prüfe Zugangsbedingungen und Kaufanzeigen deiner Version. Die Beta verspricht kein dauerhaft kostenloses Premium. Frage uns bei unklaren Kosten oder Grenzen.",
+  "account": "Verwende dasselbe Google-Konto für die Gruppe, die Einladung und Google Play auf deinem Smartphone.",
+  "androidTitles": [
+    "Testgruppe beitreten",
+    "Tester werden",
+    "Auf dem Smartphone installieren"
+  ],
+  "androidBodies": [
+    "Öffne Google Groups und tritt der Gruppe bei. Die Mitgliedschaft allein meldet dich nicht zum Play-Test an.",
+    "Öffne die Google-Play-Einladung und wähle die Teilnahme als Tester. Kehre danach hierher zurück.",
+    "Öffne den Store-Eintrag auf deinem Smartphone. Tippe in Google Play auf dein Profilbild und prüfe das ausgewählte Testkonto."
+  ],
+  "androidActions": [
+    "Android-Testgruppe beitreten",
+    "Google-Play-Einladung öffnen",
+    "Google-Play-Eintrag öffnen"
+  ],
+  "iphoneTitles": [
+    "TestFlight installieren",
+    "ShenTarot-Einladung öffnen",
+    "ShenTarot installieren"
+  ],
+  "iphoneBodies": [
+    "Installiere Apples TestFlight auf deinem iPhone. Dadurch wird ShenTarot noch nicht hinzugefügt.",
+    "Öffne unsere offizielle Einladung auf deinem iPhone. Apple zeigt aktuelle Verfügbarkeit und Geräteanforderungen.",
+    "Wenn eine kompatible Version angeboten wird, tippe in TestFlight auf Annehmen und Installieren. Bestehende Tester können Aktualisieren oder Öffnen wählen."
+  ],
+  "iphoneActions": [
+    "Apple TestFlight laden",
+    "ShenTarot-Einladung prüfen",
+    "Einladung erneut öffnen"
+  ],
+  "confirm": "Diesen Schritt habe ich abgeschlossen",
+  "showAll": "Alle Schritte anzeigen",
+  "already": "Schon in der Testgruppe? Weiter zur Google-Play-Einladung.",
+  "progress": "Der Fortschritt bleibt in diesem Browser. Deine Bestätigungen prüfen weder Teilnahme noch Installation.",
+  "reset": "Fortschritt zurücksetzen",
+  "storageFailed": "Browserspeicher ist nicht verfügbar. Du kannst fortfahren, aber der Fortschritt wird nicht gespeichert.",
+  "saved": "Dein Fortschritt wurde gespeichert.",
+  "handoff": "Auf dem Smartphone fortfahren",
+  "copy": "Link zur Anleitung kopieren",
+  "copied": "Kopiert.",
+  "copyFailed": "Kopieren fehlgeschlagen. Markiere und kopiere den sichtbaren Text.",
+  "help": "Hilfe erhalten",
+  "troubleTitle": "Probleme beim Beitritt?",
+  "troubleNames": [
+    "App nicht verfügbar",
+    "Nicht teilnahmeberechtigt",
+    "In der Gruppe, aber Installation nicht möglich",
+    "Einladung nicht verfügbar",
+    "Bereits installiert und nach Update suchen"
+  ],
+  "troubleBodies": [
+    "Prüfe Geräte- und Länderanforderungen. Prüfe auf Android das Google-Play-Konto. Versuche die Einladung unten erneut.",
+    "Tritt auf Android zuerst der Gruppe bei und melde dich mit demselben Konto an. Prüfe auf dem iPhone Apples Einladungskriterien.",
+    "Die Gruppe ist nur der erste Schritt. Öffne die Play-Einladung, melde dich an und prüfe das ausgewählte Konto.",
+    "Öffne die aktuelle offizielle Einladung unten. Ist sie geschlossen oder abgelaufen, schreibe uns; Zugang kann nicht garantiert werden.",
+    "Öffne Store oder TestFlight mit dem Beitrittskonto. Suche nach Aktualisieren oder Öffnen. Kontaktiere uns, falls keine Version angeboten wird."
+  ],
+  "compare": "Website oder App?",
+  "webLabel": "Auf dieser Website verfügbar",
+  "appLabel": "Die App-Beta",
+  "webFacts": [
+    "Nachschlagewerk mit 78 Karten und kostenlose Browserwerkzeuge.",
+    "Lesebereich mit einer in diesem Browser gespeicherten Reflexion; keine Kontosynchronisierung."
+  ],
+  "appFacts": [
+    "Eine mobile App über Google-Play-Tests oder Apple TestFlight.",
+    "Funktionen, Grenzen und Verfügbarkeit hängen von der angebotenen Version ab. Frage vor dem Beitritt nach einer bestimmten Funktion."
+  ],
+  "mission": "Dein erster Test: eine Legung ausprobieren.",
+  "missionNote": "Optional: Nutze ein Beispiel ohne sensible Daten. Diese Website erkennt weder die Installation noch abgeschlossene Lesungen.",
+  "tasks": [
+    "Wähle eine vertraute Legung.",
+    "Prüfe Kartennamen und Ausrichtungen.",
+    "Lies die Erklärung in deiner Version.",
+    "Notiere eine unklare Stelle."
+  ],
+  "checklist": "Meine Testliste",
+  "feedback": "Sag uns, was passiert ist.",
+  "feedbackNote": "Entferne private Fragen und persönliche Daten aus Screenshots. Auf dem iPhone kannst du auch TestFlight-Feedback senden. Ohne Mail-App: Vorlage kopieren und an die Adresse unten senden.",
+  "send": "Beta-Feedback senden",
+  "template": "Smartphone-Modell:\nApp-Version:\nErwartetes Verhalten:\nTatsächliches Verhalten:\nSchritte zur Reproduktion:\n",
+  "copyTemplate": "Feedback-Vorlage kopieren",
+  "recent": "Zuletzt verbessert",
+  "releaseNote": "Website-Update · 29. Oktober 2026: klarere Typografie, größere Kartenbilder auf Smartphones und besser lesbare Bedienelemente. App-Neuerungen erscheinen erst nach Prüfung einer verteilten Version.",
+  "disclaimer": "Nur zur Unterhaltung und Selbstreflexion; keine Vorhersagen oder professionelle Beratung. Beta-Software kann instabil sein. Sichere wichtige Notizen separat.",
+  "privacy": "Datenschutz",
+  "tools": "Kostenlose Webwerkzeuge nutzen",
+  "next": "Anleitung fortsetzen",
+  "stepLabel": "Schritt",
+  "guideLink": "Anleitung auf dem Smartphone öffnen",
+  "emailSubject": "ShenTarot-Beta-Zugang",
+  "feedbackSubject": "ShenTarot-Beta-Feedback",
+  "guideProgress": "Installationsanleitung",
+  "testProgress": "Checkliste für den ersten Test"
+}

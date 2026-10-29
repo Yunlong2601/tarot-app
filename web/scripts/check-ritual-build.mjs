@@ -28,7 +28,9 @@ for(const locale of locales) {
   if(!copy) fail(`Missing explicit ritual copy ${locale}`);
   const headings=[...home.matchAll(/<h[12]\b[^>]*>([\s\S]*?)<\/h[12]>/gi)].map(m=>plain(m[1]));
   for(const key of ['heroTitle','dailyTitle','libraryTitle','trustTitle','finalTitle']) if(!headings.includes(copy[key])) fail(`Missing localized heading ${key}: ${locale}`);
-  for(const key of ['heroLead','freeNote','appNote','comingSoon']) if(!includesText(home,copy[key])) fail(`Missing localized copy ${key}: ${locale}`);
+  for(const key of ['heroLead','freeNote']) if(!includesText(home,copy[key])) fail(`Missing localized copy ${key}: ${locale}`);
+  const betaCopy=JSON.parse(readFileSync(`src/i18n/${locale}/beta.json`,'utf8'));
+  for(const key of ['appNote','appTitle','heroInvite']) if(!includesText(home,betaCopy[key])) fail(`Missing localized beta copy ${key}: ${locale}`);
   for(const id of ['ritual','card-library']) if(!home.includes(`id="${id}"`)||!home.includes(`href="#${id}"`)) fail(`Missing home anchor ${id}: ${locale}`);
   for(const route of ['read','cards','tools','tools/daily-card']) if(!home.includes(`href="/${prefix}${route}"`)) fail(`Missing home route ${route}: ${locale}`);
   if(!/<form\b[^>]*role="search"/.test(home)||!home.includes(`action="/${prefix}cards"`)||!home.includes('name="q"')) fail(`Missing search form ${locale}`);
