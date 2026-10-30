@@ -14,14 +14,22 @@ if(root) {
  let selectorVisible=true;
  const persist=()=>{const ok=storage&&saveProgress(storage,state);status.textContent=ok?copy.saved:copy.storageFailed;};
  const refreshSticky=()=>{
-   const editing=document.activeElement?.matches('input,textarea,select,[contenteditable=true]');
+   const focused=document.activeElement;
+   const editing=focused?.matches('input,textarea,select,[contenteditable=true]');
+   const focusedRect=focused instanceof HTMLElement&&focused!==document.body&&!sticky.contains(focused)?focused.getBoundingClientRect():null;
+   // Leave room for keyboard users even when the bar was hidden on the last frame.
+   const focusNearBottom=focusedRect&&focusedRect.bottom>window.innerHeight-120&&focusedRect.top<window.innerHeight;
    const zoomed=window.visualViewport&&(window.visualViewport.scale>1.1||window.visualViewport.height<window.innerHeight*.75);
-   sticky.hidden=selectorVisible||!!document.querySelector('dialog[open]')||!!editing||!!zoomed;
+   sticky.hidden=selectorVisible||!!document.querySelector('dialog[open]')||!!editing||!!zoomed||!!focusNearBottom;
    if(!state.platform){next.href='#choose-phone';next.textContent=copy.choose;return;}
    const index=nextStep(state[state.platform]);
    next.href=index<3?`#${state.platform}-step-${index+1}`:'#first-test';
    next.textContent=copy.next;
  };
+ next.addEventListener('click',()=>{
+   const target=document.getElementById(next.hash.slice(1));
+   if(target instanceof HTMLDetailsElement)target.open=true;
+ });
  const render=()=>{
    selectors.forEach(a=>{const selected=a.dataset.platform===state.platform;if(selected)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current');});
    guides.forEach(guide=>{
@@ -33,7 +41,9 @@ if(root) {
       const input=step.querySelector<HTMLInputElement>('[data-confirm]')!;
       input.checked=state[p][i];input.closest<HTMLElement>('label')!.hidden=false;
     });
-    guide.querySelector<HTMLElement>('[data-guide-progress]')!.textContent=`${state[p].filter(Boolean).length} / 3`;
+    const progress=guide.querySelector<HTMLElement>('[data-guide-progress]')!;
+    const message=copy.stepsChecked.replace('{done}',String(state[p].filter(Boolean).length)).replace('{total}','3');
+    if(progress.textContent!==message)progress.textContent=message;
    });
    root.querySelectorAll<HTMLInputElement>('[data-beta-task]').forEach(input=>input.checked=state.tasks[Number(input.dataset.betaTask)]);
    refreshSticky();

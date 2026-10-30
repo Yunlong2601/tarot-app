@@ -108,5 +108,6 @@
   "emailSubject": "Доступ к бете ShenTarot",
   "feedbackSubject": "Отзыв о бете ShenTarot",
   "guideProgress": "Инструкция по установке",
-  "testProgress": "Список первого теста"
+  "testProgress": "Список первого теста",
+  "stepsChecked": "Отмечено шагов: {done} из {total}"
 }

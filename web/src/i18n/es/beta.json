@@ -108,5 +108,6 @@
   "emailSubject": "Acceso a la beta de ShenTarot",
   "feedbackSubject": "Comentarios de la beta de ShenTarot",
   "guideProgress": "Guía de instalación",
-  "testProgress": "Lista de primera prueba"
+  "testProgress": "Lista de primera prueba",
+  "stepsChecked": "Pasos marcados: {done} de {total}"
 }
