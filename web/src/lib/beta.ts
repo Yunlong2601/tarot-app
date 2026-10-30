@@ -21,6 +21,12 @@ export const BETA_SCREENSHOTS: {src:string; build:string; verifiedAt:string; sou
     "sourceSha256": "52b72890a371fe917a85a3dbb2bb44b2c204f3d22e6474c6f3396ce6e4074cb2"
   },
   {
+    "src": "/beta/reading-summary.png",
+    "build": "iPhone 1.0.1",
+    "verifiedAt": "2026-10-31",
+    "sourceSha256": "bd38fb81380bac47ae110fd268c18410897181c244891099ae863628a6fe0328"
+  },
+  {
     "src": "/beta/reading-reflection.png",
     "build": "iPhone 1.0.1",
     "verifiedAt": "2026-10-31",

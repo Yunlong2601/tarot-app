@@ -40,3 +40,11 @@ The 31 October raw capture at 01:17:40 shows loading only; it must not be descri
 The owner navigated the existing reading manually. The 31 October 01:28:01 raw capture shows optional follow-up controls and an empty journal, without previous reading history or account details. Device Hub Apps inspector independently shows the installed com.shentech.shentarot version as 1.0.1; it does not expose the build number, so the 31 October capture is labelled by version only.
 
 Two untouched source assets are staged locally: the 30 October spread selector and the 31 October reflection page. Captions and alternative text are localized in all eight languages, with an explicit note that the app screens are English. The product comparison is positioned alongside the story, before installation. The strengthened audit requires all three inspected source hashes and will intentionally remain incomplete until the clean summary image is captured. The image configuration currently has two entries and does not render a partial story. Do not publish the summary captures that still show previous reading dates. The owner chose to scroll on the physical phone rather than crop or use AI editing.
+
+## 31 October: complete clean screenshot story
+
+The owner moved the previous-reading notices out of view. The raw 01:44:19 capture now shows the full In short explanation and card details without personal questions, previous-reading dates or account data. It is copied byte-for-byte as `web/public/beta/reading-summary.png`. The spread selector, summary and empty journal form the complete three-image story, with captions/alternative text in all eight locales and an explicit English-interface notice. No crop, AI editing or generated screen was used. Each asset has an inspected source SHA-256 checked by the build audit.
+
+The source spread chooser is from the physically verified 30 October TestFlight 1.0.1 (19) build. The 31 October summary/journal captures are from the installed iPhone app, independently identified as version 1.0.1 in Device Hub; no exact build number is inferred for those captures. The journal field is visible and empty; successful save/reload or cross-device storage is not claimed.
+
+The optional video remains omitted because no verified recording was captured. No more credits were used after the single owner-triggered reading.

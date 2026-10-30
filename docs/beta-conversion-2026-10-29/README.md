@@ -6,9 +6,9 @@ Website-only implementation of the approved 20-point plan. All eight languages s
 
 | # | Implementation / remaining evidence |
 |---|---|
-| 1 | Platform metadata has available/unavailable/check states, verification dates and official invitations. Both platforms use cautious check wording until physical installation is verified. |
+| 1 | Platform metadata has available/unavailable/check states, verification dates and official invitations. Both platforms retain cautious check wording because fresh public enrolment is unverified. An existing iPhone TestFlight installation and one reading were verified on the physical device. |
 | 2 | Benefit-led localized headline and phone selection. |
-| 3 | Three-screenshot story renderer and required localized alt/captions/provenance fields implemented. **Media not published:** existing store captures could not be compared with the currently distributed build. No simulated/concept app screenshot is substituted. |
+| 3 | Three inspected physical-device captures show spread selection, a generated reading summary and an empty optional journal. Full-size links, eight-language alt/captions, English-interface disclosure and source hashes are implemented. No crop, AI editing or simulated screen is used. See device-verification.md. |
 | 4 | Optional self-hosted video renderer, explicit controls, preload none, poster, per-locale captions and transcript. **Omitted per plan:** no verified recording is available. |
 | 5 | Homepage hero text invitation; beta-page header and mobile navigation point to phone selection. |
 | 6 | Home, shared invitation bands and FAQ distinguish testing from public-store release. Unavailable production badges removed from these recruitment panels. |
@@ -23,7 +23,7 @@ Website-only implementation of the approved 20-point plan. All eight languages s
 | 15 | Beta-only next-step mobile bar appears after selector leaves view, reserves safe-area/body space, hides during dialogs/editing/keyboard viewport contraction or zoom. |
 | 16 | Contextual localized invitations on card pages and after all cards in a draw have been revealed. No readings/questions are passed into invitations. |
 | 17 | Comparison identifies the verified iPhone 1.0.1 (19) build: physical-deck spread selection, photo/manual entry options and a general-reading path. Output quality, actual scan recognition and storage behavior remain unclaimed. See device-verification.md. |
-| 18 | Before-you-join section explains platform eligibility, external language, no website registration, build-specific access/purchases and help. Unverified OS/device/pricing claims omitted. |
+| 18 | Before-you-join section explains eligibility, external language, no website registration and access/purchase help. The iPhone guide identifies the observed one-credit confirmation in build 1.0.1 (19); it does not imply Android pricing. Unknown OS/device conditions are omitted. |
 | 19 | Optional first-reading mission, four locally remembered checklist items and localized beginner-guide link; no detected-installation claim. |
 | 20 | Localized mailto feedback template, copy fallback, privacy reminder and dated website release note. No fabricated native release notes, reviews or tester counts. |
 
@@ -41,9 +41,9 @@ Website-only implementation of the approved 20-point plan. All eight languages s
 
 ## Explicit limits and media publication gate
 
-iPhone Mirroring was inspected and reported Connection Interrupted. No compatible physical Android/iPhone installation, physical QR scan, actual screen-reader session, complete accessibility conformance, native-speaker review or recruitment improvement has been verified. A raw-CDP no-JavaScript attempt was unavailable; static no-JS structure remains verified. Do not describe these as passed.
+Device Hub verified an installed iPhone beta and one owner-triggered reading using one existing credit. Fresh public enrolment, Android installation, physical QR scanning, actual screen-reader announcements, full accessibility conformance, native-speaker review and recruitment improvement remain unverified. An actual no-script sandbox frame and blocked-storage sandbox frame were exercised; no standalone browser-wide JavaScript-disabled session is claimed.
 
-Before enabling `BETA_SCREENSHOTS`, compare three clean captures with a distributed beta, record build/date and original evidence, provide real alt/captions in all eight locales and self-host them. Before enabling `BETA_VIDEO`, provide a verified 20–30 second recording, poster, eight caption tracks and transcripts. Keep both configurations empty/null until then. The decorative card back is website art, not an app screenshot.
+The screenshot publication gate is satisfied for the three inspected source files now configured in `BETA_SCREENSHOTS`. Replacement captures require the same inspection/provenance and eight-language captions. `BETA_VIDEO` remains null because no verified recording is available; enabling it requires the planned recording, poster, caption tracks and transcript.
 
 No marketing email or tester feedback was sent. Future monitoring should use actual platform enrolment/installation evidence; page visits or clicked links are not proof of testers.
 
@@ -76,3 +76,11 @@ All 16 built QR SVGs (eight locales × two platforms) were rasterized at the act
 Actual VoiceOver verification was attempted through System Settings. Enabling VoiceOver caused the computer-use capture stream to fail (ScreenCaptureKit -3811), so spoken output was not verified. VoiceOver was switched back off and the off state was inspected in System Settings. The existing caption-panel preference was unchanged. Actual screen-reader announcements remain unverified.
 
 Direct Device Hub input initially failed while the captured window was a tiny tilted thumbnail. After the owner brought it forward and the control session was rebound, a normal 644×822 window capture became available and coordinate taps worked. The agent opened Scan → general reading → three-card spread → manual selection, selected The Star, The Sun and Temperance, and explicitly chose upright for each. The app displays an optional pre-reading observation and Read · 1 credit. No reading is generated until the owner authorizes that one-credit use.
+
+## 31 October: real-app story prepared for release
+
+Three untouched 1290×2796 captures are self-hosted under `/beta/`. The clean summary excludes prior-card history and account details. The product comparison now follows the screenshot story, before installation; phone selection remains directly under the introduction. The iPhone guide explains the observed one-credit confirmation without promising universal or permanent pricing.
+
+All 48 tests, localization parity, Astro checks, build and five audits pass. The beta audit now requires three real source hashes, dimensions, per-locale captions/alt, full-size links and product/comparison order. Chrome checked eight locales at 390/768/1440px (24 combinations): three figures, no horizontal overflow or broken visible images. Desktop figures align; phone figures stack. Evidence: `real-story-desktop.jpg`, `real-story-mobile.jpg`.
+
+Only one existing credit was used by the owner. No more reading, follow-up or clarifier requests were made. Temporary keyboard capture is off; other-app visibility and the prior compact Device Hub mode were restored. Physical QR scans, actual screen-reader announcements and native-language review remain human/device validation items.
