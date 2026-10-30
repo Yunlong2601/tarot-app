@@ -22,7 +22,7 @@ Website-only implementation of the approved 20-point plan. All eight languages s
 | 14 | Eight complete static routes, canonical/alternate metadata, sitemap, nav, captions/messages and feedback templates; no EN-only labels. **Native-speaker review remains required before broad promotion.** |
 | 15 | Beta-only next-step mobile bar appears after selector leaves view, reserves safe-area/body space, hides during dialogs/editing/keyboard viewport contraction or zoom. |
 | 16 | Contextual localized invitations on card pages and after all cards in a draw have been revealed. No readings/questions are passed into invitations. |
-| 17 | Honest website/app comparison; specific distributed-build capabilities remain deliberately unclaimed pending verification. |
+| 17 | Comparison identifies the verified iPhone 1.0.1 (19) build: physical-deck spread selection, photo/manual entry options and a general-reading path. Output quality, actual scan recognition and storage behavior remain unclaimed. See device-verification.md. |
 | 18 | Before-you-join section explains platform eligibility, external language, no website registration, build-specific access/purchases and help. Unverified OS/device/pricing claims omitted. |
 | 19 | Optional first-reading mission, four locally remembered checklist items and localized beginner-guide link; no detected-installation claim. |
 | 20 | Localized mailto feedback template, copy fallback, privacy reminder and dated website release note. No fabricated native release notes, reviews or tester counts. |
@@ -56,3 +56,7 @@ No marketing email or tester feedback was sent. Future monitoring should use act
 - Prior continuation also exercised an opaque-origin sandbox frame (actual denied localStorage) and a no-script sandbox frame. Storage denial left confirmation navigation usable; no-script HTML exposed all six platform steps and official links without confirmation checkboxes. Actual Chrome 200% zoom showed no horizontal overflow, then was restored to 100%.
 - Current automated checks: 48 tests, localization parity, Astro check (zero errors/warnings; two pre-existing hints), production build and reader/ritual/interaction/search-growth/beta audits pass.
 - Physical iPhone is connected in Device Hub. MobileBuildMCP discovery now sees YL, but its UI snapshot tool requires a simulator and cannot inspect this physical device. Device Hub can save full-resolution captures, while screen controls are not reliably actionable through the current connection. No newly captured private phone content is included in the repository or promotional media. TestFlight version confirmation, clean three-screen story, phone QR scans and actual screen-reader testing remain open.
+
+### Accessibility release verification
+
+PR #35 merged as `76d660f0e63d365abd905b7aa0345ecd7064358c`; all six CI checks passed. Cloudflare site version `7f9b26e7-7f44-45ac-9688-543a15c119cb` deployed from merged main. Live release.json matches, privacy/terms return HTTP 200, and the live Chinese beta DOM exposes complete translated progress sentences. IndexNow accepted 3,901 URLs; this does not establish indexing or recruitment.

@@ -74,14 +74,14 @@
   ],
   "compare": "¿Web o app?",
   "webLabel": "Disponible en esta web",
-  "appLabel": "La beta de la app",
+  "appLabel": "Verificado en la beta de iPhone 1.0.1 (19)",
   "webFacts": [
     "Biblioteca de referencia de 78 cartas y herramientas gratuitas.",
     "Espacio de lectura con una reflexión guardada en este navegador; sin sincronización de cuenta."
   ],
   "appFacts": [
-    "Una app móvil mediante las pruebas de Google Play o Apple TestFlight.",
-    "Las funciones, los límites y la disponibilidad dependen de la versión ofrecida a tu dispositivo. Consúltanos sobre una función antes de unirte."
+    "Elige una tirada para tu baraja física, con opciones de foto o selección manual de cartas.",
+    "Empieza una lectura general sin escribir una pregunta personal."
   ],
   "mission": "Tu primera prueba: haz una lectura.",
   "missionNote": "Opcional: usa un ejemplo sin datos sensibles. Esta web no detecta si instalaste la app o completaste una lectura.",

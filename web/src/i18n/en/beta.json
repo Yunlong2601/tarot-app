@@ -74,14 +74,14 @@
   ],
   "compare": "Website or app?",
   "webLabel": "Available on this website",
-  "appLabel": "The app beta",
+  "appLabel": "Verified in iPhone beta 1.0.1 (19)",
   "webFacts": [
     "78-card reference library and free browser tools.",
     "A reading workspace with a reflection saved in this browser; no account sync."
   ],
   "appFacts": [
-    "A mobile app accessed through Google Play testing or Apple TestFlight.",
-    "Features, limits and availability depend on the build offered to your device. Ask us about a specific feature before joining."
+    "Choose a spread for your physical deck, with photo or manual card-entry options.",
+    "Start a general reading without entering a personal question."
   ],
   "mission": "Your first test: try one reading.",
   "missionNote": "Optional: use a non-sensitive example. This website cannot detect whether you installed the app or completed a reading.",

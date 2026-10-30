@@ -74,14 +74,14 @@
   ],
   "compare": "Site ou application ?",
   "webLabel": "Disponible sur ce site",
-  "appLabel": "La bêta de l’application",
+  "appLabel": "Vérifié dans la bêta iPhone 1.0.1 (19)",
   "webFacts": [
     "Références de 78 cartes et outils gratuits dans le navigateur.",
     "Espace de lecture avec une réflexion enregistrée dans ce navigateur ; sans synchronisation de compte."
   ],
   "appFacts": [
-    "Une application mobile via les tests Google Play ou Apple TestFlight.",
-    "Les fonctions, limites et disponibilités dépendent de la version proposée à votre appareil. Interrogez-nous sur une fonction avant de participer."
+    "Choisissez un tirage pour votre jeu physique, puis ajoutez les cartes par photo ou manuellement.",
+    "Commencez une lecture générale sans saisir de question personnelle."
   ],
   "mission": "Premier test : essayez une lecture.",
   "missionNote": "Facultatif : utilisez un exemple sans données sensibles. Ce site ne détecte ni l’installation ni une lecture terminée.",
