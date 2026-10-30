@@ -125,5 +125,6 @@
       "Sans version disponible, écrivez-nous avec le modèle du téléphone et le message affiché."
     ]
   ],
-  "websiteTrouble": "Si les commandes de ce site ne répondent pas, rechargez la page ou utilisez les invitations officielles ci-dessous. Les erreurs d’éligibilité ou d’installation affichées par Apple ou Google nécessitent les vérifications propres à leur plateforme."
+  "websiteTrouble": "Si les commandes de ce site ne répondent pas, rechargez la page ou utilisez les invitations officielles ci-dessous. Les erreurs d’éligibilité ou d’installation affichées par Apple ou Google nécessitent les vérifications propres à leur plateforme.",
+  "iphoneCosts": "Dans la bêta iPhone vérifiée {version} ({build}), la lecture générale de trois cartes testée affiche une confirmation de {credits} crédit avant sa génération. Vérifiez la confirmation et les conditions de votre version ; en cas de doute, contactez-nous avant de continuer."
 }

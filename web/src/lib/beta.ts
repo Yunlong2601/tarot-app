@@ -15,3 +15,6 @@ export function availabilityKey(status:Availability):Availability { return statu
 /** Media is publishable only after comparison with a distributed build. No verified captures yet. */
 export const BETA_SCREENSHOTS: {src:string; build:string; verifiedAt:string; text:Record<Locale,{alt:string;caption:string}>}[] = [];
 export const BETA_VIDEO: {src:string; poster:string; captions:Record<Locale,string>; transcript:Record<Locale,string>; build:string; verifiedAt:string}|null = null;
+
+/** Observed on the owner’s physical TestFlight build; not a universal pricing promise. */
+export const IPHONE_BETA_EVIDENCE = {version:"1.0.1",build:"19",verifiedAt:"2026-10-30",generalThreeCardCredits:1} as const;

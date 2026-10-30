@@ -125,5 +125,6 @@
       "Si no hay una versión disponible, escríbenos con el modelo del teléfono y el mensaje que aparece."
     ]
   ],
-  "websiteTrouble": "Si los controles de esta web no responden, recarga la página o usa las invitaciones oficiales de abajo. Los errores de acceso o instalación de Apple o Google requieren las comprobaciones de su plataforma."
+  "websiteTrouble": "Si los controles de esta web no responden, recarga la página o usa las invitaciones oficiales de abajo. Los errores de acceso o instalación de Apple o Google requieren las comprobaciones de su plataforma.",
+  "iphoneCosts": "En la beta de iPhone verificada {version} ({build}), la lectura general de tres cartas probada muestra una confirmación de {credits} crédito antes de generarse. Revisa la confirmación y las condiciones de tu versión; si algo no está claro, pregúntanos antes de continuar."
 }

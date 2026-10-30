@@ -125,5 +125,6 @@
       "Wird keine Version angeboten, schreibe uns dein Telefonmodell und die angezeigte Meldung."
     ]
   ],
-  "websiteTrouble": "Reagieren die Bedienelemente dieser Website nicht, lade die Seite neu oder nutze die offiziellen Einladungen unten. Meldet Apple oder Google Teilnahme- oder Installationsprobleme, helfen die jeweiligen Plattformprüfungen."
+  "websiteTrouble": "Reagieren die Bedienelemente dieser Website nicht, lade die Seite neu oder nutze die offiziellen Einladungen unten. Meldet Apple oder Google Teilnahme- oder Installationsprobleme, helfen die jeweiligen Plattformprüfungen.",
+  "iphoneCosts": "In der geprüften iPhone-Beta {version} ({build}) zeigt die getestete allgemeine Drei-Karten-Legung vor dem Erstellen eine Bestätigung für {credits} Credit. Prüfe die Bestätigung und Bedingungen deiner installierten Version. Frage uns vor dem Fortfahren, wenn etwas unklar ist."
 }

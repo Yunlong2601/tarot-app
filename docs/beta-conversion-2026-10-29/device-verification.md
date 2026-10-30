@@ -20,3 +20,9 @@ The Photo reading capture includes this account’s credit balance and is exclud
 Connection state at approximately 13:29: Device Hub shows a busy indicator and MobileBuildMCP discovery reports YL disconnected. The owner was selecting public demonstration cards. No additional reading output or screenshots are claimed.
 
 At approximately 13:33, discovery reported YL connected. Device Hub first timed out, then recovered the screen. The owner was using another app, so no further capture or navigation of private content is needed. Continue only when the public demonstration flow is ready.
+
+## Direct device control and reading confirmation
+
+After foregrounding Device Hub and resetting the stale control session, coordinate taps became usable. The agent directly selected The Star, The Sun and Temperance with upright orientation in the three-card general reading. The app then displayed the optional Look first observation dialog and Read · 1 credit. Generation has not been triggered: explicit authorization to spend that one existing credit is pending. This confirms the UI condition in iPhone beta 1.0.1 (19), not Android pricing or a permanent price.
+
+Clean source capture: `Screenshot YL 30-10-2026 at 1.59.04\u202fPM.png`, SHA-256 `c9be5fc8b560297da97a97c8a427faa50222aa27496d5022d816895077aa003a`. The optional observation is empty and the three card names are public demonstration choices. No personal question was entered. This is a preparation screen, not evidence of successful output.

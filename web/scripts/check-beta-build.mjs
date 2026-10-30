@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
 import {parseHTML} from 'linkedom';
+import {IPHONE_BETA_EVIDENCE} from '../src/lib/beta.ts';
 const locales=['en','zh-hans','zh-hant','es','de','ja','fr','ru'];
 const sitemap=readFileSync('dist/sitemap.xml','utf8');
 for(const lang of locales){
@@ -22,6 +23,8 @@ for(const lang of locales){
   assert.ok(section.querySelector('.beta-qr svg'),'QR must be local SVG');
   assert.equal(section.querySelector('[data-status]').textContent,copy.check);
  }
+ assert.equal(d.querySelector('#iphone [data-iphone-costs]').textContent,copy.iphoneCosts.replace('{version}',IPHONE_BETA_EVIDENCE.version).replace('{build}',IPHONE_BETA_EVIDENCE.build).replace('{credits}',String(IPHONE_BETA_EVIDENCE.generalThreeCardCredits)));
+ assert.ok(!d.querySelector('#android [data-iphone-costs]'),'iPhone credit evidence must not imply Android pricing');
  const links=[...d.querySelector('#android').querySelectorAll('.beta-step-body>a')].map(a=>a.getAttribute('href'));
  assert.deepEqual(links,['https://groups.google.com/g/shentarot-testers','https://play.google.com/apps/testing/com.shentech.shentarot','https://play.google.com/store/apps/details?id=com.shentech.shentarot']);
  assert.ok(!d.querySelector('main form'),'no website credential collection');
