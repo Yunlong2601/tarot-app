@@ -108,5 +108,6 @@
   "emailSubject": "Accès à la bêta ShenTarot",
   "feedbackSubject": "Retour sur la bêta ShenTarot",
   "guideProgress": "Guide d’installation",
-  "testProgress": "Liste du premier test"
+  "testProgress": "Liste du premier test",
+  "stepsChecked": "Étapes cochées : {done} sur {total}"
 }

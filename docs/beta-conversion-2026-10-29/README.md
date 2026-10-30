@@ -46,3 +46,13 @@ iPhone Mirroring was inspected and reported Connection Interrupted. No compatibl
 Before enabling `BETA_SCREENSHOTS`, compare three clean captures with a distributed beta, record build/date and original evidence, provide real alt/captions in all eight locales and self-host them. Before enabling `BETA_VIDEO`, provide a verified 20–30 second recording, poster, eight caption tracks and transcripts. Keep both configurations empty/null until then. The decorative card back is website art, not an app screenshot.
 
 No marketing email or tester feedback was sent. Future monitoring should use actual platform enrolment/installation evidence; page visits or clicked links are not proof of testers.
+
+## 30 October follow-up: guide accessibility
+
+- Installation progress now uses a complete localized sentence in all eight languages, with an atomic polite live region. Unchanged counts are not rewritten. This verifies announcement markup, not actual screen-reader speech.
+- Mobile action bar hides when a focused control approaches its reserved bottom region; fragment destinations reserve bottom scroll space. Reopening the next step works even when its fragment is already current.
+- Chinese headline scales down to fit 320px while preserving natural clauses. Chrome DOM overflow checks passed for all eight locales at 320, 390, 768 and 1440px. A Chinese 390px capture is `chinese-390-accessibility.jpg`.
+- Chrome keyboard verification: reset → Android → Space on step-one checkbox focuses step-two summary, opens that step and shows the complete translated count. Closing step two and using the bottom action twice reopens it even with an unchanged fragment.
+- Prior continuation also exercised an opaque-origin sandbox frame (actual denied localStorage) and a no-script sandbox frame. Storage denial left confirmation navigation usable; no-script HTML exposed all six platform steps and official links without confirmation checkboxes. Actual Chrome 200% zoom showed no horizontal overflow, then was restored to 100%.
+- Current automated checks: 48 tests, localization parity, Astro check (zero errors/warnings; two pre-existing hints), production build and reader/ritual/interaction/search-growth/beta audits pass.
+- Physical iPhone is connected in Device Hub. MobileBuildMCP discovery now sees YL, but its UI snapshot tool requires a simulator and cannot inspect this physical device. Device Hub can save full-resolution captures, while screen controls are not reliably actionable through the current connection. No newly captured private phone content is included in the repository or promotional media. TestFlight version confirmation, clean three-screen story, phone QR scans and actual screen-reader testing remain open.

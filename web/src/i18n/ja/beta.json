@@ -108,5 +108,6 @@
   "emailSubject": "ShenTarot ベータ参加について",
   "feedbackSubject": "ShenTarot ベータのフィードバック",
   "guideProgress": "インストールガイド",
-  "testProgress": "最初のテストのチェックリスト"
+  "testProgress": "最初のテストのチェックリスト",
+  "stepsChecked": "完了を確認した手順：{total} 件中 {done} 件"
 }

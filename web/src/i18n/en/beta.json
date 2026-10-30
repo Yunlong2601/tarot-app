@@ -108,5 +108,6 @@
   "emailSubject": "ShenTarot beta access",
   "feedbackSubject": "ShenTarot beta feedback",
   "guideProgress": "Installation guide",
-  "testProgress": "First-test checklist"
+  "testProgress": "First-test checklist",
+  "stepsChecked": "Steps checked: {done} of {total}"
 }

@@ -108,5 +108,6 @@
   "emailSubject": "想问问 ShenTarot 怎么加入测试",
   "feedbackSubject": "试用 ShenTarot 后的一点反馈",
   "guideProgress": "帮你记住做到哪了",
-  "testProgress": "第一次试用的小清单"
+  "testProgress": "第一次试用的小清单",
+  "stepsChecked": "已完成 {done} 步，共 {total} 步"
 }

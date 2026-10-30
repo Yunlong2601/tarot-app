@@ -21,7 +21,7 @@ const help=mail(B.emailSubject);
 const video=BETA_VIDEO as {src:string;poster:string;captions:Record<Locale,string>;transcript:Record<Locale,string>}|null;
 ---
 <Base title={`${B.nav} · ShenTarot`} description={B.lead} path="beta" noCta lang={lang}>
- <div class="beta-page" data-beta data-config={JSON.stringify({saved:B.saved,storageFailed:B.storageFailed,copied:B.copied,copyFailed:B.copyFailed,next:B.next,choose:B.choose})}>
+ <div class="beta-page" data-beta data-config={JSON.stringify({stepsChecked:B.stepsChecked,saved:B.saved,storageFailed:B.storageFailed,copied:B.copied,copyFailed:B.copyFailed,next:B.next,choose:B.choose})}>
   <header class="beta-hero"><div><h1>{B.title}</h1><p class="lead">{B.lead}</p><p>{B.appNote}</p></div><div class="beta-hero-art" aria-hidden="true"><img src="/ritual-card-back.svg" width="180" height="309" alt=""/><span>ShenTarot</span></div></header>
   <nav id="choose-phone" class="beta-selector" aria-label={B.choose}><h2>{B.choose}</h2><div>{platforms.map(p=><a class="btn btn-ghost" href={`#${p}`} data-platform={p}>{names[p]}</a>)}</div></nav>
   {BETA_SCREENSHOTS.length===3 && <section class="beta-product-story">{BETA_SCREENSHOTS.map(s=><figure><img src={s.src} width="390" height="844" loading="lazy" alt={s.text[lang].alt}/><figcaption>{s.text[lang].caption}</figcaption></figure>)}</section>}
@@ -30,7 +30,7 @@ const video=BETA_VIDEO as {src:string;poster:string;captions:Record<Locale,strin
   <div class="beta-guides">{guides.map(({platform:p,guide,svg,meta})=><section class="beta-platform" id={p} data-guide={p} aria-labelledby={`${p}-title`}>
    <header class="beta-platform-heading"><h2 id={`${p}-title`}>{names[p]}</h2><div><p class="beta-status" data-status={meta.status}>{B[availabilityKey(meta.status)]}</p><p class="beta-checked">{B.checked}: <time datetime={meta.checkedAt}>{new Intl.DateTimeFormat(LOCALE_INFO[lang].tag,{dateStyle:'long',timeZone:'UTC'}).format(new Date(`${meta.checkedAt}T00:00:00Z`))}</time></p></div></header>
    {p==='android' && <><p class="beta-account">{B.account}</p><a href="#android-step-2" data-beta-shortcut>{B.already}</a></>}
-   <div class="beta-guide-layout"><div><p class="beta-guide-progress" data-guide-progress aria-live="polite"></p><button type="button" class="beta-text-action" data-show-all={p} hidden>{B.showAll}</button>
+   <div class="beta-guide-layout"><div><p class="beta-guide-progress" data-guide-progress aria-live="polite" aria-atomic="true"></p><button type="button" class="beta-text-action" data-show-all={p} hidden>{B.showAll}</button>
     <ol class="beta-steps">{meta.steps.map((href,i)=><li><details open data-step={i} id={`${p}-step-${i+1}`}><summary><span>{B.stepLabel} {i+1}</span><h3>{B[`${p}Titles`][i]}</h3></summary><div class="beta-step-body"><p>{B[`${p}Bodies`][i]}</p>{p==='android' && i<2 && <p class="beta-account">{B.account}</p>}<a class="btn btn-gold" href={href} target="_blank" rel="noopener noreferrer">{B[`${p}Actions`][i]}</a><label class="beta-confirm" hidden><input type="checkbox" data-confirm={i}/>{B.confirm}</label></div></details></li>)}</ol>
    </div><aside class="beta-handoff"><h3>{B.handoff}</h3><div class="beta-qr" role="img" aria-label={`${B.guideLink} · ${names[p]}`} set:html={svg}/><a href={guide}>{B.guideLink} · {names[p]}</a><p class="beta-copy-value">{guide}</p><button type="button" class="btn btn-ghost btn-sm" data-copy-text={guide} hidden>{B.copy}</button><p role="status" data-copy-status></p></aside></div>
    <p><a href={help}>{B.help}</a></p>
