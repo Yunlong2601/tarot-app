@@ -66,3 +66,13 @@ PR #35 merged as `76d660f0e63d365abd905b7aa0345ecd7064358c`; all six CI checks p
 Five troubleshooting entries now contain two explicit ordered checks in every locale. The group-membership problem links only to the Android opt-in invitation; other platform problems retain the appropriate Android/iPhone invitations and email fallback. A separate explanation distinguishes unresponsive website controls from platform eligibility/installation errors. The build audit checks the authored ordered steps, five email fallbacks and Android-only retry.
 
 Chrome opened all five recovery entries for eight locales at 390, 768 and 1440px (24 combinations): ten ordered items per route and no horizontal overflow. Chinese mobile evidence: `recovery-390.jpg`. Localization parity, Astro check, production build and the strengthened beta audit pass. No native app was modified.
+
+## 30 October release and remaining verification
+
+PR #36 merged as `88aae2869797244b74f9e3a4bb6783d53cfab57e`; six CI checks passed. Cloudflare site version `adc9786f-22f9-478d-a455-9df50d3186a7` deployed from merged main. Live release.json matches; privacy and terms return HTTP 200.
+
+All 16 built QR SVGs (eight locales × two platforms) were rasterized at the actual 182px content width and independently decoded with macOS Core Image. Every result exactly matches its localized website guide and platform fragment. This is independent decoding evidence, not a physical phone scan. Temporary inputs/results are in `/tmp/shentarot-qr-audit`.
+
+Actual VoiceOver verification was attempted through System Settings. Enabling VoiceOver caused the computer-use capture stream to fail (ScreenCaptureKit -3811), so spoken output was not verified. VoiceOver was switched back off and the off state was inspected in System Settings. The existing caption-panel preference was unchanged. Actual screen-reader announcements remain unverified.
+
+Direct Device Hub input initially failed while the captured window was a tiny tilted thumbnail. After the owner brought it forward and the control session was rebound, a normal 644×822 window capture became available and coordinate taps worked. The agent opened Scan → general reading → three-card spread → manual selection, selected The Star, The Sun and Temperance, and explicitly chose upright for each. The app displays an optional pre-reading observation and Read · 1 credit. No reading is generated until the owner authorizes that one-credit use.
