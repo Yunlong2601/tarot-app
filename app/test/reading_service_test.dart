@@ -13,12 +13,14 @@ void main() {
   late HttpServer server;
   late List<Map<String, Object?>> seen;
   late int readingStatus;
+  late List<int> nextStatuses;
   late Map<String, Object?> readingBody;
 
   setUp(() async {
     SharedPreferences.setMockInitialValues({});
     seen = [];
     readingStatus = 200;
+    nextStatuses = [];
     readingBody = {
       'reading': 'A reading.',
       'disclaimer': 'Entertainment only.',
@@ -35,7 +37,9 @@ void main() {
       });
       final isInstall = req.uri.path == '/v1/install';
       req.response
-        ..statusCode = isInstall ? 200 : readingStatus
+        ..statusCode = isInstall
+            ? 200
+            : (nextStatuses.isEmpty ? readingStatus : nextStatuses.removeAt(0))
         ..headers.contentType = ContentType.json
         ..write(jsonEncode(isInstall ? {'token': 'tok'} : readingBody));
       await req.response.close();
@@ -173,5 +177,39 @@ void main() {
       ),
       throwsA(isA<ReadingException>()),
     );
+  });
+
+  test('retries once after an upstream failure, quietly', () async {
+    nextStatuses = [502];
+    final svc = ApiReadingService(
+      'http://127.0.0.1:${server.port}',
+      retryDelay: Duration.zero,
+    );
+    final r = await svc.interpret(
+      spread: SpreadType.single,
+      cards: await cards(),
+    );
+    expect(r.text, 'A reading.');
+    expect(seen.where((s) => s['path'] == '/v1/reading').length, 2);
+  });
+
+  test('a busy server is not retried; a second failure is shown', () async {
+    final svc = ApiReadingService(
+      'http://127.0.0.1:${server.port}',
+      retryDelay: Duration.zero,
+    );
+    readingStatus = 503;
+    await expectLater(
+      svc.interpret(spread: SpreadType.single, cards: await cards()),
+      throwsA(isA<ReadingException>()),
+    );
+    expect(seen.where((s) => s['path'] == '/v1/reading').length, 1);
+    seen.clear();
+    readingStatus = 502;
+    await expectLater(
+      svc.interpret(spread: SpreadType.single, cards: await cards()),
+      throwsA(isA<ReadingException>()),
+    );
+    expect(seen.where((s) => s['path'] == '/v1/reading').length, 2);
   });
 }

@@ -6,6 +6,7 @@ import '../../app/theme.dart';
 import 'question_nudge.dart';
 import 'reader_voice.dart';
 import '../../app/i18n.dart';
+import '../onboarding/focus_questions.dart';
 import '../../app/motion.dart';
 
 /// Step 1 of a reading: the question, asked as a quiet conversation with the
@@ -146,6 +147,10 @@ class _AskScreenState extends State<AskScreen> {
                       muted: true,
                     ),
                     const SizedBox(height: 16),
+                    // The topic picked at onboarding comes first, ready to send.
+                    if (focusStarter(AppScope.of(context).focusArea)
+                        case final q?)
+                      ReaderWhisper(text: q, onTap: () => _useStarter(q)),
                     for (final s in _starters.map(tr))
                       ReaderWhisper(
                         text: '${s.trim()}...',

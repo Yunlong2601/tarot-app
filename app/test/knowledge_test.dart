@@ -69,7 +69,7 @@ void main() {
     test(
       'suggests rewording for yes/no, timing and mind-reading questions',
       () {
-        expect(questionNudge('Will I get the job?'), contains('What'));
+        expect(questionNudge('Will I get the job?'), contains('Yes or No'));
         expect(questionNudge('When will I meet someone?'), contains('Timing'));
         expect(
           questionNudge('What is he thinking about me?'),
@@ -82,6 +82,14 @@ void main() {
       expect(questionNudge('What should I focus on this week?'), isNull);
       expect(questionNudge('How can I rest?'), isNull);
       expect(questionNudge('Will I?'), isNull);
+    });
+    test('a yes/no question is offered the Yes or No spread first', () {
+      expect(recommendSpread('Should I text my ex again?'), SpreadType.yesNo);
+      expect(recommendSpread('Is this job right for me?'), SpreadType.yesNo);
+      expect(
+        recommendSpread('What do I need to know about my ex?'),
+        SpreadType.loveReconnect,
+      );
     });
   });
 

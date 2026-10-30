@@ -46,6 +46,17 @@ String? _feelingTopic(String? feeling) => switch (feeling) {
   _ => null,
 };
 
+/// A ready-made question for the topic picked at onboarding, offered first
+/// when asking. Null for "just curious" or no answer.
+String? focusStarter(String? area) => switch (area) {
+  'love' => tr('What do I need to understand about my love life right now?'),
+  'work' => tr('What do I need to understand about my work right now?'),
+  'self' => tr('What would help me take care of myself right now?'),
+  'family' => tr('How can I approach things with my family right now?'),
+  'decision' => tr('What should I keep in mind about this decision?'),
+  _ => null,
+};
+
 /// "Focusing your first reading on work and uncertainty." Null when nothing
 /// was chosen.
 String? focusReflection(String? area, String? feeling) {

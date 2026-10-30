@@ -663,7 +663,11 @@ class ReadingScreen extends StatelessWidget {
     }
     return Scaffold(
       appBar: AppBar(
-        title: Text(reading.spread.label),
+        // Long spread names shrink to fit rather than being cut off.
+        title: FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(reading.spread.label),
+        ),
         actions: [
           IconButton(
             tooltip: tr('Share your reading'),

@@ -63,7 +63,9 @@ class _SpreadPickerScreenState extends State<SpreadPickerScreen> {
               separatorBuilder: (_, _) => const SizedBox(width: 8),
               itemBuilder: (context, i) {
                 final t = _spreads[i];
-                final lock = !state.isPremium && !t.isFree;
+                // No lock while the one free try of a longer spread is unused.
+                final lock =
+                    !state.isPremium && !t.isFree && !state.usesTrial(t);
                 return ChoiceChip(
                   label: Text('${t.label} · ${t.cardCount}'),
                   avatar: lock
@@ -178,27 +180,11 @@ class _SpreadPickerScreenState extends State<SpreadPickerScreen> {
           ),
           Padding(
             padding: const EdgeInsets.only(top: 12),
-            child: Semantics(
-              label: tr('Spread {0} of {1}', [_index + 1, _spreads.length]),
-              excludeSemantics: true,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  for (var i = 0; i < _spreads.length; i++)
-                    AnimatedContainer(
-                      duration: const Duration(milliseconds: 200),
-                      margin: const EdgeInsets.symmetric(horizontal: 3),
-                      width: i == _index ? 18 : 6,
-                      height: 6,
-                      decoration: BoxDecoration(
-                        color: i == _index
-                            ? AppColors.gold
-                            : AppColors.textMuted.withValues(alpha: 0.4),
-                        borderRadius: BorderRadius.circular(3),
-                      ),
-                    ),
-                ],
-              ),
+            // A count, not a row of 18 dots.
+            child: Text(
+              tr('Spread {0} of {1}', [_index + 1, _spreads.length]),
+              textAlign: TextAlign.center,
+              style: const TextStyle(fontSize: 13, color: AppColors.textMuted),
             ),
           ),
           Padding(

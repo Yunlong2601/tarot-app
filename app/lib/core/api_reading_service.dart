@@ -32,10 +32,14 @@ class ApiReadingService
     this.userKey,
     this.focus,
     DeviceProof? deviceProof,
+    this.retryDelay = const Duration(seconds: 2),
   }) : _newClient = clientFactory ?? HttpClient.new,
        _proof = deviceProof ?? AppAttest();
 
   final String baseUrl;
+
+  /// Pause before retrying a reading that failed upstream.
+  final Duration retryDelay;
 
   /// Premium own-key mode: the key goes in headers to our server, which passes
   /// it to the provider for this one call and never stores or logs it.
@@ -236,7 +240,25 @@ class ApiReadingService
       _token = null;
       res = await _post(path, body, auth: true);
     }
+    // A passing upstream hiccup (the server refunds the credit on these):
+    // try once more before showing the user an error.
+    if (_isTransient(res, textKey)) {
+      await Future<void>.delayed(retryDelay);
+      res = await _post(path, body, auth: true);
+    }
     return _toResult(res, textKey);
+  }
+
+  /// Server errors other than "busy" (502, 504, an unreadable reply) are
+  /// usually a one-off upstream failure worth one quiet retry.
+  static bool _isTransient(_Response res, String textKey) {
+    if (res.status == 200) {
+      final j = res.json;
+      return j[textKey] is! String &&
+          j['crisis'] != true &&
+          j['off_topic'] != true;
+    }
+    return res.status >= 500 && res.status != 503;
   }
 
   ReadingResult _toResult(_Response res, String textKey) {

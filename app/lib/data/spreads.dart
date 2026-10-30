@@ -301,6 +301,8 @@ List<SpreadType> spreadsFor(String question) {
 SpreadType recommendSpread(String question) {
   final q = question.toLowerCase();
   bool any(List<String> words) => words.any(q.contains);
+  // A yes or no question gets the spread made for it, whatever the topic.
+  if (isYesNoQuestion(q)) return SpreadType.yesNo;
   if (any([
     'ex ',
     ' ex',
@@ -330,11 +332,6 @@ SpreadType recommendSpread(String question) {
   if (any(['job', 'career', 'work', 'boss', 'promotion', 'study', 'school'])) {
     return SpreadType.careerPath;
   }
-  if (q.startsWith('should i ') ||
-      q.startsWith('will i ') ||
-      q.contains('yes or no')) {
-    return SpreadType.yesNo;
-  }
   if (any(['decide', 'decision', 'choose', 'choice', 'option', 'whether'])) {
     return SpreadType.threeDecision;
   }
@@ -342,4 +339,13 @@ SpreadType recommendSpread(String question) {
     return SpreadType.threeHhh;
   }
   return SpreadType.threeCard;
+}
+
+/// "Should I...", "Will it...", "Is he...": a question that asks for a yes or
+/// a no (English wording only).
+bool isYesNoQuestion(String question) {
+  final q = question.trim().toLowerCase();
+  return q.contains('yes or no') ||
+      RegExp(r'^(will|should|is|am|are|do|does|did|can|could|would|shall)\b')
+          .hasMatch(q);
 }

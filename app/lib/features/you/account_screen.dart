@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 import '../../app/app_scope.dart';
 import '../../app/theme.dart';
@@ -73,6 +74,18 @@ class _AccountScreenState extends State<AccountScreen> {
     });
   }
 
+  void _signIn(AccountProvider p) => _run(() async {
+    final state = AppScope.of(context);
+    final router = GoRouter.of(context);
+    if (await state.signIn(p)) {
+      _toast(tr('Signed in with {0}', [p.label]));
+      // Let the router finish its refresh from the state change first, or it
+      // would restore this page.
+      await WidgetsBinding.instance.endOfFrame;
+      if (router.canPop()) router.pop();
+    }
+  });
+
   @override
   Widget build(BuildContext context) {
     final state = AppScope.of(context);
@@ -109,24 +122,21 @@ class _AccountScreenState extends State<AccountScreen> {
               ),
               const SizedBox(height: 24),
               for (final p in state.accountProviders) ...[
-                FilledButton.icon(
-                  onPressed: () => _run(() async {
-                    final router = GoRouter.of(context);
-                    if (await state.signIn(p)) {
-                      _toast(tr('Signed in with {0}', [p.label]));
-                      // Let the router finish its refresh from the state
-                      // change first, or it would restore this page.
-                      await WidgetsBinding.instance.endOfFrame;
-                      if (router.canPop()) router.pop();
-                    }
-                  }),
-                  icon: Icon(
-                    p == AccountProvider.apple
-                        ? Icons.apple
-                        : Icons.account_circle_outlined,
+                if (p == AccountProvider.apple)
+                  // Apple's own button style (Sign in with Apple guidelines):
+                  // white on our dark background.
+                  SignInWithAppleButton(
+                    onPressed: () => _signIn(p),
+                    text: tr('Continue with {0}', [p.label]),
+                    height: 52,
+                    style: SignInWithAppleButtonStyle.white,
+                  )
+                else
+                  FilledButton.icon(
+                    onPressed: () => _signIn(p),
+                    icon: const Icon(Icons.account_circle_outlined),
+                    label: Text(tr('Continue with {0}', [p.label])),
                   ),
-                  label: Text(tr('Continue with {0}', [p.label])),
-                ),
                 const SizedBox(height: 12),
               ],
               OutlinedButton(

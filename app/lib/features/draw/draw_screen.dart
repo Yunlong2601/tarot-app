@@ -220,11 +220,21 @@ class _DrawScreenState extends State<DrawScreen> {
                 ),
               ),
             ),
-            Text(
-              hint,
-              textAlign: TextAlign.center,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
+            // Room for two lines always, so the spread above never moves
+            // when the hint changes length.
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  minHeight: MediaQuery.textScalerOf(context).scale(16) * 3,
+                ),
+                child: Text(
+                  hint,
+                  textAlign: TextAlign.center,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
             ),
             const SizedBox(height: 8),
             if (!allPlaced) ...[
@@ -299,10 +309,9 @@ class _Results extends StatelessWidget {
   final VoidCallback onRead;
 
   @override
-  Widget build(BuildContext context) => ConstrainedBox(
-    constraints: BoxConstraints(
-      maxHeight: MediaQuery.sizeOf(context).height * 0.32,
-    ),
+  // A fixed height, so the spread does not slide up as names appear.
+  Widget build(BuildContext context) => SizedBox(
+    height: MediaQuery.sizeOf(context).height * 0.32,
     child: SingleChildScrollView(
       padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
       child: Column(

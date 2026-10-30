@@ -19,13 +19,15 @@ import 'reading_problem.dart';
 
 /// Shared by photo and digital readings: checks the free/Premium rule, asks the
 /// backend for the interpretation (with a spinner), saves the reading and opens
-/// it. [simulated] readings (debug builds only) skip the backend.
+/// it. [simulated] readings (debug builds only) skip the backend. A retry
+/// passes the earlier [impression] so "Look first" is not asked again.
 Future<void> startReading(
   BuildContext context, {
   required SpreadType spread,
   required List<DrawnCard> cards,
   String? question,
   bool simulated = false,
+  String? impression,
 }) async {
   final state = AppScope.of(context);
   if (!state.canStart(spread)) {
@@ -39,8 +41,8 @@ Future<void> startReading(
   final q = (question ?? '').trim();
   var text = mockInterpretation(spread, cards);
   if (!simulated) {
-    String? impression;
-    if (state.lookFirst) {
+    // A retry passes the impression already given: no second "Look first".
+    if (impression == null && state.lookFirst) {
       impression = await _lookFirst(
         context,
         cards,
@@ -181,6 +183,7 @@ Future<ReadingResult?> _interpret(
             spread: spread,
             cards: cards,
             question: question,
+            impression: impression,
           ),
         );
       } else {
