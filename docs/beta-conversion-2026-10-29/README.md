@@ -60,3 +60,9 @@ No marketing email or tester feedback was sent. Future monitoring should use act
 ### Accessibility release verification
 
 PR #35 merged as `76d660f0e63d365abd905b7aa0345ecd7064358c`; all six CI checks passed. Cloudflare site version `7f9b26e7-7f44-45ac-9688-543a15c119cb` deployed from merged main. Live release.json matches, privacy/terms return HTTP 200, and the live Chinese beta DOM exposes complete translated progress sentences. IndexNow accepted 3,901 URLs; this does not establish indexing or recruitment.
+
+## Ordered recovery follow-up
+
+Five troubleshooting entries now contain two explicit ordered checks in every locale. The group-membership problem links only to the Android opt-in invitation; other platform problems retain the appropriate Android/iPhone invitations and email fallback. A separate explanation distinguishes unresponsive website controls from platform eligibility/installation errors. The build audit checks the authored ordered steps, five email fallbacks and Android-only retry.
+
+Chrome opened all five recovery entries for eight locales at 390, 768 and 1440px (24 combinations): ten ordered items per route and no horizontal overflow. Chinese mobile evidence: `recovery-390.jpg`. Localization parity, Astro check, production build and the strengthened beta audit pass. No native app was modified.

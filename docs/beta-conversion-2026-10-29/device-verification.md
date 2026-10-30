@@ -18,3 +18,5 @@ Clean product story remains in progress. Do not enable the three-image story unt
 The Photo reading capture includes this account’s credit balance and is excluded from public media. Its path is `/Users/syl/Desktop/Screenshot YL 30-10-2026 at 1.27.05\u202fPM.png`.
 
 Connection state at approximately 13:29: Device Hub shows a busy indicator and MobileBuildMCP discovery reports YL disconnected. The owner was selecting public demonstration cards. No additional reading output or screenshots are claimed.
+
+At approximately 13:33, discovery reported YL connected. Device Hub first timed out, then recovered the screen. The owner was using another app, so no further capture or navigation of private content is needed. Continue only when the public demonstration flow is ready.
