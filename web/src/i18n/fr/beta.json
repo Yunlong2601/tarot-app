@@ -65,23 +65,16 @@
     "Invitation indisponible",
     "Déjà installé, à la recherche d’une mise à jour"
   ],
-  "troubleBodies": [
-    "Vérifiez les exigences d’appareil et de pays. Sur Android, vérifiez le compte Google Play. Réessayez l’invitation ci-dessous.",
-    "Sur Android, rejoignez le groupe puis inscrivez-vous avec le même compte. Sur iPhone, consultez les critères d’Apple.",
-    "Le groupe n’est que la première étape. Ouvrez l’invitation Play, inscrivez-vous et vérifiez le compte sélectionné.",
-    "Ouvrez l’invitation officielle ci-dessous. Si elle est fermée ou expirée, écrivez-nous ; l’accès ne peut être garanti.",
-    "Ouvrez la boutique ou TestFlight avec le compte utilisé pour participer. Cherchez Mettre à jour ou Ouvrir. Sans version disponible, contactez-nous."
-  ],
   "compare": "Site ou application ?",
   "webLabel": "Disponible sur ce site",
-  "appLabel": "La bêta de l’application",
+  "appLabel": "Vérifié dans la bêta iPhone 1.0.1 (19)",
   "webFacts": [
     "Références de 78 cartes et outils gratuits dans le navigateur.",
     "Espace de lecture avec une réflexion enregistrée dans ce navigateur ; sans synchronisation de compte."
   ],
   "appFacts": [
-    "Une application mobile via les tests Google Play ou Apple TestFlight.",
-    "Les fonctions, limites et disponibilités dépendent de la version proposée à votre appareil. Interrogez-nous sur une fonction avant de participer."
+    "Choisissez un tirage pour votre jeu physique, puis ajoutez les cartes par photo ou manuellement.",
+    "Commencez une lecture générale sans saisir de question personnelle."
   ],
   "mission": "Premier test : essayez une lecture.",
   "missionNote": "Facultatif : utilisez un exemple sans données sensibles. Ce site ne détecte ni l’installation ni une lecture terminée.",
@@ -109,5 +102,28 @@
   "feedbackSubject": "Retour sur la bêta ShenTarot",
   "guideProgress": "Guide d’installation",
   "testProgress": "Liste du premier test",
-  "stepsChecked": "Étapes cochées : {done} sur {total}"
+  "stepsChecked": "Étapes cochées : {done} sur {total}",
+  "troubleChecks": [
+    [
+      "Vérifiez les exigences d’appareil et de pays. Sur Android, vérifiez aussi le compte sélectionné dans Google Play.",
+      "Rouvrez l’invitation officielle ci-dessous."
+    ],
+    [
+      "Sur Android, rejoignez d’abord le groupe de test, puis inscrivez-vous au test Play avec le même compte.",
+      "Sur iPhone, vérifiez les critères d’Apple et rouvrez l’invitation correspondant à votre téléphone."
+    ],
+    [
+      "Ouvrez l’invitation Google Play et choisissez de devenir testeur. Rejoindre le groupe ne suffit pas.",
+      "Vérifiez que Google Play utilise le même compte sur votre téléphone, puis rouvrez l’invitation."
+    ],
+    [
+      "Ouvrez l’invitation officielle actuelle ci-dessous.",
+      "Si elle est fermée ou expirée, envoyez-nous le message affiché par e-mail. L’accès ne peut être garanti."
+    ],
+    [
+      "Ouvrez Google Play ou TestFlight avec le compte utilisé pour participer. Cherchez Mettre à jour ou Ouvrir.",
+      "Sans version disponible, écrivez-nous avec le modèle du téléphone et le message affiché."
+    ]
+  ],
+  "websiteTrouble": "Si les commandes de ce site ne répondent pas, rechargez la page ou utilisez les invitations officielles ci-dessous. Les erreurs d’éligibilité ou d’installation affichées par Apple ou Google nécessitent les vérifications propres à leur plateforme."
 }

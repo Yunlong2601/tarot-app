@@ -65,23 +65,16 @@
     "Invitation unavailable",
     "Already installed and looking for an update"
   ],
-  "troubleBodies": [
-    "Check the invitation’s device and country requirements. On Android, check the Google Play account. Retry the invitation below.",
-    "On Android, join the tester group first, then opt in with the same account. On iPhone, check the criteria in Apple’s invitation.",
-    "Group membership is only the first step. Open the Play invitation, opt in, and check the account selected in Google Play.",
-    "Open the current official invitation below. If it is closed or expired, email us; access cannot be guaranteed.",
-    "Open the store or TestFlight with the account used to join. Look for Update or Open. If no build is offered, contact us."
-  ],
   "compare": "Website or app?",
   "webLabel": "Available on this website",
-  "appLabel": "The app beta",
+  "appLabel": "Verified in iPhone beta 1.0.1 (19)",
   "webFacts": [
     "78-card reference library and free browser tools.",
     "A reading workspace with a reflection saved in this browser; no account sync."
   ],
   "appFacts": [
-    "A mobile app accessed through Google Play testing or Apple TestFlight.",
-    "Features, limits and availability depend on the build offered to your device. Ask us about a specific feature before joining."
+    "Choose a spread for your physical deck, with photo or manual card-entry options.",
+    "Start a general reading without entering a personal question."
   ],
   "mission": "Your first test: try one reading.",
   "missionNote": "Optional: use a non-sensitive example. This website cannot detect whether you installed the app or completed a reading.",
@@ -109,5 +102,28 @@
   "feedbackSubject": "ShenTarot beta feedback",
   "guideProgress": "Installation guide",
   "testProgress": "First-test checklist",
-  "stepsChecked": "Steps checked: {done} of {total}"
+  "stepsChecked": "Steps checked: {done} of {total}",
+  "troubleChecks": [
+    [
+      "Check the invitation’s device and country requirements. On Android, also check the account selected in Google Play.",
+      "Retry the official invitation below."
+    ],
+    [
+      "On Android, join the tester group first, then opt into the Play test with the same account.",
+      "On iPhone, check the criteria in Apple’s invitation. Retry the invitation for your phone below."
+    ],
+    [
+      "Open the Google Play invitation and choose Become a tester. Group membership alone is not enough.",
+      "Check that Google Play on your phone uses that same account, then retry the Play invitation."
+    ],
+    [
+      "Open the current official invitation below.",
+      "If it is closed or expired, email us with the message shown. Access cannot be guaranteed."
+    ],
+    [
+      "Open Google Play or TestFlight with the account used to join. Look for Update or Open.",
+      "If no build is offered, contact us with your phone model and the message shown."
+    ]
+  ],
+  "websiteTrouble": "If this website’s controls do not respond, reload the page or use the official invitation links below. Eligibility and installation errors shown by Apple or Google need the platform checks listed here."
 }

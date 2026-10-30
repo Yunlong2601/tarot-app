@@ -25,6 +25,13 @@ for(const lang of locales){
  const links=[...d.querySelector('#android').querySelectorAll('.beta-step-body>a')].map(a=>a.getAttribute('href'));
  assert.deepEqual(links,['https://groups.google.com/g/shentarot-testers','https://play.google.com/apps/testing/com.shentech.shentarot','https://play.google.com/store/apps/details?id=com.shentech.shentarot']);
  assert.ok(!d.querySelector('main form'),'no website credential collection');
+ const recovery=[...d.querySelectorAll('.beta-troubleshooting details')];
+ assert.equal(recovery.length,5);
+ recovery.forEach((entry,i)=>{
+  assert.deepEqual([...entry.querySelectorAll('ol li')].map(li=>li.textContent),copy.troubleChecks[i]);
+  assert.ok(entry.querySelector('a[href^="mailto:"]'),'each recovery needs email help');
+ });
+ assert.equal(recovery[2].querySelectorAll('a[href^="https://"]').length,1,'group recovery retries only Android');
  assert.equal(d.querySelectorAll('[data-beta-task]').length,4);
  assert.ok(d.querySelector('#beta-feedback-template').textContent.includes(copy.template.trim()));
  assert.ok(!html.includes('Not accepting new testers right now'));

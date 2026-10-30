@@ -65,23 +65,16 @@
     "Einladung nicht verfügbar",
     "Bereits installiert und nach Update suchen"
   ],
-  "troubleBodies": [
-    "Prüfe Geräte- und Länderanforderungen. Prüfe auf Android das Google-Play-Konto. Versuche die Einladung unten erneut.",
-    "Tritt auf Android zuerst der Gruppe bei und melde dich mit demselben Konto an. Prüfe auf dem iPhone Apples Einladungskriterien.",
-    "Die Gruppe ist nur der erste Schritt. Öffne die Play-Einladung, melde dich an und prüfe das ausgewählte Konto.",
-    "Öffne die aktuelle offizielle Einladung unten. Ist sie geschlossen oder abgelaufen, schreibe uns; Zugang kann nicht garantiert werden.",
-    "Öffne Store oder TestFlight mit dem Beitrittskonto. Suche nach Aktualisieren oder Öffnen. Kontaktiere uns, falls keine Version angeboten wird."
-  ],
   "compare": "Website oder App?",
   "webLabel": "Auf dieser Website verfügbar",
-  "appLabel": "Die App-Beta",
+  "appLabel": "In der iPhone-Beta 1.0.1 (19) geprüft",
   "webFacts": [
     "Nachschlagewerk mit 78 Karten und kostenlose Browserwerkzeuge.",
     "Lesebereich mit einer in diesem Browser gespeicherten Reflexion; keine Kontosynchronisierung."
   ],
   "appFacts": [
-    "Eine mobile App über Google-Play-Tests oder Apple TestFlight.",
-    "Funktionen, Grenzen und Verfügbarkeit hängen von der angebotenen Version ab. Frage vor dem Beitritt nach einer bestimmten Funktion."
+    "Wähle eine Legung für dein eigenes Kartendeck. Du kannst Karten per Foto oder manuell eingeben.",
+    "Beginne eine allgemeine Legung, ohne eine persönliche Frage einzugeben."
   ],
   "mission": "Dein erster Test: eine Legung ausprobieren.",
   "missionNote": "Optional: Nutze ein Beispiel ohne sensible Daten. Diese Website erkennt weder die Installation noch abgeschlossene Lesungen.",
@@ -109,5 +102,28 @@
   "feedbackSubject": "ShenTarot-Beta-Feedback",
   "guideProgress": "Installationsanleitung",
   "testProgress": "Checkliste für den ersten Test",
-  "stepsChecked": "Bestätigte Schritte: {done} von {total}"
+  "stepsChecked": "Bestätigte Schritte: {done} von {total}",
+  "troubleChecks": [
+    [
+      "Prüfe die Geräte- und Länderanforderungen. Kontrolliere auf Android auch das in Google Play ausgewählte Konto.",
+      "Öffne die offizielle Einladung unten erneut."
+    ],
+    [
+      "Tritt auf Android zuerst der Testgruppe bei und melde dich dann mit demselben Konto beim Play-Test an.",
+      "Prüfe auf dem iPhone Apples Teilnahmebedingungen und öffne die passende Einladung unten erneut."
+    ],
+    [
+      "Öffne die Google-Play-Einladung und wähle Tester werden. Die Gruppenmitgliedschaft allein reicht nicht.",
+      "Prüfe, ob Google Play auf deinem Telefon dasselbe Konto verwendet, und öffne die Einladung erneut."
+    ],
+    [
+      "Öffne die aktuelle offizielle Einladung unten.",
+      "Ist sie geschlossen oder abgelaufen, sende uns die angezeigte Meldung per E-Mail. Zugang kann nicht garantiert werden."
+    ],
+    [
+      "Öffne Google Play oder TestFlight mit dem Beitrittskonto. Suche nach Aktualisieren oder Öffnen.",
+      "Wird keine Version angeboten, schreibe uns dein Telefonmodell und die angezeigte Meldung."
+    ]
+  ],
+  "websiteTrouble": "Reagieren die Bedienelemente dieser Website nicht, lade die Seite neu oder nutze die offiziellen Einladungen unten. Meldet Apple oder Google Teilnahme- oder Installationsprobleme, helfen die jeweiligen Plattformprüfungen."
 }
