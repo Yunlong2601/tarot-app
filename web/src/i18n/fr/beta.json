@@ -126,5 +126,18 @@
     ]
   ],
   "websiteTrouble": "Si les commandes de ce site ne répondent pas, rechargez la page ou utilisez les invitations officielles ci-dessous. Les erreurs d’éligibilité ou d’installation affichées par Apple ou Google nécessitent les vérifications propres à leur plateforme.",
-  "iphoneCosts": "Dans la bêta iPhone vérifiée {version} ({build}), la lecture générale de trois cartes testée affiche une confirmation de {credits} crédit avant sa génération. Vérifiez la confirmation et les conditions de votre version ; en cas de doute, contactez-nous avant de continuer."
+  "iphoneCosts": "Dans la bêta iPhone vérifiée {version} ({build}), la lecture générale de trois cartes testée affiche une confirmation de {credits} crédit avant sa génération. Vérifiez la confirmation et les conditions de votre version ; en cas de doute, contactez-nous avant de continuer.",
+  "productTitle": "Voyez une lecture prendre forme",
+  "mediaNote": "Captures réelles de l’app iPhone, en anglais. Cet exemple invite à réfléchir, sans prédire l’avenir.",
+  "openScreenshot": "Ouvrir la capture en taille réelle",
+  "screenshotCaptions": [
+    "Commencez avec votre jeu. Choisissez un tirage pour les cartes devant vous.",
+    "Explorez le tirage entier. Lisez l’explication et voyez ce qui vous parle.",
+    "Gardez une place pour votre regard dans le journal facultatif."
+  ],
+  "screenshotAlts": [
+    "Sélection anglaise de tirage sur iPhone, avec Passé, Présent, Futur sélectionné.",
+    "Résumé anglais sur iPhone de trois cartes renversées, sans question personnelle ni historique antérieur.",
+    "Lecture anglaise sur iPhone avec questions de suivi facultatives et journal vide."
+  ]
 }

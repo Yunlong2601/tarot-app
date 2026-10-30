@@ -1,7 +1,9 @@
 import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
 import {parseHTML} from 'linkedom';
-import {IPHONE_BETA_EVIDENCE} from '../src/lib/beta.ts';
+import {createHash} from 'node:crypto';
+import sharp from 'sharp';
+import {IPHONE_BETA_EVIDENCE,BETA_SCREENSHOTS} from '../src/lib/beta.ts';
 const locales=['en','zh-hans','zh-hant','es','de','ja','fr','ru'];
 const sitemap=readFileSync('dist/sitemap.xml','utf8');
 for(const lang of locales){
@@ -39,7 +41,21 @@ for(const lang of locales){
  assert.ok(d.querySelector('#beta-feedback-template').textContent.includes(copy.template.trim()));
  assert.ok(!html.includes('Not accepting new testers right now'));
  assert.ok(!d.querySelector('.beta-demo video'),'unverified video must not ship');
- assert.ok(!d.querySelector('.beta-product-story'),'unverified captures must not ship');
+ assert.equal(BETA_SCREENSHOTS.length,3,'the product story requires three verified captures');
+ const figures=[...d.querySelectorAll('.beta-product-story figure')];
+ assert.equal(figures.length,3);
+ for(const [i,capture] of BETA_SCREENSHOTS.entries()){
+  assert.ok(capture.src.startsWith('/beta/'),'screenshots must be self-hosted');
+  assert.ok(capture.build&&Number.isFinite(Date.parse(capture.verifiedAt)),'capture provenance required');
+  const bytes=readFileSync('dist'+capture.src);
+  assert.equal(createHash('sha256').update(bytes).digest('hex'),capture.sourceSha256,'capture bytes must match inspected source');
+  const dimensions=await sharp(bytes).metadata();
+  assert.equal(dimensions.width,1290);assert.equal(dimensions.height,2796);
+  assert.equal(figures[i].querySelector('img').getAttribute('alt'),copy.screenshotAlts[i]);
+  assert.equal(figures[i].querySelector('figcaption').textContent,copy.screenshotCaptions[i]);
+  assert.equal(figures[i].querySelector('a').getAttribute('href'),capture.src);
+ }
+ assert.ok(html.indexOf('beta-product-story')<html.indexOf('beta-comparison')&&html.indexOf('beta-comparison')<html.indexOf('beta-before'),'show the product and comparison before installation');
  for(const path of ['index.html','cards/major-17-star.html']){
    const page=readFileSync(`dist/${prefix}${path}`,'utf8');assert.ok(page.includes(`href="${route}"`),`${lang} localized invitation missing`);
  }

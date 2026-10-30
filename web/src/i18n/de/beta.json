@@ -126,5 +126,18 @@
     ]
   ],
   "websiteTrouble": "Reagieren die Bedienelemente dieser Website nicht, lade die Seite neu oder nutze die offiziellen Einladungen unten. Meldet Apple oder Google Teilnahme- oder Installationsprobleme, helfen die jeweiligen Plattformprüfungen.",
-  "iphoneCosts": "In der geprüften iPhone-Beta {version} ({build}) zeigt die getestete allgemeine Drei-Karten-Legung vor dem Erstellen eine Bestätigung für {credits} Credit. Prüfe die Bestätigung und Bedingungen deiner installierten Version. Frage uns vor dem Fortfahren, wenn etwas unklar ist."
+  "iphoneCosts": "In der geprüften iPhone-Beta {version} ({build}) zeigt die getestete allgemeine Drei-Karten-Legung vor dem Erstellen eine Bestätigung für {credits} Credit. Prüfe die Bestätigung und Bedingungen deiner installierten Version. Frage uns vor dem Fortfahren, wenn etwas unklar ist.",
+  "productTitle": "So entsteht eine Legung",
+  "mediaNote": "Echte Aufnahmen der iPhone-App auf Englisch. Das Beispiel dient der Reflexion, nicht der Vorhersage.",
+  "openScreenshot": "Bild in voller Größe öffnen",
+  "screenshotCaptions": [
+    "Beginne mit deinem eigenen Deck. Wähle eine Legung für die Karten vor dir.",
+    "Betrachte die ganze Legung. Lies die Erklärung und überlege, was für dich passt.",
+    "Lass Raum für deine eigene Sicht im optionalen Tagebuch."
+  ],
+  "screenshotAlts": [
+    "Englische iPhone-Legungsauswahl mit Vergangenheit, Gegenwart, Zukunft ausgewählt.",
+    "Englische iPhone-Zusammenfassung zu drei umgekehrten Karten ohne persönliche Fragen oder frühere Legungen.",
+    "Englische iPhone-Leseseite mit optionalen Folgefragen und leerem Tagebuchfeld."
+  ]
 }

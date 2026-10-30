@@ -126,5 +126,18 @@
     ]
   ],
   "websiteTrouble": "如果只是这页的按钮没反应，刷新一下，或直接用下面的官方邀请链接。若 Apple 或 Google 提示资格、安装方面的问题，再按对应的条目排查。",
-  "iphoneCosts": "我们核对的 iPhone 测试版 {version}（{build}）里，三张牌的通用解读会在生成前提示使用 {credits} 点数。请再看看你所装版本的确认页和使用条件；拿不准的话，先问我们。"
+  "iphoneCosts": "我们核对的 iPhone 测试版 {version}（{build}）里，三张牌的通用解读会在生成前提示使用 {credits} 点数。请再看看你所装版本的确认页和使用条件；拿不准的话，先问我们。",
+  "productTitle": "从手里的牌，读到自己的想法",
+  "mediaNote": "这些是 iPhone App 的真实截图，界面为英文。示例解读用来帮助思考，不是预测。",
+  "openScreenshot": "查看完整截图",
+  "screenshotCaptions": [
+    "拿出自己的牌，选一个熟悉的牌阵。",
+    "先看看整组牌怎么连起来，再想想哪些解释对你有启发。",
+    "读完之后，也留点空间给自己的想法。日记可以写，也可以先空着。"
+  ],
+  "screenshotAlts": [
+    "ShenTarot iPhone 英文版的牌阵选择页，选中了过去、现在、未来三张牌阵。",
+    "ShenTarot iPhone 英文版的三张逆位牌解读摘要，没有私人问题或以往阅读记录。",
+    "ShenTarot iPhone 英文版的解读页，显示可选追问和空白的个人日记栏。"
+  ]
 }

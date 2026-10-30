@@ -12,8 +12,21 @@ export const BETA_PLATFORMS: Record<BetaPlatform, {status:Availability; checkedA
   iphone:{status:'check',checkedAt:'2026-10-29',invitation:TESTFLIGHT_INVITE,steps:[TESTFLIGHT_APP,TESTFLIGHT_INVITE,TESTFLIGHT_INVITE]},
 };
 export function availabilityKey(status:Availability):Availability { return status==='available'||status==='unavailable'?status:'check'; }
-/** Media is publishable only after comparison with a distributed build. No verified captures yet. */
-export const BETA_SCREENSHOTS: {src:string; build:string; verifiedAt:string; text:Record<Locale,{alt:string;caption:string}>}[] = [];
+/** Inspected, byte-identical physical-device captures. Enable the story only when all three are ready. */
+export const BETA_SCREENSHOTS: {src:string; build:string; verifiedAt:string; sourceSha256:string}[] = [
+  {
+    "src": "/beta/choose-spread.png",
+    "build": "iPhone 1.0.1 (19)",
+    "verifiedAt": "2026-10-30",
+    "sourceSha256": "52b72890a371fe917a85a3dbb2bb44b2c204f3d22e6474c6f3396ce6e4074cb2"
+  },
+  {
+    "src": "/beta/reading-reflection.png",
+    "build": "iPhone 1.0.1",
+    "verifiedAt": "2026-10-31",
+    "sourceSha256": "b0870739e5b73d32b0809979605d8edcfca53aa61df3e940390ea5fd048c07a4"
+  }
+];
 export const BETA_VIDEO: {src:string; poster:string; captions:Record<Locale,string>; transcript:Record<Locale,string>; build:string; verifiedAt:string}|null = null;
 
 /** Observed on the owner’s physical TestFlight build; not a universal pricing promise. */
