@@ -125,5 +125,19 @@
       "If no build is offered, contact us with your phone model and the message shown."
     ]
   ],
-  "websiteTrouble": "If this website’s controls do not respond, reload the page or use the official invitation links below. Eligibility and installation errors shown by Apple or Google need the platform checks listed here."
+  "websiteTrouble": "If this website’s controls do not respond, reload the page or use the official invitation links below. Eligibility and installation errors shown by Apple or Google need the platform checks listed here.",
+  "iphoneCosts": "In the verified iPhone beta {version} ({build}), the tested three-card general reading shows a confirmation for {credits} credit before generation. Check the confirmation and access conditions in your installed build; ask us before proceeding if anything is unclear.",
+  "productTitle": "See a reading take shape",
+  "mediaNote": "Real iPhone app captures, shown in English. This example is for reflection, not prediction.",
+  "openScreenshot": "Open full-size screenshot",
+  "screenshotCaptions": [
+    "Start with your own deck. Choose a spread for the cards in your hands.",
+    "Explore the whole spread. Read the explanation and consider what fits.",
+    "Make room for your own view in the optional journal."
+  ],
+  "screenshotAlts": [
+    "English iPhone spread chooser with Past, Present, Future selected.",
+    "English iPhone summary of three reversed cards, without personal questions or earlier reading history.",
+    "English iPhone reading page with optional follow-up questions and an empty journal field."
+  ]
 }

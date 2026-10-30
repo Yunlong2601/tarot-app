@@ -125,5 +125,19 @@
       "Si no hay una versión disponible, escríbenos con el modelo del teléfono y el mensaje que aparece."
     ]
   ],
-  "websiteTrouble": "Si los controles de esta web no responden, recarga la página o usa las invitaciones oficiales de abajo. Los errores de acceso o instalación de Apple o Google requieren las comprobaciones de su plataforma."
+  "websiteTrouble": "Si los controles de esta web no responden, recarga la página o usa las invitaciones oficiales de abajo. Los errores de acceso o instalación de Apple o Google requieren las comprobaciones de su plataforma.",
+  "iphoneCosts": "En la beta de iPhone verificada {version} ({build}), la lectura general de tres cartas probada muestra una confirmación de {credits} crédito antes de generarse. Revisa la confirmación y las condiciones de tu versión; si algo no está claro, pregúntanos antes de continuar.",
+  "productTitle": "Así toma forma una lectura",
+  "mediaNote": "Capturas reales de la app para iPhone, en inglés. El ejemplo invita a reflexionar, no a predecir.",
+  "openScreenshot": "Abrir captura a tamaño completo",
+  "screenshotCaptions": [
+    "Empieza con tu baraja. Elige una tirada para las cartas que tienes delante.",
+    "Explora la tirada en conjunto. Lee la explicación y piensa qué encaja contigo.",
+    "Deja espacio para tu perspectiva en el diario opcional."
+  ],
+  "screenshotAlts": [
+    "Selector de tiradas para iPhone en inglés con Pasado, Presente, Futuro seleccionado.",
+    "Resumen para iPhone en inglés de tres cartas invertidas, sin preguntas personales ni lecturas anteriores.",
+    "Lectura para iPhone en inglés con preguntas de seguimiento opcionales y un diario vacío."
+  ]
 }

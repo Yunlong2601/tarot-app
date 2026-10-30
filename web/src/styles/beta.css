@@ -75,3 +75,10 @@
 @media(max-width:760px) {
  html:has(.beta-page) { scroll-padding-bottom:calc(7rem + env(safe-area-inset-bottom)); }
 }
+
+.beta-product { padding-block:var(--beta-gap);border-top:1px solid var(--line); }
+.beta-product h2 { font-size:clamp(2rem,4vw,3rem); }
+.beta-product-story { margin-top:2rem; }
+.beta-product-story a { display:block; }
+.beta-product-story a:focus-visible { outline:2px solid var(--forest);outline-offset:5px; }
+.beta-product-story figcaption { margin-top:1rem;line-height:1.6; }
