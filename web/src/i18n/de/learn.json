@@ -164,61 +164,76 @@
    ]
   },
   "tarot-suits": {
-   "title": "Die vier Tarotfarben: Stäbe, Kelche, Schwerter und Münzen",
-   "description": "Was die vier Tarotfarben bedeuten: Stäbe für Energie und Ehrgeiz, Kelche für Gefühle und Liebe, Schwerter für Gedanken und Konflikte, Münzen für Geld, Arbeit und Körper.",
+   "title": "Die vier Tarotfarben: Quellen, Fragen und ein Beispiel",
+   "description": "Lerne Stäbe, Kelche, Schwerter und Münzen als Hinweise, prüfe die Elementzuordnung und folge einem eigenen Beispiel mit Vier der Stäbe und Vier der Kelche.",
    "h1": "Die vier Tarotfarben",
-   "answer": "Stäbe stehen für Energie und Ehrgeiz, Kelche für Gefühle und Beziehungen, Schwerter für Gedanken und Konflikte, Münzen für Geld, Arbeit und Körper.",
-   "minutes": 5,
+   "answer": "Die vier Farben ordnen die 56 Kleinen Arkana. Themen und Elemente sind Deutungskonventionen, keine Formeln für Ereignisse, Persönlichkeit oder Gesundheit.",
+   "minutes": 8,
    "sections": [
     {
-     "h": "Warum die Farben wichtig sind",
+     "h": "Vier Gruppen statt einer halben Bedeutung",
      "p": [
-      "Jede der 56 Karten der Kleinen Arkana gehört zu einer von vier Farben. Wenn du weißt, worum es in einer Farbe geht, kennst du schon die Hälfte jeder Karte darin. Die andere Hälfte kommt von ihrer [Zahl](learn/tarot-numbers) oder ihrem [Rang als Hofkarte](learn/court-cards)."
+      "Dieses Deck hat je Farbe vierzehn Karten: Ass bis Zehn und vier Hofkarten, insgesamt 56. Waite beschreibt den Aufbau in Teil I, §3. Die Farbe liefert keine messbare „Hälfte“ einer Bedeutung. Prüfe auch [Zahl](learn/tarot-numbers), [Hofrang](learn/court-cards), Bild und Position.",
+      "Hier gilt Stäbe–Feuer, Kelche–Wasser, Schwerter–Luft und Münzen–Erde. Die vier Asstitel in Liber LXXVIII nennen diese Paare. Das belegt ein Zuordnungssystem, kein Naturgesetz für alle Decks; seine Entwürfe sind nicht mit unseren Kartenbildern gleichzusetzen."
      ]
     },
     {
-     "h": "Stäbe: Feuer, Energie und Antrieb",
+     "h": "Vier Farben als Fragen",
      "p": [
-      "Stäbe gehören zum Element Feuer. Es geht um Leidenschaft, Ehrgeiz, Kreativität und Handeln. Eine Stäbe-Karte fragt oft, was du willst und wie weit du dafür gehen möchtest. Fang am besten mit dem [Ass der Stäbe](cards/wands-ace) an, einem Funken neuer Energie."
+      "Stäbe: Was möchte ich beginnen oder üben? Energie und Initiative sind Lernhinweise. Wähle beim [Ass der Stäbe](cards/wands-ace) eine kleine machbare Handlung und beobachte, was den Anfang erleichtert.",
+      "Kelche: Was bemerke ich an Gefühlen und Beziehungen? Vergleiche bei der [Zwei der Kelche](cards/cups-two), was du in einer Begegnung gibst und empfängst. Trenne Beobachtungen von Annahmen.",
+      "Schwerter: Welcher Gedanke, welche Entscheidung oder Grenze braucht Aufmerksamkeit? Schreibe beim [Ass der Schwerter](cards/swords-ace) eine klare Frage. Was weißt du, was musst du noch erfragen?",
+      "Münzen: Welche Mittel, Arbeit oder Hilfe sind beteiligt? Familie und Haus der [Zehn der Münzen](cards/pentacles-ten) können an gemeinsame Zeit, Räume und Werkzeuge erinnern. Was ist vereinbart, was braucht ein Gespräch?"
      ]
     },
     {
-     "h": "Kelche: Wasser, Gefühle und Liebe",
+     "h": "Das Bild vor dem Merkwort",
      "p": [
-      "Kelche gehören zum Wasser. Sie stehen für Emotionen, Liebe, Freundschaft, Intuition und Träume. Eine Legung voller Kelche bedeutet, dass das Herz im Zentrum deiner Frage steht. Die [Zwei der Kelche](cards/cups-two) ist die klassische Karte einer engen Verbindung."
+      "Vergleiche [Vier der Stäbe](cards/wands-four) und [Vier der Kelche](cards/cups-four). Waite beschreibt eine Girlande an vier Stäben und Figuren mit Blumen sowie einen Sitzenden unter einem Baum mit drei und einem angebotenen Kelch (Teil III, §2). Gleiche Zahl, andere Szene: „Vier ist Stabilität“ oder die Farbe allein genügen nicht."
      ]
     },
     {
-     "h": "Schwerter: Luft, Gedanken und Konflikte",
+     "h": "Was ein Farbenanteil nicht beweist",
      "p": [
-      "Schwerter gehören zur Luft. Es geht um den Verstand: Ideen, Worte, Entscheidungen, Wahrheit, aber auch Stress und Streit. Schwerter-Karten können hart wirken, zeigen aber oft Klarheit nach einer schwierigen Wahrheit. Schau dir das [Ass der Schwerter](cards/swords-ace) an, eine Karte für den Durchbruch einer Idee."
+      "Die Häufigkeit beschreibt die gezogenen Karten. Fehlende Kelche beweisen keine verdrängten Gefühle; viele Schwerter diagnostizieren nichts und sagen keinen Streit voraus. Prüfe den Nutzen für die Frage, statt Menschen nach Zahlen einzuordnen.",
+      "Das Werkzeug für [Elementwürden](tools/elements) nutzt ein Modell. „Unterstützung“ und „Gegensatz“ sind dessen Kategorien, keine gemessenen Kräfte oder Erfolgschancen. Lass es weg, wenn es vom Bild und der Frage ablenkt."
      ]
     },
     {
-     "h": "Münzen: Erde, Geld und Körper",
+     "h": "Eigenes Beispiel: ein kleines Treffen planen",
      "p": [
-      "Münzen, manchmal auch Pentakel genannt, gehören zur Erde. Sie stehen für Arbeit, Geld, Zuhause, Gesundheit und alles Langsame und Greifbare. Die [Zehn der Münzen](cards/pentacles-ten) zeigt eine Sicherheit, die über lange Zeit gewachsen ist."
+      "Beobachtung: Die Vier der Stäbe zeigt Girlande und Blumenfiguren, die Vier der Kelche eine sitzende Figur und einen angebotenen Kelch. Diese Details lassen sich bei Waite prüfen. Das folgende Treffen ist unser Lehrbeispiel, kein echter Klientenfall oder historischer Auftrag.",
+      "Frage „Wie plane ich Zeit mit Freunden, die zu mir passt?“. Stäbe in „Was bereite ich vor?“ und Kelche in „Was prüfe ich bei mir?“ könnten einen einfachen einladenden Ort und eine ehrliche Kapazitätsprüfung nahelegen. Eine Handlung: eine machbare Aktivität vorschlagen und die verfügbare Zeit nennen.",
+      "Alternative: In „Was setzt mich unter Druck?“ könnte die Girlande an eine Pflicht zu feiern erinnern; in „Was hilft?“ könnte Sitzen zur Pause vor dem Zusagen anregen. Vergleiche mit der Wirklichkeit. Karten kennen keine fremden Gefühle und garantieren kein gelungenes Treffen."
      ]
     },
     {
-     "h": "Das Gleichgewicht der Farben lesen",
+     "h": "Quellen und Grenzen",
      "p": [
-      "Achte in einer Legung darauf, welche Farbe am häufigsten vorkommt und welche fehlt. Viele Schwerter und keine Kelche können bedeuten, dass du viel über etwas nachdenkst, was du dir noch nicht zu fühlen erlaubt hast. Unser Tool [Elementarwürden](tools/elements) zeigt, wie Karten verschiedener Elemente einander stärken oder schwächen."
+      "[A. E. Waite, The Pictorial Key to the Tarot, Teil I](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_1), §3: vier Farben mit je zehn Zahlen- und vier Hofkarten. Das belegt Aufbau, keine Bedeutungsprozente.",
+      "[Liber LXXVIII, The Titles of the Symbols](https://sacred-texts.com/oto/lib78.htm), Punkte 1–4: Asse von Feuer, Wasser, Luft und Erde. Das ist ein Primärtext einer Zuordnungstradition, kein physikalischer Nachweis oder identisches Waite–Smith-Bildsystem.",
+      "[Waite, Teil III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §2: Vier der Stäbe, Vier/Zwei der Kelche, Ass der Schwerter, Zehn/König der Münzen. Geprüft wurden Szenen und Grenzen einer reinen Geldlesart; verwendet wurde der Nachdruck von 1922. Fragen und Treffen sind eigene Anwendungen, keine bestätigten Vorhersagen."
+     ]
+    },
+    {
+     "h": "Prüfvermerk · 1. November 2026",
+     "p": [
+      "Der KI-gestützte Vergleich prüfte Aufbau, Elementtitel, Bilder und unsere Vergleichslogik. Er korrigierte die feste „Hälfte“ sowie Rückschlüsse auf innere Zustände aus Kartenhäufigkeiten und trennte Quellen von Ableitungen. Unabhängige Fach- und Muttersprachprüfung sind unbestätigt. Die Urheberschaft der Liber-Transkription wurde nicht festgestellt. Korrekturen über [unsere Methodik](methodology#corrections)."
      ]
     }
    ],
    "faq": [
     {
      "q": "Welche Farbe steht für die Liebe?",
-     "a": "Die Kelche sind die Farbe der Liebe und der Gefühle, auch wenn eine Liebesdeutung jede Farbe enthalten kann."
+     "a": "Kelche regen hier zum Nachdenken über Gefühle und Gegenseitigkeit an. Jede Farbe kann beitragen; keine beweist fremde Gefühle oder eine künftige Beziehung."
     },
     {
      "q": "Welche Farbe steht für Geld?",
-     "a": "Die Münzen sind die Farbe von Geld, Arbeit, Zuhause und materieller Sicherheit."
+     "a": "Münzen helfen bei Fragen zu Mitteln und Arbeit, belegen aber keine künftigen Einnahmen, sichere Vermögen oder geeignete Finanzentscheidung."
     },
     {
      "q": "Sind Schwerter schlechte Karten?",
-     "a": "Nein. Schwerter stehen für den Verstand, also auch für Sorgen und Konflikte, aber ebenso für Ehrlichkeit, klares Denken und gute Entscheidungen."
+     "a": "Das ist kein festes Etikett. Beachte Bild, Frage und Position. Schwerter sind keine Diagnose, Streitvorhersage oder Begründung für ein Urteil über Menschen."
     }
    ]
   },

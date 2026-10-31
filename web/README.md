@@ -302,3 +302,7 @@ approval screen is compiled locally but needs distribution in an app update.
 See `../docs/oauth-reading-access-2026-10-28/README.md` for implementation sources,
 release integrity, tests, limits and rollback. Validation is passive: do not POST
 registration endpoints merely to scan them. Tests: `tests/auth-discovery.test.ts`.
+
+### Source-comparison audit
+
+`npm run check:editorial-build` checks the individually source-compared lessons, their exact external citations, per-source authorship, local correction/example links, modification dates and Markdown equivalents across eight locales. It also runs through `check:reader-build`, so the existing CI workflow enforces it. It does not certify unlisted pages, independent expert review or native-language quality. Current article queue and actual comparison records: `../docs/editorial-review-2026-10-31/README.md`.

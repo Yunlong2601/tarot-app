@@ -4,9 +4,9 @@ The owner explicitly included all website reference content, beyond the initial 
 
 ## Current progress
 
-Two logical articles, `/learn/tarot-numbers` and `/learn/major-and-minor-arcana`, have limited AI-assisted comparisons against specific primary-source passages and rewritten original worked examples in all eight locales. This does not mean their translations received human review, or that all 487 routes are source-verified. Every other record remains not started. The site-wide source/publisher component added earlier is not evidence that individual claims were checked.
+Three logical articles, `/learn/tarot-numbers`, `/learn/major-and-minor-arcana` and `/learn/tarot-suits`, have limited AI-assisted comparisons against specific primary-source passages and rewritten original worked examples in all eight locales. This does not mean their translations received human review, or that all 487 routes are source-verified. Every other record remains not started. The site-wide source/publisher component added earlier is not evidence that individual claims were checked.
 
-Work in batches: remaining five foundational lessons; major-card references; minor-card references; contextual interpretations; spreads/question/topic references; zodiac/birth/numerology and tool formulas; navigation and publisher consistency. A contextual interpretation needs its own reasoning, not a copied historical citation that never discussed that context. Reconcile newly added/removed routes before declaring the inventory complete.
+Work in batches: remaining four foundational lessons; major-card references; minor-card references; contextual interpretations; spreads/question/topic references; zodiac/birth/numerology and tool formulas; navigation and publisher consistency. A contextual interpretation needs its own reasoning, not a copied historical citation that never discussed that context. Reconcile newly added/removed routes before declaring the inventory complete.
 
 ## Per-article acceptance
 
@@ -37,9 +37,9 @@ Rejected candidate: Project Gutenberg eBook 43548 is catalogued as L. W. De Laur
 
 ## Implementation and verification
 
-`web/src/lib/editorial.ts` scopes structured citations and genuine content-modification dates to the two checked articles only. No fake `lastReviewed` or `reviewedBy` is generated. The external-link fix in `Linked.astro` keeps HTTPS source URLs intact while local card/tool links still follow the selected language.
+`web/src/lib/editorial.ts` scopes structured citations and genuine content-modification dates to the checked articles only. No fake `lastReviewed` or `reviewedBy` is generated. The external-link fix in `Linked.astro` keeps HTTPS source URLs intact while local card/tool links still follow the selected language.
 
-49 tests, locale parity, Astro check (zero errors/warnings; two existing hints), build and the five existing website audits pass. `npm --prefix web run check:editorial-build` additionally checks sixteen complete numbers/arcana routes for their exact external sources, localized internal examples, source/check sections, Article citation parity and Markdown citations without invented human-review metadata. Chrome checked eight locales at 390/768/1440px: seven article sections, two source links and no horizontal overflow. These checks do not certify factual truth, expert review, native language quality, indexing or traffic growth.
+49 tests, locale parity, Astro check (zero errors/warnings; two existing hints), build and the five existing website audits pass. `npm --prefix web run check:editorial-build` additionally checks twenty-four complete suits/numbers/arcana routes for their exact external sources, localized internal examples, source/check sections, Article citation parity and Markdown citations without invented human-review metadata. Chrome checked eight locales at 390/768/1440px: seven article sections, two source links and no horizontal overflow. These checks do not certify factual truth, expert review, native language quality, indexing or traffic growth.
 
 ## Arcana article: actual source-comparison record
 
@@ -59,3 +59,24 @@ Actor: Codex AI assistant; date: 31 October 2026 (Singapore). Read Waite Parts I
 Validation extends the existing evidence audit to sixteen article-locale routes and their exact citations, correction/local-card links and Markdown equivalents. The Chinese comparison illustration remains a clearly marked editorial example; its terminology now matches this lesson. All eight locale review states remain unverified.
 
 Arcana browser verification: eight locales at 390/768/1440px (24 combinations), seven lesson sections and three exact source links per route, no horizontal overflow. Chinese evidence: `arcana-desktop.png` and `arcana-mobile.png`. Full build, editorial source audit and all five existing website audits passed after the final copy changes.
+
+## Suits article: actual source-comparison record — 1 November 2026
+
+Actor: Codex AI assistant. Directly read Waite Part I §3, the named Part III §2 entries and *Liber LXXVIII*, “The Titles of the Symbols”, items 1–4. Compared the shared 56 Minor-card records with the declared element map and read `elementOf` / the Pairing relationship model. This is a limited AI-assisted comparison, not independent expert or native-language review.
+
+| Claim or change | Evidence | Outcome / limit |
+|---|---|---|
+| Four suits of fourteen, 56 Minor cards | [Waite, Part I §3](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_1); current shared card records | Matches actual counts; does not support “half the meaning” or a universal deck definition. |
+| Wands–Fire, Cups–Water, Swords–Air, Pentacles–Earth | [Liber LXXVIII, The Titles of the Symbols, items 1–4](https://sacred-texts.com/oto/lib78.htm); all fourteen cards per suit verified locally | Primary text explicitly names those Ace correspondences. Not claimed as physical law, universal tradition or identical card designs. Authorship of the particular online transcription was not established; no Person author is assigned to it in schema. |
+| Four of Wands and Four of Cups scenes | [Waite, Part III §2](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), Wands—Four and Cups—Four | Garland/flower-bearing figures versus seated figure and offered cup; comparison distinguishes scene observation from original gathering example. |
+| Two of Cups, Ace of Swords, Ten/King of Pentacles | Same chapter, named entries | Checked image descriptions; King of Pentacles explicitly notes limits of treating the suit as exclusively money. Our suit questions remain teaching prompts rather than historical quotations or diagnostic claims. |
+| Missing Cups proves suppressed feelings; many Swords forecasts conflict | No such inference established by the source comparison | Removed these assertions. Counts describe the draw, not another person's interior state or a clinical condition. |
+| Pentacles guarantees lasting security or describes health | No empirical evidence supplied | Replaced with bounded questions about resources and support; no diagnosis, income forecast or financial recommendation. |
+| Elemental support/opposition | Current `Pairing.astro` relationship function and `elementOf` | Described as a model's categories, not measured forces or success probabilities. Tool behavior unchanged. |
+| Small-gathering scenario, capacity check, pressure-to-celebrate alternative | Newly authored teaching exercise | Observation → positions → inference → manageable action, with an alternative. Not a client story, friend mind-reading or promised outcome. |
+
+Citation metadata now uses per-source authorship rather than assigning every historical reference to Waite. The five previously cited Waite sources retain their confirmed author; the newly consulted Liber transcription has no invented author. The evidence audit checks each visible source against its metadata and explicitly rejects invented authorship for sources without that field. The site-wide queue advances to 3/487 source-compared routes; all eight language-review states remain unverified.
+
+Suits validation: 49 tests, parity, Astro check (zero errors/warnings; two existing hints), production build, source audit (24 article-locale routes) and all five website audits pass. Chrome measured all eight locales at 390/768/1440px: seven sections, three exact source links and no horizontal overflow. Screenshots are rendering evidence only; no actual screen-reader speech or native-language approval is claimed.
+
+Suits capture limitation: desktop example/source capture `suits-desktop.png` was inspected. Phone capture returned downscaled/repeated-frame artifacts and is not retained as valid visual evidence; responsive phone checks above are DOM measurements, not a claim of physical-device or full visual acceptance. The source audit now checks the localized correction route and is included in `check:reader-build` so existing CI enforces it.

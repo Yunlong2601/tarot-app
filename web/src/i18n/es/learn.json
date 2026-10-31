@@ -164,61 +164,76 @@
    ]
   },
   "tarot-suits": {
-   "title": "Los cuatro palos del tarot: Bastos, Copas, Espadas y Oros",
-   "description": "Qué significan los cuatro palos del tarot: Bastos para la energía y la ambición, Copas para los sentimientos y el amor, Espadas para los pensamientos y el conflicto, Oros para el dinero, el trabajo y el cuerpo.",
+   "title": "Los cuatro palos del tarot: fuentes, preguntas y ejemplo",
+   "description": "Aprende Bastos, Copas, Espadas y Oros como pistas, comprueba la convención elemental y sigue un ejemplo original del Cuatro de Bastos y de Copas.",
    "h1": "Los cuatro palos del tarot",
-   "answer": "Los Bastos representan la energía y la ambición, las Copas los sentimientos y las relaciones, las Espadas los pensamientos y el conflicto, y los Oros el dinero, el trabajo y el cuerpo.",
-   "minutes": 5,
+   "answer": "Los cuatro palos organizan los 56 Arcanos Menores. Sus temas y elementos son convenciones interpretativas, no fórmulas sobre sucesos, personalidad o salud.",
+   "minutes": 8,
    "sections": [
     {
-     "h": "Por qué importan los palos",
+     "h": "Cuatro grupos, no la mitad del significado",
      "p": [
-      "Cada una de las 56 cartas de los Arcanos Menores pertenece a uno de cuatro palos. Si sabes de qué trata un palo, ya conoces la mitad de cada carta que lo compone. La otra mitad viene de su [número](learn/tarot-numbers) o de su [rango en la corte](learn/court-cards)."
+      "Esta baraja tiene catorce cartas por palo: As a Diez y cuatro figuras, 56 en total. Waite describe la estructura en la parte I, §3. El palo no aporta una «mitad» medible del sentido. Mira también [número](learn/tarot-numbers), [rango](learn/court-cards), imagen y posición.",
+      "Aquí usamos Bastos–Fuego, Copas–Agua, Espadas–Aire y Oros–Tierra. Los títulos de los cuatro Ases de Liber LXXVIII dan esas parejas. Documentan un sistema, no una ley natural ni todos los juegos; sus diseños no son los mismos que las imágenes de este sitio."
      ]
     },
     {
-     "h": "Bastos: fuego, energía e impulso",
+     "h": "Cuatro palos como preguntas",
      "p": [
-      "Los Bastos se asocian al elemento Fuego. Hablan de pasión, ambición, creatividad y acción. Una carta de Bastos suele preguntar qué quieres y hasta dónde estás dispuesto a llegar por ello. Empieza con el [As de Bastos](cards/wands-ace), una chispa de energía nueva."
+      "Bastos: ¿qué quiero empezar o practicar? Energía e iniciativa son pistas didácticas. Con el [As de Bastos](cards/wands-ace), elige una acción pequeña y observa qué facilita empezar.",
+      "Copas: ¿qué noto sobre sentimientos y vínculos? Con el [Dos de Copas](cards/cups-two), compara lo que das y recibes en una interacción. Separa lo observado de tus suposiciones.",
+      "Espadas: ¿qué idea, decisión o límite merece atención? Con el [As de Espadas](cards/swords-ace), escribe una pregunta clara y distingue lo que sabes de lo que necesitas preguntar.",
+      "Oros: ¿qué recursos, trabajo o apoyo hay? La familia y la casa del [Diez de Oros](cards/pentacles-ten) invitan a revisar tiempo, espacio y herramientas compartidos. ¿Qué acuerdos existen y cuáles requieren conversación?"
      ]
     },
     {
-     "h": "Copas: agua, sentimientos y amor",
+     "h": "La imagen antes de la palabra clave",
      "p": [
-      "Las Copas se asocian al Agua. Abarcan las emociones, el amor, la amistad, la intuición y los sueños. Una tirada llena de Copas indica que el corazón está en el centro de la pregunta. El [Dos de Copas](cards/cups-two) es la carta clásica de un vínculo cercano."
+      "Compara el [Cuatro de Bastos](cards/wands-four) y el [Cuatro de Copas](cards/cups-four). Waite describe una guirnalda sobre cuatro bastos y figuras con flores, y una persona bajo un árbol con tres copas y otra ofrecida (parte III, §2). El número coincide, la escena no. «Cuatro es estabilidad» o el palo no explican toda la imagen."
      ]
     },
     {
-     "h": "Espadas: aire, pensamientos y conflicto",
+     "h": "Lo que una proporción no demuestra",
      "p": [
-      "Las Espadas se asocian al Aire. Tratan de la mente: ideas, palabras, decisiones, verdad, y también estrés y discusiones. Las cartas de Espadas pueden parecer duras, pero a menudo muestran claridad después de una verdad difícil. Mira el [As de Espadas](cards/swords-ace) para ver una idea que lo cambia todo."
+      "Contar palos describe las cartas extraídas. No tener Copas no demuestra represión emocional; muchas Espadas no diagnostican ni predicen una discusión. Contrasta la observación con la pregunta, sin etiquetar a nadie por el recuento.",
+      "La herramienta de [dignidades elementales](tools/elements) aplica un modelo. «Apoyo» y «oposición» son categorías del modelo, no fuerzas físicas medidas ni probabilidades de éxito. Puedes prescindir de él si dificulta leer la imagen."
      ]
     },
     {
-     "h": "Oros: tierra, dinero y cuerpo",
+     "h": "Ejemplo original: organizar un pequeño encuentro",
      "p": [
-      "Los Oros, también llamados Pentáculos o Monedas, se asocian a la Tierra. Abarcan el trabajo, el dinero, el hogar, la salud y todo lo lento y sólido. El [Diez de Oros](cards/pentacles-ten) muestra una seguridad duradera construida con el tiempo."
+      "Observación: el Cuatro de Bastos muestra guirnalda y figuras con flores; el Cuatro de Copas, una persona sentada y una copa ofrecida. Los detalles se contrastan con Waite. El encuentro siguiente es un ejemplo nuestro, no un caso real de cliente ni una instrucción histórica.",
+      "Pregunta «¿Cómo organizo un encuentro con amigos que me siente bien?». Bastos en «¿Qué preparo?» y Copas en «¿Qué compruebo conmigo?» pueden sugerir un espacio sencillo y revisar la energía disponible antes de aceptar. Acción: proponer una actividad asumible y decir cuánto tiempo puedes dedicar.",
+      "Alternativa: en «¿Qué me presiona?», la guirnalda podría sugerir obligación de celebrar; en «¿Qué ayuda?», sentarse podría invitar a pausar antes de aceptar. Contrástalo con la realidad. Las cartas no conocen los sentimientos de tus amigos ni garantizan el encuentro."
      ]
     },
     {
-     "h": "Cómo leer el equilibrio de palos",
+     "h": "Fuentes y límites",
      "p": [
-      "En una tirada, fíjate en qué palo aparece más y cuál falta. Muchas Espadas y ninguna Copa pueden significar que piensas mucho en algo que aún no te has permitido sentir. Nuestra herramienta de [dignidades elementales](tools/elements) te muestra cómo se apoyan o se debilitan entre sí las cartas de distintos elementos."
+      "[A. E. Waite, The Pictorial Key to the Tarot, parte I](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_1), §3: cuatro palos con diez cartas numerales y cuatro figuras. Apoya la estructura, no porcentajes de significado.",
+      "[Liber LXXVIII, The Titles of the Symbols](https://sacred-texts.com/oto/lib78.htm), puntos 1–4: los Ases corresponden a Fuego, Agua, Aire y Tierra. Es una fuente primaria de correspondencias, no una prueba física ni una identificación de sus diseños con los de Waite–Smith.",
+      "[Waite, parte III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §2: Cuatro de Bastos, Cuatro y Dos de Copas, As de Espadas, Diez y Rey de Oros. Se contrastaron escenas y los límites de leer Oros solo como dinero; la transcripción es la reimpresión de 1922. Las preguntas y el encuentro son aplicaciones originales, no predicciones verificadas."
+     ]
+    },
+    {
+     "h": "Registro de comprobación · 1 de noviembre de 2026",
+     "p": [
+      "La comparación asistida por IA revisó estructura, títulos elementales, imágenes e implementación del comparador. Corrigió «la mitad del significado» y las inferencias del estado interior a partir del recuento y separó fuente e inferencia. No hay revisión independiente confirmada de expertos o hablantes nativos. No se estableció la autoría de la transcripción de Liber. Correcciones mediante [nuestra metodología](methodology#corrections)."
      ]
     }
    ],
    "faq": [
     {
      "q": "¿Qué palo habla del amor?",
-     "a": "Las Copas son el palo del amor y los sentimientos, aunque una lectura de amor puede incluir cualquier palo."
+     "a": "Copas invita aquí a pensar en sentimientos y reciprocidad. Cualquier palo puede contribuir; ninguno demuestra el afecto ajeno o una relación futura."
     },
     {
      "q": "¿Qué palo habla del dinero?",
-     "a": "Los Oros son el palo del dinero, el trabajo, el hogar y la seguridad material."
+     "a": "Oros ayuda a reflexionar sobre recursos y trabajo, sin probar ingresos futuros, riqueza segura o una decisión financiera adecuada."
     },
     {
      "q": "¿Las Espadas son cartas malas?",
-     "a": "No. Las Espadas representan la mente, así que incluyen la preocupación y el conflicto, pero también la honestidad, el pensamiento claro y las buenas decisiones."
+     "a": "No es una etiqueta fija. Mira escena, pregunta y posición. Espadas no es un diagnóstico, un anuncio de conflicto ni una razón para juzgar a una persona."
     }
    ]
   },

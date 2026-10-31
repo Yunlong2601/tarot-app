@@ -214,7 +214,7 @@
     {
       "path": "/learn/tarot-suits",
       "category": "learn",
-      "sourceComparison": "not_started",
+      "sourceComparison": "ai_assisted_passage_comparison",
       "independentExpertReview": "not_verified",
       "languageReview": {
         "en": "not_verified",
@@ -7795,5 +7795,6 @@
         "ru": "not_verified"
       }
     }
-  ]
+  ],
+  "updatedAt": "2026-11-01"
 }
