@@ -22,3 +22,10 @@ test('homepage HTML and Markdown advertise all registered discovery relations',a
  assert.match(r.headers.get('content-type')!,accept==='text/html'?/text\/html/:/text\/markdown/);}
  const docs=await worker.fetch(new Request('https://shentarot.com/api/docs',{headers:{accept:'text/markdown'}}),env);assert.match(docs.headers.get('content-type')!,/text\/markdown/);assert.match(await docs.text(),/# ShenTarot App API/);
 });
+
+test('public content permits grounding while reserving training rights',async()=>{
+ for(const path of ['/', '/api/docs','/api/openapi.json','/.well-known/api-catalog','/auth.md']){
+  const response=await worker.fetch(new Request('https://shentarot.com'+path),env);
+  assert.equal(response.headers.get('content-signal'),'ai-train=no, search=yes, ai-input=yes',path);
+ }
+});

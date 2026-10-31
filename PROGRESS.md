@@ -240,3 +240,5 @@ Implemented localized platform guides, explicit confirmations, recoverable local
 ## 2026-10-29 — More natural Chinese beta copy
 
 Rewrote Simplified and Traditional Chinese beta-page copy, shared recruitment invitations and FAQ answers in a conversational voice. Preserved availability, account, payment, privacy and local-progress facts. No joining-flow or legal-page changes.
+
+2026-10-31 — AI search discovery: owner-approved real-time grounding permission, training still disallowed; generated Markdown carries source/publisher/original URL. No guaranteed attribution/traffic claim. Public site/discovery only; no backend, native, tracking or firewall changes. See docs/ai-search-growth-2026-10-31.md.
