@@ -390,47 +390,74 @@
    ]
   },
   "reversed-cards": {
-   "title": "Cartas invertidas del tarot: qué significan las cartas boca abajo",
-   "description": "Cómo leer las cartas invertidas del tarot: energía bloqueada o interior, demasiado o demasiado poco del significado al derecho, y si de verdad necesitas usar las inversiones.",
+   "title": "Cartas invertidas: fuentes, preguntas y un ejemplo razonado",
+   "description": "Lee las inversiones sin opuestos automáticos ni resultados prometidos. Compara tres entradas de Waite y prueba un ejemplo original de dos cartas.",
    "h1": "Cartas invertidas del tarot",
-   "answer": "Una carta invertida suele mostrar el significado al derecho bloqueado, vuelto hacia dentro, retrasado o desequilibrado, y no simplemente su opuesto.",
-   "minutes": 4,
+   "answer": "Una inversión registra que la carta está boca abajo respecto a tu dirección de lectura. Su interpretación depende del criterio elegido, la imagen y la pregunta; no significa automáticamente lo contrario, un mal resultado ni un retraso garantizado.",
+   "minutes": 8,
    "sections": [
     {
-     "h": "Qué es una inversión",
+     "h": "Primero la orientación; después, el criterio",
      "p": [
-      "Una carta está invertida cuando sale boca abajo. Algunos lectores usan las inversiones y otros no. Las dos opciones son válidas, siempre que lo decidas antes de barajar."
+      "Antes de sacar cartas, decide si distinguirás las orientaciones o leerás todas al derecho. En este ejercicio puedes elegir cualquiera de las dos opciones. Anótala para no cambiar la regla después buscando una respuesta más agradable."
      ]
     },
     {
-     "h": "Cuatro formas de leer una inversión",
+     "h": "Cuatro preguntas que puedes probar",
      "p": [
-      "Bloqueada: la energía de la carta está ahí, pero no puede fluir. El [As de Bastos](cards/wands-ace) invertido es una chispa creativa que no prende.",
-      "Hacia dentro: el significado ocurre en tu interior más que a tu alrededor. [El Ermitaño](cards/major-09-hermit) invertido puede hablar de soledad más que de un retiro elegido.",
-      "Demasiado o demasiado poco: la cualidad de la carta está desequilibrada. [La Fuerza](cards/major-08-strength) invertida puede ser inseguridad, o aferrarse con demasiada fuerza.",
-      "Retrasada: lo que la carta promete está en camino, pero más despacio."
+      "Bloqueo: ¿qué dificulta poner esta cualidad en práctica? Con el [As de Bastos](cards/wands-ace), pregunta qué permitiría empezar una pequeña idea creativa. Es una propuesta nuestra, no una definición universal de las inversiones.",
+      "Hacia dentro: ¿qué observo en mi propia respuesta? Con [el Ermitaño](cards/major-09-hermit), compara la soledad elegida con sentirse aislado. La carta no diagnostica ninguna de las dos.",
+      "Exceso o carencia: ¿qué necesita un ajuste? Con [la Fuerza](cards/major-08-strength), considera si hacen falta más paciencia o límites más claros y contrástalo con hechos observables.",
+      "Tiempo: ¿hay un obstáculo práctico que pueda comprobar? Una inversión no establece que algo esté prometido y vaya a llegar después. Elige una pregunta útil; no conviertas las cuatro perspectivas en hechos revelados por la tirada."
      ]
     },
     {
-     "h": "Una inversión no siempre es mala",
+     "h": "Tres entradas históricas que no encajan en una sola regla",
      "p": [
-      "Las cartas difíciles a menudo se suavizan al invertirse. [La Torre](cards/major-16-tower) invertida puede significar una crisis evitada o un cambio que ya has superado, y el [Diez de Espadas](cards/swords-ten) invertido muestra recuperación una vez pasado lo peor.",
-      "Cada página de carta de este sitio ofrece el significado al derecho y el invertido, para que puedas compararlos."
+      "En la parte III, §3, Waite conserva para [el Sol](cards/major-19-sun) invertido el sentido de la posición derecha, en menor grado. Para [la Torre](cards/major-16-tower) invertida incluye una versión atenuada de su dificultad, pero también opresión y encierro. Eso no demuestra que una crisis se haya evitado.",
+      "En la parte III, §2, el [Diez de Espadas](cards/swords-ten) invertido puede traer ventaja o éxito, pero no duraderos. No garantiza recuperación. Estas diferencias invitan a comparar cada carta; no establecen que toda inversión mejore, empeore o niegue el sentido. Una lista histórica de adivinación no prueba que un suceso vaya a ocurrir."
+     ]
+    },
+    {
+     "h": "Anota la orientación durante la práctica",
+     "p": [
+      "En el [espacio de lectura](read), elige la carta y marca la casilla de inversión para reproducir tu tirada física. Lee conjuntamente pregunta, posición y orientación; compara también ambos apartados de la página de la carta. Registrar una elección no valida su significado. Si has elegido leer solo al derecho, deja la casilla sin marcar desde el principio."
+     ]
+    },
+    {
+     "h": "Ejemplo original: volver a disfrutar de una afición",
+     "p": [
+      "Observa al niño y al caballo blanco de [el Sol](cards/major-19-sun), descritos en la parte II, §2, y al artesano que trabaja en el [Ocho de Oros](cards/pentacles-eight), parte III, §2. En este ejercicio inventado, el Sol invertido ocupa «¿Qué merece atención?» y el Ocho al derecho «¿Qué puedo probar?». Girar la carta no cambia los objetos dibujados.",
+      "Pregunta: «¿Qué podría hacer más agradable la práctica de mi afición esta semana?». Tomando como punto de partida el sentido positivo atenuado del Sol, una lectura posible es una satisfacción menos visible; el Ocho invita a probar una tarea manual manejable. Elige una técnica pequeña y anota qué disfrutas realmente. Es una inferencia editorial y una acción que probar, no una instrucción de Waite ni una historia de cliente.",
+      "Alternativa: si ya practicas demasiado, el Ocho puede hacerte pensar en la repetición en lugar de añadir más trabajo. Prueba una sesión más corta o una pausa y compara la experiencia. La orientación no determina tu estado emocional, no promete mejoría ni decide cuánto esfuerzo te conviene."
+     ]
+    },
+    {
+     "h": "Fuentes y límites",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, parte III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §2 (Diez de Espadas; Ocho de Oros) y §3 (Sol; Torre), respalda estas comparaciones históricas concretas. Las cuatro preguntas son opciones didácticas nuestras; no hemos establecido cuántos lectores las usan.",
+      "[Parte II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, XIX, respalda la descripción de la imagen del Sol. Consultamos la transcripción de la reimpresión de 1922. Descripción, significado histórico y ejemplo original cumplen funciones distintas; ninguno ofrece una predicción verificada."
+     ]
+    },
+    {
+     "h": "Registro de comprobación · 1 de noviembre de 2026",
+     "p": [
+      "La comparación asistida por IA comprobó los pasajes citados, la casilla de orientación y la visualización correspondiente en la web. Sustituimos afirmaciones sin fundamento sobre lo «habitual», la atenuación automática y el retraso prometido por comparaciones y preguntas opcionales. No se ha confirmado revisión independiente experta ni de hablantes nativos. Envía correcciones concretas desde la [página de metodología](methodology#corrections)."
      ]
     }
    ],
    "faq": [
     {
      "q": "¿Tengo que leer las cartas invertidas?",
-     "a": "No. Muchos lectores ponen todas las cartas al derecho y leen solo los significados al derecho. Elige un enfoque y mantenlo."
+     "a": "No. Para este ejercicio puedes leer solo al derecho o distinguir orientaciones. Decide antes y anótalo; aquí no se demuestra mayor popularidad ni ventaja predictiva de ninguna opción."
     },
     {
      "q": "¿Una carta invertida siempre es negativa?",
-     "a": "No. Una inversión puede suavizar una carta difícil y a menudo muestra una lección más interior o más lenta, no algo malo."
+     "a": "No hay una regla única de bueno o malo que encaje en los ejemplos históricos. Empieza por la carta, su posición y la pregunta."
     },
     {
      "q": "¿Cómo consigo cartas invertidas al barajar?",
-     "a": "Gira una parte de la baraja mientras barajas, o extiende las cartas sobre una mesa y mézclalas haciendo círculos."
+     "a": "Con una baraja física, puedes girar una parte 180 grados antes de mezclar. Mantén la misma dirección de lectura al colocar las cartas. Esto mezcla orientaciones; no demuestra que la tirada transmita un mensaje."
     }
    ]
   },

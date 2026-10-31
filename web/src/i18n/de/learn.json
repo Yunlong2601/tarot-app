@@ -390,47 +390,74 @@
    ]
   },
   "reversed-cards": {
-   "title": "Umgekehrte Tarotkarten: was Karten auf dem Kopf bedeuten",
-   "description": "So liest du umgekehrte Tarotkarten: blockierte oder nach innen gerichtete Energie, zu viel oder zu wenig von der aufrechten Bedeutung und ob du Umkehrungen überhaupt nutzen musst.",
+   "title": "Umgekehrte Tarotkarten: Quellen, Fragen und ein Lesebeispiel",
+   "description": "Umkehrungen ohne automatische Gegensätze oder versprochene Ergebnisse lesen: drei Waite-Einträge vergleichen und ein eigenes Zwei-Karten-Beispiel nachvollziehen.",
    "h1": "Umgekehrte Tarotkarten",
-   "answer": "Eine umgekehrte Karte zeigt meist die aufrechte Bedeutung blockiert, nach innen gewendet, verzögert oder aus dem Gleichgewicht, nicht einfach ihr Gegenteil.",
-   "minutes": 4,
+   "answer": "Eine Umkehrung hält zunächst fest, dass die Karte auf dem Kopf liegt. Ihre Deutung hängt von deiner gewählten Konvention, dem Bild und der Frage ab. Sie bedeutet nicht automatisch das Gegenteil, ein schlechtes Ergebnis oder eine sichere Verzögerung.",
+   "minutes": 8,
    "sections": [
     {
-     "h": "Was eine Umkehrung ist",
+     "h": "Erst die Ausrichtung, dann die Leseregel",
      "p": [
-      "Eine Karte ist umgekehrt, wenn sie auf dem Kopf liegt. Manche Leser nutzen Umkehrungen, andere nicht. Beides ist in Ordnung, solange du dich vor dem Mischen entscheidest."
+      "Eine Karte liegt umgekehrt, wenn sie aus deiner festgelegten Leserichtung auf dem Kopf steht. Entscheide vor dem Ziehen, ob du Ausrichtungen unterscheidest oder alle Karten aufrecht liest. Für diese Übung stehen beide Möglichkeiten offen. Notiere die Entscheidung, damit du die Regel nicht nachträglich für eine angenehmere Antwort änderst."
      ]
     },
     {
-     "h": "Vier Wege, eine Umkehrung zu lesen",
+     "h": "Vier Fragen zum Ausprobieren",
      "p": [
-      "Blockiert: Die Energie der Karte ist da, kann aber nicht fließen. Das umgekehrte [Ass der Stäbe](cards/wands-ace) ist ein kreativer Funke, der nicht zündet.",
-      "Nach innen: Die Bedeutung spielt sich in dir ab und nicht um dich herum. Der umgekehrte [Eremit](cards/major-09-hermit) kann Einsamkeit statt gewählter Zurückgezogenheit bedeuten.",
-      "Zu viel oder zu wenig: Die Eigenschaft der Karte ist aus dem Gleichgewicht. Die umgekehrte [Kraft](cards/major-08-strength) kann Selbstzweifel sein oder zu festes Festhalten.",
-      "Verzögert: Was die Karte verspricht, kommt, nur langsamer."
+      "Blockiert: Was erschwert es, diese Qualität umzusetzen? Beim [Ass der Stäbe](cards/wands-ace) könntest du fragen, was eine kleine kreative Idee ins Rollen bringen würde. Das ist unser Übungsvorschlag, keine allgemeine Definition von Umkehrungen.",
+      "Nach innen: Was bemerke ich an meiner eigenen Reaktion? Vergleiche beim [Eremiten](cards/major-09-hermit) gewähltes Alleinsein mit dem Gefühl, abgeschnitten zu sein. Die Karte stellt keine Diagnose.",
+      "Zu viel oder zu wenig: Was braucht eine Anpassung? Überlege bei [der Kraft](cards/major-08-strength), ob mehr Geduld oder eine klarere Grenze hilfreich wäre, und vergleiche das mit beobachtbaren Umständen.",
+      "Zeit: Gibt es ein praktisches Hindernis, das ich überprüfen kann? Eine Umkehrung beweist weder ein versprochenes Ereignis noch dessen späteres Eintreffen. Wähle eine hilfreiche Frage, statt alle vier Blickwinkel als Tatsachen über die Ziehung zu behandeln."
      ]
     },
     {
-     "h": "Eine Umkehrung ist nicht immer schlecht",
+     "h": "Drei historische Einträge gegen eine Einheitsregel",
      "p": [
-      "Schwierige Karten werden umgekehrt oft milder. Der umgekehrte [Turm](cards/major-16-tower) kann eine abgewendete Krise bedeuten oder eine Veränderung, die du schon hinter dir hast, und die umgekehrte [Zehn der Schwerter](cards/swords-ten) zeigt Erholung, nachdem das Schlimmste vorbei ist.",
-      "Jede Kartenseite auf dieser Website nennt die aufrechte und die umgekehrte Bedeutung, sodass du beide vergleichen kannst."
+      "In Teil III, §3, behält Waite für [die Sonne](cards/major-19-sun) umgekehrt den aufrechten Sinn in geringerem Maß bei. Für [den Turm](cards/major-16-tower) umgekehrt nennt er sowohl abgeschwächte Schwierigkeiten als auch Unterdrückung und Gefangenschaft. Daraus folgt nicht, dass eine Krise abgewendet ist.",
+      "Teil III, §2, nennt für die umgekehrte [Zehn der Schwerter](cards/swords-ten) einen möglichen Vorteil oder Erfolg, der nicht anhält. Genesung wird damit nicht garantiert. Die Unterschiede sprechen für einzelne Vergleiche, nicht dafür, dass Umkehrungen immer verbessern, verschlechtern oder verneinen. Historische Wahrsagelisten beweisen keine zukünftigen Ereignisse."
+     ]
+    },
+    {
+     "h": "Die Ausrichtung beim Üben festhalten",
+     "p": [
+      "Wähle im [Lesebereich](read) eine Karte und setze das Kontrollkästchen für die Umkehrung passend zu deiner echten Auslage. Betrachte Frage, Position und Ausrichtung zusammen; auf der Kartenseite kannst du beide Bedeutungsabschnitte vergleichen. Das Erfassen einer Wahl bestätigt keine Deutung. Bei einer rein aufrechten Übung lässt du das Kästchen von Anfang an frei."
+     ]
+    },
+    {
+     "h": "Eigenes Beispiel: wieder Freude am Üben finden",
+     "p": [
+      "Betrachte Kind und weißes Pferd auf [der Sonne](cards/major-19-sun), beschrieben in Teil II, §2, und den arbeitenden Handwerker auf der [Acht der Münzen](cards/pentacles-eight), Teil III, §2. In dieser erfundenen Übung liegt die Sonne umgekehrt auf „Was verdient Aufmerksamkeit?“ und die Acht aufrecht auf „Was kann ich versuchen?“. Durch Drehen ändern sich die abgebildeten Gegenstände nicht.",
+      "Frage: „Was könnte das Üben meines Hobbys diese Woche angenehmer machen?“. Ausgehend vom abgeschwächten positiven Sonnensinn wäre eine mögliche Lesart weniger spürbare Zufriedenheit; die Acht regt zu einer überschaubaren praktischen Aufgabe an. Probiere eine kleine Technik und notiere, was dir tatsächlich Freude macht. Das ist unsere Schlussfolgerung mit einem überprüfbaren Versuch, keine Anweisung Waites und kein Kundenbericht.",
+      "Alternative: Wenn du bereits zu viel übst, könnte die Acht auf Wiederholung aufmerksam machen, statt zu noch mehr Arbeit anzuregen. Versuche eine kürzere Einheit oder eine Pause und vergleiche deine Erfahrung. Die Ausrichtung bestimmt weder deine Gefühlslage noch die passende Anstrengung und verspricht keine Besserung."
+     ]
+    },
+    {
+     "h": "Quellen und Grenzen",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, Teil III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §2 (Zehn der Schwerter; Acht der Münzen) und §3 (Sonne; Turm), stützt die konkreten historischen Vergleiche. Die vier Fragen sind unsere didaktischen Optionen; ihre Verbreitung wurde nicht ermittelt.",
+      "[Teil II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, XIX, stützt die Beschreibung des Sonnenbildes. Verwendet wurde die Transkription des Nachdrucks von 1922. Bildbeschreibung, historische Bedeutung und unser Beispiel erfüllen unterschiedliche Zwecke; keines liefert eine verifizierte Vorhersage."
+     ]
+    },
+    {
+     "h": "Prüfvermerk · 1. November 2026",
+     "p": [
+      "Der KI-gestützte Vergleich prüfte die genannten Textstellen sowie Ausrichtungsfeld und passende Bedeutungsanzeige der Website. Unbelegte Häufigkeitsangaben, automatische Abschwächung und versprochene Verzögerungen wurden durch Vergleiche und optionale Fragen ersetzt. Unabhängige Fachprüfung und muttersprachliche Prüfung sind nicht bestätigt. Konkrete Korrekturen bitte über die [Methodikseite](methodology#corrections)."
      ]
     }
    ],
    "faq": [
     {
      "q": "Muss ich umgekehrte Karten lesen?",
-     "a": "Nein. Viele Leser drehen jede Karte aufrecht und lesen nur aufrechte Bedeutungen. Wähle einen Ansatz und bleib dabei."
+     "a": "Nein. Für diese Übung kannst du nur aufrecht lesen oder Ausrichtungen unterscheiden. Entscheide vorher und notiere es; weder größere Beliebtheit noch ein Vorhersagevorteil wird hier belegt."
     },
     {
      "q": "Ist eine umgekehrte Karte immer negativ?",
-     "a": "Nein. Eine Umkehrung kann eine schwere Karte mildern und zeigt oft eine Lektion, die innerlich oder langsamer verläuft, statt schlecht zu sein."
+     "a": "Eine einheitliche Gut-schlecht-Regel passt nicht zu den verglichenen historischen Einträgen. Beginne mit Karte, Position und Frage."
     },
     {
      "q": "Wie bekomme ich beim Mischen umgekehrte Karten?",
-     "a": "Dreh beim Mischen einen Teil des Decks um, oder breite die Karten auf einem Tisch aus und mische sie in kreisenden Bewegungen."
+     "a": "Du kannst einen Teil des echten Stapels vor dem Mischen um 180 Grad drehen. Behalte beim Auslegen dieselbe Leserichtung bei. So entstehen verschiedene Ausrichtungen, aber kein Beweis für eine Botschaft."
     }
    ]
   },

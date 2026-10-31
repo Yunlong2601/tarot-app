@@ -4,9 +4,9 @@ The owner explicitly included all website reference content, beyond the initial 
 
 ## Current progress
 
-Four logical articles, `/learn/tarot-numbers`, `/learn/major-and-minor-arcana`, `/learn/tarot-suits` and `/learn/court-cards`, have limited AI-assisted comparisons against specific primary-source passages and rewritten original worked examples in all eight locales. This does not mean their translations received human review, or that all 487 routes are source-verified. Every other record remains not started. The site-wide source/publisher component added earlier is not evidence that individual claims were checked.
+Five logical articles, `/learn/tarot-numbers`, `/learn/major-and-minor-arcana`, `/learn/tarot-suits`, `/learn/court-cards` and `/learn/reversed-cards`, have limited AI-assisted comparisons against specific primary-source passages and rewritten original worked examples in all eight locales. This does not mean their translations received human review, or that all 487 routes are source-verified. Every other record remains not started. The site-wide source/publisher component added earlier is not evidence that individual claims were checked.
 
-Work in batches: remaining three foundational lessons (how-to-read-tarot, reversed-cards and asking-questions); major-card references; minor-card references; contextual interpretations; spreads/question/topic references; zodiac/birth/numerology and tool formulas; navigation and publisher consistency. A contextual interpretation needs its own reasoning, not a copied historical citation that never discussed that context. Reconcile newly added/removed routes before declaring the inventory complete.
+Work in batches: remaining two foundational lessons (how-to-read-tarot and asking-questions); major-card references; minor-card references; contextual interpretations; spreads/question/topic references; zodiac/birth/numerology and tool formulas; navigation and publisher consistency. A contextual interpretation needs its own reasoning, not a copied historical citation that never discussed that context. Reconcile newly added/removed routes before declaring the inventory complete.
 
 ## Per-article acceptance
 
@@ -39,7 +39,7 @@ Rejected candidate: Project Gutenberg eBook 43548 is catalogued as L. W. De Laur
 
 `web/src/lib/editorial.ts` scopes structured citations and genuine content-modification dates to the checked articles only. No fake `lastReviewed` or `reviewedBy` is generated. The external-link fix in `Linked.astro` keeps HTTPS source URLs intact while local card/tool links still follow the selected language.
 
-49 tests, locale parity, Astro check (zero errors/warnings; two existing hints), build and the five existing website audits pass. `npm --prefix web run check:editorial-build` additionally checks thirty-two complete court/suits/numbers/arcana routes for their exact external sources, localized internal examples, source/check sections, Article citation parity and Markdown citations without invented human-review metadata. Chrome checked eight locales at 390/768/1440px: seven article sections, two source links and no horizontal overflow. These checks do not certify factual truth, expert review, native language quality, indexing or traffic growth.
+49 tests, locale parity, Astro check (zero errors/warnings; two existing hints), build and the five existing website audits pass. `npm --prefix web run check:editorial-build` additionally checks forty complete reversal/court/suits/numbers/arcana routes for their exact external sources, localized internal examples, source/check sections, Article citation parity and Markdown citations without invented human-review metadata. Chrome checked eight locales at 390/768/1440px: seven article sections, two source links and no horizontal overflow. These checks do not certify factual truth, expert review, native language quality, indexing or traffic growth.
 
 ## Arcana article: actual source-comparison record
 
@@ -100,3 +100,23 @@ Actor: Codex AI assistant. Directly compared the named Waite passages with the a
 Verification results for this release are recorded after the final build below. Source audit now covers 32 article-locale routes. Queue progress is 4/487 limited source comparisons, not 4 completed human reviews.
 
 Court release validation: 49 tests; eight-language parity; Astro check (0 errors, 0 warnings, 2 existing hints); production build; reader/editorial (32 article-locale routes), ritual, interactions, search-growth and beta audits passed. Chrome DOM checks at 390/768/1440px across eight locales found seven sections, two source links and no horizontal overflow. Desktop Chinese visual evidence: `court-desktop.png`. Mobile screenshot capture is unreliable in this browser setup, so no complete mobile visual or physical-device acceptance is claimed. Human accessibility and native-language review remain unverified.
+
+
+## Reversals article: actual source-comparison record — 1 November 2026
+
+Actor: Codex AI assistant. Direct reading of named Waite passages; comparison with the article and actual `workspace.ts` checkbox/matching meaning rendering, `card-picker.ts`, and Reader/draw-deck orientation behavior. No changes to drawing, saved readings or orientation logic. Independent expert and native-language review remain unverified.
+
+| Claim or change | Evidence | Outcome / limit |
+|---|---|---|
+| A reversal always negates or softens a card | [Part III §3, revision 15274510](https://en.wikisource.org/w/index.php?oldid=15274510&title=The_Pictorial_Key_to_the_Tarot/Part_3), XIX Sun and XVI Tower | Sun keeps the upright sense to a lesser degree; Tower also includes oppression/confinement. Different historical entries refute a single automatic rule; not proof of future events. |
+| Reversed Tower means a crisis was avoided | Same Tower entry | Removed that inference; reduced difficulty is not established avoidance. |
+| Reversed Ten of Swords guarantees recovery | Part III §2, Swords—Ten | Text lists advantage/success with impermanence; no recovery promise retained. |
+| Delayed means the promised event will come | No adequate support established | Replaced with a checkable practical-obstacle question; no guaranteed outcome/timing. |
+| Blocked/inward/excess/delay are what reversals usually mean | No reader-use research or universal source established | Four optional original questions, not frequency claims or a universal historical taxonomy. |
+| Original Sun/Eight of Pentacles hobby exercise | [Part II §2 XIX, revision 15274517](https://en.wikisource.org/w/index.php?oldid=15274517&title=The_Pictorial_Key_to_the_Tarot/Part_2); Part III §2 Pentacles—Eight | Child/white horse and working craftsperson are descriptions. Reduced enjoyment → small practice is our inference; alternative shorter practice/break avoids prescribing more work. No client narrative, emotional diagnosis or outcome guarantee. |
+| Website practice instructions | `web/src/scripts/workspace.ts` reversed checkbox and display; `web/src/lib/card-picker.ts`; `Reader.astro`, `draw-deck.ts` | Orientation is recorded/displayed, not validated. No new orientation controls or manual-only behavior claimed for the random draw. |
+| Edition | Consulted transcription of 1922 reprint | Historical description, divinatory list and editorial example distinguished. Independent expert/native review not performed. |
+
+Source audit extended to 40 article-locale routes. Whole-site progress is 5/487 limited source comparisons; human review remains pending. Verification results follow after the final build.
+
+Reversals release validation: 49 tests; locale parity; Astro check (0 errors/warnings, 2 existing hints); production build; reader/editorial (40 article-locale routes), ritual, interaction, search-growth and beta audits passed. Chrome DOM checks at 390/768/1440px in eight locales found seven sections, two source links and no horizontal overflow. Chinese desktop visual evidence: `reversals-desktop.png`. The known mobile screenshot capture issue remains; no physical-device, screen-reader or native-language acceptance is claimed.
