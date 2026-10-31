@@ -2,7 +2,7 @@ import { authResponse } from './auth-discovery.js';
 import { DISCOVERY_LINKS, discoveryResponse } from './api-discovery.js';
 // Shared readings retain their private backend response. Public static HTML has
 // an alternate build-generated Markdown representation for requesting agents.
-const POLICY = 'ai-train=no, search=yes, ai-input=no';
+const POLICY = 'ai-train=no, search=yes, ai-input=yes';
 
 export function wantsMarkdown(accept = '') {
   const ranges = accept.toLowerCase().split(',').map(part => {

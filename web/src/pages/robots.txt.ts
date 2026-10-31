@@ -3,7 +3,7 @@ import { SITE_URL } from "../config.ts";
 
 // Crawling remains allowed; Content Signals declare permitted content uses.
 // Repeat the preferences in named groups as well as the catch-all group.
-const CONTENT_SIGNAL = "Content-Signal: ai-train=no, search=yes, ai-input=no";
+const CONTENT_SIGNAL = "Content-Signal: ai-train=no, search=yes, ai-input=yes";
 const AI_CRAWLERS = [
   "GPTBot",
   "OAI-SearchBot",

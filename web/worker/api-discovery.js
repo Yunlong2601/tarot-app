@@ -90,7 +90,7 @@ readings. Do not create readings or spend credits without the user's request.
 
 Public website pages support Accept: text/markdown. Browsers receive HTML by
 default. Private shared readings are not converted. Existing content usage
-preferences are ai-train=no, search=yes, ai-input=no.
+preferences are ai-train=no, search=yes, ai-input=yes.
 `;
 const escapeHTML = text => text.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 const docsHTML = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>ShenTarot API documentation</title></head><body><main><h1>ShenTarot API documentation</h1><p><a href="/api/openapi.json">OpenAPI specification</a> · <a href="/.well-known/api-catalog">API catalog</a></p><pre style="white-space:pre-wrap;overflow-wrap:anywhere">${escapeHTML(docsMarkdown)}</pre></main></body></html>`;
@@ -101,7 +101,7 @@ export function discoveryResponse(request, preferMarkdown) {
     : path === '/api/openapi.json' ? [JSON.stringify(openapi), 'application/vnd.oai.openapi+json']
     : path === '/api/docs' ? [preferMarkdown ? docsMarkdown : docsHTML, preferMarkdown ? 'text/markdown' : 'text/html'] : null;
   if (!resource) return null;
-  const headers = {'content-type':resource[1]+'; charset=utf-8','cache-control':'public, max-age=300','content-signal':'ai-train=no, search=yes, ai-input=no','x-content-type-options':'nosniff'};
+  const headers = {'content-type':resource[1]+'; charset=utf-8','cache-control':'public, max-age=300','content-signal':'ai-train=no, search=yes, ai-input=yes','x-content-type-options':'nosniff'};
   if (!['GET','HEAD'].includes(request.method)) return new Response('Method not allowed',{status:405,headers:{allow:'GET, HEAD'}});
   if (path === '/api/docs') headers.vary = 'Accept';
   return new Response(request.method === 'HEAD' ? null : resource[0],{headers});

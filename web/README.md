@@ -66,6 +66,13 @@ also have link-preview images, made by `scripts/og-cards.mjs` before each build.
 
 ## Search engines and AI assistants
 
+Public content declares `search=yes, ai-input=yes, ai-train=no` in robots.txt and
+public page/discovery response headers: search and real-time grounding are allowed,
+model training is not. Private readings and OAuth proxy responses retain backend
+handling. This expresses usage preferences, not guaranteed crawler compliance,
+ranking, citations or referral traffic. Generated Markdown includes the original
+page URL, ShenTarot source name and ShenTech publisher for source identification.
+
 - `robots.txt` welcomes all crawlers and names the AI search crawlers (GPTBot,
   ClaudeBot, PerplexityBot and others) explicitly. If Cloudflare's "Block AI
   bots" setting is on for the domain, it overrides this; turn it off in the
@@ -249,7 +256,7 @@ alternate follows the same content release.
 The Worker runs before static assets and serves these representations for GET or
 HEAD requests that explicitly prefer `Accept: text/markdown`. Requests without
 that preference keep HTML. HTML/Markdown responses vary on Accept, preserve
-security headers, and declare `ai-train=no, search=yes, ai-input=no`. Markdown
+security headers, and declare `ai-train=no, search=yes, ai-input=yes`. Markdown
 responses discard HTML validators and encoding headers. No token-count header is
 emitted because an exact tokenizer is not available. Non-HTML files, redirects,
 errors and private `/s/*` backend responses retain their original handling.

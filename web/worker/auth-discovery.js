@@ -138,6 +138,6 @@ export function authResponse(request) {
   if (!['GET', 'HEAD'].includes(request.method)) return new Response('Method not allowed', {status:405,headers:{allow:'GET, HEAD'}});
   return new Response(request.method === 'HEAD' ? null : authMarkdown, {headers:{
     'content-type':'text/markdown; charset=utf-8', 'cache-control':'public, max-age=300',
-    'content-signal':'ai-train=no, search=yes, ai-input=no', 'x-content-type-options':'nosniff',
+    'content-signal':'ai-train=no, search=yes, ai-input=yes', 'x-content-type-options':'nosniff',
   }});
 }
