@@ -93,51 +93,73 @@
    ]
   },
   "major-and-minor-arcana": {
-   "title": "Große und Kleine Arkana: die zwei Teile des Tarotdecks",
-   "description": "Der Unterschied zwischen Großer und Kleiner Arkana: 22 Karten der Großen Arkana für große Lebensthemen und 56 Karten der Kleinen Arkana in vier Farben für alltägliche Ereignisse.",
+   "title": "Große und Kleine Arkana: Aufbau, Quellen und ein Beispiel",
+   "description": "Vergleiche 22 Große und 56 Kleine Arkana anhand historischer Quellen und verbinde Magier und Acht der Münzen, ohne Kartenanteile als Vorhersage zu behandeln.",
    "h1": "Die Große und die Kleine Arkana",
-   "answer": "Die 22 Karten der Großen Arkana zeigen große Lebensthemen und Wendepunkte, die 56 Karten der Kleinen Arkana zeigen alltägliche Ereignisse, Gefühle und Entscheidungen.",
-   "minutes": 4,
+   "answer": "Dieses Deck enthält 22 Große und 56 Kleine Arkana. Das beschreibt seinen Aufbau. „Große Themen“ und „Alltag“ sind Lernperspektiven, keine Stufen von Bedeutung oder Schicksal.",
+   "minutes": 8,
    "sections": [
     {
-     "h": "Zwei Teile eines Decks",
+     "h": "Zwei Gruppen: Was sich zählen lässt",
      "p": [
-      "Jedes gängige Tarotdeck hat 78 Karten in zwei Teilen. „Arkana“ bedeutet Geheimnisse. Die Große Arkana enthält die großen Geheimnisse, die Kleine Arkana die kleinen."
+      "In diesem illustrierten 78-Karten-System gibt es 22 Große und 56 Kleine Arkana. Jede der vier Farben hat zehn Karten von Ass bis Zehn und vier Hofkarten: Page, Ritter, Königin und König. Waite beschreibt die Einteilung in Teil I, §§2–3. Damit wird nicht jedes historische oder moderne Deck definiert."
      ]
     },
     {
-     "h": "Die Große Arkana: 22 Lebenslektionen",
+     "h": "22 Bilder statt 22 unvermeidlicher Lebensereignisse",
      "p": [
-      "Die Große Arkana reicht vom [Narren](cards/major-00-fool) mit der Nummer 0 bis zur [Welt](cards/major-21-world) mit der Nummer 21. In der Reihenfolge gelesen, erzählen sie die Reise des Narren: Er bricht mit nichts auf, begegnet Lehrern und Prüfungen, erlebt Verlust und Wandel im [Tod](cards/major-13-death) und im [Turm](cards/major-16-tower), findet im [Stern](cards/major-17-star) neue Hoffnung und kommt schließlich bei der Vollendung an.",
-      "Wenn in einer Deutung eine Karte der Großen Arkana erscheint, gib ihr mehr Gewicht. Sie weist auf ein Thema hin, das größer ist als ein einzelner Tag oder eine einzelne Entscheidung."
+      "Im hier gezeigten Deck trägt [der Narr](cards/major-00-fool) 0 und [die Welt](cards/major-21-world) 21. Eine Reihenfolge kann beim Merken helfen, belegt aber keinen vorgeschriebenen Lebensweg. Waite bespricht in Teil II verschiedene Plätze des Narren; Nummerierung ist nicht gleich historische Anordnung.",
+      "Eine Große Arkana kann uns nach einem umfassenden Wert oder einer Annahme fragen lassen. Das ist eine Deutungsentscheidung. Sie kann ebenso bei einer alltäglichen Entscheidung helfen, ohne ein langes oder unkontrollierbares Ereignis anzukündigen."
      ]
     },
     {
-     "h": "Die Kleine Arkana: 56 Karten für den Alltag",
+     "h": "Vier Farben mit je vierzehn Karten",
      "p": [
-      "Die Kleine Arkana teilt sich in vier [Farben](learn/tarot-suits): Stäbe, Kelche, Schwerter und Münzen. Jede Farbe hat zehn Zahlenkarten vom Ass bis zur Zehn und vier [Hofkarten](learn/court-cards): Bube, Ritter, Königin und König.",
-      "Diese Karten beschreiben den Alltag: einen Streit, eine Gehaltserhöhung, eine neue Schwärmerei, eine anstrengende Woche. Sie ändern sich schneller als die Themen der Großen Arkana."
+      "Die [Farben](learn/tarot-suits) sind Stäbe, Kelche, Schwerter und Münzen. Zehn Zahlenkarten plus vier [Hofkarten](learn/court-cards) ergeben vierzehn je Farbe: 4 × 14 = 56. Lies das konkrete Bild und seine Position.",
+      "Als Lernhilfe verbinden wir die Bilder mit Handlungen, Gefühlen, Gedanken und Ressourcen. Kleine Arkana werden dadurch weder unwichtiger noch schneller oder kontrollierbarer. Ein praktisches Detail kann entscheidend sein."
      ]
     },
     {
-     "h": "Was die Mischung in einer Deutung verrät",
+     "h": "Was ein Anteil aussagt und was nicht",
      "p": [
-      "Zähl die Karten der Großen Arkana in deiner Legung. Wenn mehr als die Hälfte dazugehört, ist die Situation ein Wendepunkt, und größere Kräfte sind im Spiel. Wenn fast alle zur Kleinen Arkana gehören, liegt die Sache eher in deiner Hand im Alltag und ist vielleicht schneller vorbei."
+      "Die Zahl Großer Arkana beschreibt die gezogene Legung. „Mehr als die Hälfte“ gilt hier nicht als Beleg für Wendepunkte, äußere Kräfte oder Zeitspannen. Prüfe Positionen und Bildverbindungen; viele Große Arkana ersetzen kein eigenes Urteil."
+     ]
+    },
+    {
+     "h": "Eigenes Beispiel: vom Thema zur Handlung",
+     "p": [
+      "Beobachtung: [Der Magier](cards/major-01-magician) hebt einen Stab; auf dem Tisch liegen die Zeichen der vier Farben (Waite, Teil II, §2, I). Die [Acht der Münzen](cards/pentacles-eight) zeigt einen arbeitenden Handwerker (Teil III, §2, Münzen—Acht). Diese Beschreibungen belegen keinen Projekterfolg.",
+      "Für „Wie beginne ich mein kreatives Projekt erneut?“ steht der Magier in „Was kann ich nutzen?“ und die Acht in „Was kann ich versuchen?“. Erst Ressourcen sammeln, dann eine davon für eine wiederholbare Übung wählen: zehn Minuten mit einem Werkzeug arbeiten und den Nutzen notieren. Das ist unsere Lehrableitung, keine Anweisung Waites.",
+      "Alternative: In „Was lenkt mich ab?“ könnten die Werkzeuge auf Ausrüstungskäufe statt Übung hinweisen. In einer Herausforderungsposition kann die Wiederholung der Acht übermäßiges Feilen bedeuten. Prüfe die wirkliche Lage; eine Große und eine Kleine Karte ergeben keine Rangordnung der Anliegen."
+     ]
+    },
+    {
+     "h": "Quellen und Aussagegrenzen",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, Teil I](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_1), §§2–3: Einteilung, vier Farben, zehn Zahlen- und vier Hofkarten je Farbe. 56 ergibt sich rechnerisch daraus.",
+      "[Teil II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §1 und §2 (I, 0, XXI): Platz des Narren, Tisch des Magiers und Narr/Welt-Nummern. [Teil III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §2, Münzen—Acht: der Handwerker. Belegt werden Bilder und eine Tradition, keine empirische Vorhersage oder unser Projektbeispiel.",
+      "Die verwendete Wikisource-Transkription ist der Nachdruck von 1922; die Titelseiten nennen 1910 als Erstveröffentlichung. Wir bestätigen damit nicht alle okkulten oder wahrsagerischen Aussagen des Buchs."
+     ]
+    },
+    {
+     "h": "Prüfvermerk · 31. Oktober 2026",
+     "p": [
+      "Der KI-gestützte Vergleich prüfte Aufbau, Ausgabe und Stellen, entfernte unbelegte Regeln zu Anteilen, Dauer und Bedeutung und trennte Bild von eigener Herleitung. Unabhängige Fach- und Muttersprachprüfung sind nicht bestätigt. Das ist kein Nachweis von Vorhersagegenauigkeit. Korrekturen über [unsere Methodik](methodology#corrections) sind willkommen."
      ]
     }
    ],
    "faq": [
     {
      "q": "Wie viele Karten hat die Große Arkana?",
-     "a": "Die Große Arkana hat 22 Karten, nummeriert von 0 (Der Narr) bis 21 (Die Welt)."
+     "a": "Dieses Bildsystem hat 22 Große Arkana. Das Deck bezeichnet den Narren mit 0 und die Welt mit 21; andere Decks oder Druckreihenfolgen können abweichen."
     },
     {
      "q": "Sind Karten der Großen Arkana wichtiger?",
-     "a": "Sie haben mehr Gewicht, weil sie langfristige Themen zeigen, aber auch eine Karte der Kleinen Arkana kann der Schlüssel zu einer Deutung sein."
+     "a": "Nicht automatisch. Frage, Position und Verbindungen sind entscheidend. Eine Kleine Arkana kann das nützlichste Detail liefern; eine Große beweist kein äußeres Ereignis."
     },
     {
      "q": "Kann ich nur mit der Großen Arkana lesen?",
-     "a": "Ja. Viele Anfänger beginnen nur mit den 22 Karten der Großen Arkana und nehmen die Kleine Arkana dazu, sobald ihnen die große vertraut ist."
+     "a": "Du kannst die 22 Großen Arkana für eine Übung wählen. Lege das vorher fest; du ziehst dann nicht mehr aus allen 78 Karten. Das ist eine Übung, kein Beweis, dass sie für jede Frage genügen."
     }
    ]
   },

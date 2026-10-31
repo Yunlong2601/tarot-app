@@ -4,9 +4,9 @@ The owner explicitly included all website reference content, beyond the initial 
 
 ## Current progress
 
-One logical article, `/learn/tarot-numbers`, has a limited AI-assisted comparison against specific primary-source passages and a rewritten original worked example in all eight locales. This does not mean its eight translations received human review, or that all 487 routes are source-verified. Every other record remains not started. The site-wide source/publisher component added earlier is not evidence that individual claims were checked.
+Two logical articles, `/learn/tarot-numbers` and `/learn/major-and-minor-arcana`, have limited AI-assisted comparisons against specific primary-source passages and rewritten original worked examples in all eight locales. This does not mean their translations received human review, or that all 487 routes are source-verified. Every other record remains not started. The site-wide source/publisher component added earlier is not evidence that individual claims were checked.
 
-Work in batches: remaining six foundational lessons; major-card references; minor-card references; contextual interpretations; spreads/question/topic references; zodiac/birth/numerology and tool formulas; navigation and publisher consistency. A contextual interpretation needs its own reasoning, not a copied historical citation that never discussed that context. Reconcile newly added/removed routes before declaring the inventory complete.
+Work in batches: remaining five foundational lessons; major-card references; minor-card references; contextual interpretations; spreads/question/topic references; zodiac/birth/numerology and tool formulas; navigation and publisher consistency. A contextual interpretation needs its own reasoning, not a copied historical citation that never discussed that context. Reconcile newly added/removed routes before declaring the inventory complete.
 
 ## Per-article acceptance
 
@@ -37,6 +37,25 @@ Rejected candidate: Project Gutenberg eBook 43548 is catalogued as L. W. De Laur
 
 ## Implementation and verification
 
-`web/src/lib/editorial.ts` scopes structured citations and a genuine content-modification date to this article only. No fake `lastReviewed` or `reviewedBy` is generated. The external-link fix in `Linked.astro` keeps HTTPS source URLs intact while local card/tool links still follow the selected language.
+`web/src/lib/editorial.ts` scopes structured citations and genuine content-modification dates to the two checked articles only. No fake `lastReviewed` or `reviewedBy` is generated. The external-link fix in `Linked.astro` keeps HTTPS source URLs intact while local card/tool links still follow the selected language.
 
-49 tests, locale parity, Astro check (zero errors/warnings; two existing hints), build and the five existing website audits pass. `npm --prefix web run check:editorial-build` additionally checks eight complete numbers routes for two exact external sources, localized internal examples, source/check sections, Article citation parity and Markdown citations without invented human-review metadata. Chrome checked eight locales at 390/768/1440px: seven article sections, two source links and no horizontal overflow. These checks do not certify factual truth, expert review, native language quality, indexing or traffic growth.
+49 tests, locale parity, Astro check (zero errors/warnings; two existing hints), build and the five existing website audits pass. `npm --prefix web run check:editorial-build` additionally checks sixteen complete numbers/arcana routes for their exact external sources, localized internal examples, source/check sections, Article citation parity and Markdown citations without invented human-review metadata. Chrome checked eight locales at 390/768/1440px: seven article sections, two source links and no horizontal overflow. These checks do not certify factual truth, expert review, native language quality, indexing or traffic growth.
+
+## Arcana article: actual source-comparison record
+
+Actor: Codex AI assistant; date: 31 October 2026 (Singapore). Read Waite Parts I–III directly, compared named passages with the article, and counted the site's actual shared deck labels (22 Major; 14 each Wands, Cups, Swords and Pentacles). No independent human expert or native-language review was performed.
+
+| Claim or change | Evidence | Outcome / limit |
+|---|---|---|
+| 22 Major; four suits each with ten pips and four courts | [Part I §§2–3, permanent revision 15274505](https://en.wikisource.org/w/index.php?oldid=15274505&title=The_Pictorial_Key_to_the_Tarot/Part_1); site's current deck labels | 4 × 14 = 56, 22 + 56 = 78; explicitly scoped to this illustrated system, not every deck. |
+| Fool 0 and World XXI; different printed placements of Fool | [Part II §§1–2, permanent revision 15274517](https://en.wikisource.org/w/index.php?oldid=15274517&title=The_Pictorial_Key_to_the_Tarot/Part_2), 0 and XXI; site's corresponding cards | Distinguish labels from ordering. Removed a compulsory life-journey narrative. |
+| Magician's raised wand and four suit emblems on table | Part II §2, I | Verifiable visual observation; resource-inventory reading remains our original inference. |
+| Working craftsperson in Eight of Pentacles | [Part III §2, permanent revision 15274510](https://en.wikisource.org/w/index.php?oldid=15274510&title=The_Pictorial_Key_to_the_Tarot/Part_3), Pentacles—Eight | Repeatable practice is an editorial application; not a source-backed promise of project success. |
+| Major cards prove longer themes or greater importance; Minors change faster | No adequate evidence established in this check | Replaced categorical duration/importance claims with explicit teaching lenses; original question and position determine the proposed reflection. |
+| More than half Major proves outside forces/turning point | No adequate evidence established in this check | Removed the inference in all eight locales. Counting describes the draw; it does not establish causation or a timescale. |
+| Using only Majors is common among beginners | No usage research supplied | Removed the popularity claim. Offered it simply as an optional exercise with a changed draw pool. |
+| Ten-minute tool practice, tool-collecting distraction and over-polishing alternatives | Newly authored teaching material | Clear question, positions, observation → inference → action, plus a plausible alternative. No actual client outcome, external prediction or endorsement asserted. |
+
+Validation extends the existing evidence audit to sixteen article-locale routes and their exact citations, correction/local-card links and Markdown equivalents. The Chinese comparison illustration remains a clearly marked editorial example; its terminology now matches this lesson. All eight locale review states remain unverified.
+
+Arcana browser verification: eight locales at 390/768/1440px (24 combinations), seven lesson sections and three exact source links per route, no horizontal overflow. Chinese evidence: `arcana-desktop.png` and `arcana-mobile.png`. Full build, editorial source audit and all five existing website audits passed after the final copy changes.

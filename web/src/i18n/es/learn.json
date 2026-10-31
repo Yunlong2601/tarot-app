@@ -93,51 +93,73 @@
    ]
   },
   "major-and-minor-arcana": {
-   "title": "Arcanos Mayores y Menores: las dos partes de la baraja del tarot",
-   "description": "La diferencia entre los Arcanos Mayores y Menores: 22 Arcanos Mayores para los grandes temas de la vida y 56 Arcanos Menores en cuatro palos para los acontecimientos cotidianos.",
+   "title": "Arcanos Mayores y Menores: estructura, fuentes y ejemplo",
+   "description": "Compara 22 Mayores y 56 Menores con fuentes históricas y conecta el Mago con el Ocho de Oros sin convertir proporciones en predicciones.",
    "h1": "Los Arcanos Mayores y Menores",
-   "answer": "Las 22 cartas de los Arcanos Mayores muestran grandes temas y puntos de inflexión de la vida, y las 56 de los Arcanos Menores muestran sucesos, sentimientos y decisiones del día a día.",
-   "minutes": 4,
+   "answer": "Esta baraja tiene 22 Arcanos Mayores y 56 Menores. Son cantidades de su estructura; «grandes temas» y «situaciones cotidianas» son enfoques didácticos, no grados de importancia o destino.",
+   "minutes": 8,
    "sections": [
     {
-     "h": "Dos partes de una misma baraja",
+     "h": "Dos grupos que se pueden contar",
      "p": [
-      "Toda baraja de tarot estándar tiene 78 cartas divididas en dos partes. «Arcano» significa secreto. Los Arcanos Mayores son los grandes secretos y los Menores, los pequeños."
+      "En este sistema ilustrado de 78 cartas hay 22 Mayores y 56 Menores. Los cuatro palos contienen diez cartas del As al Diez y cuatro figuras: Sota, Caballero, Reina y Rey. Waite describe esta división en la parte I, §§2–3. No definimos aquí todas las barajas históricas o modernas."
      ]
     },
     {
-     "h": "Los Arcanos Mayores: 22 lecciones de vida",
+     "h": "22 imágenes, no 22 acontecimientos inevitables",
      "p": [
-      "Los Arcanos Mayores van desde [El Loco](cards/major-00-fool), con el número 0, hasta [El Mundo](cards/major-21-world), con el 21. Leídos en orden, cuentan el viaje del Loco: salir sin nada, encontrar maestros y pruebas, atravesar pérdidas y cambios con [La Muerte](cards/major-13-death) y [La Torre](cards/major-16-tower), recuperar la esperanza con [La Estrella](cards/major-17-star) y llegar a la plenitud.",
-      "Cuando aparece un Arcano Mayor en una lectura, dale un peso extra. Señala un tema más grande que un día o una decisión."
+      "Esta baraja marca [el Loco](cards/major-00-fool) con 0 y [el Mundo](cards/major-21-world) con 21. La secuencia sirve para identificar y recordar, no para demostrar un recorrido vital obligatorio. Waite también discute distintas ubicaciones del Loco en la parte II: numeración y orden histórico no son lo mismo.",
+      "A veces usamos un Arcano Mayor para explorar un valor o supuesto amplio. Es una elección interpretativa; también puede ayudar con una decisión ordinaria, sin anunciar un suceso duradero o incontrolable."
      ]
     },
     {
-     "h": "Los Arcanos Menores: 56 cartas cotidianas",
+     "h": "Cuatro palos de catorce cartas",
      "p": [
-      "Los Arcanos Menores se dividen en cuatro [palos](learn/tarot-suits): Bastos, Copas, Espadas y Oros. Cada palo tiene diez cartas numeradas, del As al Diez, y cuatro [cartas de la corte](learn/court-cards): Sota, Caballero, Reina y Rey.",
-      "Estas cartas describen el día a día: una discusión, un aumento de sueldo, un nuevo flechazo, una semana agotadora. Cambian más rápido que los temas de los Arcanos Mayores."
+      "Los [palos](learn/tarot-suits) son Bastos, Copas, Espadas y Oros. Diez cartas más cuatro [figuras](learn/court-cards) dan catorce por palo: 4 × 14 = 56. La imagen concreta y su posición orientan la lectura.",
+      "Enseñamos estas imágenes mediante acciones, emociones, ideas y recursos. Eso no hace a los Menores menos importantes, más rápidos o más controlables. Un detalle práctico puede ser la clave."
      ]
     },
     {
-     "h": "Qué te dice la mezcla en una lectura",
+     "h": "Qué dice una proporción y qué no",
      "p": [
-      "Cuenta los Arcanos Mayores de tu tirada. Si más de la mitad son Mayores, la situación es un punto de inflexión y hay fuerzas más grandes en juego. Si casi todos son Menores, el asunto está más bajo tu control cotidiano y quizá pase antes."
+      "Contar Mayores describe lo que salió. No usamos «más de la mitad» como prueba de un giro vital, fuerzas externas o un plazo. Mira las posiciones y conexiones; muchos Mayores no obligan a renunciar al propio criterio."
+     ]
+    },
+    {
+     "h": "Ejemplo original: del tema a una acción",
+     "p": [
+      "Observación: [el Mago](cards/major-01-magician) levanta una vara y tiene emblemas de los cuatro palos en la mesa (Waite, parte II, §2, I). El [Ocho de Oros](cards/pentacles-eight) muestra a un artesano trabajando (parte III, §2, Oros—Ocho). Son descripciones comprobables, no pruebas de éxito.",
+      "Para «¿Cómo retomo un proyecto creativo?», coloca al Mago en «¿Qué puedo usar?» y al Ocho en «¿Qué puedo intentar?». Inventaría recursos y elige uno para una práctica repetible: usar una herramienta diez minutos y anotar qué ayudó. Es nuestra deducción didáctica, no una instrucción de Waite.",
+      "Alternativa: en «¿Qué me distrae?», las herramientas del Mago podrían sugerir comprar equipo sin practicar. En una posición de dificultad, la repetición del Ocho podría ser perfeccionismo. Contrástalo con la situación real; una carta Mayor y una Menor no determinan qué asunto importa más."
+     ]
+    },
+    {
+     "h": "Fuentes y alcance",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, parte I](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_1), §§2–3: división, cuatro palos, diez cartas numerales y cuatro figuras por palo. El total de 56 es la suma de esa estructura.",
+      "[Parte II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §1 y §2 (I, 0, XXI): ubicación del Loco, mesa del Mago y numeración del Loco y el Mundo. [Parte III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §2, Oros—Ocho: el artesano. Documentan imágenes y una tradición, no predicción empírica ni nuestro ejemplo.",
+      "La transcripción de Wikisource consultada corresponde a la reimpresión de 1922 y señala primera publicación en 1910. Citar estos pasajes no implica aprobar todas las afirmaciones ocultistas o adivinatorias del libro."
+     ]
+    },
+    {
+     "h": "Registro de comprobación · 31 de octubre de 2026",
+     "p": [
+      "La comparación asistida por IA revisó estructura, edición y pasajes, retiró reglas no justificadas sobre proporciones, duración e importancia y separó imagen y deducción. No hay revisión independiente confirmada de expertos o hablantes nativos. No certifica predicciones. Envía correcciones mediante [nuestra metodología](methodology#corrections)."
      ]
     }
    ],
    "faq": [
     {
      "q": "¿Cuántos Arcanos Mayores hay?",
-     "a": "Hay 22 Arcanos Mayores, numerados del 0 (El Loco) al 21 (El Mundo)."
+     "a": "Hay 22 en este sistema ilustrado. El Loco lleva 0 y el Mundo 21; otras barajas y órdenes editoriales pueden variar."
     },
     {
      "q": "¿Los Arcanos Mayores son más importantes?",
-     "a": "Pesan más porque muestran temas a largo plazo, pero una carta de los Arcanos Menores también puede ser la clave de una lectura."
+     "a": "No automáticamente. Importan la pregunta, la posición y las conexiones. Un Menor puede aportar el detalle más útil; un Mayor no demuestra un acontecimiento externo."
     },
     {
      "q": "¿Puedo leer solo con los Arcanos Mayores?",
-     "a": "Sí. Muchos principiantes empiezan solo con los 22 Arcanos Mayores y añaden los Menores cuando los primeros les resultan familiares."
+     "a": "Puedes elegir los 22 Mayores para practicar. Decláralo antes y recuerda que ya no extraes de las 78 cartas. Es un ejercicio, no prueba de que baste para cualquier pregunta."
     }
    ]
   },

@@ -93,51 +93,73 @@
    ]
   },
   "major-and-minor-arcana": {
-   "title": "Major and Minor Arcana: the two parts of the tarot deck",
-   "description": "The difference between the Major and Minor Arcana: 22 Major Arcana cards for big life themes, and 56 Minor Arcana cards in four suits for everyday events.",
+   "title": "Major and Minor Arcana: structure, differences and a worked example",
+   "description": "Compare 22 Major and 56 Minor Arcana, check the historical sources, and connect the Magician with the Eight of Pentacles without treating card ratios as a prediction.",
    "h1": "The Major and Minor Arcana",
-   "answer": "The 22 Major Arcana cards show big life themes and turning points, and the 56 Minor Arcana cards show everyday events, feelings and choices.",
-   "minutes": 4,
+   "answer": "The deck used here has 22 Major Arcana and 56 Minor Arcana. Those counts describe its structure; “big themes” and “everyday situations” are teaching lenses, not measures of importance or fate.",
+   "minutes": 8,
    "sections": [
     {
-     "h": "Two parts of one deck",
+     "h": "Two groups: what can be counted",
      "p": [
-      "Every standard tarot deck has 78 cards in two parts. \"Arcana\" means secrets. The Major Arcana are the big secrets and the Minor Arcana are the small ones."
+      "In this illustrated 78-card system, 22 cards belong to the Major Arcana. The remaining 56 form four suits, each with ten cards from Ace to Ten and four court cards: Page, Knight, Queen and King. Waite describes these divisions in Part I, §§2–3. This lesson concerns that system, not every historical or modern deck."
      ]
     },
     {
-     "h": "The Major Arcana: 22 life lessons",
+     "h": "Major Arcana: 22 images, not 22 guaranteed life events",
      "p": [
-      "The Major Arcana run from [The Fool](cards/major-00-fool), numbered 0, to [The World](cards/major-21-world), numbered 21. Read in order, they tell the story of the Fool's journey: setting out with nothing, meeting teachers and tests, going through loss and change in [Death](cards/major-13-death) and [The Tower](cards/major-16-tower), finding hope again in [The Star](cards/major-17-star), and arriving at completion.",
-      "When a Major Arcana card appears in a reading, give it extra weight. It points to a theme bigger than one day or one decision."
+      "In the deck shown on this site, [the Fool](cards/major-00-fool) bears 0 and [the World](cards/major-21-world) bears 21. Their numbering helps identify cards. Following a sequence can be a memory exercise, but it does not establish that your life must follow those stages. Waite’s Part II also discusses different placements of the Fool; do not confuse numbering with a single historical reading order.",
+      "We sometimes use a Major card to ask about a broader value or assumption. That is an interpretive choice. A Major card can also be useful for an ordinary decision; it need not signal a lasting event or something beyond your control."
      ]
     },
     {
-     "h": "The Minor Arcana: 56 everyday cards",
+     "h": "Minor Arcana: four suits, fourteen cards each",
      "p": [
-      "The Minor Arcana are split into four [suits](learn/tarot-suits): Wands, Cups, Swords and Pentacles. Each suit has ten numbered cards, Ace to Ten, and four [court cards](learn/court-cards): Page, Knight, Queen and King.",
-      "These cards describe the day-to-day: an argument, a pay rise, a new crush, a tiring week. They change more quickly than Major Arcana themes."
+      "The four [suits](learn/tarot-suits) are Wands, Cups, Swords and Pentacles. Ten pip cards plus four [court cards](learn/court-cards) make fourteen per suit: 4 × 14 = 56. Read the particular picture and spread position rather than assigning every Minor card the same role.",
+      "For teaching, we may connect these images with actions, feelings, thoughts and resources. That does not make them less important, faster-changing or more controllable than Major cards. A small practical detail can be central to the question."
      ]
     },
     {
-     "h": "What the mix in a reading tells you",
+     "h": "What a ratio can—and cannot—tell you",
      "p": [
-      "Count the Major Arcana in your spread. If more than half are Major, the situation is a turning point and bigger forces are at work. If almost all are Minor, the matter is more in your everyday control and may pass sooner."
+      "Counting Major cards describes the spread you drew. In this guide we do not use “more than half” as evidence of a turning point, outside forces or a fixed timescale. First ask what each position means and how the images connect. A large count is not an instruction to surrender your judgment."
+     ]
+    },
+    {
+     "h": "Original example: connect a theme with an action",
+     "p": [
+      "Observation: [the Magician](cards/major-01-magician) has a raised wand and the four suit emblems on the table (Waite, Part II, §2, I). [The Eight of Pentacles](cards/pentacles-eight) shows a craftsperson at work (Part III, §2, Pentacles—Eight). These descriptions are the source-based starting points, not proof that a project will succeed.",
+      "Reasoning: for “How can I restart a creative project?”, put the Magician in “What can I use?” and the Eight in “What can I try?”. The first image invites a resource inventory; the second suggests using one resource in a repeatable practice. Try one tool for ten minutes, then note what helped. That action is our original teaching inference, not Waite’s instruction.",
+      "Alternative: if the Magician occupies “What distracts me?”, attention to tools could suggest collecting equipment instead of practising. If the Eight occupies a challenge position, repetition could suggest over-polishing rather than useful progress. Check the question and actual circumstances. One Major plus one Minor does not establish which concern matters more."
+     ]
+    },
+    {
+     "h": "Sources and their scope",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, Part I](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_1), §§2–3: the Major/Minor division, four suits, ten pip cards and four court cards per suit. The 56-card total is the arithmetic of that structure.",
+      "[Part II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §1 and §2 (I, 0, XXI): variation in the Fool’s placement, the Magician’s table and the Fool/World labels. [Part III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §2, Pentacles—Eight: the working craftsperson. These passages document descriptions and a historical tradition, not empirical predictions or our project example.",
+      "The consulted Wikisource transcription is the 1922 reprint, whose title pages list first publication in 1910. We use it for the passages above, not as an endorsement of every occult or divinatory claim in the book."
+     ]
+    },
+    {
+     "h": "Check record · 31 October 2026",
+     "p": [
+      "An AI-assisted comparison checked the deck structure, relevant edition and named passages; removed unsupported ratio, duration and importance rules; and separated observed images from our original reasoning. Independent expert and native-language review are not confirmed. This is a limited source-comparison record, not a certification of predictive accuracy. Specific corrections are welcome through our [methodology page](methodology#corrections)."
      ]
     }
    ],
    "faq": [
     {
      "q": "How many Major Arcana cards are there?",
-     "a": "There are 22 Major Arcana cards, numbered 0 (The Fool) to 21 (The World)."
+     "a": "There are 22 in the illustrated system used here. This deck labels the Fool 0 and the World 21; other decks and printed ordering conventions can differ."
     },
     {
      "q": "Are Major Arcana cards more important?",
-     "a": "They carry more weight because they show long-term themes, but a Minor Arcana card can still be the key to a reading."
+     "a": "Not automatically. Importance comes from the question, position and the connections you find. A Minor card may carry the most useful detail, and a Major card does not prove an external event will occur."
     },
     {
      "q": "Can I read with only the Major Arcana?",
-     "a": "Yes. Many beginners start with just the 22 Major Arcana, then add the Minor Arcana once those feel familiar."
+     "a": "You can choose the 22 Major cards for a focused practice. State that choice before drawing, and remember that the result no longer samples the full 78-card deck. It is an exercise, not proof that only Major cards are sufficient for every question."
     }
    ]
   },
