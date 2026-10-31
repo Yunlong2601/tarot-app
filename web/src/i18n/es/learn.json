@@ -201,20 +201,20 @@
    ]
   },
   "tarot-numbers": {
-   "title": "Los números en el tarot: qué significan del As al Diez",
-   "description": "Numerología del tarot para principiantes: qué significa cada número del As al Diez en los Arcanos Menores y cómo combinar un número con su palo para leer cualquier carta.",
+   "title": "Números del tarot: una ayuda para aprender, no una regla fija",
+   "description": "Aprende las claves del As al Diez, compara cartas con el mismo número y sigue un ejemplo del Cinco de Copas con fuentes y otra interpretación posible.",
    "h1": "Los números en el tarot",
-   "answer": "En el tarot, los números muestran una etapa de una historia: los Ases comienzan, los Cincos traen problemas, los Nueves casi terminan y los Dieces cierran el ciclo.",
-   "minutes": 5,
+   "answer": "Los números ayudan a comparar cartas, pero no determinan su significado. Úsalos como recordatorios y vuelve a la imagen, el palo y la posición.",
+   "minutes": 8,
    "sections": [
     {
-     "h": "Número más palo da la carta",
+     "h": "Una pista, no una fórmula",
      "p": [
-      "Cada palo cuenta del As al Diez, y cada número significa una etapa parecida en todos los palos. Combina el número con el [palo](learn/tarot-suits) y podrás deducir el significado de una carta antes de consultarlo. Un Cinco es un desafío y las Copas son sentimientos, así que el [Cinco de Copas](cards/cups-five) es un revés emocional."
+      "La lista del As al Diez es una ayuda de estudio de ShenTarot, no una ley universal ni una tabla tomada de Waite. El [palo](learn/tarot-suits), la imagen y la posición pueden cambiar la lectura. Cinco más Copas puede sugerir decepción, pero el [Cinco de Copas](cards/cups-five) también muestra lo que queda."
      ]
     },
     {
-     "h": "Del As al Diez",
+     "h": "Del As al Diez: recordatorios de ShenTarot",
      "p": [
       "As: un nuevo comienzo, un regalo o una oportunidad en bruto.",
       "Dos: una elección, una alianza o un equilibrio que mantener.",
@@ -231,23 +231,50 @@
     {
      "h": "Cómo leer los números en una tirada",
      "p": [
-      "Vale la pena notar los números repetidos. Tres Ases sugieren muchos comienzos a la vez, y varios Dieces sugieren capítulos que se cierran. Los números bajos indican que un asunto está en sus inicios, y los altos que está casi terminado.",
-      "Los Arcanos Mayores también tienen números, del 0 al 21. Tu [carta natal](tools/birth-card) y tu [carta del año](tools/year-card) se calculan sumando los dígitos de una fecha hasta llegar a un número de los Arcanos Mayores."
+      "Los números repetidos invitan a comparar, no a predecir. Tres Ases no tienen por qué anunciar tres sucesos; un número alto no demuestra que algo esté a punto de terminar. Busca semejanzas y diferencias en las imágenes.",
+      "En esta baraja, los Arcanos Mayores van del 0 al 21. Los cálculos de [carta natal](tools/birth-card) y [carta anual](tools/year-card) siguen convenciones explicadas en sus páginas; calcular no demuestra que las fechas predigan sucesos."
+     ]
+    },
+    {
+     "h": "El mismo número no implica el mismo significado",
+     "p": [
+      "Waite describe bastos en movimiento en el Ocho de Bastos, una mujer atada y vendada en el Ocho de Espadas y un artesano trabajando en el Ocho de Oros (parte III, §2, entradas de las cartas). «Ocho significa acción» no explica las tres imágenes. Compara [Bastos](cards/wands-eight), [Espadas](cards/swords-eight) y [Oros](cards/pentacles-eight)."
+     ]
+    },
+    {
+     "h": "Ejemplo original: ¿qué queda tras un contratiempo?",
+     "p": [
+      "Observación: en el Cinco de Copas hay tres copas caídas y dos en pie detrás de la figura. Waite habla de pérdida y de algo que permanece (parte III, §2, Copas—Cinco). Esa es la descripción contrastable; lo siguiente es nuestro ejemplo didáctico, no una cita histórica ni una predicción.",
+      "Razonamiento: si la posición pregunta «¿Qué me ayudaría a retomar un proyecto?», las copas caídas pueden invitar a reconocer la decepción y las dos en pie a revisar los recursos disponibles. Una acción posible es nombrar una habilidad, una persona o una herramienta que aún pueda ayudar. El cinco recuerda la tensión; no deduce por sí solo esa acción.",
+      "Alternativa: en la posición de obstáculo, contar lo que queda podría ser una forma de apresurarse a superar una pérdida real. Cabe hacer una pausa sin forzar una lectura positiva. Contrasta ambas posibilidades con la pregunta; ninguna revela lo que otra persona piensa ni garantiza el futuro."
+     ]
+    },
+    {
+     "h": "Fuentes y alcance",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, parte III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3): §1 explica por qué números y palabras clave no bastan; §2 contiene el Cinco de Copas y los tres Ochos. Apoya descripciones y una tradición histórica, no la predicción científica ni cada palabra de nuestra tabla.",
+      "[Información de la edición](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot): la transcripción consultada indica una reimpresión de 1922 y primera publicación en 1910, con diseños de Pamela Colman Smith. No la presentamos como un escaneo de la primera edición de 1910."
+     ]
+    },
+    {
+     "h": "Registro de comprobación · 31 de octubre de 2026",
+     "p": [
+      "La comparación asistida por IA verificó la edición y los pasajes citados, corrigió afirmaciones absolutas y separó observación e inferencia original. Es una comprobación limitada, no aprobación independiente de un experto ni revisión de hablantes nativos. Otras tradiciones y la calidad completa de la traducción siguen sin revisión independiente. Propón una corrección en [nuestra metodología](methodology#corrections)."
      ]
     }
    ],
    "faq": [
     {
      "q": "¿Qué significa un As en el tarot?",
-     "a": "Un As es el inicio puro de su palo: una nueva oportunidad en la energía (Bastos), los sentimientos (Copas), las ideas (Espadas) o el dinero y el trabajo (Oros)."
+     "a": "En esta ayuda, un As invita a pensar en una oportunidad de su palo. Comprueba imagen y posición; no garantiza un nuevo acontecimiento."
     },
     {
-     "q": "¿Por qué los Cincos son cartas difíciles?",
-     "a": "El Cinco llega después de la estabilidad del Cuatro, así que rompe esa calma. Cada Cinco muestra un desafío o una pérdida que empuja las cosas hacia delante."
+     "q": "¿Los Cincos siempre son difíciles?",
+     "a": "El desafío es una pista de estudio, no una regla para todas las barajas. La pérdida con algo restante del Cinco de Copas difiere de la contienda del Cinco de Bastos. La imagen y el contexto orientan la reflexión."
     },
     {
      "q": "¿Las cartas de la corte tienen número?",
-     "a": "Normalmente no. Las Sotas, los Caballeros, las Reinas y los Reyes se leen por su rango y su palo. Algunos lectores las cuentan del 11 al 14."
+     "a": "Sota, Caballero, Reina y Rey usan títulos de rango en esta baraja, fuera de la secuencia del As al Diez. Aquí no les asignamos un número universal."
     }
    ]
   },
