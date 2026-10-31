@@ -462,55 +462,70 @@
    ]
   },
   "asking-questions": {
-   "title": "Wie du dem Tarot eine Frage stellst (mit Beispielen)",
-   "description": "Wie du Tarotfragen stellst, die klare Deutungen ergeben: offene Fragen zu dir selbst, Beispiele für Liebe, Beruf und Entscheidungen und Fragen, die du besser vermeidest.",
+   "title": "Tarotfragen stellen: Grenzen, Quellen und ein Lesebeispiel",
+   "description": "Eine Reflexionsfrage formulieren, historische Methoden von unseren Vorschlägen trennen und ein eigenes Drei-Karten-Beispiel ohne Zukunftsversprechen nachvollziehen.",
    "h1": "Wie du dem Tarot eine Frage stellst",
-   "answer": "Stell offene Fragen zu dir selbst, etwa „Was kann ich tun, um …“ oder „Was sollte ich verstehen über …“, statt Ja-oder-Nein-Fragen zu anderen Menschen.",
-   "minutes": 4,
+   "answer": "Frage für eine Reflexionsübung nach einer beschreibbaren Situation und einem überprüfbaren nächsten Schritt. Offene Fragen sind unsere didaktische Wahl, kein Beweis, dass Karten Antworten wissen oder Gedanken lesen.",
+   "minutes": 8,
    "sections": [
     {
-     "h": "Warum die Frage wichtig ist",
+     "h": "Eine Frage gibt der Übung einen Fokus",
      "p": [
-      "Die Karten antworten auf die Frage, die du tatsächlich stellst. Eine vage oder angstvolle Frage ergibt meist eine verwirrende Deutung, und eine klare Frage gibt dir etwas, womit du arbeiten kannst."
+      "Notiere vor dem Ziehen, was du erkunden möchtest. „Was könnte ich hier versuchen?“ gibt dir die Aufgabe, Bild und Erfahrung zu vergleichen. Die Ziehung wird dadurch nicht zum Beleg verborgener Tatsachen. Sorge oder eine unvollkommene Formulierung machen dich nicht für eine verwirrende Deutung verantwortlich."
      ]
     },
     {
-     "h": "Drei Regeln für gute Fragen",
+     "h": "Drei Entscheidungen für eine überschaubare Aufgabe",
      "p": [
-      "Bezieh sie auf dich. Du kannst ändern, was du tust, nicht, was jemand anderes tut. Frag „Wie kann ich es mit meinem Partner besser machen?“ statt „Liebt er mich noch?“.",
-      "Halte sie offen. „Was“- und „Wie“-Fragen liefern reichere Antworten als „Werde ich“-Fragen. Wenn du wirklich ein Ja oder Nein brauchst, nutze den [Ja-oder-Nein-Leser](tools/yes-no).",
-      "Frag immer nur eins. Teile „Soll ich umziehen und den Job wechseln?“ in zwei Deutungen auf."
+      "Frage nach deinem Anteil: „Was könnte ich im Gespräch mit meinem Partner sagen?“ lässt Raum für eine echte Antwort, statt Gefühle vorauszusetzen. Grenze das Thema ein: Umzug und Jobwechsel kannst du getrennt betrachten. Wir bevorzugen hier „was“ und „wie“, um mehrere Möglichkeiten aufzuschreiben; höhere Genauigkeit oder gehaltvollere Antworten sind damit nicht belegt."
      ]
     },
     {
-     "h": "Beispielfragen",
+     "h": "Fragen zum Anpassen",
      "p": [
-      "Liebe: „Was sollte ich gerade über diese Beziehung wissen?“",
-      "Beruf: „Welche Stärken kann ich nutzen, um bei der Arbeit voranzukommen?“",
-      "Entscheidung: „Was bringt mir jede Möglichkeit?“ Probier es mit der [Entscheidungslegung](spreads/three-decision).",
-      "Wachstum: „Was hält mich zurück, und was hilft mir, darüber hinauszukommen?“",
-      "Viele weitere findest du in unseren [Leitfäden zu Tarotfragen](questions)."
+      "Beziehung: „Was möchte ich erklären und was lieber erfragen als annehmen?“. Arbeit: „Welches Arbeitsbeispiel kann ich für unser nächstes Gespräch vorbereiten?“. Wahl: „Welche Information fehlt und wie kann ich sie prüfen?“. Die [Entscheidungslegung](spreads/three-decision) nutzt Situation, Herausforderung und einen Weg vorwärts, keine garantierte Zukunft pro Option. Weitere Ideen bieten die [Frageleitfäden](questions). Bei medizinischen, rechtlichen oder finanziellen Entscheidungen wende dich an eine geeignete Fachperson. Tarot dient Reflexion und Unterhaltung, nicht professioneller Beratung."
      ]
     },
     {
-     "h": "Fragen, die du Fachleuten überlässt",
+     "h": "Was die historische Quelle tatsächlich sagt",
      "p": [
-      "Tarot dient der Reflexion und der Unterhaltung. Bei Entscheidungen zu Gesundheit, Recht oder Geld sprich mit einer Ärztin oder einem Arzt, einer Anwältin oder einem Anwalt oder einer Beratung. Mit den Karten kannst du trotzdem erkunden, wie du dich in der Situation fühlst."
+      "Waite beschreibt in Teil III, §7 eine Methode für eine bestimmte Frage, nennt rechtliche Ja-nein-Beispiele und erlaubt unter bestimmten Umständen eine Wiederholung. Das dokumentiert seine Methode, beweist aber weder Vorhersagen noch Rechtsberatung. Offene Fragen und eine Pause vor erneutem Ziehen sind unsere Vorschläge, keine ihm zugeschriebenen Universalregeln. Auch das [Ja-nein-Werkzeug](tools/yes-no) liefert keinen externen Beweis einer Antwort."
+     ]
+    },
+    {
+     "h": "Eigenes Beispiel: ein kleines Hobbyprojekt beginnen",
+     "p": [
+      "Ändere „Wird mein Projekt erfolgreich?“ zu „Welchen kleinen Teil kann ich an diesem Wochenende in zwei Stunden ausprobieren?“. Lege auf Situation, Herausforderung und Weg vorwärts drei aufrechte Karten: [Magier](cards/major-01-magician), [Zwei der Münzen](cards/pentacles-two) und [Acht der Münzen](cards/pentacles-eight). Waite beschreibt vier Farbsymbole auf dem Tisch, eine tanzende Figur mit zwei Münzen und einen arbeitenden Handwerker. Das sind Quellenbeschreibungen; das Projekt ist erfunden.",
+      "Eine mögliche Verbindung: Der Magier regt eine Bestandsaufnahme an; die Zwei als Herausforderung den Blick auf konkurrierende Aufgaben; die Acht eine praktische Technik. Wähle ein kleines Muster, das in zwei Stunden machbar ist, verschiebe wenn möglich eine andere Aufgabe und notiere das Gelernte. Das ist unsere Schlussfolgerung aus Positionen und Bildern, keine Vorhersage oder Kundenerfolgsgeschichte.",
+      "Alternative: Wenn Material und Zeit schon reichen, könnte die Folge auf Werkzeugsammeln statt Anfangen aufmerksam machen. Probiere ein vorhandenes Werkzeug aus, bevor du mehr kaufst oder planst. Notiere Passendes und Unpassendes im [Lesebereich](read) und vergleiche es später mit dem tatsächlichen Verlauf. Bei einer neuen Frage behältst du die ersten Notizen und benennst die Veränderung; eine neue Ziehung korrigiert nicht die Wirklichkeit."
+     ]
+    },
+    {
+     "h": "Quellen und Grenzen",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, Teil II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, I, stützt Tisch und vier Farbsymbole des Magiers. Die Bestandsaufnahme ist unsere Anwendung, keine zitierte Anweisung.",
+      "[Teil III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §2 (Zwei und Acht der Münzen), stützt die anderen Bildbeschreibungen; §7 den Vergleich von Fragen und Wiederholungen. Verwendet wurde die Transkription des Nachdrucks von 1922. Leseresultate, Gedankenlesen oder eine nachweislich beste Formulierung werden dadurch nicht belegt."
+     ]
+    },
+    {
+     "h": "Prüfvermerk · 1. November 2026",
+     "p": [
+      "Der KI-gestützte Vergleich prüfte die Textstellen, Positionen der Entscheidungslegung und Frage-/Reflexionsfelder. Unbelegte Genauigkeits-, Antwortqualitäts- und Wiederholungsverbotsbehauptungen wurden durch begrenzte Übungsentscheidungen ersetzt. Unabhängige Fachprüfung und muttersprachliche Prüfung sind nicht bestätigt. Korrekturen über die [Methodikseite](methodology#corrections)."
      ]
     }
    ],
    "faq": [
     {
      "q": "Kann ich dem Tarot Ja-oder-Nein-Fragen stellen?",
-     "a": "Ja, mit einer einzelnen Karte oder einer Ja-oder-Nein-Legung. Offene Fragen liefern aber meist hilfreichere Hinweise."
+     "a": "Das Format ist möglich, sein Ergebnis aber kein Beweis über die Welt. Offene Fragen liefern hier Möglichkeiten zum Prüfen, keinen belegten Vorhersagevorteil."
     },
     {
      "q": "Kann ich nach einer anderen Person fragen?",
-     "a": "Ja, aber die Deutungen werden klarer, wenn du nach deinem Anteil fragst, etwa wie du auf die Person zugehen kannst oder was du dir von der Verbindung wünschst."
+     "a": "Du kannst eine Begegnung reflektieren; eine Karte belegt weder fremde Gedanken noch Zustimmung. Benenne Beobachtetes und das, was du direkt fragen könntest."
     },
     {
      "q": "Kann ich dieselbe Frage zweimal stellen?",
-     "a": "Am besten wiederholst du eine Frage nicht gleich. Lass die erste Antwort wirken und frag erneut, wenn sich etwas verändert hat."
+     "a": "Ein allgemeines Verbot wird hier nicht belegt. Pausiere für diese Übung, behalte die Notizen und benenne eine Veränderung oder neue Frage. Eine weitere Ziehung beweist keine der Antworten."
     }
    ]
   }

@@ -4,9 +4,9 @@ The owner explicitly included all website reference content, beyond the initial 
 
 ## Current progress
 
-Five logical articles, `/learn/tarot-numbers`, `/learn/major-and-minor-arcana`, `/learn/tarot-suits`, `/learn/court-cards` and `/learn/reversed-cards`, have limited AI-assisted comparisons against specific primary-source passages and rewritten original worked examples in all eight locales. This does not mean their translations received human review, or that all 487 routes are source-verified. Every other record remains not started. The site-wide source/publisher component added earlier is not evidence that individual claims were checked.
+Six logical articles, `/learn/tarot-numbers`, `/learn/major-and-minor-arcana`, `/learn/tarot-suits`, `/learn/court-cards`, `/learn/reversed-cards` and `/learn/asking-questions`, have limited AI-assisted comparisons against specific primary-source passages and rewritten original worked examples in all eight locales. This does not mean their translations received human review, or that all 487 routes are source-verified. Every other record remains not started. The site-wide source/publisher component added earlier is not evidence that individual claims were checked.
 
-Work in batches: remaining two foundational lessons (how-to-read-tarot and asking-questions); major-card references; minor-card references; contextual interpretations; spreads/question/topic references; zodiac/birth/numerology and tool formulas; navigation and publisher consistency. A contextual interpretation needs its own reasoning, not a copied historical citation that never discussed that context. Reconcile newly added/removed routes before declaring the inventory complete.
+Work in batches: remaining foundational lesson (how-to-read-tarot); major-card references; minor-card references; contextual interpretations; spreads/question/topic references; zodiac/birth/numerology and tool formulas; navigation and publisher consistency. A contextual interpretation needs its own reasoning, not a copied historical citation that never discussed that context. Reconcile newly added/removed routes before declaring the inventory complete.
 
 ## Per-article acceptance
 
@@ -39,7 +39,7 @@ Rejected candidate: Project Gutenberg eBook 43548 is catalogued as L. W. De Laur
 
 `web/src/lib/editorial.ts` scopes structured citations and genuine content-modification dates to the checked articles only. No fake `lastReviewed` or `reviewedBy` is generated. The external-link fix in `Linked.astro` keeps HTTPS source URLs intact while local card/tool links still follow the selected language.
 
-49 tests, locale parity, Astro check (zero errors/warnings; two existing hints), build and the five existing website audits pass. `npm --prefix web run check:editorial-build` additionally checks forty complete reversal/court/suits/numbers/arcana routes for their exact external sources, localized internal examples, source/check sections, Article citation parity and Markdown citations without invented human-review metadata. Chrome checked eight locales at 390/768/1440px: seven article sections, two source links and no horizontal overflow. These checks do not certify factual truth, expert review, native language quality, indexing or traffic growth.
+49 tests, locale parity, Astro check (zero errors/warnings; two existing hints), build and the five existing website audits pass. `npm --prefix web run check:editorial-build` additionally checks forty-eight complete questions/reversal/court/suits/numbers/arcana routes for their exact external sources, localized internal examples, source/check sections, Article citation parity and Markdown citations without invented human-review metadata. Chrome checked eight locales at 390/768/1440px: seven article sections, two source links and no horizontal overflow. These checks do not certify factual truth, expert review, native language quality, indexing or traffic growth.
 
 ## Arcana article: actual source-comparison record
 
@@ -120,3 +120,23 @@ Actor: Codex AI assistant. Direct reading of named Waite passages; comparison wi
 Source audit extended to 40 article-locale routes. Whole-site progress is 5/487 limited source comparisons; human review remains pending. Verification results follow after the final build.
 
 Reversals release validation: 49 tests; locale parity; Astro check (0 errors/warnings, 2 existing hints); production build; reader/editorial (40 article-locale routes), ritual, interaction, search-growth and beta audits passed. Chrome DOM checks at 390/768/1440px in eight locales found seven sections, two source links and no horizontal overflow. Chinese desktop visual evidence: `reversals-desktop.png`. The known mobile screenshot capture issue remains; no physical-device, screen-reader or native-language acceptance is claimed.
+
+
+## Questions article: actual source-comparison record — 1 November 2026
+
+Actor: Codex AI assistant. Read named Waite passages and compared them with the guide; checked actual `three_decision` positions/purpose and website question/reflection fields. Limited source comparison, not independent expert or native-language review.
+
+| Claim or change | Evidence | Outcome / limit |
+|---|---|---|
+| Cards answer exactly what is asked; fearful/vague questions cause poor readings | No adequate outcome evidence established | Removed certainty and blame; question is a focus for a reflection task. |
+| Open questions are universally better or richer | [Part III §7, revision 15274510](https://en.wikisource.org/w/index.php?oldid=15274510&title=The_Pictorial_Key_to_the_Tarot/Part_3) includes definite yes/no legal examples | Open questions are our exercise choice, not an empirically superior or historically mandatory format. No legal/predictive validity implied. |
+| Questions must never be repeated | Part III §7 permits repetition in specified circumstances | Pause/retain notes is an editorial suggestion, not a universal historical prohibition. New draw not treated as truth verification. |
+| Decision spread reveals each option's future | Shared `three_decision` definition and localized website positions | Correctly named situation/challenge/way forward; no promised option outcomes. |
+| Magician image and original resource prompt | [Part II §2 I, revision 15274517](https://en.wikisource.org/w/index.php?oldid=15274517&title=The_Pictorial_Key_to_the_Tarot/Part_2) | Four suit symbols on table verified; inventory application is editorial. |
+| Two/Eight of Pentacles images | Part III §2, named entries | Dancing figure with two pentacles; working craftsperson. Competing tasks and small-sample action are our reasoning, not quotations. |
+| Original two-hour hobby-project example | Newly authored exercise | Question rewrite → position/picture reasoning → small test; alternate tool-collecting reading and retaining disconfirming notes. No client story or guaranteed success. |
+| Website reflection workflow | `web/src/scripts/workspace.ts`, `web/src/lib/workspace.ts` | Question/reflection fields exist; no behavioral change or claim of AI reading added. |
+
+Consulted 1922 reprint transcription. Whole-site progress: 6/487 limited source comparisons; all independent expert/native review states remain unverified. Source audit extends to 48 article-locale routes. Verification results follow after the final build.
+
+Questions release validation: 49 tests; locale parity; Astro check (0 errors/warnings, 2 existing hints); production build; reader/editorial (48 article-locale routes), ritual, interaction, search-growth and beta audits passed. Chrome DOM checks at 390/768/1440px in eight locales found seven sections, two source links and no horizontal overflow. Chinese desktop evidence: `questions-desktop.png`. Known mobile screenshot capture limitation remains; no physical-device, screen-reader or native-language acceptance is claimed.

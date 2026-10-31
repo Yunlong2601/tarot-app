@@ -1,5 +1,15 @@
 /** Scoped evidence records. Absence means not source-compared, never approved. */
 export const LESSON_EVIDENCE = {
+  'asking-questions': {
+    checkedAt: '2026-11-01',
+    checkType: 'AI-assisted source comparison',
+    independentExpertReview: false,
+    nativeLanguageReview: false,
+    sources: [
+      {author:'Arthur Edward Waite',title:'The Pictorial Key to the Tarot, Part II, section 2, I The Magician',url:'https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2'},
+      {author:'Arthur Edward Waite',title:'The Pictorial Key to the Tarot, Part III, section 2 Two/Eight of Pentacles and section 7 question/repeat method',url:'https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3'},
+    ],
+  },
   'reversed-cards': {
     checkedAt: '2026-11-01',
     checkType: 'AI-assisted source comparison',
