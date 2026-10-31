@@ -316,53 +316,76 @@
    ]
   },
   "court-cards": {
-   "title": "Tarot-Hofkarten: Buben, Ritter, Königinnen und Könige",
-   "description": "So liest du Tarot-Hofkarten: was Buben, Ritter, Königinnen und Könige bedeuten und ob eine Hofkarte einen Menschen, eine Seite von dir oder eine Art zu handeln zeigt.",
+   "title": "Tarot-Hofkarten: Ränge, Quellen und ein Beispiel",
+   "description": "Lerne die sechzehn Hofkarten anhand belegbarer Bilder und Fragen. Vergleiche zwei Ritter und ein Beispiel mit Page/Ritter der Münzen samt Alternative.",
    "h1": "Tarot-Hofkarten",
-   "answer": "Hofkarten zeigen Menschen oder Arten zu handeln: Buben lernen, Ritter handeln, Königinnen nähren von innen und Könige führen nach außen.",
-   "minutes": 5,
+   "answer": "Dieses Deck hat sechzehn Hofkarten: Page, Ritter, Königin und König je Farbe. Ränge helfen beim Nachdenken, bestimmen aber weder Geschlecht noch Alter, Charakter oder Absicht realer Menschen.",
+   "minutes": 8,
    "sections": [
     {
-     "h": "Sechzehn Personen im Deck",
+     "h": "Vier Ränge in vier Farben",
      "p": [
-      "Jede Farbe hat vier Hofkarten, zusammen sind es also 16. Für Anfänger sind sie oft die schwierigsten Karten, denn eine Hofkarte kann einen Menschen in deinem Leben meinen, eine Seite deines eigenen Charakters oder eine Haltung, die die Situation braucht."
+      "Jede der vier [Farben](learn/tarot-suits) hat vier Hofkarten: 4 × 4 = 16. Waite beschreibt König, Königin, Ritter und Knave/Page in Teil I, §3. Andere Systeme können Titel und Anordnung ändern. Lies das Bild, statt einen Rang als Persönlichkeitsergebnis zu behandeln."
      ]
     },
     {
-     "h": "Die vier Ränge",
+     "h": "Vier Fragen zum Ausprobieren",
      "p": [
-      "Buben sind Lernende und Boten. Sie bringen Neuigkeiten, Neugier und einen Anfängergeist.",
-      "Ritter sind in Bewegung. Sie jagen einem Ziel nach, manchmal zu schnell, und zeigen die Energie der Farbe in ihrer extremsten Form.",
-      "Königinnen tragen die Eigenschaften der Farbe in sich. Sie sind fürsorglich, weise und beständig.",
-      "Könige setzen die Eigenschaften der Farbe in der Außenwelt ein. Sie führen, entscheiden und übernehmen Verantwortung."
+      "Page: Was könnte ich lernen oder bemerken? Betrachte beim [Pagen der Münzen](cards/pentacles-page) etwas Kleines genau und notiere eine Frage. Das ist eine Lernhilfe, keine Regel, dass jeder Page ein Kind oder Schüler ist.",
+      "Ritter: Welches Tempo passt? Vergleiche [Ritter der Stäbe](cards/wands-knight) und [Ritter der Münzen](cards/pentacles-knight), bevor du den nächsten Schritt wählst. Der Rang verlangt keine Eile.",
+      "Königin: Was verdient Aufmerksamkeit oder Zuhören? Beschreibe mit der [Königin der Kelche](cards/cups-queen) zuerst eine echte Gesprächsbeobachtung. Das kann jede Person üben; es definiert weder Frauen noch ein inneres Wesen.",
+      "König: Welche Entscheidung oder Verantwortung liegt bei mir? Formuliere mit dem [König der Schwerter](cards/swords-king) eine Grenze oder ein Kriterium mit Begründung. Das beweist keine Autorität oder Zuverlässigkeit eines bestimmten Mannes."
      ]
     },
     {
-     "h": "Rang plus Farbe",
+     "h": "Zwei Ritter mit unterschiedlichen Bildern",
      "p": [
-      "Verbinde den Rang mit der [Farbe](learn/tarot-suits). Der [Ritter der Stäbe](cards/wands-knight) stürmt dem Abenteuer entgegen, während die [Königin der Kelche](cards/cups-queen) mit tiefem Mitgefühl zuhört. Der [König der Münzen](cards/pentacles-king) ist ein verlässlicher Versorger."
+      "Waite beschreibt den Ritter der Stäbe auf einer Reise und betont die Bewegung des Pferdes; der Münzritter reitet ein langsames, ausdauerndes, schweres Pferd (Teil III, §2). Das widerspricht „alle Ritter eilen“. Verbinde Bild und [Farbe](learn/tarot-suits), statt allen ein Tempo zuzuweisen.",
+      "Waite beschreibt die Königin der Kelche außerdem als sehend und handelnd (Teil III, §2). Die Quelle geht über eine passive innere Rolle hinaus. Unsere Fragen sind Übungsoptionen, keine vollständigen Definitionen aller Königinnen oder Könige."
      ]
     },
     {
-     "h": "Mensch, Teil von dir oder Rat?",
+     "h": "Person, Rolle oder Vorgehen?",
      "p": [
-      "Frag dich, was am besten passt. Wenn dir sofort jemand einfällt, geht es vielleicht um diese Person. Wenn nicht, überlege, wo du dich selbst so verhältst wie diese Figur oder wo es dir helfen könnte, mehr wie sie zu handeln.",
-      "Neugierig, welche Hofkarte zu dir passt? Probier das Quiz [Welche Karte bist du?](tools/which-card-are-you) aus."
+      "Erinnert die Figur an jemanden, benenne beobachtetes Verhalten und die daraus folgende Frage. Die Assoziation identifiziert die Person nicht und beweist keine Motive. Dasselbe Bild kann eine eigene Rolle oder einen möglichen Ansatz ansprechen.",
+      "Das Quiz [welche Karte bist du](tools/which-card-are-you) ordnet Antworten spielerisch zu. Es ist keine validierte Persönlichkeitsmessung. Nutze das Ergebnis zum Nachdenken, nicht als festes Etikett."
+     ]
+    },
+    {
+     "h": "Eigenes Beispiel: in tragfähigem Tempo lernen",
+     "p": [
+      "Beobachtung: Waites Page der Münzen betrachtet die Münze über erhobenen Händen; der Ritter hält sein Zeichen auf einem langsamen, schweren Pferd (Teil III, §2, Münzen—Page/Ritter). Das sind Quellenbeschreibungen. Das folgende Lernen ist unser Beispiel, kein Klientenbericht oder Zitat.",
+      "Frage „Wie schaffe ich Platz für diese Fähigkeit?“. Page in „Was braucht Aufmerksamkeit?“ und Ritter in „Wie bleibe ich dabei?“ können genaues Beobachten mit wiederholbarer Übung verbinden: eine Grundtechnik wählen, kurz versuchen und einen realistischen nächsten Termin festlegen. Notiere Beobachtungen, statt dich einem Rang zuzuordnen.",
+      "Alternative: In „Was hält mich beim Vorbereiten?“ kann das Studium den ersten Versuch verzögern; in „Was muss sich ändern?“ kann Langsamkeit auf eine starre Routine hinweisen. Vergleiche mit deiner Lage. Karten bestimmen weder Fähigkeit noch Persönlichkeit oder Ergebnis."
+     ]
+    },
+    {
+     "h": "Quellen und Grenzen",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, Teil I](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_1), §3: vier Hofränge, Knave/Page-Begriffe und Verbindung von Rang und Farbe. Belegt wird Aufbau, keine Anfängerumfrage oder Mehrheitsmeinung.",
+      "[Teil III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §2: Ritter der Stäbe, Ritter/Page der Münzen, Königin der Kelche, König der Schwerter. Geprüft wurden die Bilder; Fragen und Übung sind eigene Anwendungen, keine historischen Anweisungen oder bestätigten Persönlichkeitsklassen.",
+      "Die Transkription stammt aus dem Nachdruck von 1922. Historische Personenbeschreibungen identifizieren heutige Menschen nicht nach Geschlecht, Alter, Aussehen oder Moral. Hier werden solche Kategorien nicht als Test angewandt."
+     ]
+    },
+    {
+     "h": "Prüfvermerk · 1. November 2026",
+     "p": [
+      "Der KI-gestützte Vergleich prüfte Ränge, Stellen, sechzehn Karten und die antwortbasierte Quizlogik. Universelle Eigenschaften und unbelegte Mehrheits-/Schwierigkeitsaussagen wurden durch begrenzte Fragen, Bilder und Alternative ersetzt. Unabhängige Fach- und Muttersprachprüfung sind unbestätigt. Korrekturen über [unsere Methodik](methodology#corrections)."
      ]
     }
    ],
    "faq": [
     {
      "q": "Bedeuten Hofkarten immer einen Menschen?",
-     "a": "Nein. Sie können eine andere Person zeigen, einen Teil deiner eigenen Persönlichkeit oder eine Haltung, die die Situation verlangt."
+     "a": "Nicht immer. Person, Rolle und Vorgehen sind mögliche Blickwinkel. An jemanden zu denken beweist keine Beschreibung oder Kenntnis seiner Motive."
     },
     {
      "q": "Steht ein König für einen Mann und eine Königin für eine Frau?",
-     "a": "Nicht unbedingt. Die meisten Leser verstehen die Ränge als Arten von Energie, die Menschen jedes Geschlechts zeigen können."
+     "a": "Diese Übung verlangt keine Geschlechtszuordnung. Jede Person kann Fürsorge, Urteil, Lernen und Tempo reflektieren. Historische Titel bestimmen keinen realen Charakter."
     },
     {
      "q": "Wie viele Hofkarten hat ein Tarotdeck?",
-     "a": "Es gibt 16 Hofkarten: Bube, Ritter, Königin und König in jeder der vier Farben."
+     "a": "Dieses Bildsystem enthält sechzehn: vier Ränge in vier Farben. Andere Systeme können Titel oder Anordnung ändern."
     }
    ]
   },

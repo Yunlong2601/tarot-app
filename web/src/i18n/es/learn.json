@@ -316,53 +316,76 @@
    ]
   },
   "court-cards": {
-   "title": "Las cartas de la corte del tarot: Sotas, Caballeros, Reinas y Reyes",
-   "description": "Cómo leer las cartas de la corte del tarot: qué significan las Sotas, los Caballeros, las Reinas y los Reyes, y si una carta de la corte muestra a una persona, una parte de ti o una forma de actuar.",
+   "title": "Figuras del tarot: rangos, fuentes y ejemplo",
+   "description": "Conoce las dieciséis figuras mediante imágenes verificables y preguntas prácticas. Compara dos Caballeros y un ejemplo de Sota/Caballero de Oros con otra lectura posible.",
    "h1": "Las cartas de la corte del tarot",
-   "answer": "Las cartas de la corte muestran personas o formas de actuar: las Sotas aprenden, los Caballeros actúan, las Reinas cuidan desde dentro y los Reyes lideran hacia fuera.",
-   "minutes": 5,
+   "answer": "Esta baraja tiene dieciséis figuras: Sota, Caballero, Reina y Rey por palo. Los rangos ayudan a reflexionar, pero no identifican género, edad, carácter o intenciones de alguien real.",
+   "minutes": 8,
    "sections": [
     {
-     "h": "Dieciséis personajes en la baraja",
+     "h": "Cuatro rangos en cuatro palos",
      "p": [
-      "Cada palo tiene cuatro cartas de la corte, así que en total son 16. A menudo son las cartas más difíciles para los principiantes, porque una carta de la corte puede significar una persona de tu vida, una faceta de tu propio carácter o un enfoque que la situación necesita."
+      "Cada uno de los cuatro [palos](learn/tarot-suits) contiene cuatro figuras: 4 × 4 = 16. Waite describe Rey, Reina, Caballero y Knave/Page en la parte I, §3. Otros sistemas pueden cambiar títulos y orden. Mira también la imagen, sin convertir un rango en resultado de personalidad."
      ]
     },
     {
-     "h": "Los cuatro rangos",
+     "h": "Cuatro preguntas para probar",
      "p": [
-      "Las Sotas son estudiantes y mensajeras. Traen noticias, curiosidad y mente de principiante.",
-      "Los Caballeros están en movimiento. Persiguen una meta, a veces demasiado deprisa, y muestran la energía del palo en su punto más extremo.",
-      "Las Reinas guardan las cualidades del palo en su interior. Son cuidadosas, sabias y estables.",
-      "Los Reyes usan las cualidades del palo en el mundo exterior. Lideran, deciden y asumen responsabilidades."
+      "Sota: ¿qué puedo aprender u observar? Con la [Sota de Oros](cards/pentacles-page), examina algo pequeño y escribe una pregunta. Es una propuesta didáctica, no una regla que convierta toda Sota en un niño o estudiante.",
+      "Caballero: ¿qué ritmo conviene? Compara el [Caballero de Bastos](cards/wands-knight) y el [Caballero de Oros](cards/pentacles-knight) antes de elegir el siguiente paso. El rango no ordena apresurarse.",
+      "Reina: ¿qué merece atención o escucha? Con la [Reina de Copas](cards/cups-queen), describe lo observado en una conversación antes de responder. Cualquiera puede practicarlo; no define a las mujeres ni una naturaleza interior.",
+      "Rey: ¿qué decisión o responsabilidad me corresponde? Con el [Rey de Espadas](cards/swords-king), explica un límite o criterio. Es una pregunta, no prueba de autoridad o fiabilidad de un hombre concreto."
      ]
     },
     {
-     "h": "Rango más palo",
+     "h": "Dos Caballeros, imágenes distintas",
      "p": [
-      "Combina el rango con el [palo](learn/tarot-suits). El [Caballero de Bastos](cards/wands-knight) se lanza de cabeza a la aventura, mientras que la [Reina de Copas](cards/cups-queen) escucha con profunda empatía. El [Rey de Oros](cards/pentacles-king) es un proveedor de confianza."
+      "Waite presenta al Caballero de Bastos de viaje y destaca el movimiento del caballo; el de Oros monta uno lento, resistente y pesado (parte III, §2, ambas entradas). Esto cuestiona «todos los Caballeros corren». Combina escena y [palo](learn/tarot-suits), sin asignar una sola velocidad al rango.",
+      "Waite dice además que la Reina de Copas ve y actúa (parte III, §2). La propia fuente va más allá de un papel interior pasivo. Nuestras preguntas son opciones de práctica, no definiciones completas de Reinas o Reyes."
      ]
     },
     {
-     "h": "¿Una persona, una parte de ti o un consejo?",
+     "h": "¿Persona, papel o manera de actuar?",
      "p": [
-      "Pregúntate cuál de las tres encaja mejor. Si alguien te viene a la mente enseguida, puede que la carta hable de esa persona. Si no, piensa en dónde actúas tú como este personaje, o en dónde te ayudaría actuar más como él.",
-      "¿Tienes curiosidad por saber qué carta de la corte eres? Prueba el test de [qué carta eres](tools/which-card-are-you)."
+      "Si recuerdas a alguien, anota qué conducta observaste y qué pregunta plantea. La asociación no prueba que la carta lo identifique o conozca sus motivos. También puedes pensar en un papel propio o una acción que quieras probar.",
+      "El test [qué carta eres](tools/which-card-are-you) es un juego de correspondencias según tus respuestas, no una evaluación validada de personalidad. Úsalo para reflexionar, no como etiqueta fija."
+     ]
+    },
+    {
+     "h": "Ejemplo original: aprender a un ritmo sostenible",
+     "p": [
+      "Observación: la Sota de Oros de Waite mira el pentáculo sobre las manos alzadas; el Caballero sostiene el símbolo sobre su caballo lento y pesado (parte III, §2, Oros—Sota y Caballero). Son descripciones de la fuente; el aprendizaje siguiente es nuestro ejercicio, no un cliente real ni una cita.",
+      "Pregunta «¿Cómo hago espacio para aprender esta habilidad?». Sota en «¿Qué observar?» y Caballero en «¿Cómo continuar?» pueden unir atención y práctica repetible: elige una técnica básica, prueba una sesión breve y fija un momento realista para volver. Anota lo observado en lugar de juzgar si encajas en un rango.",
+      "Alternativa: en «¿Qué me mantiene preparándome?», estudiar puede aplazar el primer intento; en «¿Qué ajustar?», la lentitud podría indicar una rutina rígida. Contrasta ambas historias con tu situación. Ninguna carta determina capacidad, personalidad o resultado."
+     ]
+    },
+    {
+     "h": "Fuentes y alcance",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, parte I](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_1), §3: cuatro figuras por palo, términos Knave/Page y relación de rango y palo. Apoya la estructura, no qué les cuesta más a principiantes ni lo que cree la mayoría.",
+      "[Parte III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §2: Caballero de Bastos, Caballero/Sota de Oros, Reina de Copas y Rey de Espadas. Se contrastaron las escenas; preguntas y ejercicio son aplicaciones editoriales, no instrucciones históricas ni categorías de personalidad validadas.",
+      "La transcripción consultada es la reimpresión de 1922. Sus descripciones históricas no prueban cómo identificar personas actuales por sexo, edad, apariencia o carácter moral. No usamos esas categorías para evaluar a nadie."
+     ]
+    },
+    {
+     "h": "Registro de comprobación · 1 de noviembre de 2026",
+     "p": [
+      "La comparación asistida por IA revisó rangos, pasajes, dieciséis registros del sitio y el mecanismo del test. Sustituyó rasgos universales y afirmaciones no respaldadas sobre mayoría y dificultad por preguntas acotadas, imágenes y alternativa. Revisión independiente de expertos y hablantes nativos no confirmada. Correcciones por [nuestra metodología](methodology#corrections)."
      ]
     }
    ],
    "faq": [
     {
      "q": "¿Las cartas de la corte siempre significan una persona?",
-     "a": "No. Pueden mostrar a otra persona, una parte de tu propia personalidad o una actitud que la situación pide."
+     "a": "No siempre. Persona, papel y enfoque son posibilidades que explorar. Recordar a alguien no demuestra que la carta lo describa o conozca sus intenciones."
     },
     {
      "q": "¿Un Rey significa un hombre y una Reina una mujer?",
-     "a": "No necesariamente. La mayoría de los lectores tratan los rangos como estilos de energía que cualquier persona, de cualquier género, puede mostrar."
+     "a": "Esta práctica no exige asignar género. Cualquiera puede pensar en cuidado, juicio, aprendizaje y ritmo. Títulos históricos no determinan género o carácter de una persona real."
     },
     {
      "q": "¿Cuántas cartas de la corte tiene una baraja de tarot?",
-     "a": "Hay 16 cartas de la corte: una Sota, un Caballero, una Reina y un Rey en cada uno de los cuatro palos."
+     "a": "Este juego ilustrado tiene dieciséis: Sota, Caballero, Reina y Rey en cuatro palos. Otros sistemas pueden variar."
     }
    ]
   },

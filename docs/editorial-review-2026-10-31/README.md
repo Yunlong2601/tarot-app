@@ -4,9 +4,9 @@ The owner explicitly included all website reference content, beyond the initial 
 
 ## Current progress
 
-Three logical articles, `/learn/tarot-numbers`, `/learn/major-and-minor-arcana` and `/learn/tarot-suits`, have limited AI-assisted comparisons against specific primary-source passages and rewritten original worked examples in all eight locales. This does not mean their translations received human review, or that all 487 routes are source-verified. Every other record remains not started. The site-wide source/publisher component added earlier is not evidence that individual claims were checked.
+Four logical articles, `/learn/tarot-numbers`, `/learn/major-and-minor-arcana`, `/learn/tarot-suits` and `/learn/court-cards`, have limited AI-assisted comparisons against specific primary-source passages and rewritten original worked examples in all eight locales. This does not mean their translations received human review, or that all 487 routes are source-verified. Every other record remains not started. The site-wide source/publisher component added earlier is not evidence that individual claims were checked.
 
-Work in batches: remaining four foundational lessons; major-card references; minor-card references; contextual interpretations; spreads/question/topic references; zodiac/birth/numerology and tool formulas; navigation and publisher consistency. A contextual interpretation needs its own reasoning, not a copied historical citation that never discussed that context. Reconcile newly added/removed routes before declaring the inventory complete.
+Work in batches: remaining three foundational lessons (how-to-read-tarot, reversed-cards and asking-questions); major-card references; minor-card references; contextual interpretations; spreads/question/topic references; zodiac/birth/numerology and tool formulas; navigation and publisher consistency. A contextual interpretation needs its own reasoning, not a copied historical citation that never discussed that context. Reconcile newly added/removed routes before declaring the inventory complete.
 
 ## Per-article acceptance
 
@@ -39,7 +39,7 @@ Rejected candidate: Project Gutenberg eBook 43548 is catalogued as L. W. De Laur
 
 `web/src/lib/editorial.ts` scopes structured citations and genuine content-modification dates to the checked articles only. No fake `lastReviewed` or `reviewedBy` is generated. The external-link fix in `Linked.astro` keeps HTTPS source URLs intact while local card/tool links still follow the selected language.
 
-49 tests, locale parity, Astro check (zero errors/warnings; two existing hints), build and the five existing website audits pass. `npm --prefix web run check:editorial-build` additionally checks twenty-four complete suits/numbers/arcana routes for their exact external sources, localized internal examples, source/check sections, Article citation parity and Markdown citations without invented human-review metadata. Chrome checked eight locales at 390/768/1440px: seven article sections, two source links and no horizontal overflow. These checks do not certify factual truth, expert review, native language quality, indexing or traffic growth.
+49 tests, locale parity, Astro check (zero errors/warnings; two existing hints), build and the five existing website audits pass. `npm --prefix web run check:editorial-build` additionally checks thirty-two complete court/suits/numbers/arcana routes for their exact external sources, localized internal examples, source/check sections, Article citation parity and Markdown citations without invented human-review metadata. Chrome checked eight locales at 390/768/1440px: seven article sections, two source links and no horizontal overflow. These checks do not certify factual truth, expert review, native language quality, indexing or traffic growth.
 
 ## Arcana article: actual source-comparison record
 
@@ -80,3 +80,23 @@ Citation metadata now uses per-source authorship rather than assigning every his
 Suits validation: 49 tests, parity, Astro check (zero errors/warnings; two existing hints), production build, source audit (24 article-locale routes) and all five website audits pass. Chrome measured all eight locales at 390/768/1440px: seven sections, three exact source links and no horizontal overflow. Screenshots are rendering evidence only; no actual screen-reader speech or native-language approval is claimed.
 
 Suits capture limitation: desktop example/source capture `suits-desktop.png` was inspected. Phone capture returned downscaled/repeated-frame artifacts and is not retained as valid visual evidence; responsive phone checks above are DOM measurements, not a claim of physical-device or full visual acceptance. The source audit now checks the localized correction route and is included in `check:reader-build` so existing CI enforces it.
+
+
+## Court article: actual source-comparison record — 1 November 2026
+
+Actor: Codex AI assistant. Directly compared the named Waite passages with the article, counted four records per court rank (16 total) in the shared card data, and read the six-answer suit/rank matching logic of `which-card-are-you`. Limited AI-assisted checking; independent expert and native-language review remain unverified in every locale.
+
+| Claim or change | Evidence | Outcome / limit |
+|---|---|---|
+| Four ranks in each of four suits | [Part I §3, revision 15274505](https://en.wikisource.org/w/index.php?oldid=15274505&title=The_Pictorial_Key_to_the_Tarot/Part_1); actual shared card records | 4 × 4 = 16 for this system; Knave/Page naming distinguished from universal deck rules. |
+| All Knights rush toward a goal | [Part III §2, revision 15274510](https://en.wikisource.org/w/index.php?oldid=15274510&title=The_Pictorial_Key_to_the_Tarot/Part_3), Wands—Knight and Pentacles—Knight | Moving Wands horse contrasts with slow, enduring, heavy Pentacles horse. Removed universal speed; do not claim the text says stationary. |
+| Queens only nurture inwardly | Part III §2, Cups—Queen | Source describes both seeing and acting. Four rank questions are expressly editorial options, not exhaustive gender/age/personality definitions. |
+| Page observation, King judgment | Part III §2, Pentacles—Page and Swords—King | Looking intently at the pentacle and sitting in judgment support image descriptions; contemporary learning/boundary prompts are our inference. |
+| Hardest cards for beginners; most readers agree | No usage or comprehension research supplied | Removed unsupported comparative/popularity claims in all eight languages. |
+| Quiz reveals personality | Actual six-answer matching implementation | Described as playful matching, not validated psychometrics; no behavioral code changed. |
+| Page/Pentacles Knight skill-learning example | Newly authored teaching material | Observation → question/position → repeatable practice, with over-preparation/rigidity alternatives; no client history, prediction or promised outcome. |
+| Historical human descriptions | Consulted 1922 reprint, named court entries | Not evidence of contemporary people's gender, age, appearance, morality or motives. No expert/native endorsement invented. |
+
+Verification results for this release are recorded after the final build below. Source audit now covers 32 article-locale routes. Queue progress is 4/487 limited source comparisons, not 4 completed human reviews.
+
+Court release validation: 49 tests; eight-language parity; Astro check (0 errors, 0 warnings, 2 existing hints); production build; reader/editorial (32 article-locale routes), ritual, interactions, search-growth and beta audits passed. Chrome DOM checks at 390/768/1440px across eight locales found seven sections, two source links and no horizontal overflow. Desktop Chinese visual evidence: `court-desktop.png`. Mobile screenshot capture is unreliable in this browser setup, so no complete mobile visual or physical-device acceptance is claimed. Human accessibility and native-language review remain unverified.
