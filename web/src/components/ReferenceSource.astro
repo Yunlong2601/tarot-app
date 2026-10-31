@@ -1,0 +1,37 @@
+---
+import { i18n, type Locale } from '../i18n';
+interface Props { lang: Locale; path: string; name: string; }
+const {lang, path, name} = Astro.props;
+const L = i18n(lang), g = L.growth;
+const canonical = new URL(L.url(path), Astro.site).href;
+const schema = {
+  '@context': 'https://schema.org', '@type': 'WebPage',
+  '@id': canonical + '#webpage', url: canonical, name, inLanguage: L.tag,
+  publisher: {'@type':'Organization', '@id':new URL('#publisher',Astro.site).href,
+    name:'ShenTech', url:Astro.site!.href, brand:{'@type':'Brand',name:'ShenTarot'}},
+  isPartOf: {'@type':'WebSite',name:'ShenTarot',url:Astro.site!.href},
+};
+---
+<aside class="reference-source" data-reference-source>
+  <p><a href={L.url('about')}>ShenTarot · ShenTech, Singapore</a></p>
+  <details>
+    <summary>{g.methodTitle}</summary>
+    <div class="reference-source-body">
+      <p>{g.methodTradition}</p>
+      <p>{g.methodProcess}</p>
+      <p>{g.methodReview}</p>
+      <p>{g.methodLimits}</p>
+      <p><a href={L.url('learn/connected-reading')}>{g.exampleTitle}</a></p>
+      <p><a href={`${L.url('methodology')}#corrections`}>{L.journey.correction}</a></p>
+    </div>
+  </details>
+</aside>
+<script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g,'\\u003c')} />
+<style>
+  .reference-source { margin-block:1.5rem 2.5rem; max-width:70ch; font-size:.9375rem; }
+  .reference-source > p { margin:0 0 .5rem; }
+  summary { cursor:pointer; text-decoration:underline; text-underline-offset:.2em; }
+  summary:focus-visible { outline:2px solid currentColor; outline-offset:5px; }
+  .reference-source-body { margin-top:1rem; }
+  .reference-source-body p { line-height:1.7; }
+</style>
