@@ -462,55 +462,70 @@
    ]
   },
   "asking-questions": {
-   "title": "Cómo hacerle una pregunta al tarot (con ejemplos)",
-   "description": "Cómo hacer preguntas al tarot para obtener lecturas claras: preguntas abiertas sobre ti, ejemplos para el amor, el trabajo y las decisiones, y preguntas que conviene evitar.",
+   "title": "Cómo preguntar al tarot: alcance, fuentes y ejemplo explicado",
+   "description": "Formula una pregunta para reflexionar, distingue los métodos históricos de nuestras propuestas y sigue un ejemplo original sin promesas sobre el futuro.",
    "h1": "Cómo hacerle una pregunta al tarot",
-   "answer": "Haz preguntas abiertas sobre ti, como «¿Qué puedo hacer para…?» o «¿Qué debería entender sobre…?», en lugar de preguntas de sí o no sobre otras personas.",
-   "minutes": 4,
+   "answer": "Para reflexionar, pregunta por una situación que puedas describir y un paso que puedas examinar. Las preguntas abiertas son nuestra elección didáctica, no una prueba de que las cartas sepan la respuesta o lean la mente.",
+   "minutes": 8,
    "sections": [
     {
-     "h": "Por qué importa la pregunta",
+     "h": "Una pregunta da un foco al ejercicio",
      "p": [
-      "Las cartas responden a la pregunta que realmente haces. Una pregunta vaga o llena de miedo suele dar una lectura confusa, y una pregunta clara te da algo con lo que puedes actuar."
+      "Escribe lo que quieres explorar antes de sacar cartas. «¿Qué puedo intentar aquí?» propone comparar la imagen con tu experiencia, sin convertir la tirada en evidencia de hechos ocultos. Estar preocupado o formular una pregunta imperfecta no te hace responsable de una lectura confusa."
      ]
     },
     {
-     "h": "Tres reglas para buenas preguntas",
+     "h": "Tres decisiones para acotar la tarea",
      "p": [
-      "Hazla sobre ti. Puedes cambiar lo que haces tú, no lo que hace otra persona. Pregunta «¿Cómo puedo mejorar las cosas con mi pareja?» en lugar de «¿Todavía me quiere?».",
-      "Mantenla abierta. Las preguntas con «qué» y «cómo» dan respuestas más ricas que las que empiezan con «¿pasará…?». Si de verdad necesitas un sí o un no, usa el [lector de sí o no](tools/yes-no).",
-      "Pregunta una sola cosa a la vez. Divide «¿Debería mudarme y cambiar de trabajo?» en dos lecturas."
+      "Pregunta por tu participación: «¿Qué podría decir en una conversación con mi pareja?» deja espacio a una respuesta real sin asumir sus sentimientos. Reduce el alcance: si quieres explorar por separado mudarte y cambiar de trabajo, sepáralos. Aquí preferimos «qué» o «cómo» para escribir varias posibilidades, sin afirmar mayor precisión ni respuestas más ricas."
      ]
     },
     {
-     "h": "Ejemplos de preguntas",
+     "h": "Preguntas que puedes adaptar",
      "p": [
-      "Amor: «¿Qué necesito saber sobre esta relación ahora mismo?»",
-      "Trabajo: «¿Qué fortalezas puedo usar para avanzar en mi trabajo?»",
-      "Decisión: «¿Qué me aportará cada opción?» Pruébalo con la tirada de [situación, desafío, camino a seguir](spreads/three-decision).",
-      "Crecimiento: «¿Qué me frena y qué me ayuda a superarlo?»",
-      "Encontrarás muchas más en nuestras [guías de preguntas para el tarot](questions)."
+      "Relación: «¿Qué quiero explicar y qué debería preguntar en vez de suponer?». Trabajo: «¿Qué ejemplo de mi trabajo puedo preparar para la próxima conversación?». Elección: «¿Qué información falta y cómo puedo comprobarla?». La [tirada de decisión](spreads/three-decision) usa situación, desafío y camino, no un futuro garantizado para cada opción. Hay más ideas en las [guías de preguntas](questions). Para decisiones sanitarias, legales o financieras, consulta al profesional adecuado. El tarot es reflexión y entretenimiento, no asesoramiento profesional."
      ]
     },
     {
-     "h": "Preguntas que es mejor dejar a los profesionales",
+     "h": "Lo que dice realmente la fuente histórica",
      "p": [
-      "El tarot es para la reflexión y el entretenimiento. Para decisiones de salud, legales o de dinero, habla con un médico, un abogado o un asesor. Aun así, puedes usar las cartas para explorar cómo te sientes ante la situación."
+      "En la parte III, §7, Waite presenta un método para una pregunta concreta, incluye ejemplos legales de sí o no y permite repetir en ciertas circunstancias. Describe su método, sin demostrar sus predicciones ni ofrecer consejo legal. Preferir preguntas abiertas y hacer una pausa antes de repetir son propuestas nuestras, no reglas universales suyas. El resultado de la [herramienta de sí o no](tools/yes-no) tampoco es evidencia externa de una respuesta."
+     ]
+    },
+    {
+     "h": "Ejemplo original: empezar un pequeño proyecto personal",
+     "p": [
+      "Cambia «¿Tendrá éxito mi proyecto?» por «Con dos horas este fin de semana, ¿qué pequeña parte podría probar?». Usa situación, desafío y camino con tres cartas al derecho: [el Mago](cards/major-01-magician), [Dos de Oros](cards/pentacles-two) y [Ocho de Oros](cards/pentacles-eight). Waite describe cuatro símbolos de palos en la mesa del Mago, una figura que baila con dos oros y un artesano trabajando. Son descripciones de la fuente; el proyecto es un ejercicio inventado.",
+      "Una conexión posible: el Mago invita a inventariar los materiales disponibles; el Dos, en el desafío, a revisar demandas que compiten por tu atención; el Ocho, a practicar una técnica. Elige una pequeña muestra realizable en dos horas, aparta otra tarea si puedes y anota lo aprendido. Es razonamiento nuestro a partir de imágenes y posiciones, no una predicción ni una historia de éxito de un cliente.",
+      "Alternativa: si ya tienes tiempo y materiales, la secuencia puede hacerte pensar en acumular herramientas en vez de empezar. Prueba una que ya tengas antes de comprar o planificar más. Anota qué encaja y qué no en el [espacio de lectura](read) y contrástalo con lo que ocurra. Si vuelves a preguntar, conserva las primeras notas y explica qué cambió; otra tirada no corrige la realidad."
+     ]
+    },
+    {
+     "h": "Fuentes y límites",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, parte II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, I, respalda la mesa del Mago y los cuatro símbolos. Inventariar recursos es nuestra aplicación, no una instrucción citada.",
+      "[Parte III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §2 (Dos y Ocho de Oros), respalda las otras imágenes; §7, la comparación de preguntas y repetición. Consultamos la transcripción de la reimpresión de 1922. No demuestra resultados, acceso a pensamientos privados ni una formulación óptima."
+     ]
+    },
+    {
+     "h": "Registro de comprobación · 1 de noviembre de 2026",
+     "p": [
+      "La comparación asistida por IA comprobó esos pasajes, las posiciones de la tirada de decisión y los campos de pregunta y reflexión. Sustituimos afirmaciones sin fundamento sobre precisión, respuestas más ricas y prohibición de repetir por opciones didácticas acotadas. La revisión experta independiente y por hablantes nativos sigue sin confirmar. Correcciones en la [página de metodología](methodology#corrections)."
      ]
     }
    ],
    "faq": [
     {
      "q": "¿Puedo hacerle al tarot preguntas de sí o no?",
-     "a": "Sí, con una sola carta o con una tirada de sí o no. Aun así, las preguntas abiertas suelen dar una orientación más útil."
+     "a": "Puedes usar ese formato, pero su resultado no prueba hechos del mundo. Aquí las preguntas abiertas generan posibilidades que examinar, sin demostrar una predicción superior."
     },
     {
      "q": "¿Puedo preguntar por otra persona?",
-     "a": "Puedes, pero las lecturas son más claras cuando preguntas por tu parte, como cuál es la mejor forma de acercarte a ella o qué necesitas de ese vínculo."
+     "a": "Puedes reflexionar sobre una interacción, pero una carta no establece pensamientos ni consentimiento ajenos. Nombra lo observado y lo que podrías preguntar directamente."
     },
     {
      "q": "¿Puedo hacer la misma pregunta dos veces?",
-     "a": "Es mejor no repetir una pregunta enseguida. Quédate un tiempo con la primera respuesta y vuelve a preguntar cuando algo haya cambiado."
+     "a": "No se establece una prohibición universal. En este ejercicio, haz una pausa, conserva las notas e identifica qué cambió o qué nueva pregunta explorar. Otra tirada no demuestra qué respuesta es verdadera."
     }
    ]
   }

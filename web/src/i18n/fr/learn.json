@@ -462,55 +462,70 @@
    ]
   },
   "asking-questions": {
-   "title": "Comment poser une question au tarot (avec exemples)",
-   "description": "Comment poser au tarot des questions qui donnent des lectures claires : des questions ouvertes qui te concernent, des exemples pour l'amour, le travail et les décisions, et les questions à éviter.",
+   "title": "Poser une question au tarot : portée, sources et exemple expliqué",
+   "description": "Formuler une question de réflexion, distinguer les méthodes historiques de nos propositions et suivre un exemple original sans promesse sur l’avenir.",
    "h1": "Comment poser une question au tarot",
-   "answer": "Pose des questions ouvertes sur toi, comme « Que puis-je faire pour… » ou « Que dois-je comprendre à propos de… », plutôt que des questions par oui ou non sur les autres.",
-   "minutes": 4,
+   "answer": "Pour réfléchir, choisis une situation que tu peux décrire et une prochaine étape à examiner. Les questions ouvertes sont notre choix pédagogique, pas une preuve que les cartes savent la réponse ou lisent les pensées.",
+   "minutes": 8,
    "sections": [
     {
-     "h": "Pourquoi la question compte",
+     "h": "Une question donne un cap à l’exercice",
      "p": [
-      "Les cartes répondent à la question que tu poses vraiment. Une question vague ou anxieuse donne généralement une lecture confuse, alors qu'une question claire te donne quelque chose sur quoi t'appuyer."
+      "Écris ce que tu veux explorer avant de tirer. « Que puis-je essayer dans cette situation ? » propose de comparer image et expérience sans faire du tirage une preuve de faits cachés. Ton inquiétude ou une formulation imparfaite ne te rendent pas responsable d’une lecture confuse."
      ]
     },
     {
-     "h": "Trois règles pour de bonnes questions",
+     "h": "Trois choix pour garder une tâche abordable",
      "p": [
-      "Parle de toi. Tu peux changer ce que tu fais, pas ce que fait quelqu'un d'autre. Demande « Comment améliorer les choses avec mon ou ma partenaire ? » plutôt que « M'aime-t-il encore ? ».",
-      "Reste ouvert·e. Les questions en « quoi » et « comment » donnent des réponses plus riches que celles en « est-ce que ». Si tu as vraiment besoin d'un oui ou d'un non, utilise le [tirage oui ou non](tools/yes-no).",
-      "Ne demande qu'une chose à la fois. Sépare « Dois-je déménager et changer de travail ? » en deux lectures."
+      "Pars de ta participation : « Que pourrais-je dire à mon partenaire ? » laisse place à sa vraie réponse sans présumer ses sentiments. Réduis la portée : tu peux examiner séparément déménagement et changement d’emploi. Ici, « quoi » et « comment » servent à écrire plusieurs possibilités ; nous n’avons pas établi qu’ils produisent des lectures plus précises ou plus riches."
      ]
     },
     {
-     "h": "Exemples de questions",
+     "h": "Des questions à adapter",
      "p": [
-      "Amour : « Que dois-je savoir sur cette relation en ce moment ? »",
-      "Travail : « Sur quelles forces puis-je m'appuyer pour avancer dans mon travail ? »",
-      "Décision : « Qu'est-ce que chaque option va m'apporter ? » Essaie avec le [tirage de décision](spreads/three-decision).",
-      "Évolution personnelle : « Qu'est-ce qui me retient, et qu'est-ce qui m'aide à le dépasser ? »",
-      "Tu en trouveras beaucoup d'autres dans nos [guides de questions au tarot](questions)."
+      "Relation : « Que veux-je expliquer et que devrais-je demander plutôt que supposer ? ». Travail : « Quel exemple de mon travail préparer pour notre prochain échange ? ». Choix : « Quelle information manque et comment la vérifier ? ». Le [tirage de décision](spreads/three-decision) utilise situation, défi et voie à essayer, pas un avenir garanti pour chaque option. Autres idées dans les [guides de questions](questions). Pour une décision médicale, juridique ou financière, consulte un professionnel adapté. Le tarot sert à réfléchir et à se divertir, sans remplacer un conseil professionnel."
      ]
     },
     {
-     "h": "Les questions à laisser aux professionnels",
+     "h": "Ce que dit réellement la source historique",
      "p": [
-      "Le tarot sert à la réflexion et au divertissement. Pour une décision de santé, de droit ou d'argent, parle à un médecin, à un avocat ou à un conseiller. Tu peux quand même te servir des cartes pour explorer ce que tu ressens face à la situation."
+      "Dans la partie III, §7, Waite décrit une méthode pour une question précise, donne des exemples juridiques fermés et permet de recommencer dans certaines circonstances. Cela documente sa méthode, sans prouver ses prédictions ni fournir un conseil juridique. Questions ouvertes et pause avant de recommencer sont nos choix, pas ses règles universelles. Le résultat de l’[outil oui ou non](tools/yes-no) n’est pas non plus une preuve extérieure."
+     ]
+    },
+    {
+     "h": "Exemple original : commencer un petit projet de loisir",
+     "p": [
+      "Remplace « Mon projet réussira-t-il ? » par « Quelle petite partie essayer avec deux heures ce week-end ? ». Place trois cartes à l’endroit sur situation, défi et voie à essayer : [le Magicien](cards/major-01-magician), [Deux de Deniers](cards/pentacles-two) et [Huit de Deniers](cards/pentacles-eight). Waite décrit quatre symboles d’enseignes sur la table, un personnage dansant avec deux deniers et un artisan au travail. Ce sont des descriptions de la source ; le projet est inventé.",
+      "Un lien possible : le Magicien invite à inventorier le matériel ; le Deux, dans le défi, à repérer les tâches concurrentes ; le Huit, à essayer une technique. Choisis un petit échantillon faisable en deux heures, reporte une autre tâche si possible et note ce que tu apprends. C’est notre raisonnement à partir des images et positions, pas une prédiction ni une réussite de client.",
+      "Autre lecture : si temps et matériel suffisent déjà, la suite peut attirer l’attention sur l’accumulation d’outils plutôt que le démarrage. Essaie un outil existant avant d’acheter ou planifier davantage. Note ce qui correspond ou non dans l’[espace de lecture](read), puis compare au déroulement réel. Si tu reviens à la question, garde les premières notes et précise ce qui a changé ; un nouveau tirage ne corrige pas la réalité."
+     ]
+    },
+    {
+     "h": "Sources et limites",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, partie II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, I, étaye la table du Magicien et les quatre symboles. L’inventaire des ressources est notre application, pas une consigne citée.",
+      "[Partie III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §2 (Deux et Huit de Deniers), étaye les autres images ; §7, la comparaison des questions et répétitions. Nous avons consulté la transcription de la réimpression de 1922. Elle ne démontre ni résultats de lecture, ni accès aux pensées privées, ni formulation optimale."
+     ]
+    },
+    {
+     "h": "Vérification · 1er novembre 2026",
+     "p": [
+      "La comparaison assistée par IA a porté sur les passages, les positions du tirage de décision et les champs de question et réflexion. Les affirmations non étayées sur précision, richesse des réponses et interdiction de recommencer ont été remplacées par des choix pédagogiques limités. Relectures indépendante spécialisée et par des locuteurs natifs non confirmées. Corrections via la [page de méthode](methodology#corrections)."
      ]
     }
    ],
    "faq": [
     {
      "q": "Puis-je poser au tarot des questions par oui ou non ?",
-     "a": "Oui, avec une seule carte ou un tirage oui ou non. Cela dit, les questions ouvertes donnent généralement des pistes plus utiles."
+     "a": "Ce format est possible, mais son résultat ne prouve rien sur le monde. Les questions ouvertes servent ici à examiner des possibilités, sans supériorité prédictive établie."
     },
     {
      "q": "Puis-je poser une question sur une autre personne ?",
-     "a": "Tu peux, mais les lectures sont plus claires quand tu interroges ta part, par exemple comment l'aborder ou ce dont tu as besoin dans ce lien."
+     "a": "Tu peux réfléchir à une interaction, mais une carte ne prouve ni pensées ni consentement d’autrui. Nomme tes observations et ce que tu pourrais demander directement."
     },
     {
      "q": "Puis-je poser deux fois la même question ?",
-     "a": "Mieux vaut ne pas répéter une question tout de suite. Prends le temps de digérer la première réponse et repose la question quand quelque chose a changé."
+     "a": "Aucune interdiction universelle n’est établie ici. Pour cet exercice, fais une pause, garde les notes et précise le changement ou la nouvelle question. Un autre tirage ne prouve la vérité d’aucune réponse."
     }
    ]
   }

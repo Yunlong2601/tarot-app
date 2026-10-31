@@ -462,55 +462,70 @@
    ]
   },
   "asking-questions": {
-   "title": "How to ask tarot a question (with examples)",
-   "description": "How to ask tarot questions that give clear readings: open questions about you, examples for love, career and decisions, and questions to avoid.",
+   "title": "How to ask tarot questions: scope, sources and a worked example",
+   "description": "Frame a question for reflection, distinguish historical methods from our suggestions, and follow an original three-card example without promises about the future.",
    "h1": "How to ask tarot a question",
-   "answer": "Ask open questions about yourself, such as \"What can I do to…\" or \"What should I understand about…\", rather than yes-or-no questions about other people.",
-   "minutes": 4,
+   "answer": "For a reflection exercise, ask about a situation you can describe and a next step you can examine. Open questions are our teaching choice, not proof that cards know the answer or read someone else’s mind.",
+   "minutes": 8,
    "sections": [
     {
-     "h": "Why the question matters",
+     "h": "A question gives the exercise a focus",
      "p": [
-      "The cards answer the question you actually ask. A vague or fearful question usually gives a confusing reading, and a clear question gives you something to act on."
+      "Write what you want to explore before drawing. “What can I try in this situation?” gives you a task for comparing the picture with your experience. It does not make the draw evidence about hidden facts. Feeling worried or wording a question imperfectly does not make you responsible for a confusing reading."
      ]
     },
     {
-     "h": "Three rules for good questions",
+     "h": "Three choices that keep the task manageable",
      "p": [
-      "Make it about you. You can change what you do, not what someone else does. Ask \"How can I improve things with my partner?\" rather than \"Does he still love me?\".",
-      "Keep it open. \"What\" and \"how\" questions give richer answers than \"will\" questions. If you really need a yes or no, use the [yes or no reader](tools/yes-no).",
-      "Ask one thing at a time. Split \"Should I move and change jobs?\" into two readings."
+      "Name your part: “What could I say in a conversation with my partner?” leaves room for a real response instead of assuming you know their feelings. Keep the scope small: separate moving home from changing jobs if you want to examine them separately. Prefer “what” or “how” for this exercise because you can write several possibilities; we have not established that they produce more accurate or richer readings."
      ]
     },
     {
-     "h": "Example questions",
+     "h": "Questions you can adapt",
      "p": [
-      "Love: \"What do I need to know about this relationship right now?\"",
-      "Career: \"What strengths can I use to move forward at work?\"",
-      "Decision: \"What will each option bring me?\" Try it with the [decision spread](spreads/three-decision).",
-      "Growth: \"What is holding me back, and what helps me move past it?\"",
-      "You'll find many more in our [tarot question guides](questions)."
+      "Relationship: “What do I want to explain, and what should I ask rather than assume?”. Work: “What example of my work can I prepare for our next conversation?”. Choice: “What information is missing, and what could I check?”. Our [decision spread](spreads/three-decision) uses situation, challenge and a way forward, not one guaranteed future per option. More prompts are in the [question guides](questions). For health, legal or financial decisions, consult an appropriate professional. Tarot is for reflection and entertainment, not professional advice."
      ]
     },
     {
-     "h": "Questions to leave to professionals",
+     "h": "What the historical source actually says",
      "p": [
-      "Tarot is for reflection and entertainment. For health, legal or money decisions, talk to a doctor, lawyer or adviser. You can still use the cards to explore how you feel about the situation."
+      "Waite’s Part III, §7 introduces a method for a definite question, includes yes-or-no legal examples and allows a repeat in specified circumstances. That records his method; it does not validate its predictions or supply legal guidance. Our open-question preference and suggestion to pause before repeating are editorial choices, not universal rules attributed to him. A [yes-or-no tool](tools/yes-no) result is not external evidence of an answer."
+     ]
+    },
+    {
+     "h": "Original example: starting a small hobby project",
+     "p": [
+      "Change “Will my project succeed?” to “With two hours this weekend, what small part could I try?”. Use situation, challenge and way forward with three upright cards: [the Magician](cards/major-01-magician), [Two of Pentacles](cards/pentacles-two) and [Eight of Pentacles](cards/pentacles-eight). Waite describes four suit symbols on the Magician’s table, a dancing figure holding two pentacles, and a craftsperson at work. Those are source descriptions; this project is an invented exercise.",
+      "One possible connection: the Magician prompts an inventory of materials already available; the Two, in the challenge position, prompts a look at competing demands; the Eight suggests one practical technique. Choose a small sample you can make within the two hours, set aside one competing task if possible, and note what you learned. This is our reasoning from positions and pictures, not a prediction or a client success story.",
+      "Alternative: if materials and time are already sufficient, the same sequence might draw attention to collecting tools instead of beginning. Try using one existing tool before buying or planning more. Write what fits and what does not in the [reading workspace](read), then compare it with what actually happens. If you revisit the question, keep the first notes and say what changed rather than treating a new draw as a correction of reality."
+     ]
+    },
+    {
+     "h": "Sources and limits",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, Part II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, I, supports the Magician’s table and four suit symbols. The inventory prompt is our application, not a quoted instruction.",
+      "[Part III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §2 (Two and Eight of Pentacles) supports the other picture descriptions; §7 supports the historical question and repeat-method comparison. We consulted the 1922 reprint transcription. These passages do not establish reader outcomes, access to private thoughts or a proven best wording."
+     ]
+    },
+    {
+     "h": "Check record · 1 November 2026",
+     "p": [
+      "AI-assisted comparison checked these passages, the website’s decision-spread positions and its question/reflection fields. Unsupported accuracy, richer-answer and mandatory no-repeat claims were replaced with bounded teaching choices. Independent expert and native-language review remain unconfirmed. Send specific corrections through our [methodology page](methodology#corrections)."
      ]
     }
    ],
    "faq": [
     {
      "q": "Can I ask tarot yes or no questions?",
-     "a": "Yes, with a single card or a yes or no spread. Open questions usually give more useful guidance, though."
+     "a": "You can use a yes-or-no format, but its output is not proof about the world. This lesson uses open questions to generate possibilities you can examine; it does not establish superior prediction."
     },
     {
      "q": "Can I ask about another person?",
-     "a": "You can, but readings are clearer when you ask about your part, such as how to approach them or what you need from the connection."
+     "a": "You can reflect on an interaction, but a card does not establish another person’s thoughts or consent. Name what you observed and what you could ask them directly."
     },
     {
      "q": "Can I ask the same question twice?",
-     "a": "It's best not to repeat a question straight away. Sit with the first answer and ask again when something has changed."
+     "a": "There is no universal prohibition established here. For this exercise, pause, keep the original notes and identify what changed or what new question you want to explore. Another draw is not evidence that the first or second answer is true."
     }
    ]
   }
