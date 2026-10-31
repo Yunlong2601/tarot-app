@@ -4,6 +4,7 @@ import {parseHTML} from 'linkedom';
 import {LESSON_EVIDENCE} from '../src/lib/editorial.ts';
 const locales=['en','zh-hans','zh-hant','es','de','ja','fr','ru'];
 const lessons = {
+ 'court-cards': {sources:2,cards:['pentacles-page','wands-knight','pentacles-knight','cups-queen','swords-king']},
  'tarot-suits': {sources:3,cards:['wands-four','cups-four','cups-two','swords-ace','pentacles-ten','wands-ace']},
  'tarot-numbers': {sources:2,cards:['cups-five','wands-eight','swords-eight','pentacles-eight']},
  'major-and-minor-arcana': {sources:3,cards:['major-00-fool','major-21-world','major-01-magician','pentacles-eight']},
@@ -41,4 +42,4 @@ for(const locale of locales){
 assert.equal(evidence.independentExpertReview,false);
 assert.equal(evidence.nativeLanguageReview,false);
 }
-console.log('Editorial evidence: twenty-four suits/numbers/arcana lessons include sources, original example, limited check record and exact citations; no independent-human-review claim. Does not validate other articles or translation quality.');
+console.log('Editorial evidence: thirty-two court/suits/numbers/arcana lessons include sources, original example, limited check record and exact citations; no independent-human-review claim. Does not validate other articles or translation quality.');

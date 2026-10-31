@@ -316,53 +316,76 @@
    ]
   },
   "court-cards": {
-   "title": "Les figures du tarot : Valets, Cavaliers, Reines et Rois",
-   "description": "Comment lire les figures du tarot : ce que signifient les Valets, Cavaliers, Reines et Rois, et si une figure montre une personne, un côté de toi ou une façon d'agir.",
+   "title": "Les figures du tarot : rangs, sources et exemple",
+   "description": "Découvrez seize figures par des images vérifiables et des questions. Comparez deux Cavaliers et suivez un exemple Valet/Cavalier de Deniers avec une autre lecture.",
    "h1": "Les figures du tarot",
-   "answer": "Les figures montrent des personnes ou des façons d'agir : les Valets apprennent, les Cavaliers passent à l'action, les Reines nourrissent de l'intérieur et les Rois dirigent vers l'extérieur.",
-   "minutes": 5,
+   "answer": "Ce jeu a seize figures : Valet, Cavalier, Reine et Roi dans chaque famille. Les rangs organisent la réflexion sans identifier genre, âge, caractère ou intentions d’une personne réelle.",
+   "minutes": 8,
    "sections": [
     {
-     "h": "Seize personnages dans le jeu",
+     "h": "Quatre rangs dans quatre familles",
      "p": [
-      "Chaque couleur compte quatre figures, soit 16 au total. Ce sont souvent les cartes les plus difficiles pour les débutants, car une figure peut désigner une personne de ton entourage, un côté de ton propre caractère, ou une attitude dont la situation a besoin."
+      "Les quatre [familles](learn/tarot-suits) ont quatre figures chacune : 4 × 4 = 16. Waite décrit Roi, Reine, Cavalier et Knave/Page en partie I, §3. Les titres et ordres peuvent varier. Regardez l’image sans transformer un rang en résultat de personnalité."
      ]
     },
     {
-     "h": "Les quatre rangs",
+     "h": "Quatre questions à essayer",
      "p": [
-      "Les Valets sont des élèves et des messagers. Ils apportent des nouvelles, de la curiosité et un esprit de débutant.",
-      "Les Cavaliers sont en mouvement. Ils courent après un but, parfois trop vite, et montrent l'énergie de la couleur à son extrême.",
-      "Les Reines portent en elles les qualités de la couleur. Elles sont attentionnées, sages et stables.",
-      "Les Rois mettent les qualités de la couleur en œuvre dans le monde extérieur. Ils dirigent, décident et assument leurs responsabilités."
+      "Valet : que pourrais-je apprendre ou remarquer ? Avec le [Valet de Deniers](cards/pentacles-page), observez un petit détail et notez une question. C’est une piste, pas une règle faisant de tout Valet un enfant ou un élève.",
+      "Cavalier : quel rythme convient ? Comparez le [Cavalier de Bâtons](cards/wands-knight) et le [Cavalier de Deniers](cards/pentacles-knight) avant le prochain pas. Le rang n’ordonne pas de se précipiter.",
+      "Reine : qu’est-ce qui mérite soin ou écoute ? Avec la [Reine de Coupes](cards/cups-queen), décrivez une observation réelle d’une conversation avant de répondre. Tout le monde peut essayer ; ce n’est pas une définition des femmes ou d’une nature intérieure.",
+      "Roi : quelle décision ou responsabilité est la mienne ? Avec le [Roi d’Épées](cards/swords-king), expliquez une limite ou un critère. Cela ne prouve pas l’autorité ou la fiabilité d’un homme précis."
      ]
     },
     {
-     "h": "Rang plus couleur",
+     "h": "Deux Cavaliers, deux images",
      "p": [
-      "Associe le rang à la [couleur](learn/tarot-suits). Le [Cavalier de Bâtons](cards/wands-knight) se précipite vers l'aventure, tandis que la [Reine de Coupes](cards/cups-queen) écoute avec une profonde empathie. Le [Roi de Deniers](cards/pentacles-king) est un soutien fiable."
+      "Waite montre le Cavalier de Bâtons en voyage et souligne le mouvement du cheval ; celui de Deniers monte un cheval lent, endurant et lourd (partie III, §2). Cela remet en cause « tous les Cavaliers se hâtent ». Reliez image et [famille](learn/tarot-suits) plutôt que d’imposer une vitesse.",
+      "Waite décrit aussi la Reine de Coupes comme voyant et agissant (partie III, §2). La source dépasse donc un rôle intérieur passif. Nos questions sont des choix de pratique, pas une définition de toutes les Reines ou de tous les Rois."
      ]
     },
     {
-     "h": "Une personne, une part de toi ou un conseil ?",
+     "h": "Une personne, un rôle ou une démarche ?",
      "p": [
-      "Demande-toi ce qui convient le mieux. Si quelqu'un te vient tout de suite à l'esprit, la carte parle peut-être de lui ou d'elle. Sinon, demande-toi où tu agis comme ce personnage, ou en quoi agir davantage comme lui pourrait t'aider.",
-      "Tu veux savoir quelle figure te ressemble ? Essaie le quiz [quelle carte es-tu](tools/which-card-are-you)."
+      "Si une figure évoque quelqu’un, nommez le comportement observé et la question soulevée. L’association n’identifie pas cette personne ni ses motifs. La même image peut servir à examiner votre rôle ou une démarche à essayer.",
+      "Le quiz [quelle carte êtes-vous](tools/which-card-are-you) associe vos réponses à une carte de façon ludique. Ce n’est pas une évaluation validée de personnalité. Réfléchissez au résultat sans en faire une étiquette."
+     ]
+    },
+    {
+     "h": "Exemple original : apprendre à un rythme tenable",
+     "p": [
+      "Observation : le Valet de Deniers de Waite regarde le denier au-dessus de ses mains levées ; le Cavalier tient son symbole sur un cheval lent et lourd (partie III, §2, Deniers—Valet/Cavalier). Ces descriptions sont sourcées ; l’apprentissage suivant est notre exercice, pas un client réel ou une citation.",
+      "Question : « Comment faire une place à cette compétence ? ». Valet en « Que remarquer ? » et Cavalier en « Comment poursuivre ? » peuvent relier observation et pratique répétable : une technique de base, un essai court et un prochain moment réaliste. Notez les observations au lieu de juger à quel rang vous ressemblez.",
+      "Autre lecture : en « Qu’est-ce qui me garde dans la préparation ? », l’étude peut retarder un premier essai ; en « Que modifier ? », la lenteur peut évoquer une routine rigide. Comparez à votre situation. Les cartes ne déterminent ni capacité, ni personnalité, ni résultat."
+     ]
+    },
+    {
+     "h": "Sources et portée",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, partie I](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_1), §3 : quatre rangs par famille, termes Knave/Page et lien rang-famille. Cela étaye la structure, pas une statistique sur débutants ou lecteurs.",
+      "[Partie III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §2 : Cavalier de Bâtons, Cavalier/Valet de Deniers, Reine de Coupes et Roi d’Épées. Vérification des scènes ; les questions et l’exercice sont nos applications, pas des instructions historiques ou catégories de personnalité validées.",
+      "La transcription consultée est la réimpression de 1922. Les descriptions historiques n’identifient pas des personnes actuelles par sexe, âge, apparence ou moralité. Nous n’en faisons pas un test sur vous ou autrui."
+     ]
+    },
+    {
+     "h": "Relevé de vérification · 1er novembre 2026",
+     "p": [
+      "La comparaison assistée par IA a vérifié rangs, passages, seize cartes du site et mécanisme du quiz. Des traits universels et affirmations non étayées sur majorités ou difficultés ont été remplacés par questions délimitées, images et alternative. Révision indépendante d’expert et de locuteur natif non confirmée. Corrections via [notre méthode](methodology#corrections)."
      ]
     }
    ],
    "faq": [
     {
      "q": "Une figure désigne-t-elle toujours une personne ?",
-     "a": "Non. Elle peut montrer une autre personne, une part de ta propre personnalité, ou une attitude que la situation demande."
+     "a": "Pas forcément. Personne, rôle et démarche sont des possibilités à explorer. Penser à quelqu’un ne prouve pas que la carte le décrit ou connaît ses intentions."
     },
     {
      "q": "Un Roi désigne-t-il un homme et une Reine une femme ?",
-     "a": "Pas forcément. La plupart des lecteurs voient les rangs comme des styles d'énergie que chacun, quel que soit son genre, peut incarner."
+     "a": "Cette pratique n’impose pas de genre. Chacun peut réfléchir au soin, au jugement, à l’apprentissage et au rythme. Un titre historique ne détermine pas un caractère réel."
     },
     {
      "q": "Combien y a-t-il de figures dans un jeu de tarot ?",
-     "a": "Il y a 16 figures : un Valet, un Cavalier, une Reine et un Roi dans chacune des quatre couleurs."
+     "a": "Ce système illustré a seize figures : quatre rangs dans quatre familles. D’autres systèmes peuvent varier."
     }
    ]
   },

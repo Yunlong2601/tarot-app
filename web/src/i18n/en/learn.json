@@ -316,53 +316,76 @@
    ]
   },
   "court-cards": {
-   "title": "Tarot court cards: Pages, Knights, Queens and Kings",
-   "description": "How to read tarot court cards: what Pages, Knights, Queens and Kings mean, and whether a court card shows a person, a side of you or a way to act.",
+   "title": "Tarot court cards: ranks, sources and a worked example",
+   "description": "Learn the sixteen court cards through sourced images and practical questions. Compare two Knights and follow a Page/Knight of Pentacles example with another possible reading.",
    "h1": "Tarot court cards",
-   "answer": "Court cards show people or ways of acting: Pages learn, Knights act, Queens nurture from within and Kings lead from outside.",
-   "minutes": 5,
+   "answer": "This deck has sixteen court cards: Page, Knight, Queen and King in each suit. Ranks can organize reflection, but do not identify a real person’s gender, age, character or intentions.",
+   "minutes": 8,
    "sections": [
     {
-     "h": "Sixteen people in the deck",
+     "h": "Four ranks in four suits",
      "p": [
-      "Each suit has four court cards, so there are 16 in all. They are often the hardest cards for beginners, because a court card can mean a person in your life, a side of your own character, or an approach the situation needs."
+      "Four [suits](learn/tarot-suits) each contain four courts, giving 4 × 4 = 16 in this deck. Waite describes King, Queen, Knight and Knave/Page in Part I, §3. Titles and arrangements can differ between systems. Read the image as well as the rank rather than treating a title as a personality result."
      ]
     },
     {
-     "h": "The four ranks",
+     "h": "Four questions to try",
      "p": [
-      "Pages are students and messengers. They bring news, curiosity and a beginner's mind.",
-      "Knights are in motion. They chase a goal, sometimes too fast, and show the suit's energy at its most extreme.",
-      "Queens hold the suit's qualities inside. They are caring, wise and steady.",
-      "Kings use the suit's qualities in the outside world. They lead, decide and take responsibility."
+      "Page: what could I learn or notice? With the [Page of Pentacles](cards/pentacles-page), choose something small to examine closely and write one question about it. This is a teaching prompt, not a rule that every Page is a child or a student.",
+      "Knight: what pace suits the task? Compare the [Knight of Wands](cards/wands-knight) and [Knight of Pentacles](cards/pentacles-knight) before choosing a next step. A rank alone does not tell you to rush.",
+      "Queen: what deserves attentive care or listening? With the [Queen of Cups](cards/cups-queen), describe what you can actually notice in a conversation before offering a response. Anyone can try this question; it is not a definition of women or an “inner” nature.",
+      "King: what decision or responsibility is mine? With the [King of Swords](cards/swords-king), state a boundary or criterion and explain it clearly. This is a practice question, not evidence that a particular man is authoritative or trustworthy."
      ]
     },
     {
-     "h": "Rank plus suit",
+     "h": "Two Knights, different pictures",
      "p": [
-      "Mix the rank with the [suit](learn/tarot-suits). The [Knight of Wands](cards/wands-knight) rushes toward adventure, while the [Queen of Cups](cards/cups-queen) listens with deep empathy. The [King of Pentacles](cards/pentacles-king) is a reliable provider."
+      "Waite describes the Knight of Wands as on a journey and makes the horse’s motion part of the description. The Knight of Pentacles rides a slow, enduring, heavy horse (Part III, §2, the two Knight entries). That contrast challenges “all Knights rush”. Use the scene to refine the [suit](learn/tarot-suits) prompt rather than assigning one speed to every Knight.",
+      "Waite also describes the Queen of Cups as seeing and acting (Part III, §2, Cups—Queen). The source itself gives more than a passive “inner” role. Our rank prompts are choices for practice, not a complete description of every Queen or King."
      ]
     },
     {
-     "h": "Person, part of you or advice?",
+     "h": "A person, a role or an approach?",
      "p": [
-      "Ask yourself which fits best. If someone comes to mind straight away, the card may be about them. If not, ask where you act like this figure, or where acting more like them could help.",
-      "Curious which court card matches you? Try the [which card are you](tools/which-card-are-you) quiz."
+      "If a figure reminds you of someone, name the behaviour you observed and the question it raises. Recognition is an association, not proof that the card identifies them or reveals their motives. You can also use the same picture to consider a role you are taking or an approach you might try.",
+      "The [which card are you](tools/which-card-are-you) quiz is a playful matching exercise based on your answers. Its result is not a validated personality assessment. Treat it as a prompt to consider, not a label to keep."
+     ]
+    },
+    {
+     "h": "Original example: learning at a sustainable pace",
+     "p": [
+      "Observation: Waite’s Page of Pentacles looks intently at a pentacle above raised hands; his Knight of Pentacles holds the symbol while riding the slow, heavy horse (Part III, §2, Pentacles—Page and Knight). Those are source descriptions. The following skill-learning scenario is our original exercise, not a client case or a quotation.",
+      "Ask “How can I make room to learn this skill?”. Place the Page in “What needs my attention?” and the Knight in “How can I continue?”. One possible link is close observation followed by a repeatable pace: pick one basic technique, try a short session and choose a realistic time to return. Write what you noticed rather than judging whether you match a rank.",
+      "Alternative: with the Page in “What keeps me preparing?”, close study might suggest postponing a first attempt; with the Knight in “What needs adjusting?”, slowness might ask whether the routine has become rigid. Compare the two stories with your circumstances. Neither card establishes your ability, personality or eventual result."
+     ]
+    },
+    {
+     "h": "Sources and scope",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, Part I](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_1), §3: four court ranks per suit, including the Knave/Page terminology and the relation of rank to suit. This supports the structure, not claims about which cards beginners find hardest or what most readers believe.",
+      "[Part III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §2: Knight of Wands, Knight/Page of Pentacles, Queen of Cups and King of Swords. We checked the named scene descriptions. The four practice questions and learning scenario are editorial applications, not historical instructions or independently validated personality categories.",
+      "The consulted transcription is Waite’s 1922 reprint. Its historical descriptions of people are not evidence for identifying living people by sex, age, appearance or moral character. This guide does not apply those categories as a test of you or anyone else."
+     ]
+    },
+    {
+     "h": "Check record · 1 November 2026",
+     "p": [
+      "AI-assisted comparison checked the rank count, named source passages, the site’s sixteen court records and its answer-based quiz mechanism. It replaced universal rank traits and unsupported “most readers”/beginner-difficulty claims with bounded questions, image comparison and an alternative example. Independent expert and native-language review remain unconfirmed. Specific corrections can be sent through our [methodology page](methodology#corrections)."
      ]
     }
    ],
    "faq": [
     {
      "q": "Do court cards always mean a person?",
-     "a": "No. They can show another person, part of your own personality, or an attitude the situation calls for."
+     "a": "Not necessarily. In this guide, person, role and approach are possibilities to explore. Thinking of a familiar person does not prove that the card describes them or knows their intentions."
     },
     {
      "q": "Does a King mean a man and a Queen mean a woman?",
-     "a": "Not necessarily. Most readers treat the ranks as styles of energy that anyone of any gender can show."
+     "a": "No gender assignment is required in this practice. Anyone can consider care, judgment, learning or pacing. Historical titles and figures do not determine the gender or character of a person you know."
     },
     {
      "q": "How many court cards are in a tarot deck?",
-     "a": "There are 16 court cards: a Page, Knight, Queen and King in each of the four suits."
+     "a": "This illustrated deck has sixteen: Page, Knight, Queen and King in each of four suits. Other systems may use different titles or arrangements."
     }
    ]
   },
