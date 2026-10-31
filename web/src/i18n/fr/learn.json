@@ -201,20 +201,20 @@
    ]
   },
   "tarot-numbers": {
-   "title": "Les nombres dans le tarot : le sens de l'As au Dix",
-   "description": "La numérologie du tarot pour débutants : ce que signifie chaque nombre de l'As au Dix dans les Arcanes mineurs, et comment combiner un nombre avec sa couleur pour lire n'importe quelle carte.",
+   "title": "Les nombres du tarot : un aide-mémoire, pas une règle fixe",
+   "description": "De l’As au Dix, comparez les cartes de même nombre et suivez un exemple sourcé du Cinq de Coupes, avec son raisonnement et une autre lecture possible.",
    "h1": "Les nombres dans le tarot",
-   "answer": "Dans le tarot, les nombres marquent une étape d'une histoire : les As commencent, les Cinq apportent des soucis, les Neuf touchent presque au but et les Dix bouclent le cycle.",
-   "minutes": 5,
+   "answer": "Les nombres aident à comparer les cartes sans en déterminer le sens. Servez-vous-en comme repères, puis regardez l’image, la famille et la position.",
+   "minutes": 8,
    "sections": [
     {
-     "h": "Nombre plus couleur donne la carte",
+     "h": "Un repère plutôt qu’une formule",
      "p": [
-      "Chaque couleur compte de l'As au Dix, et chaque nombre représente une étape semblable dans toutes les couleurs. Combine le nombre avec la [couleur](learn/tarot-suits) et tu pourras deviner le sens d'une carte avant même de le chercher. Un Cinq est une épreuve et les Coupes sont les sentiments : le [Cinq de Coupes](cards/cups-five) est donc un revers émotionnel."
+      "Notre liste de l’As au Dix est un aide-mémoire de ShenTarot, ni une loi universelle ni un tableau tiré de Waite. La [famille](learn/tarot-suits), l’image et la position peuvent modifier la lecture. Cinq et Coupes peuvent évoquer une déception, mais le [Cinq de Coupes](cards/cups-five) montre aussi ce qui reste."
      ]
     },
     {
-     "h": "De l'As au Dix",
+     "h": "De l’As au Dix : les repères de ShenTarot",
      "p": [
       "As : un nouveau départ, un cadeau ou une occasion à l'état brut.",
       "Deux : un choix, une association ou un équilibre à maintenir.",
@@ -231,23 +231,50 @@
     {
      "h": "Lire les nombres dans un tirage",
      "p": [
-      "Les nombres qui reviennent méritent l'attention. Trois As suggèrent de nombreux nouveaux départs en même temps, et plusieurs Dix suggèrent des chapitres qui se ferment. Les petits nombres indiquent qu'une situation en est à ses débuts, et les grands qu'elle touche à sa fin.",
-      "Les Arcanes majeurs ont aussi des numéros, de 0 à 21. Ta [carte de naissance](tools/birth-card) et ta [carte de l'année](tools/year-card) se calculent en additionnant les chiffres d'une date jusqu'à obtenir le numéro d'un Arcane majeur."
+      "Les nombres répétés invitent à comparer, pas à prédire. Trois As n’annoncent pas nécessairement trois événements ; un nombre élevé ne prouve pas qu’une situation se termine. Cherchez les ressemblances et les différences entre les images.",
+      "Dans ce jeu, les arcanes majeurs vont de 0 à 21. Les calculs de [carte de naissance](tools/birth-card) et de [carte annuelle](tools/year-card) suivent les conventions expliquées sur leurs pages ; un calcul ne prouve pas que les dates prédisent des événements."
+     ]
+    },
+    {
+     "h": "Un même nombre, des images différentes",
+     "p": [
+      "Waite décrit des bâtons en mouvement dans le Huit de Bâtons, une femme liée aux yeux bandés dans le Huit d’Épées et un artisan au travail dans le Huit de Deniers (partie III, §2, entrées des cartes). « Huit signifie action » ne suffit pas. Comparez [Bâtons](cards/wands-eight), [Épées](cards/swords-eight) et [Deniers](cards/pentacles-eight)."
+     ]
+    },
+    {
+     "h": "Exemple original : que reste-t-il après un revers ?",
+     "p": [
+      "Observation : trois coupes sont renversées et deux restent debout derrière le personnage. Waite évoque une perte et quelque chose qui demeure (partie III, §2, Coupes—Cinq). Cette description est vérifiable ; la réflexion suivante est notre exemple pédagogique, pas une citation historique ou une prédiction.",
+      "Raisonnement : si la position demande « Qu’est-ce qui m’aiderait à reprendre un projet ? », les coupes tombées peuvent rappeler la déception, et celles debout les ressources disponibles. Une action possible : nommer une compétence, une personne ou un outil encore utile. Le cinq rappelle une tension ; il ne déduit pas cette action à lui seul.",
+      "Autre lecture : en position de difficulté, compter ce qui reste pourrait traduire une volonté de passer trop vite sur une perte réelle. Une pause peut être préférable à une lecture positive forcée. Comparez ces pistes à la question ; aucune ne révèle les pensées d’autrui ni ne garantit l’avenir."
+     ]
+    },
+    {
+     "h": "Sources et portée",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, partie III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3) : le §1 expose les limites des nombres et mots-clés seuls ; le §2 contient le Cinq de Coupes et les trois Huit. Cela étaye des descriptions et une tradition historique, pas la prédiction scientifique ni chaque mot de notre liste.",
+      "[Informations sur l’édition](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot) : la transcription consultée indique une réimpression de 1922, une première publication en 1910 et des dessins de Pamela Colman Smith. Nous ne la présentons pas comme un scan de la première édition de 1910."
+     ]
+    },
+    {
+     "h": "Relevé de vérification · 31 octobre 2026",
+     "p": [
+      "La comparaison assistée par IA a vérifié l’édition et les passages cités, corrigé les affirmations absolues et séparé observation et déduction originale. Cette vérification limitée ne vaut pas validation indépendante par un expert ou un locuteur natif. Les autres traditions et la qualité intégrale de la traduction restent à examiner. Signalez une correction via [notre méthode](methodology#corrections)."
      ]
     }
    ],
    "faq": [
     {
      "q": "Que signifie un As dans le tarot ?",
-     "a": "Un As est le pur commencement de sa couleur : une nouvelle chance en matière d'énergie (Bâtons), de sentiments (Coupes), d'idées (Épées) ou d'argent et de travail (Deniers)."
+     "a": "Dans cet aide-mémoire, un As invite à réfléchir à une possibilité liée à sa famille. Vérifiez image et position ; il ne garantit pas un événement nouveau."
     },
     {
-     "q": "Pourquoi les Cinq sont-ils des cartes difficiles ?",
-     "a": "Le Cinq vient après la stabilité du Quatre et en brise le calme. Chaque Cinq montre une épreuve ou une perte qui fait avancer les choses."
+     "q": "Les Cinq sont-ils toujours difficiles ?",
+     "a": "Le défi est un repère d’apprentissage, pas une règle pour tous les jeux. La perte avec quelque chose qui demeure du Cinq de Coupes diffère de la confrontation du Cinq de Bâtons. L’image et le contexte guident la réflexion."
     },
     {
      "q": "Les figures ont-elles des numéros ?",
-     "a": "En général, non. Les Valets, Cavaliers, Reines et Rois se lisent plutôt par leur rang et leur couleur. Certains lecteurs les comptent de 11 à 14."
+     "a": "Valet, Cavalier, Reine et Roi portent ici des titres de rang, hors de la suite As-Dix. Lisez image et famille ; aucun nombre universel ne leur est attribué."
     }
    ]
   },

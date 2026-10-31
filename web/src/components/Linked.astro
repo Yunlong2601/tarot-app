@@ -10,4 +10,4 @@ interface Props {
 const { text, lang } = Astro.props;
 const u = i18n(lang).url;
 ---
-<p>{pieces(text).map((p) => (typeof p === "string" ? p : <a href={u(p.path)}>{p.text}</a>))}</p>
+<p>{pieces(text).map((p) => (typeof p === "string" ? p : <a href={p.path.startsWith("https://") ? p.path : u(p.path)}>{p.text}</a>))}</p>

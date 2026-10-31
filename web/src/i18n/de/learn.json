@@ -201,20 +201,20 @@
    ]
   },
   "tarot-numbers": {
-   "title": "Zahlen im Tarot: was Ass bis Zehn bedeuten",
-   "description": "Tarot-Numerologie für Anfänger: was jede Zahl vom Ass bis zur Zehn in der Kleinen Arkana bedeutet und wie du eine Zahl mit ihrer Farbe verbindest, um jede Karte zu deuten.",
+   "title": "Tarotzahlen: eine Lernhilfe, keine feste Regel",
+   "description": "Lerne Merkwörter von Ass bis Zehn, vergleiche Karten gleicher Zahl und folge einem belegten Beispiel zur Fünf der Kelche samt alternativer Deutung.",
    "h1": "Zahlen im Tarot",
-   "answer": "Im Tarot zeigen Zahlen eine Phase der Geschichte: Asse beginnen, Fünfen bringen Ärger, Neunen sind fast am Ziel und Zehnen schließen den Kreis.",
-   "minutes": 5,
+   "answer": "Zahlen helfen beim Vergleichen, bestimmen aber keine Kartenbedeutung. Nutze sie als Merkhilfe und prüfe Bild, Farbe und Position in der Legung.",
+   "minutes": 8,
    "sections": [
     {
-     "h": "Zahl plus Farbe ergibt die Karte",
+     "h": "Zahlen als Hinweis statt als Formel",
      "p": [
-      "Jede Farbe zählt vom Ass bis zur Zehn, und jede Zahl steht in jeder Farbe für eine ähnliche Phase. Verbinde die Zahl mit der [Farbe](learn/tarot-suits), und du kannst die Bedeutung einer Karte erschließen, bevor du sie nachschlägst. Eine Fünf ist eine Herausforderung, und Kelche stehen für Gefühle, also ist die [Fünf der Kelche](cards/cups-five) ein emotionaler Rückschlag."
+      "Die Liste von Ass bis Zehn ist eine Lernhilfe von ShenTarot, kein allgemeines Gesetz und keine Tabelle aus Waite. [Farbe](learn/tarot-suits), Bild und Position verändern die Deutung. Fünf plus Kelche kann an Enttäuschung erinnern; die [Fünf der Kelche](cards/cups-five) zeigt aber auch, was bleibt."
      ]
     },
     {
-     "h": "Ass bis Zehn",
+     "h": "Ass bis Zehn: ShenTarots Merkhilfen",
      "p": [
       "Ass: ein neuer Anfang, ein Geschenk oder eine rohe Chance.",
       "Zwei: eine Wahl, eine Partnerschaft oder ein Gleichgewicht, das du halten sollst.",
@@ -231,23 +231,50 @@
     {
      "h": "Zahlen in einer Legung lesen",
      "p": [
-      "Wiederholte Zahlen sind einen zweiten Blick wert. Drei Asse deuten auf viele neue Anfänge zugleich hin, mehrere Zehnen darauf, dass sich Kapitel schließen. Niedrige Zahlen sagen, dass eine Sache noch am Anfang steht, hohe, dass sie fast abgeschlossen ist.",
-      "Auch die Große Arkana hat Zahlen, von 0 bis 21. Deine [Geburtskarte](tools/birth-card) und deine [Jahreskarte](tools/year-card) berechnest du, indem du die Ziffern eines Datums so lange addierst, bis du bei einer Zahl der Großen Arkana ankommst."
+      "Wiederholte Zahlen laden zum Vergleich ein, nicht zur Vorhersage. Drei Asse müssen keine drei Ereignisse bedeuten. Hohe Zahlen beweisen nicht, dass eine Situation bald endet. Vergleiche Gemeinsamkeiten und Unterschiede der Bilder.",
+      "In diesem Deck reichen die Großen Arkana von 0 bis 21. [Geburtskarten](tools/birth-card) und [Jahreskarten](tools/year-card) folgen eigenen, dort erklärten Quersummenregeln. Ein berechenbares Ergebnis beweist keine Vorhersage durch Daten."
+     ]
+    },
+    {
+     "h": "Gleiche Zahl bedeutet nicht gleiche Aussage",
+     "p": [
+      "Waite beschreibt fliegende Stäbe bei der Acht der Stäbe, eine gefesselte Frau mit verbundenen Augen bei der Acht der Schwerter und einen arbeitenden Handwerker bei der Acht der Münzen (Teil III, §2, jeweilige Einträge). „Acht bedeutet Handeln“ erklärt nicht alle Bilder. Vergleiche [Stäbe](cards/wands-eight), [Schwerter](cards/swords-eight) und [Münzen](cards/pentacles-eight)."
+     ]
+    },
+    {
+     "h": "Eigenes Beispiel: Was bleibt nach einem Rückschlag?",
+     "p": [
+      "Beobachtung: Drei Kelche liegen umgestürzt, zwei stehen hinter der verhüllten Gestalt. Waite nennt Verlust und etwas Verbleibendes (Teil III, §2, Kelche—Fünf). Diese Beschreibung ist nachprüfbar; die folgende Reflexion ist unser Lehrbeispiel, kein historisches Zitat und keine Vorhersage.",
+      "Herleitung: Fragt die Position „Was hilft mir, ein Projekt wieder aufzunehmen?“, können die umgestürzten Kelche auf Enttäuschung und die stehenden auf verfügbare Mittel lenken. Eine mögliche Handlung: eine noch nutzbare Fähigkeit, Person oder Hilfe benennen. Die Fünf erinnert an Spannung; sie berechnet diese Handlung nicht.",
+      "Alternative: In einer Herausforderungsposition könnte das Zählen verbleibender Mittel auch bedeuten, über einen wirklichen Verlust zu schnell hinwegzugehen. Eine Pause kann passender sein als eine erzwungen positive Lesart. Prüfe beide Möglichkeiten an der Frage; keine beweist fremde Gedanken oder zukünftige Ereignisse."
+     ]
+    },
+    {
+     "h": "Quellen und ihre Aussagegrenzen",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, Teil III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3): §1 erklärt die Grenzen bloßer Zahlen und Stichwörter; §2 enthält die Fünf der Kelche und die drei Achten. Belegt werden Beschreibungen und eine historische Deutungstradition, keine wissenschaftliche Vorhersage oder jedes Merkwort unserer Liste.",
+      "[Angaben zur Ausgabe](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot): Die verwendete Transkription nennt einen Nachdruck von 1922, die Erstveröffentlichung 1910 und Bildentwürfe von Pamela Colman Smith. Sie wird nicht als Scan der Erstausgabe von 1910 ausgegeben."
+     ]
+    },
+    {
+     "h": "Prüfvermerk · 31. Oktober 2026",
+     "p": [
+      "Der KI-gestützte Quellenvergleich prüfte Ausgabe und zitierte Stellen, ersetzte absolute Zahlenaussagen und trennte Beobachtung von eigener Herleitung. Das ist eine begrenzte Prüfung, keine unabhängige fachliche oder muttersprachliche Freigabe. Andere Traditionen und die gesamte Übersetzungsqualität sind nicht unabhängig geprüft. Korrekturen sind über [unsere Methodik](methodology#corrections) möglich."
      ]
     }
    ],
    "faq": [
     {
      "q": "Was bedeutet ein Ass im Tarot?",
-     "a": "Ein Ass ist der reine Beginn seiner Farbe: eine neue Chance bei Energie (Stäbe), Gefühlen (Kelche), Ideen (Schwerter) oder Geld und Arbeit (Münzen)."
+     "a": "Ein Ass lädt in dieser Lernhilfe zur Frage nach einer Möglichkeit seiner Farbe ein. Prüfe Bild und Position; ein neues Ereignis ist nicht garantiert."
     },
     {
-     "q": "Warum sind Fünfen schwierige Karten?",
-     "a": "Die Fünf folgt auf die Stabilität der Vier und bricht diese Ruhe auf. Jede Fünf zeigt eine Herausforderung oder einen Verlust, der die Dinge in Bewegung bringt."
+     "q": "Sind Fünfen immer schwierig?",
+     "a": "Herausforderung ist hier eine Merkhilfe, keine Regel für jedes Deck. Der Verlust mit Verbleibendem bei der Fünf der Kelche unterscheidet sich vom Wettstreit der Fünf der Stäbe. Bild und Kontext leiten die Reflexion."
     },
     {
      "q": "Haben Hofkarten Zahlen?",
-     "a": "Meistens nicht. Buben, Ritter, Königinnen und Könige werden stattdessen nach Rang und Farbe gedeutet. Manche Leser zählen sie als 11 bis 14."
+     "a": "Page, Ritter, Königin und König tragen hier Rangtitel außerhalb der Folge Ass bis Zehn. Lies Bild und Farbe; ein allgemeiner Zahlenwert wird nicht zugewiesen."
     }
    ]
   },

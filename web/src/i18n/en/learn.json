@@ -201,20 +201,20 @@
    ]
   },
   "tarot-numbers": {
-   "title": "Numbers in tarot: what Ace to Ten mean",
-   "description": "Tarot numerology for beginners: what each number from Ace to Ten means in the Minor Arcana, and how to combine a number with its suit to read any card.",
+   "title": "Numbers in tarot: a learning aid, not a fixed rule",
+   "description": "Learn Ace-to-Ten keywords, see why cards with the same number differ, and follow a sourced Five of Cups example with an alternative interpretation.",
    "h1": "Numbers in tarot",
-   "answer": "In tarot, numbers show a stage of a story: Aces begin, Fives bring trouble, Nines nearly finish and Tens complete the cycle.",
-   "minutes": 5,
+   "answer": "Numbers can help you compare cards, but do not determine their meaning. Use them as memory prompts, then check the picture, suit and spread position.",
+   "minutes": 8,
    "sections": [
     {
-     "h": "Number plus suit gives the card",
+     "h": "Use numbers as prompts, not a formula",
      "p": [
-      "Each suit counts from Ace to Ten, and every number means a similar stage in every suit. Combine the number with the [suit](learn/tarot-suits) and you can work out a card's meaning before you look it up. A Five is a challenge, and Cups are feelings, so the [Five of Cups](cards/cups-five) is an emotional setback."
+      "Our Ace-to-Ten list is a ShenTarot learning aid, not a universal law or a table quoted from Waite. A number may suggest a theme; the [suit](learn/tarot-suits), image and position can change it. Five plus Cups can prompt a question about disappointment, but the [Five of Cups](cards/cups-five) also shows what remains."
      ]
     },
     {
-     "h": "Ace to Ten",
+     "h": "Ace to Ten: ShenTarot memory prompts",
      "p": [
       "Ace: a new beginning, a gift or a raw chance.",
       "Two: a choice, a partnership or a balance to keep.",
@@ -231,23 +231,50 @@
     {
      "h": "Reading numbers in a spread",
      "p": [
-      "Repeated numbers are worth noticing. Three Aces suggest many new beginnings at once, and several Tens suggest chapters closing. Low numbers mean a matter is early on, and high numbers mean it is nearly done.",
-      "The Major Arcana have numbers too, from 0 to 21. Your [birth card](tools/birth-card) and your [card for the year](tools/year-card) are worked out by adding the digits of a date until you reach a Major Arcana number."
+      "Repeated numbers invite comparison rather than a forecast. Three Aces need not mean three events, and high numbers do not prove that a situation is almost over. Ask what the images share and where they differ.",
+      "In this deck, the Major Arcana are numbered 0 to 21. Our [birth-card](tools/birth-card) and [year-card](tools/year-card) tools use separate digit-sum conventions explained on their pages; calculation is not evidence that dates predict events."
+     ]
+    },
+    {
+     "h": "Why the same number is not the same meaning",
+     "p": [
+      "Waite describes moving wands in the Eight of Wands, a bound and blindfolded woman in the Eight of Swords, and a craftsperson working in the Eight of Pentacles (Part III, §2, the three card entries). “Eight means action” cannot account for all three pictures. Compare [Eight of Wands](cards/wands-eight), [Eight of Swords](cards/swords-eight) and [Eight of Pentacles](cards/pentacles-eight) before choosing an interpretation."
+     ]
+    },
+    {
+     "h": "Original example: what is still available after a setback?",
+     "p": [
+      "Observation: in the Five of Cups, three cups lie fallen and two remain standing behind the cloaked figure. Waite describes both loss and something remaining (Part III, §2, Cups—Five). These are the source observations; the reflection below is our teaching example, not a prediction or a historical quotation.",
+      "Reasoning: for the position “What can help me resume a project?”, attention to the fallen cups may suggest disappointment, while the standing pair invites an inventory of resources still available. One possible action is to name a skill, person or tool you can still use. The number five helps recall tension; it does not supply that action on its own.",
+      "Alternative: in a challenge position, the same picture might ask whether counting what remains is making you hurry past a real loss. Pause rather than force a positive reading. Check which interpretation fits the question; neither tells you what another person thinks or what will happen."
+     ]
+    },
+    {
+     "h": "Sources and what they support",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, Part III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3): §1 explains why numbers and bare keywords are insufficient; §2 contains the Five of Cups and the three Eight descriptions used above. This supports descriptions and one historical interpretive tradition, not scientific prediction or every keyword in our learning table.",
+      "[Edition information](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot): the consulted transcription identifies a 1922 reprint and lists first publication in 1910, with designs by Pamela Colman Smith. We do not present it as the 1910 first-edition scan."
+     ]
+    },
+    {
+     "h": "Check record · 31 October 2026",
+     "p": [
+      "AI-assisted source comparison checked the edition identity and the passages cited above, replaced absolute number claims, and separated image observations from original inference. This is a record of that limited comparison, not independent expert or native-speaker approval. Other historical systems and this article’s full translation quality have not been independently reviewed. Send a specific correction through our [methodology page](methodology#corrections)."
      ]
     }
    ],
    "faq": [
     {
      "q": "What does an Ace mean in tarot?",
-     "a": "An Ace is the pure start of its suit: a new chance in energy (Wands), feelings (Cups), ideas (Swords) or money and work (Pentacles)."
+     "a": "In this learning aid, an Ace prompts a question about an opportunity in its suit. Check the image and position; a new event is not guaranteed."
     },
     {
-     "q": "Why are Fives difficult cards?",
-     "a": "Five comes after the stability of Four, so it breaks that calm. Every Five shows a challenge or loss that pushes things forward."
+     "q": "Are Fives always difficult?",
+     "a": "Challenge is a useful prompt in our learning table, not a rule for every deck or reading. Compare the actual image: loss with something remaining in the Five of Cups differs from the contest in the Five of Wands. Context can change what you take from either card."
     },
     {
      "q": "Do court cards have numbers?",
-     "a": "Not usually. Pages, Knights, Queens and Kings are read by rank and suit instead. Some readers count them as 11 to 14."
+     "a": "In this deck, Page, Knight, Queen and King have rank titles rather than the Ace-to-Ten sequence. Read image and suit; this article assigns no universal number."
     }
    ]
   },

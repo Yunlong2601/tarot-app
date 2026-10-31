@@ -1,4 +1,5 @@
 ---
+import { LESSON_EVIDENCE } from "../../../lib/editorial";
 import ReferenceSource from "../../../components/ReferenceSource.astro";
 import ResumeWorkspace from "../../../components/ResumeWorkspace.astro";
 import Base from "../../../layouts/Base.astro";
@@ -20,6 +21,7 @@ const i = LEARN_SLUGS.indexOf(slug);
 const prev = LEARN_SLUGS[i - 1];
 const next = LEARN_SLUGS[i + 1];
 const page = new URL(u(`learn/${slug}`), Astro.site).href;
+const evidence = LESSON_EVIDENCE[slug as keyof typeof LESSON_EVIDENCE];
 const jsonLd = [
   {
     "@context": "https://schema.org",
@@ -29,6 +31,7 @@ const jsonLd = [
     inLanguage: L.tag,
     url: page,
     mainEntityOfPage: page,
+    ...(evidence ? { dateModified:evidence.checkedAt, citation:evidence.sources.map(source=>({"@type":"Book",name:source.title,url:source.url,author:{"@type":"Person",name:"Arthur Edward Waite"}})) } : {}),
     image: new URL("og.png", Astro.site).href,
     author: { "@type": "Organization", name: "ShenTech" },
     publisher: { "@type": "Organization", name: "ShenTech", logo: { "@type": "ImageObject", url: new URL("icon.png", Astro.site).href } },
