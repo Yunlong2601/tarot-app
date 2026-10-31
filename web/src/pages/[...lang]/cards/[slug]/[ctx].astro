@@ -1,4 +1,5 @@
 ---
+import ReferenceSource from "../../../../components/ReferenceSource.astro";
 import Base from "../../../../layouts/Base.astro";
 import SearchGrowthNotes from "../../../../components/SearchGrowthNotes.astro";
 import { BASE } from "../../../../config.ts";
@@ -72,7 +73,7 @@ const tryHref = u(ctx === "yes-or-no" ? "tools/yes-no" : ctx === "career" ? "top
       </nav>
     </div>
   </section>
-  <p><a href={u("methodology")}>{L.growth.methodTitle}</a></p>
+  <ReferenceSource lang={lang} path={path} name={h1} />
   {lang === 'en' && id === 'pentacles_ace' && ctx === 'love' && <SearchGrowthNotes kind="love" />}
   <section class="section" style="padding-bottom:0">
     <div class="meaning">
