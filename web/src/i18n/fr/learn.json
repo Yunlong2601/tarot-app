@@ -93,51 +93,73 @@
    ]
   },
   "major-and-minor-arcana": {
-   "title": "Arcanes majeurs et mineurs : les deux parties du jeu de tarot",
-   "description": "La différence entre les Arcanes majeurs et mineurs : 22 Arcanes majeurs pour les grands thèmes de vie, et 56 Arcanes mineurs répartis en quatre couleurs pour les événements du quotidien.",
+   "title": "Arcanes majeurs et mineurs : structure, sources et exemple",
+   "description": "Comparez 22 majeurs et 56 mineurs avec leurs sources et reliez le Bateleur au Huit de Deniers sans faire des proportions une prédiction.",
    "h1": "Les Arcanes majeurs et mineurs",
-   "answer": "Les 22 Arcanes majeurs montrent les grands thèmes de vie et les tournants, et les 56 Arcanes mineurs montrent les événements, les émotions et les choix du quotidien.",
-   "minutes": 4,
+   "answer": "Ce jeu comporte 22 arcanes majeurs et 56 mineurs. Ces nombres décrivent sa structure. « Grands thèmes » et « quotidien » sont des pistes pédagogiques, pas une hiérarchie du destin.",
+   "minutes": 8,
    "sections": [
     {
-     "h": "Deux parties d'un même jeu",
+     "h": "Deux groupes que l’on peut compter",
      "p": [
-      "Tout jeu de tarot standard compte 78 cartes en deux parties. « Arcane » signifie secret. Les Arcanes majeurs sont les grands secrets et les Arcanes mineurs les petits."
+      "Dans ce système illustré de 78 cartes, 22 sont majeures et 56 mineures. Chacune des quatre familles contient dix cartes de l’As au Dix et quatre figures : Valet, Cavalier, Reine et Roi. Waite décrit cette répartition en partie I, §§2–3. Nous ne définissons pas ici tous les jeux historiques ou modernes."
      ]
     },
     {
-     "h": "Les Arcanes majeurs : 22 leçons de vie",
+     "h": "22 images, pas 22 événements obligatoires",
      "p": [
-      "Les Arcanes majeurs vont du [Fou](cards/major-00-fool), numéro 0, au [Monde](cards/major-21-world), numéro 21. Lus dans l'ordre, ils racontent le voyage du Fou : partir sans rien, rencontrer des maîtres et des épreuves, traverser la perte et le changement avec [la Mort](cards/major-13-death) et [la Tour](cards/major-16-tower), retrouver l'espoir avec [l'Étoile](cards/major-17-star), et arriver à l'accomplissement.",
-      "Quand un Arcane majeur apparaît dans une lecture, accorde-lui un poids supplémentaire. Il évoque un thème plus large qu'une journée ou qu'une décision."
+      "Ce jeu marque [le Mat](cards/major-00-fool) 0 et [le Monde](cards/major-21-world) 21. La séquence aide à reconnaître ou mémoriser les cartes, sans prouver un parcours de vie obligatoire. Waite discute différentes places du Mat dans la partie II : numérotation et ordre historique ne se confondent pas.",
+      "Un majeur peut nous aider à interroger une valeur ou une idée générale. C’est un choix de lecture. Il peut aussi éclairer une décision ordinaire sans annoncer un événement durable ou incontrôlable."
      ]
     },
     {
-     "h": "Les Arcanes mineurs : 56 cartes du quotidien",
+     "h": "Quatre familles de quatorze cartes",
      "p": [
-      "Les Arcanes mineurs se divisent en quatre [couleurs](learn/tarot-suits) : Bâtons, Coupes, Épées et Deniers. Chaque couleur compte dix cartes numérotées, de l'As au Dix, et quatre [figures](learn/court-cards) : Valet, Cavalier, Reine et Roi.",
-      "Ces cartes décrivent le quotidien : une dispute, une augmentation, un nouveau coup de cœur, une semaine épuisante. Elles évoluent plus vite que les thèmes des Arcanes majeurs."
+      "Les [familles](learn/tarot-suits) sont Bâtons, Coupes, Épées et Deniers. Dix cartes plus quatre [figures](learn/court-cards) font quatorze par famille : 4 × 14 = 56. Regardez l’image et sa position.",
+      "Pour apprendre, nous rapprochons ces images d’actions, de sentiments, de pensées et de ressources. Cela ne rend pas les mineurs moins importants, plus rapides ou plus maîtrisables. Un détail pratique peut être essentiel."
      ]
     },
     {
-     "h": "Ce que t'apprend le mélange dans une lecture",
+     "h": "Ce qu’une proportion ne démontre pas",
      "p": [
-      "Compte les Arcanes majeurs de ton tirage. S'il y en a plus de la moitié, la situation est un tournant et des forces plus grandes sont à l'œuvre. Si presque toutes les cartes sont mineures, la question dépend davantage de ton quotidien et passera peut-être plus vite."
+      "Compter les majeurs décrit seulement le tirage. « Plus de la moitié » n’est pas ici une preuve de tournant, de forces extérieures ou de durée. Examinez les positions et les liens entre images ; beaucoup de majeurs n’imposent pas d’abandonner votre jugement."
+     ]
+    },
+    {
+     "h": "Exemple original : du thème à l’action",
+     "p": [
+      "Observation : [le Bateleur](cards/major-01-magician) lève une baguette ; les symboles des quatre familles sont sur la table (Waite, partie II, §2, I). Le [Huit de Deniers](cards/pentacles-eight) montre un artisan au travail (partie III, §2, Deniers—Huit). Ces descriptions ne prouvent pas la réussite d’un projet.",
+      "Pour « Comment reprendre un projet créatif ? », placez le Bateleur dans « Que puis-je utiliser ? » et le Huit dans « Que puis-je essayer ? ». Faites l’inventaire des ressources, puis choisissez-en une pour une pratique régulière : dix minutes avec un outil et une note sur ce qui aide. C’est notre raisonnement pédagogique, pas une consigne de Waite.",
+      "Autre lecture : en « Qu’est-ce qui me distrait ? », les outils pourraient évoquer l’achat de matériel au lieu de pratiquer. En position de difficulté, la répétition du Huit pourrait signaler un perfectionnement sans fin. Comparez à votre situation ; un majeur et un mineur ne classent pas vos préoccupations."
+     ]
+    },
+    {
+     "h": "Sources et portée",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, partie I](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_1), §§2–3 : division, quatre familles, dix cartes et quatre figures par famille. Le total de 56 en découle arithmétiquement.",
+      "[Partie II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §1 et §2 (I, 0, XXI) : place du Mat, table du Bateleur et numérotation Mat/Monde. [Partie III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §2, Deniers—Huit : l’artisan. Ces passages documentent des images et une tradition, pas une prédiction empirique ou notre exemple.",
+      "La transcription Wikisource consultée est la réimpression de 1922, dont les pages de titre indiquent 1910 comme première publication. Cela ne vaut pas approbation de toutes les affirmations occultes ou divinatoires du livre."
+     ]
+    },
+    {
+     "h": "Relevé de vérification · 31 octobre 2026",
+     "p": [
+      "La comparaison assistée par IA a vérifié structure, édition et passages, supprimé les règles non étayées sur proportions, durée et importance, et séparé observation et déduction. Aucune révision indépendante d’expert ou de locuteur natif n’est confirmée. Ce relevé limité ne certifie pas de prédictions. Corrections via [notre méthode](methodology#corrections)."
      ]
     }
    ],
    "faq": [
     {
      "q": "Combien y a-t-il d'Arcanes majeurs ?",
-     "a": "Il y a 22 Arcanes majeurs, numérotés de 0 (le Fou) à 21 (le Monde)."
+     "a": "Il y en a 22 dans ce système illustré. Ce jeu marque le Mat 0 et le Monde 21 ; d’autres jeux et ordres d’impression peuvent varier."
     },
     {
      "q": "Les Arcanes majeurs sont-ils plus importants ?",
-     "a": "Ils pèsent plus lourd parce qu'ils montrent des thèmes de long terme, mais un Arcane mineur peut tout de même être la clé d'une lecture."
+     "a": "Pas automatiquement. La question, la position et les liens comptent davantage. Un mineur peut fournir le détail le plus utile ; un majeur ne prouve pas un événement extérieur."
     },
     {
      "q": "Puis-je lire seulement avec les Arcanes majeurs ?",
-     "a": "Oui. Beaucoup de débutants commencent avec les 22 Arcanes majeurs seuls, puis ajoutent les Arcanes mineurs quand les premiers leur sont devenus familiers."
+     "a": "Vous pouvez choisir les 22 majeurs pour un exercice. Précisez ce choix avant de tirer ; vous ne piochez alors plus parmi les 78 cartes. Ce n’est pas la preuve qu’ils suffisent pour toute question."
     }
    ]
   },
