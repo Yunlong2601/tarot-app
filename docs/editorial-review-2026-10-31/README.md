@@ -4,7 +4,7 @@ The owner explicitly included all website reference content, beyond the initial 
 
 ## Current progress
 
-Seven logical articles, `/learn/tarot-numbers`, `/learn/major-and-minor-arcana`, `/learn/tarot-suits`, `/learn/court-cards`, `/learn/reversed-cards`, `/learn/asking-questions` and `/learn/how-to-read-tarot`, have limited AI-assisted comparisons against specific primary-source passages and rewritten original worked examples in all eight locales. This does not mean their translations received human review, or that all 487 routes are source-verified. Every other record remains not started. The site-wide source/publisher component added earlier is not evidence that individual claims were checked.
+Eight logical references have limited AI-assisted primary-source comparisons and original worked examples in all eight locales: the seven foundational lessons and `/cards/major-00-fool`. This does not mean their translations received human review, or that all 487 routes are source-verified. Every other record, including the Fool context subpages, remains not started. A site-wide publisher component is not proof of claim checking.
 
 Work in batches: major-card references; minor-card references; contextual interpretations; spreads/question/topic references; zodiac/birth/numerology and tool formulas; navigation and publisher consistency. A contextual interpretation needs its own reasoning, not a copied historical citation that never discussed that context. Reconcile newly added/removed routes before declaring the inventory complete.
 
@@ -161,3 +161,23 @@ Actor: Codex AI assistant. Compared named Waite passages, current shared deck/sp
 The seven foundational lessons now have limited comparisons (7/487 logical routes overall), not completed human review. All per-locale expert/language states remain unverified. Source audit extends to 56 article-locale routes. Verification follows after final build.
 
 Reading introduction validation: 49 tests; locale parity; Astro check (0 errors/warnings, 2 existing hints); production build; reader/editorial (56 article-locale routes), ritual, interaction, search-growth and beta audits passed. Current shared records counted: 78, with 22 Major and 14 each Minor suit. Chrome DOM checks at 390/768/1440px in eight locales found seven sections, two sources and no horizontal overflow. Chinese desktop evidence: `reading-desktop.png`. Known mobile screenshot capture limitation remains; no physical-device, screen-reader or native-language acceptance is claimed.
+
+
+## Fool base reference: actual source-comparison record — 1 November 2026
+
+Actor: Codex AI assistant. Read Waite Part II §§2 (0), 3 and Part III §3 (Zero), inspected the actual self-hosted card art, and compared all base-reference fields and generic template claims. Website-only content; backend card data remains read-only. Love/career/feelings/yes-no subpages are separate unreviewed records.
+
+| Claim/change | Evidence | Outcome / limit |
+|---|---|---|
+| Figure has already leapt / leap is appropriate advice | [Part II §2, 0, revision 15274517](https://en.wikisource.org/w/index.php?oldid=15274517&title=The_Pictorial_Key_to_the_Tarot/Part_2), actual card image | Text says paused/stationary with dog bounding. No instruction or safety/success guarantee retained. |
+| Dog definitely means instinct urging onward; zero proves potential | Source and artwork do not establish these fixed meanings | Presented as observation vs association; removed categorical motive/numerology. Printed zero distinguished from order; Part II §3 places Zero after XX in this book. |
+| Historical meaning equals contemporary new beginnings | [Part III §3, Zero, revision 15274510](https://en.wikisource.org/w/index.php?oldid=15274510&title=The_Pictorial_Key_to_the_Tarot/Part_3) vs Part II | Different historical uses explicitly distinguished. Dated mental-state labels not used to diagnose readers. Curiosity/first experiment is our teaching application, not an attributed quotation. |
+| Speaking a private plan makes it real | No adequate support established | Removed; optional reversed questions concern checkable details, haste or preparation. |
+| Air correspondence / Major importance statement | No correspondence source established in this pass; generic importance exceeds scope | Base checked reference omits the correspondence line and uses scoped zero/group note. No shared backend/tool associations changed or silently validated. |
+| Relationship/work prompts | New bounded editorial prompts | Ask about preferences and try a small task, not mind-reading, consent, qualification or success claims. Context subpages still need individual comparison. |
+| Original craft-course example | Newly authored single-card position → observations → inference → trial/details check, plus overlooked-instructions alternative | No customer story or proven course fit. Retains mismatches in notes and does not treat reversal as hidden-problem detection. |
+| Visible citations and structured claims | Scoped CARD_EVIDENCE record and localized evidence content | Only checked base routes receive Article citations/date; no fictitious expert/native review. Exact sources also reach Markdown. |
+
+Whole-site progress: 8/487 limited comparisons; all independent expert/native-review states remain unverified. Evidence audit covers 56 lesson routes plus eight Fool base references, with a context non-inheritance check. Verification follows after final build.
+
+Fool release validation: 49 tests; locale parity; Astro check (0 errors/warnings, 2 existing hints); build; reader/editorial (56 lesson + 8 card routes), ritual, interaction, search-growth and beta audits passed. Chrome DOM checks at 390/768/1440px across eight locales found four evidence sections/two sources and no overflow. Chinese orientation control showed reversed meaning, hid upright meaning and passed reversed orientation to the existing workspace link; evidence stayed visible. Desktop evidence: `fool-desktop.png`. Known mobile screenshot limitation remains; no full physical accessibility or native-language acceptance claimed.

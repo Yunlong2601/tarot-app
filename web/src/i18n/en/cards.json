@@ -2,33 +2,67 @@
  "major_00_fool": {
   "name": "The Fool",
   "keywords": [
-   "beginnings",
-   "spontaneity",
-   "trust"
+   "curiosity",
+   "first attempt",
+   "attention"
   ],
-  "upright": "A fresh start asks for a leap of faith. Stay curious and open to what is new.",
-  "reversed": "Hesitation or carelessness. Pause to check the ground before you step.",
+  "upright": "For this reflection exercise, consider a small new experience while checking the practical conditions first.",
+  "reversed": "Use the reversed orientation to ask what you may have overlooked; it does not identify a hidden block or diagnose you.",
   "k": {
-   "essence": "The step you take before you feel ready.",
-   "imagery": "A traveller stands at the edge of a cliff under a bright sun, head tilted up and not looking down. A small bundle hangs on a stick, a white rose is in one hand, and a little white dog bounds at the heel. Mountains rise far behind.",
-   "why": "Zero is the number of potential, before anything has been counted, so this card is about starting with nothing proven. The cliff edge is the decision point. The upturned gaze reads as trust rather than planning, the light bundle as travelling without baggage, and the dog as instinct urging you on.",
+   "essence": "Curiosity can start with a small, considered experiment.",
+   "imagery": "A figure pauses at a cliff edge, looks upward, carries a rose and a bundle on a staff; a dog bounds nearby. The printed card is labelled 0. These are pictured details, not instructions to copy the pose.",
+   "why": "Waite describes a pause rather than a completed leap. Reading the scene as curiosity or insufficient attention is our possible association. The dog’s motive and a fixed meaning of zero are not established by the picture.",
    "upright": {
-    "core": "A beginning whose result cannot be known yet, and an invitation to move anyway.",
-    "light": "curiosity, play, willingness to be a beginner, trust",
-    "shadow": "enthusiasm that skips the basics",
-    "love": "Openness to meeting a person or an experience without a script; in an existing relationship, trying something new together.",
-    "work": "Starting an unproven project, a change of direction, saying yes before you feel qualified.",
-    "question": "What would I start if I accepted that I will be clumsy at first?"
+    "core": "One possible prompt is to explore something unfamiliar without treating uncertainty as permission to ignore conditions.",
+    "light": "curiosity, trying a small task, asking what is needed",
+    "shadow": "enthusiasm that overlooks a practical limit",
+    "love": "As an optional relationship prompt, discuss a new shared activity and ask what each person wants. The card does not establish another person’s feelings or consent.",
+    "work": "As an optional project prompt, test a small piece before making a larger commitment. It does not guarantee success or mean you should accept work beyond your capacity.",
+    "question": "What small thing could I try, and what should I check before it?"
    },
    "reversed": {
-    "core": "The energy of beginning is present but held back, rushed or pointed nowhere.",
+    "core": "Our reversed practice asks about attention and preparation; it is not an automatic opposite or a verified inner state.",
     "modes": [
-     "Blocked: hesitation at the edge, always preparing.",
-     "Excess: the leap without a look at the ground.",
-     "Inward: a plan you keep private because saying it makes it real."
+     "Overlooked detail: what information should I check?",
+     "Haste: could I make the experiment smaller?",
+     "Hesitation: is there a concrete question I can answer before deciding?"
     ],
-    "question": "Am I waiting for certainty that will not arrive, or moving so fast I am not actually choosing?"
+    "question": "What do I know, what am I assuming, and what can I verify?"
    }
+  },
+  "evidence": {
+   "answer": "Here we use the Fool as a prompt for curiosity and a considered first experiment, not a promise that a leap will be safe or successful.",
+   "groupNote": "This deck labels the Fool 0. The label does not prove unlimited potential, a required life stage or a greater importance than another card.",
+   "sections": [
+    {
+     "h": "Two parts of the source, different purposes",
+     "p": [
+      "In Part II, §2, 0, Waite describes a figure pausing at the precipice with the dog still bounding, then offers a spiritual reading. The figure has not completed a leap. Our “small experiment” approach is an editorial application, not his instruction to take a risk.",
+      "Part III, §3 gives a quite different fortune-telling list, including folly in the upright entry and carelessness in the reversed entry. We do not apply its dated mental-state labels as diagnoses. Neither list proves a person’s character or a future event; “new beginnings” is not presented here as a quotation from that entry."
+     ]
+    },
+    {
+     "h": "Original example: trying a new craft",
+     "p": [
+      "Question: “Before joining a longer craft course, what could I try?”. Imagine this single upright card in a position called “A possible first step”. Observe the small bundle, raised gaze and nearby edge before assigning meaning. This is an invented exercise, not a customer story.",
+      "One reading connects the light load with using a few materials, the unfamiliar setting with learning, and the edge with checking conditions. Ask about a trial session, bring the listed materials and confirm what help is available. Those are our inferences and actions to check, not evidence that a course suits you.",
+      "Alternative: you may already have enough opportunities and be overlooking the instructions. Read the session details before arranging anything new. Compare both readings with what you actually know; keep what does not fit in your [reading notes](read). Reversing the card would change the chosen lens, not prove a hidden problem."
+     ]
+    },
+    {
+     "h": "Sources you can check",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, Part II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, 0 The Fool; §3 explains its placement after XX in this book. These support the pictured pause and the distinction between label and book order, not a universal zero-number theory.",
+      "[Part III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, Zero—The Fool, supports the comparison of historical upright/reversed lists. Consulted transcription: 1922 reprint. Our relationship/work prompts and craft exercise are editorial examples; the separate context pages need their own source checks."
+     ]
+    },
+    {
+     "h": "Check record · 1 November 2026",
+     "p": [
+      "AI-assisted comparison checked the named passages, the actual card image and the website text. Removed unqualified leap advice, fixed dog/zero symbolism and the claim that speaking a plan makes it real. The unsourced correspondence line is not displayed on this checked reference. Independent expert and native-language review remain unconfirmed; corrections through our [methodology page](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_01_magician": {

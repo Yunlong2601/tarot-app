@@ -2,33 +2,67 @@
  "major_00_fool": {
   "name": "Der Narr",
   "keywords": [
-   "Neubeginn",
-   "Spontaneität",
-   "Vertrauen"
+   "Neugier",
+   "erster Versuch",
+   "Aufmerksamkeit"
   ],
-  "upright": "Ein Neuanfang verlangt einen Vertrauenssprung. Bleib neugierig und offen für das Neue.",
-  "reversed": "Zögern oder Leichtsinn. Halte kurz inne und prüfe den Boden, bevor du losgehst.",
+  "upright": "Erwäge für diese Reflexionsübung eine kleine neue Erfahrung und prüfe zuerst ihre praktischen Bedingungen.",
+  "reversed": "Frage bei der Umkehrung, was du übersehen haben könntest; sie erkennt keine verborgene Blockade und stellt keine Diagnose.",
   "k": {
-   "essence": "Der Schritt, den du machst, bevor du dich bereit fühlst.",
-   "imagery": "Ein Reisender steht unter einer hellen Sonne am Rand einer Klippe, den Kopf nach oben gerichtet, ohne nach unten zu schauen. An einem Stock hängt ein kleines Bündel, in einer Hand hält er eine weiße Rose, und ein kleiner weißer Hund springt ihm um die Füße. In der Ferne erheben sich Berge.",
-   "why": "Null ist die Zahl der Möglichkeiten, bevor überhaupt etwas gezählt wurde – darum geht es bei dieser Karte um einen Anfang, bei dem noch nichts bewiesen ist. Der Klippenrand ist der Moment der Entscheidung. Der erhobene Blick steht für Vertrauen statt Planung, das leichte Bündel für Reisen ohne Ballast und der Hund für den Instinkt, der dich antreibt.",
+   "essence": "Neugier kann mit einem kleinen, überlegten Versuch beginnen.",
+   "imagery": "Eine Figur hält am Abgrund inne, blickt aufwärts und trägt Rose sowie Bündel am Stab; daneben springt ein Hund. Die Karte trägt die 0. Das sind Bilddetails, keine Handlungsanweisungen.",
+   "why": "Waite beschreibt ein Innehalten, keinen vollendeten Sprung. Neugier oder fehlende Aufmerksamkeit sind unsere möglichen Assoziationen. Das Bild legt weder Hundemotiv noch feste Nullbedeutung fest.",
    "upright": {
-    "core": "Ein Anfang, dessen Ergebnis noch niemand kennen kann, und die Einladung, trotzdem loszugehen.",
-    "light": "Neugier, Verspieltheit, die Bereitschaft, Anfänger zu sein, Vertrauen",
-    "shadow": "Begeisterung, die die Grundlagen überspringt",
-    "love": "Offenheit, einem Menschen oder einer Erfahrung ohne Drehbuch zu begegnen; in einer bestehenden Beziehung gemeinsam etwas Neues ausprobieren.",
-    "work": "Ein unerprobtes Projekt beginnen, eine neue Richtung einschlagen, Ja sagen, bevor du dich qualifiziert fühlst.",
-    "question": "Was würde ich anfangen, wenn ich akzeptiere, dass ich am Anfang ungeschickt sein werde?"
+    "core": "Ein möglicher Impuls: Unbekanntes erkunden, ohne Unsicherheit als Erlaubnis zum Ignorieren der Bedingungen zu nehmen.",
+    "light": "Neugier, kleine Aufgabe versuchen, nach Voraussetzungen fragen",
+    "shadow": "Begeisterung, die praktische Grenzen übersieht",
+    "love": "Als Beziehungsimpuls: Besprecht eine neue gemeinsame Aktivität und fragt nach beider Wünschen. Die Karte belegt keine fremden Gefühle oder Zustimmung.",
+    "work": "Als Projektimpuls: Teste einen kleinen Teil vor einer größeren Zusage. Kein Erfolgsversprechen oder Auftrag, Arbeit über deine Möglichkeiten hinaus anzunehmen.",
+    "question": "Was könnte ich klein ausprobieren und vorher prüfen?"
    },
    "reversed": {
-    "core": "Die Energie des Anfangs ist da, wird aber zurückgehalten, überstürzt oder geht ins Leere.",
+    "core": "Unsere Umkehrungsübung fragt nach Aufmerksamkeit und Vorbereitung; sie ist kein automatisches Gegenteil oder bestätigter innerer Zustand.",
     "modes": [
-     "Blockiert: Zögern am Rand, immer nur vorbereiten.",
-     "Übermaß: der Sprung, ohne auf den Boden zu schauen.",
-     "Nach innen: ein Plan, den du für dich behältst, weil er real wird, sobald du ihn aussprichst."
+     "Übersehenes Detail: Welche Information prüfen?",
+     "Eile: Lässt sich der Versuch verkleinern?",
+     "Zögern: Welche konkrete Frage kann ich vor der Entscheidung klären?"
     ],
-    "question": "Warte ich auf eine Gewissheit, die nicht kommen wird, oder bewege ich mich so schnell, dass ich gar nicht wirklich wähle?"
+    "question": "Was weiß ich, was nehme ich an, was lässt sich prüfen?"
    }
+  },
+  "evidence": {
+   "answer": "Hier dient der Narr als Impuls für Neugier und einen überlegten ersten Versuch, nicht als Versprechen eines sicheren oder erfolgreichen Sprungs.",
+   "groupNote": "Dieses Deck bezeichnet den Narren mit 0. Das beweist weder unbegrenztes Potenzial noch eine notwendige Lebensphase oder größere Bedeutung.",
+   "sections": [
+    {
+     "h": "Zwei Quellenteile mit unterschiedlichen Aufgaben",
+     "p": [
+      "In Teil II, §2, 0 beschreibt Waite die innehaltende Figur und den noch springenden Hund, gefolgt von spiritueller Deutung. Ein Sprung ist nicht vollendet. Unser kleiner Versuch ist eine redaktionelle Anwendung, keine Aufforderung Waites zum Risiko.",
+      "Teil III, §3 bietet eine andere Wahrsageliste, unter anderem Torheit aufrecht und Nachlässigkeit umgekehrt. Historische Begriffe für Geisteszustände verwenden wir nicht als Diagnosen. Keine Liste beweist Charakter oder Zukunft; „Neuanfänge“ gilt hier nicht als Zitat dieses Eintrags."
+     ]
+    },
+    {
+     "h": "Eigenes Beispiel: ein neues Handwerk ausprobieren",
+     "p": [
+      "Frage: „Was könnte ich vor einem längeren Kurs ausprobieren?“. Stell dir die aufrechte Karte auf „Ein möglicher erster Schritt“ vor. Beschreibe Bündel, Blick und Rand vor der Deutung. Eine erfundene Übung, kein Kundenbericht.",
+      "Eine Lesart verbindet leichtes Gepäck mit wenig Material, die fremde Umgebung mit Lernen und den Rand mit Bedingungen. Frage nach einer Probestunde, bringe das genannte Material mit und kläre verfügbare Hilfe. Das sind unsere Schlüsse und Prüfhandlungen, kein Beweis für einen passenden Kurs.",
+      "Alternative: Vielleicht gibt es schon genug Möglichkeiten und du übersiehst die Anleitung. Lies Details vor einer neuen Planung. Vergleiche beide Deutungen mit Bekanntem; behalte Unpassendes in den [Notizen](read). Drehen verändert den Blickwinkel, beweist aber kein verborgenes Problem."
+     ]
+    },
+    {
+     "h": "Nachprüfbare Quellen",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, Teil II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, 0; §3 erklärt die Stellung nach XX im Buch. Das stützt Pause und Unterschied zwischen Kennzeichnung und Reihenfolge, keine universelle Nulltheorie.",
+      "[Teil III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, Zero—The Fool, stützt den historischen Listenvergleich. Verwendet: Transkription des Nachdrucks von 1922. Beziehungs-/Arbeitsimpulse und Handwerksübung sind redaktionell; Kontextseiten brauchen eigene Prüfungen."
+     ]
+    },
+    {
+     "h": "Prüfvermerk · 1. November 2026",
+     "p": [
+      "KI-gestützt wurden Textstellen, tatsächliches Kartenbild und Website verglichen. Uneingeschränkter Sprungrat, feste Hund-/Nullsymbolik und die Behauptung, ausgesprochenes Planen mache etwas real, wurden entfernt. Die unbelegte Zuordnung wird hier nicht angezeigt. Unabhängige Fach-/Muttersprachprüfung unbestätigt; Korrekturen über die [Methodikseite](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_01_magician": {
