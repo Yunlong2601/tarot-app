@@ -164,61 +164,76 @@
    ]
   },
   "tarot-suits": {
-   "title": "The four tarot suits: Wands, Cups, Swords and Pentacles",
-   "description": "What the four tarot suits mean: Wands for energy and ambition, Cups for feelings and love, Swords for thoughts and conflict, Pentacles for money, work and the body.",
+   "title": "The four tarot suits: sources, questions and a worked example",
+   "description": "Learn Wands, Cups, Swords and Pentacles as reading prompts, check the elemental convention, and follow an original Four of Wands/Four of Cups example.",
    "h1": "The four tarot suits",
-   "answer": "Wands stand for energy and ambition, Cups for feelings and relationships, Swords for thoughts and conflict, and Pentacles for money, work and the body.",
-   "minutes": 5,
+   "answer": "Wands, Cups, Swords and Pentacles organize the 56 Minor Arcana. Their themes and elements are interpretive conventions: useful prompts, not a formula for events, personality or health.",
+   "minutes": 8,
    "sections": [
     {
-     "h": "Why the suits matter",
+     "h": "Four groups, not half a meaning",
      "p": [
-      "Each of the 56 Minor Arcana cards belongs to one of four suits. If you know what a suit is about, you already know half of every card in it. The other half comes from its [number](learn/tarot-numbers) or [court rank](learn/court-cards)."
+      "This deck has four suits of fourteen cards: Ace to Ten and four court cards, for a total of 56. Waite describes the structure in Part I, §3. A suit helps compare cards, but it does not supply “half” a meaning. Check the [number](learn/tarot-numbers), [court rank](learn/court-cards), picture and spread position together.",
+      "Here we use Wands–Fire, Cups–Water, Swords–Air and Pentacles–Earth. The four Ace titles in Liber LXXVIII explicitly use those pairings. This documents one correspondence system, not a natural law or a rule for every deck. Its designs are not interchangeable with this site’s card images."
      ]
     },
     {
-     "h": "Wands: fire, energy and drive",
+     "h": "Four suits as questions you can try",
      "p": [
-      "Wands are linked with the element of Fire. They are about passion, ambition, creativity and action. A Wands card often asks what you want and how hard you are willing to go after it. Start with the [Ace of Wands](cards/wands-ace), a spark of new energy."
+      "Wands: what would I like to begin or practise? Energy and initiative are our teaching prompts. With the [Ace of Wands](cards/wands-ace), name one small action you can actually try, then notice what makes starting easier.",
+      "Cups: what am I noticing about connection or feeling? With the [Two of Cups](cards/cups-two), compare what you give and receive in one interaction. Separate what you observed from what you are assuming.",
+      "Swords: which thought, decision or boundary needs attention? With the [Ace of Swords](cards/swords-ace), write one clear question and distinguish what you know from what you still need to ask.",
+      "Pentacles: what resources, work or practical support are involved? The family and house in the [Ten of Pentacles](cards/pentacles-ten) can prompt an inventory of shared time, space and tools. Which arrangements are already agreed, and which need a conversation?"
      ]
     },
     {
-     "h": "Cups: water, feelings and love",
+     "h": "Check the picture before using a keyword",
      "p": [
-      "Cups are linked with Water. They cover emotions, love, friendship, intuition and dreams. A spread full of Cups means the heart is at the centre of the question. The [Two of Cups](cards/cups-two) is the classic card of a close bond."
+      "Compare the [Four of Wands](cards/wands-four) and [Four of Cups](cards/cups-four). Waite describes a garland on four staves with two figures holding flowers, and a seated person beneath a tree with three cups and another offered (Part III, §2, the two Four entries). The number is shared; the scenes differ. Neither “Four means stability” nor a suit label explains the whole picture."
      ]
     },
     {
-     "h": "Swords: air, thoughts and conflict",
+     "h": "What a suit balance does not establish",
      "p": [
-      "Swords are linked with Air. They are about the mind: ideas, words, decisions, truth and also stress and arguments. Swords cards can look harsh, but they often show clarity after a hard truth. See the [Ace of Swords](cards/swords-ace) for a breakthrough idea."
+      "Counting suits describes the cards drawn. Missing Cups do not prove that you suppress feelings, and many Swords do not diagnose a condition or predict an argument. Ask whether an observation is useful for your actual question rather than using counts to label yourself or someone else.",
+      "Our [elemental dignities](tools/elements) tool applies a correspondence model to compare cards. “Support” and “opposition” are labels inside that model, not measured physical forces or probabilities of success. You can set that model aside when it obscures the image or question."
      ]
     },
     {
-     "h": "Pentacles: earth, money and the body",
+     "h": "Original example: planning a small gathering",
      "p": [
-      "Pentacles, sometimes called Coins, are linked with Earth. They cover work, money, home, health and everything slow and solid. The [Ten of Pentacles](cards/pentacles-ten) shows lasting security built over time."
+      "Observation: the Four of Wands presents a garlanded setting and flower-bearing figures; the Four of Cups presents a seated figure and an offered cup. Those details can be checked in Waite. The following gathering scenario is our teaching example, not a reported client reading or a historical instruction.",
+      "Reasoning: ask “How can I plan time with friends that suits me?”. Put the Four of Wands in “What can I prepare?” and the Four of Cups in “What should I check with myself?”. One possible link is a simple welcoming setting plus an honest check of your capacity before accepting plans. A small action: propose one manageable activity and say what time you can give.",
+      "Alternative: in “What pressures me?”, the garland could invite reflection on an expectation to celebrate; in “What can help?”, the seated figure could suggest pausing before saying yes. Compare these possibilities with your circumstances. The cards cannot tell you how your friends feel or guarantee that a meeting will go well."
      ]
     },
     {
-     "h": "Reading the suit balance",
+     "h": "Sources and their limits",
      "p": [
-      "In a spread, notice which suit appears most and which is missing. Many Swords and no Cups can mean you are thinking a lot about something you have not let yourself feel. Our [elemental dignities](tools/elements) tool shows how cards of different elements support or weaken each other."
+      "[A. E. Waite, The Pictorial Key to the Tarot, Part I](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_1), §3: four suits, ten pip cards and four court cards each. This supports the deck structure, not a fixed percentage of a card’s meaning.",
+      "[Liber LXXVIII, The Titles of the Symbols](https://sacred-texts.com/oto/lib78.htm), items 1–4: the Ace titles pair Wands with Fire, Cups with Water, Swords with Air and Pentacles with Earth. This is a primary text of a correspondence tradition; it does not verify the system as a physical mechanism or make its pictures identical to Waite–Smith designs.",
+      "[Waite, Part III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §2: Four of Wands, Four of Cups, Two of Cups, Ace of Swords and Ten/King of Pentacles. We checked the scene descriptions and the limits of money-only readings. The consulted Waite transcription is the 1922 reprint. Our teaching questions and gathering example are original applications, not validated predictions."
+     ]
+    },
+    {
+     "h": "Check record · 1 November 2026",
+     "p": [
+      "AI-assisted comparison checked the four-suit structure, Ace elemental titles, named image descriptions and this site’s element-comparison implementation. It replaced the fixed “half a meaning” claim and unwarranted inferences from suit counts, and separated sources from original prompts. Independent expert and native-language review remain unconfirmed. This comparison did not establish authorship of the Liber transcription. Specific corrections can be sent through our [methodology page](methodology#corrections)."
      ]
     }
    ],
    "faq": [
     {
      "q": "Which suit is about love?",
-     "a": "Cups are the suit of love and feelings, though a love reading can include any suit."
+     "a": "Cups can prompt questions about feelings and reciprocity in this teaching approach. Any suit can contribute to a relationship question; none proves another person’s feelings or a future relationship."
     },
     {
      "q": "Which suit is about money?",
-     "a": "Pentacles are the suit of money, work, home and material security."
+     "a": "Pentacles can help you reflect on resources and work. A suit or card is not evidence of future income, secure wealth or a suitable financial decision."
     },
     {
      "q": "Are Swords bad cards?",
-     "a": "No. Swords show the mind, so they include worry and conflict, but also honesty, clear thinking and good decisions."
+     "a": "Not as a fixed label. Look at the particular scene, your question and its position. Swords are not a diagnosis, a prediction of conflict or a reason to call someone a bad person."
     }
    ]
   },

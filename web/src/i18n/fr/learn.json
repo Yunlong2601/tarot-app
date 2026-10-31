@@ -164,61 +164,76 @@
    ]
   },
   "tarot-suits": {
-   "title": "Les quatre couleurs du tarot : Bâtons, Coupes, Épées et Deniers",
-   "description": "Ce que signifient les quatre couleurs du tarot : les Bâtons pour l'énergie et l'ambition, les Coupes pour les sentiments et l'amour, les Épées pour les pensées et les conflits, les Deniers pour l'argent, le travail et le corps.",
+   "title": "Les quatre familles du tarot : sources, questions et exemple",
+   "description": "Utilisez Bâtons, Coupes, Épées et Deniers comme repères, vérifiez les éléments et suivez un exemple original avec les deux Quatre.",
    "h1": "Les quatre couleurs du tarot",
-   "answer": "Les Bâtons parlent d'énergie et d'ambition, les Coupes de sentiments et de relations, les Épées de pensées et de conflits, et les Deniers d'argent, de travail et de corps.",
-   "minutes": 5,
+   "answer": "Les quatre familles organisent les 56 arcanes mineurs. Leurs thèmes et éléments sont des conventions de lecture, pas des formules sur les événements, la personnalité ou la santé.",
+   "minutes": 8,
    "sections": [
     {
-     "h": "Pourquoi les couleurs comptent",
+     "h": "Quatre groupes, pas une moitié de sens",
      "p": [
-      "Chacun des 56 Arcanes mineurs appartient à l'une des quatre couleurs. Si tu sais de quoi parle une couleur, tu connais déjà la moitié de chacune de ses cartes. L'autre moitié vient de son [nombre](learn/tarot-numbers) ou de son [rang de figure](learn/court-cards)."
+      "Ce jeu comporte quatorze cartes par famille : As à Dix et quatre figures, soit 56. Waite décrit cette structure en partie I, §3. Une famille ne donne pas une « moitié » mesurable du sens. Regardez aussi le [nombre](learn/tarot-numbers), le [rang](learn/court-cards), l’image et la position.",
+      "Ici : Bâtons–Feu, Coupes–Eau, Épées–Air et Deniers–Terre. Les titres des quatre As de Liber LXXVIII donnent ces paires. Cela documente un système de correspondances, pas une loi naturelle de tous les jeux ; ses dessins ne se confondent pas avec les nôtres."
      ]
     },
     {
-     "h": "Bâtons : feu, énergie et élan",
+     "h": "Quatre familles comme questions",
      "p": [
-      "Les Bâtons sont liés à l'élément Feu. Ils parlent de passion, d'ambition, de créativité et d'action. Une carte de Bâtons demande souvent ce que tu veux et jusqu'où tu es prêt·e à aller pour l'obtenir. Commence par l'[As de Bâtons](cards/wands-ace), une étincelle de nouvelle énergie."
+      "Bâtons : que voudrais-je commencer ou pratiquer ? Énergie et initiative sont nos repères. Avec l’[As de Bâtons](cards/wands-ace), choisissez une petite action faisable et observez ce qui facilite le départ.",
+      "Coupes : que remarquez-vous dans vos sentiments et vos liens ? Avec le [Deux de Coupes](cards/cups-two), comparez ce que vous donnez et recevez dans une interaction. Séparez observation et supposition.",
+      "Épées : quelle pensée, décision ou limite mérite attention ? Avec l’[As d’Épées](cards/swords-ace), écrivez une question claire et distinguez ce que vous savez de ce qu’il reste à demander.",
+      "Deniers : quels moyens, travail ou soutiens sont concernés ? Famille et maison du [Dix de Deniers](cards/pentacles-ten) invitent à examiner temps, espaces et outils partagés. Quels accords existent, lesquels demandent une discussion ?"
      ]
     },
     {
-     "h": "Coupes : eau, sentiments et amour",
+     "h": "L’image avant le mot-clé",
      "p": [
-      "Les Coupes sont liées à l'Eau. Elles recouvrent les émotions, l'amour, l'amitié, l'intuition et les rêves. Un tirage rempli de Coupes signifie que le cœur est au centre de la question. Le [Deux de Coupes](cards/cups-two) est la carte classique d'un lien proche."
+      "Comparez le [Quatre de Bâtons](cards/wands-four) et le [Quatre de Coupes](cards/cups-four). Waite décrit une guirlande sur quatre bâtons et des personnages avec des fleurs, puis une personne sous un arbre avec trois coupes et une autre offerte (partie III, §2). Même nombre, scènes différentes : le nombre ou la famille ne suffisent pas."
      ]
     },
     {
-     "h": "Épées : air, pensées et conflits",
+     "h": "Ce qu’une proportion ne démontre pas",
      "p": [
-      "Les Épées sont liées à l'Air. Elles parlent de l'esprit : les idées, les mots, les décisions, la vérité, mais aussi le stress et les disputes. Les Épées peuvent paraître dures, mais elles montrent souvent la clarté qui suit une vérité difficile. Voir l'[As d'Épées](cards/swords-ace) pour une idée qui change tout."
+      "Compter décrit les cartes tirées. L’absence de Coupes ne prouve pas des sentiments refoulés ; beaucoup d’Épées ne diagnostiquent rien ni ne prédisent une dispute. Testez l’utilité pour la question sans étiqueter quelqu’un.",
+      "L’outil des [dignités élémentaires](tools/elements) applique un modèle. « Soutien » et « opposition » sont ses catégories, pas des forces physiques mesurées ou des probabilités de succès. Laissez-le de côté s’il masque l’image ou la question."
      ]
     },
     {
-     "h": "Deniers : terre, argent et corps",
+     "h": "Exemple original : préparer une petite rencontre",
      "p": [
-      "Les Deniers, parfois appelés Pentacles ou Pièces, sont liés à la Terre. Ils recouvrent le travail, l'argent, le foyer, la santé et tout ce qui est lent et solide. Le [Dix de Deniers](cards/pentacles-ten) montre une sécurité durable bâtie avec le temps."
+      "Observation : le Quatre de Bâtons présente guirlande et figures fleuries ; le Quatre de Coupes, une personne assise et une coupe offerte. Les détails se vérifient chez Waite. La rencontre suivante est notre exemple pédagogique, pas un cas client ou une instruction historique.",
+      "Question : « Comment prévoir un moment avec des amis qui me convienne ? ». Bâtons en « Que préparer ? » et Coupes en « Que vérifier en moi ? » peuvent relier un cadre accueillant simple à une vérification de votre disponibilité avant de dire oui. Proposez une activité faisable et précisez le temps disponible.",
+      "Autre lecture : en « Quelle pression ? », la guirlande peut évoquer une obligation de faire la fête ; en « Quelle aide ? », la posture assise peut inviter à faire une pause avant d’accepter. Comparez à votre situation. Les cartes ne lisent pas vos amis et ne garantissent pas une rencontre réussie."
      ]
     },
     {
-     "h": "Lire l'équilibre des couleurs",
+     "h": "Sources et limites",
      "p": [
-      "Dans un tirage, remarque quelle couleur revient le plus et laquelle manque. Beaucoup d'Épées et aucune Coupe peuvent signifier que tu penses beaucoup à quelque chose que tu ne t'es pas laissé·e ressentir. Notre outil de [dignités élémentaires](tools/elements) montre comment les cartes d'éléments différents se soutiennent ou s'affaiblissent."
+      "[A. E. Waite, The Pictorial Key to the Tarot, partie I](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_1), §3 : quatre familles, dix cartes et quatre figures chacune. Cela étaye la structure, pas un pourcentage de sens.",
+      "[Liber LXXVIII, The Titles of the Symbols](https://sacred-texts.com/oto/lib78.htm), points 1–4 : As du Feu, de l’Eau, de l’Air et de la Terre. Source primaire d’une tradition de correspondances, pas une preuve physique ou des dessins identiques à ceux de Waite–Smith.",
+      "[Waite, partie III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §2 : Quatre de Bâtons, Quatre/Deux de Coupes, As d’Épées, Dix/Roi de Deniers. Vérification des scènes et des limites d’une lecture uniquement monétaire ; transcription de la réimpression de 1922. Nos questions et rencontre sont des applications originales, pas des prédictions validées."
+     ]
+    },
+    {
+     "h": "Relevé de vérification · 1er novembre 2026",
+     "p": [
+      "La comparaison assistée par IA a vérifié structure, titres élémentaires, images et logique de notre outil. Elle a corrigé la « moitié du sens » et les déductions d’un état intérieur à partir des proportions, en séparant source et déduction. Révisions indépendantes d’expert et de locuteur natif non confirmées. L’auteur de la transcription de Liber n’a pas été établi. Corrections via [notre méthode](methodology#corrections)."
      ]
     }
    ],
    "faq": [
     {
      "q": "Quelle couleur parle d'amour ?",
-     "a": "Les Coupes sont la couleur de l'amour et des sentiments, même si une lecture sur l'amour peut comporter n'importe quelle couleur."
+     "a": "Coupes invite ici à réfléchir aux sentiments et à la réciprocité. Toute famille peut contribuer ; aucune ne prouve un sentiment d’autrui ou une relation future."
     },
     {
      "q": "Quelle couleur parle d'argent ?",
-     "a": "Les Deniers sont la couleur de l'argent, du travail, du foyer et de la sécurité matérielle."
+     "a": "Deniers aide à réfléchir aux moyens et au travail sans prouver des revenus futurs, une richesse sûre ou une décision financière adaptée."
     },
     {
      "q": "Les Épées sont-elles de mauvaises cartes ?",
-     "a": "Non. Les Épées représentent l'esprit : elles comprennent donc l'inquiétude et le conflit, mais aussi l'honnêteté, la pensée claire et les bonnes décisions."
+     "a": "Ce n’est pas une étiquette fixe. Regardez image, question et position. Épées n’est ni diagnostic, ni annonce de conflit, ni raison de juger une personne."
     }
    ]
   },

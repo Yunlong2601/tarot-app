@@ -31,7 +31,7 @@ const jsonLd = [
     inLanguage: L.tag,
     url: page,
     mainEntityOfPage: page,
-    ...(evidence ? { dateModified:evidence.checkedAt, citation:evidence.sources.map(source=>({"@type":"Book",name:source.title,url:source.url,author:{"@type":"Person",name:"Arthur Edward Waite"}})) } : {}),
+    ...(evidence ? { dateModified:evidence.checkedAt, citation:evidence.sources.map(source=>({"@type":"Book",name:source.title,url:source.url,...('author' in source ? {author:{"@type":"Person",name:source.author}} : {})})) } : {}),
     image: new URL("og.png", Astro.site).href,
     author: { "@type": "Organization", name: "ShenTech" },
     publisher: { "@type": "Organization", name: "ShenTech", logo: { "@type": "ImageObject", url: new URL("icon.png", Astro.site).href } },
