@@ -390,47 +390,74 @@
    ]
   },
   "reversed-cards": {
-   "title": "Reversed tarot cards: what upside-down cards mean",
-   "description": "How to read reversed tarot cards: blocked or inner energy, too much or too little of the upright meaning, and whether you need to use reversals at all.",
+   "title": "Reversed tarot cards: sources, questions and a worked example",
+   "description": "Read reversals without automatic opposites or promised outcomes. Compare three Waite entries, try optional questions and follow an original two-card example.",
    "h1": "Reversed tarot cards",
-   "answer": "A reversed card usually shows the upright meaning blocked, turned inward, delayed or out of balance, not simply its opposite.",
-   "minutes": 4,
+   "answer": "A reversal records that a card is upside down. How you interpret it depends on the convention you choose, the picture and the question; it does not automatically mean the opposite, a bad outcome or a guaranteed delay.",
+   "minutes": 8,
    "sections": [
     {
-     "h": "What a reversal is",
+     "h": "Start with the orientation, then choose a convention",
      "p": [
-      "A card is reversed when it lands upside down. Some readers use reversals and some don't. Both ways are fine, as long as you decide before you shuffle."
+      "A reversed card is upside down relative to your chosen reading direction. Before drawing, decide whether to distinguish orientations or read every card upright. For this exercise, either is an available choice. Write it down so you do not change the rule just to get a more welcome answer."
      ]
     },
     {
-     "h": "Four ways to read a reversal",
+     "h": "Four questions you can try",
      "p": [
-      "Blocked: the card's energy is there but can't flow. The reversed [Ace of Wands](cards/wands-ace) is a creative spark that won't catch.",
-      "Inward: the meaning is happening inside you rather than around you. The reversed [Hermit](cards/major-09-hermit) can mean loneliness rather than chosen solitude.",
-      "Too much or too little: the card's quality is out of balance. The reversed [Strength](cards/major-08-strength) can be self-doubt, or holding on too hard.",
-      "Delayed: what the card promises is coming, but more slowly."
+      "Blocked: what makes this quality difficult to put into practice? With the [Ace of Wands](cards/wands-ace), you might ask what would let a small creative idea get started. This is our practice prompt, not a universal definition of a reversal.",
+      "Inward: what do I notice in my own response? With [the Hermit](cards/major-09-hermit), compare chosen time alone with feeling cut off. Do not assume the card diagnoses either.",
+      "Too much or too little: what needs adjusting? With [Strength](cards/major-08-strength), consider whether your approach needs more patience or a firmer boundary, then compare that thought with observable circumstances.",
+      "Timing: is there a practical obstacle I can check? A reversal cannot establish that an event is promised or will arrive later. Choose a useful question rather than treating all four lenses as facts about the draw."
      ]
     },
     {
-     "h": "A reversal is not always bad",
+     "h": "Three historical entries that resist one rule",
      "p": [
-      "Difficult cards often soften when reversed. The reversed [Tower](cards/major-16-tower) can mean a crisis avoided or a change you are already through, and the reversed [Ten of Swords](cards/swords-ten) shows recovery after the worst has passed.",
-      "Every card page on this site gives both the upright and reversed meaning, so you can compare them."
+      "In Waite’s Part III, §3, [the Sun](cards/major-19-sun) reversed retains the upright sense to a lesser degree. [The Tower](cards/major-16-tower) reversed includes a reduced version of its difficult meaning, but also oppression and confinement. That does not establish that a crisis has been avoided.",
+      "Part III, §2 gives reversed [Ten of Swords](cards/swords-ten) a possible advantage or success that does not last. It does not guarantee recovery. These different entries support comparing each card, not a rule that reversals always improve, worsen or negate it. Historical fortune-telling lists are not evidence that an event will happen."
+     ]
+    },
+    {
+     "h": "Keep the orientation visible while practising",
+     "p": [
+      "In the [reading workspace](read), choose a card and set its reversed checkbox to match your physical draw. Read the question and position alongside the orientation; you can compare the card page’s upright and reversed sections. Recording a choice does not validate its meaning. If you are practising upright-only, leave the checkbox clear rather than changing it after seeing the result."
+     ]
+    },
+    {
+     "h": "Original example: making practice enjoyable again",
+     "p": [
+      "Observe [the Sun](cards/major-19-sun), whose child and white horse Waite describes in Part II, §2, and the working craftsperson in [Eight of Pentacles](cards/pentacles-eight), Part III, §2. In this invented exercise the Sun is reversed in “What deserves attention?” and the Eight is upright in “What can I try?”. The pictured objects remain the same when the card is turned.",
+      "Ask “What could make my hobby practice more enjoyable this week?”. Borrowing the Sun’s reduced positive sense as a prompt, one possible reading is that satisfaction feels muted; the Eight suggests trying a manageable piece of hands-on practice. Choose one small technique you want to try and note what you actually enjoy. That is an editorial inference and an action to test, not Waite’s instruction or a client story.",
+      "Alternative: if you are already practising too much, the Eight may draw attention to repetitive work rather than invite more of it. Try a shorter session or a break and compare the result. Neither orientation tells you your emotional state, promises improvement or decides how much effort is right for you."
+     ]
+    },
+    {
+     "h": "Sources and their limits",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, Part III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §2 (Ten of Swords; Eight of Pentacles) and §3 (Sun; Tower), supports the specific historical comparisons above. The four questions are our teaching options; this check does not establish how commonly readers use them.",
+      "[Part II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, XIX, supports the Sun image description. The consulted transcription is the 1922 reprint. Source descriptions, historical meanings and our hobby example serve different purposes; none supplies a verified prediction."
+     ]
+    },
+    {
+     "h": "Check record · 1 November 2026",
+     "p": [
+      "AI-assisted comparison checked the named passages and the website’s orientation checkbox and matching meaning display. Unsupported “usually”, automatic softening and promised-delay claims were replaced with specific comparisons and optional questions. Independent expert and native-language review remain unconfirmed. Send a specific correction through our [methodology page](methodology#corrections)."
      ]
     }
    ],
    "faq": [
     {
      "q": "Do I have to read reversed cards?",
-     "a": "No. Many readers turn every card upright and read only upright meanings. Choose one approach and keep it."
+     "a": "No. For this exercise you can choose upright-only or distinguish orientations. Decide beforehand and record the choice; no popularity claim or special predictive advantage is established here."
     },
     {
      "q": "Is a reversed card always negative?",
-     "a": "No. A reversal can soften a hard card, and often shows a lesson that is inward or slower rather than bad."
+     "a": "No single good/bad rule fits the historical entries compared here. Start with the card, position and question rather than assigning a result from its orientation alone."
     },
     {
      "q": "How do I get reversed cards when shuffling?",
-     "a": "Turn part of the deck around as you shuffle, or spread the cards on a table and mix them in circles."
+     "a": "For a physical-deck exercise, you can rotate part of the deck before mixing it. Keep the same viewing direction when laying out the cards. This introduces different orientations; it does not prove that a draw carries a message."
     }
    ]
   },
