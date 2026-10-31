@@ -4,6 +4,7 @@ import {parseHTML} from 'linkedom';
 import {LESSON_EVIDENCE} from '../src/lib/editorial.ts';
 const locales=['en','zh-hans','zh-hant','es','de','ja','fr','ru'];
 const lessons = {
+ 'how-to-read-tarot': {sources:2,cards:['cups-five','swords-two','pentacles-three']},
  'asking-questions': {sources:2,cards:['major-01-magician','pentacles-two','pentacles-eight']},
  'reversed-cards': {sources:2,cards:['wands-ace','major-09-hermit','major-08-strength','major-19-sun','major-16-tower','swords-ten','pentacles-eight']},
  'court-cards': {sources:2,cards:['pentacles-page','wands-knight','pentacles-knight','cups-queen','swords-king']},
@@ -44,4 +45,4 @@ for(const locale of locales){
 assert.equal(evidence.independentExpertReview,false);
 assert.equal(evidence.nativeLanguageReview,false);
 }
-console.log('Editorial evidence: forty-eight questions/reversal/court/suits/numbers/arcana lessons include sources, original example, limited check record and exact citations; no independent-human-review claim. Does not validate other articles or translation quality.');
+console.log('Editorial evidence: fifty-six foundational article-locale routes include sources, original example, limited check record and exact citations; no independent-human-review claim. Does not validate other articles or translation quality.');

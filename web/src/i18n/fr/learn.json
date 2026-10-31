@@ -25,70 +25,70 @@
  },
  "guides": {
   "how-to-read-tarot": {
-   "title": "Comment lire les cartes du tarot : guide pour débutants",
-   "description": "Comment lire les cartes du tarot pas à pas : poser une question claire, mélanger, disposer un tirage, lire chaque carte selon sa position et relier les cartes en une seule histoire.",
+   "title": "Lire le tarot : une pratique avec sources et exemple",
+   "description": "Choisir une question, noter le tirage, comparer images et positions et examiner une interprétation. Avec sources et exemple original à trois cartes.",
    "h1": "Comment lire les cartes du tarot",
-   "answer": "Pour lire le tarot, pose une question claire, mélange, dispose les cartes en tirage, lis chaque carte selon sa position, puis observe comment les cartes se répondent.",
-   "minutes": 6,
+   "answer": "Essaie une courte réflexion : choisis question et positions, tire, décris les images, puis relie-les en une interprétation possible et une action à essayer. Sépare observation et prédiction.",
+   "minutes": 8,
    "sections": [
     {
-     "h": "Ce qu'est une lecture de tarot",
+     "h": "Ce que ce guide propose de pratiquer",
      "p": [
-      "Un jeu de tarot compte 78 cartes. Chaque carte est l'image d'une situation humaine courante : un nouveau départ, une perte, un choix, une fête. Pendant une lecture, tu tires quelques cartes et tu t'en sers comme de pistes pour regarder ta question sous de nouveaux angles.",
-      "Aujourd'hui, la plupart des gens lisent le tarot pour réfléchir, pas pour prédire. Les cartes ne décident rien à ta place. Elles t'aident à repérer ce que tu ressens déjà et à penser à ce que tu pourrais faire ensuite."
+      "Le jeu utilisé ici comporte 22 arcanes majeurs et 56 mineurs, soit 78 cartes. Cela décrit ce système, pas tous les jeux. Les images servent ici à réfléchir et à se divertir, sans prouver des faits cachés ni remplacer un conseil professionnel. Nous n’avons pas établi l’usage majoritaire du tarot ni sa capacité à révéler fidèlement tes sentiments."
      ]
     },
     {
-     "h": "Étape 1 : pose une question claire",
+     "h": "Choisir une question et une façon de tirer",
      "p": [
-      "Une bonne lecture commence par une bonne question. Les questions ouvertes qui te concernent fonctionnent le mieux, par exemple « Que dois-je comprendre à propos de mon travail ? » plutôt que « Vais-je être renvoyé·e ? ». Notre guide pour [poser ses questions au tarot](learn/asking-questions) montre comment transformer une inquiétude en une question à laquelle les cartes peuvent répondre."
+      "Écris par exemple « Que pourrais-je essayer ensuite dans ce projet ? ». Voir le [guide des questions](learn/asking-questions). Pour cet exercice, mélange d’une façon maniable et tire du dessus ; note une autre méthode si tu en utilises une. Waite prescrit trois mélanges et coupes dans sa méthode particulière, partie III, §7. Cela ne prouve pas une façon unique de mélanger pour toute pratique."
      ]
     },
     {
-     "h": "Étape 2 : mélange et tire",
+     "h": "Donner un rôle aux positions avant le tirage",
      "p": [
-      "Mélange comme il te paraît naturel, en pensant à ta question. Quand tu te sens prêt·e, arrête-toi et tire les cartes du dessus, ou coupe le jeu et tire à l'endroit de la coupe. Il n'existe pas de méthode unique et correcte : choisis-en une et garde-la."
+      "Essaie [une carte](spreads/single) pour une piste ou [situation, défi et voie à essayer](spreads/three-decision) pour trois rôles liés. Ce sont des options, pas un classement testé des méthodes débutantes. Décide avant si tu distingues les [renversements](learn/reversed-cards). Une position future décrit le cadre choisi, pas un événement garanti. Tu n’as pas à passer à de plus grands tirages."
      ]
     },
     {
-     "h": "Étape 3 : dispose un tirage",
+     "h": "Décrire, comparer et relier",
      "p": [
-      "Un tirage est une disposition dans laquelle chaque position a un sens. Les débutants s'en sortent bien avec le [tirage à une carte](spreads/single) pour se donner un fil conducteur du jour, ou avec le [tirage à trois cartes](spreads/three) pour le passé, le présent et l'avenir. Quand ces tirages te semblent faciles, essaie la [Croix celtique](spreads/celtic)."
+      "Nomme des détails visibles, consulte la [référence des cartes](cards), puis envisage leur rôle. Dans le [Cinq de Coupes](cards/cups-five), trois coupes tombées et deux debout sont des observations ; « j’ai vécu une perte » demande du contexte. [Enseignes](learn/tarot-suits), nombres et directions peuvent susciter des questions. Les compter ne prouve ni centralité émotionnelle, ni importance, ni causalité. Une première impression est une association possible, pas un fait à croire."
      ]
     },
     {
-     "h": "Étape 4 : lis chaque carte selon sa position",
+     "h": "Exemple original : reprogrammer un atelier créatif",
      "p": [
-      "Regarde d'abord l'image. Qui s'y trouve, que fait cette personne, et quelle impression s'en dégage ? Lis ensuite la signification de la carte sur sa [page de carte](cards) et demande-toi comment elle s'accorde à la position. Le Cinq de Coupes en position « passé » évoque une perte que tu as traversée, alors qu'en position « conseil » il t'invite à te tourner vers ce qui reste.",
-      "Si une carte tombe à l'envers, tu peux la lire renversée. Notre [guide des cartes renversées](learn/reversed-cards) explique des façons simples de le faire."
+      "Imagine un atelier annulé et demande « Que pourrais-je faire avant d’en organiser un autre ? ». Place à l’endroit [Cinq de Coupes](cards/cups-five), [Deux d’Épées](cards/swords-two) et [Trois de Deniers](cards/pentacles-three) sur situation, défi et voie à essayer. Waite décrit les coupes tombées/debout, un personnage aux yeux bandés équilibrant des épées et un sculpteur au travail dans un monastère. Ce sont ses descriptions ; l’atelier est inventé.",
+      "Un lien possible : le Cinq invite à reconnaître l’annulation et lister le matériel restant ; le Deux dans le défi, à examiner un choix non discuté ; le Trois, à concrétiser le travail. Demande une date possible et propose une petite tâche. Bandeau et épées ne prouvent pas que quelqu’un t’évite. C’est notre raisonnement par images et positions, pas un résultat de consultation ni une consigne de Waite.",
+      "Autre lecture : le problème pourrait être un manque d’instructions plutôt qu’une hésitation. Demande si un échantillon ou une description aiderait avant de fixer la date. Note interprétation, alternative et point à vérifier dans l’[espace de lecture](read) ou sur papier. Garde aussi ce qui ne correspond pas. Tu peux relire les notes, sans promesse de vitesse d’apprentissage ou de résultat."
      ]
     },
     {
-     "h": "Étape 5 : relie les cartes en une seule histoire",
+     "h": "Sources et portée",
      "p": [
-      "Prends maintenant du recul. Y a-t-il beaucoup de cartes d'une même couleur ? Beaucoup de [Coupes](learn/tarot-suits) placent les sentiments au centre, et beaucoup d'Arcanes majeurs annoncent un grand thème de vie. Les nombres montent-ils ou se répètent-ils ? Les personnages se regardent-ils ou se tournent-ils le dos ? Ces liens transforment des significations isolées en une seule histoire.",
-      "Termine en résumant la lecture en une ou deux phrases, et note-la. Relire d'anciens tirages est l'un des moyens les plus rapides d'apprendre."
+      "[A. E. Waite, The Pictorial Key to the Tarot, partie I](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_1), §3 : 22 majeurs et quatre enseignes de dix cartes numérotées et quatre figures chacune. Cette structure donne 78 cartes.",
+      "[Partie III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §1 aborde les images au-delà des mots-clés ; §2 décrit les trois cartes ; §7 consigne une méthode précise de mélange, coupe et positions. Nous avons consulté la transcription de la réimpression de 1922. Notre démarche, exemple et alternative sont pédagogiques, pas une citation historique ni une prédiction validée."
      ]
     },
     {
-     "h": "Comment s'exercer",
+     "h": "Vérification · 1er novembre 2026",
      "p": [
-      "Tire une carte chaque matin et imagine comment elle pourrait se manifester dans ta journée. Vérifie le soir. L'outil [carte du jour](tools/daily-card) le fait pour toi, et au bout de quelques semaines tu connaîtras la plupart du jeu sans rien avoir à chercher."
+      "La comparaison assistée par IA a porté sur les passages, la structure du jeu et des tirages et les champs de question, orientation et réflexion. Les promesses non étayées de popularité, de sens déduit des nombres et d’apprentissage rapide en quelques semaines ont été retirées. Relectures spécialisée indépendante et par des locuteurs natifs non confirmées. Corrections via la [page de méthode](methodology#corrections)."
      ]
     }
    ],
    "faq": [
     {
      "q": "Tout le monde peut-il lire le tarot ?",
-     "a": "Oui. Lire le tarot est une compétence qui s'acquiert en s'exerçant avec les images et les significations. Il n'est pas nécessaire d'avoir un don particulier."
+     "a": "Tu peux commencer l’exercice d’observation et d’écriture avec une référence à côté, sans revendiquer de don ou de pouvoir prédictif. Aucun résultat n’est établi pour chaque personne."
     },
     {
      "q": "Dois-je mémoriser les 78 cartes ?",
-     "a": "Non. Commence par apprendre les 22 Arcanes majeurs, le sens des quatre couleurs et celui des nombres. Avec cela, tu peux deviner seul·e la plupart des Arcanes mineurs."
+     "a": "Non. Consulte les cartes choisies et note un détail reconnaissable. Enseignes et nombres organisent l’étude sans remplacer l’image ni son sens complet."
     },
     {
      "q": "Combien de cartes un débutant doit-il tirer ?",
-     "a": "Entre une et trois. Une carte seule ou un tirage à trois cartes se lit facilement en profondeur, et trois cartes bien lues t'apprennent plus que dix lues à la hâte."
+     "a": "Une ou trois gardent la tâche courte. Tu peux t’y tenir ; aucun avantage d’apprentissage sur un autre nombre n’est établi ici."
     }
    ]
   },
