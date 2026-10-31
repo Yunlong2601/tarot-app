@@ -774,7 +774,7 @@
     {
       "path": "/cards/major-01-magician",
       "category": "cards",
-      "sourceComparison": "not_started",
+      "sourceComparison": "ai_assisted_passage_comparison",
       "independentExpertReview": "not_verified",
       "languageReview": {
         "en": "not_verified",

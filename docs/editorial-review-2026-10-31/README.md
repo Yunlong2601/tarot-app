@@ -4,7 +4,7 @@ The owner explicitly included all website reference content, beyond the initial 
 
 ## Current progress
 
-Eight logical references have limited AI-assisted primary-source comparisons and original worked examples in all eight locales: the seven foundational lessons and `/cards/major-00-fool`. This does not mean their translations received human review, or that all 487 routes are source-verified. Every other record, including the Fool context subpages, remains not started. A site-wide publisher component is not proof of claim checking.
+Nine logical references have limited AI-assisted primary-source comparisons and original worked examples in all eight locales: the seven foundational lessons, `/cards/major-00-fool` and `/cards/major-01-magician`. This does not mean their translations received human review, or that all 487 routes are source-verified. Every other record, including both cards’ context subpages, remains not started. A site-wide publisher component is not proof of claim checking.
 
 Work in batches: major-card references; minor-card references; contextual interpretations; spreads/question/topic references; zodiac/birth/numerology and tool formulas; navigation and publisher consistency. A contextual interpretation needs its own reasoning, not a copied historical citation that never discussed that context. Reconcile newly added/removed routes before declaring the inventory complete.
 
@@ -181,3 +181,22 @@ Actor: Codex AI assistant. Read Waite Part II §§2 (0), 3 and Part III §3 (Zer
 Whole-site progress: 8/487 limited comparisons; all independent expert/native-review states remain unverified. Evidence audit covers 56 lesson routes plus eight Fool base references, with a context non-inheritance check. Verification follows after final build.
 
 Fool release validation: 49 tests; locale parity; Astro check (0 errors/warnings, 2 existing hints); build; reader/editorial (56 lesson + 8 card routes), ritual, interaction, search-growth and beta audits passed. Chrome DOM checks at 390/768/1440px across eight locales found four evidence sections/two sources and no overflow. Chinese orientation control showed reversed meaning, hid upright meaning and passed reversed orientation to the existing workspace link; evidence stayed visible. Desktop evidence: `fool-desktop.png`. Known mobile screenshot limitation remains; no full physical accessibility or native-language acceptance claimed.
+
+
+## Magician base reference: actual source-comparison record — 1 November 2026
+
+Actor: Codex AI assistant. Read Waite Part II §2 I and Part III §3 1, inspected actual self-hosted card image and compared base-reference fields, template number/group statements and optional correspondence. Shared backend data read-only; separate contexts not marked checked.
+
+| Claim/change | Evidence | Outcome / limit |
+|---|---|---|
+| Four suit tools prove all resources are available | [Part II §2 I, revision 15274517](https://en.wikisource.org/w/index.php?oldid=15274517&title=The_Pictorial_Key_to_the_Tarot/Part_2), actual image | Four symbols and hand positions described within spiritual interpretation. Inventory/missing-resource exercise is ours, no sufficiency assurance. |
+| One is a universal focus law; intent makes possibility real | No adequate universal/causal support established | Printed I is a label; Ace comparison is study, not common life stage or guaranteed outcome. |
+| Usual Mercury correspondence | Not established by the passages consulted | Removed categorical claim from this checked base copy; template suppresses unsupported correspondence line for scoped records. Other pages/data not thereby validated or changed. |
+| Reversed means unused/private talent or manipulation | [Part III §3 1, revision 15274510](https://en.wikisource.org/w/index.php?oldid=15274510&title=The_Pictorial_Key_to_the_Tarot/Part_3) | Historical list differs from modern prompts. No diagnostic use of dated terms, inference of dishonesty or claim of universal reversed meaning. |
+| Original beginner craft demonstration | New single-card position → tools/gesture observations → materials/sample/instructions → optional willing novice clarity check | Alternative access/support constraint, no competence certification, actual client story or guaranteed success. |
+| Relationship/work fields | Bounded editorial applications | Offer/request/consent and checkable sample distinguished from factual mind-reading or professional qualification. |
+| Base vs context scope | Scoped CARD_EVIDENCE registry and individual inventory paths | Only base receives comparison/date/citations; context subpages remain not started. |
+
+Consulted transcription: 1922 reprint. Whole-site progress 9/487 limited comparisons; independent expert/native states unverified. Editorial audit now covers 56 lesson + 16 card routes. Verification follows after final build.
+
+Magician validation: 49 tests; locale parity; Astro check (0 errors/warnings, 2 existing hints); production build; reader/editorial (56 lesson + 16 card routes), ritual, interaction, search-growth and beta audits passed. Chrome DOM checks at 390/768/1440px in eight locales found four evidence sections/two sources and no overflow. Orientation selection showed reversed text and passed reversed state to the existing workspace link. Chinese desktop evidence: `magician-desktop.png`. Known mobile screenshot limitation remains; no physical accessibility or native-language approval claimed.
