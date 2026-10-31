@@ -2,33 +2,67 @@
  "major_00_fool": {
   "name": "El Loco",
   "keywords": [
-   "comienzos",
-   "espontaneidad",
-   "confianza"
+   "curiosidad",
+   "primer intento",
+   "atención"
   ],
-  "upright": "Un nuevo comienzo te pide un salto de fe. Mantén la curiosidad y la apertura a lo nuevo.",
-  "reversed": "Duda o descuido. Detente a comprobar el terreno antes de dar el paso.",
+  "upright": "Para este ejercicio, considera una experiencia nueva y pequeña, comprobando antes sus condiciones prácticas.",
+  "reversed": "Usa la inversión para preguntar qué has pasado por alto; no identifica bloqueos ocultos ni te diagnostica.",
   "k": {
-   "essence": "El paso que das antes de sentirte preparado.",
-   "imagery": "Un viajero está al borde de un precipicio bajo un sol radiante, con la cabeza alzada y sin mirar hacia abajo. Un pequeño hatillo cuelga de un palo, lleva una rosa blanca en una mano y un perrito blanco salta junto a sus talones. Al fondo, a lo lejos, se alzan montañas.",
-   "why": "El cero es el número del potencial, de antes de contar nada, así que esta carta habla de empezar sin nada demostrado. El borde del precipicio es el momento de la decisión. La mirada hacia arriba se lee como confianza más que como planificación, el hatillo ligero como viajar sin equipaje y el perro como el instinto que te anima a seguir.",
+   "essence": "La curiosidad puede empezar con un pequeño experimento pensado.",
+   "imagery": "Una figura se detiene al borde de un precipicio, mira arriba y lleva una rosa y un hatillo en una vara; un perro salta cerca. La carta está marcada con 0. Son detalles, no instrucciones para imitar la postura.",
+   "why": "Waite describe una pausa, no un salto completado. Curiosidad o falta de atención son asociaciones nuestras. La imagen no establece el motivo del perro ni un significado fijo del cero.",
    "upright": {
-    "core": "Un comienzo cuyo resultado aún no se puede saber, y una invitación a moverte de todos modos.",
-    "light": "curiosidad, juego, disposición a ser principiante, confianza",
-    "shadow": "entusiasmo que se salta lo básico",
-    "love": "Apertura a conocer a una persona o vivir una experiencia sin guion; en una relación ya existente, probar algo nuevo juntos.",
-    "work": "Empezar un proyecto sin garantías, un cambio de rumbo, decir que sí antes de sentirte capacitado.",
-    "question": "¿Qué empezaría si aceptara que al principio seré torpe?"
+    "core": "Una propuesta posible: explorar algo desconocido sin usar la incertidumbre como permiso para ignorar las condiciones.",
+    "light": "curiosidad, probar una tarea pequeña, preguntar qué hace falta",
+    "shadow": "entusiasmo que omite un límite práctico",
+    "love": "Como propuesta relacional, habla de una actividad compartida y pregunta qué quiere cada persona. La carta no establece sentimientos ni consentimiento ajenos.",
+    "work": "Como propuesta para un proyecto, prueba una parte antes de un compromiso mayor. No garantiza éxito ni indica aceptar trabajo que exceda tu capacidad.",
+    "question": "¿Qué pequeña cosa probar y qué comprobar antes?"
    },
    "reversed": {
-    "core": "La energía del comienzo está presente, pero contenida, apresurada o sin dirección.",
+    "core": "Nuestra práctica invertida pregunta por atención y preparación; no es un opuesto automático ni un estado interior verificado.",
     "modes": [
-     "Bloqueo: dudar al borde, siempre preparándote.",
-     "Exceso: saltar sin mirar el terreno.",
-     "Hacia dentro: un plan que guardas en privado porque decirlo lo volvería real."
+     "Detalle omitido: ¿qué información comprobar?",
+     "Prisa: ¿puedo reducir el experimento?",
+     "Duda: ¿hay una pregunta concreta que resolver antes de decidir?"
     ],
-    "question": "¿Estoy esperando una certeza que no llegará, o voy tan rápido que en realidad no estoy eligiendo?"
+    "question": "¿Qué sé, qué supongo y qué puedo verificar?"
    }
+  },
+  "evidence": {
+   "answer": "Aquí usamos el Loco como propuesta de curiosidad y primer ensayo considerado, no como promesa de un salto seguro o exitoso.",
+   "groupNote": "Esta baraja marca el Loco con 0. No demuestra potencial ilimitado, una etapa vital obligatoria ni mayor importancia que otra carta.",
+   "sections": [
+    {
+     "h": "Dos partes de la fuente, dos funciones",
+     "p": [
+      "En la parte II, §2, 0, Waite describe una pausa junto al precipicio y al perro aún saltando; después ofrece una lectura espiritual. La figura no ha saltado. Nuestro pequeño experimento es una aplicación editorial, no una orden suya de arriesgarse.",
+      "La parte III, §3 ofrece una lista adivinatoria diferente: incluye insensatez al derecho y descuido invertido. No usamos sus términos históricos sobre estados mentales como diagnósticos. Ninguna lista prueba carácter ni futuro; aquí «nuevos comienzos» no se atribuye como cita de esa entrada."
+     ]
+    },
+    {
+     "h": "Ejemplo original: probar una manualidad nueva",
+     "p": [
+      "Pregunta: «¿Qué podría probar antes de apuntarme a un curso largo?». Imagina esta carta al derecho en «Un primer paso posible». Observa hatillo, mirada y borde antes de asignar significado. Es un ejercicio inventado, no una historia de cliente.",
+      "Una lectura enlaza el equipaje ligero con pocos materiales, lo desconocido con aprender y el borde con comprobar condiciones. Pregunta por una sesión de prueba, lleva los materiales indicados y confirma qué ayuda habrá. Son inferencias y acciones nuestras, no evidencia de que el curso te convenga.",
+      "Alternativa: quizá ya tienes oportunidades y falta leer las instrucciones. Revisa los detalles antes de organizar algo nuevo. Compara ambas lecturas con lo que sabes y conserva lo que no encaje en tus [notas](read). Invertir la carta cambia el enfoque, sin probar un problema oculto."
+     ]
+    },
+    {
+     "h": "Fuentes que puedes consultar",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, parte II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, 0; §3 explica su posición después de XX en el libro. Respaldan la pausa y la diferencia entre etiqueta y orden, no una teoría universal del cero.",
+      "[Parte III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, Zero—The Fool, permite comparar las listas históricas. Transcripción consultada: reimpresión de 1922. Propuestas de relación/trabajo y ejercicio son nuestros; las páginas de contexto necesitan su propia comprobación."
+     ]
+    },
+    {
+     "h": "Registro de comprobación · 1 de noviembre de 2026",
+     "p": [
+      "La comparación asistida por IA comprobó pasajes, imagen real y texto. Eliminamos consejos de saltar sin matices, simbolismos fijos de perro/cero y la afirmación de que decir un plan lo vuelve real. Esta referencia no muestra la correspondencia sin fuente. Revisiones experta independiente y por hablantes nativos no confirmadas; correcciones en la [página de metodología](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_01_magician": {

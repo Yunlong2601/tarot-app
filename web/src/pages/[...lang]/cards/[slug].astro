@@ -1,4 +1,6 @@
 ---
+import { CARD_EVIDENCE } from "../../../lib/editorial";
+import Linked from "../../../components/Linked.astro";
 import ReferenceSource from "../../../components/ReferenceSource.astro";
 import BetaInvite from "../../../components/BetaInvite.astro";
 import ResumeWorkspace from "../../../components/ResumeWorkspace.astro";
@@ -19,11 +21,13 @@ const { t, url: u } = L;
 const c = CARDS[id];
 const tr = L.cards[id]!;
 const name = tr.name;
+const evidence = CARD_EVIDENCE[id as keyof typeof CARD_EVIDENCE];
+const evidenceCopy = evidence && 'evidence' in tr ? tr.evidence : undefined;
 const w = L.workspace;
 const k = c.k ? tr.k! : undefined;
 const nameOf = (x: CardId) => L.cards[x]!.name;
 const kind = c.arcana === "major" ? t("card.kindMajor", { n: c.number! }) : t("card.kindMinor", { suit: L.group(c.suit) });
-const facts = [c.element && t("card.element", { element: L.assoc(c.element) }), c.association && t("card.association", { assoc: L.assoc(c.association) })]
+const facts = evidence ? "" : [c.element && t("card.element", { element: L.assoc(c.element) }), c.association && t("card.association", { assoc: L.assoc(c.association) })]
   .filter(Boolean)
   .join(" · ");
 const i = cardIds.indexOf(id);
@@ -67,7 +71,7 @@ const faq: [string, string][] = k
   : [];
 // One plain sentence that answers "what does this card mean?" first, for
 // readers who skim and for search and AI answers that quote a page.
-const answer = t("card.answer", { name, keywords: joinAnd(L.tag, tr.keywords) });
+const answer = evidenceCopy?.answer ?? t("card.answer", { name, keywords: joinAnd(L.tag, tr.keywords) });
 const term = {
   "@context": "https://schema.org",
   "@type": "DefinedTerm",
@@ -80,6 +84,13 @@ const term = {
 };
 const jsonLd = [
   term,
+  ...(evidence ? [{
+    "@context":"https://schema.org", "@type":"Article", headline:name,
+    description:answer, url:term.url, mainEntityOfPage:term.url, inLanguage:L.tag,
+    image:term.image, dateModified:evidence.checkedAt,
+    author:{"@type":"Organization",name:"ShenTech"}, publisher:{"@type":"Organization",name:"ShenTech"},
+    citation:evidence.sources.map(source=>({"@type":"Book",name:source.title,url:source.url,author:{"@type":"Person",name:source.author}})),
+  }] : []),
   ...(faq.length
     ? [{ "@context": "https://schema.org", "@type": "FAQPage", inLanguage: L.tag, mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) }]
     : []),
@@ -123,6 +134,7 @@ const jsonLd = [
   </section>
   {['major_01_magician','major_17_star','pentacles_two','pentacles_eight'].includes(id) && <ResumeWorkspace L={L} />}
   <ReferenceSource lang={lang} path={`cards/${slug(id)}`} name={name} />
+  {evidenceCopy && <div class="ctx-links">{evidenceCopy.sections.map((section,n)=><a href={`#reference-evidence-${n+1}`}>{section.h}</a>)}</div>}
   {['major_17_star','pentacles_two','pentacles_eight'].includes(id) && <aside class="panel"><h2>{w.practice}</h2><p>{id === 'major_17_star' ? L.growth.starNote : id === 'pentacles_two' ? L.growth.twoNote : L.growth.eightNote}</p><a href={u('learn/connected-reading')}>{L.growth.exampleTitle}</a><p><a href={u("learn/practice")}>{L.journey.continuePractice}</a></p></aside>}
   <Tabs label={t("card.about", { name })} tabs={[
     { id: "meaning", label: t("card.tabMeaning") },
@@ -181,7 +193,7 @@ const jsonLd = [
         </div>
         <div class="panel">
           <h3>{c.arcana === "major" ? t("card.asMajor") : t("card.asSuit", { suit: L.group(c.suit) })}</h3>
-          <p>{L.content.groups[group as keyof typeof L.content.groups]}. {c.arcana === "major" ? t("card.majorNote") : `${c.element ? t("card.suitElement", { element: L.assoc(c.element) }) : ""}${t("card.suitNote")}`}</p>
+          <p>{evidenceCopy ? evidenceCopy.groupNote : <>{L.content.groups[group as keyof typeof L.content.groups]}. {c.arcana === "major" ? t("card.majorNote") : `${c.element ? t("card.suitElement", { element: L.assoc(c.element) }) : ""}${t("card.suitNote")}`}</>}</p>
           <p><a class="link-arrow" href={`${u("cards")}#${group}`}>{t("card.allOf", { suit: L.group(c.suit) })}</a></p>
         </div>
       </div>
@@ -225,6 +237,9 @@ const jsonLd = [
     </section>
     </div>}
   </Tabs>
+  {evidenceCopy && <section class="section legal guide" data-card-evidence>
+    {evidenceCopy.sections.map((section,n)=><section><h2 id={`reference-evidence-${n+1}`}>{section.h}</h2>{section.p.map(text=><Linked text={text} lang={lang}/>)}</section>)}
+  </section>}
   {lang === 'en' && id === 'major_20_judgement' && <SearchGrowthNotes kind="judgement" />}
   <nav class="pager" aria-label={t("card.moreCards")}>
     <a class="panel" href={u(`cards/${slug(prev)}`)}>

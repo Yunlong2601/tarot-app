@@ -2,33 +2,67 @@
  "major_00_fool": {
   "name": "Le Fou",
   "keywords": [
-   "commencements",
-   "spontanéité",
-   "confiance"
+   "curiosité",
+   "premier essai",
+   "attention"
   ],
-  "upright": "Un nouveau départ demande un acte de foi. Reste curieux·se et ouvert·e à la nouveauté.",
-  "reversed": "Hésitation ou imprudence. Prends le temps de vérifier le terrain avant d'avancer.",
+  "upright": "Pour cette réflexion, envisage une petite expérience nouvelle en vérifiant d’abord les conditions concrètes.",
+  "reversed": "À l’envers, demande ce que tu as pu négliger ; cela ne détecte aucun blocage caché et ne te diagnostique pas.",
   "k": {
-   "essence": "Le pas que tu fais avant de te sentir prêt·e.",
-   "imagery": "Un voyageur se tient au bord d'une falaise sous un soleil éclatant, la tête levée, sans regarder en bas. Un petit baluchon pend au bout d'un bâton, il tient une rose blanche à la main, et un petit chien blanc bondit à ses talons. Des montagnes s'élèvent au loin.",
-   "why": "Zéro est le nombre du potentiel, avant que rien n'ait été compté : cette carte parle donc de commencer sans rien de prouvé. Le bord de la falaise est le moment de la décision. Le regard levé se lit comme de la confiance plutôt que de la planification, le baluchon léger comme un voyage sans bagages, et le chien comme l'instinct qui pousse en avant.",
+   "essence": "La curiosité peut commencer par un petit essai réfléchi.",
+   "imagery": "Un personnage s’arrête au bord d’un précipice, regarde en haut et porte une rose et un baluchon sur un bâton ; un chien bondit près de lui. La carte porte le 0. Ce sont des détails, pas des gestes à imiter.",
+   "why": "Waite décrit un arrêt, pas un saut accompli. Curiosité et manque d’attention sont nos associations possibles. L’image n’établit ni le motif du chien ni un sens fixe du zéro.",
    "upright": {
-    "core": "Un commencement dont on ne peut pas encore connaître l'issue, et une invitation à avancer malgré tout.",
-    "light": "curiosité, jeu, accepter d'être débutant·e, confiance",
-    "shadow": "un enthousiasme qui saute les bases",
-    "love": "S'ouvrir à une rencontre ou à une expérience sans scénario ; dans une relation existante, essayer quelque chose de nouveau ensemble.",
-    "work": "Lancer un projet qui n'a pas fait ses preuves, changer de direction, dire oui avant de se sentir qualifié·e.",
-    "question": "Qu'est-ce que je commencerais si j'acceptais d'être maladroit·e au début ?"
+    "core": "Une piste : explorer l’inconnu sans faire de l’incertitude une permission d’ignorer les conditions.",
+    "light": "curiosité, petite tâche à essayer, demander le nécessaire",
+    "shadow": "enthousiasme qui néglige une limite concrète",
+    "love": "Comme piste relationnelle, discutez d’une activité commune et demandez les envies de chacun. La carte ne prouve ni sentiments ni consentement d’autrui.",
+    "work": "Comme piste de projet, teste une petite partie avant un engagement plus grand. Ni succès garanti ni consigne d’accepter au-delà de tes capacités.",
+    "question": "Quel petit essai faire et que vérifier avant ?"
    },
    "reversed": {
-    "core": "L'énergie du commencement est là, mais elle est retenue, précipitée ou ne vise rien.",
+    "core": "Notre pratique renversée interroge attention et préparation, sans contraire automatique ni état intérieur vérifié.",
     "modes": [
-     "Bloqué : l'hésitation au bord du vide, toujours en train de se préparer.",
-     "Excès : le saut sans regarder le sol.",
-     "Intérieur : un projet que tu gardes pour toi parce que le dire le rendrait réel."
+     "Détail négligé : quelle information vérifier ?",
+     "Précipitation : puis-je réduire l’essai ?",
+     "Hésitation : quelle question concrète résoudre avant de décider ?"
     ],
-    "question": "Est-ce que j'attends une certitude qui ne viendra pas, ou est-ce que j'avance si vite que je ne choisis plus vraiment ?"
+    "question": "Que sais-je, que supposé-je et que puis-je vérifier ?"
    }
+  },
+  "evidence": {
+   "answer": "Ici, le Fou invite à envisager curiosité et premier essai réfléchi, sans promettre qu’un saut sera sûr ou réussi.",
+   "groupNote": "Ce jeu marque le Fou de 0. Ce signe ne prouve ni potentiel illimité, ni étape de vie obligatoire, ni importance supérieure.",
+   "sections": [
+    {
+     "h": "Deux parties de la source, deux usages",
+     "p": [
+      "Dans la partie II, §2, 0, Waite décrit le personnage arrêté au précipice et le chien encore bondissant, puis une lecture spirituelle. Le saut n’a pas eu lieu. Notre petit essai est une application éditoriale, pas son ordre de prendre un risque.",
+      "La partie III, §3 propose une autre liste divinatoire, dont la folie au sens de déraison à l’endroit et la négligence à l’envers. Nous ne faisons pas de ses termes historiques des diagnostics. Aucune liste ne prouve caractère ou avenir ; « nouveaux départs » n’est pas présenté comme une citation de cette entrée."
+     ]
+    },
+    {
+     "h": "Exemple original : essayer une nouvelle activité manuelle",
+     "p": [
+      "Question : « Que pourrais-je essayer avant un cours long ? ». Imagine la carte à l’endroit sur « Un premier pas possible ». Observe baluchon, regard et bord avant le sens. C’est un exercice inventé, pas une histoire de client.",
+      "Une lecture relie le bagage léger à peu de matériel, l’inconnu à l’apprentissage et le bord aux conditions à vérifier. Demande une séance d’essai, apporte le matériel indiqué et confirme l’aide disponible. Ce sont nos déductions et actions à vérifier, pas la preuve que le cours te convient.",
+      "Autre lecture : tu as peut-être assez d’occasions et négliges les consignes. Lis les détails avant une nouvelle organisation. Compare les deux lectures au connu et garde ce qui ne correspond pas dans tes [notes](read). Tourner la carte change l’angle, sans prouver un problème caché."
+     ]
+    },
+    {
+     "h": "Sources à consulter",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, partie II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, 0 ; §3 explique sa place après XX dans le livre. Cela étaye l’arrêt et la distinction numéro/ordre, pas une théorie universelle du zéro.",
+      "[Partie III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, Zero—The Fool, étaye le comparatif des listes. Transcription consultée : réimpression de 1922. Pistes relationnelles/professionnelles et exercice sont éditoriaux ; les pages de contexte nécessitent leurs propres vérifications."
+     ]
+    },
+    {
+     "h": "Vérification · 1er novembre 2026",
+     "p": [
+      "Comparaison assistée par IA des passages, de l’image réelle et du texte. Conseils de saut sans nuance, symbolisme fixe chien/zéro et plan rendu réel par la parole retirés. La correspondance sans source n’est pas affichée ici. Relectures spécialisée indépendante et par des locuteurs natifs non confirmées ; corrections via la [page de méthode](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_01_magician": {
