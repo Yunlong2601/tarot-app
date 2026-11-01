@@ -466,29 +466,62 @@
    "élan",
    "direction"
   ],
-  "upright": "La volonté et la concentration te font avancer. Tiens les rênes fermement.",
-  "reversed": "Perdre le cap, ou forcer sans plan.",
+  "upright": "Pour cet exercice, choisis une direction et un petit pas réalisable, puis vérifie les contraintes.",
+  "reversed": "À l’envers, revois rythme, moyens ou direction sans conclure à l’agressivité ou à l’échec.",
   "k": {
-   "essence": "Avancer en maintenant ensemble des forces opposées.",
-   "imagery": "Un personnage en armure se tient droit dans un chariot sous un dais étoilé. Un sphinx noir et un sphinx blanc reposent devant lui, et il ne tient aucune rêne. Une ville s'étend derrière.",
-   "why": "Sept est le nombre des épreuves. Les deux sphinx regardent dans des directions différentes : le conducteur dirige donc par la volonté et la concentration, pas par la force. Le Cancer, son signe habituel, apporte une carapace protectrice autour d'un objectif déterminé.",
+   "essence": "Choisir un cap et vérifier ce qu’exige le prochain pas.",
+   "imagery": "Une figure en armure se tient dans un char sous un dais étoilé, avec un objet en forme de bâton. Un sphinx noir et un blanc reposent devant ; aucune rêne visible. Des bâtiments sont derrière, la carte porte VII.",
+   "why": "Waite évoque la conquête mais distingue réussite extérieure et maîtrise intérieure. Notre exercice de planification est une application. L’absence de rênes visibles ne prouve pas une conduite par volonté seule. Ces passages n’établissent ni Sept universel ni Cancer.",
    "upright": {
-    "core": "Un élan discipliné : tu continues d'avancer en gardant alignées des forces qui tirent en sens contraire.",
+    "core": "Une piste : nommer un objectif précis, coordonner les tâches et prévoir un point de suivi.",
     "light": "détermination, concentration, dynamique",
     "shadow": "la force sans direction, écraser les autres",
-    "love": "Choisir où mettre ton énergie et t'y tenir.",
-    "work": "Mener un projet jusqu'au bout ; rester concentré·e sous la pression.",
+    "love": "En relation, discutez de vos efforts et du rythme accepté par chacun. La carte ne prouve pas un engagement et ne justifie pas la pression.",
+    "work": "Au travail, identifie une prochaine tâche et ses conditions. La détermination seule ne garantit pas l’achèvement.",
     "question": "Qu'est-ce que je dirige, et où est-ce que je veux aller ?"
    },
    "reversed": {
-    "core": "L'élan est dispersé, à l'arrêt ou devenu agressif.",
+    "core": "Notre exercice inversé examine le plan, pas un trait de caractère ou une défaite inévitable.",
     "modes": [
-     "Bloqué : coincé·e, sans direction.",
-     "Excès : forcer les choses, l'agressivité.",
-     "Intérieur : tiraillé·e dans deux directions à la fois."
+     "Cap : l’objectif permet-il d’agir ?",
+     "Rythme : un pas plus petit ou une pause aiderait-il ?",
+     "Moyens : qu’est-ce qui échappe à mon contrôle ?"
     ],
     "question": "Est-ce que je tiens les rênes, ou est-ce que je me fais traîner ?"
    }
+  },
+  "evidence": {
+   "answer": "Ici, le Chariot pose des questions de direction et de coordination. Il ne promet ni victoire ni volonté capable de tout surmonter.",
+   "groupNote": "L’image porte VII. La comparer aux Sept est un exercice, pas une épreuve fixe pour tous.",
+   "sections": [
+    {
+     "h": "Conquête historique, image et limites",
+     "p": [
+      "La partie II, §2, VII interprète la conquête en distinguant réussite extérieure et maîtrise intérieure. Elle mentionne une épée tirée ; l’image publiée montre plutôt un objet en forme de bâton. Nous conservons cet écart. La partie III, §3 mêle triomphe et ennuis droits, conflit et défaite inversés. Listes historiques, pas prédiction ni diagnostic d’agressivité."
+     ]
+    },
+    {
+     "h": "Exemple original : préparer un livret de lecture",
+     "p": [
+      "Question : « Qu’est-ce qui aiderait à préparer ce livret ? ». Imagine la carte droite en « Un prochain pas ». Exercice fictif, pas récit de réussite. Observe figure centrale et deux sphinx au repos ; le véhicule n’est pas montré en mouvement.",
+      "Une lecture relie le centre à la coordination du texte et de la couverture. Prévois un petit point de contrôle pour les deux tâches et demande à la personne qui aide ce qu’elle peut assumer. Notre raisonnement entre image, position et action, pas une consigne historique ou la preuve de forces opposées dans les sphinx.",
+      "Autre piste : le plan est clair, mais l’imprimeur fermé ou le format incorrect. Vérifie la contrainte sans accuser une faible volonté ni exiger davantage d’efforts. Garde alternatives et écarts dans tes [notes](read). L’inversion peut revoir le rythme sans annoncer l’échec."
+     ]
+    },
+    {
+     "h": "Sources à consulter",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, partie II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, VII The Chariot : conquête et limites. Image réelle vérifiée séparément ; objet en forme de bâton au lieu de l’épée décrite.",
+      "[Partie III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 7 The Chariot : liste historique droite/inversée. Transcription de la réimpression de 1922. Exemple éditorial ; amour, carrière, sentiments et oui/non restent à vérifier séparément."
+     ]
+    },
+    {
+     "h": "Trace de vérification · 1er novembre 2026",
+     "p": [
+      "Comparaison assistée par IA des passages, de l’image et de la référence de base. Sept/Cancer sans preuve, causalité rênes/volonté et traits inversés remplacés par des pistes explicites ; écart visuel consigné. Expertise indépendante et révision de langue maternelle non confirmées ; corrections via la [méthodologie](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_08_strength": {

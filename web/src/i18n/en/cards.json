@@ -466,29 +466,62 @@
    "drive",
    "direction"
   ],
-  "upright": "Willpower and focus move you forward. Hold the reins steady.",
-  "reversed": "Losing direction, or pushing too hard without a plan.",
+  "upright": "For this exercise, choose a direction and one manageable next step, then check the practical constraints.",
+  "reversed": "Use reversal to review pace, resources or direction, without deciding that you or someone else is aggressive or failing.",
   "k": {
-   "essence": "Moving forward by holding opposing pulls together.",
-   "imagery": "An armoured figure stands upright in a chariot under a canopy of stars. A black sphinx and a white sphinx rest in front of it, and the figure holds no reins. A city lies behind.",
-   "why": "Seven is the number of tests. The two sphinxes face different ways, so the driver steers by will and focus, not by force. Cancer, the usual sign, gives a protective shell around a determined aim.",
+   "essence": "Choose a direction and check what the next step needs.",
+   "imagery": "An armoured figure stands in a chariot beneath a star-patterned canopy, holding a staff-like object. A black and a white sphinx rest in front; no reins are visible. Buildings stand behind, and the card is numbered VII.",
+   "why": "Waite writes about conquest but also limits it: outward achievement need not mean inner mastery. Our planning exercise is an application. No visible reins does not prove steering by will alone. These passages establish neither a universal meaning of Seven nor a Cancer correspondence.",
    "upright": {
-    "core": "Disciplined drive: you keep moving by holding competing pulls in line.",
+    "core": "One possible prompt: name a specific aim, coordinate the tasks and decide when to review progress.",
     "light": "determination, focus, momentum",
     "shadow": "force without direction, running over others",
-    "love": "Choosing where to put your energy and sticking with it.",
-    "work": "Pushing a project through to the end; staying focused under pressure.",
+    "love": "In a relationship exercise, ask where you both want to put effort and whether you agree on the pace. The card does not prove commitment or justify pushing someone.",
+    "work": "In a work exercise, identify a next task and what it depends on. Determination alone cannot establish that a project will finish.",
     "question": "What am I steering, and where do I want it to go?"
    },
    "reversed": {
-    "core": "Drive is scattered, stalled or turned aggressive.",
+    "core": "Our reversed practice checks the plan, not a supposed personality trait or inevitable defeat.",
     "modes": [
-     "Blocked: stuck without direction.",
-     "Excess: forcing things, aggression.",
-     "Inward: pulled two ways at once."
+     "Direction: is the aim clear enough to act on?",
+     "Pace: would a smaller step or a pause help?",
+     "Resources: what is outside my control?"
     ],
     "question": "Am I steering, or being dragged?"
    }
+  },
+  "evidence": {
+   "answer": "Here the Chariot offers a planning prompt about direction and coordination. It does not promise victory or show that willpower can overcome every obstacle.",
+   "groupNote": "The image is numbered VII. Comparing it with Sevens is a study exercise, not proof that everyone must pass a fixed test.",
+   "sections": [
+    {
+     "h": "Historical conquest, visible details and their limits",
+     "p": [
+      "Part II, §2, VII interprets the Chariot as conquest while distinguishing outward achievements from inward mastery. It mentions a drawn sword; the published image here instead shows a staff-like object. We keep that mismatch visible rather than claim exact agreement. Part III, §3 combines triumph with trouble upright and conflict/defeat reversed. These historical lists do not predict an outcome or diagnose aggression."
+     ]
+    },
+    {
+     "h": "Original example: preparing a small reading-group booklet",
+     "p": [
+      "Question: “What would help me prepare this booklet?”. Imagine the upright card in “A next step”. The booklet is a fictional exercise, not a real success story. Observe the central figure and the two resting sphinxes; the picture does not show a moving vehicle.",
+      "One reading connects the central position with coordinating two tasks: checking the text and arranging the cover. Set a small review point for both, and ask a helper what they can actually take on. This is our image-and-position reasoning toward an action, not a historical instruction or proof that two sphinxes are competing drives.",
+      "Alternative: the plan is clear, but the printer is closed or the file format is wrong. Check the constraint rather than blaming weak will or demanding more effort. Keep alternatives and mismatches in your [reading notes](read). Reversal can prompt a revised pace without predicting failure."
+     ]
+    },
+    {
+     "h": "Sources you can inspect",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, Part II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, VII The Chariot: historical conquest interpretation and its stated limits. Visual details were also checked against the actual site image; its staff-like object differs from the text’s sword.",
+      "[Part III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 7 The Chariot: historical upright/reversed list. Consulted transcription: 1922 reprint. Our planning example is editorial; separate love, career, feelings and yes/no pages remain unchecked."
+     ]
+    },
+    {
+     "h": "Check record · 1 November 2026",
+     "p": [
+      "AI-assisted comparison checked the passages, actual image and this base reference. Replaced unsupported Seven/Cancer explanations, reins/will causality and inferred reversed traits with labelled prompts, and recorded the sword/image mismatch. Independent expert and native-language review remain unconfirmed; corrections through our [methodology page](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_08_strength": {

@@ -466,29 +466,62 @@
    "Antrieb",
    "Richtung"
   ],
-  "upright": "Willenskraft und Fokus bringen dich voran. Halte die Zügel ruhig.",
-  "reversed": "Die Richtung verlieren oder ohne Plan zu stark drängen.",
+  "upright": "Wähle zur Übung eine Richtung und einen machbaren Schritt, dann prüfe die Bedingungen.",
+  "reversed": "Überprüfe umgekehrt Tempo, Mittel oder Richtung, ohne Aggression oder Scheitern zu unterstellen.",
   "k": {
-   "essence": "Vorankommen, indem du gegensätzliche Kräfte zusammenhältst.",
-   "imagery": "Eine Gestalt in Rüstung steht aufrecht in einem Wagen unter einem Sternenbaldachin. Vor ihr ruhen eine schwarze und eine weiße Sphinx, und die Gestalt hält keine Zügel. Dahinter liegt eine Stadt.",
-   "why": "Sieben ist die Zahl der Prüfungen. Die beiden Sphingen schauen in verschiedene Richtungen, also lenkt der Wagenlenker mit Willen und Fokus, nicht mit Gewalt. Krebs, das übliche Sternzeichen, legt einen schützenden Panzer um ein entschlossenes Ziel.",
+   "essence": "Eine Richtung wählen und den nächsten Schritt vorbereiten.",
+   "imagery": "Eine gerüstete Figur steht unter einem Sternenbaldachin im Wagen und hält einen stabartigen Gegenstand. Davor ruhen eine schwarze und eine weiße Sphinx; keine Zügel sind sichtbar. Hinten stehen Gebäude, die Karte trägt VII.",
+   "why": "Waite beschreibt Eroberung, unterscheidet aber äußeren Erfolg von innerer Meisterschaft. Unsere Planungsübung ist eine Anwendung. Fehlende sichtbare Zügel beweisen keine Lenkung durch Willen. Die Stellen begründen weder universelle Sieben noch Krebs.",
    "upright": {
-    "core": "Disziplinierter Antrieb: Du bleibst in Bewegung, indem du widerstreitende Kräfte auf Linie hältst.",
+    "core": "Ein Ansatz: Ziel benennen, Aufgaben koordinieren und einen Prüfpunkt vereinbaren.",
     "light": "Entschlossenheit, Fokus, Schwung",
     "shadow": "Kraft ohne Richtung, andere überrollen",
-    "love": "Entscheiden, wohin du deine Energie lenkst, und dabei bleiben.",
-    "work": "Ein Projekt bis zum Ende durchziehen; unter Druck fokussiert bleiben.",
+    "love": "In Beziehungen: Wo wollt ihr Energie einsetzen, stimmt das Tempo für beide? Die Karte beweist keine Bindung und rechtfertigt keinen Druck.",
+    "work": "Bei der Arbeit: Nächste Aufgabe und Abhängigkeiten klären. Entschlossenheit allein belegt keinen Projektabschluss.",
     "question": "Was lenke ich, und wohin soll es gehen?"
    },
    "reversed": {
-    "core": "Der Antrieb ist zerstreut, stockt oder wird aggressiv.",
+    "core": "Die umgekehrte Übung prüft den Plan, keine Persönlichkeit oder sichere Niederlage.",
     "modes": [
-     "Blockiert: festgefahren ohne Richtung.",
-     "Übermaß: Dinge erzwingen, Aggression.",
-     "Nach innen: in zwei Richtungen zugleich gezogen."
+     "Richtung: Ist das Ziel handlungsfähig formuliert?",
+     "Tempo: Hilft ein kleinerer Schritt oder eine Pause?",
+     "Mittel: Was liegt außerhalb meiner Kontrolle?"
     ],
     "question": "Lenke ich, oder werde ich mitgeschleift?"
    }
+  },
+  "evidence": {
+   "answer": "Hier regt der Wagen Planung zu Richtung und Koordination an. Er verspricht keinen Sieg und keine Allmacht des Willens.",
+   "groupNote": "Das Bild trägt VII. Der Vergleich mit Siebenen ist eine Übung, keine festgelegte Prüfung für alle.",
+   "sections": [
+    {
+     "h": "Historische Eroberung, Bilddetails und Grenzen",
+     "p": [
+      "Teil II, §2, VII deutet Eroberung und trennt äußere Leistungen von innerer Meisterschaft. Er nennt ein gezogenes Schwert; das veröffentlichte Bild zeigt einen stabartigen Gegenstand. Diese Abweichung bleibt benannt. Teil III, §3 verbindet aufrecht Triumph mit Schwierigkeiten, umgekehrt Konflikt und Niederlage. Historische Listen, keine Prognose oder Aggressionsdiagnose."
+     ]
+    },
+    {
+     "h": "Eigenes Beispiel: ein kleines Lesegruppenheft",
+     "p": [
+      "Frage: „Was hilft bei der Vorbereitung des Hefts?“. Stelle die aufrechte Karte auf „Ein nächster Schritt“. Erfundenes Beispiel, kein Erfolgsbericht. Betrachte zentrale Figur und zwei ruhende Sphinxe; keine sichtbare Fahrt.",
+      "Eine Lesart verbindet die Mitte mit Textkorrektur und Umschlagkoordination. Setze einen kleinen Prüfpunkt für beide Aufgaben und frage Helfende nach ihrer verfügbaren Kapazität. Unsere Ableitung aus Bild und Position, keine historische Anweisung und kein Beweis gegensätzlicher Antriebe in den Sphinxen.",
+      "Alternative: Der Plan ist klar, aber die Druckerei geschlossen oder das Format falsch. Prüfe Bedingungen statt Willensschwäche zu unterstellen und mehr Druck zu machen. Halte Alternativen und Widersprüche in deinen [Notizen](read) fest. Umkehrung kann das Tempo ändern, ohne Scheitern vorherzusagen."
+     ]
+    },
+    {
+     "h": "Nachprüfbare Quellen",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, Teil II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, VII The Chariot: Eroberungsdeutung und Grenzen. Bild separat geprüft; stabartiges Objekt statt des beschriebenen Schwerts.",
+      "[Teil III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 7 The Chariot: historische Bedeutungen beider Lagen. Transkription des Nachdrucks von 1922. Beispiel redaktionell; Liebe, Beruf, Gefühle und Ja/Nein separat ungeprüft."
+     ]
+    },
+    {
+     "h": "Prüfprotokoll · 1. November 2026",
+     "p": [
+      "KI-gestützter Vergleich von Stellen, Bild und Basisreferenz. Unbelegte Sieben/Krebs, Zügel/Willen-Kausalität und umgekehrte Eigenschaften durch gekennzeichnete Fragen ersetzt; Bildabweichung protokolliert. Unabhängige Fach- und muttersprachliche Prüfung unbestätigt; Korrekturen über die [Methodik](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_08_strength": {
