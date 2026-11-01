@@ -4,7 +4,7 @@ The owner explicitly included all website reference content, beyond the initial 
 
 ## Current progress
 
-Ten logical references have limited AI-assisted primary-source comparisons and original worked examples in all eight locales: the seven foundational lessons, `/cards/major-00-fool`, `/cards/major-01-magician` and `/cards/major-02-high-priestess`. This does not mean their translations received human review, or that all 487 routes are source-verified. Every other record, including these cards’ context subpages, remains not started. A site-wide publisher component is not proof of claim checking.
+Eleven logical references have limited AI-assisted primary-source comparisons and original worked examples in all eight locales: the seven foundational lessons, `/cards/major-00-fool`, `/cards/major-01-magician`, `/cards/major-02-high-priestess` and `/cards/major-03-empress`. This does not mean their translations received human review, or that all 487 routes are source-verified. Every other record, including these cards’ context subpages, remains not started. A site-wide publisher component is not proof of claim checking.
 
 Work in batches: major-card references; minor-card references; contextual interpretations; spreads/question/topic references; zodiac/birth/numerology and tool formulas; navigation and publisher consistency. A contextual interpretation needs its own reasoning, not a copied historical citation that never discussed that context. Reconcile newly added/removed routes before declaring the inventory complete.
 
@@ -219,3 +219,23 @@ Actor: Codex AI assistant. Directly read Waite Part II §2 II and Part III §3 2
 Consulted 1922 reprint transcription. Whole-site progress: 10/487 limited source comparisons; expert/native-language states unverified. Editorial audit extends to 56 lesson + 24 base-card routes. Verification follows final build.
 
 High Priestess validation: 49 tests; locale parity; Astro check (0 errors/warnings, 2 existing hints); production build; reader/editorial (56 lesson + 24 card routes), ritual, interaction, search-growth and beta audits passed. Chrome DOM checks at 390/768/1440px across eight locales found four evidence sections/two sources and no overflow. Orientation selection displayed reversed meaning and passed reversed state to the workspace link. Chinese desktop evidence: `priestess-desktop.png`. Known mobile screenshot limitation remains; no physical accessibility or native-language approval claimed.
+
+
+## Empress base reference: actual source-comparison record — 1 November 2026
+
+Actor: Codex AI assistant. Read Waite Part II §2 III and Part III §3 3, inspected the actual self-hosted image, and compared all base-reference fields. Backend data read-only; contextual pages remain not started.
+
+| Claim/change | Evidence | Outcome / limit |
+|---|---|---|
+| Crown, Venus sign, grain and water | [Part II §2 III, revision 15274517](https://en.wikisource.org/w/index.php?oldid=15274517&title=The_Pictorial_Key_to_the_Tarot/Part_2), actual image | Pictured Venus sign is supported; distinct from a universal planetary rule. Grain called grain, no botanical claim required. |
+| Historical fecundity/mother imagery proves pregnancy or gender duty | Same passage's religious/fertility interpretation | Explicitly separated from contemporary readers' reproductive state, gender roles and obligations. No medical detection claim introduced. |
+| Care/comfort/growth are available; tended things inevitably grow | No outcome or availability evidence established | Replaced with questions about wanted and feasible support; no success/maturity guarantee. |
+| Three is a fixed first-result/growth law | No universal support established | Printed III and study comparison distinguished from causation and importance. |
+| Reversed universally means blocked/excess/neglected care | [Part III §3 3, revision 15274510](https://en.wikisource.org/w/index.php?oldid=15274510&title=The_Pictorial_Key_to_the_Tarot/Part_3) | Historical list includes light/truth and alternate vacillation. Optional modern boundary/resource questions not attributed as a quotation. |
+| Original sketchbook exercise | New single-card position → seat/resources/field → short practical trial | Alternative missing concrete task; retains unhelpful conditions/mismatches. No client result, promised inspiration or learning-rate claim. |
+| Relationship/work fields | Bounded editorial prompts | Ask about wanted support; no inferred feelings, parenthood, consent or project maturity. |
+| Checked scope | Scoped CARD_EVIDENCE and individual inventory path | Base only; contexts not marked checked, expert/native states remain unverified. |
+
+Consulted transcription: 1922 reprint. Whole-site progress: 11/487 limited source comparisons. Editorial audit extends to 56 lesson + 32 base-card routes. Verification follows final build.
+
+Empress validation: 49 tests; locale parity; Astro check (0 errors/warnings, 2 existing hints); production build; reader/editorial (56 lesson + 32 card routes), ritual, interaction, search-growth and beta audits passed. Chrome DOM checks at 390/768/1440px across eight locales found four evidence sections/two sources and no overflow. Orientation selection displayed reversed meaning and passed reversed state to the workspace link. Chinese desktop evidence: `empress-desktop.png`. Known mobile screenshot limitation remains; no physical accessibility or native-language approval claimed.

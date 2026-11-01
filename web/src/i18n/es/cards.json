@@ -201,32 +201,66 @@
   "name": "La Emperatriz",
   "keywords": [
    "cuidado",
-   "abundancia",
+   "condiciones",
    "creatividad"
   ],
-  "upright": "El cuidado, el bienestar y el crecimiento están a tu alcance. Atiende lo que amas y deja que florezca.",
-  "reversed": "Sobreprotección, descuidarte a ti mismo o un bloqueo creativo.",
+  "upright": "Para este ejercicio, pregunta qué condiciones concretas podrían apoyar algo que quieres crear o cuidar.",
+  "reversed": "Usa la inversión para revisar apoyos, límites y peticiones sin asumir bloqueo creativo o abandono.",
   "k": {
-   "essence": "El crecimiento que nace del cuidado.",
-   "imagery": "Una mujer con un vestido vaporoso decorado con granadas está sentada sobre cojines en un campo de trigo maduro. Lleva una corona de estrellas y sostiene un cetro. A su lado descansa un escudo en forma de corazón con el símbolo de Venus, y detrás hay un arroyo y un bosque.",
-   "why": "El tres es el número del crecimiento y los primeros resultados. El trigo, el agua y el bosque muestran la naturaleza en su plenitud. Venus, el planeta que se le suele asociar, apunta al amor, el placer y los sentidos.",
+   "essence": "Deja espacio al cuidado y comprueba qué ayuda realmente.",
+   "imagery": "Una figura sentada lleva corona de estrellas y cetro. Hay cereal delante, árboles y agua detrás, y el signo de Venus en un escudo cercano. La carta lleva III.",
+   "why": "Waite nombra esos detalles en un relato simbólico de fecundidad. Nuestra pregunta sobre apoyo es una aplicación. No demuestra embarazo, deber maternal ni resultado garantizado; III es una etiqueta, no ley universal de crecimiento.",
    "upright": {
-    "core": "Cuidado, creatividad y disfrute: las cosas crecen donde se las atiende.",
-    "light": "generosidad, creatividad, bienestar",
-    "shadow": "sobreprotección, exceso de indulgencia",
-    "love": "Calidez y cuidado, dar y recibir; aprender a dejar que te cuiden.",
-    "work": "Un proyecto creativo que madura, cuidar de un equipo o de un proceso.",
-    "question": "¿Qué hay en mi vida que necesita cuidado en lugar de presión?"
+    "core": "Una propuesta: ¿qué haría viable una actividad pequeña y se desea ese apoyo?",
+    "light": "cuidado, creación, preguntar por necesidades",
+    "shadow": "ofrecer más de lo pedido o asumir que ayudar lo resuelve todo",
+    "love": "Para relaciones, pregunta qué cuidado sería bienvenido y qué puede ofrecer cada persona. No permite inferir género, maternidad/paternidad, sentimientos o consentimiento.",
+    "work": "Para trabajo, identifica tiempo, materiales o comentarios útiles. No indica que un proyecto madure ni que las necesidades estén cubiertas.",
+    "question": "¿Qué se necesita, qué se ha pedido y qué está disponible?"
    },
    "reversed": {
-    "core": "El cuidado está bloqueado, es excesivo o falta, incluido el cuidado de ti mismo.",
+    "core": "Nuestra práctica invertida revisa condiciones y límites; no identifica abandono, infertilidad ni bloqueos internos.",
     "modes": [
-     "Bloqueo: una racha de sequía creativa.",
-     "Exceso: dar demasiado o sobreproteger.",
-     "Desvanecimiento: tus propias necesidades quedan para el final."
+     "Recursos: ¿qué condición falta realmente?",
+     "Límites: ¿ofrezco algo que la otra persona quiere?",
+     "Adecuación: ¿serviría más otra clase de ayuda?"
     ],
-    "question": "¿Doy desde la plenitud o por costumbre?"
+    "question": "¿Qué puedo preguntar o probar en vez de suponer necesidades?"
    }
+  },
+  "evidence": {
+   "answer": "Aquí la Emperatriz propone examinar cuidado y condiciones creativas, sin prometer crecimiento ni inferir embarazo o roles personales.",
+   "groupNote": "La carta lleva III. Compararla con Treses es estudio, no evidencia de primeros resultados universales ni mayor importancia vital.",
+   "sections": [
+    {
+     "h": "Simbolismo histórico y nuestra práctica",
+     "p": [
+      "La parte II, §2, III describe corona, Venus, cereal y agua y ofrece simbolismo religioso y de fecundidad. Registra a Waite, sin establecer estado reproductivo ni roles de género.",
+      "La parte III, §3 incluye fruto, acción y dificultades; invertida incluye luz y verdad, además de una alternativa de vacilación. No es una regla única de cuidado bloqueado. La lista y nuestras preguntas cumplen funciones distintas, sin predicción validada."
+     ]
+    },
+    {
+     "h": "Ejemplo original: volver al cuaderno de dibujo",
+     "p": [
+      "Pregunta: «¿Qué apoyaría una sesión corta de dibujo?». Imagina la carta al derecho en «Una condición que puedo probar». Describe asiento, cereal y agua. Es ficticio, sin cliente real ni inspiración prometida.",
+      "Una conexión: el asiento invita a buscar un lugar utilizable; los recursos, a dejar papel y lápices cerca; el campo, a reservar tiempo para volver. Prueba una sesión corta y anota qué ayudó, si algo ayudó. Son inferencias nuestras de imagen y posición, no instrucciones citadas.",
+      "Alternativa: quizá ya hay lugar y materiales, pero falta una tarea clara. Dibuja un objeto cercano en vez de añadir suministros o comodidad. Guarda ambas lecturas y discrepancias en tus [notas](read). La inversión cambia la pregunta, no prueba capacidad bloqueada."
+     ]
+    },
+    {
+     "h": "Fuentes consultables",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, parte II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, III The Empress, respalda los detalles, incluido Venus, y registra la interpretación religiosa/de fecundidad. El signo dibujado se distingue de una regla planetaria universal.",
+      "[Parte III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 3 The Empress, respalda la comparación histórica. Transcripción de la reimpresión de 1922. Preguntas y ejemplo son editoriales; páginas de contexto pendientes."
+     ]
+    },
+    {
+     "h": "Registro de comprobación · 1 de noviembre de 2026",
+     "p": [
+      "Comparación asistida por IA de pasajes, imagen y texto. Eliminadas garantías de abundancia disponible y crecimiento inevitable, Tres fijo y cuidado bloqueado universal. Revisiones experta independiente y por hablantes nativos no confirmadas; correcciones en la [página de metodología](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_04_emperor": {

@@ -77,6 +77,16 @@ export const LESSON_EVIDENCE = {
 
 /** Base card references only; context subpages are not covered by these records. */
 export const CARD_EVIDENCE = {
+  major_03_empress: {
+    checkedAt: '2026-11-01',
+    checkType: 'AI-assisted source comparison',
+    independentExpertReview: false,
+    nativeLanguageReview: false,
+    sources: [
+      {author:'Arthur Edward Waite',title:'The Pictorial Key to the Tarot, Part II, section 2, III The Empress',url:'https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2'},
+      {author:'Arthur Edward Waite',title:'The Pictorial Key to the Tarot, Part III, section 3, 3 The Empress',url:'https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3'},
+    ],
+  },
   major_02_high_priestess: {
     checkedAt: '2026-11-01',
     checkType: 'AI-assisted source comparison',

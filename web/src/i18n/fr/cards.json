@@ -201,32 +201,66 @@
   "name": "L'Impératrice",
   "keywords": [
    "soin",
-   "abondance",
+   "conditions",
    "créativité"
   ],
-  "upright": "Le soin, le réconfort et la croissance sont à ta portée. Prends soin de ce que tu aimes et laisse-le s'épanouir.",
-  "reversed": "Étouffer l'autre, te négliger toi-même, ou un blocage créatif.",
+  "upright": "Pour cet exercice, demande quelles conditions concrètes soutiendraient ce que tu veux créer ou soigner.",
+  "reversed": "À l’envers, examine soutien, limites et demandes sans présumer blocage créatif ou négligence.",
   "k": {
-   "essence": "La croissance qui naît du soin.",
-   "imagery": "Une femme vêtue d'une robe ample ornée de grenades est assise sur des coussins dans un champ de blé mûr. Elle porte une couronne d'étoiles et tient un sceptre. Un bouclier en forme de cœur portant le symbole de Vénus repose à côté d'elle, et un ruisseau et une forêt s'étendent derrière.",
-   "why": "Trois est le nombre de la croissance et des premiers résultats. Le blé, l'eau et la forêt montrent la nature dans toute sa plénitude. Vénus, sa planète habituelle, évoque l'amour, le plaisir et les sens.",
+   "essence": "Fais une place au soin, puis vérifie ce qui aide réellement.",
+   "imagery": "Un personnage assis porte couronne étoilée et sceptre. Céréales au premier plan, arbres et eau derrière ; signe de Vénus sur un bouclier proche. La carte porte III.",
+   "why": "Waite décrit ces détails dans un symbolisme de fécondité. Notre piste de soutien est une application. L’image ne prouve ni grossesse, ni devoir maternel, ni résultat garanti ; III n’est pas une loi universelle de croissance.",
    "upright": {
-    "core": "Soin, créativité et plaisir : les choses poussent là où l'on s'en occupe.",
-    "light": "générosité, créativité, réconfort",
-    "shadow": "étouffer, l'excès",
-    "love": "Chaleur et attention, donner et recevoir ; apprendre à te laisser chouchouter.",
-    "work": "Un projet créatif qui mûrit, prendre soin d'une équipe ou d'un processus.",
-    "question": "Qu'est-ce qui, dans ma vie, a besoin d'attention plutôt que d'être poussé ?"
+    "core": "Une piste : quelle condition rendrait une petite activité possible et ce soutien est-il souhaité ?",
+    "light": "soin, création, besoins à demander",
+    "shadow": "donner plus que demandé ou penser que toute aide suffit",
+    "love": "Pour une relation, demande quel soin serait bienvenu et ce que chacun peut offrir. Genre, parentalité, sentiments et consentement ne se déduisent pas de cette carte.",
+    "work": "Pour le travail, repère temps, matériel ou retours utiles. Elle ne prouve pas qu’un projet mûrit ou que les besoins sont satisfaits.",
+    "question": "Qu’est-ce qui est nécessaire, demandé et réellement disponible ?"
    },
    "reversed": {
-    "core": "Le soin est bloqué, excessif ou négligé, y compris le soin de toi-même.",
+    "core": "Notre pratique renversée examine conditions et limites, sans identifier négligence, infertilité ou blocage intérieur.",
     "modes": [
-     "Bloqué : une période de sécheresse créative.",
-     "Excès : trop donner ou étouffer.",
-     "Déclin : tes propres besoins passent en dernier."
+     "Ressources : quelle condition manque vraiment ?",
+     "Limites : mon aide est-elle souhaitée ?",
+     "Adaptation : une autre aide serait-elle plus utile ?"
     ],
-    "question": "Est-ce que je donne parce que je suis plein·e, ou par habitude ?"
+    "question": "Que demander ou essayer plutôt que supposer les besoins ?"
    }
+  },
+  "evidence": {
+   "answer": "Ici, l’Impératrice propose de réfléchir au soin et aux conditions créatives, sans croissance promise ni conclusion sur grossesse ou rôles.",
+   "groupNote": "La carte porte III. Comparer aux Trois est un exercice, pas un premier résultat universel ni une importance supérieure.",
+   "sections": [
+    {
+     "h": "Symbolisme historique et notre pratique",
+     "p": [
+      "La partie II, §2, III décrit couronne, Vénus, céréales et eau, avec une lecture religieuse et féconde. Elle documente Waite, pas un état reproductif ni une obligation de genre.",
+      "La partie III, §3 mêle fécondité, action et difficultés ; à l’envers, lumière et vérité, ou hésitation selon une autre lecture. Pas une unique règle de soin bloqué. Liste historique et nos questions ne sont pas des prédictions validées."
+     ]
+    },
+    {
+     "h": "Exemple original : rouvrir un carnet de croquis",
+     "p": [
+      "Question : « Que faudrait-il pour une courte séance de dessin ? ». Imagine la carte à l’endroit sur « Une condition à essayer ». Décris siège, céréales et eau. Scène inventée, sans client réel ni inspiration promise.",
+      "Un lien : siège vers lieu utilisable, ressources vers papier et crayons accessibles, champ vers temps pour revenir. Essaie une séance courte et note ce qui aide, si quelque chose aide. Nos déductions par image et position, pas des consignes citées.",
+      "Autre lecture : lieu et matériel suffisent peut-être, il manque une tâche précise. Dessine un objet proche plutôt que chercher davantage de confort ou fournitures. Garde deux lectures et écarts dans tes [notes](read). Tourner change la question sans prouver une capacité bloquée."
+     ]
+    },
+    {
+     "h": "Sources consultables",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, partie II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, III The Empress, étaye les détails dont Vénus et consigne la lecture religieuse/féconde. Signe dessiné et règle planétaire générale sont distincts.",
+      "[Partie III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 3 The Empress, étaye le comparatif historique. Transcription de la réimpression de 1922. Questions et croquis sont éditoriaux ; pages de contexte encore à vérifier."
+     ]
+    },
+    {
+     "h": "Vérification · 1er novembre 2026",
+     "p": [
+      "Comparaison assistée par IA des passages, de l’image et du texte. Assurances d’abondance disponible, croissance inévitable, Trois fixe et soin bloqué universel retirés. Relectures spécialisée indépendante et par des locuteurs natifs non confirmées ; corrections via la [page de méthode](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_04_emperor": {

@@ -201,32 +201,66 @@
   "name": "Die Herrscherin",
   "keywords": [
    "Fürsorge",
-   "Fülle",
+   "Bedingungen",
    "Kreativität"
   ],
-  "upright": "Fürsorge, Geborgenheit und Wachstum sind für dich da. Pflege, was du liebst, und lass es aufblühen.",
-  "reversed": "Erdrückende Fürsorge, Selbstvernachlässigung oder eine kreative Blockade.",
+  "upright": "Frage für diese Übung, welche praktischen Bedingungen etwas unterstützen könnten, das du gestalten oder pflegen möchtest.",
+  "reversed": "Prüfe bei Umkehrung Unterstützung, Grenzen und Wünsche, ohne Kreativblockade oder Vernachlässigung anzunehmen.",
   "k": {
-   "essence": "Wachstum, das aus Fürsorge entsteht.",
-   "imagery": "Eine Frau in einem fließenden Kleid mit Granatapfelmuster sitzt auf Kissen in einem Feld aus reifem Weizen. Sie trägt eine Sternenkrone und hält ein Zepter. Neben ihr lehnt ein herzförmiger Schild mit dem Venussymbol, und hinter ihr liegen ein Bach und ein Wald.",
-   "why": "Drei ist die Zahl des Wachstums und der ersten Ergebnisse. Weizen, Wasser und Wald zeigen die Natur in ihrer ganzen Fülle. Venus, ihr üblicher Planet, verweist auf Liebe, Genuss und die Sinne.",
+   "essence": "Schaffe Raum für Fürsorge und prüfe, was wirklich hilft.",
+   "imagery": "Eine sitzende Figur trägt Sternenkrone und Zepter. Vorn Getreide, hinten Bäume und Wasser; ein naher Schild zeigt das Venuszeichen. Die Karte trägt III.",
+   "why": "Waite nennt die Details in einer Fruchtbarkeitssymbolik. Unser Unterstützungsimpuls ist Anwendung. Das Bild belegt weder Schwangerschaft noch Mutterpflicht oder sicheren Erfolg; III ist Kennzeichnung, kein Wachstumsgesetz.",
    "upright": {
-    "core": "Fürsorge, Kreativität und Genuss: Dinge wachsen dort, wo sie gepflegt werden.",
-    "light": "Großzügigkeit, Kreativität, Geborgenheit",
-    "shadow": "erdrückende Fürsorge, Maßlosigkeit",
-    "love": "Wärme und Fürsorge, Geben und Nehmen; lernen, dich auch umsorgen zu lassen.",
-    "work": "Ein kreatives Projekt, das reift; sich um ein Team oder einen Ablauf kümmern.",
-    "question": "Was in meinem Leben braucht Pflege statt Druck?"
+    "core": "Ein Impuls: Welche Bedingung macht eine kleine Aktivität möglich und ist die Hilfe gewünscht?",
+    "light": "Fürsorge, Gestalten, Bedürfnisse erfragen",
+    "shadow": "mehr geben als erbeten oder Hilfe als Alllösung ansehen",
+    "love": "Für Beziehungen: Frage nach gewünschter Fürsorge und möglichen Beiträgen. Geschlecht, Elternschaft, Gefühle und Zustimmung lassen sich nicht aus der Karte ableiten.",
+    "work": "Für Arbeit: Benenne nützliche Zeit, Materialien oder Rückmeldung. Kein Beleg für ein reifendes Projekt oder erfüllte Teambedürfnisse.",
+    "question": "Was wird gebraucht, erbeten und ist real verfügbar?"
    },
    "reversed": {
-    "core": "Fürsorge ist blockiert, übertrieben oder vernachlässigt, auch die Fürsorge für dich selbst.",
+    "core": "Unsere Umkehrungsübung prüft Bedingungen und Grenzen, keine Vernachlässigung, Unfruchtbarkeit oder innere Blockade.",
     "modes": [
-     "Blockiert: eine kreative Durststrecke.",
-     "Übermaß: zu viel geben oder erdrücken.",
-     "Schwindend: deine eigenen Bedürfnisse kommen zuletzt."
+     "Ressourcen: Welche Bedingung fehlt wirklich?",
+     "Grenzen: Ist mein Angebot gewünscht?",
+     "Passung: Wäre andere Hilfe nützlicher?"
     ],
-    "question": "Gebe ich aus der Fülle heraus oder aus Gewohnheit?"
+    "question": "Was könnte ich fragen oder versuchen statt Bedürfnisse anzunehmen?"
    }
+  },
+  "evidence": {
+   "answer": "Die Herrscherin regt hier Fürsorge und kreative Bedingungen an, ohne Wachstum zu versprechen oder Schwangerschaft und Rollen abzuleiten.",
+   "groupNote": "Die Karte trägt III. Der Vergleich mit Dreien dient dem Studium, keinem universellen ersten Ergebnis oder größerer Wichtigkeit.",
+   "sections": [
+    {
+     "h": "Historische Symbolik und unsere Übung",
+     "p": [
+      "Teil II, §2, III beschreibt Krone, Venus, Getreide und Wasser und deutet religiös und über Fruchtbarkeit. Das dokumentiert Waite, keinen Fortpflanzungszustand oder vorgeschriebene Geschlechterrolle.",
+      "Teil III, §3 nennt Fruchtbarkeit, Handlung und Schwierigkeiten; umgekehrt Licht und Wahrheit, alternativ Unentschlossenheit. Keine einheitliche Regel blockierter Fürsorge. Historische Liste und unsere Fragen liefern keine bestätigte Vorhersage."
+     ]
+    },
+    {
+     "h": "Eigenes Beispiel: zum Skizzenbuch zurückkehren",
+     "p": [
+      "Frage: „Was würde eine kurze Zeichenübung unterstützen?“. Stell dir die aufrechte Karte auf „Eine Bedingung zum Ausprobieren“ vor. Erst Sitz, Getreide und Wasser beschreiben. Erfunden, kein Kundenergebnis oder Inspirationsversprechen.",
+      "Eine Verbindung: Sitz als brauchbarer Ort, Ressourcen als griffbereites Papier und Stifte, Feld als Zeit zum Wiederkommen. Versuche eine kurze Einheit und notiere, was gegebenenfalls half. Unsere Bild-/Positionsschlüsse, keine zitierten Anweisungen.",
+      "Alternative: Vielleicht reichen Platz und Material und es fehlt eine konkrete Aufgabe. Zeichne einen nahen Gegenstand statt mehr Ausstattung zu suchen. Behalte beide Lesarten und Unpassendes in [Notizen](read). Drehen ändert die Frage, beweist keine blockierte Fähigkeit."
+     ]
+    },
+    {
+     "h": "Nachprüfbare Quellen",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, Teil II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, III The Empress, stützt Details einschließlich Venus und dokumentiert die religiöse/Fruchtbarkeitsdeutung. Venuszeichen und allgemeine Planetenregel sind verschieden.",
+      "[Teil III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 3 The Empress, stützt den historischen Vergleich. Transkription des Nachdrucks 1922. Fragen und Skizzenbeispiel redaktionell; Kontextseiten bleiben zu prüfen."
+     ]
+    },
+    {
+     "h": "Prüfvermerk · 1. November 2026",
+     "p": [
+      "KI-gestützter Vergleich von Textstellen, Bild und Basistext. Unbelegte Aussagen über verfügbare Fülle, zwangsläufiges Wachstum, feste Dreisymbolik und stets blockierte Fürsorge entfernt. Unabhängige Fach-/Muttersprachprüfung unbestätigt; Korrekturen über die [Methodikseite](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_04_emperor": {
