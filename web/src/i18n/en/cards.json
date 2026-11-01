@@ -592,33 +592,66 @@
  "major_09_hermit": {
   "name": "The Hermit",
   "keywords": [
-   "solitude",
    "reflection",
-   "inner guidance"
+   "guidance",
+   "study"
   ],
-  "upright": "Step back to think. Time alone can show you what matters.",
-  "reversed": "Isolation or avoiding reflection. Balance solitude with connection.",
+  "upright": "For this exercise, take time to examine one question, then decide what to check yourself and what to ask someone else.",
+  "reversed": "Use reversal to reconsider how you seek guidance, without deciding that you or another person is isolated, evasive or afraid.",
   "k": {
-   "essence": "Stepping back to find your own answer.",
-   "imagery": "An old figure in a grey cloak stands on a snowy peak. One hand holds a lantern with a six-pointed star inside and the other a staff.",
-   "why": "Nine is the number of near-completion and solitude. The lantern lights only the next few steps, which is how inner guidance often works. Virgo, the usual sign, is careful and discerning.",
+   "essence": "Look closely at one question and make the next explanation clearer.",
+   "imagery": "A bearded, cloaked figure holds a raised lantern with a star and a tall staff, standing on pale uneven ground. The card is numbered IX.",
+   "why": "Waite describes attainment and a raised beacon that others may approach; he rejects an occult-isolation explanation. Our reflection exercise is an application, not proof that solitude produces answers or that the lamp lights only a few steps. These passages establish neither Nine as solitude/near-completion nor a Virgo correspondence.",
    "upright": {
-    "core": "Time apart to hear your own thoughts and decide what matters.",
+    "core": "One possible prompt: distinguish what you understand, what remains uncertain and where a useful explanation could come from.",
     "light": "wisdom, focus, chosen solitude",
-    "shadow": "isolation, avoiding people or choices",
-    "love": "Time alone to understand what you want; sharing it when ready.",
-    "work": "Deep focus, research, finding a mentor or becoming one.",
+    "shadow": "treating solitude as the only way to understand",
+    "love": "In a relationship exercise, ask whether time to think or a direct conversation would help. The card cannot establish that someone is withdrawing or what they feel.",
+    "work": "In a work exercise, check one source or explanation before sharing it. The image does not certify a mentor’s expertise or make working alone the right choice.",
     "question": "What do I hear when everything gets quiet?"
    },
    "reversed": {
-    "core": "Solitude turns into isolation, or you cannot be alone with your thoughts.",
+    "core": "Our reversed practice checks access to guidance, not a person’s social or emotional condition.",
     "modes": [
-     "Excess: withdrawing too far.",
-     "Blocked: restless, unable to be still.",
-     "Fading: coming back toward other people."
+     "Question: what exactly needs clarifying?",
+     "Source: what can I check rather than assume?",
+     "Connection: who could help, and what could I explain?"
     ],
-    "question": "Is this solitude restoring me or hiding me?"
+    "question": "What could I clarify alone or with someone else?"
    }
+  },
+  "evidence": {
+   "answer": "Here the Hermit prompts reflection, checking and the sharing of guidance. It does not prove that isolation is needed or that an answer must come from within.",
+   "groupNote": "This image labels the card IX. Comparing Nines is a study exercise, not a universal stage of solitude or near-completion.",
+   "sections": [
+    {
+     "h": "Historical beacon and our reflection exercise",
+     "p": [
+      "Part II, §2, IX describes a star in the lantern, a figure on an elevation and a beacon of attainment. Waite distinguishes this from a seeker of truth and rejects a specific occult-isolation account; that is not a psychological finding about time alone. Part III, §3 combines prudence with other, harsher meanings upright, and several meanings reversed. Those historical lists cannot establish deception, fear or a person’s intentions."
+     ]
+    },
+    {
+     "h": "Original example: explaining a folding step to a friend",
+     "p": [
+      "Question: “What should I make clearer before explaining this fold?”. Imagine the upright card in “A useful check”. You are practising a fictional paper-folding exercise. This is not a learner’s result or a claim of teaching expertise. First observe the raised lantern with its star and the staff.",
+      "One reading connects the visible beacon with making one step understandable to someone else. Mark which edge meets which corner, compare that note with the diagram and ask a friend which part is unclear. The staff can prompt checking what supports your explanation. These are our links from image and position to a small action, not hidden knowledge supplied by the card.",
+      "Alternative: the diagram is missing an arrow or shows the wrong side of the paper. Consult another clear instruction rather than spending longer alone or assuming the friend is not listening. Keep readings and mismatches in your [reading notes](read). Reversal can change how you seek help without labelling anyone evasive."
+     ]
+    },
+    {
+     "h": "Sources you can inspect",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, Part II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, IX The Hermit: star, elevation, attainment/beacon interpretation and its stated contrasts. Visual details were also compared with the actual site image; the lamp’s precise range is not established.",
+      "[Part III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 9 The Hermit: historical upright/reversed list. Consulted transcription: 1922 reprint. Our folding example is editorial; separate love, career, feelings and yes/no pages remain unchecked."
+     ]
+    },
+    {
+     "h": "Check record · 1 November 2026",
+     "p": [
+      "AI-assisted comparison checked the passages, actual image and this base reference. Replaced unsupported Nine/Virgo and lamp-range explanations, assured answers from solitude and inferred reversed isolation with labelled prompts. Independent expert and native-language review remain unconfirmed; corrections through our [methodology page](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_10_wheel_of_fortune": {

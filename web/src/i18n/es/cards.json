@@ -592,33 +592,66 @@
  "major_09_hermit": {
   "name": "El Ermitaño",
   "keywords": [
-   "soledad",
    "reflexión",
-   "guía interior"
+   "orientación",
+   "estudio"
   ],
-  "upright": "Da un paso atrás para pensar. El tiempo a solas puede mostrarte lo que importa.",
-  "reversed": "Aislamiento o evitar la reflexión. Equilibra la soledad con la conexión.",
+  "upright": "Para practicar, examina una pregunta y decide qué comprobar por tu cuenta y qué preguntar a alguien.",
+  "reversed": "Usa la inversión para revisar cómo buscas orientación, sin atribuir aislamiento, evasión o miedo.",
   "k": {
-   "essence": "Dar un paso atrás para encontrar tu propia respuesta.",
-   "imagery": "Una figura anciana con capa gris está de pie en una cumbre nevada. Con una mano sostiene un farol con una estrella de seis puntas dentro y con la otra un bastón.",
-   "why": "El nueve es el número de lo que está a punto de completarse y de la soledad. El farol ilumina solo los pocos pasos siguientes, que es como suele funcionar la guía interior. Virgo, el signo que se le suele asociar, es cuidadoso y perspicaz.",
+   "essence": "Mirar una pregunta de cerca y aclarar la explicación.",
+   "imagery": "Una figura con barba y manto sostiene un farol alzado con estrella y un bastón largo, sobre terreno claro e irregular. Número IX.",
+   "why": "Waite describe logro y un faro al que otros pueden acercarse; rechaza una interpretación de aislamiento ocultista. Nuestra reflexión es una aplicación, no prueba de respuestas en soledad ni de un alcance de pocos pasos. Los pasajes no establecen Nueve como soledad/casi culminación ni Virgo.",
    "upright": {
-    "core": "Tiempo aparte para oír tus propios pensamientos y decidir lo que importa.",
+    "core": "Una propuesta: separar lo comprendido, lo incierto y dónde encontrar una explicación.",
     "light": "sabiduría, enfoque, soledad elegida",
-    "shadow": "aislamiento, evitar a las personas o las decisiones",
-    "love": "Tiempo a solas para entender lo que quieres; compartirlo cuando estés listo.",
-    "work": "Concentración profunda, investigación, encontrar un mentor o convertirte en uno.",
+    "shadow": "creer que solo puedes comprender a solas",
+    "love": "En relaciones, pregunta si ayudaría pensar un rato o conversar directamente. La carta no prueba distanciamiento ni sentimientos ajenos.",
+    "work": "En el trabajo, comprueba una fuente antes de compartirla. La imagen no acredita a un mentor ni exige trabajar a solas.",
     "question": "¿Qué oigo cuando todo se queda en silencio?"
    },
    "reversed": {
-    "core": "La soledad se convierte en aislamiento, o no puedes estar a solas con tus pensamientos.",
+    "core": "La práctica invertida examina el acceso a orientación, no la condición social o emocional.",
     "modes": [
-     "Exceso: retirarte demasiado.",
-     "Bloqueo: inquietud, no poder estar quieto.",
-     "Desvanecimiento: volver a acercarte a los demás."
+     "Pregunta: ¿qué necesita aclaración?",
+     "Fuente: ¿qué puedo comprobar?",
+     "Conexión: ¿quién puede ayudar y qué puedo explicar?"
     ],
-    "question": "¿Esta soledad me está restaurando o me está escondiendo?"
+    "question": "¿Qué aclarar por mi cuenta o con alguien?"
    }
+  },
+  "evidence": {
+   "answer": "Aquí el Ermitaño invita a reflexionar, comprobar y compartir orientación. No demuestra que haga falta aislarse ni que la respuesta deba venir de dentro.",
+   "groupNote": "La imagen lleva IX. Comparar los Nueve es un ejercicio, no una etapa universal de soledad o casi culminación.",
+   "sections": [
+    {
+     "h": "El faro histórico y nuestra reflexión",
+     "p": [
+      "La parte II, §2, IX describe estrella, altura y faro de logro. Waite lo distingue del buscador de verdad y rechaza una explicación concreta de aislamiento ocultista; no es un resultado psicológico sobre estar solo. La parte III, §3 combina prudencia con sentidos más duros y varias lecturas invertidas. No establece engaño, miedo ni intenciones reales."
+     ]
+    },
+    {
+     "h": "Ejemplo original: explicar un paso de plegado",
+     "p": [
+      "Pregunta: «¿Qué aclarar antes de explicar este pliegue?». Imagina la carta derecha en «Una comprobación útil». Ejercicio ficticio de papel, no resultado de alumno ni acreditación docente. Observa farol alzado, estrella y bastón.",
+      "Una lectura conecta el faro visible con explicar un paso a otra persona. Marca qué borde toca qué esquina, compara con el diagrama y pregunta a un amigo qué no entiende. El bastón puede recordar comprobar el apoyo de la explicación. Son nuestros vínculos desde imagen y posición, no conocimiento oculto de la carta.",
+      "Alternativa: al diagrama le falta una flecha o muestra la otra cara. Busca otra instrucción clara en vez de prolongar la soledad o culpar al amigo. Guarda lecturas y discrepancias en tus [notas](read). Invertir cambia cómo pedir ayuda sin llamar evasivo a nadie."
+     ]
+    },
+    {
+     "h": "Fuentes consultables",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, parte II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, IX The Hermit: estrella, altura, logro/faro y contrastes explícitos. Imagen real comparada; alcance preciso de la luz no establecido.",
+      "[Parte III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 9 The Hermit: lista histórica derecha/invertida. Transcripción de la reimpresión de 1922. Ejemplo editorial; amor, carrera, sentimientos y sí/no pendientes por separado."
+     ]
+    },
+    {
+     "h": "Registro de comprobación · 1 de noviembre de 2026",
+     "p": [
+      "Comparación asistida por IA de pasajes, imagen y referencia base. Se sustituyeron Nueve/Virgo y alcance de luz sin respaldo, respuestas aseguradas por soledad y aislamiento inferido por preguntas explícitas. Revisión experta independiente y lingüística sin confirmar; correcciones mediante la [metodología](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_10_wheel_of_fortune": {
