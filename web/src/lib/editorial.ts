@@ -77,6 +77,16 @@ export const LESSON_EVIDENCE = {
 
 /** Base card references only; context subpages are not covered by these records. */
 export const CARD_EVIDENCE = {
+  major_08_strength: {
+    checkedAt: '2026-11-01',
+    checkType: 'AI-assisted source comparison',
+    independentExpertReview: false,
+    nativeLanguageReview: false,
+    sources: [
+      {author:'Arthur Edward Waite',title:'The Pictorial Key to the Tarot, Part II, section 2, VIII Strength, or Fortitude',url:'https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2'},
+      {author:'Arthur Edward Waite',title:'The Pictorial Key to the Tarot, Part III, section 3, 8 Fortitude',url:'https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3'},
+    ],
+  },
   major_07_chariot: {
     checkedAt: '2026-11-01',
     checkType: 'AI-assisted source comparison',

@@ -1,3 +1,7 @@
+## 2026-11-01 — Strength source comparison
+
+Eight localized Strength base references distinguish Waite’s religious fortitude from our optional patience exercise; remove unsupported Eight/Leo, friendship and guaranteed gentleness claims; and avoid diagnosing exhaustion from reversal. Original reading-aloud example includes a pronunciation-reference/pause alternative and clear limits. Progress: 16/487 logical references; contexts and human expert/language reviews remain pending. All 49 tests, locale parity, Astro check/build and website audits passed (128 editorial routes); Chrome checked 24 locale/width combinations and reversed handoff. Claim ledger/desktop proof in `docs/editorial-review-2026-10-31/`.
+
 ## 2026-11-01 — Chariot source comparison
 
 Eight localized Chariot base references distinguish historical conquest from a modern planning exercise, remove unsupported Seven/Cancer and reins/will causality, and record the source’s sword versus the actual image’s staff-like object. Original booklet example includes practical constraints and alternatives. Progress: 15/487 logical references; contexts and human expert/language review remain pending. All 49 tests, locale parity, Astro check/build and website audits passed (120 editorial routes). Chrome checked 24 locale/width combinations and reversed handoff; claim ledger and desktop evidence in `docs/editorial-review-2026-10-31/`.

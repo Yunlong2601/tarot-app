@@ -531,29 +531,62 @@
    "paciencia",
    "compasión"
   ],
-  "upright": "La valentía serena y la delicadeza logran lo que la fuerza no puede.",
-  "reversed": "Inseguridad o ir sin energía. Reconstruye la confianza poco a poco.",
+  "upright": "Para practicar, prueba una respuesta mesurada y pregunta qué apoyo o límite necesita la tarea.",
+  "reversed": "Usa la inversión para revisar esfuerzo y límites, sin diagnosticar agotamiento, poca confianza o carácter.",
   "k": {
-   "essence": "Una valentía que es delicada.",
-   "imagery": "Una mujer vestida de blanco, con el símbolo del infinito sobre la cabeza, cierra con calma la boca de un león. Lleva una guirnalda de flores y detrás se alzan montañas.",
-   "why": "En esta baraja la Fuerza lleva el número ocho (la Justicia es el once). El ocho es el número del esfuerzo constante. La imagen muestra la fuerza como paciencia y no como imposición: al león no se le vence, se le gana. Leo, el signo que se le suele asociar, es el león.",
+   "essence": "Abordar la dificultad con cuidado y dejar espacio para parar.",
+   "imagery": "Una figura de blanco se inclina hacia un león con las manos en sus fauces. Hay flores en cabeza y cintura, un símbolo de lazo encima y colinas detrás. Número VIII.",
+   "why": "Waite describe el cierre de las fauces y una fortaleza religiosa de unión y contemplación, distinta de la confianza cotidiana. Nuestra paciencia es una aplicación, no prueba de amistad con el león ni de eficacia universal de la suavidad. Los pasajes no establecen Ocho como esfuerzo constante ni Leo.",
    "upright": {
-    "core": "Valentía serena: afrontar un sentimiento intenso con paciencia y amabilidad en lugar de con lucha.",
+    "core": "Una propuesta: probar una parte manejable y decidir si seguir, pedir ayuda o parar.",
     "light": "paciencia, resiliencia, autocompasión",
-    "shadow": "inseguridad, reprimir los sentimientos",
-    "love": "Mantenerte firme y amable cuando las emociones están a flor de piel.",
-    "work": "Mantener la calma bajo presión; liderar con el ejemplo.",
+    "shadow": "convertir la paciencia en presión para aguantar",
+    "love": "En relaciones, considera una respuesta atenta y un límite claro. La paciencia no exige aceptar presión ni prueba que alguien cambie.",
+    "work": "En el trabajo, considera ritmo y ayuda. La calma sola no acredita capacidad ni garantiza éxito.",
     "question": "¿Cómo sería la paciencia aquí?"
    },
    "reversed": {
-    "core": "La fuerza se agota, o la imposición ocupa el lugar de la delicadeza.",
+    "core": "La práctica invertida revisa esfuerzo y límites, no lee salud ni personalidad en la orientación.",
     "modes": [
-     "Desvanecimiento: quedarte sin energía.",
-     "Bloqueo: inseguridad.",
-     "Exceso: intentar domar un sentimiento a la fuerza."
+     "Esfuerzo: ¿qué parte es manejable ahora?",
+     "Apoyo: ¿qué explicación o ayuda falta?",
+     "Límite: ¿cuándo parar o decir que no?"
     ],
-    "question": "¿Qué estoy intentando forzar que necesita delicadeza?"
+    "question": "¿Dónde bajar el ritmo, pedir ayuda o parar?"
    }
+  },
+  "evidence": {
+   "answer": "Aquí la Fuerza invita al cuidado, la paciencia y los límites. No garantiza resolver la dificultad ni diagnostica tu energía.",
+   "groupNote": "La imagen lleva VIII; Waite señala el intercambio con Justicia. Comparar los Ocho es un ejercicio, no una ley universal del esfuerzo.",
+   "sections": [
+    {
+     "h": "Fortaleza histórica y nuestro ejercicio de paciencia",
+     "p": [
+      "La parte II, §2, VIII describe mujer, fauces, flores e intercambio de numeración con Justicia. Su interpretación superior es religiosa y parcialmente inferida, no confianza cotidiana. La parte III, §3 enumera valor y poder, entre otros sentidos, y dificultades invertidas. Las listas no establecen éxito, agotamiento o abuso en un caso real."
+     ]
+    },
+    {
+     "h": "Ejemplo original: ensayar una lectura breve en voz alta",
+     "p": [
+      "Pregunta: «¿Cómo abordar este ensayo?». Imagina la carta derecha en «Una forma de practicar». Tropiezas con un párrafo de una introducción ficticia a un grupo de lectura. Es ejercicio inventado, no resultado de participante. Observa manos junto a las fauces y flores antes de interpretar.",
+      "Una lectura conecta el contacto cuidadoso con practicar una parte en vez de forzar todo. Lee dos frases despacio, anota los tropiezos y decide si otro intento ayudaría. Es nuestro razonamiento desde imagen y posición, no prueba de que la amabilidad cambie el rendimiento o de amistad con el león.",
+      "Alternativa: falta consultar la pronunciación de una palabra o hacer una pausa. Comprueba la necesidad sin culpar a la confianza. Guarda lecturas y discrepancias en tus [notas](read). Invertir cambia el ritmo sin llamarte débil."
+     ]
+    },
+    {
+     "h": "Fuentes consultables",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, parte II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, VIII Strength, or Fortitude: fauces, flores, numeración y lectura religiosa. Se comparó la imagen real; la amistad no es un hecho observable.",
+      "[Parte III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 8 Fortitude: lista histórica derecha/invertida. Transcripción de la reimpresión de 1922. Ensayo editorial; amor, carrera, sentimientos y sí/no pendientes por separado."
+     ]
+    },
+    {
+     "h": "Registro de comprobación · 1 de noviembre de 2026",
+     "p": [
+      "Comparación asistida por IA de pasajes, imagen y referencia base. Se sustituyeron Ocho/Leo y amistad sin respaldo, eficacia asegurada de la suavidad y agotamiento inferido por preguntas explícitas. Revisión experta independiente y lingüística sin confirmar; correcciones mediante la [metodología](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_09_hermit": {
