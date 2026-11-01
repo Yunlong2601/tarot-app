@@ -134,33 +134,67 @@
  "major_02_high_priestess": {
   "name": "La Grande Prêtresse",
   "keywords": [
-   "intuition",
-   "calme",
-   "le non-dit"
+   "attention",
+   "incertitude",
+   "réflexion"
   ],
-  "upright": "La réflexion silencieuse apporte des réponses que le bruit ne peut pas donner. Fais confiance à ce que tu perçois sous la surface.",
-  "reversed": "Ignorer ta voix intérieure, ou te cacher quelque chose à toi-même.",
+  "upright": "Pour cet exercice, sépare observations, ressentis et inconnues.",
+  "reversed": "À l’envers, examine hypothèses et questions ouvertes sans conclure que tu te caches quelque chose.",
   "k": {
-   "essence": "Ce que tu perçois avant de pouvoir l'expliquer.",
-   "imagery": "Une femme en robe bleue est assise entre un pilier noir et un pilier blanc marqués des lettres B et J. Un croissant de lune repose à ses pieds et un rouleau est à moitié caché sur ses genoux. Derrière elle pend un voile orné de grenades.",
-   "why": "Deux est le nombre des paires et des seuils. Les piliers marquent une porte entre deux contraires, et le voile cache ce qui se trouve au-delà. La Lune, à laquelle elle est habituellement associée, est le symbole traditionnel de l'intuition et de ce qui n'est pas encore visible.",
+   "essence": "Laisse une place à l’incertitude avant de conclure.",
+   "imagery": "Un personnage assis tient un rouleau partiellement couvert entre une colonne sombre B et une claire J. Croissant aux pieds, voile à motifs derrière. La carte porte II.",
+   "why": "Waite décrit rouleau et voile dans une interprétation spirituelle. Vérifier l’information est notre application, pas une preuve d’intuition ou de faits cachés. Le croissant est un détail, pas une validation du ressenti.",
    "upright": {
-    "core": "Le calme avant de décider : écouter ce qui n'est pas dit, dans la situation et en toi.",
-    "light": "intuition, patience, discrétion",
-    "shadow": "le secret, se retenir trop longtemps",
-    "love": "Remarquer ce qui reste non dit entre les gens, et ce que tu ne t'es pas avoué.",
-    "work": "Rassembler des informations avant d'agir ; faire confiance à une lecture discrète de l'ambiance.",
-    "question": "Qu'est-ce que je perçois déjà sans l'avoir dit à voix haute ?"
+    "core": "Une piste : faire une pause pour nommer une question, puis chercher l’information qui peut y répondre.",
+    "light": "attention, patience, respect de la vie privée",
+    "shadow": "prendre une impression pour un fait ou attendre sans raison",
+    "love": "Pour une relation, distingue message sans réponse et explication imaginée. Demande avec respect ; la carte ne révèle ni sentiments ni secrets d’autrui.",
+    "work": "Pour le travail, repère un document manquant ou une consigne floue. Elle ne certifie pas un jugement silencieux des personnes ou de l’ambiance.",
+    "question": "Qu’ai-je observé et que faudrait-il demander ?"
    },
    "reversed": {
-    "core": "L'intuition est étouffée, ou les secrets sont gardés trop étroitement.",
+    "core": "Notre pratique renversée examine lecture et moment, sans établir intuition étouffée ou état intérieur caché.",
     "modes": [
-     "Bloqué : le bruit et l'agitation prennent le pas sur la voix intérieure.",
-     "Intérieur : des sentiments cachés même à toi-même.",
-     "Excès : trop réfléchir, voir trop de choses dans de petits signes."
+     "Hypothèses : quel détail interprété plutôt qu’observé ?",
+     "Information : quelle question reste sans réponse ?",
+     "Moment : une clarification respectueuse aiderait-elle plus que l’attente ?"
     ],
-    "question": "Quand me suis-je accordé assez de silence pour entendre ce que je pense ?"
+    "question": "Qu’est-ce qui pourrait changer mon interprétation ?"
    }
+  },
+  "evidence": {
+   "answer": "Ici, la Papesse invite à observer patiemment l’incertitude, en séparant impressions et preuves sur autrui.",
+   "groupNote": "Cette carte porte II. La comparer aux Deux est un exercice, pas une loi universelle des paires ni une importance supérieure.",
+   "sections": [
+    {
+     "h": "Ce que décrit la source et ce que nous ajoutons",
+     "p": [
+      "La partie II, §2, II décrit rouleau couvert, colonnes contrastées, croissant et voile, puis les interprète par des idées religieuses et mystiques. Ce sont les lectures de Waite ; notre exercice ne demande pas de les tenir pour un savoir vérifié.",
+      "La partie III, §3 inclut secret et silence ; le renversement ne se réduit pas à ignorer la voix intérieure. Aucune liste ne prouve secret, intuition fiable ou identification d’une femme de ton entourage."
+     ]
+    },
+    {
+     "h": "Exemple original : une invitation sans réponse",
+     "p": [
+      "Question : « Que clarifier avant d’interpréter ce silence ? ». Imagine une invitation encore sans réponse, carte à l’endroit sur « Que vérifier ? ». Décris d’abord rouleau et colonnes. Exercice fictif, pas un message privé ni une consultation réelle.",
+      "Un lien : la vue partielle sépare « pas de réponse reçue » de « ne veut pas venir » ; le contraste invite à garder plusieurs explications. Vérifie la date donnée et, si adapté, demande une fois si cela convient, en laissant place à réponse ou refus. Notre raisonnement, pas une preuve de motif.",
+      "Autre lecture : les détails sont peut-être clairs, mais tu hésites sur ton offre. Écris ta préférence avant une autre question. Garde deux lectures et écarts dans tes [notes](read). Tourner ne prouve pas de sentiments cachés ; compare au contexte réel."
+     ]
+    },
+    {
+     "h": "Sources consultables",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, partie II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, II The High Priestess, étaye détails et lecture spirituelle, pas une règle d’intuition ou un sens universel du Deux.",
+      "[Partie III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 2 The High Priestess, étaye le comparatif historique. Transcription de la réimpression de 1922. Pistes et invitation sont éditoriales ; pages de contexte encore à vérifier."
+     ]
+    },
+    {
+     "h": "Vérification · 1er novembre 2026",
+     "p": [
+      "Comparaison assistée par IA des passages, de l’image et du texte. Certitudes sur les réponses silencieuses, confiance dans les impressions cachées et correspondances fixes Deux/intuition retirées. Relectures spécialisée indépendante et par des locuteurs natifs non confirmées ; corrections via la [page de méthode](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_03_empress": {

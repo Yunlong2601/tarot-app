@@ -134,33 +134,67 @@
  "major_02_high_priestess": {
   "name": "La Sacerdotisa",
   "keywords": [
-   "intuición",
-   "quietud",
-   "lo no dicho"
+   "atención",
+   "incertidumbre",
+   "reflexión"
   ],
-  "upright": "La reflexión en calma trae respuestas que el ruido no puede dar. Confía en lo que percibes bajo la superficie.",
-  "reversed": "Ignorar tu voz interior, o esconderte algo a ti mismo.",
+  "upright": "Para este ejercicio, separa lo observado, lo sentido y lo que aún desconoces.",
+  "reversed": "Usa la inversión para revisar supuestos y preguntas pendientes, sin decidir que te ocultas algo.",
   "k": {
-   "essence": "Lo que percibes antes de poder explicarlo.",
-   "imagery": "Una mujer con túnica azul está sentada entre una columna negra y una columna blanca marcadas con las letras B y J. A sus pies descansa una luna creciente y en su regazo hay un pergamino medio oculto. Detrás de ella cuelga una cortina decorada con granadas.",
-   "why": "El dos es el número de las parejas y los umbrales. Las columnas marcan una puerta entre opuestos, y la cortina oculta lo que hay más allá. La Luna, que se le suele asociar, es el símbolo tradicional de la intuición y de lo que aún no es visible.",
+   "essence": "Deja espacio a la incertidumbre antes de concluir.",
+   "imagery": "Una figura sentada sostiene un rollo parcialmente cubierto entre una columna oscura B y otra clara J. Hay una luna creciente a sus pies y un velo estampado detrás. La carta lleva II.",
+   "why": "Waite describe rollo y velo en una interpretación espiritual. Comprobar información es nuestra aplicación, no prueba de intuición o hechos ocultos. La luna es un detalle de la imagen, no confirma sentimientos.",
    "upright": {
-    "core": "Quietud antes de decidir: escuchar lo que no se dice, en la situación y en ti.",
-    "light": "intuición, paciencia, discreción",
-    "shadow": "secretismo, contenerte demasiado tiempo",
-    "love": "Notar lo que queda sin decir entre las personas, y lo que no te has admitido a ti mismo.",
-    "work": "Reunir información antes de actuar; confiar en una lectura tranquila del ambiente.",
-    "question": "¿Qué intuyo ya pero no he dicho en voz alta?"
+    "core": "Una propuesta: pausa hasta formular una pregunta y busca información que pueda responderla.",
+    "light": "atención, paciencia, respeto por la intimidad",
+    "shadow": "confundir una impresión con un hecho o esperar sin motivo",
+    "love": "Para relaciones, distingue un mensaje sin respuesta de tu explicación imaginada. Pregunta con respeto; no revela sentimientos ni secretos ajenos.",
+    "work": "Para trabajo, identifica un documento que falte o una instrucción confusa. No certifica un juicio silencioso sobre personas o ambiente.",
+    "question": "¿Qué he observado y qué tendría que preguntar?"
    },
    "reversed": {
-    "core": "La intuición queda ahogada, o los secretos se guardan con demasiada fuerza.",
+    "core": "Nuestra práctica invertida examina interpretaciones y momento, sin establecer intuición silenciada ni estados internos ocultos.",
     "modes": [
-     "Bloqueo: el ruido y el ajetreo por encima de la voz interior.",
-     "Hacia dentro: sentimientos ocultos incluso para ti.",
-     "Exceso: pensar demasiado, ver demasiado en señales pequeñas."
+     "Supuestos: ¿qué detalle interpreto en vez de observar?",
+     "Información: ¿qué pregunta queda abierta?",
+     "Momento: ¿ayudaría aclarar respetuosamente más que esperar?"
     ],
-    "question": "¿Cuándo fue la última vez que me quedé lo bastante en silencio para oír lo que pienso?"
+    "question": "¿Qué podría cambiar mi interpretación?"
    }
+  },
+  "evidence": {
+   "answer": "Aquí la Sacerdotisa invita a atender la incertidumbre, separando impresiones y evidencia sobre otras personas.",
+   "groupNote": "Esta baraja la marca II. Compararla con Doses es estudio, no ley universal de pares ni mayor importancia vital.",
+   "sections": [
+    {
+     "h": "Lo que describe la fuente y lo que añadimos",
+     "p": [
+      "La parte II, §2, II describe rollo cubierto, columnas, creciente y velo, interpretados mediante ideas religiosas y místicas. Son interpretaciones de Waite; nuestro ejercicio no exige tratarlas como conocimiento verificado.",
+      "La parte III, §3 incluye secreto y silencio; la inversión no es simplemente ignorar la voz interior. Ninguna lista prueba secretos, fiabilidad intuitiva ni que la carta identifique a una mujer de tu vida."
+     ]
+    },
+    {
+     "h": "Ejemplo original: una invitación sin respuesta",
+     "p": [
+      "Pregunta: «¿Qué aclarar antes de interpretar el silencio?». Imagina una invitación aún sin respuesta y la carta al derecho en «¿Qué comprobar?». Describe primero el rollo parcial y las columnas. Es ficticio, no un mensaje privado ni caso de cliente.",
+      "Una conexión: la visibilidad parcial sugiere distinguir «no he recibido respuesta» de «no quiere venir»; las columnas contrastantes, mantener varias explicaciones. Comprueba la fecha y, si procede, pregunta una vez si le viene bien, dejando espacio a respuesta o rechazo. Es razonamiento nuestro, no prueba de motivos.",
+      "Alternativa: quizá los detalles están claros pero aún no decidiste qué ofrecer. Escribe tu preferencia antes de otra pregunta. Conserva ambas lecturas y discrepancias en tus [notas](read). Girar no prueba sentimientos ocultos; compara con circunstancias reales."
+     ]
+    },
+    {
+     "h": "Fuentes consultables",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, parte II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, II The High Priestess, respalda detalles e interpretación espiritual, no una regla de intuición ni un Dos universal.",
+      "[Parte III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 2 The High Priestess, respalda el comparativo histórico. Transcripción de la reimpresión de 1922. Propuestas y ejemplo son editoriales; páginas de contexto pendientes."
+     ]
+    },
+    {
+     "h": "Registro de comprobación · 1 de noviembre de 2026",
+     "p": [
+      "Comparación asistida por IA de pasajes, imagen y texto. Retiradas certezas sobre respuestas en silencio, confianza en impresiones ocultas y correspondencias fijas Dos/intuición. Revisiones experta independiente y por hablantes nativos no confirmadas; correcciones en la [página de metodología](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_03_empress": {

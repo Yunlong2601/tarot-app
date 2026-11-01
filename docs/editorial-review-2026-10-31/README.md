@@ -4,7 +4,7 @@ The owner explicitly included all website reference content, beyond the initial 
 
 ## Current progress
 
-Nine logical references have limited AI-assisted primary-source comparisons and original worked examples in all eight locales: the seven foundational lessons, `/cards/major-00-fool` and `/cards/major-01-magician`. This does not mean their translations received human review, or that all 487 routes are source-verified. Every other record, including both cards’ context subpages, remains not started. A site-wide publisher component is not proof of claim checking.
+Ten logical references have limited AI-assisted primary-source comparisons and original worked examples in all eight locales: the seven foundational lessons, `/cards/major-00-fool`, `/cards/major-01-magician` and `/cards/major-02-high-priestess`. This does not mean their translations received human review, or that all 487 routes are source-verified. Every other record, including these cards’ context subpages, remains not started. A site-wide publisher component is not proof of claim checking.
 
 Work in batches: major-card references; minor-card references; contextual interpretations; spreads/question/topic references; zodiac/birth/numerology and tool formulas; navigation and publisher consistency. A contextual interpretation needs its own reasoning, not a copied historical citation that never discussed that context. Reconcile newly added/removed routes before declaring the inventory complete.
 
@@ -200,3 +200,22 @@ Actor: Codex AI assistant. Read Waite Part II §2 I and Part III §3 1, inspecte
 Consulted transcription: 1922 reprint. Whole-site progress 9/487 limited comparisons; independent expert/native states unverified. Editorial audit now covers 56 lesson + 16 card routes. Verification follows after final build.
 
 Magician validation: 49 tests; locale parity; Astro check (0 errors/warnings, 2 existing hints); production build; reader/editorial (56 lesson + 16 card routes), ritual, interaction, search-growth and beta audits passed. Chrome DOM checks at 390/768/1440px in eight locales found four evidence sections/two sources and no overflow. Orientation selection showed reversed text and passed reversed state to the existing workspace link. Chinese desktop evidence: `magician-desktop.png`. Known mobile screenshot limitation remains; no physical accessibility or native-language approval claimed.
+
+
+## High Priestess base reference: actual source-comparison record — 1 November 2026
+
+Actor: Codex AI assistant. Directly read Waite Part II §2 II and Part III §3 2; inspected self-hosted card image and compared all base-reference wording. Shared backend data remains read-only and context subpages remain not started.
+
+| Claim/change | Evidence | Outcome / limit |
+|---|---|---|
+| Covered scroll, B/J pillars, crescent, veil | [Part II §2 II, revision 15274517](https://en.wikisource.org/w/index.php?oldid=15274517&title=The_Pictorial_Key_to_the_Tarot/Part_2), actual artwork | Description separated from Waite's religious/mystical account and our practical inference. No hidden-document contents invented. |
+| Quiet reflection guarantees answers; trust beneath-surface impressions | No reliability evidence established | Replaced with observation/feeling/unknown distinction and a checkable question, no access to thoughts/secrets. |
+| Two proves pairs/thresholds; lunar association proves intuition | Source contains lunar imagery but not the claimed universal inference | Printed II and pictured crescent scoped separately; fixed number/intuition law removed, unsupported correspondence line omitted by checked-reference template. |
+| Reversed means ignored inner voice or self-concealment | [Part III §3 2, revision 15274510](https://en.wikisource.org/w/index.php?oldid=15274510&title=The_Pictorial_Key_to_the_Tarot/Part_3) | Different historical list recorded without claiming inner-state detection or identifying a contemporary woman. |
+| Original unanswered-invitation exercise | Newly authored single-card position → partial visibility/contrast → date clarification → room for answer/refusal | Distinguishes observable no reply from imagined rejection. Alternative own unclear preference. No customer message, motive attribution or guaranteed outcome. |
+| Work/relationship prompts | Bounded editorial applications | Missing information and respectful questions, not reliable intuition, privacy intrusion or mind-reading. |
+| Checked scope | Individual CARD_EVIDENCE/inventory path | Base page only; contextual variants independently pending. |
+
+Consulted 1922 reprint transcription. Whole-site progress: 10/487 limited source comparisons; expert/native-language states unverified. Editorial audit extends to 56 lesson + 24 base-card routes. Verification follows final build.
+
+High Priestess validation: 49 tests; locale parity; Astro check (0 errors/warnings, 2 existing hints); production build; reader/editorial (56 lesson + 24 card routes), ritual, interaction, search-growth and beta audits passed. Chrome DOM checks at 390/768/1440px across eight locales found four evidence sections/two sources and no overflow. Orientation selection displayed reversed meaning and passed reversed state to the workspace link. Chinese desktop evidence: `priestess-desktop.png`. Known mobile screenshot limitation remains; no physical accessibility or native-language approval claimed.
