@@ -531,29 +531,62 @@
    "patience",
    "compassion"
   ],
-  "upright": "Quiet courage and gentleness handle what force cannot.",
-  "reversed": "Self-doubt or running on empty. Rebuild confidence in small steps.",
+  "upright": "For this exercise, try a measured response and ask what support or limit the task needs.",
+  "reversed": "Use reversal to reconsider effort and limits, without diagnosing exhaustion, low confidence or someone’s character.",
   "k": {
-   "essence": "Courage that is gentle.",
-   "imagery": "A woman in white, with an infinity sign above her head, calmly closes the mouth of a lion. She wears a garland of flowers and mountains rise behind.",
-   "why": "In this deck Strength is numbered eight (Justice is eleven). Eight is the number of steady effort. The picture shows strength as patience rather than force: the lion is not beaten but befriended. Leo, her usual sign, is the lion.",
+   "essence": "Meet a difficulty carefully, and leave room to pause.",
+   "imagery": "A white-clad figure bends toward a lion with hands around its jaws. Flowers circle the head and waist, a looped symbol is above, and hills lie behind. The card is numbered VIII.",
+   "why": "Waite describes closing the lion’s jaws and interprets fortitude through a religious account of union and contemplation. He explicitly distinguishes this from everyday self-confidence. Our patience exercise is an application, not proof that the lion is a friend or gentleness always works. These passages establish neither Eight as steady effort nor a Leo correspondence.",
    "upright": {
-    "core": "Quiet courage: meeting a strong feeling with patience and kindness instead of a fight.",
+    "core": "One possible prompt: approach one manageable part of a task with care, then decide whether to continue, seek help or stop.",
     "light": "patience, resilience, self-compassion",
-    "shadow": "self-doubt, pushing feelings down",
-    "love": "Staying steady and gentle when emotions run high.",
-    "work": "Keeping calm under pressure; leading by example.",
+    "shadow": "turning patience into pressure to endure",
+    "love": "In a relationship exercise, ask what a considerate response and a clear limit would look like. Patience does not require accepting pressure or prove that another person will change.",
+    "work": "In a work exercise, consider a measured pace and the help a task requires. Calmness alone does not establish ability or guarantee success.",
     "question": "What would patience look like here?"
    },
    "reversed": {
-    "core": "Strength is drained, or force takes the place of gentleness.",
+    "core": "Our reversed practice reviews effort and boundaries; it does not read a health condition or personality from orientation.",
     "modes": [
-     "Fading: running low on energy.",
-     "Blocked: self-doubt.",
-     "Excess: trying to tame a feeling by force."
+     "Effort: what part is manageable now?",
+     "Support: what explanation or help is missing?",
+     "Limit: when would I pause or decline?"
     ],
-    "question": "What am I trying to force that needs gentleness?"
+    "question": "Where might I slow down, ask for help or stop?"
    }
+  },
+  "evidence": {
+   "answer": "Here Strength prompts careful effort, patience and a choice about limits. It does not prove that gentleness will resolve a difficulty or diagnose your energy level.",
+   "groupNote": "This image labels Strength VIII; Waite notes its exchange with Justice. Comparing Eights is a study exercise, not a universal law of effort.",
+   "sections": [
+    {
+     "h": "Historical fortitude and our patience exercise",
+     "p": [
+      "Part II, §2, VIII describes the woman closing the lion’s jaws, flowers and a change of numbering with Justice. Its higher interpretation is religious and partly inferential; it is not an account of ordinary confidence. Part III, §3 lists courage and power alongside other meanings, and difficulties reversed. These historical lists do not establish success, exhaustion or abuse in a real situation."
+     ]
+    },
+    {
+     "h": "Original example: rehearsing a short reading aloud",
+     "p": [
+      "Question: “How might I approach this rehearsal?”. Imagine the upright card in “A way to practise”. You stumble over a paragraph of a fictional reading-group introduction. This is an invented exercise, not a participant’s outcome. Observe the hands around the lion’s jaws and the flowers before adding a meaning.",
+      "One reading connects the careful contact with working on a small part rather than forcing the whole passage. Try two sentences slowly, note where you stumble and decide whether another attempt would help. That link from image and position to a modest action is our reasoning; the picture does not prove kindness changes performance or that the lion has become a friend.",
+      "Alternative: an unfamiliar word needs a pronunciation reference, or the session needs a break. Check that practical need rather than blaming confidence. Keep both readings and mismatches in your [reading notes](read). Reversal can prompt a different pace without labelling you weak."
+     ]
+    },
+    {
+     "h": "Sources you can inspect",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, Part II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, VIII Strength, or Fortitude: jaws, flowers, numbering and the author’s religious interpretation. Visible details were also compared with the actual site image; friendship is not an observable fact.",
+      "[Part III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 8 Fortitude: historical upright/reversed list. Consulted transcription: 1922 reprint. The rehearsal exercise is editorial; separate love, career, feelings and yes/no pages remain unchecked."
+     ]
+    },
+    {
+     "h": "Check record · 1 November 2026",
+     "p": [
+      "AI-assisted comparison checked the passages, actual image and this base reference. Replaced unsupported Eight/Leo and friendship explanations, assured effects of gentleness and inferred reversed exhaustion with labelled prompts. Independent expert and native-language review remain unconfirmed; corrections through our [methodology page](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_09_hermit": {

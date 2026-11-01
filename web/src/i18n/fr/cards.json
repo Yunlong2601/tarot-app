@@ -531,29 +531,62 @@
    "patience",
    "compassion"
   ],
-  "upright": "Un courage tranquille et la douceur viennent à bout de ce que la force ne peut pas régler.",
-  "reversed": "Doute de soi ou batteries à plat. Reconstruis ta confiance par petites étapes.",
+  "upright": "Pour cet exercice, essaie une réponse mesurée et demande quel soutien ou quelle limite est nécessaire.",
+  "reversed": "À l’envers, revois effort et limites sans diagnostiquer épuisement, manque de confiance ou caractère.",
   "k": {
-   "essence": "Un courage qui est doux.",
-   "imagery": "Une femme vêtue de blanc, un signe de l'infini au-dessus de la tête, ferme calmement la gueule d'un lion. Elle porte une guirlande de fleurs et des montagnes s'élèvent derrière elle.",
-   "why": "Dans ce jeu, la Force porte le numéro huit (la Justice, le onze). Huit est le nombre de l'effort constant. L'image montre la force comme de la patience plutôt que de la contrainte : le lion n'est pas vaincu mais apprivoisé. Le Lion, son signe habituel, est justement le lion.",
+   "essence": "Aborder la difficulté avec soin et garder la possibilité d’une pause.",
+   "imagery": "Une figure en blanc se penche vers un lion, les mains autour des mâchoires. Fleurs sur la tête et la taille, symbole en boucle au-dessus et collines derrière. Numéro VIII.",
+   "why": "Waite décrit la fermeture des mâchoires et une force religieuse d’union et de contemplation, explicitement distincte de la confiance quotidienne. Notre patience est une application, pas la preuve d’une amitié avec le lion ou d’une douceur toujours efficace. Les passages n’établissent ni Huit comme effort régulier ni Lion astrologique.",
    "upright": {
-    "core": "Un courage tranquille : accueillir une émotion forte avec patience et bienveillance plutôt que par la lutte.",
+    "core": "Une piste : essayer une petite partie, puis choisir de continuer, demander de l’aide ou arrêter.",
     "light": "patience, résilience, bienveillance envers soi",
-    "shadow": "le doute de soi, refouler ses émotions",
-    "love": "Rester stable et doux·ce quand les émotions s'emballent.",
-    "work": "Garder son calme sous la pression ; montrer l'exemple.",
+    "shadow": "transformer la patience en obligation d’endurer",
+    "love": "En relation, pense à une réponse attentive et une limite claire. La patience n’exige pas de subir la pression et ne prouve pas que l’autre changera.",
+    "work": "Au travail, considère rythme et aide nécessaire. Le calme seul ne prouve pas la compétence et ne garantit pas le succès.",
     "question": "À quoi ressemblerait la patience ici ?"
    },
    "reversed": {
-    "core": "La force s'épuise, ou la contrainte prend la place de la douceur.",
+    "core": "Notre exercice inversé examine effort et limites, pas la santé ou la personnalité par l’orientation.",
     "modes": [
-     "Déclin : être à court d'énergie.",
-     "Bloqué : le doute de soi.",
-     "Excès : essayer de dompter une émotion par la force."
+     "Effort : quelle partie est faisable maintenant ?",
+     "Soutien : quelle explication ou aide manque ?",
+     "Limite : quand faire une pause ou refuser ?"
     ],
-    "question": "Qu'est-ce que j'essaie de forcer alors que cela demande de la douceur ?"
+    "question": "Où ralentir, demander de l’aide ou arrêter ?"
    }
+  },
+  "evidence": {
+   "answer": "Ici, la Force invite au soin, à la patience et au choix des limites. Elle ne garantit pas une solution et ne diagnostique pas ton énergie.",
+   "groupNote": "L’image porte VIII ; Waite note l’échange avec Justice. Comparer les Huit est un exercice, pas une loi universelle d’effort.",
+   "sections": [
+    {
+     "h": "Force historique et notre exercice de patience",
+     "p": [
+      "La partie II, §2, VIII décrit femme, mâchoires, fleurs et échange de numérotation avec Justice. Son interprétation supérieure est religieuse et en partie inférée, pas une confiance quotidienne. La partie III, §3 énumère courage et pouvoir parmi d’autres sens, et difficultés inversées. Les listes n’établissent ni succès, ni épuisement, ni abus dans un cas réel."
+     ]
+    },
+    {
+     "h": "Exemple original : répéter une courte lecture à voix haute",
+     "p": [
+      "Question : « Comment aborder cette répétition ? ». Imagine la carte droite en « Une façon de pratiquer ». Tu butes sur un paragraphe d’accueil fictif pour un groupe de lecture. Exercice inventé, pas résultat de participant. Observe mains près des mâchoires et fleurs avant d’interpréter.",
+      "Une lecture relie le contact attentif à une petite partie plutôt qu’au passage entier forcé. Lis deux phrases lentement, note les difficultés et décide d’un autre essai. C’est notre raisonnement depuis image et position, pas la preuve d’un progrès par gentillesse ou d’une amitié avec le lion.",
+      "Autre piste : un mot demande une référence de prononciation, ou la séance une pause. Vérifie ce besoin sans accuser la confiance. Garde pistes et écarts dans tes [notes](read). L’inversion peut changer le rythme sans te qualifier de faible."
+     ]
+    },
+    {
+     "h": "Sources à consulter",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, partie II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, VIII Strength, or Fortitude : mâchoires, fleurs, numéro et lecture religieuse. Image réelle comparée ; l’amitié n’est pas un fait observable.",
+      "[Partie III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 8 Fortitude : liste historique droite/inversée. Transcription de la réimpression de 1922. Répétition éditoriale ; amour, carrière, sentiments et oui/non restent à vérifier séparément."
+     ]
+    },
+    {
+     "h": "Trace de vérification · 1er novembre 2026",
+     "p": [
+      "Comparaison assistée par IA des passages, de l’image et de la référence de base. Huit/Lion et amitié sans preuve, effets assurés de douceur et épuisement déduit remplacés par des pistes explicites. Expertise indépendante et révision de langue maternelle non confirmées ; corrections via la [méthodologie](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_09_hermit": {

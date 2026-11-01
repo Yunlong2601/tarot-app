@@ -531,29 +531,62 @@
    "Geduld",
    "Mitgefühl"
   ],
-  "upright": "Stiller Mut und Sanftheit bewältigen, was Gewalt nicht schafft.",
-  "reversed": "Selbstzweifel oder leere Akkus. Bau dein Selbstvertrauen in kleinen Schritten wieder auf.",
+  "upright": "Probiere zur Übung eine bedachte Reaktion und frage nach Unterstützung oder Grenzen.",
+  "reversed": "Überprüfe umgekehrt Einsatz und Grenzen, ohne Erschöpfung, mangelndes Vertrauen oder Charakter zu diagnostizieren.",
   "k": {
-   "essence": "Mut, der sanft ist.",
-   "imagery": "Eine Frau in Weiß mit einem Unendlichkeitszeichen über dem Kopf schließt ruhig das Maul eines Löwen. Sie trägt eine Blumengirlande, und hinter ihr erheben sich Berge.",
-   "why": "In diesem Deck trägt die Kraft die Nummer acht (die Gerechtigkeit die Nummer elf). Acht ist die Zahl der beständigen Anstrengung. Das Bild zeigt Stärke als Geduld statt als Gewalt: Der Löwe wird nicht besiegt, sondern zum Freund gemacht. Löwe, ihr übliches Sternzeichen, ist eben der Löwe.",
+   "essence": "Schwierigkeiten sorgfältig angehen und Pausen zulassen.",
+   "imagery": "Eine weiß gekleidete Figur beugt sich zum Löwen, die Hände am Maul. Blumen an Kopf und Taille, ein Schleifensymbol darüber und Hügel hinten. Die Karte trägt VIII.",
+   "why": "Waite beschreibt das Schließen des Löwenmauls und religiöse Stärke durch Vereinigung und Betrachtung, ausdrücklich nicht alltägliches Selbstvertrauen. Unsere Geduldsübung ist eine Anwendung, kein Beweis für Freundschaft oder stets wirksame Sanftheit. Die Stellen begründen weder Acht als stetige Mühe noch Löwe als Sternzeichen.",
    "upright": {
-    "core": "Stiller Mut: einem starken Gefühl mit Geduld und Freundlichkeit begegnen statt mit Kampf.",
+    "core": "Ein Ansatz: einen machbaren Teil versuchen, dann zwischen Weitermachen, Hilfe und Pause wählen.",
     "light": "Geduld, Widerstandskraft, Selbstmitgefühl",
-    "shadow": "Selbstzweifel, Gefühle unterdrücken",
-    "love": "Ruhig und sanft bleiben, wenn die Gefühle hochkochen.",
-    "work": "Unter Druck gelassen bleiben; mit gutem Beispiel vorangehen.",
+    "shadow": "Geduld als Druck zum Aushalten",
+    "love": "In Beziehungen: Rücksicht und klare Grenzen überlegen. Geduld verlangt keinen Druck zu erdulden und beweist keine Veränderung beim Gegenüber.",
+    "work": "Bei der Arbeit: Tempo und Hilfe prüfen. Ruhe allein bestätigt keine Fähigkeit und garantiert keinen Erfolg.",
     "question": "Wie würde Geduld hier aussehen?"
    },
    "reversed": {
-    "core": "Die Kraft ist aufgebraucht, oder Gewalt tritt an die Stelle von Sanftheit.",
+    "core": "Die umgekehrte Übung prüft Einsatz und Grenzen, nicht Gesundheit oder Persönlichkeit anhand der Lage.",
     "modes": [
-     "Schwindend: Die Energie geht zur Neige.",
-     "Blockiert: Selbstzweifel.",
-     "Übermaß: ein Gefühl mit Gewalt zähmen wollen."
+     "Einsatz: Welcher Teil ist jetzt machbar?",
+     "Hilfe: Welche Erklärung fehlt?",
+     "Grenze: Wann pausiere oder widerspreche ich?"
     ],
-    "question": "Was versuche ich zu erzwingen, das eigentlich Sanftheit braucht?"
+    "question": "Wo langsamer werden, Hilfe suchen oder aufhören?"
    }
+  },
+  "evidence": {
+   "answer": "Hier regt Kraft zu Sorgfalt, Geduld und Grenzen an. Sie garantiert keine Lösung und diagnostiziert keine Energiereserven.",
+   "groupNote": "Das Bild trägt VIII; Waite nennt den Tausch mit Gerechtigkeit. Achten vergleichen ist eine Übung, kein allgemeines Anstrengungsgesetz.",
+   "sections": [
+    {
+     "h": "Historische Stärke und unsere Geduldsübung",
+     "p": [
+      "Teil II, §2, VIII beschreibt Frau, Löwenmaul, Blumen und den Zahlentausch mit Gerechtigkeit. Die höhere Deutung ist religiös und teils erschlossen, kein alltägliches Selbstvertrauen. Teil III, §3 nennt Mut und Macht neben weiteren Bedeutungen sowie Schwierigkeiten umgekehrt. Keine Feststellung realen Erfolgs, realer Erschöpfung oder eines Machtmissbrauchs."
+     ]
+    },
+    {
+     "h": "Eigenes Beispiel: einen kurzen Text vorlesen üben",
+     "p": [
+      "Frage: „Wie gehe ich an diese Probe heran?“. Stelle die aufrechte Karte auf „Eine Übungsweise“. Ein Absatz einer erfundenen Lesegruppenbegrüßung stockt. Kein Teilnehmerbericht. Betrachte Hände am Löwenmaul und Blumen vor der Deutung.",
+      "Eine Lesart verbindet die behutsame Berührung mit einem kleinen Abschnitt statt dem erzwungenen Ganzen. Lies zwei Sätze langsam, notiere Stolperstellen und entscheide über einen weiteren Versuch. Unsere Ableitung aus Bild und Position, kein Beweis für bessere Leistung durch Freundlichkeit oder einen befreundeten Löwen.",
+      "Alternative: Ein Wort braucht eine Aussprachehilfe oder die Sitzung eine Pause. Prüfe den Bedarf statt fehlendes Vertrauen zu unterstellen. Halte Lesarten und Widersprüche in deinen [Notizen](read) fest. Umkehrung verändert das Tempo ohne Schwäche-Etikett."
+     ]
+    },
+    {
+     "h": "Nachprüfbare Quellen",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, Teil II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, VIII Strength, or Fortitude: Maul, Blumen, Nummerierung und religiöse Deutung. Bild separat verglichen; Freundschaft ist nicht sichtbar belegbar.",
+      "[Teil III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 8 Fortitude: historische Liste beider Lagen. Transkription des Nachdrucks von 1922. Probe redaktionell; Liebe, Beruf, Gefühle und Ja/Nein separat ungeprüft."
+     ]
+    },
+    {
+     "h": "Prüfprotokoll · 1. November 2026",
+     "p": [
+      "KI-gestützter Vergleich von Stellen, Bild und Basisreferenz. Unbelegte Acht/Löwe und Freundschaft, garantierte Sanftheitseffekte und erschlossene Erschöpfung durch gekennzeichnete Fragen ersetzt. Unabhängige Fach- und muttersprachliche Prüfung unbestätigt; Korrekturen über die [Methodik](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_09_hermit": {

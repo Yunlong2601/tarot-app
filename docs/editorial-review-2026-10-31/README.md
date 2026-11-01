@@ -4,7 +4,7 @@ The owner explicitly included all website reference content, beyond the initial 
 
 ## Current progress
 
-Fifteen logical references have limited AI-assisted primary-source comparisons and original worked examples in all eight locales: the seven foundational lessons, `/cards/major-00-fool`, `/cards/major-01-magician`, `/cards/major-02-high-priestess`, `/cards/major-03-empress` `/cards/major-04-emperor` `/cards/major-05-hierophant` `/cards/major-06-lovers` and `/cards/major-07-chariot`. This does not mean their translations received human review, or that all 487 routes are source-verified. Every other record, including these cards’ context subpages, remains not started. A site-wide publisher component is not proof of claim checking.
+Sixteen logical references have limited AI-assisted primary-source comparisons and original worked examples in all eight locales: the seven foundational lessons, `/cards/major-00-fool`, `/cards/major-01-magician`, `/cards/major-02-high-priestess`, `/cards/major-03-empress` `/cards/major-04-emperor` `/cards/major-05-hierophant` `/cards/major-06-lovers` `/cards/major-07-chariot` and `/cards/major-08-strength`. This does not mean their translations received human review, or that all 487 routes are source-verified. Every other record, including these cards’ context subpages, remains not started. A site-wide publisher component is not proof of claim checking.
 
 Work in batches: major-card references; minor-card references; contextual interpretations; spreads/question/topic references; zodiac/birth/numerology and tool formulas; navigation and publisher consistency. A contextual interpretation needs its own reasoning, not a copied historical citation that never discussed that context. Reconcile newly added/removed routes before declaring the inventory complete.
 
@@ -305,3 +305,18 @@ Actor: Codex AI assistant. Scope: eight localized base references, not four cont
 | Planning booklet | Original fictional image → coordinating text/cover → small review point | Alternative: print-shop opening/file constraint; no claim that lack of will causes blockage |
 
 Check record and Article sources state limited AI comparison only; independent expert/native-language review unconfirmed. Progress: 15/487 logical references, 56 lesson + 64 base-card localized routes. Validation: all 49 tests, locale parity, Astro check (0 errors/warnings, 2 existing hints), build, reader/editorial (120 routes), ritual, interaction, search-growth and beta audits passed. Chrome DOM checks across eight locales at 390/768/1440px found four evidence sections, two sources and no overflow; reversed selection displayed the corresponding meaning and passed orientation to the workspace. Chinese desktop proof: `chariot-desktop.png`. Physical accessibility/native-language acceptance unverified; known mobile screenshot limitation unchanged.
+
+
+## Strength base reference: actual source comparison — 1 November 2026
+
+Actor: Codex AI assistant. Scope: eight localized base references; context variants excluded. Read Part II §2 VIII and Part III §3 8, then inspected actual bundled artwork. Consulted 1922 reprint transcription: [Part II revision 15274517](https://en.wikisource.org/w/index.php?oldid=15274517&title=The_Pictorial_Key_to_the_Tarot/Part_2), [Part III revision 15274510](https://en.wikisource.org/w/index.php?oldid=15274510&title=The_Pictorial_Key_to_the_Tarot/Part_3).
+
+| Claim | Evidence/action | Limit |
+|---|---|---|
+| White clothes, hands at lion jaws, flowers, loop above, VIII | Observed actual image; closing action explicitly attributed to Part II | Friendship and calm emotions are not observable facts from this still image |
+| VIII and exchange with Justice | Part II expressly discusses the exchange; actual label VIII | No universal Eight/effort rule; unsupported Leo explanation removed |
+| Patience versus ordinary confidence | Part II religious/contemplative account explicitly differs from everyday confidence and notes inferred higher meaning | Contemporary practice marked editorial, not a historical proof of emotional technique |
+| Gentleness necessarily works; reversed exhaustion/self-doubt | Replaced with optional careful effort/support/limit questions | No diagnostic or success guarantee; patience does not demand enduring pressure |
+| Short reading rehearsal | Original fictional hands/care → two sentences → note stumbling → decide next attempt | Alternative pronunciation reference or pause, no participant outcomes or validated intervention claimed |
+
+Article citations and visible record state limited AI-assisted comparison only. Independent expert and native-language review unconfirmed. Progress: 16/487 logical references, 56 lesson + 72 base-card localized routes. Validation: all 49 tests, locale parity, Astro check (0 errors/warnings, 2 existing hints), build, reader/editorial (128 routes), ritual, interaction, search-growth and beta audits passed. Chrome DOM checks across eight locales at 390/768/1440px found four evidence sections, two sources and no overflow. Reversed selection displayed the correct text and passed its orientation to the workspace. Chinese desktop proof: `strength-desktop.png`. Physical accessibility/native-language acceptance unverified; known mobile screenshot limitation unchanged.
