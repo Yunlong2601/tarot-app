@@ -592,33 +592,66 @@
  "major_09_hermit": {
   "name": "L'Ermite",
   "keywords": [
-   "solitude",
    "réflexion",
-   "guidance intérieure"
+   "orientation",
+   "étude"
   ],
-  "upright": "Prends du recul pour réfléchir. Un temps seul·e peut te montrer ce qui compte.",
-  "reversed": "Isolement ou fuite de la réflexion. Équilibre la solitude et le lien aux autres.",
+  "upright": "Pour cet exercice, examine une question puis distingue ce que tu peux vérifier et demander.",
+  "reversed": "À l’envers, revois ta recherche de conseils sans conclure à l’isolement, l’évitement ou la peur.",
   "k": {
-   "essence": "Prendre du recul pour trouver ta propre réponse.",
-   "imagery": "Un vieil homme en manteau gris se tient sur un sommet enneigé. D'une main, il tient une lanterne contenant une étoile à six branches, et de l'autre un bâton.",
-   "why": "Neuf est le nombre du presque-achèvement et de la solitude. La lanterne n'éclaire que les quelques pas suivants, ce qui ressemble souvent à la façon dont fonctionne la guidance intérieure. La Vierge, son signe habituel, est attentive et pleine de discernement.",
+   "essence": "Examiner une question et rendre l’explication plus claire.",
+   "imagery": "Une figure barbue et encapuchonnée lève une lanterne étoilée et tient un long bâton, sur un sol clair et irrégulier. Numéro IX.",
+   "why": "Waite décrit un accomplissement et un flambeau que d’autres peuvent rejoindre ; il rejette une interprétation d’isolement occultiste. Notre réflexion est une application, pas la preuve de réponses en solitaire ou de quelques pas éclairés. Les passages n’établissent ni Neuf comme solitude/quasi-achèvement ni Vierge.",
    "upright": {
-    "core": "Un temps à l'écart pour entendre tes propres pensées et décider de ce qui compte.",
+    "core": "Une piste : distinguer ce que tu comprends, les incertitudes et les sources d’explication.",
     "light": "sagesse, concentration, solitude choisie",
-    "shadow": "l'isolement, fuir les gens ou les choix",
-    "love": "Un temps seul·e pour comprendre ce que tu veux ; le partager quand tu es prêt·e.",
-    "work": "Une concentration profonde, la recherche, trouver un mentor ou en devenir un.",
+    "shadow": "croire que comprendre exige la solitude",
+    "love": "En relation, demande si un temps de réflexion ou une conversation aiderait. La carte ne prouve ni retrait ni sentiments d’autrui.",
+    "work": "Au travail, vérifie une source avant de partager. L’image ne certifie pas un mentor et n’exige pas de travailler seul.",
     "question": "Qu'est-ce que j'entends quand tout devient calme ?"
    },
    "reversed": {
-    "core": "La solitude devient isolement, ou tu n'arrives pas à rester seul·e avec tes pensées.",
+    "core": "Notre exercice inversé examine l’accès aux conseils, pas l’état social ou émotionnel.",
     "modes": [
-     "Excès : se retirer trop loin.",
-     "Bloqué : agité·e, incapable de rester tranquille.",
-     "Déclin : revenir vers les autres."
+     "Question : que faut-il préciser ?",
+     "Source : que puis-je vérifier ?",
+     "Lien : qui peut aider, et que puis-je expliquer ?"
     ],
-    "question": "Cette solitude me ressource-t-elle, ou me cache-t-elle ?"
+    "question": "Que clarifier seul ou avec quelqu’un ?"
    }
+  },
+  "evidence": {
+   "answer": "Ici, l’Ermite invite à réfléchir, vérifier et partager une orientation. Il ne prouve ni le besoin d’isolement ni une réponse forcément intérieure.",
+   "groupNote": "L’image porte IX. Comparer les Neuf est un exercice, pas une étape universelle de solitude ou de quasi-achèvement.",
+   "sections": [
+    {
+     "h": "Le flambeau historique et notre réflexion",
+     "p": [
+      "La partie II, §2, IX décrit étoile, hauteur et flambeau d’accomplissement. Waite le distingue du chercheur de vérité et rejette un isolement occultiste précis ; ce n’est pas un résultat psychologique sur la solitude. La partie III, §3 mêle prudence et sens plus sévères, avec plusieurs sens inversés. Ces listes n’établissent ni tromperie, ni peur, ni intentions."
+     ]
+    },
+    {
+     "h": "Exemple original : expliquer un pli à un ami",
+     "p": [
+      "Question : « Que préciser avant d’expliquer ce pli ? ». Imagine la carte droite en « Une vérification utile ». Exercice de papier fictif, pas résultat d’apprenant ni qualification pédagogique. Observe lanterne levée, étoile et bâton.",
+      "Une lecture relie la lumière visible à une étape compréhensible par autrui. Marque le bord et le coin, compare au schéma et demande à un ami ce qui reste obscur. Le bâton peut suggérer de vérifier l’appui de l’explication. Nos liens entre image et position, pas un savoir caché fourni par la carte.",
+      "Autre piste : il manque une flèche ou le schéma montre l’autre face. Cherche une instruction claire plutôt que de prolonger la solitude ou d’accuser l’ami. Garde pistes et écarts dans tes [notes](read). L’inversion change la recherche d’aide sans qualifier quelqu’un d’évasif."
+     ]
+    },
+    {
+     "h": "Sources à consulter",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, partie II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, IX The Hermit : étoile, hauteur, accomplissement/flambeau et contrastes explicites. Image réelle comparée ; portée lumineuse précise non établie.",
+      "[Partie III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 9 The Hermit : liste historique droite/inversée. Transcription de la réimpression de 1922. Pliage éditorial ; amour, carrière, sentiments et oui/non restent à vérifier séparément."
+     ]
+    },
+    {
+     "h": "Trace de vérification · 1er novembre 2026",
+     "p": [
+      "Comparaison assistée par IA des passages, de l’image et de la référence de base. Neuf/Vierge et portée lumineuse sans preuve, réponses assurées par solitude et isolement déduit remplacés par des pistes explicites. Expertise indépendante et révision de langue maternelle non confirmées ; corrections via la [méthodologie](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_10_wheel_of_fortune": {
