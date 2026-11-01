@@ -854,7 +854,7 @@
     {
       "path": "/cards/major-06-lovers",
       "category": "cards",
-      "sourceComparison": "not_started",
+      "sourceComparison": "ai_assisted_passage_comparison",
       "independentExpertReview": "not_verified",
       "languageReview": {
         "en": "not_verified",

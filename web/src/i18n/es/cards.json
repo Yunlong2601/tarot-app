@@ -401,29 +401,62 @@
    "conexión",
    "coherencia"
   ],
-  "upright": "Una elección significativa que refleja tus valores, o un vínculo que pide honestidad.",
-  "reversed": "Desajuste o indecisión. Comprueba si tus actos coinciden con lo que valoras.",
+  "upright": "Para practicar, pregunta qué importa a cada persona antes de elegir juntos.",
+  "reversed": "Usa la inversión para revisar una suposición o acuerdo, sin decidir que la relación fracasa.",
   "k": {
-   "essence": "Una elección que te pide ser honesto sobre tus valores.",
+   "essence": "Dar espacio a ambas voces al elegir juntos.",
    "imagery": "Un hombre y una mujer están desnudos bajo un sol radiante. Sobre ellos, un ángel extiende los brazos. Detrás de la mujer hay un árbol con una serpiente y detrás del hombre un árbol de llamas.",
-   "why": "El seis es el número del intercambio y la armonía. Géminis, los gemelos, es el signo de la dualidad y la elección. El ángel sugiere una visión más amplia que la que cualquiera de los dos tiene por separado. Aunque a menudo se lee como romance, el corazón de la carta es una elección hecha en sintonía con lo que valoras.",
+   "why": "Waite habla del amor humano mediante una escena semejante al Edén y distingue este diseño de otros anteriores sobre virtud y vicio. Nuestro ejercicio de valores es una aplicación moderna, no su único núcleo histórico. Estos pasajes no establecen un Seis universal ni Géminis.",
    "upright": {
-    "core": "Una elección o conexión significativa que te pide actuar en sintonía con tus valores.",
+    "core": "Una propuesta: expresar lo que quiere cada persona y comprobar si la opción lo contempla.",
     "light": "honestidad, armonía, compromiso",
     "shadow": "indecisión, elegir para complacer",
-    "love": "Una conexión honesta, y si tus actos coinciden con lo que dices querer.",
-    "work": "Una elección o una asociación que encaja con tus valores, no solo con tu conveniencia.",
+    "love": "En relaciones, habla de lo que cada cual elige libremente. La imagen no prueba atracción mutua, consentimiento, compatibilidad ni una pareja predestinada.",
+    "work": "En el trabajo, compara prioridades antes de colaborar. La carta no predice éxito ni certifica la alianza.",
     "question": "¿Qué elegiría si fuera totalmente honesto sobre lo que me importa?"
    },
    "reversed": {
-    "core": "Las elecciones se aplazan, o los valores y los actos no están en sintonía.",
+    "core": "La práctica invertida busca qué aclarar. No diagnostica indecisión, dependencia ni distanciamiento.",
     "modes": [
-     "Bloqueo: posponer la decisión.",
-     "Exceso: apoyarte demasiado en la opinión de otra persona.",
-     "Desvanecimiento: una sensación de irse distanciando."
+     "Suposición: ¿qué he deducido sin preguntar?",
+     "Acuerdo: ¿todos entienden lo que aceptan?",
+     "Condiciones: ¿el tiempo o los recursos son parte del problema?"
     ],
     "question": "¿Dónde estoy diciendo que sí cuando quiero decir que no?"
    }
+  },
+  "evidence": {
+   "answer": "Aquí los Enamorados invita a hablar de conexión y decisiones compartidas. No revela sentimientos ajenos ni demuestra que debáis estar juntos.",
+   "groupNote": "La carta lleva VI. Compararla con los Seis es un ejercicio, no una ley universal de armonía o etapa obligatoria de una relación.",
+   "sections": [
+    {
+     "h": "Amor histórico y nuestro ejercicio de elección",
+     "p": [
+      "La parte II, §2, VI describe sol, figura alada, dos personas desnudas y dos árboles en una escena semejante al Edén. Waite destaca el amor humano frente a anteriores imágenes de matrimonio y virtud/vicio. Su relato teológico y de género es histórico, no una norma actual. La parte III, §3 enumera atracción y amor derechos y dificultades invertidas; no verifica romances ni predice resultados."
+     ]
+    },
+    {
+     "h": "Ejemplo original: planear un día juntos",
+     "p": [
+      "Pregunta: «¿Qué hablar antes de elegir la salida?». Imagina la carta derecha en «Una conversación pendiente». Dos amigos consideran paseo o museo. Escena ficticia, no relato de cliente. Observa dos figuras separadas bajo el mismo sol.",
+      "Una lectura vincula las figuras con dos perspectivas y el sol con algo que conviene explicitar. Que cada amigo diga una prioridad: aire libre, calma, coste o accesibilidad. Después comparad opciones. Es nuestro razonamiento entre imagen, posición y conversación, no prueba de coincidencia ni respuesta de la figura alada.",
+      "Alternativa: ambos desean lo mismo, pero horarios o trayecto lo dificultan. Comprueba esos datos sin inventar conflicto emocional. Guarda lecturas y discrepancias en tus [notas](read). Invertir cambia la pregunta sin anunciar separación."
+     ]
+    },
+    {
+     "h": "Fuentes consultables",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, parte II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, VI The Lovers: detalles, amor humano y contraste con diseños anteriores. No establece Géminis ni un Seis universal.",
+      "[Parte III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 6 The Lovers: lista histórica derecha/invertida. Transcripción de la reimpresión de 1922. Ejercicio editorial; amor, carrera, sentimientos y sí/no siguen pendientes por separado."
+     ]
+    },
+    {
+     "h": "Registro de comprobación · 1 de noviembre de 2026",
+     "p": [
+      "Comparación asistida por IA de pasajes, imagen publicada y referencia base. Se sustituyeron Seis/Géminis sin respaldo, elección como núcleo único y estados de relación deducidos por propuestas explícitas. Revisión experta independiente y lingüística sin confirmar; correcciones mediante la [metodología](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_07_chariot": {

@@ -401,29 +401,62 @@
    "Verbindung",
    "Einklang"
   ],
-  "upright": "Eine bedeutsame Entscheidung, die deine Werte widerspiegelt, oder eine Verbindung, die Ehrlichkeit verlangt.",
-  "reversed": "Fehlender Einklang oder Unentschlossenheit. Prüfe, ob dein Handeln zu dem passt, was dir wichtig ist.",
+  "upright": "Frage zur Übung vor einer gemeinsamen Wahl, was jeder Person wichtig ist.",
+  "reversed": "Überprüfe umgekehrt eine Annahme oder Absprache, ohne ein Scheitern der Beziehung zu behaupten.",
   "k": {
-   "essence": "Eine Entscheidung, die dich bittet, ehrlich zu deinen Werten zu sein.",
+   "essence": "Bei einer gemeinsamen Wahl beide Stimmen hören.",
    "imagery": "Ein Mann und eine Frau stehen nackt unter einer hellen Sonne. Über ihnen breitet ein Engel die Arme aus. Hinter der Frau steht ein Baum mit einer Schlange, hinter dem Mann ein Baum aus Flammen.",
-   "why": "Sechs ist die Zahl des Austauschs und der Harmonie. Zwillinge ist das Sternzeichen der Dualität und der Wahl. Der Engel deutet auf einen weiteren Blick, als ihn jeder der beiden allein hat. Auch wenn die Karte oft als Romantik gelesen wird, geht es im Kern um eine Entscheidung im Einklang mit deinen Werten.",
+   "why": "Waite beschreibt menschliche Liebe in einer Eden-Szene und grenzt das Bild von älteren Tugend/Laster-Entscheidungen ab. Unsere Werteübung ist eine heutige Anwendung, nicht der einzige historische Kern. Die Stellen begründen weder eine universelle Sechs noch Zwillinge.",
    "upright": {
-    "core": "Eine bedeutsame Entscheidung oder Verbindung, die dich bittet, im Einklang mit deinen Werten zu handeln.",
+    "core": "Ein Ansatz: Wünsche aussprechen und prüfen, ob die Wahl ihnen Raum gibt.",
     "light": "Ehrlichkeit, Harmonie, Verbindlichkeit",
     "shadow": "Unentschlossenheit, wählen, um anderen zu gefallen",
-    "love": "Ehrliche Verbindung, und ob dein Handeln zu dem passt, was du angeblich willst.",
-    "work": "Eine Entscheidung oder Partnerschaft, die zu deinen Werten passt, nicht nur zu deiner Bequemlichkeit.",
+    "love": "In Beziehungen: Was wählen beide freiwillig? Das Bild beweist weder Anziehung noch Einwilligung, Kompatibilität oder eine bestimmte Seelenpartnerschaft.",
+    "work": "Bei der Arbeit: Prioritäten vor einer Zusammenarbeit vergleichen. Die Karte sagt keinen Erfolg voraus und bestätigt keine Partnerschaft.",
     "question": "Was würde ich wählen, wenn ich ganz ehrlich wäre, was mir wichtig ist?"
    },
    "reversed": {
-    "core": "Entscheidungen werden aufgeschoben, oder Werte und Handeln passen nicht zusammen.",
+    "core": "Die umgekehrte Übung sucht Klärungsbedarf, diagnostiziert keine Unentschlossenheit, Abhängigkeit oder Entfremdung.",
     "modes": [
-     "Blockiert: die Entscheidung vor dir herschieben.",
-     "Übermaß: dich zu sehr auf die Sicht eines anderen Menschen stützen.",
-     "Schwindend: das Gefühl, sich auseinanderzuleben."
+     "Annahme: Was habe ich gefolgert statt gefragt?",
+     "Absprache: Verstehen alle, was sie annehmen?",
+     "Praxis: Sind Zeit oder Mittel Teil des Problems?"
     ],
     "question": "Wo sage ich Ja und meine Nein?"
    }
+  },
+  "evidence": {
+   "answer": "Hier regen die Liebenden ein Gespräch über Verbindung und gemeinsame Entscheidungen an. Sie enthüllen keine fremden Gefühle und beweisen keine Zusammengehörigkeit.",
+   "groupNote": "Die Karte trägt VI. Der Vergleich mit Sechsen ist eine Übung, kein universelles Harmoniegesetz oder Pflichtstadium einer Beziehung.",
+   "sections": [
+    {
+     "h": "Historische Liebesbilder und unsere Wahlübung",
+     "p": [
+      "Teil II, §2, VI beschreibt Sonne, geflügelte Gestalt, zwei unbekleidete Menschen und zwei Bäume in einer Eden-Szene. Waite betont menschliche Liebe gegenüber älteren Ehe- und Tugend/Laster-Bildern. Seine theologische, geschlechtliche Deutung ist historisch, keine heutige Beziehungsnorm. Teil III, §3 nennt aufrecht Anziehung und Liebe, umgekehrt Schwierigkeiten; die Listen bestätigen keine Romanze und sagen keinen Ausgang voraus."
+     ]
+    },
+    {
+     "h": "Eigenes Beispiel: einen gemeinsamen Tag planen",
+     "p": [
+      "Frage: „Was besprechen wir vor der Ausflugswahl?“. Stelle die aufrechte Karte auf „Ein nötiges Gespräch“. Zwei Freunde erwägen Spaziergang oder Museum. Erfunden, kein Kundenbericht. Betrachte zwei getrennte Figuren unter derselben Sonne.",
+      "Eine Lesart verbindet die Figuren mit zwei Blickwinkeln, die Sonne mit dem Aussprechen wichtiger Dinge. Jeder nennt eine Priorität: draußen sein, Ruhe, Kosten oder Barrierefreiheit. Dann Optionen vergleichen. Das ist unsere Ableitung aus Bild und Position, kein Beweis gleicher Wünsche und keine Antwort der Flügelgestalt.",
+      "Alternative: Beide wollen dasselbe, aber Öffnungszeiten oder Anfahrt passen nicht. Prüfe Fakten, statt Gefühlskonflikte zu erfinden. Halte Lesarten und Widersprüche in deinen [Notizen](read) fest. Umkehrung verändert die Frage, ohne Trennung vorherzusagen."
+     ]
+    },
+    {
+     "h": "Nachprüfbare Quellen",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, Teil II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, VI The Lovers: Bilddetails, menschliche Liebe und ältere Bildtypen. Begründet weder Zwillinge noch universelle Sechs-Symbolik.",
+      "[Teil III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 6 The Lovers: historische Bedeutungen beider Lagen. Transkription des Nachdrucks von 1922. Übung redaktionell; Liebe, Beruf, Gefühle und Ja/Nein separat ungeprüft."
+     ]
+    },
+    {
+     "h": "Prüfprotokoll · 1. November 2026",
+     "p": [
+      "KI-gestützter Vergleich von Stellen, veröffentlichtem Bild und Basisreferenz. Unbelegte Sechs/Zwillinge, Wahl als alleiniger Kern und abgeleitete Beziehungszustände durch gekennzeichnete Fragen ersetzt. Unabhängige Fach- und muttersprachliche Prüfung unbestätigt; Korrekturen über die [Methodik](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_07_chariot": {

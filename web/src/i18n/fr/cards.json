@@ -401,29 +401,62 @@
    "lien",
    "alignement"
   ],
-  "upright": "Un choix important qui reflète tes valeurs, ou un lien qui demande de l'honnêteté.",
-  "reversed": "Décalage ou indécision. Vérifie si tes actes correspondent à ce qui compte pour toi.",
+  "upright": "Pour cet exercice, demande ce qui compte pour chacun avant de choisir ensemble.",
+  "reversed": "À l’envers, revois une supposition ou un accord sans conclure que la relation échoue.",
   "k": {
-   "essence": "Un choix qui te demande d'être honnête sur tes valeurs.",
+   "essence": "Faire place aux deux voix dans un choix commun.",
    "imagery": "Un homme et une femme se tiennent nus sous un soleil éclatant. Un ange déploie ses bras au-dessus d'eux. Derrière la femme se trouve un arbre avec un serpent, et derrière l'homme un arbre de flammes.",
-   "why": "Six est le nombre de l'échange et de l'harmonie. Les Gémeaux, les jumeaux, sont le signe de la dualité et du choix. L'ange suggère une vision plus large que celle de chacune des deux personnes seule. Même si on la lit souvent comme une carte romantique, le cœur de la carte est un choix fait en accord avec ce qui compte pour toi.",
+   "why": "Waite parle d’amour humain dans une scène évoquant l’Éden et distingue ce dessin des anciens choix entre vertu et vice. Notre exercice de valeurs est une application moderne, pas son unique cœur historique. Ces passages n’établissent ni un Six universel ni les Gémeaux.",
    "upright": {
-    "core": "Un choix ou un lien important qui te demande d'agir en accord avec tes valeurs.",
+    "core": "Une piste : exprimer les souhaits de chacun, puis voir si le choix leur fait une place.",
     "light": "honnêteté, harmonie, engagement",
     "shadow": "l'indécision, choisir pour faire plaisir",
-    "love": "Un lien sincère, et la question de savoir si tes actes correspondent à ce que tu dis vouloir.",
-    "work": "Un choix ou un partenariat qui correspond à tes valeurs, pas seulement à ta commodité.",
+    "love": "En relation, discutez de ce que chacun choisit librement. L’image ne prouve ni attirance réciproque, ni consentement, ni compatibilité, ni partenaire prédestiné.",
+    "work": "Au travail, compare les priorités avant une collaboration. La carte ne prédit pas le succès et ne certifie pas le partenariat.",
     "question": "Que choisirais-je si j'étais complètement honnête sur ce qui compte pour moi ?"
    },
    "reversed": {
-    "core": "Les choix sont repoussés, ou les valeurs et les actes ne sont pas accordés.",
+    "core": "Notre exercice inversé cherche ce qui mérite clarification, sans diagnostiquer indécision, dépendance ou éloignement.",
     "modes": [
-     "Bloqué : remettre la décision à plus tard.",
-     "Excès : trop s'appuyer sur l'avis de quelqu'un d'autre.",
-     "Déclin : le sentiment de s'éloigner l'un de l'autre."
+     "Supposition : qu’ai-je déduit sans demander ?",
+     "Accord : chacun comprend-il ce qu’il accepte ?",
+     "Conditions : le temps ou les moyens sont-ils en cause ?"
     ],
     "question": "Où est-ce que je dis oui alors que je pense non ?"
    }
+  },
+  "evidence": {
+   "answer": "Ici, les Amoureux invitent à parler de lien et de choix partagés. Ils ne révèlent pas les sentiments d’autrui et ne prouvent pas que vous êtes faits l’un pour l’autre.",
+   "groupNote": "L’image porte VI. La comparer aux Six est un exercice, pas une loi universelle d’harmonie ou une étape obligatoire du couple.",
+   "sections": [
+    {
+     "h": "L’amour historique et notre exercice de choix",
+     "p": [
+      "La partie II, §2, VI décrit soleil, figure ailée, deux personnes nues et deux arbres dans une scène évoquant l’Éden. Waite souligne l’amour humain et le distingue d’anciennes images de mariage ou de vertu/vice. Son récit théologique et genré est historique, pas une norme actuelle. La partie III, §3 énumère attirance et amour droits, difficultés inversées ; ces listes ne vérifient pas une romance et ne prédisent pas son issue."
+     ]
+    },
+    {
+     "h": "Exemple original : prévoir une journée ensemble",
+     "p": [
+      "Question : « Que discuter avant de choisir la sortie ? ». Imagine la carte droite en « Une conversation à avoir ». Deux amis hésitent entre promenade et musée. Scène fictive, pas récit de client. Observe deux figures distinctes sous le même soleil.",
+      "Une lecture relie les deux figures à deux points de vue et le soleil à ce qui mérite d’être explicité. Chacun nomme une priorité : plein air, calme, coût ou accessibilité. Puis comparez les options. C’est notre raisonnement entre image, position et conversation, pas la preuve de préférences identiques ni une réponse donnée par la figure ailée.",
+      "Autre piste : vous voulez déjà la même chose, mais horaires ou trajet bloquent. Vérifie les faits sans inventer de conflit affectif. Garde les deux lectures et leurs écarts dans tes [notes](read). L’inversion change la question sans annoncer une séparation."
+     ]
+    },
+    {
+     "h": "Sources à consulter",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, partie II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, VI The Lovers : détails, amour humain et contraste avec les anciens dessins. N’établit ni Gémeaux ni Six universel.",
+      "[Partie III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 6 The Lovers : liste historique droite/inversée. Transcription de la réimpression de 1922. Exercice éditorial ; amour, carrière, sentiments et oui/non restent à vérifier séparément."
+     ]
+    },
+    {
+     "h": "Trace de vérification · 1er novembre 2026",
+     "p": [
+      "Comparaison assistée par IA des passages, de l’image publiée et de la référence de base. Six/Gémeaux sans preuve, choix comme cœur unique et états relationnels déduits remplacés par des pistes explicites. Expertise indépendante et révision de langue maternelle non confirmées ; corrections via la [méthodologie](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_07_chariot": {

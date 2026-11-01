@@ -1,3 +1,7 @@
+## 2026-11-01 — Lovers source comparison
+
+Eight localized Lovers base references distinguish Waite’s human-love imagery from our modern values exercise, remove unsupported Six/Gemini certainty and inferred reversed relationship states, and include exact sources, an original day-out example and a dated AI-assisted record. Progress: 14/487 logical references; context pages and human expert/language review remain pending. All 49 tests, locale parity, Astro check/build and website audits passed (112 editorial routes). Chrome checked 24 locale/width combinations and reversed-orientation handoff; desktop evidence and claim ledger in `docs/editorial-review-2026-10-31/`.
+
 ## 2026-11-01 — Hierophant source comparison
 
 Eight localized Hierophant base references now separate Waite’s institutional symbolism from an original learning exercise, remove unsupported Taurus/proven-wisdom and fixed reversal claims, and show exact sources and an honest AI-assisted check record. Progress: 13/487 logical references; context variants and human expert/language reviews remain pending. All 49 tests, locale parity, Astro check/build and website audits passed (104 editorial routes); Chrome checked 24 locale/width combinations and orientation handoff. Evidence in `docs/editorial-review-2026-10-31/`.

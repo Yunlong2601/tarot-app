@@ -4,7 +4,7 @@ The owner explicitly included all website reference content, beyond the initial 
 
 ## Current progress
 
-Thirteen logical references have limited AI-assisted primary-source comparisons and original worked examples in all eight locales: the seven foundational lessons, `/cards/major-00-fool`, `/cards/major-01-magician`, `/cards/major-02-high-priestess`, `/cards/major-03-empress` `/cards/major-04-emperor` and `/cards/major-05-hierophant`. This does not mean their translations received human review, or that all 487 routes are source-verified. Every other record, including these cards’ context subpages, remains not started. A site-wide publisher component is not proof of claim checking.
+Fourteen logical references have limited AI-assisted primary-source comparisons and original worked examples in all eight locales: the seven foundational lessons, `/cards/major-00-fool`, `/cards/major-01-magician`, `/cards/major-02-high-priestess`, `/cards/major-03-empress` `/cards/major-04-emperor` `/cards/major-05-hierophant` and `/cards/major-06-lovers`. This does not mean their translations received human review, or that all 487 routes are source-verified. Every other record, including these cards’ context subpages, remains not started. A site-wide publisher component is not proof of claim checking.
 
 Work in batches: major-card references; minor-card references; contextual interpretations; spreads/question/topic references; zodiac/birth/numerology and tool formulas; navigation and publisher consistency. A contextual interpretation needs its own reasoning, not a copied historical citation that never discussed that context. Reconcile newly added/removed routes before declaring the inventory complete.
 
@@ -273,3 +273,19 @@ Actor: Codex AI assistant. Scope: eight localized base references, not the four 
 | Relationship/work prompts | Explicitly framed as exercises | No marriage prediction, inferred beliefs, certified teacher or workplace competence |
 
 Visible record and Article citations describe AI-assisted comparison only. Independent expert and native-language reviews remain unconfirmed. Whole-site progress: 13/487 limited comparisons; 56 lesson + 48 base-card localized routes in editorial audit. Validation: all 49 tests, locale parity, Astro check (0 errors, 0 warnings, 2 existing hints), production build, reader/editorial, ritual, interaction, search-growth and beta audits passed. Chrome DOM checks at 390/768/1440px across eight locales found four evidence sections, two sources and no horizontal overflow. Reversed selection revealed the correct meaning and passed orientation to the workspace link. Chinese desktop screenshot: `hierophant-desktop.png`. Physical accessibility/native-language approval remains unverified; known mobile screenshot limitation is unchanged.
+
+
+## Lovers base reference: actual source comparison — 1 November 2026
+
+Actor: Codex AI assistant. Scope: eight localized base references; four context variants excluded and still pending. Directly read Part II §2 VI and Part III §3 6, then compared the published card image and existing copy. Consulted 1922 reprint transcription: [Part II revision 15274517](https://en.wikisource.org/w/index.php?oldid=15274517&title=The_Pictorial_Key_to_the_Tarot/Part_2), [Part III revision 15274510](https://en.wikisource.org/w/index.php?oldid=15274510&title=The_Pictorial_Key_to_the_Tarot/Part_3).
+
+| Claim | Evidence/action | Limit |
+|---|---|---|
+| Sun, winged figure, two unclothed people, two trees | Actual bundled image and Part II VI agree | Theological and gendered Eden interpretation is attributed historical interpretation, not contemporary identity or relationship rules |
+| Six is harmony and Gemini implies choice | Not established in consulted passages; removed explanatory certainty | Base page suppresses unchecked correspondence facts through existing evidence-aware template |
+| Choice is the core despite romance | Replaced with explicit modern values exercise; Part II stresses human love and contrasts older virtue/vice and marriage images | Does not assert choice is the only historic meaning |
+| Reversal reveals indecision, dependence or distance | Changed statements into optional clarification questions | Historical negative lists are documented, not applied as predictions or diagnoses |
+| Planning a day together | Original fictional example shows two viewpoints/shared light → spoken priorities → compare options | Alternative is practical opening hours/travel limits, not invented emotional conflict; no actual client or outcome |
+| Relationship/work applications | Labelled as exercises | No inferred consent, attraction, destiny or certified collaboration |
+
+Visible check record and Article sources describe limited AI comparison. Independent expert and native-language review remain unconfirmed. Progress: 14/487 logical references, 56 lesson + 56 base-card localized routes. Validation: all 49 tests, locale parity, Astro check (0 errors/warnings, 2 existing hints), production build, reader/editorial (112 routes), ritual, interaction, search-growth and beta audits passed. Chrome DOM checks across eight locales at 390/768/1440px found four evidence sections, two sources and no overflow. Reversed selection revealed the appropriate text and passed its orientation to the workspace link. Chinese desktop proof: `lovers-desktop.png`. Physical accessibility and independent language acceptance remain unverified; known mobile screenshot limitation unchanged.

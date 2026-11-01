@@ -401,29 +401,62 @@
    "connection",
    "alignment"
   ],
-  "upright": "A meaningful choice that reflects your values, or a bond that asks for honesty.",
-  "reversed": "Misalignment or indecision. Check whether your actions match what you value.",
+  "upright": "For this exercise, ask what matters to each person before making a shared choice.",
+  "reversed": "Use reversal to revisit an assumption or an agreement, without deciding that a relationship is failing.",
   "k": {
-   "essence": "A choice that asks you to be honest about your values.",
+   "essence": "Make room for both voices in a shared choice.",
    "imagery": "A man and a woman stand unclothed under a bright sun. An angel spreads its arms above them. Behind the woman is a tree with a snake and behind the man a tree of flames.",
-   "why": "Six is the number of exchange and harmony. Gemini, the twins, is the sign of duality and choice. The angel suggests a wider view than either person has alone. Although it is often read as romance, the heart of the card is a choice made in line with what you value.",
+   "why": "Waite presents human love through an Eden-like scene and distinguishes this picture from older designs of choosing between virtue and vice. Our values exercise is a modern application, not the card’s only historical core. These passages do not establish a universal meaning of Six or a Gemini correspondence.",
    "upright": {
-    "core": "A meaningful choice or connection that asks you to act in line with your values.",
+    "core": "One possible prompt is to say what you each want, then check whether the proposed choice accommodates it.",
     "light": "honesty, harmony, commitment",
     "shadow": "indecision, choosing in order to please",
-    "love": "Honest connection, and whether your actions match what you say you want.",
-    "work": "A choice or partnership that fits your values, not only your convenience.",
+    "love": "In a relationship exercise, discuss what you each freely choose. The image does not establish mutual attraction, consent, compatibility or a destined partner.",
+    "work": "In a work exercise, compare the priorities of people considering a collaboration. The card does not predict success or certify the partnership.",
     "question": "What would I choose if I were fully honest about what matters to me?"
    },
    "reversed": {
-    "core": "Choices are delayed, or values and actions are out of tune.",
+    "core": "Our reversed practice asks what needs clarifying. It does not diagnose indecision, dependence or growing distance.",
     "modes": [
-     "Blocked: putting off the decision.",
-     "Excess: leaning too hard on another person's view.",
-     "Fading: a sense of drifting apart."
+     "Assumption: what have I inferred instead of asking?",
+     "Agreement: does each person understand what they are accepting?",
+     "Practical fit: are time and resources part of the problem?"
     ],
     "question": "Where am I saying yes while meaning no?"
    }
+  },
+  "evidence": {
+   "answer": "Here the Lovers prompts a conversation about connection and shared choices. It does not reveal someone else’s feelings or prove that you belong together.",
+   "groupNote": "The card is numbered VI. Comparing it with Sixes is a study exercise, not a universal law of harmony or a required relationship stage.",
+   "sections": [
+    {
+     "h": "Historical love imagery and our choice exercise",
+     "p": [
+      "Part II, §2, VI describes the sun, winged figure, two unclothed people and two trees in an Eden-like scene. Waite stresses human love and contrasts the design with older marriage and virtue/vice images. His theological and gendered account is historical interpretation, not a rule for modern genders or relationships. Part III, §3 lists attraction and love upright and several difficulties reversed; those lists cannot verify a romance or predict its outcome."
+     ]
+    },
+    {
+     "h": "Original example: planning a day together",
+     "p": [
+      "Question: “What should we discuss before choosing our day out?”. Imagine the upright card in “A conversation to have”. Two friends are considering a walk or a museum. This is a fictional exercise, not a client account. First observe two separate figures below the same bright sun.",
+      "One reading links the two figures to two viewpoints and the shared sun to something worth making explicit. Ask each friend to name one priority—time outside, quiet, cost or accessibility—then compare options. That step from image and position to a conversation is our reasoning, not proof that their preferences match or that the winged figure supplies an answer.",
+      "Alternative: both already want the same activity, but opening hours or travel time are the real constraint. Check those facts rather than invent emotional conflict. Keep both readings and mismatches in your [reading notes](read). Reversal can change the question without predicting separation."
+     ]
+    },
+    {
+     "h": "Sources you can inspect",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, Part II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, VI The Lovers: visual details and the author’s human-love interpretation, including the contrast with older designs. It does not establish Gemini or universal Six symbolism.",
+      "[Part III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 6 The Lovers: historical upright/reversed list. Consulted transcription: 1922 reprint. Our discussion exercise is editorial; separate love, career, feelings and yes/no pages remain unchecked."
+     ]
+    },
+    {
+     "h": "Check record · 1 November 2026",
+     "p": [
+      "AI-assisted comparison checked these passages, the actual published image and this base reference. Replaced unsupported Six/Gemini explanations, choice as the sole core, and inferred reversed relationship states with labelled prompts. Independent expert and native-language review remain unconfirmed; corrections through our [methodology page](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_07_chariot": {
