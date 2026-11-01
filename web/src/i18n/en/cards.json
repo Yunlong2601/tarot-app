@@ -72,29 +72,63 @@
    "focus",
    "resourcefulness"
   ],
-  "upright": "You already hold the tools you need. Gather your attention and act with intent.",
-  "reversed": "Scattered energy or unused talent. Ask what is holding your focus back.",
+  "upright": "For this exercise, list what is available, check what is missing and choose one small task to try.",
+  "reversed": "Use the reversed orientation to examine a mismatch between plans and actions, without assuming hidden talent or deception.",
   "k": {
-   "essence": "You already hold what you need to begin.",
-   "imagery": "A figure in a white robe and red cloak raises one wand to the sky and points the other hand to the ground. An infinity sign floats above the head. On the table before the figure lie a cup, a sword, a wand and a pentacle, and roses and lilies bloom below.",
-   "why": "One is the number of a single point of focus. The four tools on the table stand for the four suits, so every kind of resource is within reach. The raised and lowered hands are commonly read as bringing an idea down into the world. Mercury, the card's usual planet, points to skill and communication.",
+   "essence": "Put one available skill to a small, checkable use.",
+   "imagery": "A figure raises a wand in one hand and points the other toward the ground. Four suit symbols sit on the table; a sideways-eight shape is above the head, with flowers around the scene. The printed label is I.",
+   "why": "Waite describes the table symbols and hand positions within a spiritual interpretation. A resource inventory is our application. Four symbols do not prove that every resource is available to you, and the label I does not establish a universal law of focus.",
    "upright": {
-    "core": "Focus turns what is possible into something real. You have more to work with than you may think.",
-    "light": "skill, focus, initiative",
-    "shadow": "cleverness without sincerity, many tricks and little follow-through",
-    "love": "Saying plainly what you want and meaning it; sincerity over performance.",
-    "work": "Using your skills on purpose, starting a project with a plan.",
-    "question": "What do I already have that I am not using?"
+    "core": "One possible prompt is to connect a specific skill with a task, while checking the conditions and support it needs.",
+    "light": "practice, attention, matching a tool to a task",
+    "shadow": "a polished presentation without a checked result",
+    "love": "As an optional relationship prompt, say what you can offer and ask what the other person needs. The card does not establish sincerity, attraction or consent.",
+    "work": "As an optional work prompt, make a small sample and identify missing help or materials. It does not certify competence or guarantee that a project can begin.",
+    "question": "What can I demonstrate, and what do I still need to check?"
    },
    "reversed": {
-    "core": "Skill and focus are scattered, held back, or used for show.",
+    "core": "Our reversed practice compares intention with observable action; it does not prove manipulation, a blocked gift or an inner condition.",
     "modes": [
-     "Blocked: knowing what to do and not starting.",
-     "Excess: promising more than you deliver.",
-     "Inward: a talent kept private."
+     "Attention: which task is getting time in practice?",
+     "Promises: what can I show rather than claim?",
+     "Missing conditions: what information or help should I request?"
     ],
-    "question": "Where is my attention going instead of where I say I want it?"
+    "question": "What evidence would let me judge this attempt fairly?"
    }
+  },
+  "evidence": {
+   "answer": "Here the Magician is a prompt to examine skills, tools and a practical attempt, not proof that you already possess everything or that intention guarantees an outcome.",
+   "groupNote": "This card is labelled I in this deck. Matching it with Aces is a study comparison, not evidence that all Ones describe the same life stage or that it is more important than other cards.",
+   "sections": [
+    {
+     "h": "The source and our resource exercise",
+     "p": [
+      "Part II, §2, I describes the raised wand, lowered hand and four suit symbols on the table, then gives a spiritual account. Our “inventory and small sample” reading is an editorial exercise, not a quotation of practical instructions or a claim that willpower makes events happen.",
+      "Part III, §3 lists skill and diplomacy alongside difficult meanings; its reversed entry differs from a simple “unused talent” rule. We do not use its dated medical or mental-state terms to diagnose anyone. A historical list does not establish competence, honesty or future success."
+     ]
+    },
+    {
+     "h": "Original example: preparing a small demonstration",
+     "p": [
+      "Question: “Before offering to lead a beginner craft session, what could I prepare?”. Imagine this upright card in “What can I put to use?”. First observe the table, tools and gesture. The session is invented; the picture does not prove that you can teach it.",
+      "One connection: the table prompts a list of materials, the different symbols suggest checking different needs, and the gesture prompts translating an idea into a sample. Make one simple item, write the steps and ask a willing beginner which instruction is unclear. This is our reasoning and a test to try, not a client result or proof of qualification.",
+      "Alternative: if the sample is already clear, the missing part may be access to materials or support rather than more effort. Ask what is available before offering the session. Keep both possibilities and what did not fit in your [reading notes](read). A reversal can change the chosen question, without establishing a concealed failure."
+     ]
+    },
+    {
+     "h": "Sources you can inspect",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, Part II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, I The Magician, supports the named image details and records the spiritual interpretation. It does not show that all resources are present in a reader’s life.",
+      "[Part III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 1 The Magician, supports the comparison with the historical upright/reversed list. Consulted transcription: 1922 reprint. Our work/relationship prompts and demonstration are editorial; separate context pages remain to be checked."
+     ]
+    },
+    {
+     "h": "Check record · 1 November 2026",
+     "p": [
+      "AI-assisted comparison checked those passages, the actual card image and the website text. Removed resource-sufficiency assurances, fixed One symbolism and the unverified “usual Mercury” attribution from this base reference. Independent expert and native-language review remain unconfirmed; specific corrections through our [methodology page](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_02_high_priestess": {

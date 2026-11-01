@@ -72,29 +72,63 @@
    "Fokus",
    "Einfallsreichtum"
   ],
-  "upright": "Du hast die Werkzeuge, die du brauchst, schon in der Hand. Sammle deine Aufmerksamkeit und handle mit Absicht.",
-  "reversed": "Verstreute Energie oder ungenutztes Talent. Frag dich, was deinen Fokus zurückhält.",
+  "upright": "Liste für diese Übung Verfügbares auf, prüfe Fehlendes und wähle eine kleine Aufgabe.",
+  "reversed": "Vergleiche bei Umkehrung Pläne und Handlungen, ohne verborgenes Talent oder Täuschung anzunehmen.",
   "k": {
-   "essence": "Du hast schon, was du zum Anfangen brauchst.",
-   "imagery": "Eine Gestalt in weißem Gewand und rotem Umhang hebt einen Stab zum Himmel und zeigt mit der anderen Hand zum Boden. Über dem Kopf schwebt ein Unendlichkeitszeichen. Auf dem Tisch vor ihr liegen ein Kelch, ein Schwert, ein Stab und eine Münze, und darunter blühen Rosen und Lilien.",
-   "why": "Eins ist die Zahl eines einzigen Brennpunkts. Die vier Werkzeuge auf dem Tisch stehen für die vier Farben, also ist jede Art von Ressource in Reichweite. Die erhobene und die gesenkte Hand werden meist so gedeutet, dass eine Idee in die Welt geholt wird. Merkur, der übliche Planet der Karte, verweist auf Geschick und Kommunikation.",
+   "essence": "Setze eine vorhandene Fähigkeit in einem kleinen, prüfbaren Versuch ein.",
+   "imagery": "Eine Figur hebt einen Stab und zeigt mit der anderen Hand zum Boden. Vier Farbsymbole liegen auf dem Tisch, eine liegende Acht über dem Kopf, Blumen ringsum. Die Karte trägt I.",
+   "why": "Waite beschreibt Tisch und Hände in einer spirituellen Deutung. Die Bestandsaufnahme ist unsere Anwendung. Vier Symbole beweisen nicht vollständige Ressourcen; I kein universelles Fokusgesetz.",
    "upright": {
-    "core": "Fokus macht aus dem Möglichen etwas Reales. Du hast mehr, womit du arbeiten kannst, als du vielleicht denkst.",
-    "light": "Können, Fokus, Initiative",
-    "shadow": "Cleverness ohne Aufrichtigkeit, viele Tricks und wenig Durchhalten",
-    "love": "Klar sagen, was du willst, und es auch so meinen; Aufrichtigkeit statt Show.",
-    "work": "Deine Fähigkeiten gezielt einsetzen, ein Projekt mit einem Plan beginnen.",
-    "question": "Was habe ich schon, das ich nicht nutze?"
+    "core": "Ein Impuls: Verbinde eine konkrete Fähigkeit mit einer Aufgabe und prüfe nötige Bedingungen und Unterstützung.",
+    "light": "Übung, Aufmerksamkeit, Werkzeug passend zur Aufgabe",
+    "shadow": "glatte Präsentation ohne geprüftes Ergebnis",
+    "love": "Als Beziehungsimpuls: Sage, was du anbieten kannst, und frage nach Bedürfnissen. Keine Aussage über Aufrichtigkeit, Anziehung oder Zustimmung.",
+    "work": "Als Arbeitsimpuls: Erstelle ein Muster und benenne fehlende Hilfe oder Materialien. Kein Kompetenznachweis oder sicherer Projektstart.",
+    "question": "Was kann ich zeigen und was muss ich noch prüfen?"
    },
    "reversed": {
-    "core": "Können und Fokus sind zerstreut, werden zurückgehalten oder nur zur Schau gestellt.",
+    "core": "Unsere Umkehrungsübung vergleicht Absicht und beobachtbare Handlung, ohne Manipulation, blockierte Gabe oder Innenzustand festzustellen.",
     "modes": [
-     "Blockiert: wissen, was zu tun ist, und nicht anfangen.",
-     "Übermaß: mehr versprechen, als du hältst.",
-     "Nach innen: ein Talent, das du für dich behältst."
+     "Aufmerksamkeit: Welche Aufgabe bekommt tatsächlich Zeit?",
+     "Versprechen: Was kann ich zeigen statt behaupten?",
+     "Bedingungen: Welche Information oder Hilfe erfragen?"
     ],
-    "question": "Wohin geht meine Aufmerksamkeit statt dorthin, wo ich sie angeblich haben will?"
+    "question": "Welche Belege würden eine faire Beurteilung erlauben?"
    }
+  },
+  "evidence": {
+   "answer": "Der Magier dient hier als Impuls für Fähigkeiten, Werkzeuge und einen Versuch, nicht als Beweis vollständiger Ausstattung oder wirksamer Absicht allein.",
+   "groupNote": "Diese Karte trägt I. Der Vergleich mit Assen hilft beim Studium, beweist aber keine gleiche Lebensphase aller Einsen oder größere Wichtigkeit.",
+   "sections": [
+    {
+     "h": "Quelle und Ressourcenübung",
+     "p": [
+      "Teil II, §2, I beschreibt Stab, gesenkte Hand und vier Symbole innerhalb einer spirituellen Erklärung. Inventar und Muster sind unsere Übung, kein zitiertes Praxisgebot oder Beweis, dass Wille Ereignisse erzeugt.",
+      "Teil III, §3 nennt Können und Diplomatie neben schwierigen Bedeutungen; umgekehrt nicht nur ungenutztes Talent. Historische medizinische Begriffe verwenden wir nicht diagnostisch. Die Liste belegt weder Kompetenz noch Ehrlichkeit oder Erfolg."
+     ]
+    },
+    {
+     "h": "Eigenes Beispiel: eine kleine Vorführung vorbereiten",
+     "p": [
+      "Frage: „Was könnte ich vor dem Angebot eines Bastelkurses für Anfänger vorbereiten?“. Stell dir die aufrechte Karte auf „Was kann ich nutzen?“ vor. Erst Tisch, Werkzeuge und Geste beschreiben. Die Veranstaltung ist erfunden; die Karte beweist keine Lehrfähigkeit.",
+      "Eine Verbindung: Tisch als Materialliste, verschiedene Symbole als Bedarfsprüfung, Geste als Umsetzung in ein Muster. Fertige etwas Einfaches, schreibe Schritte auf und frage eine freiwillige Anfängerperson nach unklaren Anweisungen. Unser Schluss und ein Versuch, kein Kundenergebnis oder Qualifikationsbeleg.",
+      "Alternative: Ist das Muster klar, könnten Materialzugang oder Hilfe fehlen statt mehr Anstrengung. Frage vor einer Zusage. Halte beide Möglichkeiten und Unpassendes in [Notizen](read) fest. Umkehrung verändert die Frage, beweist keinen versteckten Fehler."
+     ]
+    },
+    {
+     "h": "Nachprüfbare Quellen",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, Teil II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, I The Magician, stützt Bilddetails und dokumentiert die spirituelle Deutung, keine vollständigen Ressourcen im Leben des Lesers.",
+      "[Teil III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 1 The Magician, stützt den historischen Vergleich. Transkription des Nachdrucks 1922. Impulse und Beispiel sind redaktionell; Kontextseiten bleiben zu prüfen."
+     ]
+    },
+    {
+     "h": "Prüfvermerk · 1. November 2026",
+     "p": [
+      "KI-gestützt wurden Textstellen, Kartenbild und Website verglichen. Ressourcenversprechen, feste Einssymbolik und unbelegte übliche Merkurzuordnung dieser Basisreferenz entfernt. Unabhängige Fach-/Muttersprachprüfung unbestätigt; Korrekturen über die [Methodikseite](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_02_high_priestess": {

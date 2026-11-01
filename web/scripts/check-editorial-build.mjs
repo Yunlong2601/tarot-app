@@ -73,4 +73,4 @@ for(const [id,evidence] of Object.entries(CARD_EVIDENCE))for(const locale of loc
   assert.ok(!readFileSync(file,'utf8').includes('data-card-evidence'),locale+': context not marked checked');
  }
 }
-console.log('Eight Fool base references: visible original example/check record, exact Article/Markdown citations and preserved reading controls; context pages are not marked checked.');
+console.log('Sixteen checked base-card references: visible original example/check record, exact Article/Markdown citations and preserved reading controls; context pages are not marked checked.');

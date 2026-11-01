@@ -72,29 +72,63 @@
    "concentration",
    "ingéniosité"
   ],
-  "upright": "Tu as déjà les outils qu'il te faut. Rassemble ton attention et agis avec intention.",
-  "reversed": "Énergie dispersée ou talent inutilisé. Demande-toi ce qui freine ta concentration.",
+  "upright": "Pour cet exercice, liste le disponible, vérifie ce qui manque et choisis une petite tâche.",
+  "reversed": "À l’envers, compare projets et actions, sans présumer talent caché ou tromperie.",
   "k": {
-   "essence": "Tu as déjà ce qu'il faut pour commencer.",
-   "imagery": "Une silhouette en robe blanche et cape rouge lève une baguette vers le ciel et pointe l'autre main vers le sol. Un signe de l'infini flotte au-dessus de sa tête. Sur la table devant elle reposent une coupe, une épée, un bâton et un denier, et des roses et des lys fleurissent en dessous.",
-   "why": "Un est le nombre d'un point de concentration unique. Les quatre outils sur la table représentent les quatre couleurs du tarot : toutes les ressources sont donc à portée de main. Les mains levée et baissée se lisent souvent comme le fait de faire descendre une idée dans le monde. Mercure, la planète habituellement associée à la carte, évoque l'habileté et la communication.",
+   "essence": "Mets une compétence disponible dans un petit essai vérifiable.",
+   "imagery": "Un personnage lève une baguette et pointe l’autre main vers le sol. Quatre symboles d’enseignes sont sur la table ; un huit horizontal au-dessus de la tête, des fleurs autour. La carte porte I.",
+   "why": "Waite décrit table et mains dans une interprétation spirituelle. L’inventaire est notre application. Quatre symboles ne prouvent pas que toutes les ressources soient disponibles ; I n’établit aucune loi universelle de concentration.",
    "upright": {
-    "core": "La concentration transforme le possible en réel. Tu as plus de ressources que tu ne le crois peut-être.",
-    "light": "habileté, concentration, initiative",
-    "shadow": "de l'astuce sans sincérité, beaucoup de tours et peu de suivi",
-    "love": "Dire simplement ce que tu veux, et le penser ; la sincérité plutôt que la mise en scène.",
-    "work": "Utiliser tes compétences de façon délibérée, lancer un projet avec un plan.",
-    "question": "Qu'est-ce que j'ai déjà et que je n'utilise pas ?"
+    "core": "Une piste : relier une compétence précise à une tâche et vérifier conditions et aide nécessaires.",
+    "light": "pratique, attention, outil adapté à une tâche",
+    "shadow": "présentation soignée sans résultat vérifié",
+    "love": "Comme piste relationnelle, dis ce que tu peux proposer et demande les besoins de l’autre. La carte ne prouve ni sincérité, ni attirance, ni consentement.",
+    "work": "Comme piste professionnelle, fais un échantillon et repère aide ou matériel manquant. Elle ne certifie ni compétence ni démarrage assuré.",
+    "question": "Que puis-je montrer et que dois-je encore vérifier ?"
    },
    "reversed": {
-    "core": "L'habileté et la concentration sont dispersées, retenues ou utilisées pour faire illusion.",
+    "core": "Notre pratique renversée compare intention et action observable, sans prouver manipulation, don bloqué ou état intérieur.",
     "modes": [
-     "Bloqué : savoir quoi faire et ne pas commencer.",
-     "Excès : promettre plus que ce que tu tiens.",
-     "Intérieur : un talent gardé pour soi."
+     "Attention : quelle tâche reçoit du temps en réalité ?",
+     "Promesses : que puis-je montrer plutôt qu’affirmer ?",
+     "Conditions : quelle information ou aide demander ?"
     ],
-    "question": "Où va mon attention, au lieu d'aller là où je dis la vouloir ?"
+    "question": "Quelles preuves permettraient de juger cet essai équitablement ?"
    }
+  },
+  "evidence": {
+   "answer": "Ici, le Magicien propose d’examiner compétences, outils et essai concret, sans prouver que tu possèdes tout ni que l’intention garantit un résultat.",
+   "groupNote": "La carte porte I. La comparer aux As aide l’étude, sans prouver une même étape de vie pour tous les Uns ni une importance supérieure.",
+   "sections": [
+    {
+     "h": "La source et notre exercice de ressources",
+     "p": [
+      "La partie II, §2, I décrit baguette levée, main abaissée et quatre symboles, dans une explication spirituelle. Inventaire et échantillon sont notre exercice, pas une instruction citée ni une preuve que la volonté provoque les événements.",
+      "La partie III, §3 mêle habileté, diplomatie et sens difficiles ; le renversement n’est pas simplement un talent inutilisé. Ses termes médicaux ou psychiques historiques ne servent pas de diagnostics. La liste ne prouve ni compétence, ni honnêteté, ni succès."
+     ]
+    },
+    {
+     "h": "Exemple original : préparer une petite démonstration",
+     "p": [
+      "Question : « Que préparer avant de proposer d’animer un atelier créatif pour débutants ? ». Imagine la carte à l’endroit sur « Que puis-je utiliser ? ». Observe d’abord table, outils et geste. L’atelier est inventé ; la carte ne prouve pas que tu puisses l’enseigner.",
+      "Un lien : la table suggère une liste de matériel ; les symboles, différents besoins ; le geste, un échantillon concret. Réalise un objet simple, écris les étapes et demande à un débutant volontaire quelles consignes manquent de clarté. C’est notre raisonnement et un essai, pas un résultat de client ou une qualification.",
+      "Autre lecture : si l’échantillon est clair, il manque peut-être accès au matériel ou soutien, plutôt que davantage d’effort. Demande avant de t’engager. Garde les deux pistes et les écarts dans tes [notes](read). Le renversement change la question sans prouver un échec caché."
+     ]
+    },
+    {
+     "h": "Sources consultables",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, partie II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, I The Magician, étaye les détails et consigne l’interprétation spirituelle, pas la présence de toutes tes ressources.",
+      "[Partie III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 1 The Magician, étaye le comparatif historique. Transcription de la réimpression de 1922. Pistes et démonstration sont éditoriales ; pages de contexte encore à vérifier."
+     ]
+    },
+    {
+     "h": "Vérification · 1er novembre 2026",
+     "p": [
+      "Comparaison assistée par IA des passages, de l’image réelle et du texte. Assurances de ressources suffisantes, symbolisme fixe du Un et attribution habituelle à Mercure non vérifiée retirés de cette référence. Relectures spécialisée indépendante et par des locuteurs natifs non confirmées ; corrections via la [page de méthode](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_02_high_priestess": {
