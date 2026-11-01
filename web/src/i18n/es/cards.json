@@ -266,33 +266,67 @@
  "major_04_emperor": {
   "name": "El Emperador",
   "keywords": [
-   "estructura",
-   "autoridad",
-   "estabilidad"
+   "responsabilidad",
+   "acuerdos",
+   "alcance"
   ],
-  "upright": "Unos límites claros y una planificación constante crean una base sólida. Lidera con calma.",
-  "reversed": "Rigidez o control. Pregúntate dónde la firmeza se ha vuelto terquedad.",
+  "upright": "Para este ejercicio, identifica una responsabilidad, un límite acordado y una forma de revisar el arreglo.",
+  "reversed": "Usa la inversión para examinar si el acuerdo encaja, sin atribuir control o miedo a nadie.",
   "k": {
-   "essence": "Un orden que protege y construye.",
-   "imagery": "Un gobernante con barba, vestido con túnica roja sobre una armadura, está sentado en un trono de piedra con cabezas de carnero en los brazos. Sostiene un cetro rematado con un anj y un orbe. Detrás de él se alzan montañas desnudas.",
-   "why": "El cuatro es el número de la estructura y la estabilidad. El carnero pertenece a Aries, el primer signo, vinculado a la iniciativa. Las montañas áridas sugieren una autoridad construida sobre la disciplina más que sobre la comodidad.",
+   "essence": "Aclara responsabilidades y deja espacio para cambiarlas.",
+   "imagery": "Una figura coronada y barbada se sienta en un trono con cabezas de carnero, con cetro de cruz con asa y globo. Se ve armadura bajo la ropa roja y montañas detrás. La carta lleva IV.",
+   "why": "Waite describe gobernante, trono y objetos de oficio. Nuestro ejercicio de acuerdos es una aplicación. No demuestra derecho a mandar, identidad de un padre ni un Cuatro universal. Estos pasajes no establecen la correspondencia carnero-Aries.",
    "upright": {
-    "core": "Estructura, límites y responsabilidad: usar el orden para cuidar lo que importa.",
-    "light": "liderazgo, estabilidad, límites claros",
-    "shadow": "rigidez, control",
-    "love": "Compromisos claros y constancia; dónde la firmeza se convierte en control.",
-    "work": "Crear sistemas y normas, asumir la responsabilidad de un resultado.",
-    "question": "¿Qué estructura haría más estable esta situación?"
+    "core": "Una propuesta: ¿quién aceptó hacer qué, con qué límites y posibilidad de cambio?",
+    "light": "claridad, responsabilidad aceptada, acuerdos revisables",
+    "shadow": "imponer sin acuerdo o confundir un cargo con autoridad ilimitada",
+    "love": "Para relaciones, habla de compromisos y de lo que cada persona puede rechazar. No prueba protección, dominación, género o intenciones.",
+    "work": "Para trabajo, aclara quién coordina y de qué responde. No certifica liderazgo ni garantiza estabilidad.",
+    "question": "¿Qué responsabilidad es mía y quién aceptó el arreglo?"
    },
    "reversed": {
-    "core": "La estructura se vuelve rigidez, o se desmorona.",
+    "core": "Nuestra práctica invertida revisa adecuación y alcance, sin diagnosticar miedo al descontrol ni colapso de estructura.",
     "modes": [
-     "Exceso: control y terquedad.",
-     "Carencia: sin límites, sin plan.",
-     "Hacia dentro: llevar la autoridad con incomodidad."
+     "Alcance: ¿la regla excede la tarea?",
+     "Acuerdo: ¿las personas afectadas pudieron responder?",
+     "Revisión: ¿qué cambiar si no funciona?"
     ],
-    "question": "¿Dónde me aferro con fuerza porque temo perder el control?"
+    "question": "¿Qué aclarar o renegociar en vez de suponer?"
    }
+  },
+  "evidence": {
+   "answer": "Aquí el Emperador propone responsabilidades y límites acordados, sin probar autoridad legítima ni seguridad por orden.",
+   "groupNote": "La carta lleva IV. Compararla con Cuatros es estudio, no ley universal de estabilidad ni etapa vital obligatoria.",
+   "sections": [
+    {
+     "h": "Poder histórico y nuestro ejercicio",
+     "p": [
+      "La parte II, §2, IV describe monarca, carneros, cetro y globo, con realeza mundana e intelectual. Registra el simbolismo de Waite. No usamos su lenguaje de género para asignar liderazgo, paternidad u obediencia actuales.",
+      "La parte III, §3 lista estabilidad y poder; invertida incluye benevolencia y compasión junto a dificultades. No significa simplemente control o terquedad. No prueba confianza en un líder ni protección de un plan."
+     ]
+    },
+    {
+     "h": "Ejemplo original: organizar un pequeño intercambio de libros",
+     "p": [
+      "Pregunta: «¿Qué acuerdo ayudaría a organizar este intercambio?». Imagina la carta al derecho en «Una responsabilidad que aclarar». Observa trono, cetro y globo primero. Escena ficticia, no un grupo real.",
+      "Una conexión: trono hacia coordinador, cetro hacia tarea concreta y globo sostenido hacia su alcance. Pregunta quién trae libros, acuerda fecha y quién envía el recordatorio. Confirma aceptación. Es nuestro razonamiento, no una instrucción histórica ni garantía de orden.",
+      "Alternativa: los papeles pueden estar claros pero el horario no conviene. Pregunta disponibilidad en vez de añadir reglas. Guarda lecturas y discrepancias en tus [notas](read). Invertir cambia la pregunta sin descubrir un controlador oculto."
+     ]
+    },
+    {
+     "h": "Fuentes consultables",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, parte II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, IV The Emperor, respalda detalles y registra realeza simbólica. El carnero visible se distingue de una regla astrológica universal no verificada.",
+      "[Parte III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 4 The Emperor, respalda la comparación histórica. Transcripción de la reimpresión de 1922. Preguntas y ejemplo editoriales; páginas de contexto pendientes."
+     ]
+    },
+    {
+     "h": "Registro de comprobación · 1 de noviembre de 2026",
+     "p": [
+      "Comparación asistida por IA de pasajes, imagen y texto. Sustituidos orden protector garantizado, símbolos fijos Cuatro/Aries y control/miedo inferidos por preguntas acotadas. Revisiones experta independiente y por hablantes nativos no confirmadas; correcciones en la [página de metodología](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_05_hierophant": {

@@ -266,33 +266,67 @@
  "major_04_emperor": {
   "name": "L'Empereur",
   "keywords": [
-   "structure",
-   "autorité",
-   "stabilité"
+   "responsabilité",
+   "accords",
+   "portée"
   ],
-  "upright": "Des limites claires et une planification régulière posent une base solide. Mène avec calme.",
-  "reversed": "Rigidité ou contrôle. Demande-toi où la fermeté est devenue de l'entêtement.",
+  "upright": "Pour cet exercice, nomme une responsabilité, une limite convenue et une façon de revoir l’accord.",
+  "reversed": "À l’envers, examine l’adaptation d’un arrangement sans attribuer contrôle ou peur à quelqu’un.",
   "k": {
-   "essence": "Un ordre qui protège et qui construit.",
-   "imagery": "Un souverain barbu, en robe rouge par-dessus une armure, est assis sur un trône de pierre dont les accoudoirs portent des têtes de bélier. Il tient un sceptre surmonté d'une croix ansée et un globe. Des montagnes nues s'élèvent derrière lui.",
-   "why": "Quatre est le nombre de la structure et de la stabilité. Le bélier appartient au Bélier, premier signe du zodiaque, associé à l'initiative. Les montagnes arides suggèrent une autorité bâtie sur la discipline plutôt que sur le confort.",
+   "essence": "Clarifie les responsabilités et laisse place aux ajustements.",
+   "imagery": "Un personnage couronné et barbu siège sur un trône à têtes de bélier, avec sceptre à croix ansée et globe. Armure sous vêtement rouge, montagnes derrière. La carte porte IV.",
+   "why": "Waite décrit souverain, trône et attributs. Notre exercice est une application, pas une preuve de droit à commander, d’identité paternelle ou de Quatre universel. Ces passages n’établissent pas la correspondance astrologique du bélier.",
    "upright": {
-    "core": "Structure, limites et responsabilité : utiliser l'ordre pour protéger ce qui compte.",
-    "light": "leadership, stabilité, limites claires",
-    "shadow": "rigidité, contrôle",
-    "love": "Des engagements clairs et de la constance ; repérer quand la fermeté se transforme en contrôle.",
-    "work": "Mettre en place des systèmes et des règles, assumer la responsabilité d'un résultat.",
-    "question": "Quelle structure rendrait cette situation plus stable ?"
+    "core": "Une piste : qui accepte quelle tâche, dans quelles limites et avec quels changements possibles ?",
+    "light": "clarté, responsabilité acceptée, accords révisables",
+    "shadow": "imposer sans accord ou prendre un rôle pour un pouvoir sans limite",
+    "love": "Pour une relation, parle engagements et possibilité de refuser. La carte ne prouve ni protection, ni domination, ni genre, ni intentions.",
+    "work": "Pour le travail, clarifie coordination et responsabilité. Elle ne certifie pas le leadership ni un résultat stable.",
+    "question": "Quelle responsabilité est mienne et qui a accepté ?"
    },
    "reversed": {
-    "core": "La structure se fige en rigidité, ou disparaît.",
+    "core": "Notre pratique renversée examine adaptation et portée, sans diagnostiquer peur de perdre le contrôle ou effondrement.",
     "modes": [
-     "Excès : contrôle et entêtement.",
-     "Manque : pas de limites, pas de plan.",
-     "Intérieur : porter l'autorité avec malaise."
+     "Portée : la règle dépasse-t-elle la tâche ?",
+     "Accord : les personnes concernées ont-elles pu répondre ?",
+     "Révision : que changer si cela ne fonctionne pas ?"
     ],
-    "question": "Où est-ce que je m'accroche fort parce que j'ai peur de perdre le contrôle ?"
+    "question": "Que clarifier ou renégocier plutôt que supposer ?"
    }
+  },
+  "evidence": {
+   "answer": "Ici, l’Empereur interroge responsabilités et limites convenues, sans prouver autorité légitime ou sécurité garantie par l’ordre.",
+   "groupNote": "La carte porte IV. Comparer aux Quatre est un exercice, pas une loi de stabilité ni une étape de vie obligatoire.",
+   "sections": [
+    {
+     "h": "Pouvoir historique et notre exercice",
+     "p": [
+      "La partie II, §2, IV décrit monarque, trône à béliers, sceptre et globe, puis royauté terrestre et intellectuelle. Elle documente Waite ; son langage genré n’attribue pas aujourd’hui leadership, paternité ou obéissance.",
+      "La partie III, §3 liste stabilité et pouvoir ; à l’envers aussi bienveillance et compassion avec d’autres difficultés. Pas seulement contrôle ou entêtement. Elle ne prouve ni confiance dans un chef ni protection par un plan."
+     ]
+    },
+    {
+     "h": "Exemple original : organiser un petit échange de livres",
+     "p": [
+      "Question : « Quel accord aiderait à organiser cet échange ? ». Imagine la carte à l’endroit sur « Une responsabilité à préciser ». Observe d’abord siège, sceptre et globe. Scène fictive, pas le récit d’un groupe réel.",
+      "Un lien : trône vers coordination, sceptre vers tâche concrète, globe tenu vers portée de la tâche. Demande qui apporte des livres, convenez d’une date et de la personne chargée du rappel. Confirme l’accord. Notre raisonnement, pas une consigne historique ni garantie d’ordre.",
+      "Autre lecture : les rôles sont clairs, mais le créneau ne convient pas. Demande les disponibilités plutôt qu’ajouter des règles. Garde deux lectures et écarts dans tes [notes](read). Tourner change la question sans révéler un contrôleur caché."
+     ]
+    },
+    {
+     "h": "Sources consultables",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, partie II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, IV The Emperor, étaye objets et lecture royale. Bélier visible et règle astrologique universelle non vérifiée sont distingués.",
+      "[Partie III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 4 The Emperor, étaye le comparatif historique. Transcription de la réimpression de 1922. Pistes et échange sont éditoriaux ; pages de contexte encore à vérifier."
+     ]
+    },
+    {
+     "h": "Vérification · 1er novembre 2026",
+     "p": [
+      "Comparaison assistée par IA des passages, de l’image et du texte. Ordre protecteur garanti, Quatre/Bélier fixes et contrôle/peur attribués au renversement remplacés par des questions limitées. Relectures spécialisée indépendante et par des locuteurs natifs non confirmées ; corrections via la [page de méthode](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_05_hierophant": {
