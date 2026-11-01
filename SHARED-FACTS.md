@@ -9,7 +9,7 @@ Last checked: 2026-10-23, from the repo, `docs/` and the project notes.
 |---|---|---|
 | Store name | ShenTarot: AI Lens | App Store Connect record, 2026-10-17 |
 | Home-screen name | ShenTarot | `docs/store-listing.md` |
-| Publisher | ShenTech, Singapore | privacy/terms pages |
+| Publisher | Shenetic, Singapore | Owner correction, 1 November 2026; website attribution updated |
 | Contact / support email | shenyunlongbusiness@gmail.com | `web/src/config.ts` |
 | Bundle id / Android app id | `com.shentech.shentarot` (final) | `AGENTS.md` decisions |
 | Apple app | Apple ID 6823779463, SKU `shentarot`, team `SX4CW2L35K` | `docs/app-store-submission-guide.md` |

@@ -71,7 +71,7 @@ public page/discovery response headers: search and real-time grounding are allow
 model training is not. Private readings and OAuth proxy responses retain backend
 handling. This expresses usage preferences, not guaranteed crawler compliance,
 ranking, citations or referral traffic. Generated Markdown includes the original
-page URL, ShenTarot source name and ShenTech publisher for source identification.
+page URL, ShenTarot source name and Shenetic publisher for source identification.
 
 - `robots.txt` welcomes all crawlers and names the AI search crawlers (GPTBot,
   ClaudeBot, PerplexityBot and others) explicitly. If Cloudflare's "Block AI

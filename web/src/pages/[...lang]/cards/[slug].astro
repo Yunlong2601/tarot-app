@@ -88,7 +88,7 @@ const jsonLd = [
     "@context":"https://schema.org", "@type":"Article", headline:name,
     description:answer, url:term.url, mainEntityOfPage:term.url, inLanguage:L.tag,
     image:term.image, dateModified:evidence.checkedAt,
-    author:{"@type":"Organization",name:"ShenTech"}, publisher:{"@type":"Organization",name:"ShenTech"},
+    author:{"@type":"Organization",name:"Shenetic"}, publisher:{"@type":"Organization",name:"Shenetic"},
     citation:evidence.sources.map(source=>({"@type":"Book",name:source.title,url:source.url,author:{"@type":"Person",name:source.author}})),
   }] : []),
   ...(faq.length

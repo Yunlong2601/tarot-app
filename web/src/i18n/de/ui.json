@@ -14,7 +14,7 @@
   "ctaEyebrow": "ShenTarot für iPhone und Android",
   "ctaTitle": "Lies deine eigenen Karten",
   "ctaText": "Scanne dein Rider-Waite-Smith-Deck oder zieh Karten auf dem Bildschirm, stell deine Frage und erhalte eine Deutung, zu der du immer weiter nachfragen kannst.",
-  "about": "KI-Tarot-Deutungen für deine eigenen Karten, von ShenTech aus Singapur. Nur zur Unterhaltung und Selbstreflexion.",
+  "about": "KI-Tarot-Deutungen für deine eigenen Karten, von Shenetic aus Singapur. Nur zur Unterhaltung und Selbstreflexion.",
   "siteName": "ShenTarot",
   "titleSuffix": " · ShenTarot",
   "homeCrumb": "Startseite"
@@ -38,7 +38,7 @@
   "privacy": "Datenschutz",
   "terms": "Nutzungsbedingungen",
   "delete": "Deine Daten löschen",
-  "copyright": "© {year} ShenTech, Singapur. Alle Rechte vorbehalten.",
+  "copyright": "© {year} Shenetic, Singapur. Alle Rechte vorbehalten.",
   "images": "Kartenbilder: Rider-Waite-Smith-Deck (1909), gemeinfrei.",
   "inEnglish": "{page} (auf Englisch)",
   "about": "Über uns"
@@ -929,7 +929,7 @@
   "sections": [
    {
     "title": "Wer es macht",
-    "text": "ShenTarot wird von ShenTech gemacht, einem Unternehmen in Singapur. Schreib uns an {email}."
+    "text": "ShenTarot wird von Shenetic gemacht, einem Unternehmen in Singapur. Schreib uns an {email}."
    },
    {
     "title": "Woher die Bedeutungen stammen",

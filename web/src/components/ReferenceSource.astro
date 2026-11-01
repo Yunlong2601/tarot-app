@@ -8,12 +8,12 @@ const schema = {
   '@context': 'https://schema.org', '@type': 'WebPage',
   '@id': canonical + '#webpage', url: canonical, name, inLanguage: L.tag,
   publisher: {'@type':'Organization', '@id':new URL('#publisher',Astro.site).href,
-    name:'ShenTech', url:Astro.site!.href, brand:{'@type':'Brand',name:'ShenTarot'}},
+    name:'Shenetic', url:Astro.site!.href, brand:{'@type':'Brand',name:'ShenTarot'}},
   isPartOf: {'@type':'WebSite',name:'ShenTarot',url:Astro.site!.href},
 };
 ---
 <aside class="reference-source" data-reference-source>
-  <p><a href={L.url('about')}>ShenTarot · ShenTech, Singapore</a></p>
+  <p><a href={L.url('about')}>ShenTarot · Shenetic, Singapore</a></p>
   <details>
     <summary>{g.methodTitle}</summary>
     <div class="reference-source-body">

@@ -14,7 +14,7 @@
   "ctaEyebrow": "ShenTarot pour iPhone et Android",
   "ctaTitle": "Tire tes propres cartes",
   "ctaText": "Scanne ton jeu Rider-Waite-Smith ou tire les cartes à l'écran, pose ta question et obtiens un tirage sur lequel tu peux continuer à poser des questions.",
-  "about": "Des tirages de tarot par IA pour tes propres cartes, par ShenTech à Singapour. Uniquement pour le divertissement et l'introspection.",
+  "about": "Des tirages de tarot par IA pour tes propres cartes, par Shenetic à Singapour. Uniquement pour le divertissement et l'introspection.",
   "siteName": "ShenTarot",
   "titleSuffix": " · ShenTarot",
   "homeCrumb": "Accueil"
@@ -38,7 +38,7 @@
   "privacy": "Confidentialité",
   "terms": "Conditions d'utilisation",
   "delete": "Supprimer tes données",
-  "copyright": "© {year} ShenTech, Singapour. Tous droits réservés.",
+  "copyright": "© {year} Shenetic, Singapour. Tous droits réservés.",
   "images": "Images des cartes : jeu Rider-Waite-Smith (1909), domaine public.",
   "inEnglish": "{page} (en anglais)",
   "about": "À propos"
@@ -931,7 +931,7 @@
   "sections": [
    {
     "title": "Qui le fait",
-    "text": "ShenTarot est conçu par ShenTech, une entreprise basée à Singapour. Écrivez-nous à {email}."
+    "text": "ShenTarot est conçu par Shenetic, une entreprise basée à Singapour. Écrivez-nous à {email}."
    },
    {
     "title": "D’où viennent les significations",

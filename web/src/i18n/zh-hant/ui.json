@@ -14,7 +14,7 @@
   "ctaEyebrow": "ShenTarot iPhone 與 Android 版",
   "ctaTitle": "解讀你自己的牌",
   "ctaText": "掃描你的偉特塔羅牌，或直接在螢幕上抽牌，提出你的問題，就能得到一份可以繼續追問的解讀。",
-  "about": "用你自己的牌進行 AI 塔羅占卜，由新加坡 ShenTech 推出。僅供娛樂與自我反思。",
+  "about": "用你自己的牌進行 AI 塔羅占卜，由新加坡 Shenetic 推出。僅供娛樂與自我反思。",
   "siteName": "ShenTarot",
   "titleSuffix": " · ShenTarot",
   "homeCrumb": "首頁"
@@ -38,7 +38,7 @@
   "privacy": "隱私權政策",
   "terms": "服務條款",
   "delete": "刪除你的資料",
-  "copyright": "© {year} ShenTech，新加坡。保留所有權利。",
+  "copyright": "© {year} Shenetic，新加坡。保留所有權利。",
   "images": "牌面圖像：偉特塔羅牌（Rider-Waite-Smith，1909），屬公有領域。",
   "inEnglish": "{page}（英文）",
   "about": "關於我們"
@@ -927,7 +927,7 @@
   "sections": [
    {
     "title": "開發者",
-    "text": "ShenTarot 由新加坡公司 ShenTech 開發。聯絡我們：{email}。"
+    "text": "ShenTarot 由新加坡公司 Shenetic 開發。聯絡我們：{email}。"
    },
    {
     "title": "牌義從何而來",

@@ -33,8 +33,8 @@ const jsonLd = [
     mainEntityOfPage: page,
     ...(evidence ? { dateModified:evidence.checkedAt, citation:evidence.sources.map(source=>({"@type":"Book",name:source.title,url:source.url,...('author' in source ? {author:{"@type":"Person",name:source.author}} : {})})) } : {}),
     image: new URL("og.png", Astro.site).href,
-    author: { "@type": "Organization", name: "ShenTech" },
-    publisher: { "@type": "Organization", name: "ShenTech", logo: { "@type": "ImageObject", url: new URL("icon.png", Astro.site).href } },
+    author: { "@type": "Organization", name: "Shenetic" },
+    publisher: { "@type": "Organization", name: "Shenetic", logo: { "@type": "ImageObject", url: new URL("icon.png", Astro.site).href } },
     isPartOf: { "@type": "Course", name: ix.h1, url: new URL(u("learn"), Astro.site).href },
   },
   {
