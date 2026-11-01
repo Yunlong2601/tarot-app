@@ -336,29 +336,62 @@
    "Führung",
    "Zugehörigkeit"
   ],
-  "upright": "Von bewährtem Wissen oder einer Gemeinschaft zu lernen, kann dir Halt geben.",
-  "reversed": "Regeln hinterfragen, die nicht mehr passen. Finde deinen eigenen Weg zu Sinn.",
+  "upright": "Frage zur Übung, was du von einer gemeinsamen Methode lernen und wie du sie prüfen kannst.",
+  "reversed": "Überdenke umgekehrt die Lernweise, ohne Tradition pauschal abzulehnen.",
   "k": {
-   "essence": "Von einer gemeinsamen Tradition lernen.",
+   "essence": "Eine Methode lernen und Fragen zulassen.",
    "imagery": "Eine Gestalt in Gewändern und mit dreifacher Krone sitzt zwischen zwei grauen Säulen und hebt eine Hand zum Segen. Zu ihren Füßen liegen zwei gekreuzte Schlüssel, und zwei Gestalten knien vor ihr.",
-   "why": "Der Hierophant ist der Lehrer der bewährten Wege. Säulen und Schlüssel verweisen auf ein Tor zu Wissen, das in einer Gemeinschaft weitergegeben wird. Stier, sein übliches Sternzeichen, ist beständig und dem Bewährten treu.",
+   "why": "Waite beschreibt institutionelle Religion und ihre sichtbare Hierarchie, kein Gütesiegel für Lehrende. Unsere Lernfragen sind eine Anwendung. Diese Stellen belegen weder Stier noch die Richtigkeit überlieferten Wissens.",
    "upright": {
-    "core": "Zu einer Tradition, einer Gruppe oder einem Lehrer gehören und zuerst den bewährten Weg lernen.",
+    "core": "Ein möglicher Ansatz: eine erklärbare Methode ausprobieren und mit Beobachtungen vergleichen.",
     "light": "Mentoring, gemeinsame Werte, Verbindlichkeit",
     "shadow": "Anpassung, etwas tun, weil man es schon immer so gemacht hat",
-    "love": "Gemeinsame Werte und Rituale, die Menschen zusammenhalten.",
-    "work": "Formale Ausbildung, Mentoren, Arbeit innerhalb einer Institution oder auf einem anerkannten Weg.",
+    "love": "In Beziehungen: Welche Bräuche wählt ihr beide? Die Karte sagt keine Ehe voraus und belegt keine fremden Überzeugungen.",
+    "work": "Bei der Arbeit: Welche Anleitung gibt es, wie lässt sie sich prüfen? Titel oder Institution allein belegen keine Kompetenz.",
     "question": "Welche Tradition oder welcher Lehrer tut mir gut, und welcher folge ich nur aus Gewohnheit?"
    },
    "reversed": {
-    "core": "Überlieferte Regeln werden hinterfragt oder stecken fest.",
+    "core": "Unsere umgekehrte Übung prüft die Lernform, nicht eine angebliche Lernverweigerung oder falsche Regeln.",
     "modes": [
-     "Loslassen: sich von Konventionen lösen.",
-     "Blockiert: nicht bereit, von anderen zu lernen.",
-     "Übermaß: Regeln als Dogma."
+     "Methode: Lässt sich dieser Schritt erklären?",
+     "Teilnahme: Sind Fragen und ein Nein möglich?",
+     "Prüfung: Was würde dich zur Änderung bewegen?"
     ],
     "question": "Nach wessen Regeln lebe ich?"
    }
+  },
+  "evidence": {
+   "answer": "Hier stellt der Hierophant Fragen zu gemeinsamem Lernen und Bräuchen. Er bestätigt keine Lehrperson und fordert keinen Gehorsam.",
+   "groupNote": "Das Bild trägt V. Der Vergleich mit Fünfen ist eine Übung, keine universelle Konfliktphase.",
+   "sections": [
+    {
+     "h": "Historische Institution und heutige Lernfrage",
+     "p": [
+      "Teil II, §2, V beschreibt dreifache Krone, Säulen, Schlüssel und kniende Amtsträger sowie institutionelle religiöse Autorität. Er warnt auch vor der Verwechslung einer Amtsperson mit allem, wofür das Amt steht. Teil III, §3 nennt mehrere Bedeutungen; umgekehrt auch Eintracht, nicht bloß Auflehnung. Das sind historische Deutungen, keine Vorhersagen oder Bestätigung heutiger Autorität."
+     ]
+    },
+    {
+     "h": "Eigenes Beispiel: gemeinsam ein Legemuster lernen",
+     "p": [
+      "Zwei Freunde üben drei Karten. Stelle die aufrechte Karte auf „Wie kann ich dieses Muster lernen?“. Das Beispiel ist erfunden, kein Testerbericht. Betrachte zuerst Sitzfigur, Schlüssel und die beiden Knienden.",
+      "Eine Lesart verbindet die Mitte mit einer Erklärung und das Paar mit gemeinsamem Lernen. Lass eine Position erklären, probiere eine unverfängliche Frage und notiere Passendes und Unpassendes. Das ist unsere Ableitung von Bild und Position zu einer Handlung, keine Anweisung Waites oder Bestätigung des Freundes.",
+      "Alternative: Die Methode ist klar, es fehlt Ruhe zum Alleinüben. Erfinde keinen Bedarf nach einer Lehrperson. Halte beide Möglichkeiten und Widersprüche in deinen [Notizen](read) fest. Die Umkehrung kann eine andere Lernform anregen, ohne jemanden als dogmatisch einzustufen."
+     ]
+    },
+    {
+     "h": "Nachprüfbare Quellen",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, Teil II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, V The Hierophant: Bilddetails und institutionelle Deutung. Belegt seine Symbolik, nicht die Wahrheit einer Lehre.",
+      "[Teil III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 5 The Hierophant: historische aufrechte und umgekehrte Bedeutungen. Transkription des Nachdrucks von 1922. Lernübung redaktionell; Liebe, Beruf, Gefühle und Ja/Nein separat ungeprüft."
+     ]
+    },
+    {
+     "h": "Prüfprotokoll · 1. November 2026",
+     "p": [
+      "KI-gestützter Vergleich von Textstellen, veröffentlichtem Bild und Basisreferenz. Unbelegtes Stier/bewährtes Wissen und feste Umkehrdeutung durch gekennzeichnete Fragen ersetzt. Unabhängige Fach- und muttersprachliche Prüfung nicht bestätigt. Korrekturen über die [Methodik](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_06_lovers": {

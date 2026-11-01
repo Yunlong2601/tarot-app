@@ -336,29 +336,62 @@
    "guidance",
    "belonging"
   ],
-  "upright": "Learning from established wisdom or community can steady you.",
-  "reversed": "Questioning rules that no longer fit. Find your own path to meaning.",
+  "upright": "For this practice, ask what you can learn from a shared method and how you would check it.",
+  "reversed": "Use reversal to reconsider how you learn together, rather than assume that tradition must be rejected.",
   "k": {
-   "essence": "Learning from a shared tradition.",
+   "essence": "Learn a method, and keep room for questions.",
    "imagery": "A robed figure in a triple crown sits between two grey pillars, one hand raised in blessing. Two crossed keys lie at his feet and two figures kneel in front of him.",
-   "why": "The Hierophant is the teacher of established ways. The pillars and keys point to a doorway to knowledge that is passed on in a community. Taurus, his usual sign, is steady and loyal to what has been proven.",
+   "why": "Waite describes institutional religion and its visible hierarchy, not a general certificate of reliable teaching. Our learning prompts are an application of that image. These passages do not establish the Taurus correspondence or prove that inherited knowledge is correct.",
    "upright": {
-    "core": "Belonging to a tradition, a group or a teacher, and learning the established way first.",
+    "core": "One possible prompt: try a method someone can explain, then compare it with what you observe.",
     "light": "mentorship, shared values, commitment",
     "shadow": "conformity, doing it because it has always been done",
-    "love": "Shared values and rituals that hold people together.",
-    "work": "Formal learning, mentors, working inside an institution or a recognised path.",
+    "love": "In a relationship exercise, ask which customs you both choose. The card does not predict marriage or establish another person’s beliefs.",
+    "work": "In a work exercise, ask what instruction is available and how to check it. A title or institution alone does not establish competence.",
     "question": "Which tradition or teacher is serving me, and which am I following out of habit?"
    },
    "reversed": {
-    "core": "Inherited rules are being questioned, or are stuck in place.",
+    "core": "Our reversed practice explores the learning arrangement; it does not diagnose resistance to learning or prove that rules are wrong.",
     "modes": [
-     "Releasing: stepping away from convention.",
-     "Blocked: unwilling to learn from others.",
-     "Excess: rules held as dogma."
+     "Method: can someone explain why this step is used?",
+     "Participation: can learners ask questions or decline?",
+     "Review: what would lead you to change the method?"
     ],
     "question": "Whose rules am I living by?"
    }
+  },
+  "evidence": {
+   "answer": "Here the Hierophant offers questions about shared teaching and customs. It does not certify a teacher or require obedience.",
+   "groupNote": "The image is numbered V. Comparing it with Fives is a study exercise, not proof of a universal stage of conflict.",
+   "sections": [
+    {
+     "h": "Historical institution and a modern learning prompt",
+     "p": [
+      "Part II, §2, V describes the triple crown, pillars, crossed keys and kneeling ministers, then interprets institutional religious authority. It also warns that the office-holder can confuse the office with all it represents. Part III, §3 lists several upright and reversed meanings; reversal includes concord, not simply rebellion. These are historical interpretations, not predictions or approval of present-day authority."
+     ]
+    },
+    {
+     "h": "Original example: learning a card spread together",
+     "p": [
+      "Imagine this upright card in “How could I learn this spread?”. Two friends are practising a three-card layout. This is a fictional exercise, not a tester story. First notice the central seated figure, the keys and the two kneeling figures.",
+      "One reading connects the central figure with an explanation and the pair with learning together. Ask a friend to explain one position, try it with a non-sensitive question and write down where the explanation fits or fails. The link from image and position to this small action is our reasoning, not Waite’s instruction or evidence that the friend is right.",
+      "Alternative: the method is already clear, but you need quiet time to practise alone. Do not invent a need for a teacher. Keep both possibilities and mismatches in your [reading notes](read). Reversal can prompt a different arrangement without labelling anyone dogmatic."
+     ]
+    },
+    {
+     "h": "Sources you can inspect",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, Part II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, V The Hierophant: visual details and institutional interpretation. This is an account of Waite’s symbolism, not evidence that an institution’s teaching is true.",
+      "[Part III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 5 The Hierophant: historical upright/reversed meanings. Consulted transcription: 1922 reprint. The learning exercise is editorial; separate love, career, feelings and yes/no pages remain unchecked."
+     ]
+    },
+    {
+     "h": "Check record · 1 November 2026",
+     "p": [
+      "AI-assisted comparison checked these passages, the published image and this base reference. Replaced the unsupported Taurus/proven-wisdom explanation and fixed reversed meaning with labelled prompts. Independent expert and native-language review remain unconfirmed. Send corrections through our [methodology page](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_06_lovers": {

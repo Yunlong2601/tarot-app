@@ -336,29 +336,62 @@
    "guía",
    "pertenencia"
   ],
-  "upright": "Aprender de la sabiduría establecida o de una comunidad puede darte estabilidad.",
-  "reversed": "Cuestionar normas que ya no encajan. Encuentra tu propio camino hacia el sentido.",
+  "upright": "Para practicar, pregunta qué puedes aprender de un método compartido y cómo comprobarlo.",
+  "reversed": "La inversión permite revisar cómo aprendéis, sin asumir que debéis rechazar la tradición.",
   "k": {
-   "essence": "Aprender de una tradición compartida.",
+   "essence": "Aprende un método y deja espacio para preguntar.",
    "imagery": "Una figura con túnica y triple corona está sentada entre dos columnas grises, con una mano alzada en señal de bendición. A sus pies hay dos llaves cruzadas y ante él se arrodillan dos figuras.",
-   "why": "El Hierofante es el maestro de las formas establecidas. Las columnas y las llaves apuntan a una puerta hacia un conocimiento que se transmite en comunidad. Tauro, el signo que se le suele asociar, es constante y fiel a lo que ya ha demostrado funcionar.",
+   "why": "Waite describe la religión institucional y su jerarquía visible, no certifica a todos los maestros. Nuestras preguntas de aprendizaje son una aplicación. Estos pasajes no establecen Tauro ni prueban que lo heredado sea correcto.",
    "upright": {
-    "core": "Pertenecer a una tradición, un grupo o un maestro, y aprender primero la forma establecida.",
+    "core": "Una propuesta: prueba un método que alguien pueda explicar y compáralo con tus observaciones.",
     "light": "mentoría, valores compartidos, compromiso",
     "shadow": "conformismo, hacerlo porque siempre se ha hecho así",
-    "love": "Valores y rituales compartidos que mantienen unidas a las personas.",
-    "work": "Formación reglada, mentores, trabajar dentro de una institución o un camino reconocido.",
+    "love": "En relaciones, pregunta qué costumbres elegís ambos. La carta no predice matrimonio ni establece creencias ajenas.",
+    "work": "En el trabajo, pregunta qué instrucciones hay y cómo comprobarlas. Un título o institución no acredita por sí solo la competencia.",
     "question": "¿Qué tradición o maestro me está sirviendo, y a cuál sigo por costumbre?"
    },
    "reversed": {
-    "core": "Las normas heredadas se están cuestionando, o se han quedado estancadas.",
+    "core": "Nuestra práctica invertida examina el aprendizaje; no diagnostica rechazo a aprender ni demuestra que las reglas sean erróneas.",
     "modes": [
-     "Liberación: alejarte de lo convencional.",
-     "Bloqueo: no querer aprender de los demás.",
-     "Exceso: normas convertidas en dogma."
+     "Método: ¿pueden explicar por qué se hace este paso?",
+     "Participación: ¿se puede preguntar o decir que no?",
+     "Revisión: ¿qué te haría cambiar el método?"
     ],
     "question": "¿Según las normas de quién estoy viviendo?"
    }
+  },
+  "evidence": {
+   "answer": "Aquí el Hierofante plantea preguntas sobre enseñanza y costumbres compartidas. No certifica maestros ni exige obediencia.",
+   "groupNote": "La imagen lleva V. Compararla con los Cincos es un ejercicio, no una etapa universal de conflicto.",
+   "sections": [
+    {
+     "h": "La institución histórica y nuestra pregunta de aprendizaje",
+     "p": [
+      "La parte II, §2, V describe corona triple, pilares, llaves y ministros arrodillados e interpreta la autoridad religiosa institucional. También advierte que el titular puede confundirse con todo lo que representa su cargo. La parte III, §3 ofrece varios sentidos; la inversión incluye concordia, no solo rebelión. Son interpretaciones históricas, no predicciones ni aprobación de autoridades actuales."
+     ]
+    },
+    {
+     "h": "Ejemplo original: aprender una tirada con alguien",
+     "p": [
+      "Dos amigos practican tres cartas. Imagina esta carta derecha en «¿Cómo aprender esta tirada?». Es ficción, no la historia de un tester. Observa primero la figura sentada, las llaves y las dos figuras arrodilladas.",
+      "Una lectura conecta la figura central con una explicación y la pareja con aprender juntos. Pide que te expliquen una posición, prueba una pregunta sin datos privados y anota qué encaja y qué no. Es nuestro razonamiento desde imagen y posición hacia una acción, no una instrucción de Waite ni prueba de que el amigo tenga razón.",
+      "Alternativa: ya entiendes el método y necesitas practicar a solas. No inventes la necesidad de un maestro. Guarda ambas posibilidades y discrepancias en tus [notas](read). Invertir puede sugerir otra organización sin llamar dogmático a nadie."
+     ]
+    },
+    {
+     "h": "Fuentes consultables",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, parte II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, V The Hierophant: detalles e interpretación institucional. Documenta su simbolismo, no la verdad de una enseñanza.",
+      "[Parte III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 5 The Hierophant: sentidos históricos derechos e invertidos. Transcripción de la reimpresión de 1922. El ejercicio es editorial; las páginas de amor, carrera, sentimientos y sí/no siguen pendientes."
+     ]
+    },
+    {
+     "h": "Registro de comprobación · 1 de noviembre de 2026",
+     "p": [
+      "Comparación asistida por IA de pasajes, imagen publicada y referencia base. Se sustituyeron Tauro/sabiduría probada sin respaldo y la inversión fija por propuestas explícitas. Revisión experta independiente y lingüística sin confirmar. Correcciones mediante la [metodología](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_06_lovers": {

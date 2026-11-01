@@ -1,3 +1,7 @@
+## 2026-11-01 — Hierophant source comparison
+
+Eight localized Hierophant base references now separate Waite’s institutional symbolism from an original learning exercise, remove unsupported Taurus/proven-wisdom and fixed reversal claims, and show exact sources and an honest AI-assisted check record. Progress: 13/487 logical references; context variants and human expert/language reviews remain pending. All 49 tests, locale parity, Astro check/build and website audits passed (104 editorial routes); Chrome checked 24 locale/width combinations and orientation handoff. Evidence in `docs/editorial-review-2026-10-31/`.
+
 # PROGRESS
 
 **2026-10-31: real iPhone beta story prepared and verified.** Three untouched physical-device captures now show spread selection, the generated reading summary and an empty optional journal, with captions/alt and an English-interface notice in all eight locales. Comparison moved beside the story; iPhone joining instructions explain the observed one-credit confirmation. One owner-triggered reading succeeded; no additional credits used. All 48 tests, locale parity, Astro check, build, five audits and 24 locale/viewport layout checks pass. Physical QR, actual screen-reader and native-speaker validation remain open. Evidence: `docs/beta-conversion-2026-10-29/README.md`.

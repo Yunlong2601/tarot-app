@@ -336,29 +336,62 @@
    "conseil",
    "appartenance"
   ],
-  "upright": "Apprendre d'une sagesse établie ou d'une communauté peut t'apporter de la stabilité.",
-  "reversed": "Remettre en question des règles qui ne te correspondent plus. Trouve ton propre chemin vers le sens.",
+  "upright": "Pour cet exercice, demande ce qu’une méthode partagée peut t’apprendre et comment la vérifier.",
+  "reversed": "À l’envers, revois ta façon d’apprendre sans supposer qu’il faut rejeter la tradition.",
   "k": {
-   "essence": "Apprendre d'une tradition partagée.",
+   "essence": "Apprendre une méthode et garder de la place pour les questions.",
    "imagery": "Un personnage en robe, coiffé d'une triple couronne, est assis entre deux piliers gris, une main levée pour bénir. Deux clés croisées reposent à ses pieds et deux personnages sont agenouillés devant lui.",
-   "why": "Le Hiérophante est le maître des voies établies. Les piliers et les clés désignent une porte vers un savoir transmis au sein d'une communauté. Le Taureau, son signe habituel, est stable et fidèle à ce qui a fait ses preuves.",
+   "why": "Waite décrit la religion institutionnelle et sa hiérarchie visible, pas un certificat de fiabilité des enseignants. Nos questions sont une application. Ces passages n’établissent ni le Taureau ni la justesse du savoir transmis.",
    "upright": {
-    "core": "Appartenir à une tradition, à un groupe ou à l'enseignement d'un maître, et apprendre d'abord la voie établie.",
+    "core": "Une piste : essaie une méthode explicable, puis compare-la à tes observations.",
     "light": "transmission, valeurs partagées, engagement",
     "shadow": "le conformisme, faire les choses parce qu'on les a toujours faites ainsi",
-    "love": "Des valeurs et des rituels partagés qui unissent les gens.",
-    "work": "Une formation classique, des mentors, travailler au sein d'une institution ou d'un parcours reconnu.",
+    "love": "En relation, discutez des coutumes que vous choisissez tous les deux. La carte ne prédit pas le mariage et ne révèle pas les croyances d’autrui.",
+    "work": "Au travail, cherche une explication et un moyen de la vérifier. Un titre ou une institution ne prouve pas à lui seul la compétence.",
     "question": "Quelle tradition ou quel maître me sert vraiment, et lequel est-ce que je suis par habitude ?"
    },
    "reversed": {
-    "core": "Les règles héritées sont remises en question, ou restent figées.",
+    "core": "Notre exercice inversé examine la façon d’apprendre, sans diagnostiquer un refus d’apprendre ni prouver que les règles sont fausses.",
     "modes": [
-     "Libération : s'éloigner des conventions.",
-     "Bloqué : refuser d'apprendre des autres.",
-     "Excès : des règles vécues comme des dogmes."
+     "Méthode : peut-on expliquer cette étape ?",
+     "Participation : peut-on poser des questions ou refuser ?",
+     "Révision : qu’est-ce qui te ferait changer de méthode ?"
     ],
     "question": "Selon les règles de qui est-ce que je vis ?"
    }
+  },
+  "evidence": {
+   "answer": "Ici, le Hiérophante invite à interroger enseignement et coutumes partagés. Il ne certifie personne et n’exige pas l’obéissance.",
+   "groupNote": "L’image porte V. La comparer aux Cinq est un exercice, pas la preuve d’une étape universelle de conflit.",
+   "sections": [
+    {
+     "h": "L’institution historique et notre question d’apprentissage",
+     "p": [
+      "La partie II, §2, V décrit triple couronne, piliers, clés et ministres agenouillés, puis l’autorité religieuse institutionnelle. Elle avertit aussi que le titulaire peut se confondre avec tout ce que représente sa fonction. La partie III, §3 donne plusieurs sens ; l’inversion comprend la concorde, pas seulement la rébellion. Ce sont des interprétations historiques, pas des prédictions ni une approbation des autorités actuelles."
+     ]
+    },
+    {
+     "h": "Exemple original : apprendre un tirage ensemble",
+     "p": [
+      "Deux amis s’exercent avec trois cartes. Imagine la carte droite en « Comment apprendre ce tirage ? ». Scène fictive, pas récit de testeur. Observe d’abord le personnage assis, les clés et les deux personnes agenouillées.",
+      "Une lecture relie le centre à une explication et le duo à l’apprentissage partagé. Demande l’explication d’une position, essaie une question sans données privées et note ce qui convient ou non. C’est notre raisonnement entre image, position et petite action, pas une consigne de Waite ni la preuve que l’ami a raison.",
+      "Autre possibilité : tu comprends déjà la méthode et as besoin de calme pour pratiquer seul. N’invente pas un besoin de maître. Garde les deux pistes et leurs écarts dans tes [notes](read). L’inversion peut suggérer une autre organisation sans traiter quelqu’un de dogmatique."
+     ]
+    },
+    {
+     "h": "Sources à consulter",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, partie II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, V The Hierophant : détails visuels et interprétation institutionnelle. Documente son symbolisme, pas la vérité d’un enseignement.",
+      "[Partie III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 5 The Hierophant : sens historiques droits et inversés. Transcription de la réimpression de 1922. L’exercice est éditorial ; amour, carrière, sentiments et oui/non restent à vérifier séparément."
+     ]
+    },
+    {
+     "h": "Trace de vérification · 1er novembre 2026",
+     "p": [
+      "Comparaison assistée par IA des passages, de l’image publiée et de la référence de base. Taureau/sagesse éprouvée sans preuve et inversion fixe remplacés par des pistes explicites. Expertise indépendante et révision de langue maternelle non confirmées. Corrections via la [méthodologie](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_06_lovers": {
