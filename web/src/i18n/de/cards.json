@@ -134,33 +134,67 @@
  "major_02_high_priestess": {
   "name": "Die Hohepriesterin",
   "keywords": [
-   "Intuition",
-   "Stille",
-   "das Unausgesprochene"
+   "Aufmerksamkeit",
+   "Ungewissheit",
+   "Reflexion"
   ],
-  "upright": "Stilles Nachdenken bringt Antworten, die Lärm nicht bringen kann. Vertrau dem, was du unter der Oberfläche spürst.",
-  "reversed": "Deine innere Stimme ignorieren oder etwas vor dir selbst verbergen.",
+  "upright": "Trenne für diese Übung Beobachtetes, Gefühle und noch Unbekanntes.",
+  "reversed": "Prüfe bei Umkehrung Annahmen und offene Fragen, ohne Selbstverheimlichung festzustellen.",
   "k": {
-   "essence": "Was du spürst, bevor du es erklären kannst.",
-   "imagery": "Eine Frau in blauen Gewändern sitzt zwischen einer schwarzen und einer weißen Säule, die mit den Buchstaben B und J beschriftet sind. Zu ihren Füßen liegt eine Mondsichel, und auf ihrem Schoß ist eine Schriftrolle halb verborgen. Hinter ihr hängt ein Vorhang mit Granatapfelmuster.",
-   "why": "Zwei ist die Zahl der Paare und Schwellen. Die Säulen markieren ein Tor zwischen Gegensätzen, und der Vorhang verbirgt, was dahinter liegt. Der Mond, mit dem sie üblicherweise verbunden wird, ist das traditionelle Symbol für Intuition und für das, was noch nicht sichtbar ist.",
+   "essence": "Lass vor einer Schlussfolgerung Raum für Ungewissheit.",
+   "imagery": "Eine sitzende Figur hält eine teilweise bedeckte Rolle zwischen dunkler B- und heller J-Säule. Eine Mondsichel liegt bei den Füßen, ein gemusterter Vorhang dahinter. Die Karte trägt II.",
+   "why": "Waite beschreibt Rolle und Vorhang spirituell. Informationen zu prüfen ist unsere Anwendung, kein Beweis für Intuition oder verborgene Fakten. Die Sichel ist Bilddetail, keine Bestätigung eines Gefühls.",
    "upright": {
-    "core": "Stille vor der Entscheidung: auf das Unausgesprochene hören, in der Situation und in dir.",
-    "light": "Intuition, Geduld, Diskretion",
-    "shadow": "Heimlichkeit, zu lange zurückhalten",
-    "love": "Wahrnehmen, was zwischen Menschen ungesagt bleibt und was du dir selbst noch nicht eingestanden hast.",
-    "work": "Informationen sammeln, bevor du handelst; einem stillen Gespür für die Stimmung im Raum vertrauen.",
-    "question": "Was spüre ich schon, habe es aber noch nicht laut gesagt?"
+    "core": "Ein Impuls: Pausiere, bis du eine Frage benennen kannst, und suche passende Informationen.",
+    "light": "Aufmerksamkeit, Geduld, Achtung der Privatsphäre",
+    "shadow": "Eindruck als Tatsache behandeln oder grundlos warten",
+    "love": "Für Beziehungen: Trenne unbeantwortete Nachricht und erdachte Erklärung. Frage respektvoll; die Karte offenbart keine fremden Gefühle oder Geheimnisse.",
+    "work": "Für Arbeit: Benenne ein fehlendes Dokument oder eine unklare Anweisung. Kein Gütesiegel für stille Menschen- oder Raumeinschätzung.",
+    "question": "Was habe ich beobachtet und was müsste ich fragen?"
    },
    "reversed": {
-    "core": "Die Intuition wird übertönt, oder Geheimnisse werden zu fest gehütet.",
+    "core": "Unsere Umkehrungsübung prüft Deutung und Zeitpunkt, keine verstummte Intuition oder verborgenen Innenzustände.",
     "modes": [
-     "Blockiert: Lärm und Geschäftigkeit statt innerer Stimme.",
-     "Nach innen: Gefühle, die selbst vor dir verborgen sind.",
-     "Übermaß: Grübeln, zu viel in kleine Zeichen hineinlesen."
+     "Annahmen: Welches Detail deute ich statt es zu beobachten?",
+     "Information: Welche Frage bleibt offen?",
+     "Zeitpunkt: Würde eine respektvolle Klärung mehr helfen als Warten?"
     ],
-    "question": "Wann bin ich zuletzt still genug geworden, um zu hören, was ich denke?"
+    "question": "Was könnte meine Deutung ändern?"
    }
+  },
+  "evidence": {
+   "answer": "Die Hohepriesterin regt hier geduldige Aufmerksamkeit an; Eindrücke bleiben von Belegen über andere Menschen getrennt.",
+   "groupNote": "Diese Karte trägt II. Ein Vergleich mit Zweien dient dem Studium, keiner universellen Paartheorie oder größeren Lebenswichtigkeit.",
+   "sections": [
+    {
+     "h": "Quellenbeschreibung und unsere Ergänzung",
+     "p": [
+      "Teil II, §2, II beschreibt bedeckte Rolle, gegensätzliche Säulen, Sichel und Vorhang mit religiös-mystischer Erklärung. Das sind Waites Deutungen; unsere Frageübung setzt keine verifizierte Erkenntnis daraus voraus.",
+      "Teil III, §3 nennt Geheimnis und Schweigen; umgekehrt nicht einfach ignorierte innere Stimme. Keine Liste beweist ein Geheimnis, verlässliche Intuition oder die Identität einer Frau im Leben des Lesers."
+     ]
+    },
+    {
+     "h": "Eigenes Beispiel: eine unbeantwortete Einladung",
+     "p": [
+      "Frage: „Was klären, bevor ich Schweigen deute?“. Stell dir eine noch unbeantwortete Einladung und die aufrechte Karte auf „Was prüfen?“ vor. Erst Rolle und Säulen beschreiben. Erfunden, keine private Nachricht oder Kundenakte.",
+      "Eine Verbindung: Teilansicht trennt „keine Antwort erhalten“ von „will nicht kommen“; die Säulen regen mehrere Erklärungen an. Prüfe die Datumsangabe und frage gegebenenfalls einmal nach, mit Raum für Antwort oder Absage. Unser Schluss, kein Motivbeweis.",
+      "Alternative: Vielleicht sind Details klar und du weißt noch nicht, was du anbieten willst. Notiere deine eigene Präferenz vor einer weiteren Frage. Behalte beide Lesarten und Unpassendes in [Notizen](read). Drehen beweist keine versteckten Gefühle; vergleiche mit wirklichen Umständen."
+     ]
+    },
+    {
+     "h": "Nachprüfbare Quellen",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, Teil II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, II The High Priestess, stützt Bilddetails und dokumentiert spirituelle Deutung, kein allgemeines Intuitionsgesetz oder feste Zweibedeutung.",
+      "[Teil III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 2 The High Priestess, stützt den historischen Vergleich. Transkription des Nachdrucks 1922. Impulse und Beispiel redaktionell; Kontextseiten bleiben ungeprüft."
+     ]
+    },
+    {
+     "h": "Prüfvermerk · 1. November 2026",
+     "p": [
+      "KI-gestützter Vergleich von Textstellen, Bild und Basistext. Antwortgarantien durch Stille, Vertrauen in verborgene Eindrücke und feste Zwei-/Intuitionszuordnung entfernt. Unabhängige Fach-/Muttersprachprüfung unbestätigt; Korrekturen über die [Methodikseite](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_03_empress": {

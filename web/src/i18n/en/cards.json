@@ -134,33 +134,67 @@
  "major_02_high_priestess": {
   "name": "The High Priestess",
   "keywords": [
-   "intuition",
-   "stillness",
-   "the unspoken"
+   "attention",
+   "uncertainty",
+   "reflection"
   ],
-  "upright": "Quiet reflection brings answers that noise cannot. Trust what you sense beneath the surface.",
-  "reversed": "Ignoring your inner voice, or keeping something hidden from yourself.",
+  "upright": "For this exercise, pause to separate what you noticed, what you feel and what remains unknown.",
+  "reversed": "Use the reversed orientation to review assumptions or unanswered questions, without deciding that you are hiding something from yourself.",
   "k": {
-   "essence": "What you sense before you can explain it.",
-   "imagery": "A woman in blue robes sits between a black pillar and a white pillar marked with the letters B and J. A crescent moon rests at her feet and a scroll is half hidden in her lap. Behind her hangs a curtain patterned with pomegranates.",
-   "why": "Two is the number of pairs and thresholds. The pillars mark a doorway between opposites, and the curtain hides what lies beyond it. The Moon, her usual association, is the traditional symbol of intuition and what is not yet visible.",
+   "essence": "Leave room for uncertainty before drawing a conclusion.",
+   "imagery": "A seated figure holds a partly covered scroll between a dark pillar marked B and a light pillar marked J. A crescent is near the feet and a patterned veil hangs behind. The card is labelled II.",
+   "why": "Waite describes the covered scroll and veil within a spiritual interpretation. Our information-checking exercise is an application, not proof of intuition or concealed facts. The crescent is an image detail; it does not establish that a feeling is correct.",
    "upright": {
-    "core": "Stillness before deciding: listening to what is unspoken, in the situation and in you.",
-    "light": "intuition, patience, discretion",
-    "shadow": "secrecy, holding back too long",
-    "love": "Noticing what is left unsaid between people, and what you have not admitted to yourself.",
-    "work": "Gathering information before acting; trusting a quiet read of the room.",
-    "question": "What do I already sense but have not said out loud?"
+    "core": "One possible prompt is to wait long enough to name a question, then seek the information that could answer it.",
+    "light": "attention, patience, respect for privacy",
+    "shadow": "treating an impression as a fact or waiting without a reason",
+    "love": "As a relationship prompt, distinguish an unanswered message from an explanation you imagined. Ask respectfully; the card does not reveal someone else’s feelings or secrets.",
+    "work": "As a work prompt, identify a missing document or unclear instruction before proceeding. It does not certify a quiet judgment of people or the room.",
+    "question": "What have I observed, and what would I need to ask?"
    },
    "reversed": {
-    "core": "Intuition is drowned out, or secrets are kept too tightly.",
+    "core": "Our reversed practice checks interpretations and timing. It does not establish a silenced intuition or a hidden inner state.",
     "modes": [
-     "Blocked: noise and busyness over the inner voice.",
-     "Inward: feelings hidden even from yourself.",
-     "Excess: overthinking, reading too much into small signs."
+     "Assumptions: which detail am I interpreting rather than observing?",
+     "Information: what question remains unanswered?",
+     "Timing: would a respectful clarification help more than further waiting?"
     ],
-    "question": "When did I last go quiet enough to hear what I think?"
+    "question": "What could change my interpretation of this situation?"
    }
+  },
+  "evidence": {
+   "answer": "Here the High Priestess invites patient attention to uncertainty, with impressions kept separate from evidence about other people.",
+   "groupNote": "This deck labels the card II. Comparing it with Twos is a study exercise, not a universal law of pairs or proof of greater life importance.",
+   "sections": [
+    {
+     "h": "What the source describes, and what we add",
+     "p": [
+      "Part II, §2, II describes the partly covered scroll, contrasting pillars, crescent and veil, then interprets them through religious and mystical ideas. Those are Waite’s interpretations; our observation-and-question exercise does not require treating them as verified knowledge.",
+      "Part III, §3 includes secrecy, silence and other meanings; its reversed list is not simply “ignoring your inner voice”. Neither list establishes that someone has a secret, that an intuition is reliable, or that the card identifies a woman in your life."
+     ]
+    },
+    {
+     "h": "Original example: an unanswered invitation",
+     "p": [
+      "Question: “What should I clarify before interpreting this silence?”. Imagine an invitation with no reply yet, and this upright card in “What needs checking?”. Describe the partially covered scroll and the two pillars first. This is a fictional exercise, not a private message or client account.",
+      "One connection: partial visibility prompts a distinction between “no reply received” and “they do not want to come”; the contrasting pillars prompt keeping more than one explanation open. Check whether you gave a clear date and, if appropriate, ask once whether the invitation suits them. Leave room for their answer or refusal. This is our reasoning, not evidence of their motive.",
+      "Alternative: the practical details may already be clear, while you have not decided what you want to offer. Write your own preference before sending another question. Keep both readings and mismatches in your [reading notes](read). Turning the card does not prove hidden feelings; compare the question with actual circumstances."
+     ]
+    },
+    {
+     "h": "Sources you can inspect",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, Part II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, II The High Priestess, supports the named image details and records the spiritual interpretation. It does not validate a general intuition rule or a universal meaning of Two.",
+      "[Part III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 2 The High Priestess, supports the historical upright/reversed comparison. Consulted transcription: 1922 reprint. Relationship/work prompts and the invitation example are editorial; separate context pages remain to be checked."
+     ]
+    },
+    {
+     "h": "Check record · 1 November 2026",
+     "p": [
+      "AI-assisted comparison checked these passages, the actual card image and the base-reference wording. Removed assurances that quiet reflection yields answers, instructions to trust hidden impressions and fixed Two/intuition correspondence claims. Independent expert and native-language review remain unconfirmed; corrections through our [methodology page](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_03_empress": {
