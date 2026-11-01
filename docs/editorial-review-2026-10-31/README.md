@@ -4,7 +4,7 @@ The owner explicitly included all website reference content, beyond the initial 
 
 ## Current progress
 
-Fourteen logical references have limited AI-assisted primary-source comparisons and original worked examples in all eight locales: the seven foundational lessons, `/cards/major-00-fool`, `/cards/major-01-magician`, `/cards/major-02-high-priestess`, `/cards/major-03-empress` `/cards/major-04-emperor` `/cards/major-05-hierophant` and `/cards/major-06-lovers`. This does not mean their translations received human review, or that all 487 routes are source-verified. Every other record, including these cards’ context subpages, remains not started. A site-wide publisher component is not proof of claim checking.
+Fifteen logical references have limited AI-assisted primary-source comparisons and original worked examples in all eight locales: the seven foundational lessons, `/cards/major-00-fool`, `/cards/major-01-magician`, `/cards/major-02-high-priestess`, `/cards/major-03-empress` `/cards/major-04-emperor` `/cards/major-05-hierophant` `/cards/major-06-lovers` and `/cards/major-07-chariot`. This does not mean their translations received human review, or that all 487 routes are source-verified. Every other record, including these cards’ context subpages, remains not started. A site-wide publisher component is not proof of claim checking.
 
 Work in batches: major-card references; minor-card references; contextual interpretations; spreads/question/topic references; zodiac/birth/numerology and tool formulas; navigation and publisher consistency. A contextual interpretation needs its own reasoning, not a copied historical citation that never discussed that context. Reconcile newly added/removed routes before declaring the inventory complete.
 
@@ -289,3 +289,19 @@ Actor: Codex AI assistant. Scope: eight localized base references; four context 
 | Relationship/work applications | Labelled as exercises | No inferred consent, attraction, destiny or certified collaboration |
 
 Visible check record and Article sources describe limited AI comparison. Independent expert and native-language review remain unconfirmed. Progress: 14/487 logical references, 56 lesson + 56 base-card localized routes. Validation: all 49 tests, locale parity, Astro check (0 errors/warnings, 2 existing hints), production build, reader/editorial (112 routes), ritual, interaction, search-growth and beta audits passed. Chrome DOM checks across eight locales at 390/768/1440px found four evidence sections, two sources and no overflow. Reversed selection revealed the appropriate text and passed its orientation to the workspace link. Chinese desktop proof: `lovers-desktop.png`. Physical accessibility and independent language acceptance remain unverified; known mobile screenshot limitation unchanged.
+
+
+## Chariot base reference: actual source comparison — 1 November 2026
+
+Actor: Codex AI assistant. Scope: eight localized base references, not four context variants. Read Part II §2 VII and Part III §3 7 and inspected the actual bundled image. Consulted 1922 reprint transcription: [Part II revision 15274517](https://en.wikisource.org/w/index.php?oldid=15274517&title=The_Pictorial_Key_to_the_Tarot/Part_2), [Part III revision 15274510](https://en.wikisource.org/w/index.php?oldid=15274510&title=The_Pictorial_Key_to_the_Tarot/Part_3).
+
+| Claim | Evidence/action | Limit |
+|---|---|---|
+| Armour, star canopy, resting sphinxes, absent visible reins | Compared actual artwork, retained observation without inferred motion | No visible reins cannot prove will-based steering |
+| Held object | Part II says drawn sword; image shows a staff-like object | Explicit text/image discrepancy, not silently claimed agreement |
+| Conquest proves inner mastery or future victory | Part II distinguishes outward conquest from inward mastery; Part III also lists trouble | Historical triumph language is not a guarantee or empirical prediction |
+| Seven as tests, Cancer as protective shell | Not established by consulted passages; removed causal explanation | Correspondence facts suppressed on checked base page by existing template |
+| Reversal reveals aggression, failure or scattered drive | Reframed as optional plan/pace/resource checks | No diagnosis or forecast from orientation |
+| Planning booklet | Original fictional image → coordinating text/cover → small review point | Alternative: print-shop opening/file constraint; no claim that lack of will causes blockage |
+
+Check record and Article sources state limited AI comparison only; independent expert/native-language review unconfirmed. Progress: 15/487 logical references, 56 lesson + 64 base-card localized routes. Validation: all 49 tests, locale parity, Astro check (0 errors/warnings, 2 existing hints), build, reader/editorial (120 routes), ritual, interaction, search-growth and beta audits passed. Chrome DOM checks across eight locales at 390/768/1440px found four evidence sections, two sources and no overflow; reversed selection displayed the corresponding meaning and passed orientation to the workspace. Chinese desktop proof: `chariot-desktop.png`. Physical accessibility/native-language acceptance unverified; known mobile screenshot limitation unchanged.

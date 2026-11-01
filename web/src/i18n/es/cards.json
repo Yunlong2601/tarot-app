@@ -466,29 +466,62 @@
    "impulso",
    "dirección"
   ],
-  "upright": "La fuerza de voluntad y el enfoque te hacen avanzar. Sujeta las riendas con firmeza.",
-  "reversed": "Perder el rumbo, o empujar demasiado sin un plan.",
+  "upright": "Para practicar, elige una dirección y un paso manejable; comprueba las condiciones reales.",
+  "reversed": "Usa la inversión para revisar ritmo, recursos o dirección sin diagnosticar agresividad ni fracaso.",
   "k": {
-   "essence": "Avanzar manteniendo unidas fuerzas que tiran en sentidos opuestos.",
-   "imagery": "Una figura con armadura está de pie en un carro bajo un dosel de estrellas. Delante descansan una esfinge negra y una esfinge blanca, y la figura no sostiene riendas. Detrás se ve una ciudad.",
-   "why": "El siete es el número de las pruebas. Las dos esfinges miran en direcciones distintas, así que el conductor guía con voluntad y enfoque, no con fuerza. Cáncer, el signo que se le suele asociar, aporta un caparazón protector alrededor de una meta decidida.",
+   "essence": "Elegir un rumbo y comprobar qué necesita el siguiente paso.",
+   "imagery": "Una figura con armadura está en un carro bajo un dosel estrellado y sostiene un objeto parecido a una vara. Descansan delante una esfinge negra y otra blanca; no se ven riendas. Hay edificios detrás y el número VII.",
+   "why": "Waite habla de conquista, pero distingue logro externo y dominio interior. Nuestro ejercicio de planificación es una aplicación. La ausencia de riendas visibles no prueba conducción por voluntad. Estos pasajes no establecen un Siete universal ni Cáncer.",
    "upright": {
-    "core": "Impulso disciplinado: sigues avanzando manteniendo alineadas fuerzas que compiten entre sí.",
+    "core": "Una propuesta: concretar una meta, coordinar tareas y fijar cuándo revisar el avance.",
     "light": "determinación, enfoque, impulso",
     "shadow": "fuerza sin dirección, pasar por encima de los demás",
-    "love": "Elegir dónde poner tu energía y mantenerte firme.",
-    "work": "Sacar adelante un proyecto hasta el final; mantener el enfoque bajo presión.",
+    "love": "En relaciones, habla de dónde queréis invertir esfuerzo y del ritmo acordado. La carta no prueba compromiso ni justifica presionar.",
+    "work": "En el trabajo, identifica una tarea y sus dependencias. La determinación sola no asegura terminar el proyecto.",
     "question": "¿Qué estoy dirigiendo y adónde quiero que vaya?"
    },
    "reversed": {
-    "core": "El impulso está disperso, detenido o se ha vuelto agresivo.",
+    "core": "La práctica invertida revisa el plan, no rasgos personales ni una derrota inevitable.",
     "modes": [
-     "Bloqueo: atascado sin dirección.",
-     "Exceso: forzar las cosas, agresividad.",
-     "Hacia dentro: tironeado en dos direcciones a la vez."
+     "Dirección: ¿la meta permite actuar?",
+     "Ritmo: ¿serviría un paso menor o una pausa?",
+     "Recursos: ¿qué queda fuera de mi control?"
     ],
     "question": "¿Estoy dirigiendo o me están arrastrando?"
    }
+  },
+  "evidence": {
+   "answer": "Aquí el Carro plantea preguntas de dirección y coordinación. No promete victoria ni voluntad capaz de superar todo.",
+   "groupNote": "La imagen lleva VII. Compararla con los Siete es un ejercicio, no una prueba universal obligatoria.",
+   "sections": [
+    {
+     "h": "Conquista histórica, imagen y límites",
+     "p": [
+      "La parte II, §2, VII interpreta conquista y distingue logro externo de dominio interior. Menciona una espada desenvainada; la imagen publicada aquí muestra un objeto parecido a una vara. Conservamos la discrepancia. La parte III, §3 combina triunfo con problemas derechos, conflicto y derrota invertidos. Son listas históricas, no predicciones ni diagnóstico de agresión."
+     ]
+    },
+    {
+     "h": "Ejemplo original: preparar un folleto de lectura",
+     "p": [
+      "Pregunta: «¿Qué ayudaría a preparar este folleto?». Imagina la carta derecha en «Un siguiente paso». Ejercicio ficticio, no historia de éxito. Observa figura central y dos esfinges en reposo; la imagen no muestra el vehículo en movimiento.",
+      "Una lectura conecta el centro con coordinar revisión del texto y portada. Fija un pequeño punto de revisión para ambas tareas y pregunta a quien ayude qué puede asumir. Es nuestro razonamiento desde imagen y posición, no instrucción histórica ni prueba de que las esfinges sean impulsos opuestos.",
+      "Alternativa: el plan está claro, pero la imprenta está cerrada o el formato no sirve. Comprueba la condición sin culpar a la voluntad ni exigir más esfuerzo. Guarda alternativas y discrepancias en tus [notas](read). Invertir permite revisar el ritmo sin anunciar fracaso."
+     ]
+    },
+    {
+     "h": "Fuentes consultables",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, parte II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, VII The Chariot: conquista histórica y sus límites. También se comprobó la imagen real; su vara difiere de la espada del texto.",
+      "[Parte III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 7 The Chariot: lista histórica derecha/invertida. Transcripción de la reimpresión de 1922. Ejemplo editorial; amor, carrera, sentimientos y sí/no pendientes por separado."
+     ]
+    },
+    {
+     "h": "Registro de comprobación · 1 de noviembre de 2026",
+     "p": [
+      "Comparación asistida por IA de pasajes, imagen y referencia base. Se sustituyeron Siete/Cáncer sin respaldo, causalidad riendas/voluntad y rasgos invertidos por preguntas explícitas, registrando la discrepancia visual. Revisión experta independiente y lingüística sin confirmar; correcciones mediante la [metodología](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_08_strength": {
