@@ -200,33 +200,67 @@
  "major_03_empress": {
   "name": "The Empress",
   "keywords": [
-   "nurture",
-   "abundance",
+   "care",
+   "conditions",
    "creativity"
   ],
-  "upright": "Care, comfort and growth are available. Tend what you love and let it flourish.",
-  "reversed": "Smothering, neglecting yourself, or a creative block.",
+  "upright": "For this exercise, ask which practical conditions might support something you want to make or care for.",
+  "reversed": "Use the reversed orientation to review support, limits or unmet requests without assuming a creative block or neglect.",
   "k": {
-   "essence": "Growth that comes from care.",
-   "imagery": "A woman in a flowing gown patterned with pomegranates sits on cushions in a field of ripe wheat. She wears a crown of stars and holds a sceptre. A heart-shaped shield with the symbol of Venus rests beside her, and a stream and a forest lie behind.",
-   "why": "Three is the number of growth and first results. Wheat, water and forest show nature at its fullest. Venus, her usual planet, points to love, pleasure and the senses.",
+   "essence": "Make room for care, then check what actually helps.",
+   "imagery": "A seated figure wears a starry crown and holds a sceptre. Grain fills the foreground; trees and water are behind. A nearby shield bears the Venus sign. The card is labelled III.",
+   "why": "Waite names the crown, Venus symbol, ripening grain and water in a symbolic account of fecundity. Our support-and-practice prompt is an application. The image does not establish pregnancy, a duty to mother others or a guaranteed result; III is a printed label, not a universal growth law.",
    "upright": {
-    "core": "Nurture, creativity and enjoyment: things grow where they are tended.",
-    "light": "generosity, creativity, comfort",
-    "shadow": "smothering, overindulgence",
-    "love": "Warmth and care, giving and receiving; learning to let yourself be looked after.",
-    "work": "A creative project ripening, caring for a team or a process.",
-    "question": "What in my life needs tending rather than pushing?"
+    "core": "One possible prompt is to ask what would make a small activity workable and whether that support is wanted.",
+    "light": "care, making, asking about needs",
+    "shadow": "offering more than was requested or assuming help will solve everything",
+    "love": "As a relationship prompt, ask what care would be welcome and what each person can offer. Gender, parenthood, feelings and consent cannot be inferred from this card.",
+    "work": "As a work prompt, identify useful time, materials or feedback. It does not show that a project is ripening or that a team’s needs are already met.",
+    "question": "What support is needed, requested and realistically available?"
    },
    "reversed": {
-    "core": "Care is blocked, overdone, or neglected, including care for yourself.",
+    "core": "Our reversed practice revisits conditions and boundaries; it does not identify neglect, infertility or an inner blockage.",
     "modes": [
-     "Blocked: a creative dry spell.",
-     "Excess: over-giving or smothering.",
-     "Fading: your own needs left last."
+     "Resources: which condition is actually missing?",
+     "Boundaries: am I offering something the other person wants?",
+     "Fit: would a different kind of help be more useful?"
     ],
-    "question": "Am I giving from fullness, or from habit?"
+    "question": "What could I ask or try instead of assuming what is needed?"
    }
+  },
+  "evidence": {
+   "answer": "Here the Empress is a prompt to examine care and creative conditions, with no promise of growth and no inference about pregnancy or a person’s role.",
+   "groupNote": "This deck labels the card III. Comparing it with Threes is a study exercise, not evidence of a universal first result or greater life importance.",
+   "sections": [
+    {
+     "h": "Historical fertility symbolism and our practice",
+     "p": [
+      "Part II, §2, III describes the crown, Venus sign, grain and water, then gives religious and fertility symbolism. That records Waite’s account; a pictured symbol does not establish a reader’s reproductive state or prescribe a gender role.",
+      "Part III, §3 includes fruitfulness, action and difficult meanings; its reversed list includes light and truth as well as an alternative of vacillation. It is not a single rule of blocked care. We distinguish that historical list from our contemporary support questions, without treating either as a verified prediction."
+     ]
+    },
+    {
+     "h": "Original example: returning to a sketchbook",
+     "p": [
+      "Question: “What could support one short drawing session?”. Imagine this upright card in “A condition I can try”. Describe the seat, growing grain and water first. The sketchbook scenario is invented, not a client outcome or a promise of inspiration.",
+      "One connection: the seat prompts considering a usable place, the surrounding resources suggest putting paper and pencils within reach, and the growing field suggests making time to return. Try a short session and note which condition helped, if any. Those are our inferences from the picture and position, not instructions quoted from Waite.",
+      "Alternative: the place and supplies may already be sufficient, while the missing piece is a clear task. Try sketching one nearby object rather than adding more materials or comfort. Keep both readings and mismatches in your [reading notes](read). Turning the card changes the chosen question, not proof of a blocked capacity."
+     ]
+    },
+    {
+     "h": "Sources you can inspect",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, Part II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, III The Empress, supports the named details, including the Venus sign, and records the fertility/religious interpretation. A pictured Venus sign is distinguished from a universal planetary rule.",
+      "[Part III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 3 The Empress, supports the historical upright/reversed comparison. Consulted transcription: 1922 reprint. Relationship/work prompts and sketchbook example are editorial; separate context pages remain to be checked."
+     ]
+    },
+    {
+     "h": "Check record · 1 November 2026",
+     "p": [
+      "AI-assisted comparison checked those passages, the actual image and the base-reference text. Removed assurances of available abundance and inevitable growth, fixed Three symbolism and a universal blocked-care reversal. Independent expert and native-language review remain unconfirmed; corrections through our [methodology page](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_04_emperor": {
