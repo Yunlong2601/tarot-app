@@ -14,7 +14,7 @@
   "ctaEyebrow": "ShenTarot para iPhone y Android",
   "ctaTitle": "Lee tus propias cartas",
   "ctaText": "Escanea tu baraja Rider-Waite-Smith o saca cartas en pantalla, haz tu pregunta y recibe una lectura sobre la que puedes seguir preguntando.",
-  "about": "Lecturas de tarot con IA para tus propias cartas, de ShenTech en Singapur. Solo para entretenimiento y reflexión personal.",
+  "about": "Lecturas de tarot con IA para tus propias cartas, de Shenetic en Singapur. Solo para entretenimiento y reflexión personal.",
   "siteName": "ShenTarot",
   "titleSuffix": " · ShenTarot",
   "homeCrumb": "Inicio"
@@ -38,7 +38,7 @@
   "privacy": "Privacidad",
   "terms": "Términos",
   "delete": "Eliminar tus datos",
-  "copyright": "© {year} ShenTech, Singapur. Todos los derechos reservados.",
+  "copyright": "© {year} Shenetic, Singapur. Todos los derechos reservados.",
   "images": "Imágenes de las cartas: baraja Rider-Waite-Smith (1909), de dominio público.",
   "inEnglish": "{page} (en inglés)",
   "about": "Acerca de"
@@ -966,7 +966,7 @@
   "sections": [
    {
     "title": "Quién lo hace",
-    "text": "ShenTarot lo hace ShenTech, una empresa de Singapur. Escríbenos a {email}."
+    "text": "ShenTarot lo hace Shenetic, una empresa de Singapur. Escríbenos a {email}."
    },
    {
     "title": "De dónde vienen los significados",

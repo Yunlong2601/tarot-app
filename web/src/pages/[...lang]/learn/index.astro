@@ -16,7 +16,7 @@ const jsonLd = [
     description: ix.description,
     inLanguage: L.tag,
     isAccessibleForFree: true,
-    provider: { "@type": "Organization", name: "ShenTech", url: new URL(u(), Astro.site).href },
+    provider: { "@type": "Organization", name: "Shenetic", url: new URL(u(), Astro.site).href },
     hasPart: LEARN_SLUGS.map((s) => ({ "@type": "Article", name: L.learn.guides[s].h1, url: new URL(u(`learn/${s}`), Astro.site).href })),
   },
 ];

@@ -26,7 +26,7 @@ const connections = [firstSentence.trim(), g.connections.slice(firstSentence.len
 const gallery = ["major_00_fool", "major_02_high_priestess", "major_17_star", "major_18_moon", "major_19_sun", "major_21_world"];
 const site = new URL(u(), Astro.site).href;
 const jsonLd = [
-  { "@context": "https://schema.org", "@type": "Organization", name: "ShenTech", url: Astro.site!.href, logo: new URL("icon.png", Astro.site).href, email: SUPPORT_EMAIL },
+  { "@context": "https://schema.org", "@type": "Organization", name: "Shenetic", url: Astro.site!.href, logo: new URL("icon.png", Astro.site).href, email: SUPPORT_EMAIL },
   { "@context": "https://schema.org", "@type": "WebSite", name: "ShenTarot", url: site, inLanguage: L.tag },
   { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: g.faq.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
 ];

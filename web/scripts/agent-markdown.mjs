@@ -19,7 +19,7 @@ export function toMarkdown(html, url) {
   }
   const service = new TurndownService({ headingStyle: 'atx', codeBlockStyle: 'fenced', bulletListMarker: '-' });
   const body = service.turndown(main.toString());
-  const metadata = ['---', `title: ${JSON.stringify(title || 'ShenTarot')}`, ...(description ? [`description: ${JSON.stringify(description)}`] : []), `url: ${JSON.stringify(url)}`, `source: ${JSON.stringify("ShenTarot")}`, `publisher: ${JSON.stringify("ShenTech, Singapore")}`, '---'];
+  const metadata = ['---', `title: ${JSON.stringify(title || 'ShenTarot')}`, ...(description ? [`description: ${JSON.stringify(description)}`] : []), `url: ${JSON.stringify(url)}`, `source: ${JSON.stringify("ShenTarot")}`, `publisher: ${JSON.stringify("Shenetic, Singapore")}`, '---'];
   return metadata.join('\n') + '\n\n' + body + (structured.length ? '\n\n```json\n' + structured.join('\n') + '\n```' : '') + '\n';
 }
 

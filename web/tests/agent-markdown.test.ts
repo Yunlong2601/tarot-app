@@ -9,7 +9,7 @@ test('Accept negotiation respects explicit types and quality values', () => {
 });
 test('conversion keeps article meaning, links and structured data without UI or scripts', () => {
   const md = toMarkdown('<html><head><title>Card</title><meta name="description" content="Meaning"></head><body><nav>Menu</nav><main><h1>The Sun</h1><p>Clarity &amp; joy. <a href="/cards/sun">Learn</a></p><ul><li>Reflect</li></ul><button>Draw</button><script>secret()</script><div hidden>Hidden</div></main><script type="application/ld+json">{"@type":"Article"}</script></body></html>', 'https://shentarot.com/');
-  assert.match(md, /source: "ShenTarot"/); assert.match(md, /publisher: "ShenTech, Singapore"/); assert.match(md, /url: "https:\/\/shentarot.com\/"/);
+  assert.match(md, /source: "ShenTarot"/); assert.match(md, /publisher: "Shenetic, Singapore"/); assert.match(md, /url: "https:\/\/shentarot.com\/"/);
   assert.match(md, /# The Sun/); assert.match(md, /Clarity & joy/); assert.match(md, /https:\/\/shentarot.com\/cards\/sun/); assert.match(md, /-\s+Reflect/); assert.match(md, /```json/);
   assert.doesNotMatch(md, /Menu|secret|Hidden|<main>|Draw/);
 });

@@ -14,7 +14,7 @@
   "ctaEyebrow": "ShenTarot for iPhone and Android",
   "ctaTitle": "Read your own cards",
   "ctaText": "Scan your Rider-Waite-Smith deck or draw on screen, ask your question and get a reading you can keep asking about.",
-  "about": "AI tarot readings for your own cards, from ShenTech in Singapore. For entertainment and self-reflection only.",
+  "about": "AI tarot readings for your own cards, from Shenetic in Singapore. For entertainment and self-reflection only.",
   "siteName": "ShenTarot",
   "titleSuffix": " · ShenTarot",
   "homeCrumb": "Home"
@@ -38,7 +38,7 @@
   "privacy": "Privacy",
   "terms": "Terms",
   "delete": "Delete your data",
-  "copyright": "© {year} ShenTech, Singapore. All rights reserved.",
+  "copyright": "© {year} Shenetic, Singapore. All rights reserved.",
   "images": "Card images: Rider-Waite-Smith deck (1909), public domain.",
   "inEnglish": "{page} (in English)",
   "about": "About"
@@ -890,7 +890,7 @@
   "sections": [
    {
     "title": "Who makes it",
-    "text": "ShenTarot is made by ShenTech, a company in Singapore. Write to us at {email}."
+    "text": "ShenTarot is made by Shenetic, a company in Singapore. Write to us at {email}."
    },
    {
     "title": "Where the meanings come from",

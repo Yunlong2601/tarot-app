@@ -26,7 +26,7 @@
   "methodLead": "A transparent guide to the sources, choices and limits behind ShenTarot’s reference content.",
   "methodTradition": "We use the standard 78-card Rider–Waite–Smith system and public-domain 1909 imagery. Symbolism and correspondences vary across traditions; this is one reference approach, not a universal authority.",
   "methodProcess": "Our reference text is shared with the app. It combines keywords, imagery, upright and reversed possibilities and reflective questions. Some text and translations were AI-assisted. The examples here are original editorial teaching material, not readings about you.",
-  "methodReview": "Published by ShenTech, Singapore. Independent expert review and native-speaker review are not confirmed for this edition. No professional tarot credential or reviewer endorsement is claimed. Tell us about a specific error through Support.",
+  "methodReview": "Published by Shenetic, Singapore. Independent expert review and native-speaker review are not confirmed for this edition. No professional tarot credential or reviewer endorsement is claimed. Tell us about a specific error through Support.",
   "methodAI": "The website currently offers references and manual practice, not AI interpretations. A future AI option needs supported authentication, access checks and clearly disclosed limits. It should remain optional and preserve your judgment.",
   "methodPrivacy": "Cards and notes entered in this reference workspace are not submitted to an AI service. Drafts and the single saved reflection use browser storage; they do not sync. Hosting requests still occur when pages and images load. See the privacy policy for details.",
   "methodLimits": "Tarot interpretations are subjective possibilities for entertainment and self-reflection. They are not verified predictions, diagnoses or professional advice. Compare the picture, position and your own circumstances; disagreement is welcome.",
@@ -77,7 +77,7 @@
   "reviewPrompt": "Restore the saved reflection below. What has changed since you wrote it? Add a dated line to your reflection, and export the earlier version before saving a replacement.",
   "appTitle": "Companion app — coming soon",
   "appNote": "The iPhone and Android app is upcoming. Website reference tools work here today; app scanning, AI readings and account features are not available in this workspace.",
-  "footer": "Tarot references and practice from ShenTech, Singapore. For entertainment and self-reflection.",
+  "footer": "Tarot references and practice from Shenetic, Singapore. For entertainment and self-reflection.",
   "faq": [
     {
       "q": "What can I use here today?",

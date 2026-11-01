@@ -14,7 +14,7 @@
   "ctaEyebrow": "ShenTarot iPhone和安卓版",
   "ctaTitle": "为你自己的牌占卜",
   "ctaText": "扫描你的莱德-韦特-史密斯塔罗牌，或在屏幕上抽牌，提出你的问题，得到一份可以继续追问的解读。",
-  "about": "为你自己的牌提供AI塔罗解读，来自新加坡ShenTech。仅供娱乐和自我反思。",
+  "about": "为你自己的牌提供AI塔罗解读，来自新加坡Shenetic。仅供娱乐和自我反思。",
   "siteName": "ShenTarot",
   "titleSuffix": " · ShenTarot",
   "homeCrumb": "首页"
@@ -38,7 +38,7 @@
   "privacy": "隐私政策",
   "terms": "使用条款",
   "delete": "删除你的数据",
-  "copyright": "© {year} ShenTech，新加坡。保留所有权利。",
+  "copyright": "© {year} Shenetic，新加坡。保留所有权利。",
   "images": "牌面图片：莱德-韦特-史密斯塔罗牌（1909年），公有领域。",
   "inEnglish": "{page}（英文）",
   "about": "关于我们"
@@ -927,7 +927,7 @@
   "sections": [
    {
     "title": "开发者",
-    "text": "ShenTarot 由新加坡公司 ShenTech 开发。联系我们：{email}。"
+    "text": "ShenTarot 由新加坡公司 Shenetic 开发。联系我们：{email}。"
    },
    {
     "title": "牌义从何而来",

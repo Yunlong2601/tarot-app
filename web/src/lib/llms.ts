@@ -25,7 +25,7 @@ function header() {
     "",
     `> ${t("about.lead")} ${L.ui.about.sections[4]!.text}`,
     "",
-    `ShenTarot is made by ShenTech, Singapore. Card meanings cover all 78 cards of the Rider-Waite-Smith tarot deck, upright and reversed, and are the same ones the app's readings use. The site is also available in ${LOCALES.filter((l) => l !== "en").map((l) => `${LOCALE_INFO[l].name} (${link(prefix(l))})`).join(", ")}.`,
+    `ShenTarot is made by Shenetic, Singapore. Card meanings cover all 78 cards of the Rider-Waite-Smith tarot deck, upright and reversed, and are the same ones the app's readings use. The site is also available in ${LOCALES.filter((l) => l !== "en").map((l) => `${LOCALE_INFO[l].name} (${link(prefix(l))})`).join(", ")}.`,
     "",
   ];
 }

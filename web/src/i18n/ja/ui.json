@@ -14,7 +14,7 @@
   "ctaEyebrow": "iPhone・Android向け ShenTarot",
   "ctaTitle": "自分のカードで占う",
   "ctaText": "お手持ちのライダー・ウェイト・スミス版デッキをスキャンするか画面上でカードを引き、質問を入力すると、何度でも質問を重ねられるリーディングが届きます。",
-  "about": "お手持ちのカードで占えるAIタロットリーディング。シンガポールのShenTechが提供しています。娯楽と自己内省のためのものです。",
+  "about": "お手持ちのカードで占えるAIタロットリーディング。シンガポールのSheneticが提供しています。娯楽と自己内省のためのものです。",
   "siteName": "ShenTarot",
   "titleSuffix": " · ShenTarot",
   "homeCrumb": "ホーム"
@@ -38,7 +38,7 @@
   "privacy": "プライバシー",
   "terms": "利用規約",
   "delete": "データの削除",
-  "copyright": "© {year} ShenTech, Singapore. All rights reserved.",
+  "copyright": "© {year} Shenetic, Singapore. All rights reserved.",
   "images": "カード画像:ライダー・ウェイト・スミス版デッキ(1909年)、パブリックドメイン。",
   "inEnglish": "{page}(英語)",
   "about": "ShenTarotについて"
@@ -927,7 +927,7 @@
   "sections": [
    {
     "title": "運営者",
-    "text": "ShenTarotはシンガポールの企業ShenTechが制作しています。お問い合わせは{email}までどうぞ。"
+    "text": "ShenTarotはシンガポールの企業Sheneticが制作しています。お問い合わせは{email}までどうぞ。"
    },
    {
     "title": "カードの意味の出典",
