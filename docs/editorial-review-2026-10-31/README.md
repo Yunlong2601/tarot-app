@@ -4,7 +4,7 @@ The owner explicitly included all website reference content, beyond the initial 
 
 ## Current progress
 
-Twelve logical references have limited AI-assisted primary-source comparisons and original worked examples in all eight locales: the seven foundational lessons, `/cards/major-00-fool`, `/cards/major-01-magician`, `/cards/major-02-high-priestess`, `/cards/major-03-empress` and `/cards/major-04-emperor`. This does not mean their translations received human review, or that all 487 routes are source-verified. Every other record, including these cards’ context subpages, remains not started. A site-wide publisher component is not proof of claim checking.
+Thirteen logical references have limited AI-assisted primary-source comparisons and original worked examples in all eight locales: the seven foundational lessons, `/cards/major-00-fool`, `/cards/major-01-magician`, `/cards/major-02-high-priestess`, `/cards/major-03-empress` `/cards/major-04-emperor` and `/cards/major-05-hierophant`. This does not mean their translations received human review, or that all 487 routes are source-verified. Every other record, including these cards’ context subpages, remains not started. A site-wide publisher component is not proof of claim checking.
 
 Work in batches: major-card references; minor-card references; contextual interpretations; spreads/question/topic references; zodiac/birth/numerology and tool formulas; navigation and publisher consistency. A contextual interpretation needs its own reasoning, not a copied historical citation that never discussed that context. Reconcile newly added/removed routes before declaring the inventory complete.
 
@@ -258,3 +258,18 @@ Actor: Codex AI assistant. Read Waite Part II §2 IV and Part III §3 4, inspect
 Consulted 1922 reprint transcription. Whole-site progress: 12/487 limited source comparisons. Editorial audit extends to 56 lesson + 40 base-card routes. Verification follows final build.
 
 Emperor validation: 49 tests; locale parity; Astro check (0 errors/warnings, 2 existing hints); build; reader/editorial (56 lesson + 40 card routes), ritual, interaction, search-growth and beta audits passed. Chrome DOM checks at 390/768/1440px across eight locales found four evidence sections/two sources and no overflow. Orientation selection displayed reversed meaning and passed reversed state to the workspace link. Chinese desktop evidence: `emperor-desktop.png`. Known mobile screenshot limitation remains; no physical accessibility or native-language approval claimed.
+
+
+## Hierophant base reference: actual source comparison — 1 November 2026
+
+Actor: Codex AI assistant. Scope: eight localized base references, not the four context variants. Directly compared Waite’s Part II, §2, V and Part III, §3, 5, and the actual bundled card image. Consulted transcription of the 1922 reprint; permanent revisions [Part II, 15274517](https://en.wikisource.org/w/index.php?oldid=15274517&title=The_Pictorial_Key_to_the_Tarot/Part_2) and [Part III, 15274510](https://en.wikisource.org/w/index.php?oldid=15274510&title=The_Pictorial_Key_to_the_Tarot/Part_3).
+
+| Claim | Evidence and action | Limit |
+|---|---|---|
+| Triple crown, pillars, crossed keys, kneeling figures | Part II V and bundled image agree; retained visual description | Institutional interpretation belongs to Waite, not proof of any institution’s truth |
+| Taurus and loyalty to proven knowledge | Not established by consulted passages; removed explanatory claim | No universal astrological correspondence asserted |
+| Reversal means questioning inherited rules, inability to learn or dogmatism | Part III includes concord and other meanings; replaced fixed claims with optional learning questions | Historical lists are not predictive evidence |
+| Learning together | Original fictional three-card learning example shows observation → image/position reasoning → small trial → mismatch | Alternative: quiet solo practice, no need to invent a teacher; no real participant or outcome claimed |
+| Relationship/work prompts | Explicitly framed as exercises | No marriage prediction, inferred beliefs, certified teacher or workplace competence |
+
+Visible record and Article citations describe AI-assisted comparison only. Independent expert and native-language reviews remain unconfirmed. Whole-site progress: 13/487 limited comparisons; 56 lesson + 48 base-card localized routes in editorial audit. Validation: all 49 tests, locale parity, Astro check (0 errors, 0 warnings, 2 existing hints), production build, reader/editorial, ritual, interaction, search-growth and beta audits passed. Chrome DOM checks at 390/768/1440px across eight locales found four evidence sections, two sources and no horizontal overflow. Reversed selection revealed the correct meaning and passed orientation to the workspace link. Chinese desktop screenshot: `hierophant-desktop.png`. Physical accessibility/native-language approval remains unverified; known mobile screenshot limitation is unchanged.
