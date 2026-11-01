@@ -4,7 +4,7 @@ The owner explicitly included all website reference content, beyond the initial 
 
 ## Current progress
 
-Eleven logical references have limited AI-assisted primary-source comparisons and original worked examples in all eight locales: the seven foundational lessons, `/cards/major-00-fool`, `/cards/major-01-magician`, `/cards/major-02-high-priestess` and `/cards/major-03-empress`. This does not mean their translations received human review, or that all 487 routes are source-verified. Every other record, including these cards’ context subpages, remains not started. A site-wide publisher component is not proof of claim checking.
+Twelve logical references have limited AI-assisted primary-source comparisons and original worked examples in all eight locales: the seven foundational lessons, `/cards/major-00-fool`, `/cards/major-01-magician`, `/cards/major-02-high-priestess`, `/cards/major-03-empress` and `/cards/major-04-emperor`. This does not mean their translations received human review, or that all 487 routes are source-verified. Every other record, including these cards’ context subpages, remains not started. A site-wide publisher component is not proof of claim checking.
 
 Work in batches: major-card references; minor-card references; contextual interpretations; spreads/question/topic references; zodiac/birth/numerology and tool formulas; navigation and publisher consistency. A contextual interpretation needs its own reasoning, not a copied historical citation that never discussed that context. Reconcile newly added/removed routes before declaring the inventory complete.
 
@@ -239,3 +239,22 @@ Actor: Codex AI assistant. Read Waite Part II §2 III and Part III §3 3, inspec
 Consulted transcription: 1922 reprint. Whole-site progress: 11/487 limited source comparisons. Editorial audit extends to 56 lesson + 32 base-card routes. Verification follows final build.
 
 Empress validation: 49 tests; locale parity; Astro check (0 errors/warnings, 2 existing hints); production build; reader/editorial (56 lesson + 32 card routes), ritual, interaction, search-growth and beta audits passed. Chrome DOM checks at 390/768/1440px across eight locales found four evidence sections/two sources and no overflow. Orientation selection displayed reversed meaning and passed reversed state to the workspace link. Chinese desktop evidence: `empress-desktop.png`. Known mobile screenshot limitation remains; no physical accessibility or native-language approval claimed.
+
+
+## Emperor base reference: actual source-comparison record — 1 November 2026
+
+Actor: Codex AI assistant. Read Waite Part II §2 IV and Part III §3 4, inspected actual self-hosted card image and compared base-reference wording. Backend data read-only; contextual variants remain not started.
+
+| Claim/change | Evidence | Outcome / limit |
+|---|---|---|
+| Crown, ram throne, looped-cross sceptre, globe | [Part II §2 IV, revision 15274517](https://en.wikisource.org/w/index.php?oldid=15274517&title=The_Pictorial_Key_to_the_Tarot/Part_2), actual image | Image description separated from kingship interpretation and our responsibility exercise. Armour/mountains directly observed. |
+| Four proves stability; ram proves Aries/initiative; mountains prove discipline | No universal support established in consulted passages | Removed categorical inferences; IV is a label and ram is pictured, optional study comparison not a causal law. |
+| Order necessarily protects/builds; leadership is warranted | Historical royal imagery does not validate contemporary power | Replaced with accepted, bounded, revisable agreements. No identification of a father or assignment of gender/obedience. |
+| Reversed necessarily control, collapse or fear | [Part III §3 4, revision 15274510](https://en.wikisource.org/w/index.php?oldid=15274510&title=The_Pictorial_Key_to_the_Tarot/Part_3) | Includes benevolence/compassion alongside other meanings; optional modern checks not a universal reversed rule or psychological diagnosis. |
+| Original book-swap exercise | New single-card position → office/task/scope observations → agreed coordinator/time/reminder | Alternative unsuitable timing rather than more rules; no real group story or guaranteed order, trust or safety. |
+| Relationship/work prompts | Editorial applications | Clarify commitments/coordination and ability to decline, without inferred intent, dominance or certified leadership. |
+| Checked scope | Individual registry/inventory path | Base page only, contexts not marked checked; expert/native review unverified. |
+
+Consulted 1922 reprint transcription. Whole-site progress: 12/487 limited source comparisons. Editorial audit extends to 56 lesson + 40 base-card routes. Verification follows final build.
+
+Emperor validation: 49 tests; locale parity; Astro check (0 errors/warnings, 2 existing hints); build; reader/editorial (56 lesson + 40 card routes), ritual, interaction, search-growth and beta audits passed. Chrome DOM checks at 390/768/1440px across eight locales found four evidence sections/two sources and no overflow. Orientation selection displayed reversed meaning and passed reversed state to the workspace link. Chinese desktop evidence: `emperor-desktop.png`. Known mobile screenshot limitation remains; no physical accessibility or native-language approval claimed.

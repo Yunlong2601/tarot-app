@@ -266,33 +266,67 @@
  "major_04_emperor": {
   "name": "Der Herrscher",
   "keywords": [
-   "Struktur",
-   "Autorität",
-   "Stabilität"
+   "Verantwortung",
+   "Absprachen",
+   "Umfang"
   ],
-  "upright": "Klare Grenzen und beständige Planung schaffen ein solides Fundament. Führe mit Ruhe.",
-  "reversed": "Starrheit oder Kontrolle. Frag dich, wo Festigkeit zu Sturheit geworden ist.",
+  "upright": "Benenne für diese Übung eine Verantwortung, eine vereinbarte Grenze und einen Zeitpunkt zur Überprüfung.",
+  "reversed": "Prüfe bei Umkehrung die Passung einer Regelung, ohne Kontrolle oder Angst zuzuschreiben.",
   "k": {
-   "essence": "Ordnung, die schützt und aufbaut.",
-   "imagery": "Ein bärtiger Herrscher in roten Gewändern über einer Rüstung sitzt auf einem steinernen Thron mit Widderköpfen an den Armlehnen. Er hält ein Zepter mit einem Anch an der Spitze und einen Reichsapfel. Hinter ihm ragen kahle Berge auf.",
-   "why": "Vier ist die Zahl der Struktur und Stabilität. Der Widder gehört zum Sternzeichen Widder, dem ersten Zeichen, das mit Initiative verbunden wird. Die kargen Berge deuten auf eine Autorität, die auf Disziplin statt auf Bequemlichkeit gebaut ist.",
+   "essence": "Kläre Zuständigkeiten und lass Änderungen zu.",
+   "imagery": "Eine gekrönte bärtige Figur sitzt auf einem Thron mit Widderköpfen, hält ein Zepter mit Henkelkreuz und eine Kugel. Unter rotem Gewand ist Rüstung sichtbar, dahinter Berge. Die Karte trägt IV.",
+   "why": "Waite beschreibt Herrscher, Thron und Amtszeichen. Unsere Vereinbarungsübung ist Anwendung, kein Beweis für Befehlsrecht, einen bestimmten Vater oder eine universelle Vier. Diese Stellen belegen keine allgemeine Widder-Sternzeichenzuordnung.",
    "upright": {
-    "core": "Struktur, Grenzen und Verantwortung: Ordnung nutzen, um zu schützen, was wichtig ist.",
-    "light": "Führung, Stabilität, klare Grenzen",
-    "shadow": "Starrheit, Kontrolle",
-    "love": "Klare Verbindlichkeit und Beständigkeit; und wo Festigkeit in Kontrolle umschlägt.",
-    "work": "Systeme und Regeln aufbauen, Verantwortung für ein Ergebnis übernehmen.",
-    "question": "Welche Struktur würde diese Situation stabiler machen?"
+    "core": "Ein Impuls: Wer hat welcher Aufgabe zugestimmt, mit welchen Grenzen und Änderungsmöglichkeiten?",
+    "light": "Klarheit, angenommene Verantwortung, überprüfbare Absprachen",
+    "shadow": "Regeln ohne Einigung oder unbegrenzte Macht aus einer Rolle ableiten",
+    "love": "Für Beziehungen: Besprecht Zusagen und das Recht abzulehnen. Kein Beleg für Schutz, Dominanz, Geschlecht oder Absichten.",
+    "work": "Für Arbeit: Kläre Koordination und Zuständigkeit. Kein Führungsnachweis oder stabiles Ergebnis garantiert.",
+    "question": "Welche Verantwortung ist meine und wer hat zugestimmt?"
    },
    "reversed": {
-    "core": "Struktur wird zu Starrheit oder bricht weg.",
+    "core": "Unsere Umkehrungsübung prüft Passung und Umfang, keine Angstdiagnose oder zerfallene Struktur.",
     "modes": [
-     "Übermaß: Kontrolle und Sturheit.",
-     "Mangel: keine Grenzen, kein Plan.",
-     "Nach innen: Autorität, mit der du dich unwohl fühlst."
+     "Umfang: Geht eine Regel über die Aufgabe hinaus?",
+     "Einigung: Konnten Betroffene antworten?",
+     "Überprüfung: Was ändern, wenn es nicht funktioniert?"
     ],
-    "question": "Wo halte ich krampfhaft fest, weil ich Angst habe, die Kontrolle zu verlieren?"
+    "question": "Was könnte ich klären oder neu aushandeln?"
    }
+  },
+  "evidence": {
+   "answer": "Der Herrscher fragt hier nach Verantwortung und vereinbarten Grenzen, ohne legitime Autorität oder Sicherheit durch Ordnung zu beweisen.",
+   "groupNote": "Die Karte trägt IV. Der Vergleich mit Vieren dient dem Studium, keinem universellen Stabilitätsgesetz oder Pflichtlebensabschnitt.",
+   "sections": [
+    {
+     "h": "Historische Herrschaft und unsere Absprachen",
+     "p": [
+      "Teil II, §2, IV beschreibt Krone, Widderthron, Zepter und Kugel mit weltlichem und geistigem Königtum. Das dokumentiert Waite. Geschlechterbilder weisen heutigen Menschen keine Führung, Vaterrolle oder Gehorsam zu.",
+      "Teil III, §3 nennt Stabilität und Macht; umgekehrt auch Wohlwollen und Mitgefühl neben Schwierigkeiten. Nicht einfach Kontrolle oder Starrsinn. Weder vertrauenswürdige Führung noch Schutz durch einen Plan ist damit bewiesen."
+     ]
+    },
+    {
+     "h": "Eigenes Beispiel: einen kleinen Büchertausch organisieren",
+     "p": [
+      "Frage: „Welche Absprache hilft beim Organisieren?“. Stell dir die aufrechte Karte auf „Zu klärende Verantwortung“ vor. Erst Thron, Zepter und gehaltene Kugel beobachten. Erfunden, kein tatsächlicher Gruppenbericht.",
+      "Eine Verbindung: Thron als Koordination, Zepter als konkrete Aufgabe, Kugel als deren Umfang. Frage nach Büchern, vereinbare einen Termin und benenne die Erinnerungsperson. Bestätige Zustimmung. Unser Bild-/Positionsschluss, keine historische Anweisung oder Ordnungsgarantie.",
+      "Alternative: Rollen sind klar, aber der Termin passt nicht. Frage nach Verfügbarkeit statt mehr Regeln. Behalte beide Deutungen und Unpassendes in [Notizen](read). Drehen verändert die Frage, enthüllt keinen heimlichen Kontrolleur."
+     ]
+    },
+    {
+     "h": "Nachprüfbare Quellen",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, Teil II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, IV The Emperor, stützt Gegenstände und Königsdeutung. Sichtbare Widder und unbelegte allgemeine Astrologie bleiben getrennt.",
+      "[Teil III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 4 The Emperor, stützt den historischen Vergleich. Transkription des Nachdrucks 1922. Impulse und Beispiel redaktionell; Kontextseiten bleiben zu prüfen."
+     ]
+    },
+    {
+     "h": "Prüfvermerk · 1. November 2026",
+     "p": [
+      "KI-gestützter Vergleich von Textstellen, Bild und Basistext. Schutzgarantien, feste Vier-/Widderdeutung und behauptete umgekehrte Kontrolle/Angst durch begrenzte Fragen ersetzt. Unabhängige Fach-/Muttersprachprüfung unbestätigt; Korrekturen über die [Methodikseite](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_05_hierophant": {

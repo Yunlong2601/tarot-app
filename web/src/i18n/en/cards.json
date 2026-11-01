@@ -266,33 +266,67 @@
  "major_04_emperor": {
   "name": "The Emperor",
   "keywords": [
-   "structure",
-   "authority",
-   "stability"
+   "responsibility",
+   "agreements",
+   "scope"
   ],
-  "upright": "Clear boundaries and steady planning create a solid base. Lead with calm.",
-  "reversed": "Rigidity or control. Ask where firmness has become stubbornness.",
+  "upright": "For this exercise, identify a responsibility, an agreed limit and one practical way to review the arrangement.",
+  "reversed": "Use the reversed orientation to examine whether an arrangement fits, without deciding that someone is controlling or afraid.",
   "k": {
-   "essence": "Order that protects and builds.",
-   "imagery": "A bearded ruler in red robes over armour sits on a stone throne with ram heads on its arms. He holds an ankh-topped sceptre and an orb. Bare mountains rise behind him.",
-   "why": "Four is the number of structure and stability. The ram belongs to Aries, the first sign, linked with initiative. The barren mountains suggest authority built on discipline rather than comfort.",
+   "essence": "Make responsibilities clear, and leave room to revise them.",
+   "imagery": "A crowned, bearded figure sits on a throne decorated with ram heads, holding a looped-cross sceptre and a globe. Armour is visible below the red garment; mountains are behind. The card is labelled IV.",
+   "why": "Waite describes the ruler, ram-headed throne and symbols of office. Our agreement exercise is an application. The picture does not establish a person’s right to command, a father’s identity or a universal meaning of Four. The ram-to-Aries claim is not established by these passages.",
    "upright": {
-    "core": "Structure, boundaries and responsibility: using order to look after what matters.",
-    "light": "leadership, stability, clear limits",
-    "shadow": "rigidity, control",
-    "love": "Clear commitments and steadiness; where firmness turns into control.",
-    "work": "Setting up systems and rules, taking responsibility for an outcome.",
-    "question": "What structure would make this situation steadier?"
+    "core": "One possible prompt is to ask who has agreed to do what, within which limits, and how the plan can be changed.",
+    "light": "clarity, accepted responsibility, reviewable agreements",
+    "shadow": "imposing a rule without agreement or treating a role as unlimited authority",
+    "love": "As a relationship prompt, discuss a commitment and what each person can decline. The card does not prove protection, dominance, gender or a person’s intentions.",
+    "work": "As a work prompt, clarify who coordinates a task and what they are responsible for. It does not certify leadership or guarantee a stable outcome.",
+    "question": "Which responsibility is mine, and who has agreed to the arrangement?"
    },
    "reversed": {
-    "core": "Structure turns into rigidity, or falls away.",
+    "core": "Our reversed practice checks fit and scope; it does not diagnose fear of losing control or establish a collapse of structure.",
     "modes": [
-     "Excess: control and stubbornness.",
-     "Deficit: no boundaries, no plan.",
-     "Inward: carrying authority uneasily."
+     "Scope: does a rule cover more than the task requires?",
+     "Agreement: has everyone affected had a chance to respond?",
+     "Review: what should change if the arrangement is not working?"
     ],
-    "question": "Where am I holding on tightly because I fear losing control?"
+    "question": "What could I clarify or renegotiate rather than assume?"
    }
+  },
+  "evidence": {
+   "answer": "Here the Emperor prompts questions about responsibility and agreed limits, not proof that authority is justified or that order guarantees safety.",
+   "groupNote": "This deck labels the card IV. Comparing it with Fours is a study exercise, not a universal stability law or evidence of a required life stage.",
+   "sections": [
+    {
+     "h": "Historical rule and our agreement exercise",
+     "p": [
+      "Part II, §2, IV describes a crowned ruler, ram-headed throne, sceptre and globe, and discusses worldly and intellectual kingship. That records Waite’s symbolic account. We do not use its gendered language to assign leadership, parenthood or obedience to contemporary people.",
+      "Part III, §3 lists stability, power and other meanings upright; reversed includes benevolence and compassion alongside different difficulties. It is not a simple rule that reversed means control or stubbornness. Neither list proves that a leader is trustworthy or a plan will protect you."
+     ]
+    },
+    {
+     "h": "Original example: organising a small book swap",
+     "p": [
+      "Question: “What agreement would help us organise this swap?”. Imagine this upright card in “A responsibility to clarify”. Describe the seat of office, sceptre and held globe first. The book swap is fictional, not an actual group’s account.",
+      "One connection: the throne prompts naming a coordinator, the sceptre a specific organising task, and the held globe the limits of that task. Ask who can bring books, agree a meeting time and say who sends the reminder. Confirm that participants accept those choices. This is our image-and-position reasoning, not a historical instruction or a guarantee of order.",
+      "Alternative: roles may already be clear but the chosen time does not suit people. Ask about availability rather than adding more rules. Keep both readings and mismatches in your [reading notes](read). Reversing the card can change the question; it does not reveal a hidden controlling person."
+     ]
+    },
+    {
+     "h": "Sources you can inspect",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, Part II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, IV The Emperor, supports the throne and objects and records the kingship interpretation. The visual ram is distinguished from an unverified universal astrological claim.",
+      "[Part III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 4 The Emperor, supports the historical upright/reversed comparison. Consulted transcription: 1922 reprint. Work/relationship prompts and swap example are editorial; separate context pages remain to be checked."
+     ]
+    },
+    {
+     "h": "Check record · 1 November 2026",
+     "p": [
+      "AI-assisted comparison checked these passages, the actual image and the base-reference wording. Replaced guaranteed protective order, fixed Four/Aries symbolism and inferred reversed control/fear with bounded questions. Independent expert and native-language review remain unconfirmed; corrections through our [methodology page](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_05_hierophant": {
