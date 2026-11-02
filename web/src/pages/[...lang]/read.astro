@@ -19,7 +19,7 @@ spreads.push(...freeDrawSpreads(D.freeSpread, D.position));
 const english = i18n("en");
 const config = { desk, draw:D, i:L.interactions, j:L.journey, g: L.growth, deck: readerDeck(L).map(c=>({...c,englishName:english.cards[c.id]!.name})), spreads, w, base: BASE, cardsUrl: L.url('cards'), up: L.t('card.upright'), rev: L.t('card.reversed'), more: L.t('reader.fullMeaning') };
 ---
-<Base title={w.title} description={w.description} path="read" noCta lang={lang}>
+<Base title={w.seoTitle} description={w.description} path="read" noCta lang={lang}>
   <header class="page-head reading-head"><p class="eyebrow">ShenTarot / {desk.eyebrow}</p><h1>{desk.title}</h1><p class="lead">{w.description}</p></header>
   <noscript><style>.workspace-loading{display:none!important}</style><p>{w.practiceHint}</p><p><a href={L.url('cards')}>{w.find}</a> · <a href={L.url('spreads')}>{w.choose}</a></p></noscript>
   <aside class="workspace-loading panel" data-workspace-loading role="status"><p data-workspace-pending>{L.interactions.workspaceLoading}</p><p hidden data-workspace-failed>{L.interactions.workspaceFailed} <a href={L.url('read')}>{L.interactions.retry}</a> · <a href={L.url('cards')}>{w.find}</a></p></aside>

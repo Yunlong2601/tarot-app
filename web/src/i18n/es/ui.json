@@ -526,6 +526,14 @@
   "guides": "Guías de preguntas",
   "spreadsFor": "Tiradas recomendadas: {name}"
  },
+ "topics": {
+  "title": "Tiradas de tarot por tema: amor, trabajo, decisiones y más · ShenTarot",
+  "description": "Tiradas de tarot sobre amor, trabajo, el día a día, decisiones y reflexión personal. Cada tema reúne las preguntas habituales y las tiradas que encajan.",
+  "crumb": "Temas",
+  "eyebrow": "Lecturas de ShenTarot",
+  "h1": "Tiradas de tarot por tema",
+  "lead": "Empieza por lo que quieres preguntar. Cada tema reúne las preguntas que la gente trae, las tiradas que encajan y una herramienta que puedes usar ahora."
+ },
  "questions": {
   "title": "Preguntas de tarot: qué preguntar y qué tirada usar · ShenTarot",
   "description": "Preguntas habituales de tarot sobre el amor, el trabajo y las grandes decisiones, con mejores formas de plantearlas y la tirada que mejor va con cada una.",

@@ -450,6 +450,14 @@
   "guides": "Question guides",
   "spreadsFor": "Spreads for {name} questions"
  },
+ "topics": {
+  "title": "Tarot readings by topic: love, career, decisions and more · ShenTarot",
+  "description": "Tarot readings for love, work, daily focus, decisions and self-reflection. Each topic gathers the questions people ask and the spreads that suit them.",
+  "crumb": "Topics",
+  "eyebrow": "ShenTarot readings",
+  "h1": "Tarot readings by topic",
+  "lead": "Start from what you want to ask about. Each topic gathers the questions people bring, the spreads that suit them and a tool you can use now."
+ },
  "questions": {
   "title": "Tarot questions: what to ask and which spread to use · ShenTarot",
   "description": "Common tarot questions about love, work and big choices, with better ways to ask them and the spread that suits each one.",

@@ -1,0 +1,59 @@
+---
+import Base from "../../../layouts/Base.astro";
+import { BASE } from "../../../config.ts";
+import { TOPICS, TOPIC_ART } from "../../../lib/topics.ts";
+import { i18n, langPaths, type Locale } from "../../../i18n/index.ts";
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Locale };
+const L = i18n(lang);
+const { t, url: u } = L;
+const topic = (slug: string) => L.content.topics[slug as keyof typeof L.content.topics];
+// The five topics, each with the card that pictures it and its own page.
+const tiles = TOPICS.map((tp) => ({ ...tp, art: TOPIC_ART[tp.slug]!, text: topic(tp.slug) }));
+---
+<Base
+  title={t("topics.title")}
+  description={t("topics.description")}
+  path="topics"
+  crumbs={[[t("topics.crumb"), "topics"]]}
+  jsonLd={[{
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: t("topics.h1"),
+    description: t("topics.description"),
+    inLanguage: L.tag,
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: tiles.length,
+      itemListElement: tiles.map((tp, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: tp.text.title,
+        url: new URL(`${u(`topics/${tp.slug}`)}`, Astro.site).href,
+      })),
+    },
+  }]}
+  lang={lang}
+>
+  <header class="page-head center">
+    <p class="eyebrow">{t("topics.eyebrow")}</p>
+    <h1>{t("topics.h1")}</h1>
+    <p class="lead">{t("topics.lead")}</p>
+  </header>
+  <div class="grid-3">
+    {tiles.map((tp) => (
+      <a class="panel spread-card" href={u(`topics/${tp.slug}`)}>
+        <img src={`${BASE}cards/art/${tp.art}.jpg`} alt="" loading="lazy" width="150" height="257" />
+        <h2>{tp.text.title}</h2>
+        <p>{tp.text.intro}</p>
+        <span class="link-arrow">{t("topic.meta", { name: tp.text.name })}</span>
+      </a>
+    ))}
+  </div>
+  <section class="section center">
+    <h2>{t("footer.questions")}</h2>
+    <p class="lead">{t("questions.lead")}</p>
+    <p><a class="btn btn-ghost" href={u("questions")}>{t("questions.readGuide")}</a></p>
+  </section>
+</Base>

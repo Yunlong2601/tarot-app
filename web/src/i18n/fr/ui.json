@@ -491,6 +491,14 @@
   "guides": "Guides des questions",
   "spreadsFor": "Tirages pour les questions : {name}"
  },
+ "topics": {
+  "title": "Tirages de tarot par thème : amour, travail, décisions et plus · ShenTarot",
+  "description": "Tirages de tarot sur l'amour, le travail, le quotidien, les décisions et la réflexion personnelle. Chaque thème réunit les questions que l'on pose et les tirages qui conviennent.",
+  "crumb": "Thèmes",
+  "eyebrow": "Lectures ShenTarot",
+  "h1": "Tirages de tarot par thème",
+  "lead": "Commencez par ce que vous voulez demander. Chaque thème réunit les questions que l'on apporte, les tirages qui conviennent et un outil utilisable tout de suite."
+ },
  "questions": {
   "title": "Questions au tarot : que demander et quel tirage utiliser · ShenTarot",
   "description": "Les questions de tarot les plus courantes sur l'amour, le travail et les grands choix, avec de meilleures façons de les poser et le tirage adapté à chacune.",

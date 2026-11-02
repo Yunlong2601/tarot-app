@@ -489,6 +489,14 @@
   "guides": "Ratgeber zu Fragen",
   "spreadsFor": "Legungen für Fragen zum Thema {name}"
  },
+ "topics": {
+  "title": "Tarot-Legungen nach Thema: Liebe, Beruf, Entscheidungen und mehr · ShenTarot",
+  "description": "Tarot-Legungen zu Liebe, Beruf, Alltag, Entscheidungen und Selbstreflexion. Jedes Thema sammelt die Fragen, die Menschen stellen, und die passenden Legungen.",
+  "crumb": "Themen",
+  "eyebrow": "ShenTarot Legungen",
+  "h1": "Tarot-Legungen nach Thema",
+  "lead": "Beginne mit dem, worüber du etwas wissen möchtest. Jedes Thema sammelt die Fragen, die Menschen mitbringen, die passenden Legungen und ein Werkzeug, das du sofort nutzen kannst."
+ },
  "questions": {
   "title": "Tarot-Fragen: was du fragen kannst und welche Legung passt · ShenTarot",
   "description": "Häufige Tarot-Fragen zu Liebe, Beruf und großen Entscheidungen, mit besseren Formulierungen und der passenden Legung für jede Frage.",

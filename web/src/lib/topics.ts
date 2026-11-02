@@ -10,6 +10,10 @@ export interface Topic {
   intro: string;
   questions: string[];
   spreads: SpreadId[];
+  /** The tool that answers this topic's questions, so each topic page hands the
+   * reader to something they can actually do. Keyed by the page path under
+   * `tools/`; its title and blurb come from `ui.json` `tools.list.<key>`. */
+  tool: string;
 }
 
 export const TOPICS: Topic[] = [
@@ -21,6 +25,7 @@ export const TOPICS: Topic[] = [
       "Tarot cannot tell you what someone else thinks or will do. It can help you see what you bring, what you need and what is yours to change.",
     questions: ["Will my ex come back?", "Where does my relationship stand?", "When will I find love?"],
     spreads: ["love_reconnect", "love_connection", "love_ready", "love_bring"],
+    tool: "love-compatibility",
   },
   {
     slug: "career",
@@ -33,6 +38,7 @@ export const TOPICS: Topic[] = [
       "What could I explore next in my career?",
     ],
     spreads: ["career_path", "career_strengths", "three_decision"],
+    tool: "reading-sheet",
   },
   {
     slug: "daily",
@@ -41,6 +47,7 @@ export const TOPICS: Topic[] = [
     intro: "A card or three to set your focus for the day or the week ahead.",
     questions: ["What do I need to focus on today?", "What energy should I bring to this week?"],
     spreads: ["single", "three"],
+    tool: "daily-card",
   },
   {
     slug: "choices",
@@ -49,6 +56,7 @@ export const TOPICS: Topic[] = [
     intro: "When you are weighing a choice, the cards can lay out the situation, what stands in the way and a way forward.",
     questions: ["Should I move to a new city?", "What do I need to know before I decide?"],
     spreads: ["yes_no", "three_decision", "five_cross"],
+    tool: "yes-no",
   },
   {
     slug: "growth",
@@ -57,6 +65,7 @@ export const TOPICS: Topic[] = [
     intro: "Spreads for getting to know yourself: what you think, what you feel and what you keep repeating.",
     questions: ["What lesson do I keep repeating?", "What am I not seeing about myself?"],
     spreads: ["three_hhh", "growth_shadow_light", "horseshoe"],
+    tool: "life-path",
   },
 ];
 
