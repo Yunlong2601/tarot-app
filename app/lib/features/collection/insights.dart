@@ -120,6 +120,16 @@ List<Milestone> milestonesFor(
       longestStreak([for (final r in history) r.createdAt]) >= 7,
     ),
     Milestone(
+      'Thirty days',
+      'Readings on 30 days in a row',
+      longestStreak([for (final r in history) r.createdAt]) >= 30,
+    ),
+    Milestone(
+      'One hundred days',
+      'Readings on 100 days in a row',
+      longestStreak([for (final r in history) r.createdAt]) >= 100,
+    ),
+    Milestone(
       'Major Arcana',
       'All 22 Major Arcana cards met',
       majors.every(metIds.contains),

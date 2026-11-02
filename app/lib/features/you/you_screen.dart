@@ -164,6 +164,20 @@ class _ProfileCard extends StatelessWidget {
                 if (creditsEnabled) stat('${state.credits}', 'credits'),
               ],
             ),
+            if (nextBadge(streak) case final next? when streak > 0) ...[
+              const SizedBox(height: 8),
+              Text(
+                next - streak == 1
+                    ? tr('1 more day to your {0}-day badge', [next])
+                    : tr('{0} more days to your {1}-day badge', [
+                        next - streak,
+                        next,
+                      ]),
+                key: const ValueKey('next-badge'),
+                textAlign: TextAlign.center,
+                style: const TextStyle(color: AppColors.gold, fontSize: 13),
+              ),
+            ],
             if (restedRecently) ...[
               const SizedBox(height: 8),
               Text(
@@ -311,3 +325,6 @@ String weekdayName(int weekday) => switch (weekday) {
   6 => tr('Saturday'),
   _ => tr('Sunday'),
 };
+
+/// The next streak badge to aim for (7, 30 or 100 days), or null after 100.
+int? nextBadge(int streak) => [7, 30, 100].where((b) => b > streak).firstOrNull;

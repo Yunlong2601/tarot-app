@@ -11,6 +11,13 @@ import '../../core/analytics.dart';
 /// clear); after the 3rd and 10th, Apple's own rating prompt (never a custom
 /// one, App Review Guideline 5.6.1).
 Future<void> afterReadingClosed(BuildContext context, AppState state) async {
+  // A new streak badge comes first: a celebration, never a sales pitch.
+  if (state.newStreakBadge case final badge?) {
+    state.markStreakBadgeShown(badge);
+    logEvent('streak_badge', {'days': badge});
+    await showStreakBadge(context, badge);
+    return;
+  }
   switch (state.afterReadingAsk) {
     case AfterReadingAsk.reminder:
       state.markReminderAsked();
@@ -123,3 +130,50 @@ class _ReminderSheetState extends State<_ReminderSheet> {
     ),
   );
 }
+
+/// "7 days in a row": a small celebration sheet for a streak badge.
+Future<void> showStreakBadge(
+  BuildContext context,
+  int days,
+) => showModalBottomSheet<void>(
+  context: context,
+  builder: (ctx) => SafeArea(
+    child: Padding(
+      padding: const EdgeInsets.fromLTRB(24, 0, 24, 24),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const Icon(
+            Icons.local_fire_department_outlined,
+            color: AppColors.gold,
+            size: 48,
+          ),
+          const SizedBox(height: 12),
+          Text(
+            tr('{0} days in a row', [days]),
+            key: const ValueKey('streak-badge'),
+            style: Theme.of(ctx).textTheme.headlineSmall,
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 6),
+          Text(
+            days >= 100
+                ? tr('A hundred days of showing up for yourself. That is rare.')
+                : days >= 30
+                ? tr(
+                    'A month of daily practice. The cards are part of your rhythm now.',
+                  )
+                : tr('A full week of readings. A habit is taking root.'),
+            textAlign: TextAlign.center,
+            style: const TextStyle(color: AppColors.textMuted),
+          ),
+          const SizedBox(height: 20),
+          FilledButton(
+            onPressed: () => Navigator.pop(ctx),
+            child: Text(tr('Keep going')),
+          ),
+        ],
+      ),
+    ),
+  ),
+);

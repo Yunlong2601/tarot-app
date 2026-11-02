@@ -400,6 +400,9 @@ class AppState extends ChangeNotifier {
   /// The "add the widget" tip was closed.
   bool widgetTipSeen = false;
 
+  /// The highest streak badge (7, 30 or 100 days) already celebrated.
+  int streakBadgeShown = 0;
+
   // Local mirror of today's free-reading count. The backend enforces the real
   // limit; this only drives the UI.
   String _usedDay = '';
@@ -432,6 +435,7 @@ class AppState extends ChangeNotifier {
   static const _kMoonNotes = 'moon_notes';
   static const _kWeeklyNotes = 'weekly_notes';
   static const _kWidgetTip = 'widget_tip_seen';
+  static const _kStreakBadge = 'streak_badge_shown';
 
   String get _today => _dayKey(_clock());
 
@@ -552,6 +556,7 @@ class AppState extends ChangeNotifier {
       moonNotes = prefs.getBool(_kMoonNotes) ?? true;
       weeklyNotes = prefs.getBool(_kWeeklyNotes) ?? true;
       widgetTipSeen = prefs.getBool(_kWidgetTip) ?? false;
+      streakBadgeShown = prefs.getInt(_kStreakBadge) ?? 0;
       final arm = prefs.getString(_kTestArm);
       if (arm != null) {
         testArm = arm;
@@ -616,6 +621,7 @@ class AppState extends ChangeNotifier {
       await prefs.setBool(_kMoonNotes, moonNotes);
       await prefs.setBool(_kWeeklyNotes, weeklyNotes);
       await prefs.setBool(_kWidgetTip, widgetTipSeen);
+      await prefs.setInt(_kStreakBadge, streakBadgeShown);
     } catch (e) {
       debugPrint('Could not save settings: $e');
     }
@@ -766,6 +772,19 @@ class AppState extends ChangeNotifier {
       );
     }
   });
+
+  /// A streak badge reached and not yet celebrated: 7, 30 or 100, else null.
+  int? get newStreakBadge {
+    final s = streak;
+    final badge = [100, 30, 7].where((b) => s >= b).firstOrNull;
+    return badge != null && badge > streakBadgeShown ? badge : null;
+  }
+
+  void markStreakBadgeShown(int badge) {
+    streakBadgeShown = badge;
+    _savePrefs();
+    notifyListeners();
+  }
 
   void closeWidgetTip() {
     widgetTipSeen = true;
