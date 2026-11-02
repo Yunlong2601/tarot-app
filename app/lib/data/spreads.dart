@@ -104,6 +104,9 @@ const _monthNames = [
   'September', 'October', 'November', 'December',
 ];
 
+/// The month's name in the app language (1 = January).
+String monthName(int month) => tr(_monthNames[(month - 1) % 12]);
+
 const _celtic10 = [
   Offset(0.24, 0.5),
   Offset(0.24, 0.5),

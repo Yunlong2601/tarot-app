@@ -6,6 +6,8 @@ import '../../app/i18n.dart';
 import '../../app/theme.dart';
 import '../../core/analytics.dart';
 import '../../core/reading_service.dart';
+import '../../data/spreads.dart';
+import '../reading/keepsake.dart';
 import 'insights.dart';
 
 /// Premium: "What the cards keep telling you", a short letter about the cards
@@ -21,6 +23,7 @@ Future<void> openMonthlyLetter(BuildContext context, MonthRecap recap) async {
     context: context,
     isScrollControlled: true,
     builder: (ctx) => _LetterSheet(
+      month: '${monthName(now.month)} ${now.year}',
       load: () async {
         final prefs = await SharedPreferences.getInstance();
         final saved = prefs.getString(key);
@@ -49,7 +52,8 @@ Future<void> openMonthlyLetter(BuildContext context, MonthRecap recap) async {
 }
 
 class _LetterSheet extends StatefulWidget {
-  const _LetterSheet({required this.load});
+  const _LetterSheet({required this.month, required this.load});
+  final String month;
   final Future<String> Function() load;
 
   @override
@@ -95,10 +99,31 @@ class _LetterSheetState extends State<_LetterSheet> {
                     child: Center(child: CircularProgressIndicator()),
                   );
                 }
-                return Text(
-                  snap.data!,
-                  key: const ValueKey('monthly-letter-text'),
-                  style: Theme.of(context).textTheme.bodyLarge,
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      snap.data!,
+                      key: const ValueKey('monthly-letter-text'),
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    ),
+                    const SizedBox(height: 20),
+                    OutlinedButton.icon(
+                      style: OutlinedButton.styleFrom(
+                        minimumSize: const Size.fromHeight(48),
+                      ),
+                      onPressed: () => openKeepsake(
+                        context,
+                        title: tr('What the cards keep telling you'),
+                        subtitle: widget.month,
+                        parts: [(heading: null, text: snap.data!)],
+                        fileName:
+                            'shentarot-letter-${widget.month.replaceAll(' ', '-')}',
+                      ),
+                      icon: const Icon(Icons.download_outlined),
+                      label: Text(tr('Save as PDF or image')),
+                    ),
+                  ],
                 );
               },
             ),

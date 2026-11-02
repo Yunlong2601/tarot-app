@@ -17,6 +17,7 @@ import '../cards/card_art.dart';
 import '../spreads/spread_layout.dart';
 import '../read/reader_voice.dart';
 import '../scan/orientation_dialog.dart';
+import 'keepsake.dart';
 import 'listen.dart';
 import 'reading_sections.dart';
 import 'report_reading.dart';
@@ -708,6 +709,22 @@ class ReadingScreen extends StatelessWidget {
                 reportReading(context, reading);
                 return;
               }
+              if (v == 'keep') {
+                if (!state.isPremium) {
+                  openPaywall(context);
+                  return;
+                }
+                final d = reading.createdAt;
+                openKeepsake(
+                  context,
+                  title: reading.spread.label,
+                  subtitle: '${d.day} ${monthName(d.month)} ${d.year}',
+                  question: reading.question,
+                  parts: readingParts(reading),
+                  fileName: 'shentarot-reading-${d.year}-${d.month}-${d.day}',
+                );
+                return;
+              }
               final ok = await showAppDialog<bool>(
                 context: context,
                 builder: (c) => AlertDialog(
@@ -730,6 +747,14 @@ class ReadingScreen extends StatelessWidget {
               }
             },
             itemBuilder: (_) => [
+              PopupMenuItem(
+                value: 'keep',
+                child: ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  leading: const Icon(Icons.picture_as_pdf_outlined),
+                  title: Text(tr('Save as PDF or image')),
+                ),
+              ),
               PopupMenuItem(
                 value: 'report',
                 child: ListTile(
