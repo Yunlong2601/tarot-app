@@ -242,7 +242,7 @@ class DeckThemePicker extends StatelessWidget {
             ),
           const SizedBox(height: 12),
           SizedBox(
-            height: 136,
+            height: 150,
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
@@ -292,8 +292,8 @@ class _ThemeChoice extends StatelessWidget {
       onTap: onTap,
       borderRadius: BorderRadius.circular(AppRadius.card),
       child: Container(
-        width: 76,
-        margin: const EdgeInsets.only(right: 8),
+        width: 80,
+        margin: const EdgeInsets.only(right: 6),
         padding: const EdgeInsets.all(6),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(AppRadius.card),
@@ -305,19 +305,35 @@ class _ThemeChoice extends StatelessWidget {
         child: Column(
           children: [
             Stack(
-              alignment: Alignment.center,
+              clipBehavior: Clip.none,
               children: [
                 CardBack(width: 52, theme: theme),
                 if (locked)
-                  const Icon(Icons.lock, size: 18, color: AppColors.ink),
+                  Positioned(
+                    top: -6,
+                    right: -6,
+                    child: Container(
+                      padding: const EdgeInsets.all(3),
+                      decoration: const BoxDecoration(
+                        color: AppColors.surfaceHigh,
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Icon(
+                        Icons.lock,
+                        size: 12,
+                        color: AppColors.gold,
+                      ),
+                    ),
+                  ),
               ],
             ),
             const SizedBox(height: 6),
             Text(
               theme.label,
-              maxLines: 1,
+              maxLines: 2,
+              textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,
-              style: const TextStyle(fontSize: 12),
+              style: const TextStyle(fontSize: 12, height: 1.2),
             ),
           ],
         ),

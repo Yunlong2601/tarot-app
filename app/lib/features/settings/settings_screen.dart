@@ -132,7 +132,7 @@ class SettingsScreen extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.tune),
             title: Text(tr('Reading settings')),
-            subtitle: Text(tr('Look first, auto-reveal, reversed cards')),
+            subtitle: Text(tr('Look first, reversed cards, card backs')),
             trailing: const Icon(Icons.chevron_right),
             onTap: () => context.push('/settings/reading'),
           ),

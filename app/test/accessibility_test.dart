@@ -8,7 +8,10 @@ import 'package:shentarot/app/theme.dart';
 import 'package:shentarot/core/subscription_service.dart';
 import 'package:shentarot/data/deck.dart';
 import 'package:shentarot/data/models.dart';
+import 'package:shentarot/features/draw/draw_screen.dart';
+import 'package:shentarot/features/reading/keepsake.dart';
 import 'package:shentarot/main.dart';
+import 'package:shentarot/app/app_scope.dart';
 
 import 'helpers.dart';
 
@@ -168,6 +171,54 @@ void main() {
     testWidgets('onboarding', (t) async {
       phone(t, scale: 2.0);
       await t.pumpWidget(ShenTarotApp(initialState: AppState(deck: deck)));
+      await t.pumpAndSettle();
+      expect(t.takeException(), isNull);
+    });
+
+    for (final scale in [1.0, 2.0]) {
+      testWidgets('Year Ahead draw, 13 slots, text x$scale', (t) async {
+        phone(t, scale: scale);
+        final s = state(premium: true)..selectSpread(SpreadType.yearAhead);
+        await t.pumpWidget(
+          AppScope(
+            state: s,
+            child: MaterialApp(theme: buildTheme(), home: const DrawScreen()),
+          ),
+        );
+        await t.pumpAndSettle();
+        expect(t.takeException(), isNull);
+      });
+    }
+
+    testWidgets('a 13-card reading and its keepsake', (t) async {
+      phone(t, scale: 2.0);
+      final s = state(premium: true);
+      final r = Reading(
+        id: 'y',
+        createdAt: DateTime(2026, 11, 2),
+        spread: SpreadType.yearAhead,
+        cards: [
+          for (final c in deck.cards.take(13)) DrawnCard(card: c, reversed: false),
+        ],
+        interpretation: 'In short\nA year of slow growth.',
+      );
+      s.addReading(r);
+      await open(t, s, 'Today');
+      await goHistory(t);
+      await tapVisible(t, find.textContaining('Year Ahead').first);
+      await t.pumpAndSettle();
+      expect(t.takeException(), isNull);
+      await t.pumpWidget(
+        MaterialApp(
+          home: KeepsakeScreen(
+            title: 'Year Ahead',
+            subtitle: '2 November 2026',
+            question: 'What will this year ask of me?',
+            parts: readingParts(r),
+            fileName: 'x',
+          ),
+        ),
+      );
       await t.pumpAndSettle();
       expect(t.takeException(), isNull);
     });

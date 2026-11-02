@@ -165,132 +165,154 @@ class _DrawScreenState extends State<DrawScreen> {
       appBar: AppBar(title: Text(_spread.label)),
       body: SafeArea(
         top: false,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+        // With very large text the screen scrolls instead of squeezing the
+        // spread to nothing: the column is never shorter than [_minHeight].
+        child: LayoutBuilder(
+          builder: (context, box) => SingleChildScrollView(
+            physics: box.maxHeight >= _minHeight(context)
+                ? const NeverScrollableScrollPhysics()
+                : null,
+            child: SizedBox(
+              height: math.max(box.maxHeight, _minHeight(context)),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Text(
-                    question.isEmpty ? tr('General reading') : question,
-                    style: Theme.of(context).textTheme.titleMedium,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          question.isEmpty ? tr('General reading') : question,
+                          style: Theme.of(context).textTheme.titleMedium,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          tr('Take a breath and hold your question in mind.'),
+                          style: TextStyle(color: AppColors.textMuted),
+                        ),
+                      ],
+                    ),
                   ),
-                  const SizedBox(height: 4),
-                  Text(
-                    tr('Take a breath and hold your question in mind.'),
-                    style: TextStyle(color: AppColors.textMuted),
-                  ),
-                ],
-              ),
-            ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: Center(
-                  child: ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 360),
-                    child: SpreadLayoutView(
-                      type: _spread,
-                      highlight: allPlaced ? null : placed,
-                      slotBuilder: (i, w, h) => SizedBox(
-                        key: _slotKeys[i],
-                        width: w,
-                        height: h,
-                        child: i >= placed
-                            ? _EmptySlot(
-                                number: i + 1,
-                                highlighted: i == placed,
-                              )
-                            : FlipCard(
-                                key: ValueKey('slot-$i-${_drawn[i].card.id}'),
-                                drawn: _drawn[i],
-                                width: w,
-                                showCaption: false,
-                                flipped: _flipped.contains(i),
-                                onTap: () =>
-                                    setState(() => _flipped = {..._flipped, i}),
-                              ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Center(
+                        child: ConstrainedBox(
+                          constraints: const BoxConstraints(maxWidth: 360),
+                          child: SpreadLayoutView(
+                            type: _spread,
+                            highlight: allPlaced ? null : placed,
+                            slotBuilder: (i, w, h) => SizedBox(
+                              key: _slotKeys[i],
+                              width: w,
+                              height: h,
+                              child: i >= placed
+                                  ? _EmptySlot(
+                                      number: i + 1,
+                                      highlighted: i == placed,
+                                    )
+                                  : FlipCard(
+                                      key: ValueKey(
+                                        'slot-$i-${_drawn[i].card.id}',
+                                      ),
+                                      drawn: _drawn[i],
+                                      width: w,
+                                      showCaption: false,
+                                      flipped: _flipped.contains(i),
+                                      onTap: () => setState(
+                                        () => _flipped = {..._flipped, i},
+                                      ),
+                                    ),
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ),
-            ),
-            // Room for two lines always, so the spread above never moves
-            // when the hint changes length.
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: ConstrainedBox(
-                constraints: BoxConstraints(
-                  minHeight: MediaQuery.textScalerOf(context).scale(16) * 3,
-                ),
-                child: Text(
-                  hint,
-                  textAlign: TextAlign.center,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ),
-            ),
-            const SizedBox(height: 8),
-            if (!allPlaced) ...[
-              DeckFan(
-                remaining: _remaining,
-                shuffleKey: _shuffleCount,
-                enabled: _flying == null,
-                cardWidth: _fanCardWidth,
-                onPick: _onPick,
-              ),
-              Center(
-                // Tap to shuffle once, or press and hold to keep shuffling
-                // while you focus on your question. Only before the first card.
-                child: GestureDetector(
-                  onLongPressStart: placed == 0 && _flying == null
-                      ? (_) => _startRitual()
-                      : null,
-                  onLongPressEnd: (_) => _stopRitual(),
-                  child: TextButton.icon(
-                    onPressed: placed == 0 && _flying == null ? _shuffle : null,
-                    icon: const Icon(Icons.shuffle),
-                    label: Text(
-                      _ritual != null
-                          ? tr('Shuffling... let go when ready')
-                          : tr('Shuffle again'),
+                  // Room for two lines always, so the spread above never moves
+                  // when the hint changes length.
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(
+                        minHeight:
+                            MediaQuery.textScalerOf(context).scale(16) * 3,
+                      ),
+                      child: Text(
+                        hint,
+                        textAlign: TextAlign.center,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
                   ),
-                ),
+                  const SizedBox(height: 8),
+                  if (!allPlaced) ...[
+                    DeckFan(
+                      remaining: _remaining,
+                      shuffleKey: _shuffleCount,
+                      enabled: _flying == null,
+                      cardWidth: _fanCardWidth,
+                      onPick: _onPick,
+                    ),
+                    Center(
+                      // Tap to shuffle once, or press and hold to keep shuffling
+                      // while you focus on your question. Only before the first card.
+                      child: GestureDetector(
+                        onLongPressStart: placed == 0 && _flying == null
+                            ? (_) => _startRitual()
+                            : null,
+                        onLongPressEnd: (_) => _stopRitual(),
+                        child: TextButton.icon(
+                          onPressed: placed == 0 && _flying == null
+                              ? _shuffle
+                              : null,
+                          icon: const Icon(Icons.shuffle),
+                          label: Text(
+                            _ritual != null
+                                ? tr('Shuffling... let go when ready')
+                                : tr('Shuffle again'),
+                          ),
+                        ),
+                      ),
+                    ),
+                    if (placed == 0)
+                      Text(
+                        tr('Press and hold to keep shuffling'),
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontSize: 12,
+                          color: AppColors.textMuted,
+                        ),
+                      ),
+                  ] else
+                    _Results(
+                      spread: _spread,
+                      drawn: _drawn,
+                      flipped: _flipped,
+                      ready: allFlipped,
+                      onRead: () => startReading(
+                        context,
+                        spread: _spread,
+                        cards: _drawn,
+                        question: question,
+                      ),
+                    ),
+                ],
               ),
-              if (placed == 0)
-                Text(
-                  tr('Press and hold to keep shuffling'),
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 12,
-                    color: AppColors.textMuted,
-                  ),
-                ),
-            ] else
-              _Results(
-                spread: _spread,
-                drawn: _drawn,
-                flipped: _flipped,
-                ready: allFlipped,
-                onRead: () => startReading(
-                  context,
-                  spread: _spread,
-                  cards: _drawn,
-                  question: question,
-                ),
-              ),
-          ],
+            ),
+          ),
         ),
       ),
     );
   }
+
+  /// Room for the spread plus the text and fan below it at this text size.
+  double _minHeight(BuildContext context) =>
+      300 + MediaQuery.textScalerOf(context).scale(16) * 16;
 }
 
 /// The names of the turned cards, then the button to get the reading.
