@@ -25,6 +25,7 @@ enum SpreadType {
   horseshoe,
   celticCross,
   loveConnection,
+  loveUs,
   loveBring,
   loveReconnect,
   loveReady,
@@ -66,6 +67,15 @@ const _cross5 = [
   Offset(0.84, 0.5),
   Offset(0.5, 0.12),
   Offset(0.5, 0.88),
+];
+
+/// You & Them: you on the left, them on the right, the bond between.
+const _us5 = [
+  Offset(0.14, 0.5),
+  Offset(0.86, 0.5),
+  Offset(0.5, 0.14),
+  Offset(0.5, 0.86),
+  Offset(0.5, 0.5),
 ];
 const _arc7 = [
   Offset(0.08, 0.88),
@@ -170,6 +180,20 @@ const spreadDefs = <SpreadType, SpreadDef>{
     blurb: 'What is my part in this relationship right now?',
     positions: ['What I bring', 'The connection itself', 'What it asks of me'],
     layout: _row3,
+  ),
+  SpreadType.loveUs: SpreadDef(
+    wire: 'love_us',
+    name: 'You & Them',
+    category: SpreadCategory.love,
+    blurb: 'What is happening between the two of you, from your side?',
+    positions: [
+      'My energy in this',
+      'How this person shows up for me',
+      'What connects us',
+      'What tests us',
+      'What the bond needs from me',
+    ],
+    layout: _us5,
   ),
   SpreadType.loveBring: SpreadDef(
     wire: 'love_bring',
@@ -317,6 +341,12 @@ SpreadType recommendSpread(String question) {
   }
   if (any(['single', 'dating', 'new love', 'meet someone'])) {
     return SpreadType.loveReady;
+  }
+  // About one other person: the two-person reading.
+  if (RegExp(
+    r'\b(him|her|them|us|we|partner|boyfriend|girlfriend|husband|wife|crush)\b',
+  ).hasMatch(q)) {
+    return SpreadType.loveUs;
   }
   if (any([
     'love',

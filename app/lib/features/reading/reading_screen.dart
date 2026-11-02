@@ -114,6 +114,9 @@ class _FollowUpsState extends State<_FollowUps> {
     await _send(clarifierPrompt, label, clarifier: card);
   }
 
+  /// The clarifier has been turned over in this visit.
+  bool _clarified = false;
+
   Future<void> _send(String text, String label, {DrawnCard? clarifier}) async {
     final state = AppScope.of(context);
     final r = widget.reading;
@@ -127,7 +130,12 @@ class _FollowUpsState extends State<_FollowUps> {
         followUp: text,
         clarifier: clarifier,
       );
-      if (mounted) setState(() => _thread.add((label, result.text)));
+      if (mounted) {
+        setState(() {
+          _thread.add((label, result.text));
+          if (clarifier != null) _clarified = true;
+        });
+      }
       state.refreshCredits();
     } on ReadingException catch (e) {
       if (!mounted) return;
@@ -173,15 +181,19 @@ class _FollowUpsState extends State<_FollowUps> {
         Row(
           children: [
             const Expanded(child: Divider(color: AppColors.hairline)),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: Text(
-                tr('Ask the reader'),
-                style: const TextStyle(
-                  fontFamily: displayFont,
-                  fontFamilyFallback: displayFallback,
-                  fontSize: 18,
-                  color: AppColors.gold,
+            Flexible(
+              flex: 4,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                child: Text(
+                  tr('Ask the cards anything'),
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontFamily: displayFont,
+                    fontFamilyFallback: displayFallback,
+                    fontSize: 18,
+                    color: AppColors.gold,
+                  ),
                 ),
               ),
             ),
@@ -195,11 +207,34 @@ class _FollowUpsState extends State<_FollowUps> {
           ),
         ),
         const SizedBox(height: 16),
+        // Free users: the waiting clarifier stands in for the plain link.
+        if (!state.isPremium && !_clarified) ...[
+          _ClarifierTeaser(
+            reading: widget.reading,
+            onReveal: open
+                ? _clarify
+                : () => openPaywall(context, PaywallReason.followUp),
+            withCredit: open,
+          ),
+          const SizedBox(height: 16),
+        ],
         for (final (q, a) in _thread) ...[
           UserLine(q),
           const SizedBox(height: 14),
           ReaderLine(a, body: true),
           const SizedBox(height: 22),
+        ],
+        // After a paid question: the way to keep talking without counting.
+        if (!state.isPremium && _thread.isNotEmpty && !_busy) ...[
+          ReaderWhisper(
+            icon: Icons.all_inclusive,
+            text: tr('Keep asking without credits with Premium'),
+            onTap: () {
+              logEvent('followup_upsell', {'n': _thread.length});
+              openPaywall(context, PaywallReason.followUp);
+            },
+          ),
+          const SizedBox(height: 8),
         ],
         if (_busy) ...[
           Row(
@@ -304,25 +339,15 @@ class _FollowUpsState extends State<_FollowUps> {
                 ),
               ),
             ),
-          const SizedBox(height: 10),
-          ReaderWhisper(
-            icon: Icons.add_card_outlined,
-            text: state.isPremium
-                ? tr('Draw a clarifier card')
-                : tr('Draw a clarifier card (1 credit)'),
-            onTap: _clarify,
-          ),
+          if (state.isPremium) ...[
+            const SizedBox(height: 10),
+            ReaderWhisper(
+              icon: Icons.add_card_outlined,
+              text: tr('Draw a clarifier card'),
+              onTap: _clarify,
+            ),
+          ],
         ],
-        if (!open)
-          ReaderWhisper(
-            icon: Icons.lock_outline,
-            text: creditsEnabled
-                ? tr('Draw a clarifier card (get credits)')
-                : tr('Draw a clarifier card (Premium)'),
-            onTap: () => creditsEnabled
-                ? showOutOfCredits(context)
-                : openPaywall(context, PaywallReason.followUp),
-          ),
       ],
     );
   }
@@ -796,10 +821,6 @@ class ReadingScreen extends StatelessWidget {
             _FirstOffer(onClose: state.dismissFirstOffer),
             const SizedBox(height: 12),
           ],
-          if (!state.isPremium) ...[
-            _ClarifierTeaser(reading: reading),
-            const SizedBox(height: 12),
-          ],
           _FollowUps(reading: reading),
           const SizedBox(height: 12),
           _Journal(reading: reading),
@@ -1199,8 +1220,16 @@ DrawnCard waitingClarifier(AppState state, Reading reading) {
 /// Free users: the clarifier card is already drawn, shown blurred, with the
 /// way to reveal it. The card is real (the same one Premium turns over).
 class _ClarifierTeaser extends StatelessWidget {
-  const _ClarifierTeaser({required this.reading});
+  const _ClarifierTeaser({
+    required this.reading,
+    required this.onReveal,
+    required this.withCredit,
+  });
   final Reading reading;
+  final VoidCallback onReveal;
+
+  /// True when the user can turn it over with a credit instead of Premium.
+  final bool withCredit;
 
   @override
   Widget build(BuildContext context) {
@@ -1248,10 +1277,16 @@ class _ClarifierTeaser extends StatelessWidget {
                 OutlinedButton(
                   key: const ValueKey('clarifier-teaser-open'),
                   onPressed: () {
-                    logEvent('clarifier_teaser', {'action': 'open'});
-                    openPaywall(context, PaywallReason.followUp);
+                    logEvent('clarifier_teaser', {
+                      'action': withCredit ? 'credit' : 'premium',
+                    });
+                    onReveal();
                   },
-                  child: Text(tr('Turn it over with Premium')),
+                  child: Text(
+                    withCredit
+                        ? tr('Turn it over · 1 credit')
+                        : tr('Turn it over with Premium'),
+                  ),
                 ),
               ],
             ),

@@ -48,6 +48,14 @@ export const SPREADS = {
     purpose: "Reflecting on the user's own part in a relationship. Never what the other person thinks or feels.",
     positions: ["What I bring", "The connection itself", "What it asks of me"],
   },
+  love_us: {
+    name: "You & Them", category: "love",
+    purpose: "Reflecting on a relationship between the user and one other person, seen from the user's side. The second card is how the user experiences the other person: never claim to know what they think, feel or will do, and never advise contacting or leaving anyone.",
+    positions: [
+      "My energy in this", "How this person shows up for me", "What connects us",
+      "What tests us", "What the bond needs from me",
+    ],
+  },
   love_bring: {
     name: "What I Bring to This Connection", category: "love",
     purpose: "Self-reflection about what the user brings, needs and may be avoiding in a connection.",

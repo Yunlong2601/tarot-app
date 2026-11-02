@@ -87,6 +87,10 @@ void main() {
       expect(recommendSpread('Should I text my ex again?'), SpreadType.yesNo);
       expect(recommendSpread('Is this job right for me?'), SpreadType.yesNo);
       expect(
+        recommendSpread('What is going on between me and him?'),
+        SpreadType.loveUs,
+      );
+      expect(
         recommendSpread('What do I need to know about my ex?'),
         SpreadType.loveReconnect,
       );

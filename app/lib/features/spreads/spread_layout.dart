@@ -40,7 +40,9 @@ class SpreadLayoutView extends StatelessWidget {
     SpreadType.loveConnection ||
     SpreadType.loveBring ||
     SpreadType.careerPath => 2.1,
-    SpreadType.fiveCross || SpreadType.careerStrengths => 1.05,
+    SpreadType.fiveCross ||
+    SpreadType.careerStrengths ||
+    SpreadType.loveUs => 1.05,
     SpreadType.celticCross => 1.0,
     _ => 1.15, // seven-card arcs
   };
