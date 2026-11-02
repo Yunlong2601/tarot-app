@@ -2,6 +2,8 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
+import 'app_scope.dart';
+import 'deck_theme.dart';
 import 'theme.dart';
 import 'i18n.dart';
 
@@ -110,28 +112,38 @@ class EyeCardPainter extends CustomPainter {
   bool shouldRepaint(EyeCardPainter old) => old.color != color;
 }
 
-/// Card back used for face-down cards, the landing fan and the paywall.
+/// Card back used for face-down cards, the landing fan and the paywall, in
+/// the user's deck theme (Classic gold unless Premium picked another).
 class CardBack extends StatelessWidget {
-  const CardBack({super.key, this.width = 90});
+  const CardBack({super.key, this.width = 90, this.theme});
   final double width;
+
+  /// Overrides the user's theme, for previews.
+  final DeckTheme? theme;
 
   @override
   Widget build(BuildContext context) {
+    final t =
+        theme ??
+        AppScope.maybeOf(context)?.activeDeckTheme ??
+        DeckTheme.classic;
+    final accent = t.accent;
+    final (top, bottom) = t.fill;
     final r = width * 0.09;
     return Container(
       width: width,
       height: width * 1.6,
       decoration: BoxDecoration(
-        gradient: const LinearGradient(
+        gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [AppColors.surfaceHigh, AppColors.background],
+          colors: [top, bottom],
         ),
-        border: Border.all(color: AppColors.gold, width: 1.5),
+        border: Border.all(color: accent, width: 1.5),
         borderRadius: BorderRadius.circular(r),
         boxShadow: [
           BoxShadow(
-            color: AppColors.gold.withValues(alpha: 0.22),
+            color: accent.withValues(alpha: 0.22),
             blurRadius: width * 0.25,
           ),
         ],
@@ -139,7 +151,7 @@ class CardBack extends StatelessWidget {
       child: Container(
         margin: EdgeInsets.all(width * 0.07),
         decoration: BoxDecoration(
-          border: Border.all(color: AppColors.gold.withValues(alpha: 0.4)),
+          border: Border.all(color: accent.withValues(alpha: 0.4)),
           borderRadius: BorderRadius.circular(r * 0.6),
         ),
         child: Center(
@@ -147,7 +159,9 @@ class CardBack extends StatelessWidget {
             width: width * 0.44,
             height: width * 0.7,
             child: CustomPaint(
-              painter: EyeCardPainter(AppColors.gold.withValues(alpha: 0.85)),
+              painter: t.symbol == DeckSymbol.eye
+                  ? EyeCardPainter(accent.withValues(alpha: 0.85))
+                  : DeckSymbolPainter(t.symbol, accent.withValues(alpha: 0.85)),
             ),
           ),
         ),

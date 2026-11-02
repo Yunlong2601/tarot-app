@@ -11,4 +11,9 @@ class AppScope extends InheritedNotifier<AppState> {
     assert(scope != null, 'AppScope missing above this widget');
     return scope!.notifier!;
   }
+
+  /// The app state if there is one above [context] (previews and tests may
+  /// build widgets without it).
+  static AppState? maybeOf(BuildContext context) =>
+      context.dependOnInheritedWidgetOfExactType<AppScope>()?.notifier;
 }

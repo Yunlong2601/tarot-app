@@ -4,7 +4,11 @@ import 'package:go_router/go_router.dart';
 import '../../app/app_scope.dart';
 import '../../app/theme.dart';
 import '../../app/i18n.dart';
+import '../../app/brand.dart';
+import '../../app/deck_theme.dart';
+import '../../core/analytics.dart';
 import '../onboarding/focus_questions.dart';
+import '../paywall/out_of_credits.dart';
 
 extension on String {
   String ifEmpty(String other) => isEmpty ? other : this;
@@ -204,8 +208,120 @@ class ReadingSettingsScreen extends StatelessWidget {
             value: state.readReversed,
             onChanged: state.setReadReversed,
           ),
+          const DeckThemePicker(),
         ],
       ),
     );
   }
+}
+
+/// The card backs: Classic gold for everyone, four more with Premium.
+class DeckThemePicker extends StatelessWidget {
+  const DeckThemePicker({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final state = AppScope.of(context);
+    final current = state.activeDeckTheme;
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            tr('Card backs'),
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+          if (!state.isPremium)
+            Padding(
+              padding: const EdgeInsets.only(top: 2),
+              child: Text(
+                tr('More card backs come with Premium'),
+                style: const TextStyle(color: AppColors.textMuted),
+              ),
+            ),
+          const SizedBox(height: 12),
+          SizedBox(
+            height: 136,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: [
+                for (final t in DeckTheme.values)
+                  _ThemeChoice(
+                    theme: t,
+                    selected: t == current,
+                    locked: t.isPremium && !state.isPremium,
+                    onTap: () {
+                      if (t.isPremium && !state.isPremium) {
+                        logEvent('deck_theme', {'locked': t.name});
+                        openPaywall(context);
+                        return;
+                      }
+                      logEvent('deck_theme', {'set': t.name});
+                      state.setDeckTheme(t);
+                    },
+                  ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _ThemeChoice extends StatelessWidget {
+  const _ThemeChoice({
+    required this.theme,
+    required this.selected,
+    required this.locked,
+    required this.onTap,
+  });
+  final DeckTheme theme;
+  final bool selected;
+  final bool locked;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) => Semantics(
+    button: true,
+    selected: selected,
+    label: locked ? tr('{0}, Premium', [theme.label]) : theme.label,
+    excludeSemantics: true,
+    child: InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(AppRadius.card),
+      child: Container(
+        width: 76,
+        margin: const EdgeInsets.only(right: 8),
+        padding: const EdgeInsets.all(6),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(AppRadius.card),
+          border: Border.all(
+            color: selected ? AppColors.gold : Colors.transparent,
+            width: 1.5,
+          ),
+        ),
+        child: Column(
+          children: [
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                CardBack(width: 52, theme: theme),
+                if (locked)
+                  const Icon(Icons.lock, size: 18, color: AppColors.ink),
+              ],
+            ),
+            const SizedBox(height: 6),
+            Text(
+              theme.label,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(fontSize: 12),
+            ),
+          ],
+        ),
+      ),
+    ),
+  );
 }

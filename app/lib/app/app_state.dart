@@ -10,6 +10,7 @@ import '../core/analytics.dart';
 import '../core/credit_service.dart';
 import '../core/creator_service.dart';
 import '../core/referral_service.dart';
+import 'deck_theme.dart';
 import 'flags.dart';
 import '../core/install_id.dart';
 import '../core/moon.dart';
@@ -511,6 +512,7 @@ class AppState extends ChangeNotifier {
       readReversed = prefs.getBool(_kReversed) ?? true;
       _upgradeShown = prefs.getInt(_kUpgradeShown) ?? 0;
       autoReveal = prefs.getBool(_kAutoReveal) ?? false;
+      deckTheme = deckThemeNamed(prefs.getString(_kDeckTheme));
       final refTag = prefs.getString(_kRefTag);
       final refApple = prefs.getString(_kRefApple);
       if (refTag != null || refApple != null) {
@@ -652,6 +654,23 @@ class AppState extends ChangeNotifier {
   void setReadMode(ReadMode m) {
     readMode = m;
     notifyListeners();
+  }
+
+  /// The card backs the user picked. Premium themes fall back to Classic
+  /// gold if Premium ends; the choice comes back when it is renewed.
+  DeckTheme deckTheme = DeckTheme.classic;
+  static const _kDeckTheme = 'deck_theme';
+  DeckTheme get activeDeckTheme =>
+      deckTheme.isPremium && !isPremium ? DeckTheme.classic : deckTheme;
+
+  Future<void> setDeckTheme(DeckTheme t) async {
+    deckTheme = t;
+    notifyListeners();
+    refreshWidget();
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString(_kDeckTheme, t.name);
+    } catch (_) {}
   }
 
   /// Digital draws: turn each card face up as soon as it lands.
