@@ -22,7 +22,7 @@ const guides = QUESTION_GUIDES.filter((g) => g.topic === tp.slug);
   description={t("topic.description", { intro: c.intro })}
   path={`topics/${tp.slug}`}
   image={`cards/art/${art}.jpg`}
-  crumbs={[[c.title, `topics/${tp.slug}`]]}
+  crumbs={[[t("topics.crumb"), "topics"], [c.title, `topics/${tp.slug}`]]}
   lang={lang}
 >
   <section class="card-hero" style="padding-top:3rem">

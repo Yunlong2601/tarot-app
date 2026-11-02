@@ -37,6 +37,7 @@ export const GET: APIRoute = () => {
     "tools/which-card-are-you",
     "tools/weekly-draw",
     "tools/reading-sheet",
+    "topics",
     ...TOPICS.map((t) => `topics/${t.slug}`),
     "questions",
     ...QUESTION_GUIDES.map((g) => `questions/${g.slug}`),

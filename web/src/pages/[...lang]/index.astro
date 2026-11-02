@@ -27,7 +27,7 @@ const gallery = ["major_00_fool", "major_02_high_priestess", "major_17_star", "m
 const site = new URL(u(), Astro.site).href;
 const jsonLd = [
   { "@context": "https://schema.org", "@type": "Organization", name: "Shenetic", url: Astro.site!.href, logo: new URL("icon.png", Astro.site).href, email: SUPPORT_EMAIL },
-  { "@context": "https://schema.org", "@type": "WebSite", name: "ShenTarot", url: site, inLanguage: L.tag },
+  { "@context": "https://schema.org", "@type": "WebSite", name: "ShenTarot", url: site, inLanguage: L.tag, potentialAction: { "@type": "SearchAction", target: { "@type": "EntryPoint", urlTemplate: `${site}search?q={search_term_string}` }, "query-input": "required name=search_term_string" } },
   { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: g.faq.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
 ];
 ---
