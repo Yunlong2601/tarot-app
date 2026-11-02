@@ -148,6 +148,8 @@ class AppState extends ChangeNotifier {
 
   /// The one-line status under the reading buttons.
   String get creditLine {
+    // Premium includes every reading; credits are for free users only.
+    if (isPremium) return tr('Premium: every reading included');
     if (!creditsEnabled) {
       if (isPremium) return tr('Premium: 50 readings a day');
       final left = freeReadingsPerDay - freeReadingsUsedToday;
@@ -456,7 +458,7 @@ class AppState extends ChangeNotifier {
   /// A button that spends a credit says so: "Get my reading · 1 credit". The
   /// free try of a longer spread costs nothing, so it keeps its plain label.
   String spendLabel(String label, {SpreadType? spread}) =>
-      creditsEnabled && !(spread != null && usesTrial(spread))
+      creditsEnabled && !isPremium && !(spread != null && usesTrial(spread))
       ? tr('{0} · 1 credit', [label])
       : label;
 

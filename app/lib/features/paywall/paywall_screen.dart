@@ -35,7 +35,6 @@ class PaywallScreen extends StatefulWidget {
 
 class _PaywallScreenState extends State<PaywallScreen> {
   List<PlanOption>? _plans;
-  List<PlanOption> _packs = [];
   String? _loadError;
   String? _selected;
   bool _busy = false;
@@ -67,12 +66,8 @@ class _PaywallScreenState extends State<PaywallScreen> {
           plans = [friend, ...plans.where((p) => p.title != 'Annual')];
         }
       }
-      final packs = creditsEnabled
-          ? await service.creditPacks()
-          : <PlanOption>[];
       if (!mounted) return;
       setState(() {
-        _packs = packs;
         _plans = plans;
         _selected = plans.isEmpty ? null : plans.first.id;
       });
@@ -84,33 +79,6 @@ class _PaywallScreenState extends State<PaywallScreen> {
           'Could not load subscription options. Please try again.',
         );
       });
-    }
-  }
-
-  Future<void> _buyPack(PlanOption pack) async {
-    logEvent('paywall_buy_tap', {
-      'product': pack.productId ?? pack.id,
-      'reason': widget.reason.name,
-    });
-    final state = AppScope.of(context);
-    final messenger = ScaffoldMessenger.of(context);
-    setState(() => _busy = true);
-    try {
-      await state.subscriptions.purchase(pack);
-      // The server adds the credits when the store confirms; check twice.
-      for (var i = 0; i < 2; i++) {
-        await Future<void>.delayed(Duration(seconds: 2));
-        await state.refreshCredits();
-      }
-      messenger.showSnackBar(
-        SnackBar(
-          content: Text(tr('You have {0} reading credits.', [state.credits])),
-        ),
-      );
-    } on SubscriptionException catch (e) {
-      messenger.showSnackBar(SnackBar(content: Text(e.message)));
-    } finally {
-      if (mounted) setState(() => _busy = false);
     }
   }
 
@@ -206,9 +174,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
           for (final f in [
             tr('Every spread, including the 10-card Celtic Cross'),
             if (creditsEnabled)
-              tr(
-                '90 to 150 new credits every month by plan (free: 1 a day, 2 when signed in), and unused credits roll over',
-              ),
+              tr('All readings and follow-ups included, up to 50 a day'),
             tr('A clarifier card to shed light on a reading'),
             tr('A look back a week later, with a reminder'),
             tr('Helps keep ShenTarot running'),
@@ -322,6 +288,8 @@ class _PaywallScreenState extends State<PaywallScreen> {
                             plan.trialPrice ??
                                 plan.trialLabel!.split(' for ').first,
                           ])
+                  : plan?.title == 'Lifetime'
+                  ? tr('Buy lifetime')
                   : tr('Subscribe'),
             ),
           ),
@@ -368,6 +336,8 @@ class _PaywallScreenState extends State<PaywallScreen> {
                         ? tr(
                             'No surprise charges: cancel anytime, and we can remind you 2 days before it ends.',
                           )
+                        : plan.title == 'Lifetime'
+                        ? tr('Pay once, keep Premium for good.')
                         : tr('No surprise charges: cancel anytime.'),
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 13, color: AppColors.textMuted),
@@ -378,7 +348,11 @@ class _PaywallScreenState extends State<PaywallScreen> {
           ],
           SizedBox(height: 4),
           Text(
-            Platform.isIOS
+            plan?.title == 'Lifetime'
+                ? tr(
+                    'One-time payment, charged at confirmation of purchase. Nothing renews and there is no subscription to cancel.',
+                  )
+                : Platform.isIOS
                 ? tr(
                     'Payment is charged to your Apple ID account. The subscription renews automatically unless cancelled at least 24 hours before the end of the current period. Manage or cancel in your App Store account settings.',
                   )
@@ -388,11 +362,6 @@ class _PaywallScreenState extends State<PaywallScreen> {
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 12, color: AppColors.textMuted),
           ),
-          // One-time packs after the subscription and its terms, so the
-          // timeline and price above read as one offer.
-          if (creditsEnabled && plans != null)
-            // With no store products yet the card is a preview: shown, not buyable.
-            _CreditPacksCard(packs: _packs, busy: _busy, onBuy: _buyPack),
           Wrap(
             alignment: WrapAlignment.center,
             children: [
@@ -524,82 +493,6 @@ class _AppleFriendOffer extends StatelessWidget {
   );
 }
 
-/// One-time credit packs for people not ready to subscribe. They cost more
-/// per credit than Premium's monthly credits on purpose, and the card says so.
-class _CreditPacksCard extends StatelessWidget {
-  const _CreditPacksCard({
-    required this.packs,
-    required this.busy,
-    required this.onBuy,
-  });
-
-  /// Empty while the store products do not exist yet (preview).
-  final List<PlanOption> packs;
-  final bool busy;
-  final void Function(PlanOption) onBuy;
-
-  @override
-  Widget build(BuildContext context) => Card(
-    margin: EdgeInsets.only(top: 16),
-    child: Padding(
-      padding: EdgeInsets.all(16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            tr('Not ready to subscribe?'),
-            style: Theme.of(context).textTheme.titleMedium,
-          ),
-          SizedBox(height: 4),
-          Text(
-            tr(
-              tr(
-                'Buy a few credits once, no subscription. 1 credit = 1 reading or follow-up, and credits never expire.',
-              ),
-            ),
-          ),
-          SizedBox(height: 8),
-          if (packs.isEmpty)
-            Align(
-              alignment: AlignmentDirectional.centerEnd,
-              child: OutlinedButton(
-                onPressed: null,
-                child: Text(tr('Coming soon')),
-              ),
-            )
-          else
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              spacing: 8,
-              children: [
-                for (final pack in packs)
-                  OutlinedButton(
-                    onPressed: busy ? null : () => onBuy(pack),
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(vertical: 6),
-                      child: Column(
-                        children: [
-                          Text('${pack.title} · ${pack.priceString}'),
-                          if (perReading(pack) case final each?)
-                            Text(
-                              tr('about {0} a reading', [each]),
-                              style: TextStyle(
-                                fontSize: 12,
-                                color: AppColors.textMuted,
-                              ),
-                            ),
-                        ],
-                      ),
-                    ),
-                  ),
-              ],
-            ),
-        ],
-      ),
-    ),
-  );
-}
-
 /// Planned plans, shown only in tester builds while the stores have no
 /// products. Real prices always come from the store.
 final previewPlans = [
@@ -614,12 +507,11 @@ final previewPlans = [
     perMonthString: '\$3.33',
   ),
   PlanOption(
-    id: 'preview-quarterly',
-    title: '3 Months',
-    priceString: '\$14.99',
-    periodLabel: 'every 3 months',
-    price: 14.99,
-    perMonthString: '\$5.00',
+    id: 'preview-lifetime',
+    title: 'Lifetime',
+    priceString: '\$79.99',
+    periodLabel: 'one time',
+    price: 79.99,
   ),
   PlanOption(
     id: 'preview-monthly',
@@ -627,6 +519,13 @@ final previewPlans = [
     priceString: '\$6.99',
     periodLabel: 'per month',
     price: 6.99,
+  ),
+  PlanOption(
+    id: 'preview-weekly',
+    title: 'Weekly',
+    priceString: '\$2.99',
+    periodLabel: 'per week',
+    price: 2.99,
   ),
 ];
 
@@ -636,7 +535,7 @@ String? _reasonLine(PaywallReason r, String? area) => switch (r) {
     null => tr('Keep exploring what is on your mind'),
   },
   PaywallReason.general => null,
-  PaywallReason.outOfCredits => tr('Keep reading: more credits, your way'),
+  PaywallReason.outOfCredits => tr('Keep reading: every reading included'),
   PaywallReason.lockedSpread => tr('This spread is part of Premium'),
   PaywallReason.followUp => tr('Keep the conversation going'),
   PaywallReason.recap => tr('See your whole month'),

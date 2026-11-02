@@ -238,7 +238,7 @@ void main() {
     );
   });
 
-  testWidgets('credit packs on the paywall when credits are on', (
+  testWidgets('no credit packs on the paywall: only the Premium plans', (
     tester,
   ) async {
     tall(tester);
@@ -250,12 +250,6 @@ void main() {
           id: 'pack-10',
           title: '10 credits',
           priceString: '\$1.99',
-          periodLabel: 'one time',
-        ),
-        PlanOption(
-          id: 'pack-40',
-          title: '40 credits',
-          priceString: '\$5.99',
           periodLabel: 'one time',
         ),
       ];
@@ -271,9 +265,8 @@ void main() {
     await tester.pumpAndSettle();
     await openPaywall(tester);
     await tester.pumpAndSettle();
-    expect(find.text('Not ready to subscribe?'), findsOneWidget);
-    expect(find.text('10 credits · \$1.99'), findsOneWidget);
-    expect(find.text('40 credits · \$5.99'), findsOneWidget);
+    expect(find.text('Not ready to subscribe?'), findsNothing);
+    expect(find.textContaining('10 credits'), findsNothing);
   });
 
   test('credits let a free user read past the daily reading', () {

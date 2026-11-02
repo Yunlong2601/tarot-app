@@ -1,9 +1,12 @@
+import 'dart:ui' show ImageFilter;
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../paywall/out_of_credits.dart';
 import '../../app/app_scope.dart';
+import '../../app/app_state.dart';
 import '../../app/flags.dart';
 import '../../app/brand.dart';
 import '../../app/ritual_loader.dart';
@@ -91,12 +94,7 @@ class _FollowUpsState extends State<_FollowUps> {
     final used = {for (final c in widget.reading.cards) c.card.id};
     DrawnCard? card;
     if (how == 'draw') {
-      final pool = state.deck.cards.where((c) => !used.contains(c.id)).toList();
-      final rng = Random();
-      card = DrawnCard(
-        card: pool[rng.nextInt(pool.length)],
-        reversed: state.readReversed && rng.nextDouble() < 0.25,
-      );
+      card = waitingClarifier(state, widget.reading);
     } else {
       final id = await context.push<String>('/pick');
       if (id == null || !mounted) return;
@@ -524,7 +522,7 @@ class _FirstOffer extends StatelessWidget {
           ),
           Text(
             tr(
-              'Premium opens every spread, follow-up questions and 90 to 150 credits a month. Your free credits stay yours either way.',
+              'Premium includes every reading, every spread and follow-up questions. Your free credits stay yours either way.',
             ),
             style: const TextStyle(color: AppColors.textMuted),
           ),
@@ -796,6 +794,10 @@ class ReadingScreen extends StatelessWidget {
           const SizedBox(height: 20),
           if (state.showsFirstOffer(reading)) ...[
             _FirstOffer(onClose: state.dismissFirstOffer),
+            const SizedBox(height: 12),
+          ],
+          if (!state.isPremium) ...[
+            _ClarifierTeaser(reading: reading),
             const SizedBox(height: 12),
           ],
           _FollowUps(reading: reading),
@@ -1179,4 +1181,83 @@ class _SpreadStrip extends StatelessWidget {
       ],
     ),
   );
+}
+
+/// The clarifier card that waits for this reading: the same card every time
+/// (seeded by the reading id), never one already in the reading. Free users
+/// see it face down and blurred; Premium turns it over.
+DrawnCard waitingClarifier(AppState state, Reading reading) {
+  final used = {for (final c in reading.cards) c.card.id};
+  final pool = state.deck.cards.where((c) => !used.contains(c.id)).toList();
+  final rng = Random(reading.id.hashCode);
+  return DrawnCard(
+    card: pool[rng.nextInt(pool.length)],
+    reversed: state.readReversed && rng.nextDouble() < 0.25,
+  );
+}
+
+/// Free users: the clarifier card is already drawn, shown blurred, with the
+/// way to reveal it. The card is real (the same one Premium turns over).
+class _ClarifierTeaser extends StatelessWidget {
+  const _ClarifierTeaser({required this.reading});
+  final Reading reading;
+
+  @override
+  Widget build(BuildContext context) {
+    final state = AppScope.of(context);
+    final card = waitingClarifier(state, reading);
+    return Container(
+      key: const ValueKey('clarifier-teaser'),
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: AppColors.surface,
+        borderRadius: BorderRadius.circular(AppRadius.card),
+        border: Border.all(color: AppColors.goldDeep),
+      ),
+      child: Row(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(AppRadius.tarot),
+            child: ImageFiltered(
+              imageFilter: ImageFilter.blur(sigmaX: 9, sigmaY: 9),
+              child: CardArt(
+                card: card.card,
+                reversed: card.reversed,
+                width: 64,
+              ),
+            ),
+          ),
+          const SizedBox(width: 16),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  tr('A clarifier card is waiting'),
+                  style: Theme.of(context).textTheme.titleLarge
+                      ?.copyWith(color: AppColors.goldLight),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  tr(
+                    'It was drawn for this reading. Turn it over to see what it adds.',
+                  ),
+                  style: const TextStyle(color: AppColors.textMuted),
+                ),
+                const SizedBox(height: 8),
+                OutlinedButton(
+                  key: const ValueKey('clarifier-teaser-open'),
+                  onPressed: () {
+                    logEvent('clarifier_teaser', {'action': 'open'});
+                    openPaywall(context, PaywallReason.followUp);
+                  },
+                  child: Text(tr('Turn it over with Premium')),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }

@@ -181,6 +181,10 @@ String _storeSubscriptionsUrl() => Platform.isIOS
 
 const premiumEntitlement = 'premium';
 
+/// RevenueCat offering with the four Premium plans: weekly, monthly, yearly
+/// and lifetime.
+const premiumOfferingId = 'premium_v2';
+
 class RevenueCatSubscriptionService implements SubscriptionService {
   RevenueCatSubscriptionService(this.apiKey);
 
@@ -343,14 +347,20 @@ class RevenueCatSubscriptionService implements SubscriptionService {
 
   @override
   Future<List<PlanOption>> plans() async {
+    // 1.0.2 reads its own offering, so the plans of older app versions (the
+    // "default" offering) are untouched. Falls back to the current offering.
+    final offerings = await Purchases.getOfferings();
     final packages =
-        (await Purchases.getOfferings()).current?.availablePackages ?? const [];
-    // Annual first (best value), then 3 months, then monthly. Weekly is not
-    // offered (owner decision 2026-10-17); a weekly package is ignored.
+        (offerings.all[premiumOfferingId] ?? offerings.current)
+            ?.availablePackages ??
+        const [];
+    // Four ways to buy Premium (owner decision 2026-11-01): yearly (best
+    // value), lifetime, monthly, weekly. Other packages are ignored.
     const order = [
       PackageType.annual,
-      PackageType.threeMonth,
+      PackageType.lifetime,
       PackageType.monthly,
+      PackageType.weekly,
     ];
     final known = [
       for (final t in order) ...packages.where((p) => p.packageType == t),
@@ -364,6 +374,7 @@ class RevenueCatSubscriptionService implements SubscriptionService {
       PackageType.threeMonth => ('3 Months', tr('every 3 months')),
       PackageType.monthly => ('Monthly', tr('per month')),
       PackageType.weekly => ('Weekly', tr('per week')),
+      PackageType.lifetime => ('Lifetime', tr('one time')),
       _ => (p.storeProduct.title, ''),
     };
     final intro = p.storeProduct.introductoryPrice;

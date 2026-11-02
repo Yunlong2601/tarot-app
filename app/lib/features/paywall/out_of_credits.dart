@@ -75,20 +75,10 @@ Future<void> showOutOfCredits(BuildContext context) {
                 },
               ),
             _Option(
-              icon: Icons.toll_outlined,
-              title: tr('Buy a few credits'),
-              subtitle: tr('One-time packs, no subscription.'),
-              onTap: () {
-                logEvent('out_of_credits_choice', {'choice': 'packs'});
-                Navigator.pop(ctx);
-                openPaywall(context, PaywallReason.outOfCredits);
-              },
-            ),
-            _Option(
               icon: Icons.workspace_premium_outlined,
               title: tr('Go Premium'),
               subtitle: tr(
-                '90 to 150 credits a month and every spread. Cancel anytime.',
+                'Every reading and every spread included. Weekly, monthly, yearly or lifetime.',
               ),
               onTap: () {
                 logEvent('out_of_credits_choice', {'choice': 'premium'});

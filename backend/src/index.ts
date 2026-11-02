@@ -230,8 +230,8 @@ export function createApp(deps: Deps = defaultDeps) {
    * (CREDITS_ENABLED), free gets 2 readings a day and Premium up to 50. */
   type Charge = { ok: true; lot: number | null } | { ok: false; limit: number };
   const walletOn = (env: Env) => env.CREDITS_ENABLED === "true";
-  const monthlyFor = async (who: { appUserId: string }, env: Env, premium: boolean, now: number) =>
-    premium ? await (deps.premiumMonthly?.(who.appUserId, env, now) ?? DEFAULT_PREMIUM_CREDITS) : 0;
+  // Premium includes every reading, so it no longer collects monthly credits.
+  const monthlyFor = async (_who: { appUserId: string }, _env: Env, _premium: boolean, _now: number) => 0;
   const spentToday = async (usage: UsageStore, key: string, day: string) =>
     (await usage.count(key, day, "reading")) + (await usage.count(key, day, "followup"));
   /** Grants today's daily credits and, for Premium, this month's; returns how many were added. */
@@ -265,6 +265,9 @@ export function createApp(deps: Deps = defaultDeps) {
       return used < limit ? { ok: true, lot: null } : { ok: false, limit };
     }
     if (used >= DAILY_SPEND_GUARD) return { ok: false, limit: DAILY_SPEND_GUARD };
+    // Premium (any plan, including lifetime) includes everything: no credit is
+    // spent, only the daily fair-use guard applies. Credits are for free users.
+    if (premium) return { ok: true, lot: null };
     await grantCredits(who, env, premium, day, now);
     const lot = await deps.credits(env).spend(who.usageKey);
     return lot === null ? { ok: false, limit: DAILY_SPEND_GUARD } : { ok: true, lot };
@@ -426,7 +429,9 @@ export function createApp(deps: Deps = defaultDeps) {
     const cap = Number(c.env.GLOBAL_DAILY_TOKEN_CAP ?? DEFAULT_GLOBAL_DAILY_TOKEN_CAP);
     if (!user.target) {
       const used = await usage.tokensToday(day);
-      if (used >= cap) return c.json({ error: "service_busy" }, 503);
+      // The shared daily budget only pauses free readings: paying users are
+      // bounded by their own daily guard, so one busy day never locks them out.
+      if (used >= cap && !premium) return c.json({ error: "service_busy" }, 503);
       await alertTokenUsage(c.env, used, cap, day, deps.alert);
     }
 
@@ -565,7 +570,9 @@ export function createApp(deps: Deps = defaultDeps) {
     const cap = Number(c.env.GLOBAL_DAILY_TOKEN_CAP ?? DEFAULT_GLOBAL_DAILY_TOKEN_CAP);
     if (!user.target) {
       const used = await usage.tokensToday(day);
-      if (used >= cap) return c.json({ error: "service_busy" }, 503);
+      // The shared daily budget only pauses free readings: paying users are
+      // bounded by their own daily guard, so one busy day never locks them out.
+      if (used >= cap && !premium) return c.json({ error: "service_busy" }, 503);
       await alertTokenUsage(c.env, used, cap, day, deps.alert);
     }
     // One credit per follow-up, same as a reading: daily credits, then bonus credits.

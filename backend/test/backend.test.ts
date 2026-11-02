@@ -445,6 +445,12 @@ describe("POST /v1/reading", () => {
     expect(s.calls()).toBe(0);
   });
 
+  it("the spent global budget never blocks a Premium reading", async () => {
+    const s = setup({ premium: true, cap: "100" });
+    s.usage.rows.push({ id: 99, hash: "other", day: "2026-10-16", kind: "reading", spread: "single", model: "m", i: 80, o: 80 });
+    expect((await post(s, single)).status).toBe(200);
+  });
+
   it("rejects invalid bodies before spending anything", async () => {
     const s = setup();
     expect((await post(s, { spread: "single", cards: [] })).status).toBe(400);
@@ -626,7 +632,7 @@ describe("providers and own keys", () => {
     const hash = await hashId(UUID, "salt");
     while ((await s.usage.count(hash, "2026-10-16", "reading")) < 50) await s.usage.reserve(hash, "2026-10-16", "reading");
     s.usage.rows.forEach((r) => { r.i = 100; }); // our budget of 100 is used up
-    expect((await post(s)).status).toBe(503); // our key: budget gone
+    expect((await post(s)).status).toBe(429); // our key: Premium's own daily guard is used up
     const r = await post(s, { "x-user-provider": "anthropic", "x-user-key": OWN });
     expect(r.status).toBe(200);
     expect(used).toEqual([{ key: OWN, byok: true }]);
@@ -926,20 +932,13 @@ describe("daily and monthly credits, rollover, bank caps and the daily guard", (
     expect((await go(s, "/v1/reading", readBody)).status).toBe(200);
   });
 
-  it("Premium also gets monthly credits by plan, once per calendar month, with a 2-month bank", async () => {
-    for (const [plan, amount] of [["annual", 150], ["quarterly", 120], ["monthly", 90]] as const) {
-      const s = setup({ premium: true, credits: true });
-      s.deps.premiumMonthly = async () => amount;
-      expect(await daily(s), plan).toEqual({ granted: 2 + amount, balance: 2 + amount, dailyAmount: 2, monthlyAmount: amount });
-      expect(await daily(s), plan).toMatchObject({ granted: 0 }); // same day and month
-      s.deps.now = () => NOW + DAY; // 17 Oct: same month, new day
-      expect(await daily(s), plan).toMatchObject({ granted: 2 });
-      s.deps.now = () => Date.parse("2026-11-02T12:00:00Z"); // next month
-      expect(await daily(s), plan).toMatchObject({ granted: 2 + amount });
-      s.deps.now = () => Date.parse("2026-12-02T12:00:00Z"); // 2 months already banked: no more monthly credits
-      expect(await daily(s), plan).toMatchObject({ granted: 2 });
-      expect((await s.credits.balance(await hash())), plan).toBe(2 + amount + 2 + 2 + amount + 2);
-    }
+  it("Premium includes every reading: no credit is spent and no monthly credits are banked", async () => {
+    const s = setup({ premium: true, credits: true });
+    s.deps.premiumMonthly = async () => 150;
+    expect(await daily(s)).toMatchObject({ monthlyAmount: 0 });
+    const before = await s.credits.balance(await hash());
+    expect((await go(s, "/v1/reading", readBody)).status).toBe(200);
+    expect(await s.credits.balance(await hash())).toBe(before);
   });
 
   it("a free user never receives monthly credits", async () => {
