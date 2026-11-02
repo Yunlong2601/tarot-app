@@ -3,6 +3,8 @@ import 'package:go_router/go_router.dart';
 
 import '../../app/app_scope.dart';
 import '../../app/theme.dart';
+import '../../core/analytics.dart';
+import 'asked_before.dart';
 import 'question_nudge.dart';
 import 'reader_voice.dart';
 import '../../app/i18n.dart';
@@ -88,6 +90,52 @@ class _AskScreenState extends State<AskScreen> {
         ),
       );
       if (ask != true || !mounted) return;
+    }
+    if (!mounted) return;
+    // Seen this question before? Offer the earlier reading first, so a
+    // worried re-ask becomes a look back rather than a new draw.
+    final state = AppScope.of(context);
+    final before = similarPastReading(
+      state.history,
+      _controller.text,
+      now: DateTime.now(),
+    );
+    if (before != null) {
+      final days = DateTime.now().difference(before.createdAt).inDays;
+      final see = await showAppDialog<bool>(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: Text(tr('You asked this before')),
+          content: Text(
+            tr('{0} you asked "{1}" and drew {2}. Read that first, or ask the cards again?', [
+              days == 0
+                  ? tr('Earlier today')
+                  : days == 1
+                  ? tr('Yesterday')
+                  : tr('{0} days ago', [days]),
+              before.question!.trim(),
+              before.cards.map((c) => c.card.name).take(3).join(', '),
+            ]),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(ctx, false),
+              child: Text(tr('Ask again')),
+            ),
+            FilledButton(
+              style: FilledButton.styleFrom(minimumSize: const Size(0, 44)),
+              onPressed: () => Navigator.pop(ctx, true),
+              child: Text(tr('See that reading')),
+            ),
+          ],
+        ),
+      );
+      if (!mounted || see == null) return;
+      logEvent('asked_before', {'opened': see});
+      if (see) {
+        context.push('/reading/${before.id}');
+        return;
+      }
     }
     if (!mounted) return;
     AppScope.of(context).setDraftQuestion(_controller.text);
