@@ -397,11 +397,20 @@ class _PaywallScreenState extends State<PaywallScreen> {
 /// How much the annual plan saves against paying monthly for a year, in whole
 /// percent, from the store's own prices (so it is right in every currency).
 /// Null when either price is missing or there is no saving.
-int? annualSaving(List<PlanOption> plans) {
+int? annualSaving(List<PlanOption> plans) =>
+    _saving(plans, 'Weekly', 52) ?? _saving(plans, 'Monthly', 12);
+
+/// "vs weekly" when a weekly plan is offered, else "vs monthly".
+String annualSavingLabel(List<PlanOption> plans, int pct) =>
+    _saving(plans, 'Weekly', 52) != null
+    ? tr('save {0}% vs weekly', [pct])
+    : tr('save {0}% vs monthly', [pct]);
+
+int? _saving(List<PlanOption> plans, String other, int perYear) {
   final annual = plans.where((p) => p.title == 'Annual').firstOrNull?.price;
-  final monthly = plans.where((p) => p.title == 'Monthly').firstOrNull?.price;
-  if (annual == null || monthly == null || monthly <= 0) return null;
-  final pct = ((1 - annual / (monthly * 12)) * 100).floor();
+  final o = plans.where((p) => p.title == other).firstOrNull?.price;
+  if (annual == null || o == null || o <= 0) return null;
+  final pct = ((1 - annual / (o * perYear)) * 100).floor();
   return pct > 0 ? pct : null;
 }
 
@@ -415,7 +424,7 @@ Widget? _planDetails(PlanOption p, List<PlanOption> plans) {
           ? tr('just {0}/month', [p.perMonthString])
           : tr('{0}/month', [p.perMonthString]),
     if (p.title == 'Annual' && annualSaving(plans) != null)
-      tr('save {0}% vs monthly', [annualSaving(plans)]),
+      annualSavingLabel(plans, annualSaving(plans)!),
   ];
   return parts.isEmpty ? null : Text(parts.join(' · '));
 }
@@ -501,31 +510,30 @@ final previewPlans = [
     title: 'Annual',
     priceString: '\$39.99',
     periodLabel: 'per year',
-    trialLabel: '\$1.99 for your first month',
-    trialIsFree: false,
+    trialLabel: '3 days free',
     price: 39.99,
     perMonthString: '\$3.33',
   ),
   PlanOption(
     id: 'preview-lifetime',
     title: 'Lifetime',
-    priceString: '\$79.99',
+    priceString: '\$99.99',
     periodLabel: 'one time',
-    price: 79.99,
+    price: 99.99,
   ),
   PlanOption(
     id: 'preview-monthly',
     title: 'Monthly',
-    priceString: '\$6.99',
+    priceString: '\$9.99',
     periodLabel: 'per month',
-    price: 6.99,
+    price: 9.99,
   ),
   PlanOption(
     id: 'preview-weekly',
     title: 'Weekly',
-    priceString: '\$2.99',
+    priceString: '\$3.99',
     periodLabel: 'per week',
-    price: 2.99,
+    price: 3.99,
   ),
 ];
 
