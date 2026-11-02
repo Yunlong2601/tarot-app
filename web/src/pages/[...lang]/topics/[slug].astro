@@ -38,6 +38,10 @@ const guides = QUESTION_GUIDES.filter((g) => g.topic === tp.slug);
   <h2>{t("topic.asked")}</h2>
   <ul class="questions">{c.questions.map((q) => <li>{q}</li>)}</ul>
   <p class="muted">{t("topic.appNote")}</p>
+  <p class="eyebrow">{t("freeTool")}</p>
+  <a class="panel tool-tile" href={u(`tools/${tp.tool}`)} style="max-width:26rem">
+    <div><h3>{t(`tools.list.${tp.tool}.title`)}</h3><p>{t(`tools.list.${tp.tool}.text`)}</p><span class="link-arrow">{t("tools.open")}</span></div>
+  </a>
   {guides.length > 0 && (
     <>
       <h2 style="margin-top:3rem">{t("topic.guides")}</h2>

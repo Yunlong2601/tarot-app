@@ -50,5 +50,13 @@ const sheets = spreadIds.map((id) => ({ id, ...L.content.spreads[id as keyof typ
   const pickEl = document.querySelector<HTMLSelectElement>("[data-sheet-pick]")!;
   const show = () => document.querySelectorAll<HTMLElement>("[data-sheet]").forEach((s) => (s.hidden = s.dataset.sheet !== pickEl.value));
   pickEl.onchange = show;
+  // A spread page links here with ?spread=<id> so the sheet for that spread is
+  // already open. Unknown values are ignored and the page keeps its default
+  // sheet, so a bad parameter can never leave the page blank.
+  const wanted = new URLSearchParams(location.search).get("spread");
+  if (wanted && [...pickEl.options].some((o) => o.value === wanted)) {
+    pickEl.value = wanted;
+    show();
+  }
   document.querySelector<HTMLButtonElement>("[data-print]")!.onclick = () => print();
 </script>

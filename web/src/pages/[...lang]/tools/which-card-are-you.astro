@@ -7,6 +7,10 @@ export const getStaticPaths = langPaths;
 const { lang } = Astro.props as { lang: Locale };
 const L = i18n(lang);
 const { t } = L;
+// The quiz assigns an identity, so it states its limits before the questions
+// rather than after the result. Reuses the workspace disclaimer so the line is
+// already translated in all eight locales.
+const limits = L.workspace.disclaimer;
 
 const courts = meaningDeck(L).filter((c) => c.suit !== null && c.n === null);
 const config = JSON.stringify({ view: L.view, deck: courts, share: L.ui.share, t: { copyLink: t("quiz.copyLink"), copied: t("quiz.copied"), youAre: t("quiz.youAre") } });
@@ -25,6 +29,7 @@ const questions = L.ui.quiz.q.map((x, i) => ({ q: x.q, opts: x.a.map((label, j) 
     <p class="eyebrow">{t("quiz.eyebrow")}</p>
     <h1>{t("quiz.h1")}</h1>
     <p class="lead">{t("quiz.lead")}</p>
+    <p class="muted">{limits}</p>
   </header>
   <form class="quiz" data-quiz style="max-width:40rem;margin:0 auto">
     <script type="application/json" data-config set:html={config.replace(/</g, "\\u003c")} />
