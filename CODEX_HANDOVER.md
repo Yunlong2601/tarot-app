@@ -38,9 +38,13 @@ written up until the behaviour has been observed in a browser.
 
 ## 2. What changed on this branch
 
-Four changes, 7 files, +31 lines. Every user-facing string is either reused from an
-existing translated key or is a change to markup only, so **all eight locales ship
-together** — nothing here is English-only.
+Seven changes across two rounds. Every user-facing string is either reused from an existing
+translated key or written in all eight locales, so **all eight locales ship together** —
+nothing here is English-only.
+
+Round one (§2.1–2.4) was internal linking: 7 files, +31 lines, no new strings.
+Round two (§2.5–2.7) was on-page SEO: the `/read` title, the `/topics` hub and the sitelinks
+`SearchAction`.
 
 ### 2.1 `/tools/reading-sheet` now honours `?spread=<id>`
 `web/src/pages/[...lang]/tools/reading-sheet.astro`
@@ -85,6 +89,50 @@ all — the most fortune-telling-adjacent surface on the site.
 - `which-card-are-you` → reuse `workspace.disclaimer` — *"For entertainment and self-reflection only. Interpretations are possibilities, not predictions or professional advice."*
 
 Both were already translated in all eight locales. `birth-card` already had `notFate`.
+
+### 2.5 `/read` finally has a title tag worth ranking
+`web/src/i18n/*/workspace.json`, `web/src/pages/[...lang]/read.astro`
+
+The title tag was **"Interpret my cards"** — 18 characters, no keyword, no brand — on the
+page most new visitors land on.
+
+`workspace.title` is *also* the nav label and the CTA link text on 312 card-context pages,
+so it could not be changed in place. Added a separate `seoTitle` key and used it for the
+title tag only:
+
+> Read your tarot cards: choose a spread and explore the meanings · ShenTarot
+
+Written per locale (75/77/81/87/37/72/30/30 chars for en/de/es/fr/ja/ru/zh-hans/zh-hant).
+
+**Still not fixed:** the H1 is still *"A story, laid open."* — see §6 item 3. That is a
+brand-voice decision, not a code change; it needs the owner.
+
+### 2.6 The `/topics` hub now exists
+`web/src/pages/[...lang]/topics/index.astro` (new), `sitemap.xml.ts`, `layouts/Base.astro`,
+`topics/[slug].astro`, `i18n/*/ui.json`
+
+`/topics` was one of three sections whose children existed but whose index page 404'd. The
+five topic pages were reachable only from the footer, with no parent.
+
+- Hub ships in all eight locales (new `topics` block in `ui.json`, matching the existing
+  `spreads` / `cards` / `questions` index blocks: title, description, crumb, eyebrow, h1, lead).
+- `CollectionPage` + `ItemList` schema.
+- Added to `sitemap.xml.ts` paths.
+- Footer "Readings" column links it.
+- Topic pages now get a real breadcrumb: Home › Topics › Love tarot reading.
+
+**Deliberately not built: `/zodiac` and `/birth-cards`** — `/tools/zodiac-tarot` and
+`/tools/birth-card` already link to every child and already hold the head term. A new hub
+at `/zodiac` or `/birth-cards` would compete with them. If you disagree, that is a
+cannibalisation call, not a missing-page call — check which URL currently ranks first.
+
+### 2.7 Homepage `WebSite` schema gains a `SearchAction`
+`web/src/pages/[...lang]/index.astro`
+
+`Organization` (Shenetic) and `WebSite` (ShenTarot) were already on the homepage. `WebSite`
+had no `potentialAction`, which is the only thing that makes a sitelinks search box
+possible. Added `SearchAction` → `{site}search?q={search_term_string}`, so it localises
+(`/de/search?q=`, `/ja/search?q=`, …). No new strings.
 
 ---
 
@@ -151,15 +199,17 @@ checks will fail and should fail.
 From the 2026-11-02 audit (`roadmap-shentarot-2026-11-02.md`). Re-checked against this
 branch on 2026-11-02; these are still true.
 
-1. **Three section hubs do not exist** — `/zodiac`, `/birth-cards`, `/topics` all 404. Only
-   the child pages exist. Build them, link each from its parent tool, add to `sitemap.xml`
-   **and** to the children's breadcrumbs. Build order by damage: `/zodiac`, `/birth-cards`,
-   `/topics`.
+1. **Two section hubs still do not exist** — `/zodiac` and `/birth-cards`. `/topics` is done
+   (§2.6). **Do not build the other two without deciding cannibalisation first**: the tools
+   `/tools/zodiac-tarot` and `/tools/birth-card` already link to every child and already
+   hold the head term. Check which URL ranks before adding a competitor.
 2. **Regression tests for the `/read` handler**, reversed case first. It works today; a
    `?card=`-only change would silently leave the reversal broken, and nobody reports that.
    Note tests run against one locale — English passing does not cover `/de/read` etc.
-3. **`/read` cannot rank**: 18-character title, H1 "A story, laid open.", under 100 words of
-   prose. It is the primary landing page for "what do my tarot cards mean".
+3. **`/read` still cannot rank, but half of it is fixed.** The 18-character title is gone
+   (§2.5). What remains: H1 is still *"A story, laid open."* and the page has under 100
+   words of indexable prose, while being the primary landing page for "what do my tarot
+   cards mean". The H1 is brand voice — owner decision. The prose is a content job.
 4. **GSC-gated:** pull impressions for `/cards/.*/(love|career|feelings|yes-or-no)`. Whether
    the 312 card-context pages earn their crawl decides keep / consolidate / prune. Blocked
    on sitemap segmentation shipping first.
