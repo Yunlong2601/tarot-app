@@ -1,3 +1,4 @@
+import 'dart:math' as math;
 import 'dart:ui' show Offset;
 
 import '../app/i18n.dart';
@@ -36,6 +37,7 @@ enum SpreadType {
   yesNo,
   newMoon,
   fullMoon,
+  yearAhead,
 }
 
 class SpreadDef {
@@ -86,6 +88,22 @@ const _arc7 = [
   Offset(0.78, 0.56),
   Offset(0.92, 0.88),
 ];
+/// Year Ahead: the theme in the middle, the twelve months around it like a
+/// clock face, the coming month at the top.
+final _year13 = [
+  const Offset(0.5, 0.5),
+  for (var i = 0; i < 12; i++)
+    Offset(
+      0.5 + 0.42 * math.sin(i * math.pi / 6),
+      0.5 - 0.42 * math.cos(i * math.pi / 6),
+    ),
+];
+
+const _monthNames = [
+  'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
+  'September', 'October', 'November', 'December',
+];
+
 const _celtic10 = [
   Offset(0.24, 0.5),
   Offset(0.24, 0.5),
@@ -99,7 +117,7 @@ const _celtic10 = [
   Offset(0.8, 0.13),
 ];
 
-const spreadDefs = <SpreadType, SpreadDef>{
+final spreadDefs = <SpreadType, SpreadDef>{
   SpreadType.single: SpreadDef(
     wire: 'single',
     name: 'One-Card Reading',
@@ -297,6 +315,17 @@ const spreadDefs = <SpreadType, SpreadDef>{
     positions: ['What has grown', 'What to let go', 'What to celebrate'],
     layout: _row3,
   ),
+  SpreadType.yearAhead: SpreadDef(
+    wire: 'year_ahead',
+    name: 'Year Ahead',
+    category: SpreadCategory.growth,
+    blurb: 'What will each month of the coming year ask of me?',
+    positions: [
+      'Theme of the year',
+      for (var i = 1; i <= 12; i++) 'Month $i',
+    ],
+    layout: _year13,
+  ),
 };
 
 extension SpreadInfo on SpreadType {
@@ -305,11 +334,21 @@ extension SpreadInfo on SpreadType {
   String get blurb => tr(def.blurb);
   String get wire => def.wire;
   SpreadCategory get category => def.category;
-  List<String> get positions => [for (final p in def.positions) tr(p)];
+  List<String> get positions => positionsFrom(DateTime.now());
+
+  /// Position labels for a reading made at [made]. The Year Ahead names its
+  /// months, starting with the month after [made].
+  List<String> positionsFrom(DateTime made) => this == SpreadType.yearAhead
+      ? [
+          tr(def.positions.first),
+          for (var i = 1; i <= 12; i++)
+            tr(_monthNames[(made.month - 1 + i) % 12]),
+        ]
+      : [for (final p in def.positions) tr(p)];
   int get cardCount => def.positions.length;
 
   /// Spreads of up to 3 cards are free within the daily reading limit; the 5,
-  /// 7 and 10-card spreads are Premium, with one free trial reading (owner
+  /// 7, 10 and 13-card spreads are Premium, with one free trial reading (owner
   /// decision 2026-10-17). Keep in step with `isFreeSpread` in the backend.
   bool get isFree => cardCount <= 3;
   bool get isPremium => !isFree;
@@ -327,6 +366,9 @@ SpreadType recommendSpread(String question) {
   bool any(List<String> words) => words.any(q.contains);
   // A yes or no question gets the spread made for it, whatever the topic.
   if (isYesNoQuestion(q)) return SpreadType.yesNo;
+  if (any(['year ahead', 'next year', 'coming year', 'this year', 'new year'])) {
+    return SpreadType.yearAhead;
+  }
   if (any([
     'ex ',
     ' ex',

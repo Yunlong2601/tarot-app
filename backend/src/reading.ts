@@ -3,7 +3,7 @@ import { POSITIONS, cardBlock, restrictedTopic, spreadFacts } from "./knowledge"
 import type { ReadingRequest } from "./validate";
 import { dominantScript, replyLanguage } from "./language";
 
-export const READING_PROMPT_VERSION = "2026-10-31.1";
+export const READING_PROMPT_VERSION = "2026-11-02.1";
 
 export const READING_SYSTEM_PROMPT = `You are ShenTarot's reader: a seasoned tarot reader with decades at the table and a deep, lived knowledge of the Rider-Waite-Smith deck. You speak like a person sitting across from the user: you look at the picture first ("look at the figure's hands..."), you connect the cards to each other, you have a point of view, and you end with one sharp question back. You draw on real craft (numerology, suit balance, elemental dignities, court-card roles, reversals as blocked or inward energy) and it sounds lived-in, never listed. You are warm, grounded and plain-spoken. The app is for self-reflection and entertainment: you never claim to know what will happen.
 
@@ -46,7 +46,7 @@ OUTPUT (JSON only, no markdown, no text outside the JSON)
     { "position": "<position label as given>", "card": "<card name as given>", "orientation": "upright" | "reversed",
       "reading": "<2 to 4 sentences: image, meaning, position, question>", "why": "<1 to 2 sentences>" }
   ],
-  "overview": "<a short answer to open the reading. For 1 card: 1 to 2 sentences. For 3 cards: 3 to 4. For 5 to 10 cards: 5 to 7. Name the central theme or tension. Open with what the cards show about the situation itself, not with what you cannot do: never start by saying you cannot answer or decide. Never a yes or no, and never what will happen; if the question asks for one, let the last sentence say gently that the choice stays theirs>",
+  "overview": "<a short answer to open the reading. For 1 card: 1 to 2 sentences. For 3 cards: 3 to 4. For 5 to 13 cards: 5 to 7. Name the central theme or tension. Open with what the cards show about the situation itself, not with what you cannot do: never start by saying you cannot answer or decide. Never a yes or no, and never what will happen; if the question asks for one, let the last sentence say gently that the choice stays theirs>",
   "reflection_question": "<one open question for the user, not yes/no>",
   "small_step": "<one low-stakes action: notice, write, ask, pause. Never medical, legal, financial or about a relationship decision>",
   "declined_topic": null | "medical" | "legal" | "financial" | "death" | "pregnancy" | "gambling" | "third_party" | "other",
@@ -54,14 +54,14 @@ OUTPUT (JSON only, no markdown, no text outside the JSON)
   "off_topic": false,
   "redirect": ""
 }
-Length limits for the whole reading: 1 card about 180 words, 3 cards about 380, 5 cards about 480, 7 cards about 560, 10 cards about 650.`;
+Length limits for the whole reading: 1 card about 180 words, 3 cards about 380, 5 cards about 480, 7 cards about 560, 10 cards about 650, 13 cards about 800.`;
 
 import { SPREADS, spreadSize, type Spread } from "./spreads";
 
 /** Output budget grows with the number of cards. */
 export function readingMaxTokens(spread: Spread): number {
   const n = spreadSize(spread);
-  return n <= 1 ? 2200 : n <= 3 ? 3000 : n <= 5 ? 3800 : n <= 7 ? 4400 : 5000;
+  return n <= 1 ? 2200 : n <= 3 ? 3000 : n <= 5 ? 3800 : n <= 7 ? 4400 : n <= 10 ? 5000 : 6000;
 }
 
 const AREA_WORDS: Record<string, string> = {
@@ -79,7 +79,16 @@ function focusLine(focus: ReadingRequest["focus"]): string | null {
   return `What the user told us when they started (tapped answers): ${parts.join("; ")}. Begin the overview by gently naming this in one short clause, then let the cards speak to it. If a question was asked, the question comes first.`;
 }
 
-export function buildReadingMessage(req: ReadingRequest): string {
+/** "Month 1 is December 2026, Month 2 is January 2027, ..." from the month after [now]. */
+export function yearAheadMonths(now: Date): string {
+  const names = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  return Array.from({ length: 12 }, (_, i) => {
+    const m = now.getUTCMonth() + 1 + i;
+    return `Month ${i + 1} is ${names[m % 12]} ${now.getUTCFullYear() + Math.floor(m / 12)}`;
+  }).join(", ");
+}
+
+export function buildReadingMessage(req: ReadingRequest, now: Date = new Date()): string {
   const positions = POSITIONS[req.spread];
   const lang = replyLanguage(req.lang ?? "en", req.question);
   const topic = restrictedTopic(req.question, req.impression);
@@ -87,6 +96,7 @@ export function buildReadingMessage(req: ReadingRequest): string {
   return [
     `Spread: ${SPREADS[req.spread].name} (${req.cards.length} cards). Purpose: ${SPREADS[req.spread].purpose}`,
     topic ? `Possible restricted topic in the user's text: ${topic} (set declined_topic and keep the reading general)` : null,
+    req.spread === "year_ahead" ? `${yearAheadMonths(now)}. Name each month in the reading in the reply language.` : null,
     `Spread facts:\n${spreadFacts(req.cards)}`,
     `Cards:\n${blocks.join("\n")}`,
     req.question ? `<question>${req.question}</question>` : "No question was asked. Give a general reading.",

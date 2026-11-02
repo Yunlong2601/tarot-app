@@ -43,6 +43,14 @@ export const SPREADS = {
       "Near horizon", "You", "Surroundings", "Hopes and fears", "Direction",
     ],
   },
+  year_ahead: {
+    name: "Year Ahead", category: "growth",
+    purpose: "A reflective map of the user's next twelve months: one card as the theme of the year, then one card for each month starting with the coming month. Each month is a theme to notice and a way to meet it, never a prediction of events. Keep each month to two or three sentences.",
+    positions: [
+      "Theme of the year", "Month 1", "Month 2", "Month 3", "Month 4", "Month 5", "Month 6",
+      "Month 7", "Month 8", "Month 9", "Month 10", "Month 11", "Month 12",
+    ],
+  },
   love_connection: {
     name: "Love & Relationship", category: "love",
     purpose: "Reflecting on the user's own part in a relationship. Never what the other person thinks or feels.",
@@ -120,8 +128,8 @@ export const SPREAD_IDS = Object.keys(SPREADS) as Spread[];
 export const spreadSize = (s: Spread): number => SPREADS[s].positions.length;
 export const isSpread = (v: unknown): v is Spread => typeof v === "string" && Object.hasOwn(SPREADS, v);
 
-/** Spreads of up to 3 cards are free within the daily limit; the 5, 7 and
- * 10-card spreads are Premium, with one free trial reading per install
+/** Spreads of up to 3 cards are free within the daily limit; the 5, 7, 10
+ * and 13-card spreads are Premium, with one free trial reading per install
  * (owner decision 2026-10-17). This is the one place to change that. */
 export const FREE_SPREAD_MAX_CARDS = 3;
 export const isFreeSpread = (s: Spread): boolean => spreadSize(s) <= FREE_SPREAD_MAX_CARDS;

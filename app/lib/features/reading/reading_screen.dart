@@ -761,7 +761,7 @@ class ReadingScreen extends StatelessWidget {
                   slotBuilder: (i, w, h) => Tooltip(
                     triggerMode: TooltipTriggerMode.longPress,
                     message:
-                        '${i + 1}. ${reading.spread.positions[i]} · ${cardLabel(reading.cards[i].card.name, reading.cards[i].reversed)}',
+                        '${i + 1}. ${reading.spread.positionsFrom(reading.createdAt)[i]} · ${cardLabel(reading.cards[i].card.name, reading.cards[i].reversed)}',
                     child: InkWell(
                       onTap: () =>
                           context.push('/card/${reading.cards[i].card.id}'),
@@ -791,7 +791,7 @@ class ReadingScreen extends StatelessWidget {
                         SizedBox(
                           width: 96,
                           child: Text(
-                            reading.spread.positions[i],
+                            reading.spread.positionsFrom(reading.createdAt)[i],
                             textAlign: TextAlign.center,
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
@@ -1163,7 +1163,7 @@ class _SpreadStrip extends StatelessWidget {
                   button: true,
                   selected: on,
                   label:
-                      '${i + 1}. ${reading.spread.positions[i]}: ${cardLabel(d.card.name, d.reversed)}',
+                      '${i + 1}. ${reading.spread.positionsFrom(reading.createdAt)[i]}: ${cardLabel(d.card.name, d.reversed)}',
                   excludeSemantics: true,
                   child: GestureDetector(
                     onTap: () => onTap(i),

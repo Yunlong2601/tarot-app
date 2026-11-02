@@ -44,6 +44,7 @@ class SpreadLayoutView extends StatelessWidget {
     SpreadType.careerStrengths ||
     SpreadType.loveUs => 1.05,
     SpreadType.celticCross => 1.0,
+    SpreadType.yearAhead => 0.92,
     _ => 1.15, // seven-card arcs
   };
 
@@ -53,6 +54,7 @@ class SpreadLayoutView extends StatelessWidget {
     if (n == 3) return w * 0.22;
     if (n == 5) return w * 0.17;
     if (n == 7) return w * 0.12;
+    if (n == 13) return w * 0.105;
     return w * 0.13;
   }
 

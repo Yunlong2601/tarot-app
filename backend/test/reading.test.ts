@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { CARDS } from "../src/cards";
 import { CRISIS_MESSAGE, POSITIONS, cardBlock, detectCrisis, restrictedTopic, spreadFacts } from "../src/knowledge";
 import {
-  READING_SYSTEM_PROMPT, buildReadingMessage, fallbackReading, hitsBannedClaim, parseModelReply, renderReading,
+  READING_SYSTEM_PROMPT, buildReadingMessage, yearAheadMonths, fallbackReading, hitsBannedClaim, parseModelReply, renderReading,
 } from "../src/reading";
 import type { ReadingRequest } from "../src/validate";
 
@@ -146,12 +146,12 @@ describe("crisis pre-check", () => {
 import { SPREADS, SPREAD_IDS, isFreeSpread, spreadSize } from "../src/spreads";
 
 describe("spread catalog", () => {
-  it("every spread has 1 to 10 unique positions and a purpose", () => {
+  it("every spread has 1 to 13 unique positions and a purpose", () => {
     expect(SPREAD_IDS.length).toBeGreaterThanOrEqual(14);
     for (const id of SPREAD_IDS) {
       const d = SPREADS[id];
       expect(spreadSize(id), id).toBeGreaterThanOrEqual(1);
-      expect(spreadSize(id), id).toBeLessThanOrEqual(10);
+      expect(spreadSize(id), id).toBeLessThanOrEqual(13);
       expect(new Set(d.positions).size, id).toBe(d.positions.length);
       expect(d.purpose.length, id).toBeGreaterThan(20);
     }
@@ -163,11 +163,17 @@ describe("spread catalog", () => {
       }
     }
   });
-  it("spreads of 1 to 3 cards are free; 5, 7 and 10-card spreads are Premium", () => {
+  it("spreads of 1 to 3 cards are free; 5, 7, 10 and 13-card spreads are Premium", () => {
     for (const id of SPREAD_IDS) expect(isFreeSpread(id), id).toBe(spreadSize(id) <= 3);
     expect(SPREAD_IDS.filter((id) => !isFreeSpread(id)).sort()).toEqual(
-      ["career_strengths", "celtic", "five_cross", "horseshoe", "love_ready", "love_reconnect", "love_us"],
+      ["career_strengths", "celtic", "five_cross", "horseshoe", "love_ready", "love_reconnect", "love_us", "year_ahead"],
     );
+  });
+  it("the Year Ahead names its twelve months, starting next month", () => {
+    expect(yearAheadMonths(new Date(Date.UTC(2026, 10, 2)))).toMatch(/^Month 1 is December 2026, Month 2 is January 2027, .*Month 12 is November 2027$/);
+    const ids = Object.keys(CARDS).slice(0, 13);
+    const m = buildReadingMessage({ spread: "year_ahead", question: null, impression: null, cards: ids.map((id) => ({ id, reversed: false })) } as never, new Date(Date.UTC(2026, 10, 2)));
+    expect(m).toContain("Month 1 is December 2026");
   });
   it("the prompt names the spread and its purpose", () => {
     const m = buildReadingMessage({

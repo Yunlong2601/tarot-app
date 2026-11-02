@@ -124,7 +124,8 @@ class _ScanScreenState extends State<ScanScreen> {
             style: const TextStyle(color: AppColors.textMuted),
           ),
           const SizedBox(height: 16),
-          if (_spread.cardCount > 1) ...[
+          // A photo reads up to 10 cards; the Year Ahead is scanned one by one.
+          if (_spread.cardCount > 1 && _spread.cardCount <= 10) ...[
             FilledButton.icon(
               style: FilledButton.styleFrom(
                 minimumSize: const Size.fromHeight(52),
