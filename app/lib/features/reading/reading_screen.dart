@@ -17,6 +17,7 @@ import '../cards/card_art.dart';
 import '../spreads/spread_layout.dart';
 import '../read/reader_voice.dart';
 import '../scan/orientation_dialog.dart';
+import 'listen.dart';
 import 'reading_sections.dart';
 import 'report_reading.dart';
 import 'share_card.dart';
@@ -692,6 +693,7 @@ class ReadingScreen extends StatelessWidget {
           child: Text(reading.spread.label),
         ),
         actions: [
+          ListenButton(reading: reading),
           IconButton(
             tooltip: tr('Share your reading'),
             icon: const Icon(Icons.ios_share),
