@@ -18,6 +18,9 @@ class WidgetBridge {
     required int streak,
     required String prompt,
     required String streakLabel,
+    bool premium = false,
+    String deckTheme = 'classic',
+    Map<String, Object> extra = const {},
   }) async {
     if (kIsWeb || !Platform.isIOS) return;
     try {
@@ -39,6 +42,9 @@ class WidgetBridge {
         'streak': streak,
         'prompt': prompt,
         'streakLabel': streakLabel,
+        'premium': premium,
+        'deckTheme': deckTheme,
+        ...extra,
         'image': ?image,
       });
     } catch (e) {

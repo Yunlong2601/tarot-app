@@ -13,6 +13,7 @@ import '../core/referral_service.dart';
 import 'deck_theme.dart';
 import 'flags.dart';
 import '../core/install_id.dart';
+import '../core/daily_question.dart';
 import '../core/moon.dart';
 import '../core/reading_service.dart';
 import '../core/reminder_service.dart';
@@ -925,7 +926,33 @@ class AppState extends ChangeNotifier {
       streak: days,
       prompt: tr('Tap to draw today\'s card'),
       streakLabel: days < 2 ? '' : tr('{0}-day streak', [days]),
+      premium: isPremium,
+      deckTheme: activeDeckTheme.name,
+      extra: premiumWidgetData(_clock(), days),
     );
+  }
+
+  /// The Premium widgets' text for the next week: the moon and the question
+  /// of each day, keyed by day as the widget reads them ("2026-11-2"), so
+  /// they stay right even if the app is not opened for a few days.
+  static Map<String, Object> premiumWidgetData(DateTime now, int streak) {
+    final out = <String, Object>{
+      'locked': tr('Unlock with Premium in ShenTarot'),
+      'qotdTitle': tr('Question of the day'),
+      'streakTitle': streak == 1
+          ? tr('1 day in a row')
+          : tr('{0} days in a row', [streak]),
+      'streakStart': tr('Start your streak today'),
+    };
+    for (var i = 0; i < 8; i++) {
+      final d = DateTime(now.year, now.month, now.day + i);
+      final key = '${d.year}-${d.month}-${d.day}';
+      final phase = moonPhaseIndex(d);
+      out['moon_$key'] = phase;
+      out['moonName_$key'] = moonPhaseName(phase);
+      out['qotd_$key'] = questionOfTheDay(d);
+    }
+    return out;
   }
 
   /// Days in a row with a reading.
@@ -1140,6 +1167,8 @@ class AppState extends ChangeNotifier {
     isPremium = value;
     if (value) scheduleIntroReminder();
     notifyListeners();
+    // The Premium widgets lock or unlock with it.
+    refreshWidget();
   }
 
   void addReading(Reading reading) {

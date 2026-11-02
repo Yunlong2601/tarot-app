@@ -107,6 +107,21 @@ const _monthNames = [
 /// The month's name in the app language (1 = January).
 String monthName(int month) => tr(_monthNames[(month - 1) % 12]);
 
+/// "2 November 2026", or "2026年11月2日" in Chinese and Japanese and
+/// "2026년 11월 2일" in Korean.
+String dayLabel(DateTime d) => switch (I18n.code) {
+  'zh_Hans' || 'zh_Hant' || 'ja' => '${d.year}年${d.month}月${d.day}日',
+  'ko' => '${d.year}년 ${d.month}월 ${d.day}일',
+  _ => '${d.day} ${monthName(d.month)} ${d.year}',
+};
+
+/// "November 2026", or "2026年11月" / "2026년 11월".
+String monthLabel(DateTime d) => switch (I18n.code) {
+  'zh_Hans' || 'zh_Hant' || 'ja' => '${d.year}年${d.month}月',
+  'ko' => '${d.year}년 ${d.month}월',
+  _ => '${monthName(d.month)} ${d.year}',
+};
+
 const _celtic10 = [
   Offset(0.24, 0.5),
   Offset(0.24, 0.5),

@@ -23,7 +23,7 @@ Future<void> openMonthlyLetter(BuildContext context, MonthRecap recap) async {
     context: context,
     isScrollControlled: true,
     builder: (ctx) => _LetterSheet(
-      month: '${monthName(now.month)} ${now.year}',
+      month: monthLabel(now),
       load: () async {
         final prefs = await SharedPreferences.getInstance();
         final saved = prefs.getString(key);
@@ -117,8 +117,7 @@ class _LetterSheetState extends State<_LetterSheet> {
                         title: tr('What the cards keep telling you'),
                         subtitle: widget.month,
                         parts: [(heading: null, text: snap.data!)],
-                        fileName:
-                            'shentarot-letter-${widget.month.replaceAll(' ', '-')}',
+                        fileName: 'shentarot-letter',
                       ),
                       icon: const Icon(Icons.download_outlined),
                       label: Text(tr('Save as PDF or image')),

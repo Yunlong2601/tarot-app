@@ -718,7 +718,7 @@ class ReadingScreen extends StatelessWidget {
                 openKeepsake(
                   context,
                   title: reading.spread.label,
-                  subtitle: '${d.day} ${monthName(d.month)} ${d.year}',
+                  subtitle: dayLabel(d),
                   question: reading.question,
                   parts: readingParts(reading),
                   fileName: 'shentarot-reading-${d.year}-${d.month}-${d.day}',

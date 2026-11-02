@@ -172,12 +172,12 @@ class _PaywallScreenState extends State<PaywallScreen> {
           ),
           SizedBox(height: 12),
           for (final f in [
-            tr('Every spread, including the 10-card Celtic Cross'),
+            tr('Every spread, including the 13-card Year Ahead'),
             if (creditsEnabled)
               tr('All readings and follow-ups included, up to 50 a day'),
-            tr('A clarifier card to shed light on a reading'),
-            tr('A look back a week later, with a reminder'),
-            tr('Helps keep ShenTarot running'),
+            tr('Listen to your readings and save them as PDF'),
+            tr('Home screen widgets and four new card backs'),
+            tr('A clarifier card, a look back and a monthly letter'),
           ])
             Padding(
               padding: EdgeInsets.symmetric(vertical: 3),

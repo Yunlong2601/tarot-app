@@ -33,7 +33,7 @@ class _WelcomePremiumScreenState extends State<WelcomePremiumScreen>
     (
       Icons.dashboard_customize_outlined,
       'Every spread',
-      'Five-card, seven-card and the ten-card Celtic Cross',
+      'Up to the Celtic Cross and the 13-card Year Ahead',
     ),
     (
       Icons.chat_bubble_outline,
@@ -50,7 +50,16 @@ class _WelcomePremiumScreenState extends State<WelcomePremiumScreen>
       'Every reading included',
       'Up to 50 readings and follow-ups a day',
     ),
-    (Icons.history, 'A look back', 'Revisit a reading a week later'),
+    (
+      Icons.headphones_outlined,
+      'Listen and keep',
+      'Hear any reading aloud, or save it as a PDF',
+    ),
+    (
+      Icons.widgets_outlined,
+      'Widgets and card backs',
+      'Streak & Moon, Question of the Day, four new decks',
+    ),
   ];
 
   @override
