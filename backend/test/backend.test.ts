@@ -1479,3 +1479,29 @@ describe("events", () => {
     expect(statuses.filter((s) => s === 429)).toHaveLength(2);
   });
 });
+
+describe("monthly letter (Premium)", () => {
+  const body = JSON.stringify({ month: "2026-10", readings: 12, cards: [{ id: "major_16_tower", count: 3 }, { id: "cups_ace", count: 2 }], groups: { major: 9, cups: 6, wands: 3, swords: 2, pentacles: 4 }, lang: "en" });
+  const ask = async (s: ReturnType<typeof setup>, b = body) => s.call("/v1/letter", { method: "POST", headers: await authHeaders(s.env), body: b });
+
+  it("is Premium only", async () => {
+    const s = setup();
+    expect((await ask(s)).status).toBe(402);
+    expect(s.calls()).toBe(0);
+  });
+
+  it("writes one letter a month and serves it again from the cache", async () => {
+    const s = setup({ premium: true });
+    const r = await ask(s);
+    expect(r.status).toBe(200);
+    expect(((await r.json()) as { letter: string }).letter).toContain("Fool");
+    expect((await ask(s)).status).toBe(200);
+    expect(s.calls()).toBe(1);
+  });
+
+  it("rejects unknown cards and too few readings", async () => {
+    const s = setup({ premium: true });
+    expect((await ask(s, JSON.stringify({ month: "2026-10", readings: 2, cards: [{ id: "cups_ace", count: 2 }] }))).status).toBe(400);
+    expect((await ask(s, JSON.stringify({ month: "2026-10", readings: 5, cards: [{ id: "not_a_card", count: 2 }] }))).status).toBe(400);
+  });
+});

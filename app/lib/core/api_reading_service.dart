@@ -25,7 +25,8 @@ class ApiReadingService
         CreditBackend,
         CreatorBackend,
         SpreadIdentifier,
-        EventSink {
+        EventSink,
+        LetterWriter {
   ApiReadingService(
     this.baseUrl, {
     HttpClient Function()? clientFactory,
@@ -305,6 +306,44 @@ class ApiReadingService
         tr('Something went wrong. Please try again.'),
       ),
     };
+  }
+
+  @override
+  Future<String> monthlyLetter({
+    required String month,
+    required int readings,
+    required List<({String id, int count})> cards,
+    required Map<String, int> groups,
+  }) async {
+    var res = await _post('/v1/letter', {
+      'month': month,
+      'readings': readings,
+      'cards': [
+        for (final c in cards) {'id': c.id, 'count': c.count},
+      ],
+      'groups': groups,
+      'lang': I18n.code,
+    }, auth: true);
+    if (res.status == 401) {
+      _token = null;
+      res = await _post('/v1/letter', {
+        'month': month,
+        'readings': readings,
+        'cards': [
+          for (final c in cards) {'id': c.id, 'count': c.count},
+        ],
+        'groups': groups,
+        'lang': I18n.code,
+      }, auth: true);
+    }
+    final letter = res.json['letter'];
+    if (res.status == 200 && letter is String) return letter;
+    throw ReadingException(
+      res.status == 402
+          ? ReadingErrorKind.premiumRequired
+          : ReadingErrorKind.failed,
+      tr('Your letter could not be written right now. Please try again later.'),
+    );
   }
 
   @override

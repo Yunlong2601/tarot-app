@@ -35,6 +35,7 @@ import {
 } from "./creator";
 import { isFreeSpread } from "./spreads";
 import { isUuid, parseFollowupRequest, parseReadingRequest } from "./validate";
+import { LETTER_MAX_TOKENS, LETTER_PROMPT_VERSION, LETTER_SYSTEM_PROMPT, buildLetterMessage, parseLetterRequest } from "./letter";
 import { MAX_SPREAD_IMAGE_B64, SPREAD_PROMPT, SPREAD_SCANS_PER_DAY, callVision, isImageB64, parseSpread, type VisionFn } from "./spreadscan";
 import { appleTokenKey, exchangeCode, revokeToken, siwaConfigured } from "./applesignin";
 import { AttestError, b64ToBytes, bytesToB64, clientDataFor, verifyAssertion, verifyAttestation, type AttestedKey } from "./appattest";
@@ -533,6 +534,63 @@ export function createApp(deps: Deps = defaultDeps) {
   // Follow-up question about an earlier reading. Premium only. The server does
   // not store readings, so the app sends the earlier text back as context,
   // which is treated as untrusted.
+  // Premium: the monthly letter about the cards that kept appearing. One per
+  // user per month (cached), built only from card ids and counts.
+  app.post("/v1/letter", async (c) => {
+    const now = deps.now();
+    const auth = c.req.header("authorization") ?? "";
+    const token = auth.startsWith("Bearer ") ? auth.slice(7) : "";
+    const installId = token ? await verifyToken(token, c.env.JWT_SECRET, Math.floor(now / 1000)) : null;
+    if (!installId) return c.json({ error: "unauthorized" }, 401);
+    const who = await identity(c.env, installId);
+    if (!(await allowWithinMinute(c.env.KV, `burst:${who.installHash}`, BURST_PER_MINUTE, now))) {
+      return c.json({ error: "rate_limited" }, 429);
+    }
+    const parsed = parseLetterRequest(await readJson(c.req.raw, 4096));
+    if (!parsed.ok) return c.json({ error: "invalid_request", detail: parsed.error }, 400);
+    const req = parsed.value;
+    if (!(await deps.premium(who.appUserId, c.env, now))) return c.json({ error: "premium_required" }, 402);
+
+    const cacheKey = `letter:${who.usageKey}:${req.month}:${req.lang ?? "en"}`;
+    const cached = await c.env.KV.get(cacheKey);
+    if (cached) return c.json({ letter: cached, disclaimer: DISCLAIMER });
+
+    const targets = serverTargets(c.env);
+    if (targets.length === 0) return c.json({ error: "service_busy" }, 503);
+    const usage = deps.usage(c.env);
+    const day = utcDay(now);
+    const slot = await usage.reserve(who.usageKey, day, "letter", "single", usageModel(targets[0]!));
+    try {
+      const want = replyLanguage(req.lang ?? "en", null).script;
+      let inTok = 0;
+      let outTok = 0;
+      for (let attempt = 0; attempt < 2; attempt++) {
+        const result = await callWithFallback(
+          deps.llm,
+          { system: LETTER_SYSTEM_PROMPT, user: buildLetterMessage(req), maxTokens: LETTER_MAX_TOKENS },
+          targets,
+        );
+        inTok += result.inputTokens;
+        outTok += result.outputTokens;
+        const checked = checkOutput(result.text);
+        const script = checked.ok ? dominantScript(checked.text) : "none";
+        const langOk = script === want || (want === "kana" && script === "cjk");
+        if (!result.refused && checked.ok && langOk && !leaksOrClaimsHuman(checked.text) && !hitsBannedClaim(checked.text)) {
+          await usage.finalize(slot, inTok, outTok);
+          await c.env.KV.put(cacheKey, checked.text, { expirationTtl: 40 * 86_400 });
+          return c.json({ letter: checked.text, disclaimer: DISCLAIMER });
+        }
+        console.log(JSON.stringify({ event: "letter_check_failed", attempt, prompt: LETTER_PROMPT_VERSION }));
+      }
+      await usage.finalize(slot, inTok, outTok);
+      return c.json({ error: "bad_output" }, 502);
+    } catch (e) {
+      await usage.release(slot);
+      logUpstreamError(e);
+      return c.json({ error: "upstream_failed" }, 502);
+    }
+  });
+
   app.post("/v1/followup", async (c) => {
     const now = deps.now();
     const auth = c.req.header("authorization") ?? "";

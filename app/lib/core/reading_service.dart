@@ -102,3 +102,14 @@ class SpreadScan {
   /// Some cards could not be read; ask the user to check.
   final bool unsure;
 }
+
+/// Writes the Premium monthly letter from card counts only (no questions or
+/// readings leave the phone for it).
+abstract interface class LetterWriter {
+  Future<String> monthlyLetter({
+    required String month,
+    required int readings,
+    required List<({String id, int count})> cards,
+    required Map<String, int> groups,
+  });
+}

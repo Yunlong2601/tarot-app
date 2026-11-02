@@ -9,6 +9,7 @@ import '../../app/i18n.dart';
 import '../../app/theme.dart';
 import '../cards/card_art.dart';
 import 'insights.dart';
+import 'monthly_letter.dart';
 
 /// Ids of every card that has come up in a saved reading or as today's card.
 Set<String> metCardIds(AppState state) => {
@@ -238,13 +239,28 @@ class _MonthCard extends StatelessWidget {
                   ),
                 ),
             ],
+            if (premium &&
+                recap.readings >= 3 &&
+                recap.topCards.isNotEmpty) ...[
+              const SizedBox(height: 8),
+              OutlinedButton.icon(
+                key: const ValueKey('monthly-letter'),
+                onPressed: () => openMonthlyLetter(context, recap),
+                icon: const Icon(Icons.mail_outline, size: 18),
+                label: Text(tr('Read your letter for this month')),
+              ),
+            ],
             if (!premium && total > 0) ...[
               const SizedBox(height: 4),
               TextButton.icon(
                 style: TextButton.styleFrom(padding: EdgeInsets.zero),
                 onPressed: () => openPaywall(context, PaywallReason.recap),
                 icon: const Icon(Icons.lock_outline, size: 18),
-                label: Text(tr('See your full month with Premium')),
+                label: Text(
+                  tr(
+                    'See your full month and your monthly letter with Premium',
+                  ),
+                ),
               ),
             ],
           ],
