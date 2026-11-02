@@ -221,3 +221,52 @@ branch on 2026-11-02; these are still true.
 handler exists), the `_`→`-` "key-format" normalisation (the shipped links already match
 `search-index.json` 1:1), and the `/ja` "thin content" flag (a whitespace-token artefact;
 CJK has no spaces — 780 URLs must not be pruned).
+
+---
+
+## 7. Deployment record — this is live
+
+**Merged:** PR #58, squash-merged to `main` as `4ee5832` (2026-11-02 12:28 UTC).
+
+**Deployed:** `npm run deploy` in `web/` — `wrangler deploy` to worker `shentarot-site`,
+custom domain `shentarot.com`.
+
+- Wrangler version ID: **`43686dac-cb23-4a50-ac0b-b1a3d5ad9044`**
+- 4,104 files uploaded
+- `scripts/indexnow.mjs` pinged **3,909 URLs** to Bing (HTTP 200)
+
+**Verified against the live site after deploy** (not against `dist/`):
+
+| Check | Result |
+|---|---|
+| `/topics` (was 404) | 200, in all 8 locales |
+| `/read` title | 75 chars, correct in en/de/ja |
+| `/topics` schema | `CollectionPage` + `ItemList` in all 8 locales |
+| `/topics/love` breadcrumb | `ShenTarot > Topics > Love tarot reading` |
+| Homepage `SearchAction` | present, `https://shentarot.com/search?q={search_term_string}` |
+| `sitemap.xml` | 3,907 `<loc>` entries, 35,136 `xhtml:link`, includes `/topics` and all locales |
+| `/spreads/celtic` → reading-sheet | `/tools/reading-sheet?spread=celtic` |
+| `/topics/career` → tool | links `tools/reading-sheet` |
+| `year-card` / `life-path` / quiz limits lines | all present |
+| 404 behaviour | `/this-page-does-not-exist` still 404 |
+
+**Behavioural test in a real browser against production:**
+
+| URL | Result |
+|---|---|
+| `/tools/reading-sheet` | select = `three`, shows only `three` |
+| `?spread=celtic` | select = `celtic` |
+| `?spread=yes_no` | select = `yes_no` |
+| `?spread=bogus` | falls back to `three` |
+| `/read` | `0 / 3 cards entered`, no card |
+| `?card=major_00_fool` | `1 / 3`, The Fool, **Upright** |
+| `?card=…&orientation=reversed` | `1 / 3`, The Fool, **Reversed** |
+| `?spread=three_decision&card=major_08_strength` | spread switched to *Situation, Challenge, Way Forward*, Strength placed |
+
+**Deploy gotcha worth knowing:** `npm ci` failed with `npm error File exists:
+~/.npm/_cacache/content-v2/sha512/1a/c7` — the shared npm cache has a corrupted entry on this
+machine. Do not delete the user's cache; pass a throwaway one instead:
+`npm ci --cache /tmp/npm-cache-fresh`. Setup completed on a clean checkout after that.
+
+**Note:** deploying does not need a merge — `web/package.json` `deploy` builds from the
+working tree, so an unmerged branch can be pushed live by accident. Deploy from `main`.
