@@ -4,7 +4,7 @@ The owner explicitly included all website reference content, beyond the initial 
 
 ## Current progress
 
-Sixteen logical references have limited AI-assisted primary-source comparisons and original worked examples in all eight locales: the seven foundational lessons, `/cards/major-00-fool`, `/cards/major-01-magician`, `/cards/major-02-high-priestess`, `/cards/major-03-empress` `/cards/major-04-emperor` `/cards/major-05-hierophant` `/cards/major-06-lovers` `/cards/major-07-chariot` and `/cards/major-08-strength`. This does not mean their translations received human review, or that all 487 routes are source-verified. Every other record, including these cards’ context subpages, remains not started. A site-wide publisher component is not proof of claim checking.
+Seventeen logical references have limited AI-assisted primary-source comparisons and original worked examples in all eight locales: the seven foundational lessons and the ten base cards from `/cards/major-00-fool` through `/cards/major-09-hermit`. This does not mean their translations received human review, or that all 487 routes are source-verified. Every other record, including these cards’ context subpages, remains not started. A site-wide publisher component is not proof of claim checking.
 
 Work in batches: major-card references; minor-card references; contextual interpretations; spreads/question/topic references; zodiac/birth/numerology and tool formulas; navigation and publisher consistency. A contextual interpretation needs its own reasoning, not a copied historical citation that never discussed that context. Reconcile newly added/removed routes before declaring the inventory complete.
 
@@ -320,3 +320,18 @@ Actor: Codex AI assistant. Scope: eight localized base references; context varia
 | Short reading rehearsal | Original fictional hands/care → two sentences → note stumbling → decide next attempt | Alternative pronunciation reference or pause, no participant outcomes or validated intervention claimed |
 
 Article citations and visible record state limited AI-assisted comparison only. Independent expert and native-language review unconfirmed. Progress: 16/487 logical references, 56 lesson + 72 base-card localized routes. Validation: all 49 tests, locale parity, Astro check (0 errors/warnings, 2 existing hints), build, reader/editorial (128 routes), ritual, interaction, search-growth and beta audits passed. Chrome DOM checks across eight locales at 390/768/1440px found four evidence sections, two sources and no overflow. Reversed selection displayed the correct text and passed its orientation to the workspace. Chinese desktop proof: `strength-desktop.png`. Physical accessibility/native-language acceptance unverified; known mobile screenshot limitation unchanged.
+
+
+## Hermit base reference: actual source comparison — 1 November 2026
+
+Actor: Codex AI assistant. Scope: eight localized base references; context variants excluded. Read Part II §2 IX and Part III §3 9 and inspected actual bundled artwork. Consulted 1922 reprint transcription: [Part II revision 15274517](https://en.wikisource.org/w/index.php?oldid=15274517&title=The_Pictorial_Key_to_the_Tarot/Part_2), [Part III revision 15274510](https://en.wikisource.org/w/index.php?oldid=15274510&title=The_Pictorial_Key_to_the_Tarot/Part_3).
+
+| Claim | Evidence/action | Limit |
+|---|---|---|
+| Cloaked bearded figure, raised lantern/star, staff, IX | Actual image compared; removed certainty about snow and exact star geometry/range | Part II supports star, elevation and beacon; precise illumination radius not established |
+| Inner search/solitude as the historical core | Part II frames attainment and beacon for others; expressly distinguishes a truth seeker and rejects a particular occult-isolation account | No psychological finding about benefits of time alone claimed |
+| Nine as near-completion/solitude, Virgo | Not established in consulted passages; removed explanatory certainty | Existing template suppresses unchecked correspondence facts for checked base references |
+| Reversal proves isolation/avoidance/restlessness | Replaced with optional question/source/connection checks | Historical deception/fear list not used to infer a real person’s intentions or condition |
+| Explaining a folding step | Original fictional beacon → clear step, staff → supporting explanation, diagram comparison → ask about ambiguity | Alternative: missing diagram arrow/wrong paper side; no teaching credential or learner outcome claimed |
+
+Visible record and Article citations describe limited AI comparison only. Publisher remains Shenetic as corrected by owner. Independent expert/native-language review unconfirmed. Progress: 17/487 logical references; 56 lesson + 80 base-card localized routes. Validation: all 49 tests, locale parity, Astro check (0 errors/warnings, 2 existing hints), build, reader/editorial (136 routes), ritual, interaction, search-growth and beta audits passed. Chrome DOM checks across eight locales at 390/768/1440px found four evidence sections, two sources and no overflow. Reversed selection revealed the corresponding meaning and passed orientation to the workspace. Chinese desktop proof: `hermit-desktop.png`. Physical accessibility/native-language acceptance unverified; known mobile screenshot limitation unchanged.

@@ -1,3 +1,7 @@
+## 2026-11-01 — Hermit source comparison
+
+Eight localized Hermit base references distinguish Waite’s attainment/beacon symbolism from our reflection practice, remove unsupported Nine/Virgo/lamp-range certainty and reversed isolation claims, and show exact sources plus an original folding-step explanation with a diagram-error alternative. Publisher remains Shenetic. Progress: 17/487 logical references; context pages and human expert/language reviews pending. All 49 tests, locale parity, Astro check/build and website audits passed (136 editorial routes). Chrome checked 24 locale/width combinations and reversed handoff; claim ledger and desktop proof in `docs/editorial-review-2026-10-31/`.
+
 ## 2026-11-01 — Company attribution corrected to Shenetic
 
 Owner confirmed the company name is Shenetic. Updated eight-language footer/about/methodology copy, reference attribution, Organization/Article schemas, AI Markdown publisher metadata, llms text and website legal provider/contact labels. Product remains ShenTarot. Existing bundle IDs, Google Play invitation IDs and backend hostnames retain their technical identifiers. Native/store metadata and any separate GitHub Pages legal copies require their owners to align; no native/backend changes made.

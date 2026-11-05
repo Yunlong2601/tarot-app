@@ -592,33 +592,66 @@
  "major_09_hermit": {
   "name": "Der Eremit",
   "keywords": [
-   "Alleinsein",
-   "Besinnung",
-   "innere Führung"
+   "Reflexion",
+   "Orientierung",
+   "Lernen"
   ],
-  "upright": "Tritt einen Schritt zurück, um nachzudenken. Zeit für dich kann dir zeigen, was wichtig ist.",
-  "reversed": "Isolation oder das Vermeiden von Besinnung. Bring Alleinsein und Verbundenheit ins Gleichgewicht.",
+  "upright": "Untersuche zur Übung eine Frage und entscheide, was du selbst prüfst und wen du fragst.",
+  "reversed": "Überprüfe umgekehrt die Suche nach Orientierung, ohne Isolation, Ausweichen oder Angst zu unterstellen.",
   "k": {
-   "essence": "Einen Schritt zurücktreten, um deine eigene Antwort zu finden.",
-   "imagery": "Eine alte Gestalt in grauem Umhang steht auf einem verschneiten Gipfel. In einer Hand hält sie eine Laterne mit einem sechszackigen Stern darin, in der anderen einen Stab.",
-   "why": "Neun ist die Zahl der Beinahe-Vollendung und des Alleinseins. Die Laterne beleuchtet nur die nächsten paar Schritte – so funktioniert innere Führung oft. Jungfrau, das übliche Sternzeichen, ist sorgfältig und urteilsfähig.",
+   "essence": "Eine Frage genau betrachten und die Erklärung klären.",
+   "imagery": "Eine bärtige Mantelfigur hält eine Laterne mit Stern hoch und einen langen Stab, auf hellem unebenem Boden. Die Karte trägt IX.",
+   "why": "Waite beschreibt Erreichen und ein Leuchtzeichen für andere; eine okkulte Isolationsdeutung lehnt er ab. Unsere Reflexion ist eine Anwendung, kein Beweis für Antworten allein oder wenige beleuchtete Schritte. Die Stellen begründen weder Neun als Einsamkeit/Beinahe-Abschluss noch Jungfrau.",
    "upright": {
-    "core": "Zeit für dich, um deine eigenen Gedanken zu hören und zu entscheiden, was wichtig ist.",
+    "core": "Ein Ansatz: Verstandenes, Unsicheres und mögliche Erklärungsquellen unterscheiden.",
     "light": "Weisheit, Fokus, selbst gewähltes Alleinsein",
-    "shadow": "Isolation, Menschen oder Entscheidungen ausweichen",
-    "love": "Zeit allein, um zu verstehen, was du willst; es teilen, wenn du so weit bist.",
-    "work": "Tiefe Konzentration, Recherche, einen Mentor finden oder selbst einer werden.",
+    "shadow": "Alleinsein als einzigen Weg ansehen",
+    "love": "In Beziehungen: Hilft Bedenkzeit oder ein direktes Gespräch? Die Karte beweist weder Rückzug noch fremde Gefühle.",
+    "work": "Bei der Arbeit: Eine Quelle vor dem Teilen prüfen. Das Bild zertifiziert keine Mentoren und fordert keine Alleinarbeit.",
     "question": "Was höre ich, wenn alles still wird?"
    },
    "reversed": {
-    "core": "Alleinsein wird zu Isolation, oder du hältst es nicht aus, mit deinen Gedanken allein zu sein.",
+    "core": "Die umgekehrte Übung prüft Zugang zu Orientierung, nicht soziale oder emotionale Zustände.",
     "modes": [
-     "Übermaß: dich zu weit zurückziehen.",
-     "Blockiert: rastlos, unfähig, zur Ruhe zu kommen.",
-     "Schwindend: wieder auf andere Menschen zugehen."
+     "Frage: Was genau ist unklar?",
+     "Quelle: Was lässt sich prüfen?",
+     "Kontakt: Wer hilft, und was kann ich erklären?"
     ],
-    "question": "Stärkt mich dieses Alleinsein, oder versteckt es mich?"
+    "question": "Was allein oder gemeinsam klären?"
    }
+  },
+  "evidence": {
+   "answer": "Hier regt der Eremit Reflexion, Prüfung und geteilte Orientierung an. Er beweist weder nötige Isolation noch ausschließlich innere Antworten.",
+   "groupNote": "Das Bild trägt IX. Neunen vergleichen ist eine Übung, keine allgemeine Phase von Einsamkeit oder Beinahe-Abschluss.",
+   "sections": [
+    {
+     "h": "Historisches Leuchtzeichen und unsere Reflexion",
+     "p": [
+      "Teil II, §2, IX beschreibt Stern, Höhe und ein Zeichen des Erreichens. Waite grenzt es vom Wahrheitssucher ab und lehnt eine bestimmte okkulte Isolation ab; kein psychologischer Befund über Alleinsein. Teil III, §3 verbindet Vorsicht mit härteren Bedeutungen sowie umgekehrten Varianten. Kein Nachweis von Täuschung, Angst oder Absichten."
+     ]
+    },
+    {
+     "h": "Eigenes Beispiel: einen Faltschritt erklären",
+     "p": [
+      "Frage: „Was vor der Erklärung dieser Faltung klären?“. Stelle die aufrechte Karte auf „Eine hilfreiche Prüfung“. Erfundenes Papierfaltbeispiel, kein Lernergebnis oder Lehrnachweis. Betrachte erhobene Laterne, Stern und Stab.",
+      "Eine Lesart verbindet das sichtbare Licht mit einer verständlichen Erklärung. Markiere Kante und Ecke, vergleiche die Skizze und frage einen Freund nach Unklarheiten. Der Stab kann zur Prüfung der Erklärungsgrundlage anregen. Unsere Verknüpfungen aus Bild und Position, kein verborgenes Kartenwissen.",
+      "Alternative: Der Skizze fehlt ein Pfeil oder sie zeigt die Rückseite. Suche eine klare Anleitung statt länger allein zu grübeln oder den Freund zu beschuldigen. Halte Lesarten und Widersprüche in deinen [Notizen](read) fest. Umkehrung ändert die Hilfesuche ohne Ausweich-Etikett."
+     ]
+    },
+    {
+     "h": "Nachprüfbare Quellen",
+     "p": [
+      "[A. E. Waite, The Pictorial Key to the Tarot, Teil II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, IX The Hermit: Stern, Höhe, Erreichen/Leuchtzeichen und ausdrückliche Abgrenzungen. Bild separat verglichen; genaue Lichtreichweite unbelegt.",
+      "[Teil III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 9 The Hermit: historische Liste beider Lagen. Transkription des Nachdrucks von 1922. Beispiel redaktionell; Liebe, Beruf, Gefühle und Ja/Nein separat ungeprüft."
+     ]
+    },
+    {
+     "h": "Prüfprotokoll · 1. November 2026",
+     "p": [
+      "KI-gestützter Vergleich von Stellen, Bild und Basisreferenz. Unbelegte Neun/Jungfrau und Lichtreichweite, garantierte Antworten allein und erschlossene Isolation durch gekennzeichnete Fragen ersetzt. Unabhängige Fach- und muttersprachliche Prüfung unbestätigt; Korrekturen über die [Methodik](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_10_wheel_of_fortune": {
