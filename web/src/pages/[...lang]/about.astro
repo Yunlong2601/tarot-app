@@ -1,38 +1,78 @@
 ---
-import Base from "../../layouts/Base.astro";
-import { SITE_URL, SUPPORT_EMAIL } from "../../config.ts";
-import { i18n, langPaths, prefix, type Locale } from "../../i18n/index.ts";
+import Base from '../../layouts/Base.astro';
+import { SITE_URL, SUPPORT_EMAIL } from '../../config';
+import { i18n, langPaths, LOCALES, fill, type Locale } from '../../i18n';
+import { referenceHub, FAQ_TARGETS } from '../../i18n/reference-hub';
+import { ritualCopy } from '../../i18n/ritual';
+import { betaCopy } from '../../i18n/beta';
+import { cardIds, slug } from '../../lib/data';
+import { EXAMPLE } from '../../lib/example';
+import { IPHONE_BETA_EVIDENCE } from '../../lib/beta';
 
 export const getStaticPaths = langPaths;
 const { lang } = Astro.props as { lang: Locale };
-const L = i18n(lang);
-const { t } = L;
-const page = new URL(`${prefix(lang)}about`, SITE_URL).href;
-const jsonLd = [
-  {
-    "@context": "https://schema.org",
-    "@type": "AboutPage",
-    name: t("about.h1"),
-    url: page,
-    inLanguage: L.tag,
-    about: {
-      "@type": "Organization",
-      name: "Shenetic",
-      url: SITE_URL,
-      logo: new URL("icon.png", SITE_URL).href,
-      email: SUPPORT_EMAIL,
-      address: { "@type": "PostalAddress", addressCountry: "SG" },
-      brand: { "@type": "Brand", name: "ShenTarot" },
-    },
-  },
-];
+const L = i18n(lang), H = referenceHub(lang), B = betaCopy(lang), R = ritualCopy(lang);
+const page = new URL(L.url('about'), SITE_URL).href;
+const publisher = { '@type': 'Organization', '@id': SITE_URL + '#shenetic', name: 'Shenetic', url: SITE_URL, email: SUPPORT_EMAIL,
+  address: { '@type': 'PostalAddress', addressCountry: 'SG' }, brand: { '@type': 'Brand', name: 'ShenTarot' } };
+const jsonLd = [{
+  '@context': 'https://schema.org', '@type': ['AboutPage', 'FAQPage'], '@id': page,
+  name: L.t('about.h1'), description: R.heroLead, url: page, inLanguage: L.tag,
+  publisher, about: { '@type': 'WebSite', '@id': SITE_URL + '#website', name: 'ShenTarot', url: SITE_URL, publisher: { '@id': publisher['@id'] }, isAccessibleForFree: true },
+  mainEntity: H.faq.map((f, i) => ({ '@type': 'Question', '@id': page + '#' + FAQ_TARGETS[i][0], name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a, url: new URL(L.url(FAQ_TARGETS[i][1]), SITE_URL).href } })),
+}];
+const creditEvidence = fill(B.iphoneCosts, { version: IPHONE_BETA_EVIDENCE.version, build: IPHONE_BETA_EVIDENCE.build, credits: IPHONE_BETA_EVIDENCE.generalThreeCardCredits });
 ---
-<Base title={t("about.title")} description={L.growth.methodLead} path="about" crumbs={[[t("about.crumb"), "about"]]} jsonLd={jsonLd} lang={lang}>
-  <article class="legal">
-    <h1>{t("about.h1")}</h1>
-    <p class="lead">{t("about.lead")}</p><p><a href={L.url("methodology")}>{L.growth.methodTitle}</a></p>
-    <p>{L.growth.appNote}</p>
-    <p>{L.growth.methodTradition}</p><p>{L.growth.methodProcess}</p><p>{L.growth.methodReview}</p><p>{L.growth.methodAI}</p><p>{L.growth.methodLimits}</p>
-    <p><a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a></p>
+<Base title={L.t('about.title')} description={R.heroLead} path="about" crumbs={[[L.t('about.crumb'), 'about']]} jsonLd={jsonLd} lang={lang} noCta>
+  <article class="legal guide reference-hub">
+    <h1>{L.t('about.h1')}</h1>
+    <p class="lead">{R.heroLead}</p>
+    <p>{L.t('about.sections.0.text', {email: SUPPORT_EMAIL})}</p>
+    <nav aria-label={L.t('about.h1')}><a href="#using">{H.using}</a><a href="#example">{H.practice}</a><a href="#app">{H.beta}</a><a href="#questions">{H.faqTitle}</a></nav>
+
+    <section id="using" data-product-fact="library">
+      <h2>{H.using}</h2>
+      <p>{fill(H.libraryFact, {cards: cardIds.length, languages: LOCALES.length})}</p>
+      <p>{H.webBoundary}</p>
+      <p>{L.growth.methodTradition}</p>
+      <p>{L.growth.methodProcess}</p>
+      <p>{L.growth.methodReview}</p>
+      <p><a href={L.url('cards')}>{L.t('cards.h1')}</a> · <a href={L.url('read')}>{L.workspace.title}</a></p>
+    </section>
+
+    <section id="example" data-product-fact="original-example">
+      <h2>{H.practice}</h2>
+      <p>{L.growth.exampleQuestion}</p>
+      <ol>{EXAMPLE.cards.map((p, i) => <li><a href={L.url('cards/' + slug(p.id))}>{L.cards[p.id]!.name}</a> · {L.t(p.reversed ? 'card.reversed' : 'card.upright')} · {L.content.spreads[EXAMPLE.spread].positions[i]}</li>)}</ol>
+      <p>{L.growth.connections}</p>
+      <p>{L.growth.editorial}</p>
+      <p><a href={L.url('learn/connected-reading')}>{L.growth.exampleTitle}</a> · <a href={L.url('read') + '?example=creative'}>{H.openReading}</a></p>
+    </section>
+
+    <section id="app" data-product-fact="observed-beta">
+      <h2>{H.beta}</h2>
+      <p>{B.appLabel}</p>
+      <ul>{B.appFacts.map(f => <li>{f}</li>)}</ul>
+      <p>{creditEvidence}</p>
+      <p><time datetime={IPHONE_BETA_EVIDENCE.verifiedAt}>{IPHONE_BETA_EVIDENCE.verifiedAt}</time> · {B.appLabel}</p>
+      <p>{B.costs}</p>
+      <p><a href={L.url('beta')}>{B.appTitle}</a></p>
+    </section>
+
+    <section id="questions" data-product-fact="local-snapshot">
+      <h2>{H.faqTitle}</h2>
+      <p>{H.intro}</p>
+      <p>{H.savedNote}</p>
+      <div class="reference-questions">{H.faq.map((f, i) => <section id={FAQ_TARGETS[i][0]}><h3>{f.q}</h3><p>{f.a}</p><a href={L.url(FAQ_TARGETS[i][1])}>{L.learn.index.read}<span class="sr-only">: {f.q}</span> →</a></section>)}</div>
+    </section>
+    <p>{L.workspace.disclaimer}</p>
+    <p><a href={L.url('methodology')}>{L.growth.methodTitle}</a> · <a href={'mailto:' + SUPPORT_EMAIL}>{SUPPORT_EMAIL}</a></p>
   </article>
 </Base>
+<style>
+  .reference-hub nav { display:grid; gap:.75rem; padding:1.5rem 0; border-block:1px solid var(--line); }
+  .reference-hub > section { margin-block:3.5rem; scroll-margin-top:6rem; }
+  .reference-questions section { border-top:1px solid var(--line); padding:1.5rem 0; scroll-margin-top:6rem; }
+  .reference-questions h3 { font-size:1.25rem; line-height:1.5; margin-top:0; }
+  .reference-hub a { overflow-wrap:anywhere; }
+</style>

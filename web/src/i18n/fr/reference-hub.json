@@ -1,0 +1,61 @@
+{
+  "using": "Comment utiliser le site avec mon jeu ?",
+  "practice": "Comment lire trois cartes ensemble ?",
+  "beta": "Qu’est-ce qui change avec l’application ?",
+  "faqTitle": "Les questions qui viennent en tirant les cartes",
+  "intro": "Saisissez les cartes de votre tirage. Vous pouvez conserver une réflexion dans ce navigateur. Commencez par la question qui vous parle.",
+  "openReading": "Essayer la lecture avec ces trois cartes",
+  "faq": [
+    {
+      "q": "Combien de cartes y a-t-il dans un jeu de tarot ?",
+      "a": "Un jeu de tarot divinatoire courant compte 78 cartes : 22 arcanes majeurs et 56 mineurs. Le Mat fait partie des 22."
+    },
+    {
+      "q": "Puis-je apprendre à lire le tarot en autodidacte ?",
+      "a": "Oui. Tirez une carte, décrivez un détail de l’image, consultez son sens puis écrivez une phrase avec vos propres mots."
+    },
+    {
+      "q": "Que symbolisent les quatre familles du tarot ?",
+      "a": "Ici, les bâtons évoquent l’action, les coupes les émotions, les épées les idées ou les conflits et les deniers les ressources du quotidien. Les traditions varient."
+    },
+    {
+      "q": "Quelles sont les 16 figures de cour ?",
+      "a": "Chacune des quatre familles a un valet, un cavalier, une reine et un roi. Une figure peut suggérer une attitude sans désigner une personne précise."
+    },
+    {
+      "q": "Y a-t-il une bonne façon de mélanger les cartes ?",
+      "a": "Choisissez un geste confortable qui ne plie pas les cartes. Si le jeu est grand, faites passer de petits paquets d’une main dans l’autre."
+    },
+    {
+      "q": "Puis-je tirer une carte de tarot en ligne ?",
+      "a": "Oui. Ouvrez le tirage aléatoire et retournez une carte. Si vous avez déjà tiré une carte chez vous, saisissez-la directement sur la table de lecture."
+    },
+    {
+      "q": "Comment lire une carte du jour ?",
+      "a": "Tirez une carte et notez un détail auquel prêter attention. Le soir, rapprochez-le d’un moment que vous avez réellement vécu."
+    },
+    {
+      "q": "Quelles questions vaut-il mieux éviter au tarot ?",
+      "a": "Ne demandez pas de diagnostic ni de certitude sur les pensées d’autrui. Essayez plutôt : « De quoi ai-je envie de lui parler ? »"
+    },
+    {
+      "q": "Faut-il lire les cartes renversées ?",
+      "a": "Non. Décidez avant de tirer. Si vous les utilisez, cherchez où le thème de la carte rencontre un obstacle sans en inverser tout le sens."
+    },
+    {
+      "q": "Le tarot peut-il me dire ce que quelqu’un ressent pour moi ?",
+      "a": "Une carte ne confirme pas les sentiments d’une autre personne. Distinguez ce que vous avez remarqué de ce que vous aimeriez lui demander."
+    },
+    {
+      "q": "Comment savoir si une carte répond oui ou non ?",
+      "a": "Il n’existe pas de liste universelle. Cherchez une condition qui vous ferait pencher pour le oui et une autre qui vous ferait hésiter."
+    },
+    {
+      "q": "Les cartes de tarot peuvent-elles prédire l’avenir ?",
+      "a": "Un tirage ne permet pas d’établir ce qui va arriver. Lisez la position du futur comme une possibilité et cherchez ce que vous pouvez faire aujourd’hui."
+    }
+  ],
+  "libraryFact": "Consultez {cards} cartes, à l’endroit ou à l’envers, dans {languages} langues. Le site est gratuit. Saisissez les cartes de votre jeu sans créer de compte.",
+  "webBoundary": "Le site propose des textes de référence et des exercices. Il n’envoie pas vos questions ou cartes à un service d’IA et ne dépense pas de crédits de l’application.",
+  "savedNote": "Votre réflexion reste dans ce navigateur, sur cet appareil. Un nouvel enregistrement la remplace. Exportez une copie avant de supprimer les données ou de changer d’appareil."
+}

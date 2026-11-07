@@ -1,0 +1,1166 @@
+{
+  "metadata": {
+    "report_date_sgt": "2026-11-07",
+    "brand": "ShenTarot",
+    "publisher": "Shenetic",
+    "website": "https://shentarot.com",
+    "meaning_of_CIT": "Question-level answer and citation observation audit; no proprietary or standardized CIT score is claimed.",
+    "selection": "30 demand-corroborated candidate questions, not a measured category-wide popularity ranking.",
+    "google_context": "Dedicated Chrome tab; English queries; hl=en, gl=sg, pws=0 requested. Existing signed-in browser. Physical location and full depersonalization not verified.",
+    "chatgpt_context": "Consumer web, separate blank Temporary Chat for each generic English prompt, default model/mode, no citation instruction. Exact backend model and search routing unverified.",
+    "demand_captured_date_sgt": "2026-11-06",
+    "counts": {
+      "questions": 30,
+      "google_sampled": 30,
+      "google_aio_observed": 29,
+      "google_aio_source_links_visible": 27,
+      "google_aio_tool_links_visible": 2,
+      "google_no_aio": 1,
+      "chatgpt_sampled": 10,
+      "chatgpt_no_explicit_text_citation": 10,
+      "chatgpt_media_tiles": 9,
+      "chatgpt_not_sampled": 20
+    },
+    "sanitization": "No account identifiers, browser/session IDs, private conversation URLs, credentials, extension controls or full answer transcripts. Public URLs retained, tracking utm_* and srsltid parameters removed. Each answer excerpt is at most 18 words. Observed media links retained with their role.",
+    "limitations": [
+      "Single observations are time- and context-specific.",
+      "External-link presence does not establish authority or claim support.",
+      "Unknown is not counted as an uncited answer.",
+      "No complete Google source-panel inventory or independent native-Chinese sample.",
+      "No category-wide search volume or ChatGPT query-popularity data.",
+      "Demand GSC metrics are historical site-specific impressions, not visits or AI citations."
+    ]
+  },
+  "records": [
+    {
+      "id": 1,
+      "question_zh": "一副塔罗牌有多少张？",
+      "exact_prompt_en": "How many cards are in a tarot deck?",
+      "demand": {
+        "autocomplete_seed": "how many cards are in a tarot",
+        "autocomplete_url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&gl=sg&q=how+many+cards+are+in+a+tarot",
+        "observed_prediction": "how many cards are in a tarot deck",
+        "autocomplete_position": 1,
+        "site_candidate": "https://shentarot.com/learn/major-and-minor-arcana",
+        "gsc": null
+      },
+      "google": {
+        "status": "no_aio_observed",
+        "observed_at_utc": "2026-11-06T09:37:03.497Z",
+        "observed_at_sgt": "2026-11-06 17:37:03 +08:00",
+        "query_url": "https://www.google.com/search?q=How+many+cards+are+in+a+tarot+deck%3F&hl=en&gl=sg&pws=0",
+        "aio_heading_observed": false,
+        "answer_excerpt": null,
+        "captured_external_urls": [],
+        "shentarot_in_captured_links": false,
+        "claim_by_claim_support": "not_audited",
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded.",
+        "ordinary_serp_headings": [
+          "Unit converter",
+          "People also ask",
+          "Web results",
+          "Images",
+          "Web results",
+          "People also search for",
+          "Next",
+          "Complementary results",
+          "Sponsored products"
+        ]
+      },
+      "chatgpt": {
+        "status": "no_explicit_text_citation",
+        "no_explicit_text_citation": true,
+        "observed_at_utc": "2026-11-06T09:36:41.696Z",
+        "observed_at_sgt": "2026-11-06 17:36:41 +08:00",
+        "prompt_date_sgt": "2026-11-06",
+        "surface": "ChatGPT consumer web, Temporary chat, default model/mode, no citation instruction",
+        "answer_excerpt": "A standard tarot deck contains 78 cards, divided into two groups: 1. Major Arcana – 22 cards Numbered",
+        "media_tiles_present": true,
+        "captured_media_links": [],
+        "text_claim_source_urls": [],
+        "shentarot_attribution_observed": false,
+        "classification_basis": "Rendered explanatory answer inspected for attribution. Image tiles and links beneath image/Open/Add to Favorites controls are media provenance, not supporting citations for explanatory text."
+      }
+    },
+    {
+      "id": 2,
+      "question_zh": "新手怎样开始学塔罗？",
+      "exact_prompt_en": "How do I read tarot cards as a beginner?",
+      "demand": {
+        "autocomplete_seed": "how to read tarot",
+        "autocomplete_url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&gl=sg&q=how+to+read+tarot",
+        "observed_prediction": "how to read tarot cards for beginners",
+        "autocomplete_position": 3,
+        "site_candidate": "https://shentarot.com/learn/how-to-read-tarot",
+        "gsc": null
+      },
+      "google": {
+        "status": "source_links_visible",
+        "observed_at_utc": "2026-11-06T09:37:10.530Z",
+        "observed_at_sgt": "2026-11-06 17:37:10 +08:00",
+        "query_url": "https://www.google.com/search?q=How+do+I+read+tarot+cards+as+a+beginner%3F&hl=en&gl=sg&pws=0",
+        "aio_heading_observed": true,
+        "answer_excerpt": "Reading tarot cards as a beginner starts with understanding the structure of the deck and practicing small, daily",
+        "captured_external_urls": [
+          "https://www.purenowherearchive.com/blog/a-beginners-guide-to-reading-tarot"
+        ],
+        "shentarot_in_captured_links": false,
+        "claim_by_claim_support": "not_audited",
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+      },
+      "chatgpt": {
+        "status": "no_explicit_text_citation",
+        "no_explicit_text_citation": true,
+        "observed_at_utc": "2026-11-06T16:40:40.963Z",
+        "observed_at_sgt": "2026-11-07 00:40:40 +08:00",
+        "prompt_date_sgt": "2026-11-06",
+        "surface": "ChatGPT consumer web, Temporary chat, default model/mode, no citation instruction",
+        "answer_excerpt": "Learning to read tarot cards is easier than you might think! You don't need psychic abilities or years",
+        "media_tiles_present": true,
+        "captured_media_links": [
+          {
+            "label": "arureco.com",
+            "url": "https://arureco.com/media/articles/practice/how-to-read-tarot"
+          },
+          {
+            "label": "rivendellshop.co.nz",
+            "url": "https://rivendellshop.co.nz/blogs/default-blog/tarot-journaling-for-emotional-healing"
+          }
+        ],
+        "text_claim_source_urls": [],
+        "shentarot_attribution_observed": false,
+        "classification_basis": "Rendered explanatory answer inspected for attribution. Image tiles and links beneath image/Open/Add to Favorites controls are media provenance, not supporting citations for explanatory text."
+      }
+    },
+    {
+      "id": 3,
+      "question_zh": "大阿卡纳和小阿卡纳有什么区别？",
+      "exact_prompt_en": "What is the difference between the Major and Minor Arcana?",
+      "demand": {
+        "autocomplete_seed": "major and minor arcana",
+        "autocomplete_url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&gl=sg&q=major+and+minor+arcana",
+        "observed_prediction": "major and minor arcana difference",
+        "autocomplete_position": 9,
+        "site_candidate": "https://shentarot.com/learn/major-and-minor-arcana",
+        "gsc": {
+          "kind": "page proxy",
+          "term_or_path": "/zh-hans/learn/major-and-minor-arcana",
+          "impressions": 293,
+          "period": "2026-10-17–28"
+        }
+      },
+      "google": {
+        "status": "source_links_visible",
+        "observed_at_utc": "2026-11-06T16:41:41.509Z",
+        "observed_at_sgt": "2026-11-07 00:41:41 +08:00",
+        "query_url": "https://www.google.com/search?q=What+is+the+difference+between+the+Major+and+Minor+Arcana%3F&hl=en&gl=sg&pws=0",
+        "aio_heading_observed": true,
+        "answer_excerpt": "The main difference between the Major Arcana and the Minor Arcana in a 78-card tarot deck lies in",
+        "captured_external_urls": [
+          "https://medium.com/spiritually-emmarie/the-difference-between-the-major-and-minor-arcana-in-tarot-16401f229e4f"
+        ],
+        "shentarot_in_captured_links": false,
+        "claim_by_claim_support": "not_audited",
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+      },
+      "chatgpt": {
+        "status": "no_explicit_text_citation",
+        "no_explicit_text_citation": true,
+        "observed_at_utc": "2026-11-07T12:01:33.336Z",
+        "observed_at_sgt": "2026-11-07 20:01:33 +08:00",
+        "prompt_date_sgt": "2026-11-07",
+        "surface": "ChatGPT consumer web, Temporary chat, default model/mode, no citation instruction",
+        "answer_excerpt": "The Major Arcana and Minor Arcana are the two main divisions of a traditional Tarot deck, which contains",
+        "media_tiles_present": true,
+        "captured_media_links": [],
+        "text_claim_source_urls": [],
+        "shentarot_attribution_observed": false,
+        "classification_basis": "Rendered explanatory answer inspected for attribution. Image tiles and links beneath image/Open/Add to Favorites controls are media provenance, not supporting citations for explanatory text."
+      }
+    },
+    {
+      "id": 4,
+      "question_zh": "四种花色分别是什么意思？",
+      "exact_prompt_en": "What do the four tarot suits mean?",
+      "demand": {
+        "autocomplete_seed": "tarot suits",
+        "autocomplete_url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&gl=sg&q=tarot+suits",
+        "observed_prediction": "tarot suits meanings",
+        "autocomplete_position": 2,
+        "site_candidate": "https://shentarot.com/learn/tarot-suits",
+        "gsc": null
+      },
+      "google": {
+        "status": "source_links_visible",
+        "observed_at_utc": "2026-11-06T09:37:13.269Z",
+        "observed_at_sgt": "2026-11-06 17:37:13 +08:00",
+        "query_url": "https://www.google.com/search?q=What+do+the+four+tarot+suits+mean%3F&hl=en&gl=sg&pws=0",
+        "aio_heading_observed": true,
+        "answer_excerpt": "The 56 cards of the Minor Arcana in a Tarot deck are divided into four suits, each corresponding",
+        "captured_external_urls": [
+          "https://www.asaliearthwork.com/blog/suits-elements-of-tarot"
+        ],
+        "shentarot_in_captured_links": false,
+        "claim_by_claim_support": "not_audited",
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+      },
+      "chatgpt": {
+        "status": "no_explicit_text_citation",
+        "no_explicit_text_citation": true,
+        "observed_at_utc": "2026-11-07T12:01:33.457Z",
+        "observed_at_sgt": "2026-11-07 20:01:33 +08:00",
+        "prompt_date_sgt": "2026-11-07",
+        "surface": "ChatGPT consumer web, Temporary chat, default model/mode, no citation instruction",
+        "answer_excerpt": "In tarot, the four suits represent four major areas of human experience: emotions, intellect, action, and material life.",
+        "media_tiles_present": true,
+        "captured_media_links": [],
+        "text_claim_source_urls": [],
+        "shentarot_attribution_observed": false,
+        "classification_basis": "Rendered explanatory answer inspected for attribution. Image tiles and links beneath image/Open/Add to Favorites controls are media provenance, not supporting citations for explanatory text."
+      }
+    },
+    {
+      "id": 5,
+      "question_zh": "塔罗牌上的数字有什么含义？",
+      "exact_prompt_en": "What do the numbers on tarot cards mean?",
+      "demand": {
+        "autocomplete_seed": "tarot numbers",
+        "autocomplete_url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&gl=sg&q=tarot+numbers",
+        "observed_prediction": "tarot numbers meaning",
+        "autocomplete_position": 2,
+        "site_candidate": "https://shentarot.com/learn/tarot-numbers",
+        "gsc": {
+          "kind": "page proxy",
+          "term_or_path": "/zh-hans/learn/tarot-numbers",
+          "impressions": 317,
+          "period": "2026-10-17–28"
+        }
+      },
+      "google": {
+        "status": "source_links_visible",
+        "observed_at_utc": "2026-11-06T16:41:43.154Z",
+        "observed_at_sgt": "2026-11-07 00:41:43 +08:00",
+        "query_url": "https://www.google.com/search?q=What+do+the+numbers+on+tarot+cards+mean%3F&hl=en&gl=sg&pws=0",
+        "aio_heading_observed": true,
+        "answer_excerpt": "Numbers in tarot represent a progressive journey of universal energy, growth, and cycles. In the Minor Arcana, numbers",
+        "captured_external_urls": [
+          "https://www.tarot.com/tarot/meaning-of-numbers-in-minor-arcana",
+          "https://www.hermitsmirror.com/musings/tarot-numerology-minor-sequences"
+        ],
+        "shentarot_in_captured_links": false,
+        "claim_by_claim_support": "not_audited",
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+      },
+      "chatgpt": {
+        "status": "not_sampled",
+        "no_explicit_text_citation": null
+      }
+    },
+    {
+      "id": 6,
+      "question_zh": "宫廷牌该怎么理解？",
+      "exact_prompt_en": "What do the court cards mean in tarot?",
+      "demand": {
+        "autocomplete_seed": "what do court cards",
+        "autocomplete_url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&gl=sg&q=what+do+court+cards",
+        "observed_prediction": "what do court cards mean in tarot",
+        "autocomplete_position": 2,
+        "site_candidate": "https://shentarot.com/learn/court-cards",
+        "gsc": null
+      },
+      "google": {
+        "status": "source_links_visible",
+        "observed_at_utc": "2026-11-06T09:37:16.107Z",
+        "observed_at_sgt": "2026-11-06 17:37:16 +08:00",
+        "query_url": "https://www.google.com/search?q=What+do+the+court+cards+mean+in+tarot%3F&hl=en&gl=sg&pws=0",
+        "aio_heading_observed": true,
+        "answer_excerpt": "Tarot court cards represent specific people, personality traits, or emotional and behavioral approaches by combining a social rank",
+        "captured_external_urls": [
+          "https://littleredtarot.com/learn-tarot/library/court/"
+        ],
+        "shentarot_in_captured_links": false,
+        "claim_by_claim_support": "not_audited",
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+      },
+      "chatgpt": {
+        "status": "not_sampled",
+        "no_explicit_text_citation": null
+      }
+    },
+    {
+      "id": 7,
+      "question_zh": "塔罗解读真的有用吗？",
+      "exact_prompt_en": "Do tarot card readings really work?",
+      "demand": {
+        "autocomplete_seed": "do tarot readings",
+        "autocomplete_url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&gl=sg&q=do+tarot+readings",
+        "observed_prediction": "do tarot readings really work",
+        "autocomplete_position": 5,
+        "site_candidate": "https://shentarot.com/methodology",
+        "gsc": null,
+        "site_fit": "Adjacent; verify or create dedicated content. Random-card tool should not be presented as a physical-shuffling tutorial."
+      },
+      "google": {
+        "status": "source_links_visible",
+        "observed_at_utc": "2026-11-06T09:37:16.598Z",
+        "observed_at_sgt": "2026-11-06 17:37:16 +08:00",
+        "query_url": "https://www.google.com/search?q=Do+tarot+card+readings+really+work%3F&hl=en&gl=sg&pws=0",
+        "aio_heading_observed": true,
+        "answer_excerpt": "Tarot cards \"work\" not by magically predicting a fixed, unchangeable future, but by acting as a psychological mirror,",
+        "captured_external_urls": [
+          "https://www.vogue.com/article/tarot-101-beginner-guide-how-to-small-spells",
+          "https://stsoleil.com/blogs/journal/how-tarot-cards-work-a-beginners-guide-to-understanding-tarot-readings",
+          "https://www.panmacmillan.com/blogs/lifestyle-wellbeing/how-to-read-tarot-cards-guide"
+        ],
+        "shentarot_in_captured_links": false,
+        "claim_by_claim_support": "not_audited",
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+      },
+      "chatgpt": {
+        "status": "not_sampled",
+        "no_explicit_text_citation": null
+      }
+    },
+    {
+      "id": 8,
+      "question_zh": "塔罗牌能预测未来吗？",
+      "exact_prompt_en": "Can tarot cards predict the future?",
+      "demand": {
+        "autocomplete_seed": "can tarot cards",
+        "autocomplete_url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&gl=sg&q=can+tarot+cards",
+        "observed_prediction": "can tarot cards predict the future",
+        "autocomplete_position": 1,
+        "site_candidate": "https://shentarot.com/methodology",
+        "gsc": null,
+        "site_fit": "Adjacent; verify or create dedicated content. Random-card tool should not be presented as a physical-shuffling tutorial."
+      },
+      "google": {
+        "status": "source_links_visible",
+        "observed_at_utc": "2026-11-06T09:37:36.312Z",
+        "observed_at_sgt": "2026-11-06 17:37:36 +08:00",
+        "query_url": "https://www.google.com/search?q=Can+tarot+cards+predict+the+future%3F&hl=en&gl=sg&pws=0",
+        "aio_heading_observed": true,
+        "answer_excerpt": "Tarot cards do not predict a fixed or unchangeable future . Instead, they act as a mirror for",
+        "captured_external_urls": [
+          "https://medium.com/@ReadJustMe/can-tarot-predict-the-future-yes-but-not-the-way-you-think-da03bbedb2c0"
+        ],
+        "shentarot_in_captured_links": false,
+        "claim_by_claim_support": "not_audited",
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+      },
+      "chatgpt": {
+        "status": "not_sampled",
+        "no_explicit_text_citation": null
+      }
+    },
+    {
+      "id": 9,
+      "question_zh": "可以给自己读牌吗？",
+      "exact_prompt_en": "Can I read tarot for myself?",
+      "demand": {
+        "autocomplete_seed": "can i read tarot",
+        "autocomplete_url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&gl=sg&q=can+i+read+tarot",
+        "observed_prediction": "can i read tarot for myself",
+        "autocomplete_position": 1,
+        "site_candidate": "https://shentarot.com/learn/how-to-read-tarot",
+        "gsc": null
+      },
+      "google": {
+        "status": "source_links_visible",
+        "observed_at_utc": "2026-11-06T09:37:36.861Z",
+        "observed_at_sgt": "2026-11-06 17:37:36 +08:00",
+        "query_url": "https://www.google.com/search?q=Can+I+read+tarot+for+myself%3F&hl=en&gl=sg&pws=0",
+        "aio_heading_observed": true,
+        "answer_excerpt": "Yes, you can read your own tarot cards . In fact, self-reading is a common and practical way",
+        "captured_external_urls": [
+          "https://www.quora.com/Is-it-bad-to-read-your-own-tarot-cards",
+          "https://www.facebook.com/groups/137414080218517/posts/1957745571518683/"
+        ],
+        "shentarot_in_captured_links": false,
+        "claim_by_claim_support": "not_audited",
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+      },
+      "chatgpt": {
+        "status": "not_sampled",
+        "no_explicit_text_citation": null
+      }
+    },
+    {
+      "id": 10,
+      "question_zh": "第一副塔罗牌该怎么选？",
+      "exact_prompt_en": "How do I choose my first tarot deck?",
+      "demand": {
+        "autocomplete_seed": "how to choose a tarot",
+        "autocomplete_url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&gl=sg&q=how+to+choose+a+tarot",
+        "observed_prediction": "how to choose a tarot deck for beginners",
+        "autocomplete_position": 4,
+        "site_candidate": "https://shentarot.com/learn/beginner-reference",
+        "gsc": null,
+        "site_fit": "Adjacent; verify or create dedicated content. Random-card tool should not be presented as a physical-shuffling tutorial."
+      },
+      "google": {
+        "status": "source_links_visible",
+        "observed_at_utc": "2026-11-06T09:37:38.660Z",
+        "observed_at_sgt": "2026-11-06 17:37:38 +08:00",
+        "query_url": "https://www.google.com/search?q=How+do+I+choose+my+first+tarot+deck%3F&hl=en&gl=sg&pws=0",
+        "aio_heading_observed": true,
+        "answer_excerpt": "Choosing your first tarot deck is an exciting step. Because most learning resources, books, and online guides are",
+        "captured_external_urls": [
+          "https://www.youtube.com/watch?v=qu6ZEUZ-KpY",
+          "https://www.youtube.com/watch?v=TpMehxtFXDU"
+        ],
+        "shentarot_in_captured_links": false,
+        "claim_by_claim_support": "not_audited",
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+      },
+      "chatgpt": {
+        "status": "not_sampled",
+        "no_explicit_text_citation": null
+      }
+    },
+    {
+      "id": 11,
+      "question_zh": "塔罗牌怎么洗牌？",
+      "exact_prompt_en": "How do I shuffle tarot cards?",
+      "demand": {
+        "autocomplete_seed": "how to shuffle tarot",
+        "autocomplete_url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&gl=sg&q=how+to+shuffle+tarot",
+        "observed_prediction": "how to shuffle tarot cards",
+        "autocomplete_position": 1,
+        "site_candidate": "https://shentarot.com/tools/random-card",
+        "gsc": {
+          "kind": "query",
+          "term_or_path": "tarot card shuffle",
+          "impressions": 19,
+          "period": "2026-10-17–24"
+        },
+        "site_fit": "Adjacent; verify or create dedicated content. Random-card tool should not be presented as a physical-shuffling tutorial."
+      },
+      "google": {
+        "status": "source_links_visible",
+        "observed_at_utc": "2026-11-06T09:37:39.166Z",
+        "observed_at_sgt": "2026-11-06 17:37:39 +08:00",
+        "query_url": "https://www.google.com/search?q=How+do+I+shuffle+tarot+cards%3F&hl=en&gl=sg&pws=0",
+        "aio_heading_observed": true,
+        "answer_excerpt": "Shuffling tarot cards is about mixing the deck thoroughly while connecting with your question or intention . There",
+        "captured_external_urls": [
+          "https://www.reddit.com/r/tarot/comments/ub9mx0/hi_new_to_tarot_how_do_you_shuffle_and_draw_from/",
+          "https://joyvernon.com/how-to-shuffle-tarot-cards/",
+          "https://www.youtube.com/watch?v=MtrbsjIxcRU&t=164"
+        ],
+        "shentarot_in_captured_links": false,
+        "claim_by_claim_support": "not_audited",
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+      },
+      "chatgpt": {
+        "status": "no_explicit_text_citation",
+        "no_explicit_text_citation": true,
+        "observed_at_utc": "2026-11-06T16:41:21.708Z",
+        "observed_at_sgt": "2026-11-07 00:41:21 +08:00",
+        "prompt_date_sgt": "2026-11-07",
+        "surface": "ChatGPT consumer web, Temporary chat, default model/mode, no citation instruction",
+        "answer_excerpt": "Shuffling tarot cards is a simple but meaningful part of a tarot reading. There is no single correct",
+        "media_tiles_present": true,
+        "captured_media_links": [],
+        "text_claim_source_urls": [],
+        "shentarot_attribution_observed": false,
+        "classification_basis": "Rendered explanatory answer inspected for attribution. Image tiles and links beneath image/Open/Add to Favorites controls are media provenance, not supporting citations for explanatory text."
+      }
+    },
+    {
+      "id": 12,
+      "question_zh": "怎样在线随机抽一张塔罗牌？",
+      "exact_prompt_en": "How do I draw a random tarot card online?",
+      "demand": {
+        "autocomplete_seed": "random tarot card",
+        "autocomplete_url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&gl=sg&q=random+tarot+card",
+        "observed_prediction": "random tarot card generator",
+        "autocomplete_position": 2,
+        "site_candidate": "https://shentarot.com/tools/random-card",
+        "gsc": {
+          "kind": "query",
+          "term_or_path": "random tarot card",
+          "impressions": 5,
+          "period": "2026-10-17–24"
+        }
+      },
+      "google": {
+        "status": "tool_links_visible",
+        "observed_at_utc": "2026-11-06T09:37:41.470Z",
+        "observed_at_sgt": "2026-11-06 17:37:41 +08:00",
+        "query_url": "https://www.google.com/search?q=How+do+I+draw+a+random+tarot+card+online%3F&hl=en&gl=sg&pws=0",
+        "aio_heading_observed": true,
+        "answer_excerpt": "You can draw a random tarot card online instantly for free using dedicated web generators that require no",
+        "captured_external_urls": [
+          "https://tarotcard.art/",
+          "https://quicktarot.app/",
+          "https://labyrinthos.co/pages/one-card-tarot",
+          "https://randomtarotcard.com/"
+        ],
+        "shentarot_in_captured_links": false,
+        "claim_by_claim_support": "not_audited",
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+      },
+      "chatgpt": {
+        "status": "not_sampled",
+        "no_explicit_text_citation": null
+      }
+    },
+    {
+      "id": 13,
+      "question_zh": "每日一张牌怎么读？",
+      "exact_prompt_en": "How do I do a daily one-card tarot reading?",
+      "demand": {
+        "autocomplete_seed": "daily one card",
+        "autocomplete_url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&gl=sg&q=daily+one+card",
+        "observed_prediction": "daily one card tarot reading",
+        "autocomplete_position": 1,
+        "site_candidate": "https://shentarot.com/tools/daily-card",
+        "gsc": null
+      },
+      "google": {
+        "status": "source_links_visible",
+        "observed_at_utc": "2026-11-06T16:41:44.804Z",
+        "observed_at_sgt": "2026-11-07 00:41:44 +08:00",
+        "query_url": "https://www.google.com/search?q=How+do+I+do+a+daily+one-card+tarot+reading%3F&hl=en&gl=sg&pws=0",
+        "aio_heading_observed": true,
+        "answer_excerpt": "Doing a daily one-card tarot reading is a simple, beginner-friendly ritual that helps you ground your day, connect",
+        "captured_external_urls": [
+          "https://www.hermitsmirror.com/musings/from-daily-card-to-meaningful-card-part-1"
+        ],
+        "shentarot_in_captured_links": false,
+        "claim_by_claim_support": "not_audited",
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+      },
+      "chatgpt": {
+        "status": "not_sampled",
+        "no_explicit_text_citation": null
+      }
+    },
+    {
+      "id": 14,
+      "question_zh": "问塔罗什么问题比较合适？",
+      "exact_prompt_en": "What questions should I ask tarot cards?",
+      "demand": {
+        "autocomplete_seed": "what questions to ask tarot",
+        "autocomplete_url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&gl=sg&q=what+questions+to+ask+tarot",
+        "observed_prediction": "what questions to ask tarot cards",
+        "autocomplete_position": 1,
+        "site_candidate": "https://shentarot.com/learn/asking-questions",
+        "gsc": null
+      },
+      "google": {
+        "status": "source_links_visible",
+        "observed_at_utc": "2026-11-06T09:37:43.390Z",
+        "observed_at_sgt": "2026-11-06 17:37:43 +08:00",
+        "query_url": "https://www.google.com/search?q=What+questions+should+I+ask+tarot+cards%3F&hl=en&gl=sg&pws=0",
+        "aio_heading_observed": true,
+        "answer_excerpt": "Asking effective questions helps you get clear, actionable, and empowering insights from your tarot cards. Open-ended questions that",
+        "captured_external_urls": [
+          "https://joyvernon.com/how-to-phrase-tarot-questions-for-clear-answers/",
+          "https://www.youtube.com/watch?v=kU0b-T2slC0&t=175"
+        ],
+        "shentarot_in_captured_links": false,
+        "claim_by_claim_support": "not_audited",
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+      },
+      "chatgpt": {
+        "status": "not_sampled",
+        "no_explicit_text_citation": null
+      }
+    },
+    {
+      "id": 15,
+      "question_zh": "三张牌的牌阵怎么读？",
+      "exact_prompt_en": "How do I do a three-card tarot spread?",
+      "demand": {
+        "autocomplete_seed": "three card tarot spread",
+        "autocomplete_url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&gl=sg&q=three+card+tarot+spread",
+        "observed_prediction": "three card tarot spread interpretation",
+        "autocomplete_position": 4,
+        "site_candidate": "https://shentarot.com/spreads/three",
+        "gsc": null,
+        "autocomplete_alignment": "topic; recommendation/how-to scenario paraphrased"
+      },
+      "google": {
+        "status": "source_links_visible",
+        "observed_at_utc": "2026-11-06T16:41:46.205Z",
+        "observed_at_sgt": "2026-11-07 00:41:46 +08:00",
+        "query_url": "https://www.google.com/search?q=How+do+I+do+a+three-card+tarot+spread%3F&hl=en&gl=sg&pws=0",
+        "aio_heading_observed": true,
+        "answer_excerpt": "Doing a three-card tarot spread is a simple, flexible way to gain clarity on a question, situation, or",
+        "captured_external_urls": [
+          "https://www.instructables.com/Three-Card-Tarot-Reading-for-Beginners/"
+        ],
+        "shentarot_in_captured_links": false,
+        "claim_by_claim_support": "not_audited",
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+      },
+      "chatgpt": {
+        "status": "no_explicit_text_citation",
+        "no_explicit_text_citation": true,
+        "observed_at_utc": "2026-11-06T16:41:51.865Z",
+        "observed_at_sgt": "2026-11-07 00:41:51 +08:00",
+        "prompt_date_sgt": "2026-11-07",
+        "surface": "ChatGPT consumer web, Temporary chat, default model/mode, no citation instruction",
+        "answer_excerpt": "A three-card tarot spread is one of the easiest and most popular ways to read tarot. It's great",
+        "media_tiles_present": true,
+        "captured_media_links": [
+          {
+            "label": "micheleknight.com",
+            "url": "https://micheleknight.com/articles/psychic/interactive-tarot/tarot-reading-guidance-from-your-soul/"
+          }
+        ],
+        "text_claim_source_urls": [],
+        "shentarot_attribution_observed": false,
+        "classification_basis": "Rendered explanatory answer inspected for attribution. Image tiles and links beneath image/Open/Add to Favorites controls are media provenance, not supporting citations for explanatory text."
+      }
+    },
+    {
+      "id": 16,
+      "question_zh": "凯尔特十字牌阵怎么读？",
+      "exact_prompt_en": "How do I read a Celtic Cross tarot spread?",
+      "demand": {
+        "autocomplete_seed": "celtic cross tarot spread",
+        "autocomplete_url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&gl=sg&q=celtic+cross+tarot+spread",
+        "observed_prediction": "celtic cross tarot spread interpretation",
+        "autocomplete_position": 4,
+        "site_candidate": "https://shentarot.com/spreads/celtic",
+        "gsc": null
+      },
+      "google": {
+        "status": "source_links_visible",
+        "observed_at_utc": "2026-11-06T16:40:28.663Z",
+        "observed_at_sgt": "2026-11-07 00:40:28 +08:00",
+        "query_url": "https://www.google.com/search?q=How+do+I+read+a+Celtic+Cross+tarot+spread%3F&hl=en&gl=sg&pws=0",
+        "aio_heading_observed": true,
+        "answer_excerpt": "The Celtic Cross is a classic 10-card tarot spread used to explore a specific question, theme, or situation",
+        "captured_external_urls": [
+          "https://www.thetarotlady.com/breaking-celtic-cross-lesson-1-laying/"
+        ],
+        "shentarot_in_captured_links": false,
+        "claim_by_claim_support": "not_audited",
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+      },
+      "chatgpt": {
+        "status": "no_explicit_text_citation",
+        "no_explicit_text_citation": true,
+        "observed_at_utc": "2026-11-06T16:42:47.272Z",
+        "observed_at_sgt": "2026-11-07 00:42:47 +08:00",
+        "prompt_date_sgt": "2026-11-07",
+        "surface": "ChatGPT consumer web, Temporary chat, default model/mode, no citation instruction",
+        "answer_excerpt": "The Celtic Cross is one of the most popular and detailed tarot spreads. It uses 10 cards to",
+        "media_tiles_present": true,
+        "captured_media_links": [
+          {
+            "label": "healthmanifested.com",
+            "url": "https://www.healthmanifested.com/how-to-read-the-celtic-cross-tarot-spread/"
+          }
+        ],
+        "text_claim_source_urls": [],
+        "shentarot_attribution_observed": false,
+        "classification_basis": "Rendered explanatory answer inspected for attribution. Image tiles and links beneath image/Open/Add to Favorites controls are media provenance, not supporting citations for explanatory text."
+      }
+    },
+    {
+      "id": 17,
+      "question_zh": "多张塔罗牌怎么连起来读？",
+      "exact_prompt_en": "How do I read tarot card combinations?",
+      "demand": {
+        "autocomplete_seed": "tarot card combinations",
+        "autocomplete_url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&gl=sg&q=tarot+card+combinations",
+        "observed_prediction": "tarot card combinations meaning",
+        "autocomplete_position": 6,
+        "site_candidate": "https://shentarot.com/tools/combinations",
+        "gsc": null
+      },
+      "google": {
+        "status": "source_links_visible",
+        "observed_at_utc": "2026-11-06T16:41:48.154Z",
+        "observed_at_sgt": "2026-11-07 00:41:48 +08:00",
+        "query_url": "https://www.google.com/search?q=How+do+I+read+tarot+card+combinations%3F&hl=en&gl=sg&pws=0",
+        "aio_heading_observed": true,
+        "answer_excerpt": "Reading tarot card combinations means looking at how two or more cards influence, challenge, or build upon each",
+        "captured_external_urls": [
+          "https://www.llewellyn.com/journal/article/3090"
+        ],
+        "shentarot_in_captured_links": false,
+        "claim_by_claim_support": "not_audited",
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+      },
+      "chatgpt": {
+        "status": "no_explicit_text_citation",
+        "no_explicit_text_citation": true,
+        "observed_at_utc": "2026-11-06T16:42:25.227Z",
+        "observed_at_sgt": "2026-11-07 00:42:25 +08:00",
+        "prompt_date_sgt": "2026-11-07",
+        "surface": "ChatGPT consumer web, Temporary chat, default model/mode, no citation instruction",
+        "answer_excerpt": "Reading tarot card combinations is one of the most important skills in tarot reading. The key is to",
+        "media_tiles_present": true,
+        "captured_media_links": [],
+        "text_claim_source_urls": [],
+        "shentarot_attribution_observed": false,
+        "classification_basis": "Rendered explanatory answer inspected for attribution. Image tiles and links beneath image/Open/Add to Favorites controls are media provenance, not supporting citations for explanatory text."
+      }
+    },
+    {
+      "id": 18,
+      "question_zh": "逆位是什么意思？",
+      "exact_prompt_en": "What does a reversed tarot card mean?",
+      "demand": {
+        "autocomplete_seed": "reversed tarot cards",
+        "autocomplete_url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&gl=sg&q=reversed+tarot+cards",
+        "observed_prediction": "reversed tarot cards meaning",
+        "autocomplete_position": 2,
+        "site_candidate": "https://shentarot.com/learn/reversed-cards",
+        "gsc": null
+      },
+      "google": {
+        "status": "source_links_visible",
+        "observed_at_utc": "2026-11-06T16:40:31.813Z",
+        "observed_at_sgt": "2026-11-07 00:40:31 +08:00",
+        "query_url": "https://www.google.com/search?q=What+does+a+reversed+tarot+card+mean%3F&hl=en&gl=sg&pws=0",
+        "aio_heading_observed": true,
+        "answer_excerpt": "An upside-down tarot card is called a reversal . It does not automatically mean bad news, nor is",
+        "captured_external_urls": [
+          "https://www.reddit.com/r/TarotDecks/comments/150a6h5/what_does_an_upside_down_card_mean_im_new_to_this/",
+          "https://darkforesttarotcards.com/blogs/news/reversed-tarot-cards-complete-guide"
+        ],
+        "shentarot_in_captured_links": false,
+        "claim_by_claim_support": "not_audited",
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+      },
+      "chatgpt": {
+        "status": "no_explicit_text_citation",
+        "no_explicit_text_citation": true,
+        "observed_at_utc": "2026-11-06T16:42:22.919Z",
+        "observed_at_sgt": "2026-11-07 00:42:22 +08:00",
+        "prompt_date_sgt": "2026-11-07",
+        "surface": "ChatGPT consumer web, Temporary chat, default model/mode, no citation instruction",
+        "answer_excerpt": "A reversed tarot card (also called an upside-down card or reversal) is a tarot card that appears upside",
+        "media_tiles_present": true,
+        "captured_media_links": [],
+        "text_claim_source_urls": [],
+        "shentarot_attribution_observed": false,
+        "classification_basis": "Rendered explanatory answer inspected for attribution. Image tiles and links beneath image/Open/Add to Favorites controls are media provenance, not supporting citations for explanatory text."
+      }
+    },
+    {
+      "id": 19,
+      "question_zh": "一定要读逆位吗？",
+      "exact_prompt_en": "Do I have to read tarot cards reversed?",
+      "demand": {
+        "autocomplete_seed": "do you have to read tarot",
+        "autocomplete_url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&gl=sg&q=do+you+have+to+read+tarot",
+        "observed_prediction": "do you have to read tarot cards in reverse",
+        "autocomplete_position": 1,
+        "site_candidate": "https://shentarot.com/learn/reversed-cards",
+        "gsc": null
+      },
+      "google": {
+        "status": "source_links_visible",
+        "observed_at_utc": "2026-11-06T16:40:33.248Z",
+        "observed_at_sgt": "2026-11-07 00:40:33 +08:00",
+        "query_url": "https://www.google.com/search?q=Do+I+have+to+read+tarot+cards+reversed%3F&hl=en&gl=sg&pws=0",
+        "aio_heading_observed": true,
+        "answer_excerpt": "No, you do not have to read tarot cards reversed . Reading with reversals is entirely optional, and",
+        "captured_external_urls": [
+          "https://mysticrose.co/blog/2025/4/23/why-i-dont-read-reversals-in-tarot"
+        ],
+        "shentarot_in_captured_links": false,
+        "claim_by_claim_support": "not_audited",
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+      },
+      "chatgpt": {
+        "status": "not_sampled",
+        "no_explicit_text_citation": null
+      }
+    },
+    {
+      "id": 20,
+      "question_zh": "怎样做「是或否」解读？",
+      "exact_prompt_en": "How do I do a yes or no tarot reading?",
+      "demand": {
+        "autocomplete_seed": "yes or no tarot",
+        "autocomplete_url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&gl=sg&q=yes+or+no+tarot",
+        "observed_prediction": "yes or no tarot reading",
+        "autocomplete_position": 4,
+        "site_candidate": "https://shentarot.com/tools/yes-no",
+        "gsc": null,
+        "autocomplete_alignment": "topic; recommendation/how-to scenario paraphrased"
+      },
+      "google": {
+        "status": "source_links_visible",
+        "observed_at_utc": "2026-11-06T16:40:34.549Z",
+        "observed_at_sgt": "2026-11-07 00:40:34 +08:00",
+        "query_url": "https://www.google.com/search?q=How+do+I+do+a+yes+or+no+tarot+reading%3F&hl=en&gl=sg&pws=0",
+        "aio_heading_observed": true,
+        "answer_excerpt": "To do a yes or no tarot reading, follow a structured process to set your rules, ask the",
+        "captured_external_urls": [
+          "https://www.reddit.com/r/tarot/comments/o8nwuv/any_tips_on_how_to_do_a_yes_or_no_tarot_spread/"
+        ],
+        "shentarot_in_captured_links": false,
+        "claim_by_claim_support": "not_audited",
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+      },
+      "chatgpt": {
+        "status": "not_sampled",
+        "no_explicit_text_citation": null
+      }
+    },
+    {
+      "id": 21,
+      "question_zh": "感情问题适合用什么牌阵？",
+      "exact_prompt_en": "What tarot spread can I use for a love reading?",
+      "demand": {
+        "autocomplete_seed": "love tarot spreads",
+        "autocomplete_url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&gl=sg&q=love+tarot+spreads",
+        "observed_prediction": "love tarot spreads for beginners",
+        "autocomplete_position": 3,
+        "site_candidate": "https://shentarot.com/spreads/love-connection",
+        "gsc": null,
+        "autocomplete_alignment": "topic; recommendation/how-to scenario paraphrased"
+      },
+      "google": {
+        "status": "source_links_visible",
+        "observed_at_utc": "2026-11-06T16:41:51.004Z",
+        "observed_at_sgt": "2026-11-07 00:41:51 +08:00",
+        "query_url": "https://www.google.com/search?q=What+tarot+spread+can+I+use+for+a+love+reading%3F&hl=en&gl=sg&pws=0",
+        "aio_heading_observed": true,
+        "answer_excerpt": "Several effective tarot spreads work well for love and relationship readings, depending on whether you are single, in",
+        "captured_external_urls": [
+          "https://www.emeraldlotusdivination.com/blog/2026/2/2/15-top-tarot-spreads-for-love-and-relationships",
+          "https://spiritquery.com/love-tarot-spreads/",
+          "https://writualplanner.com/blogs/news/tarot-spreads-for-love-and-relationships",
+          "https://www.thepsychicline.com/psychic-blog/love-tarot-spread"
+        ],
+        "shentarot_in_captured_links": false,
+        "claim_by_claim_support": "not_audited",
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+      },
+      "chatgpt": {
+        "status": "not_sampled",
+        "no_explicit_text_citation": null
+      }
+    },
+    {
+      "id": 22,
+      "question_zh": "塔罗能知道对方对我的真实感受吗？",
+      "exact_prompt_en": "Can tarot tell me how someone feels about me?",
+      "demand": {
+        "autocomplete_seed": "can tarot tell you",
+        "autocomplete_url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&gl=sg&q=can+tarot+tell+you",
+        "observed_prediction": "can tarot tell you how someone feels about you",
+        "autocomplete_position": 1,
+        "site_candidate": "https://shentarot.com/questions/does-he-love-me",
+        "gsc": {
+          "kind": "related query",
+          "term_or_path": "塔罗牌 ta的心思牌阵 牌阵结构",
+          "impressions": 2,
+          "period": "2026-10-17–24"
+        }
+      },
+      "google": {
+        "status": "source_links_visible",
+        "observed_at_utc": "2026-11-06T16:42:00.000Z",
+        "observed_at_sgt": "2026-11-07 00:42:00 +08:00",
+        "query_url": "https://www.google.com/search?q=Can+tarot+tell+me+how+someone+feels+about+me%3F&hl=en&gl=sg&pws=0",
+        "aio_heading_observed": true,
+        "answer_excerpt": "Tarot cards cannot confirm another person's private thoughts or feelings with factual certainty. How Tarot Works in This",
+        "captured_external_urls": [
+          "https://www.quora.com/How-can-a-tarot-card-reader-predict-someones-feelings-for-you",
+          "https://www.reddit.com/r/tarot/comments/11aq48x/can_tarot_really_be_used_to_find_out_about_other/",
+          "https://medium.com/@annesofiah/how-do-i-know-if-hes-in-love-with-me-let-s-ask-the-tarot-shall-we-8622b466fbaf"
+        ],
+        "shentarot_in_captured_links": false,
+        "claim_by_claim_support": "not_audited",
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+      },
+      "chatgpt": {
+        "status": "not_sampled",
+        "no_explicit_text_citation": null
+      }
+    },
+    {
+      "id": 23,
+      "question_zh": "星币一在「对方的感受」里是什么意思？",
+      "exact_prompt_en": "What does the Ace of Pentacles mean as feelings?",
+      "demand": {
+        "autocomplete_seed": "ace of pentacles as",
+        "autocomplete_url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&gl=sg&q=ace+of+pentacles+as",
+        "observed_prediction": "ace of pentacles as feelings",
+        "autocomplete_position": 1,
+        "site_candidate": "https://shentarot.com/cards/pentacles-ace/feelings",
+        "gsc": {
+          "kind": "query",
+          "term_or_path": "ace of pentacles feelings",
+          "impressions": 2,
+          "period": "2026-10-17–24"
+        }
+      },
+      "google": {
+        "status": "source_links_visible",
+        "observed_at_utc": "2026-11-06T16:42:02.127Z",
+        "observed_at_sgt": "2026-11-07 00:42:02 +08:00",
+        "query_url": "https://www.google.com/search?q=What+does+the+Ace+of+Pentacles+mean+as+feelings%3F&hl=en&gl=sg&pws=0",
+        "aio_heading_observed": true,
+        "answer_excerpt": "When the Ace of Pentacles appears as someone's feelings, it means they view you as a valuable, grounded,",
+        "captured_external_urls": [
+          "https://medium.com/twin-flame-dictionary/twin-flame-energy-update-ace-of-pentacles-how-does-the-love-in-the-heart-descend-into-real-life-b7ea36137fc0"
+        ],
+        "shentarot_in_captured_links": false,
+        "claim_by_claim_support": "not_audited",
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+      },
+      "chatgpt": {
+        "status": "no_explicit_text_citation",
+        "no_explicit_text_citation": true,
+        "observed_at_utc": "2026-11-06T16:42:49.669Z",
+        "observed_at_sgt": "2026-11-07 00:42:49 +08:00",
+        "prompt_date_sgt": "2026-11-07",
+        "surface": "ChatGPT consumer web, Temporary chat, default model/mode, no citation instruction",
+        "answer_excerpt": "The Ace of Pentacles as someone's feelings towards you is generally a very positive card. ❤️ It represents",
+        "media_tiles_present": false,
+        "captured_media_links": [],
+        "text_claim_source_urls": [],
+        "shentarot_attribution_observed": false,
+        "classification_basis": "Rendered explanatory answer inspected for attribution. Image tiles and links beneath image/Open/Add to Favorites controls are media provenance, not supporting citations for explanatory text.",
+        "capture_note": "A media-tools quota UI banner appeared; it is excluded from answer text. No workaround used."
+      }
+    },
+    {
+      "id": 24,
+      "question_zh": "星币四是什么意思？",
+      "exact_prompt_en": "What does the Four of Pentacles mean in tarot?",
+      "demand": {
+        "autocomplete_seed": "four of pentacles",
+        "autocomplete_url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&gl=sg&q=four+of+pentacles",
+        "observed_prediction": "four of pentacles tarot card meaning",
+        "autocomplete_position": 8,
+        "site_candidate": "https://shentarot.com/cards/pentacles-four",
+        "gsc": {
+          "kind": "page proxy",
+          "term_or_path": "/es/cards/pentacles-four",
+          "impressions": 257,
+          "period": "2026-10-17–28"
+        }
+      },
+      "google": {
+        "status": "source_links_visible",
+        "observed_at_utc": "2026-11-06T16:42:03.755Z",
+        "observed_at_sgt": "2026-11-07 00:42:03 +08:00",
+        "query_url": "https://www.google.com/search?q=What+does+the+Four+of+Pentacles+mean+in+tarot%3F&hl=en&gl=sg&pws=0",
+        "aio_heading_observed": true,
+        "answer_excerpt": "The Four of Pentacles represents a tight grip on resources, emotional defensiveness, and a deep-seated fear of loss",
+        "captured_external_urls": [
+          "https://www.spiralseatarot.com/blog/indepth4ofpentacles"
+        ],
+        "shentarot_in_captured_links": false,
+        "claim_by_claim_support": "not_audited",
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+      },
+      "chatgpt": {
+        "status": "not_sampled",
+        "no_explicit_text_citation": null
+      }
+    },
+    {
+      "id": 25,
+      "question_zh": "第 20 号塔罗牌是什么？",
+      "exact_prompt_en": "What is tarot card number 20?",
+      "demand": {
+        "autocomplete_seed": "tarot card number",
+        "autocomplete_url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&gl=sg&q=tarot+card+number",
+        "observed_prediction": null,
+        "autocomplete_position": null,
+        "site_candidate": "https://shentarot.com/cards/major-20-judgement",
+        "gsc": {
+          "kind": "query",
+          "term_or_path": "20 tarot card",
+          "impressions": 10,
+          "period": "2026-10-17–24"
+        }
+      },
+      "google": {
+        "status": "source_links_visible",
+        "observed_at_utc": "2026-11-06T16:40:46.870Z",
+        "observed_at_sgt": "2026-11-07 00:40:46 +08:00",
+        "query_url": "https://www.google.com/search?q=What+is+tarot+card+number+20%3F&hl=en&gl=sg&pws=0",
+        "aio_heading_observed": true,
+        "answer_excerpt": "Tarot card number 20 is Judgement , the penultimate Major Arcana card. It signifies spiritual awakening, rebirth, total",
+        "captured_external_urls": [
+          "https://littleredtarot.com/learn-tarot/library/majors/20-judgement/",
+          "https://www.tiktok.com/@jlauserart/video/7366752564567657774"
+        ],
+        "shentarot_in_captured_links": false,
+        "claim_by_claim_support": "not_audited",
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+      },
+      "chatgpt": {
+        "status": "not_sampled",
+        "no_explicit_text_citation": null
+      }
+    },
+    {
+      "id": 26,
+      "question_zh": "死神牌是什么意思？",
+      "exact_prompt_en": "What does the Death card mean in tarot?",
+      "demand": {
+        "autocomplete_seed": "death tarot card",
+        "autocomplete_url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&gl=sg&q=death+tarot+card",
+        "observed_prediction": "death tarot card meaning",
+        "autocomplete_position": 1,
+        "site_candidate": "https://shentarot.com/cards/major-13-death",
+        "gsc": null
+      },
+      "google": {
+        "status": "source_links_visible",
+        "observed_at_utc": "2026-11-06T16:40:47.437Z",
+        "observed_at_sgt": "2026-11-07 00:40:47 +08:00",
+        "query_url": "https://www.google.com/search?q=What+does+the+Death+card+mean+in+tarot%3F&hl=en&gl=sg&pws=0",
+        "aio_heading_observed": true,
+        "answer_excerpt": "The Death tarot card (Card XIII) rarely means physical death; instead, it symbolizes a major end, transition, and",
+        "captured_external_urls": [
+          "https://labyrinthos.co/blogs/tarot-card-meanings-list/death-meaning-major-arcana-tarot-card-meanings",
+          "https://www.thetarotguide.com/death/"
+        ],
+        "shentarot_in_captured_links": false,
+        "claim_by_claim_support": "not_audited",
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+      },
+      "chatgpt": {
+        "status": "not_sampled",
+        "no_explicit_text_citation": null
+      }
+    },
+    {
+      "id": 27,
+      "question_zh": "高塔牌是什么意思？",
+      "exact_prompt_en": "What does the Tower card mean in tarot?",
+      "demand": {
+        "autocomplete_seed": "the tower tarot card",
+        "autocomplete_url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&gl=sg&q=the+tower+tarot+card",
+        "observed_prediction": "the tower tarot card meaning",
+        "autocomplete_position": 1,
+        "site_candidate": "https://shentarot.com/cards/major-16-tower",
+        "gsc": null
+      },
+      "google": {
+        "status": "source_links_visible",
+        "observed_at_utc": "2026-11-06T16:42:04.233Z",
+        "observed_at_sgt": "2026-11-07 00:42:04 +08:00",
+        "query_url": "https://www.google.com/search?q=What+does+the+Tower+card+mean+in+tarot%3F&hl=en&gl=sg&pws=0",
+        "aio_heading_observed": true,
+        "answer_excerpt": "The Tower is the 16th card of the Major Arcana in tarot. It represents sudden change, upheaval, chaos,",
+        "captured_external_urls": [
+          "https://labyrinthos.co/blogs/tarot-card-meanings-list/the-tower-meaning-major-arcana-tarot-card-meanings",
+          "https://www.reddit.com/r/tarot/comments/lhx6y6/can_someone_please_explain_to_me_what_the_tower/",
+          "https://medium.com/@letterstoafriendivenevermet/the-tower-tarot-card-meaning-reading-the-image-before-the-symbolism-1b389cffecef"
+        ],
+        "shentarot_in_captured_links": false,
+        "claim_by_claim_support": "not_audited",
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+      },
+      "chatgpt": {
+        "status": "not_sampled",
+        "no_explicit_text_citation": null
+      }
+    },
+    {
+      "id": 28,
+      "question_zh": "恋人牌在感情里是什么意思？",
+      "exact_prompt_en": "What does the Lovers card mean in a relationship?",
+      "demand": {
+        "autocomplete_seed": "the lovers tarot card",
+        "autocomplete_url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&gl=sg&q=the+lovers+tarot+card",
+        "observed_prediction": "the lovers tarot card meaning love",
+        "autocomplete_position": 3,
+        "site_candidate": "https://shentarot.com/cards/major-06-lovers/love",
+        "gsc": null
+      },
+      "google": {
+        "status": "source_links_visible",
+        "observed_at_utc": "2026-11-06T16:40:49.644Z",
+        "observed_at_sgt": "2026-11-07 00:40:49 +08:00",
+        "query_url": "https://www.google.com/search?q=What+does+the+Lovers+card+mean+in+a+relationship%3F&hl=en&gl=sg&pws=0",
+        "aio_heading_observed": true,
+        "answer_excerpt": "The Lovers card in a relationship represents deep soul-level connection , harmony , trust , and conscious commitment",
+        "captured_external_urls": [
+          "https://rakatarot.com/the-lovers-tarot-card/"
+        ],
+        "shentarot_in_captured_links": false,
+        "claim_by_claim_support": "not_audited",
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+      },
+      "chatgpt": {
+        "status": "not_sampled",
+        "no_explicit_text_citation": null
+      }
+    },
+    {
+      "id": 29,
+      "question_zh": "塔罗生日牌怎么算？",
+      "exact_prompt_en": "How do I calculate my tarot birth card?",
+      "demand": {
+        "autocomplete_seed": "how to calculate tarot",
+        "autocomplete_url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&gl=sg&q=how+to+calculate+tarot",
+        "observed_prediction": "how to calculate tarot birth cards",
+        "autocomplete_position": 1,
+        "site_candidate": "https://shentarot.com/tools/birth-card",
+        "gsc": null
+      },
+      "google": {
+        "status": "tool_links_visible",
+        "observed_at_utc": "2026-11-06T16:40:50.110Z",
+        "observed_at_sgt": "2026-11-07 00:40:50 +08:00",
+        "query_url": "https://www.google.com/search?q=How+do+I+calculate+my+tarot+birth+card%3F&hl=en&gl=sg&pws=0",
+        "aio_heading_observed": true,
+        "answer_excerpt": "You can find your tarot birth cards online or calculate them by hand using your full birth date.",
+        "captured_external_urls": [
+          "https://tarotschool.com/Calculator.html",
+          "https://labyrinthos.co/pages/calculate-your-tarot-birth-card",
+          "https://www.tarot.com/tarot/tarot-birth-card-calculator"
+        ],
+        "shentarot_in_captured_links": false,
+        "claim_by_claim_support": "not_audited",
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+      },
+      "chatgpt": {
+        "status": "not_sampled",
+        "no_explicit_text_citation": null
+      }
+    },
+    {
+      "id": 30,
+      "question_zh": "做职业选择适合用什么牌阵？",
+      "exact_prompt_en": "What tarot spread can I use for a career decision?",
+      "demand": {
+        "autocomplete_seed": "career tarot spread",
+        "autocomplete_url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&gl=sg&q=career+tarot+spread",
+        "observed_prediction": "job tarot spread",
+        "autocomplete_position": 8,
+        "site_candidate": "https://shentarot.com/spreads/career-path",
+        "gsc": null,
+        "autocomplete_alignment": "topic; recommendation/how-to scenario paraphrased"
+      },
+      "google": {
+        "status": "source_links_visible",
+        "observed_at_utc": "2026-11-06T16:40:51.847Z",
+        "observed_at_sgt": "2026-11-07 00:40:51 +08:00",
+        "query_url": "https://www.google.com/search?q=What+tarot+spread+can+I+use+for+a+career+decision%3F&hl=en&gl=sg&pws=0",
+        "aio_heading_observed": true,
+        "answer_excerpt": "Best for weighing a direct choice (such as staying vs. leaving, or Option A vs. Option B ):",
+        "captured_external_urls": [
+          "https://www.quickgo.pro/blog/tarot-for-career-decisions-a-practical-approach/"
+        ],
+        "shentarot_in_captured_links": false,
+        "claim_by_claim_support": "not_audited",
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+      },
+      "chatgpt": {
+        "status": "not_sampled",
+        "no_explicit_text_citation": null
+      }
+    }
+  ]
+}
