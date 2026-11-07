@@ -13,6 +13,7 @@ import { EXAMPLE } from "../../lib/example.ts";
 import { TOPICS } from "../../lib/topics.ts";
 import { i18n, langPaths, type Locale } from "../../i18n/index.ts";
 import { ritualCopy } from "../../i18n/ritual.ts";
+import { referenceHub } from '../../i18n/reference-hub';
 export const getStaticPaths = langPaths;
 const { lang } = Astro.props as { lang: Locale };
 const L = i18n(lang), R = ritualCopy(lang);
@@ -77,6 +78,7 @@ const jsonLd = [
   </div></section>
 
   <section class="ritual-section wrap"><div class="trust-grid"><div><h2>{R.trustTitle}</h2><p class="lead">{R.trustLead}</p><a class="link-arrow" href={u("methodology")}>{g.methodTitle}</a></div><div class="faq">{g.faq.map(f=><details><summary>{f.q}</summary><p>{f.a}</p></details>)}</div></div></section>
+  <p class="wrap"><a href={u('about') + '#questions'}>{referenceHub(lang).faqTitle} →</a></p>
   <section class="app-section" id="get-app"><div class="wrap app-grid"><div class="app-mark" aria-hidden="true"><Logo/><span>ShenTarot</span></div><div><h2>{B.appTitle}</h2><p>{B.appNote}</p><BetaInvite lang={lang}/></div></div></section>
   <section class="wrap final-ritual"><h2>{R.finalTitle}</h2><p>{R.finalLead}</p><div class="action-row"><a class="btn btn-gold" href="#ritual">{R.draw} <span aria-hidden="true">↗</span></a><a href={u("cards")}>{R.search}</a></div></section>
 </div>

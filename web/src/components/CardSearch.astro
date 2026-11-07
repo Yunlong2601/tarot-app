@@ -21,9 +21,10 @@ const groups = ['major', 'wands', 'cups', 'swords', 'pentacles'];
       const c = L.cards[id]!;
       const href = L.url(`cards/${slug(id)}`);
       return <a class="tcard search-card" href={href} data-href={href} data-search-card data-group={g} data-text={`${c.name} ${id} ${CARDS[id].name} ${c.keywords.join(' ')}`} data-up={c.upright} data-rev={c.reversed}>
-        <img src={`${BASE}cards/art/${id}.jpg`} alt="" loading="lazy" width="150" height="257" /><b>{c.name}</b><small data-short>{c.upright}</small>
+        <img src={`${BASE}cards/art/${id}.jpg`} alt="" loading="lazy" width="150" height="257" /><h3>{c.name}</h3><small data-short>{c.upright}</small>
       </a>;
     })}
   </div></section>)}
 </div>
+<style>.search-card h3 { font:inherit; font-weight:600; margin:.5rem 0; }</style>
 <script src="../scripts/card-search.ts"></script>

@@ -1,3 +1,7 @@
+# Website reference hub — 2026-11-08
+
+Prepared eight-language product/FAQ hub, factual free-web introduction, 78 visible card headings with matching structured terms, and evidence-based CIT/MEN/ENT documentation. All 49 website tests, locale parity, Astro check, production build and six website audits pass. Chrome overflow checks cover all eight hub locales at 390px and English/Chinese/German/Russian at 768px and 1440px. Independent agent review findings resolved. AI citation gain and native-speaker/screen-reader validation are not established. Release evidence: docs/geo-tarot-2026-11-07/intent-map.md.
+
 ## 2026-11-01 — Company attribution corrected to Shenetic
 
 Owner confirmed the company name is Shenetic. Updated eight-language footer/about/methodology copy, reference attribution, Organization/Article schemas, AI Markdown publisher metadata, llms text and website legal provider/contact labels. Product remains ShenTarot. Existing bundle IDs, Google Play invitation IDs and backend hostnames retain their technical identifiers. Native/store metadata and any separate GitHub Pages legal copies require their owners to align; no native/backend changes made.

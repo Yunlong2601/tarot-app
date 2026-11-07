@@ -4,11 +4,23 @@ import CardSearch from "../../../components/CardSearch.astro";
 import SearchGrowthNotes from "../../../components/SearchGrowthNotes.astro";
 import Base from "../../../layouts/Base.astro";
 import { i18n, langPaths, type Locale } from "../../../i18n/index.ts";
+import { cardIds, slug } from "../../../lib/data";
+import { SITE_URL } from "../../../config";
 
 export const getStaticPaths = langPaths;
 const { lang } = Astro.props as { lang: Locale };
 const L = i18n(lang);
 const { t } = L;
+// List only entities actually rendered in the library. No invented sameAs,
+// ratings, reviewer credentials or external marketplace listings.
+const jsonLd = [{
+  '@context': 'https://schema.org', '@type': 'CollectionPage',
+  name: t('cards.h1'), url: new URL(L.url('cards'), SITE_URL).href, inLanguage: L.tag,
+  publisher: { '@type': 'Organization', '@id': SITE_URL + '#shenetic', name: 'Shenetic', url: SITE_URL },
+  mainEntity: { '@type': 'ItemList', numberOfItems: cardIds.length,
+    itemListElement: cardIds.map((id, i) => ({ '@type': 'ListItem', position: i + 1,
+      item: { '@type': 'DefinedTerm', '@id': new URL(L.url('cards/' + slug(id)), SITE_URL).href, name: L.cards[id]!.name, url: new URL(L.url('cards/' + slug(id)), SITE_URL).href } })) },
+}];
 
 ---
 <Base
@@ -17,6 +29,7 @@ const { t } = L;
   path="cards"
   crumbs={[[t("cards.crumb"), "cards"]]}
   lang={lang}
+  jsonLd={jsonLd}
 >
   <header class="page-head center">
     <p class="eyebrow">{t("cards.eyebrow")}</p>

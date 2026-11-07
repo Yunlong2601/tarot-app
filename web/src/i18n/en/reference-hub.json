@@ -1,0 +1,61 @@
+{
+  "using": "What can I do with my deck?",
+  "practice": "How do three cards become one reading?",
+  "beta": "What changes if I use the app?",
+  "faqTitle": "Questions from the reading table",
+  "intro": "With a deck in hand, you can enter your cards and save one reflection in this browser. Start with the question closest to yours.",
+  "openReading": "Try the example with these cards",
+  "faq": [
+    {
+      "q": "How many cards are in a tarot deck?",
+      "a": "A standard deck has 78 cards: 22 Major Arcana and 56 Minor Arcana. The Fool is one of the 22."
+    },
+    {
+      "q": "Can I teach myself to read tarot?",
+      "a": "Yes. Start with one card. Describe something you see, compare it with the card meaning and write one sentence in your own words."
+    },
+    {
+      "q": "What do the four card suits symbolize?",
+      "a": "In this guide, Wands suggest action, Cups feelings, Swords thoughts or conflict, and Pentacles everyday resources. Other traditions differ."
+    },
+    {
+      "q": "What are the 16 court cards?",
+      "a": "Each of the four suits has a Page, Knight, Queen and King. Try reading one as a way to act before deciding it stands for a person."
+    },
+    {
+      "q": "Is there a correct way to shuffle tarot?",
+      "a": "Use a method that feels comfortable and keeps the cards intact. For a large deck, move small packets from one hand to the other."
+    },
+    {
+      "q": "Can I pull tarot cards online?",
+      "a": "Yes. Open the random draw and turn over a card. If you already drew a physical card, enter it in the reading workspace instead."
+    },
+    {
+      "q": "How to do a daily tarot card reading?",
+      "a": "Draw one card and note a detail to watch for today. This evening, compare it with something that actually happened."
+    },
+    {
+      "q": "What not to ask in a tarot reading?",
+      "a": "Avoid asking cards to diagnose an illness or reveal someone’s private thoughts. Try “What do I want to ask them?” instead."
+    },
+    {
+      "q": "Do you have to read tarot cards in reverse?",
+      "a": "No. Decide before drawing. If you use reversals, try asking where the card’s theme feels blocked rather than assuming the opposite."
+    },
+    {
+      "q": "Can tarot tell you how someone feels about you?",
+      "a": "A card cannot confirm another person’s feelings. Use it to name something you noticed and decide what to ask them directly."
+    },
+    {
+      "q": "How do I know if a tarot card is a yes or no?",
+      "a": "There is no universal yes/no list. Use the card to name one condition that would make you lean toward or away from an option."
+    },
+    {
+      "q": "Can tarot cards predict the future?",
+      "a": "A spread cannot establish what will happen. Use the future position to explore a possibility and an action you can take now."
+    }
+  ],
+  "libraryFact": "Look up {cards} cards, upright or reversed, in {languages} languages. The website is free. Enter the cards from your physical deck without creating an account.",
+  "webBoundary": "The website offers reference text and practice prompts. It does not send your question or cards to an AI service or spend app credits.",
+  "savedNote": "Your saved reflection stays in this browser on this device. Saving again replaces it. Export a copy before clearing browser data or switching devices."
+}
