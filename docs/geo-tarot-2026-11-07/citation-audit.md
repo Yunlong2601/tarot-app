@@ -118,6 +118,12 @@ Google 的 27 题「有来源链接」也不能直接判为「论证完整」。
 4. 在发布后的稳定观察窗口重复同一组问题，分别记录：有没有生成 AI 回答、有没有来源、有没有 ShenTarot、引用的是哪一页、有没有错误描述。
 5. 用 Search Console 的独立生成式 AI 报告核对页面展现。它合并 AI Overviews 与 AI Mode，原始问题仍需要逐题复测。常规 Web 报告继续用于查询、展现和点击的对比。[生成式 AI 报告说明](https://support.google.com/webmasters/answer/16984139?hl=en) · [ShenTarot 基线](intent-map.md#google-search-generative-ai-baseline-november-9)
 
+### 第 25 题复测 · 11 月 9 日（新加坡时间）
+
+在 Chrome 里用相同英文问题和 `hl=en&gl=sg&pws=0` 打开 Google，并展开 AI Overview。回答给出第 20 号、常见正逆位关键词和画面。可见来源包括 Little Red Tarot、Wikipedia、Labyrinthos、Biddy Tarot 和一条 TikTok 内容，展开后的回答与来源区域均未见 ShenTarot。本轮沿用上表的 ChatGPT 基线样本，日期仍为 11 月 8 日；该样本正文未显示出处，但有图源。两次观测各自只有一个样本。[重复查询](https://www.google.com/search?q=What+is+tarot+card+number+20%3F&hl=en&gl=sg&pws=0) · [Google 首条可见来源](https://littleredtarot.com/learn-tarot/library/majors/20-judgement/)
+
+本次 Google 回答没有注明韦特特意指出起身者超过三人，也没有把「审慎考虑」与「作决定」归到他的逆位原文。新版牌页加入这两个可对照原文的细节，以及一组具体练习。读者在同一个牌位切换正逆位，用签到记录比较「来得集中」和「处理慢」两种解释，并在资料不足时试量十分钟。[图像原文](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2) · [牌义原文](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3) · [审判牌练习](https://shentarot.com/zh-hans/cards/major-20-judgement#reference-evidence-2)
+
 本轮完成的是 **30 题 Google 实测、30 题 ChatGPT 实测、30 题需求线索核对及出处分类**。尚未完成的是全部来源的逐句支持审计、中文平台样本、显式检索对照，以及持续的品牌引用追踪。没有把这些未完成项标成「无引用」。
 
 

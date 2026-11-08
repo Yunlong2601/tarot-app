@@ -9,7 +9,6 @@ const targets = new Map([
   ['/cards/pentacles-ace/love', 'love'],
   ...drawPrefixes.map(prefix => [prefix + '/tools/random-card', 'draw']),
   ['/zh-hans/learn/major-and-minor-arcana', 'arcana'],
-  ['/cards/major-20-judgement', 'judgement'],
 ]);
 const fileFor = path => ['dist' + path + '.html', 'dist' + path + '/index.html'].find(existsSync);
 const attrs = tag => Object.fromEntries([...tag.matchAll(/([\w:-]+)="([^"]*)"/g)].map(m => [m[1], m[2]]));

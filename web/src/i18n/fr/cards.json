@@ -982,11 +982,11 @@
    "vocation"
   ],
   "upright": "Un moment de bilan honnête. Pardonne le passé et réponds à ton appel intérieur.",
-  "reversed": "Autocritique ou fuite d'une décision nécessaire.",
+  "reversed": "Demande-toi ce qui t’aiderait à décider et si le fait de te juger durement complique les choses.",
   "k": {
    "essence": "Un appel à regarder en arrière et à recommencer.",
    "imagery": "Un ange souffle dans une trompette depuis les nuages. En dessous, des personnages aux bras levés se relèvent de cercueils ouverts. Des montagnes enneigées se dressent derrière.",
-   "why": "Vingt est le nombre de l'éveil avant l'accomplissement. La trompette est un appel, et les personnages qui se relèvent sont des gens qui y répondent. La carte parle de bilan et de renouveau, pas d'un verdict prononcé.",
+   "why": "La trompette rend l’appel visible, et les personnes qui se relèvent semblent y répondre. La scène invite à te demander ce que tu as remarqué et comment tu souhaites y répondre.",
    "upright": {
     "core": "Un moment de bilan et de renouveau : entendre un appel à vivre autrement.",
     "light": "éveil, pardon, sens",
@@ -996,14 +996,47 @@
     "question": "Qu'est-ce qui m'appelle et que je ne cesse de repousser ?"
    },
    "reversed": {
-    "core": "Le doute, ignorer l'appel, ou être dur·e avec toi-même.",
+    "core": "Demande-toi ce qui t’aiderait à décider et si le fait de te juger durement complique les choses.",
     "modes": [
-     "Bloqué : ignorer ce que tu entends.",
-     "Excès : une autocritique sévère.",
-     "Intérieur : un bilan vécu en privé."
+     "Quelle information te manque encore ?",
+     "Quel indice te suffirait ?",
+     "Quel petit changement peux-tu essayer ?"
     ],
-    "question": "Puis-je me pardonner assez pour avancer ?"
+    "question": "Quel indice te suffirait ?"
    }
+  },
+  "evidence": {
+   "answer": "La carte 20 (XX) du tarot est Le Jugement. À l’endroit, elle invite à faire le point avant de repartir. Renversée, demande-toi si tu as besoin de temps pour décider ou si tu te juges trop durement.",
+   "groupNote": "La carte porte le numéro XX. Si tu comptes Le Mat (0) en premier, Le Jugement arrive en 21e position.",
+   "sections": [
+    {
+     "h": "Que montre la carte XX ?",
+     "p": [
+      "Trois personnages sont au premier plan et d’autres se relèvent derrière eux. L’ange souffle dans une trompette ornée d’une bannière à croix. Dans la deuxième partie, Waite souligne qu’il y a plus de trois personnes qui se relèvent. Il y voit une réponse à un appel intérieur.",
+      "Dans la troisième partie, Waite associe la carte à l’endroit au renouveau et à un changement de situation. Pour la carte renversée, il cite la faiblesse, mais aussi la délibération et la décision. Tu peux donc te demander si une pause t’aiderait à peser tes options."
+     ]
+    },
+    {
+     "h": "Essaie la même question avec Le Jugement dans les deux sens",
+     "p": [
+      "Imagine qu’un groupe de bénévoles vient d’organiser un échange de livres et souhaite améliorer le prochain. Place [Le Jugement à l’endroit](cards/major-20-judgement?orientation=upright#card-meanings) sur « Qu’avons-nous appris ? ». Les personnes qui répondent à la trompette te donnent une piste : cherche une réaction observable. Regarde à quelle heure la file s’est allongée dans le registre des arrivées et choisis un changement à essayer.",
+      "Avec [Le Jugement renversé](cards/major-20-judgement?orientation=reversed#card-meanings) au même endroit, demande-toi ce qu’il manque pour décider. Beaucoup de gens sont-ils arrivés en même temps, ou l’accueil prenait-il plus de temps à l’une des tables ? Si le registre ne permet pas de trancher, chronomètre les deux tables pendant dix minutes au prochain échange.",
+      "Si tu ajoutes le [Huit de Deniers](cards/pentacles-eight) pour l’action et [Tempérance](cards/major-14-temperance) pour le rythme, répète la nouvelle procédure d’accueil une fois et attends la fin du prochain échange pour voir si elle a aidé."
+     ]
+    },
+    {
+     "h": "Sources à consulter",
+     "p": [
+      "[Waite, partie II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), section 2, XX, décrit la bannière et les personnages supplémentaires. La [partie III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), section 3, entrée 20, donne les significations des deux orientations. Le [livret de U.S. Games](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=11) cite lui aussi la délibération et la décision pour la carte renversée."
+     ]
+    },
+    {
+     "h": "Vérification · 9 novembre 2026",
+     "p": [
+      "Codex a comparé l’illustration utilisée sur le site, les passages cités et cette fiche de la carte. L’échange de livres est un exercice original. Les relectures par des spécialistes indépendants et des locuteurs natifs restent à faire. [Signaler une erreur](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_21_world": {

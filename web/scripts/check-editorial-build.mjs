@@ -66,11 +66,11 @@ for(const [id,evidence] of Object.entries(CARD_EVIDENCE))for(const locale of loc
  assert.ok(!('reviewedBy'in schema)&&!('lastReviewed'in schema));
  const markdown=['dist/_agent-markdown/'+path+'.md','dist/_agent-markdown/'+path+'/index.md'].find(existsSync);assert.ok(markdown);
  const md=readFileSync(markdown,'utf8');for(const source of evidence.sources)assert.ok(md.includes(source.url));
- if(id==='major_19_sun'){
+ if(id==='major_19_sun'||id==='major_20_judgement'){
   for(const orientation of ['upright','reversed']){
    const href=`/${path}?orientation=${orientation}#card-meanings`;
-   assert.ok(section.querySelector(`a[href="${href}"]`),locale+': Sun orientation example link');
-   assert.ok(md.includes(href),locale+': Sun orientation link in Markdown');
+   assert.ok(section.querySelector(`a[href="${href}"]`),`${locale}: ${id} orientation example link`);
+   assert.ok(md.includes(href),`${locale}: ${id} orientation link in Markdown`);
   }
  }
  assert.equal(evidence.independentExpertReview,false);assert.equal(evidence.nativeLanguageReview,false);

@@ -982,11 +982,11 @@
    "calling"
   ],
   "upright": "A moment of honest review. Forgive the past and answer your inner call.",
-  "reversed": "Self-criticism or avoiding a necessary decision.",
+  "reversed": "A prompt to consider what would help you decide, and whether self-criticism is making that harder.",
   "k": {
    "essence": "A call to look back and begin again.",
    "imagery": "An angel blows a trumpet from the clouds. Below, figures with raised arms rise from open coffins. Snowy mountains stand behind.",
-   "why": "Twenty is the number of the awakening before completion. The trumpet is a call, and the rising figures are people answering. The card is about review and renewal, not a verdict handed down.",
+   "why": "The trumpet makes a call visible. The rising figures suggest a response, which gives us a way to ask what we have noticed and how we might respond.",
    "upright": {
     "core": "A moment of reckoning and renewal: hearing a call to live differently.",
     "light": "awakening, forgiveness, purpose",
@@ -996,14 +996,47 @@
     "question": "What is calling me that I have been postponing?"
    },
    "reversed": {
-    "core": "Doubt, ignoring the call, or being hard on yourself.",
+    "core": "A prompt to consider what would help you decide, and whether self-criticism is making that harder.",
     "modes": [
-     "Blocked: ignoring what you hear.",
-     "Excess: harsh self-criticism.",
-     "Inward: a private reckoning."
+     "What information is still missing?",
+     "What would count as enough evidence?",
+     "What small step can you test?"
     ],
-    "question": "Can I forgive myself enough to move on?"
+    "question": "What would count as enough evidence?"
    }
+  },
+  "evidence": {
+   "answer": "Tarot card 20 (XX) is Judgement. Upright, it can prompt a review before starting again. Reversed, consider whether you need more time to decide or are being too hard on yourself.",
+   "groupNote": "The image is marked XX. If you count the Fool (0) first, Judgement is the 21st card in this sequence.",
+   "sections": [
+    {
+     "h": "What does card XX actually show?",
+     "p": [
+      "Look for three figures in the foreground and others rising behind them. The angel blows a trumpet with a cross on its banner. In Part II, Waite specifically points out that more than three figures rise and reads the scene as a response to a summons heard from within.",
+      "Waite’s Part III lists renewal and a change of position upright. His reversed entry includes both weakness and deliberation or a decision. In a reflection, that gives us room to ask whether a pause could help you weigh a choice."
+     ]
+    },
+    {
+     "h": "Try the same question with Judgement upright and reversed",
+     "p": [
+      "Imagine a volunteer group ran a book swap and wants to improve the next one. Put Judgement [upright](cards/major-20-judgement?orientation=upright#card-meanings) in “What did we learn?” The people responding to the trumpet suggest looking for an actual response. Check the sign-in sheet for when the queue grew, then pick one change to test.",
+      "With Judgement [reversed](cards/major-20-judgement?orientation=reversed#card-meanings) in the same position, ask what you need to know before deciding. Check whether arrivals clustered or whether one table took longer per person. If the sign-in sheet cannot separate those possibilities, time both tables for ten minutes at the next swap.",
+      "If you add the [Eight of Pentacles](cards/pentacles-eight) for action and [Temperance](cards/major-14-temperance) for pace, practise the new check-in once and give it one event before judging whether it helped."
+     ]
+    },
+    {
+     "h": "Sources you can inspect",
+     "p": [
+      "[Waite, Part II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, XX, describes the banner and the additional figures. [Part III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 20, lists meanings for each orientation. The [U.S. Games booklet](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=11) also lists deliberation and decision under the reversal."
+     ]
+    },
+    {
+     "h": "Check record · 9 November 2026",
+     "p": [
+      "Codex compared the bundled artwork, the passages above and this base card page. The book-swap exercise is original. Independent expert and native-language review remain pending. [Send a correction](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_21_world": {
