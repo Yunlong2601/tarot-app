@@ -8,17 +8,16 @@ import { betaCopy } from '../../i18n/beta';
 import { cardIds, slug } from '../../lib/data';
 import { EXAMPLE } from '../../lib/example';
 import { IPHONE_BETA_EVIDENCE } from '../../lib/beta';
+import { SHENETIC_PROFILE, SHENTAROT_WEBSITE } from '../../lib/site-entities';
 
 export const getStaticPaths = langPaths;
 const { lang } = Astro.props as { lang: Locale };
 const L = i18n(lang), H = referenceHub(lang), B = betaCopy(lang), R = ritualCopy(lang);
 const page = new URL(L.url('about'), SITE_URL).href;
-const publisher = { '@type': 'Organization', '@id': SITE_URL + '#shenetic', name: 'Shenetic', url: SITE_URL, email: SUPPORT_EMAIL,
-  address: { '@type': 'PostalAddress', addressCountry: 'SG' }, brand: { '@type': 'Brand', name: 'ShenTarot' } };
 const jsonLd = [{
   '@context': 'https://schema.org', '@type': ['AboutPage', 'FAQPage'], '@id': page,
   name: L.t('about.h1'), description: R.heroLead, url: page, inLanguage: L.tag,
-  publisher, about: { '@type': 'WebSite', '@id': SITE_URL + '#website', name: 'ShenTarot', url: SITE_URL, publisher: { '@id': publisher['@id'] }, isAccessibleForFree: true },
+  publisher: SHENETIC_PROFILE, about: SHENTAROT_WEBSITE,
   mainEntity: H.faq.map((f, i) => ({ '@type': 'Question', '@id': page + '#' + FAQ_TARGETS[i][0], name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a, url: new URL(L.url(FAQ_TARGETS[i][1]), SITE_URL).href } })),
 }];
 const creditEvidence = fill(B.iphoneCosts, { version: IPHONE_BETA_EVIDENCE.version, build: IPHONE_BETA_EVIDENCE.build, credits: IPHONE_BETA_EVIDENCE.generalThreeCardCredits });

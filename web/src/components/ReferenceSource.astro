@@ -1,5 +1,6 @@
 ---
 import { i18n, type Locale } from '../i18n';
+import { SHENETIC, SHENTAROT_WEBSITE } from '../lib/site-entities';
 interface Props { lang: Locale; path: string; name: string; }
 const {lang, path, name} = Astro.props;
 const L = i18n(lang), g = L.growth;
@@ -7,9 +8,8 @@ const canonical = new URL(L.url(path), Astro.site).href;
 const schema = {
   '@context': 'https://schema.org', '@type': 'WebPage',
   '@id': canonical + '#webpage', url: canonical, name, inLanguage: L.tag,
-  publisher: {'@type':'Organization', '@id':new URL('#publisher',Astro.site).href,
-    name:'Shenetic', url:Astro.site!.href, brand:{'@type':'Brand',name:'ShenTarot'}},
-  isPartOf: {'@type':'WebSite',name:'ShenTarot',url:Astro.site!.href},
+  publisher: SHENETIC,
+  isPartOf: SHENTAROT_WEBSITE,
 };
 ---
 <aside class="reference-source" data-reference-source>

@@ -5,6 +5,8 @@ import Tabs from "../../../components/Tabs.astro";
 import Reader from "../../../components/Reader.astro";
 import { SPREADS, slug, spreadIds, type SpreadId } from "../../../lib/data.ts";
 import { TOPICS } from "../../../lib/topics.ts";
+import { SITE_URL } from "../../../config";
+import { SHENETIC, SHENTAROT_WEBSITE } from "../../../lib/site-entities";
 import { i18n, langPathsFor, type Locale } from "../../../i18n/index.ts";
 
 export function getStaticPaths() {
@@ -29,20 +31,28 @@ const related = spreadIds.filter((x) => x !== id && SPREADS[x].category === s.ca
 const sourceComparison = id === "celtic" ? L.content.spreads.celtic.sourceComparison : undefined;
 const waiteSource = "https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3";
 const sourceChecked = "2026-11-08";
+const path = `spreads/${slug(id)}`;
+const page = new URL(u(path), SITE_URL).href;
 const faq: [string, string][] = [
   [t("spread.faqCount", { name }), t("spread.faqCountA", { count, positions: positions.map((p, i) => `${i + 1}. ${p}`).join(t("spread.positionSep")) })],
   [t("spread.faqFor", { name }), tr.blurb],
   ...(sourceComparison ? [[sourceComparison.question, sourceComparison.answer] as [string, string]] : []),
   ...(questions.length ? [[t("spread.faqQuestions", { name }), questions.join(" ")] as [string, string]] : []),
 ];
-const jsonLd = [{ "@context": "https://schema.org", "@type": "FAQPage", inLanguage: L.tag, ...(sourceComparison ? { citation: waiteSource } : {}), mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) }];
+const jsonLd = [{
+  "@context": "https://schema.org", "@type": "FAQPage",
+  "@id": page, name, url: page, inLanguage: L.tag,
+  publisher: SHENETIC, isPartOf: SHENTAROT_WEBSITE,
+  ...(sourceComparison ? { citation: waiteSource } : {}),
+  mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
+}];
 const topicName = (title: string) => (lang === "en" ? title.toLowerCase() : title);
 ---
 <Base
   title={t("spread.title", { name, count })}
   description={t("spread.description", { name, n, blurb: tr.blurb })}
-  path={`spreads/${slug(id)}`}
-  crumbs={[[t("spreads.crumb"), "spreads"], [name, `spreads/${slug(id)}`]]}
+  path={path}
+  crumbs={[[t("spreads.crumb"), "spreads"], [name, path]]}
   jsonLd={jsonLd}
   lang={lang}
 >

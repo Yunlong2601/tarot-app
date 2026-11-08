@@ -10,6 +10,7 @@ import SearchGrowthNotes from "../../../components/SearchGrowthNotes.astro";
 import { BASE } from "../../../config.ts";
 import { CARDS, cardIds, slug, type CardId } from "../../../lib/data.ts";
 import { CONTEXTS, CONTEXT_KEY } from "../../../lib/contexts.ts";
+import { SHENETIC } from "../../../lib/site-entities";
 import { JUDGEMENT_ALIASES } from "../../../lib/workspace.ts";
 import { fill, i18n, joinAnd, langPathsFor, type Locale } from "../../../i18n/index.ts";
 
@@ -74,13 +75,15 @@ const faq: [string, string][] = k
 // One plain sentence that answers "what does this card mean?" first, for
 // readers who skim and for search and AI answers that quote a page.
 const answer = evidenceCopy?.answer ?? t("card.answer", { name, keywords: joinAnd(L.tag, tr.keywords) });
+const cardUrl = new URL(u(`cards/${slug(id)}`), Astro.site).href;
 const term = {
   "@context": "https://schema.org",
   "@type": "DefinedTerm",
+  "@id": cardUrl,
   name,
   alternateName: alternateNames,
   description: `${answer} ${k?.essence ?? tr.upright}`,
-  url: new URL(u(`cards/${slug(id)}`), Astro.site).href,
+  url: cardUrl,
   image: new URL(`cards/art/${id}.jpg`, Astro.site).href,
   inLanguage: L.tag,
   inDefinedTermSet: { "@type": "DefinedTermSet", name: t("cards.crumb"), url: new URL(u("cards"), Astro.site).href },
@@ -91,7 +94,7 @@ const jsonLd = [
     "@context":"https://schema.org", "@type":"Article", headline:name,
     description:answer, url:term.url, mainEntityOfPage:term.url, inLanguage:L.tag,
     image:term.image, dateModified:evidence.checkedAt,
-    author:{"@type":"Organization",name:"Shenetic"}, publisher:{"@type":"Organization",name:"Shenetic"},
+    author:SHENETIC, publisher:SHENETIC,
     citation:evidence.sources.map(source=>({"@type":"Book",name:source.title,url:source.url,author:{"@type":"Person",name:source.author}})),
   }] : []),
   ...(faq.length

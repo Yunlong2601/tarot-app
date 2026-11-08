@@ -6,6 +6,7 @@ import Base from "../../../layouts/Base.astro";
 import { i18n, langPaths, type Locale } from "../../../i18n/index.ts";
 import { cardIds, slug } from "../../../lib/data";
 import { SITE_URL } from "../../../config";
+import { SHENETIC, SHENTAROT_WEBSITE } from "../../../lib/site-entities";
 
 export const getStaticPaths = langPaths;
 const { lang } = Astro.props as { lang: Locale };
@@ -16,7 +17,7 @@ const { t } = L;
 const jsonLd = [{
   '@context': 'https://schema.org', '@type': 'CollectionPage',
   name: t('cards.h1'), url: new URL(L.url('cards'), SITE_URL).href, inLanguage: L.tag,
-  publisher: { '@type': 'Organization', '@id': SITE_URL + '#shenetic', name: 'Shenetic', url: SITE_URL },
+  publisher: SHENETIC, isPartOf: SHENTAROT_WEBSITE,
   mainEntity: { '@type': 'ItemList', numberOfItems: cardIds.length,
     itemListElement: cardIds.map((id, i) => ({ '@type': 'ListItem', position: i + 1,
       item: { '@type': 'DefinedTerm', '@id': new URL(L.url('cards/' + slug(id)), SITE_URL).href, name: L.cards[id]!.name, url: new URL(L.url('cards/' + slug(id)), SITE_URL).href } })) },

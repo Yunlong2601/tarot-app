@@ -115,7 +115,9 @@ This is 45 Unicode characters. The build audit enforces the 50-character limit. 
 
 ## Entity placement
 
-See entities.md and entities.csv for 108 ranked entities and four-platform status. Do not scatter all 108 labels into the About introduction. The 78 actual card entities are already a meaningful complete set for /cards: each receives a visible H3 and a matching DefinedTerm entry in a 78-item list. Five group H2s retain the deck hierarchy. The hub links into this library and uses the actual original example’s three named cards.
+See entities.md and entities.csv for 109 ranked entities and four-platform status. The 78 card entries on /cards each have a visible H3 and a matching DefinedTerm in a 78-item list. Five group H2s retain the deck hierarchy. The hub links to this library and names the three cards in its worked example.
+
+The directory and detail pages now use the same localized identifier for each card and spread. The spread catalogue derives its item list from the same groups and order as the visible headings. Home, About, card references, spread references and learning pages use the canonical Shenetic publisher ID. The website entity has its own ID and refers to Shenetic as publisher. Each homepage’s search action points to its actual localized search URL. The schema describes first-party relationships. The cross-platform observations remain in the entity register. [W3C node identifiers](https://www.w3.org/TR/json-ld11/#node-identifiers) · [Google organization markup](https://developers.google.com/search/docs/appearance/structured-data/organization)
 
 Shenetic is the publisher and ShenTarot the product. No Amazon/Wikipedia/Reddit sameAs relationship was asserted without identity evidence. No fake stars, reviews or independent reviewer credentials were added. FAQ schema describes visible questions; it is not a promise of a Google rich result or AI citation.
 

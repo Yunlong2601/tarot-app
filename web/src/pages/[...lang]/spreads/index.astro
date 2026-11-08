@@ -2,19 +2,42 @@
 import Base from "../../../layouts/Base.astro";
 import { SPREADS, slug, spreadIds } from "../../../lib/data.ts";
 import { i18n, langPaths, type Locale } from "../../../i18n/index.ts";
+import { SITE_URL } from "../../../config";
+import { SHENETIC, SHENTAROT_WEBSITE } from "../../../lib/site-entities";
 
 export const getStaticPaths = langPaths;
 const { lang } = Astro.props as { lang: Locale };
 const L = i18n(lang);
 const { t, url: u } = L;
 const cats = ["classics", "love", "career", "growth"];
-const sp = (id: string) => L.content.spreads[id as keyof typeof L.content.spreads];
+const groups = cats.map((category) => ({
+  category,
+  items: spreadIds.filter((id) => SPREADS[id].category === category).map((id) => ({
+    id,
+    spread: L.content.spreads[id],
+    href: u(`spreads/${slug(id)}`),
+  })),
+}));
+const items = groups.flatMap((group) => group.items);
+const jsonLd = [{
+  "@context": "https://schema.org", "@type": "CollectionPage",
+  name: t("spreads.h1"), url: new URL(u("spreads"), SITE_URL).href, inLanguage: L.tag,
+  publisher: SHENETIC, isPartOf: SHENTAROT_WEBSITE,
+  mainEntity: {
+    "@type": "ItemList", numberOfItems: items.length,
+    itemListElement: items.map(({ href, spread }, i) => ({
+      "@type": "ListItem", position: i + 1,
+      item: { "@type": "WebPage", "@id": new URL(href, SITE_URL).href, name: spread.name },
+    })),
+  },
+}];
 ---
 <Base
   title={t("spreads.title")}
   description={t("spreads.description")}
   path="spreads"
   crumbs={[[t("spreads.crumb"), "spreads"]]}
+  jsonLd={jsonLd}
   lang={lang}
 >
   <header class="page-head center">
@@ -25,16 +48,16 @@ const sp = (id: string) => L.content.spreads[id as keyof typeof L.content.spread
   <nav class="pills" style="justify-content:center" aria-label={t("spreads.catsNav")}>
     {cats.map((cat) => <a href={`#${cat}`}>{t(`spreadCats.${cat}`)}</a>)}
   </nav>
-  {cats.map((cat) => (
+  {groups.map(({ category, items }) => (
     <section>
-      <h2 class="group-title" id={cat}>{t(`spreadCats.${cat}`)}</h2>
+      <h2 class="group-title" id={category}>{t(`spreadCats.${category}`)}</h2>
       <div class="grid-3">
-        {spreadIds.filter((id) => SPREADS[id].category === cat).map((id) => (
-          <a class="panel spread-card" href={u(`spreads/${slug(id)}`)}>
+        {items.map(({ id, spread, href }) => (
+          <a class="panel spread-card" href={href}>
             <div class="diagram-preview" aria-hidden="true">{SPREADS[id].positions.map((_, i) => <i>{i + 1}</i>)}</div>
             <p class="count">{t("cardCount", { n: SPREADS[id].positions.length })}</p>
-            <h3>{sp(id).name}</h3>
-            <p>{sp(id).blurb}</p>
+            <h3>{spread.name}</h3>
+            <p>{spread.blurb}</p>
             <span class="link-arrow">{t("spreads.seePositions")}</span>
           </a>
         ))}
