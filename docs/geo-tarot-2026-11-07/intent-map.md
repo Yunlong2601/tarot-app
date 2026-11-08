@@ -27,7 +27,7 @@ English questions are actual PAA labels or autocomplete predictions captured in 
 | yes-no | How do I know if a tarot card is a yes or no? | PAA, query 5 | /tools/yes-no |
 | future | Can tarot cards predict the future? | Autocomplete, query 8 | /methodology |
 
-Raw Google PAA and prediction observations are retained in the local sampling files. The portable citation evidence has the original question, observed predictions and dated source observations. These are question candidates, not a global search-volume ranking.
+The portable citation evidence records the actual Google PAA labels, observed predictions, original questions and dated source observations. These are question candidates, not a global search-volume ranking.
 
 ## Semantic overlap review and consolidation
 
@@ -60,13 +60,15 @@ A model’s entire training corpus cannot be inspected. It is therefore not poss
 | app | Physical iPhone beta 1.0.1 (19), observed on 2026-10-30, general three-card reading requested 1 credit; spread/photo/manual-entry and general-reading options | web/src/lib/beta.ts IPHONE_BETA_EVIDENCE + released-capture metadata, existing verified beta copy and device evidence | Historical build observation only. Price in currency, Android charging and permanent free access not inferred. |
 | questions | One saved reflection per browser/device, replaced on saving; explicit export before changing devices | web/src/lib/workspace.ts, web/src/scripts/workspace.ts, existing save/export tests | Browser-local storage, not account sync. No claim that the website detects app use. |
 
+The comparison is with actual answers, not a guess about what the models know. ChatGPT's beginner and self-reading samples (2, 9) already explain the deck and suggest journaling. They do not give ShenTarot's language coverage, physical-card entry flow or one-record retention behavior. The three-card and combination samples (15, 17) already explain positions and give examples. They do not provide ShenTarot's specific loadable three-card exercise. The online-draw sample (12) names and links other free tools, so free/no-account drawing is a shared feature; the handoff from an existing physical draw to the workspace is a different task. Generic questions did not ask about native beta credits. The dated one-credit observation answers a product-specific question that the category sample leaves outside its scope.
+
 ## BLUF
 
 Homepage and About share one factual first paragraph in each locale.
 
 Chinese: “ShenTarot 免费提供78张塔罗牌的正逆位牌义，方便你对照手上的牌，读懂自己的牌阵。”
 
-This is 45 Unicode characters (validated by the build audit; use the actual count emitted from the file if wording changes). Price is free for the scoped website. Proposed native subscription prices were deliberately not converted into a fictitious currently available price range. The actual beta credit observation is separately attributed and dated.
+This is 45 Unicode characters. The build audit enforces the 50-character limit. Price is free for the scoped website. Proposed native subscription prices were deliberately not converted into a fictitious currently available price range. The actual beta credit observation is separately attributed and dated.
 
 ## Entity placement
 
@@ -82,7 +84,9 @@ Shenetic is the publisher and ShenTarot the product. No Amazon/Wikipedia/Reddit 
 - Real Chrome at 390px: all eight About pages had twelve questions and no document horizontal overflow. English, Simplified Chinese, German and Russian also checked at 768px and 1440px. Screenshots inspected for Chinese mobile and Russian desktop.
 - Keyboard activation of the Chinese question link changed to #questions and landed at the visible section after smooth scrolling. No native screen-reader review or native-speaker signoff claimed.
 - Independent agent review found and resolved a contextless “not yet” paragraph, missing provenance/review disclosures, an app heading with only price information, and a physical-shuffle link to the online tool. Audit also caught and fixed a duplicate #questions ID.
-- Release/CI/live-production evidence to be added after the PR is merged and deployment checked.
+- [PR #60](https://github.com/Yunlong2601/tarot-app/pull/60): all six GitHub checks passed for the submitted revision; squash merged to main as `37435f964a1d21dcfe122a4522df3f35401c42fd`.
+- Cloudflare deployed from that merged revision. IndexNow accepted the sitemap submission (HTTP 200); this does not show indexing.
+- [Production verification](production-verification.json) checked the exact deployed revision, all eight About and card-library routes, Markdown responses, privacy and terms at 01:17 SGT on November 8.
 
 ## Outcome follow-up
 

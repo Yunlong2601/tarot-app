@@ -1,6 +1,6 @@
 # Website reference hub — 2026-11-08
 
-Prepared eight-language product/FAQ hub, factual free-web introduction, 78 visible card headings with matching structured terms, and evidence-based CIT/MEN/ENT documentation. All 49 website tests, locale parity, Astro check, production build and six website audits pass. Chrome overflow checks cover all eight hub locales at 390px and English/Chinese/German/Russian at 768px and 1440px. Independent agent review findings resolved. AI citation gain and native-speaker/screen-reader validation are not established. Release evidence: docs/geo-tarot-2026-11-07/intent-map.md.
+Deployed the eight-language product/FAQ hub from merged PR #60, factual free-web introduction, 78 visible card headings with matching structured terms, and evidence-based CIT/MEN/ENT documentation. All 49 website tests, locale parity, Astro check, production build and six website audits pass. Chrome overflow checks cover all eight hub locales at 390px and English/Chinese/German/Russian at 768px and 1440px. Independent agent review findings resolved. All eight live hubs and card libraries passed, including Markdown responses. CIT is complete for 30 English question samples per surface. AI citation gain and native-speaker/screen-reader validation are not established. Release evidence: docs/geo-tarot-2026-11-07/intent-map.md.
 
 ## 2026-11-01 — Company attribution corrected to Shenetic
 

@@ -1,13 +1,13 @@
 {
   "metadata": {
-    "report_date_sgt": "2026-11-07",
+    "report_date_sgt": "2026-11-08",
     "brand": "ShenTarot",
     "publisher": "Shenetic",
     "website": "https://shentarot.com",
     "meaning_of_CIT": "Question-level answer and citation observation audit; no proprietary or standardized CIT score is claimed.",
     "selection": "30 demand-corroborated candidate questions, not a measured category-wide popularity ranking.",
     "google_context": "Dedicated Chrome tab; English queries; hl=en, gl=sg, pws=0 requested. Existing signed-in browser. Physical location and full depersonalization not verified.",
-    "chatgpt_context": "Consumer web, separate blank Temporary Chat for each generic English prompt, default model/mode, no citation instruction. Exact backend model and search routing unverified.",
+    "chatgpt_context": "Consumer web, separate blank Temporary Chat for each generic English prompt, default model/mode, no citation instruction. Exact backend model and search routing unverified. Final 20 observations captured 2026-11-08 SGT; IDs 5 and 6 prompted 2026-11-07 SGT. No instruction to search or cite was added.",
     "demand_captured_date_sgt": "2026-11-06",
     "counts": {
       "questions": 30,
@@ -16,10 +16,12 @@
       "google_aio_source_links_visible": 27,
       "google_aio_tool_links_visible": 2,
       "google_no_aio": 1,
-      "chatgpt_sampled": 10,
-      "chatgpt_no_explicit_text_citation": 10,
-      "chatgpt_media_tiles": 9,
-      "chatgpt_not_sampled": 20
+      "chatgpt_sampled": 30,
+      "chatgpt_no_explicit_text_citation": 30,
+      "chatgpt_media_tiles": 28,
+      "chatgpt_not_sampled": 0,
+      "chatgpt_no_body_recommendation_or_claim_source": 29,
+      "chatgpt_body_recommendation_links": 1
     },
     "sanitization": "No account identifiers, browser/session IDs, private conversation URLs, credentials, extension controls or full answer transcripts. Public URLs retained, tracking utm_* and srsltid parameters removed. Each answer excerpt is at most 18 words. Observed media links retained with their role.",
     "limitations": [
@@ -28,8 +30,11 @@
       "Unknown is not counted as an uncited answer.",
       "No complete Google source-panel inventory or independent native-Chinese sample.",
       "No category-wide search volume or ChatGPT query-popularity data.",
-      "Demand GSC metrics are historical site-specific impressions, not visits or AI citations."
-    ]
+      "Demand GSC metrics are historical site-specific impressions, not visits or AI citations.",
+      "Provider-wide training data and independent third-party platforms beyond the observed pages are not observable in these tests."
+    ],
+    "original_report_date_sgt": "2026-11-07",
+    "release_comparison_limit": "Snapshots span the Nov 8 ~01:17 SGT release. ChatGPT IDs 20, 22, 24–30 were recorded around or after that release; no matched outcome test is claimed."
   },
   "records": [
     {
@@ -65,6 +70,12 @@
           "Next",
           "Complementary results",
           "Sponsored products"
+        ],
+        "related_questions_observed": [
+          "How many cards are in the tarot deck?",
+          "Are all tarot deck 78 cards?",
+          "What are the 22 tarot cards?",
+          "What is a full tarot deck?"
         ]
       },
       "chatgpt": {
@@ -106,7 +117,13 @@
         ],
         "shentarot_in_captured_links": false,
         "claim_by_claim_support": "not_audited",
-        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded.",
+        "related_questions_observed": [
+          "What is the easiest way to read tarot cards?",
+          "Can I teach myself to read tarot?",
+          "How can I learn to read tarot cards?",
+          "What are the do's and don'ts when reading the tarot cards?"
+        ]
       },
       "chatgpt": {
         "status": "no_explicit_text_citation",
@@ -161,7 +178,13 @@
         ],
         "shentarot_in_captured_links": false,
         "claim_by_claim_support": "not_audited",
-        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded.",
+        "related_questions_observed": [
+          "Should I use major or Minor Arcana?",
+          "Who were Rider and Waite?",
+          "What are the three most powerful tarot cards?",
+          "How do I know my Minor Arcana?"
+        ]
       },
       "chatgpt": {
         "status": "no_explicit_text_citation",
@@ -202,7 +225,13 @@
         ],
         "shentarot_in_captured_links": false,
         "claim_by_claim_support": "not_audited",
-        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded.",
+        "related_questions_observed": [
+          "What do the four card suits symbolize?",
+          "Who were Rider and Waite?",
+          "What's the most powerful tarot card?",
+          "What are the worst tarot cards to pull in a love reading?"
+        ]
       },
       "chatgpt": {
         "status": "no_explicit_text_citation",
@@ -249,11 +278,29 @@
         ],
         "shentarot_in_captured_links": false,
         "claim_by_claim_support": "not_audited",
-        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded.",
+        "related_questions_observed": [
+          "Which is the luckiest card in tarot?",
+          "What's the most powerful card in tarot?",
+          "How do I know if a tarot card is a yes or no?",
+          "How do I read tarot cards?"
+        ]
       },
       "chatgpt": {
-        "status": "not_sampled",
-        "no_explicit_text_citation": null
+        "status": "no_explicit_text_citation",
+        "no_explicit_text_citation": true,
+        "observed_at_utc": "2026-11-07T17:14:47.143Z",
+        "observed_at_sgt": "2026-11-08 01:14:47 +08:00",
+        "prompt_date_sgt": "2026-11-07",
+        "surface": "ChatGPT consumer Chrome, fresh Temporary Chat, default Auto selector; no citation instruction; exact model unverified",
+        "answer_excerpt": "The numbers on tarot cards represent different stages of spiritual growth, life experiences, lessons, and energy. They help",
+        "media_tiles_present": true,
+        "captured_media_links": [],
+        "body_recommendation_links": [],
+        "text_claim_source_urls": [],
+        "shentarot_attribution_observed": false,
+        "claim_by_claim_support": "not_audited",
+        "classification_basis": "Rendered explanatory answer inspected for attribution. Image tiles and links beneath image/Open/Add to Favorites controls are media provenance, not supporting citations for explanatory text."
       }
     },
     {
@@ -280,11 +327,29 @@
         ],
         "shentarot_in_captured_links": false,
         "claim_by_claim_support": "not_audited",
-        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded.",
+        "related_questions_observed": [
+          "What is the luckiest card in a Tarot deck?",
+          "Is Judgement a positive tarot card?",
+          "How to read tarot court cards?",
+          "What are the 16 court cards?"
+        ]
       },
       "chatgpt": {
-        "status": "not_sampled",
-        "no_explicit_text_citation": null
+        "status": "no_explicit_text_citation",
+        "no_explicit_text_citation": true,
+        "observed_at_utc": "2026-11-07T17:14:49.435Z",
+        "observed_at_sgt": "2026-11-08 01:14:49 +08:00",
+        "prompt_date_sgt": "2026-11-07",
+        "surface": "ChatGPT consumer Chrome, fresh Temporary Chat, default Auto selector; no citation instruction; exact model unverified",
+        "answer_excerpt": "In tarot, the court cards are the 16 cards consisting of the Pages, Knights, Queens, and Kings across",
+        "media_tiles_present": true,
+        "captured_media_links": [],
+        "body_recommendation_links": [],
+        "text_claim_source_urls": [],
+        "shentarot_attribution_observed": false,
+        "claim_by_claim_support": "not_audited",
+        "classification_basis": "Rendered explanatory answer inspected for attribution. Image tiles and links beneath image/Open/Add to Favorites controls are media provenance, not supporting citations for explanatory text."
       }
     },
     {
@@ -314,11 +379,29 @@
         ],
         "shentarot_in_captured_links": false,
         "claim_by_claim_support": "not_audited",
-        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded.",
+        "related_questions_observed": [
+          "How accurate are tarot readings?",
+          "Can tarot readings be trusted?",
+          "Are tarot card readings worth it?",
+          "Can tarot readings go wrong?"
+        ]
       },
       "chatgpt": {
-        "status": "not_sampled",
-        "no_explicit_text_citation": null
+        "status": "no_explicit_text_citation",
+        "no_explicit_text_citation": true,
+        "observed_at_utc": "2026-11-07T17:15:06.311Z",
+        "observed_at_sgt": "2026-11-08 01:15:06 +08:00",
+        "prompt_date_sgt": "2026-11-08",
+        "surface": "ChatGPT consumer Chrome, fresh Temporary Chat, default Auto selector; no citation instruction; exact model unverified",
+        "answer_excerpt": "Yes and no — it really depends on what you mean by \"work.\" 🔮 Tarot readings can feel",
+        "media_tiles_present": true,
+        "captured_media_links": [],
+        "body_recommendation_links": [],
+        "text_claim_source_urls": [],
+        "shentarot_attribution_observed": false,
+        "claim_by_claim_support": "not_audited",
+        "classification_basis": "Rendered explanatory answer inspected for attribution. Image tiles and links beneath image/Open/Add to Favorites controls are media provenance, not supporting citations for explanatory text."
       }
     },
     {
@@ -346,11 +429,29 @@
         ],
         "shentarot_in_captured_links": false,
         "claim_by_claim_support": "not_audited",
-        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded.",
+        "related_questions_observed": [
+          "Do tarot cards actually tell the future?",
+          "Which tarot card predicts the future?",
+          "How to use tarot cards to predict the future?",
+          "What did God say about tarot?"
+        ]
       },
       "chatgpt": {
-        "status": "not_sampled",
-        "no_explicit_text_citation": null
+        "status": "no_explicit_text_citation",
+        "no_explicit_text_citation": true,
+        "observed_at_utc": "2026-11-07T17:15:08.591Z",
+        "observed_at_sgt": "2026-11-08 01:15:08 +08:00",
+        "prompt_date_sgt": "2026-11-08",
+        "surface": "ChatGPT consumer Chrome, fresh Temporary Chat, default Auto selector; no citation instruction; exact model unverified",
+        "answer_excerpt": "Tarot cards can be used to explore possible futures, but there is no reliable scientific evidence that tarot",
+        "media_tiles_present": false,
+        "captured_media_links": [],
+        "body_recommendation_links": [],
+        "text_claim_source_urls": [],
+        "shentarot_attribution_observed": false,
+        "claim_by_claim_support": "not_audited",
+        "classification_basis": "Rendered explanatory answer inspected for attribution. Image tiles and links beneath image/Open/Add to Favorites controls are media provenance, not supporting citations for explanatory text."
       }
     },
     {
@@ -378,11 +479,29 @@
         ],
         "shentarot_in_captured_links": false,
         "claim_by_claim_support": "not_audited",
-        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded.",
+        "related_questions_observed": [
+          "Is it okay to do a tarot reading on yourself?",
+          "How do I read tarot for myself?",
+          "When should you not do a tarot reading?",
+          "Can I learn tarot reading on my own?"
+        ]
       },
       "chatgpt": {
-        "status": "not_sampled",
-        "no_explicit_text_citation": null
+        "status": "no_explicit_text_citation",
+        "no_explicit_text_citation": true,
+        "observed_at_utc": "2026-11-07T17:15:31.289Z",
+        "observed_at_sgt": "2026-11-08 01:15:31 +08:00",
+        "prompt_date_sgt": "2026-11-08",
+        "surface": "ChatGPT consumer Chrome, fresh Temporary Chat, default Auto selector; no citation instruction; exact model unverified",
+        "answer_excerpt": "Absolutely! 🔮 You can definitely read tarot for yourself. In fact, many tarot readers practise self-readings to develop",
+        "media_tiles_present": true,
+        "captured_media_links": [],
+        "body_recommendation_links": [],
+        "text_claim_source_urls": [],
+        "shentarot_attribution_observed": false,
+        "claim_by_claim_support": "not_audited",
+        "classification_basis": "Rendered explanatory answer inspected for attribution. Image tiles and links beneath image/Open/Add to Favorites controls are media provenance, not supporting citations for explanatory text."
       }
     },
     {
@@ -411,11 +530,29 @@
         ],
         "shentarot_in_captured_links": false,
         "claim_by_claim_support": "not_audited",
-        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded.",
+        "related_questions_observed": [
+          "Which tarot deck should I buy as a beginner?",
+          "Are you not supposed to buy your first tarot deck?",
+          "What should I do when I get my first tarot deck?",
+          "Can you pick your own tarot deck?"
+        ]
       },
       "chatgpt": {
-        "status": "not_sampled",
-        "no_explicit_text_citation": null
+        "status": "no_explicit_text_citation",
+        "no_explicit_text_citation": true,
+        "observed_at_utc": "2026-11-07T17:15:33.631Z",
+        "observed_at_sgt": "2026-11-08 01:15:33 +08:00",
+        "prompt_date_sgt": "2026-11-08",
+        "surface": "ChatGPT consumer Chrome, fresh Temporary Chat, default Auto selector; no citation instruction; exact model unverified",
+        "answer_excerpt": "Choosing your first tarot deck should be an enjoyable experience! My biggest advice is: choose a deck that",
+        "media_tiles_present": true,
+        "captured_media_links": [],
+        "body_recommendation_links": [],
+        "text_claim_source_urls": [],
+        "shentarot_attribution_observed": false,
+        "claim_by_claim_support": "not_audited",
+        "classification_basis": "Rendered explanatory answer inspected for attribution. Image tiles and links beneath image/Open/Add to Favorites controls are media provenance, not supporting citations for explanatory text."
       }
     },
     {
@@ -450,7 +587,13 @@
         ],
         "shentarot_in_captured_links": false,
         "claim_by_claim_support": "not_audited",
-        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded.",
+        "related_questions_observed": [
+          "Is there a correct way to shuffle tarot?",
+          "What is the trick to shuffling cards?",
+          "How many times should I shuffle a tarot deck?",
+          "What is the correct way to pull tarot cards?"
+        ]
       },
       "chatgpt": {
         "status": "no_explicit_text_citation",
@@ -499,11 +642,43 @@
         ],
         "shentarot_in_captured_links": false,
         "claim_by_claim_support": "not_audited",
-        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded.",
+        "related_questions_observed": [
+          "Can you draw a random tarot card for me?",
+          "Can I create my own tarot cards online?",
+          "Can I pull tarot cards online?",
+          "Can you draw just one tarot card?"
+        ]
       },
       "chatgpt": {
-        "status": "not_sampled",
-        "no_explicit_text_citation": null
+        "status": "body_recommendation_links",
+        "no_explicit_text_citation": true,
+        "observed_at_utc": "2026-11-07T17:15:52.230Z",
+        "observed_at_sgt": "2026-11-08 01:15:52 +08:00",
+        "prompt_date_sgt": "2026-11-08",
+        "surface": "ChatGPT consumer Chrome, fresh Temporary Chat, default Auto selector; no citation instruction; exact model unverified",
+        "answer_excerpt": "You can draw a random tarot card online for free, without buying a physical deck or creating an",
+        "media_tiles_present": true,
+        "captured_media_links": [],
+        "body_recommendation_links": [
+          {
+            "label": "Draw a random tarot card",
+            "url": "https://tarotena.com/random/"
+          },
+          {
+            "label": "Open tarot card generator",
+            "url": "https://arcaseer.com/tarot-card-generator"
+          },
+          {
+            "label": "Draw one tarot card",
+            "url": "https://psychicoz.com/blog/one-card-tarot-reading/"
+          }
+        ],
+        "text_claim_source_urls": [],
+        "shentarot_attribution_observed": false,
+        "claim_by_claim_support": "not_audited",
+        "classification_basis": "Explicit named website recommendations linked in the explanatory body. This identifies recommended destinations; support for every feature claim was not audited.",
+        "capture_note": "A media-tools quota UI banner appeared; it is excluded from answer text. No workaround used."
       }
     },
     {
@@ -530,11 +705,38 @@
         ],
         "shentarot_in_captured_links": false,
         "claim_by_claim_support": "not_audited",
-        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded.",
+        "related_questions_observed": [
+          "How to do a daily tarot card reading?",
+          "Can you do a 1 card tarot reading?",
+          "Can you do a tarot reading every day?",
+          "How to use an everyday tarot deck?"
+        ]
       },
       "chatgpt": {
-        "status": "not_sampled",
-        "no_explicit_text_citation": null
+        "status": "no_explicit_text_citation",
+        "no_explicit_text_citation": true,
+        "observed_at_utc": "2026-11-07T17:15:54.438Z",
+        "observed_at_sgt": "2026-11-08 01:15:54 +08:00",
+        "prompt_date_sgt": "2026-11-08",
+        "surface": "ChatGPT consumer Chrome, fresh Temporary Chat, default Auto selector; no citation instruction; exact model unverified",
+        "answer_excerpt": "A daily one-card tarot reading is a simple way to check in with yourself, gain perspective, and set",
+        "media_tiles_present": true,
+        "captured_media_links": [
+          {
+            "label": "mama-nature.co.uk",
+            "url": "https://mama-nature.co.uk/2026/03/27/morning-tarot-rituals/"
+          },
+          {
+            "label": "marianasteinerterapias.com",
+            "url": "https://www.marianasteinerterapias.com/blog"
+          }
+        ],
+        "body_recommendation_links": [],
+        "text_claim_source_urls": [],
+        "shentarot_attribution_observed": false,
+        "claim_by_claim_support": "not_audited",
+        "classification_basis": "Rendered explanatory answer inspected for attribution. Image tiles and links beneath image/Open/Add to Favorites controls are media provenance, not supporting citations for explanatory text."
       }
     },
     {
@@ -562,11 +764,46 @@
         ],
         "shentarot_in_captured_links": false,
         "claim_by_claim_support": "not_audited",
-        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded.",
+        "related_questions_observed": [
+          "What not to ask in a tarot reading?",
+          "How to correctly ask tarot questions?",
+          "What are 37 of the best tarot questions to ask for love clarity?",
+          "Can I ask tarot cards a question?"
+        ]
       },
       "chatgpt": {
-        "status": "not_sampled",
-        "no_explicit_text_citation": null
+        "status": "no_explicit_text_citation",
+        "no_explicit_text_citation": true,
+        "observed_at_utc": "2026-11-07T17:16:27.846Z",
+        "observed_at_sgt": "2026-11-08 01:16:27 +08:00",
+        "prompt_date_sgt": "2026-11-08",
+        "surface": "ChatGPT consumer Chrome, fresh Temporary Chat, default Auto selector; no citation instruction; exact model unverified",
+        "answer_excerpt": "The best tarot questions are open-ended, thought-provoking, and focused on gaining clarity rather than predicting an unavoidable future.",
+        "media_tiles_present": true,
+        "captured_media_links": [
+          {
+            "label": "argyleoracle.com.au",
+            "url": "https://argyleoracle.com.au/can-tarot-cards-predict-love/"
+          },
+          {
+            "label": "wrozka-ai.pl",
+            "url": "https://wrozka-ai.pl/artykuly/tarot-dla-kariery-rozklad-na-nowa-prace-i-finanse.html"
+          },
+          {
+            "label": "perolatarologa.com.br",
+            "url": "https://perolatarologa.com.br/"
+          },
+          {
+            "label": "mysticryst.com",
+            "url": "https://mysticryst.com/blogs/the-mystic-journal/the-fool-tarot-spread-custom-layout"
+          }
+        ],
+        "body_recommendation_links": [],
+        "text_claim_source_urls": [],
+        "shentarot_attribution_observed": false,
+        "claim_by_claim_support": "not_audited",
+        "classification_basis": "Rendered explanatory answer inspected for attribution. Image tiles and links beneath image/Open/Add to Favorites controls are media provenance, not supporting citations for explanatory text."
       }
     },
     {
@@ -594,7 +831,13 @@
         ],
         "shentarot_in_captured_links": false,
         "claim_by_claim_support": "not_audited",
-        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded.",
+        "related_questions_observed": [
+          "What questions can I ask using a three-card tarot spread?",
+          "What does the 3 card spread mean?",
+          "How to properly do a tarot spread?",
+          "Can you do a 3 card tarot reading for me?"
+        ]
       },
       "chatgpt": {
         "status": "no_explicit_text_citation",
@@ -640,7 +883,13 @@
         ],
         "shentarot_in_captured_links": false,
         "claim_by_claim_support": "not_audited",
-        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded.",
+        "related_questions_observed": [
+          "How do I read a 10-card Celtic Cross tarot spread?",
+          "What questions can I ask when reading the Celtic Cross spread?",
+          "What does the Celtic Cross mean in tarot?",
+          "How to layout a Celtic Cross?"
+        ]
       },
       "chatgpt": {
         "status": "no_explicit_text_citation",
@@ -686,7 +935,13 @@
         ],
         "shentarot_in_captured_links": false,
         "claim_by_claim_support": "not_audited",
-        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded.",
+        "related_questions_observed": [
+          "What is the correct order to read tarot cards?",
+          "Is there a right way to read tarot cards?",
+          "What is the luckiest card in tarot?",
+          "How to read three tarot cards together?"
+        ]
       },
       "chatgpt": {
         "status": "no_explicit_text_citation",
@@ -728,7 +983,13 @@
         ],
         "shentarot_in_captured_links": false,
         "claim_by_claim_support": "not_audited",
-        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded.",
+        "related_questions_observed": [
+          "What do reversed tarot cards mean?",
+          "What is the luckiest card in tarot?",
+          "Should you have reversed tarot cards?",
+          "What does reverse position mean in tarot?"
+        ]
       },
       "chatgpt": {
         "status": "no_explicit_text_citation",
@@ -769,11 +1030,30 @@
         ],
         "shentarot_in_captured_links": false,
         "claim_by_claim_support": "not_audited",
-        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded.",
+        "related_questions_observed": [
+          "Is it possible to read tarot without reversals?",
+          "Are reversed tarot cards necessary?",
+          "Why do some people not read reversed tarot?",
+          "When should you not do a tarot reading?"
+        ]
       },
       "chatgpt": {
-        "status": "not_sampled",
-        "no_explicit_text_citation": null
+        "status": "no_explicit_text_citation",
+        "no_explicit_text_citation": true,
+        "observed_at_utc": "2026-11-07T17:16:13.058Z",
+        "observed_at_sgt": "2026-11-08 01:16:13 +08:00",
+        "prompt_date_sgt": "2026-11-08",
+        "surface": "ChatGPT consumer Chrome, fresh Temporary Chat, default Auto selector; no citation instruction; exact model unverified",
+        "answer_excerpt": "No! You absolutely do not have to read tarot cards reversed. ❤️ There are two popular approaches to",
+        "media_tiles_present": true,
+        "captured_media_links": [],
+        "body_recommendation_links": [],
+        "text_claim_source_urls": [],
+        "shentarot_attribution_observed": false,
+        "claim_by_claim_support": "not_audited",
+        "classification_basis": "Rendered explanatory answer inspected for attribution. Image tiles and links beneath image/Open/Add to Favorites controls are media provenance, not supporting citations for explanatory text.",
+        "capture_note": "A media-tools quota UI banner appeared; it is excluded from answer text. No workaround used."
       }
     },
     {
@@ -801,11 +1081,34 @@
         ],
         "shentarot_in_captured_links": false,
         "claim_by_claim_support": "not_audited",
-        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded.",
+        "related_questions_observed": [
+          "How to use tarot for yes or no?",
+          "How to make a yes or no tarot reading?",
+          "How to know if tarot is saying yes or no?",
+          "Can tarot tell you yes or no?"
+        ]
       },
       "chatgpt": {
-        "status": "not_sampled",
-        "no_explicit_text_citation": null
+        "status": "no_explicit_text_citation",
+        "no_explicit_text_citation": true,
+        "observed_at_utc": "2026-11-07T17:17:14.181Z",
+        "observed_at_sgt": "2026-11-08 01:17:14 +08:00",
+        "prompt_date_sgt": "2026-11-08",
+        "surface": "ChatGPT consumer Chrome, fresh Temporary Chat, default Auto selector; no citation instruction; exact model unverified",
+        "answer_excerpt": "A Yes or No Tarot Reading is one of the simplest tarot readings to learn. It's designed to",
+        "media_tiles_present": true,
+        "captured_media_links": [
+          {
+            "label": "arureco.com",
+            "url": "https://arureco.com/media/articles/practice/how-to-read-tarot"
+          }
+        ],
+        "body_recommendation_links": [],
+        "text_claim_source_urls": [],
+        "shentarot_attribution_observed": false,
+        "claim_by_claim_support": "not_audited",
+        "classification_basis": "Rendered explanatory answer inspected for attribution. Image tiles and links beneath image/Open/Add to Favorites controls are media provenance, not supporting citations for explanatory text."
       }
     },
     {
@@ -836,11 +1139,50 @@
         ],
         "shentarot_in_captured_links": false,
         "claim_by_claim_support": "not_audited",
-        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded.",
+        "related_questions_observed": [
+          "How to do a tarot reading for romance?",
+          "What are the worst tarot cards to pull in a love reading?",
+          "What is the best tarot card to see for love?",
+          "What tarot spread would be good for when you have a crush?"
+        ]
       },
       "chatgpt": {
-        "status": "not_sampled",
-        "no_explicit_text_citation": null
+        "status": "no_explicit_text_citation",
+        "no_explicit_text_citation": true,
+        "observed_at_utc": "2026-11-07T17:16:45.252Z",
+        "observed_at_sgt": "2026-11-08 01:16:45 +08:00",
+        "prompt_date_sgt": "2026-11-08",
+        "surface": "ChatGPT consumer Chrome, fresh Temporary Chat, default Auto selector; no citation instruction; exact model unverified",
+        "answer_excerpt": "For a love reading, I recommend a tarot spread that explores your feelings, the other person's feelings, the",
+        "media_tiles_present": true,
+        "captured_media_links": [
+          {
+            "label": "totemsandtarot.com",
+            "url": "https://totemsandtarot.com/products/recorded-tarot-reading-guidance-delivered-to-your-inbox"
+          },
+          {
+            "label": "artofit.org",
+            "url": "https://www.artofit.org/image-gallery/266064290476612201/9-easy-tarot-love-spreads-to-spread-the-love/"
+          },
+          {
+            "label": "ankarafalcafe.com.tr",
+            "url": "https://www.ankarafalcafe.com.tr/blog/tarot-acilimi-turleri-ve-hangi-durumda-hangisi-kullanilir/"
+          },
+          {
+            "label": "ru.pinterest.com",
+            "url": "https://ru.pinterest.com/pin/future-love-tarot-spread--26810560278067641/"
+          },
+          {
+            "label": "gem-blackthorn.com",
+            "url": "https://www.gem-blackthorn.com/post/nine-card-tarot-spread"
+          }
+        ],
+        "body_recommendation_links": [],
+        "text_claim_source_urls": [],
+        "shentarot_attribution_observed": false,
+        "claim_by_claim_support": "not_audited",
+        "classification_basis": "Rendered explanatory answer inspected for attribution. Image tiles and links beneath image/Open/Add to Favorites controls are media provenance, not supporting citations for explanatory text."
       }
     },
     {
@@ -874,11 +1216,29 @@
         ],
         "shentarot_in_captured_links": false,
         "claim_by_claim_support": "not_audited",
-        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded.",
+        "related_questions_observed": [
+          "How do I ask tarot how someone feels about me?",
+          "How do you know what someone feels about you?",
+          "Which tarot cards indicate someone is thinking about you?",
+          "Can tarot tell you what someone else is thinking?"
+        ]
       },
       "chatgpt": {
-        "status": "not_sampled",
-        "no_explicit_text_citation": null
+        "status": "no_explicit_text_citation",
+        "no_explicit_text_citation": true,
+        "observed_at_utc": "2026-11-07T17:17:16.536Z",
+        "observed_at_sgt": "2026-11-08 01:17:16 +08:00",
+        "prompt_date_sgt": "2026-11-08",
+        "surface": "ChatGPT consumer Chrome, fresh Temporary Chat, default Auto selector; no citation instruction; exact model unverified",
+        "answer_excerpt": "Yes! 🔮 Tarot can be used to explore how someone might feel about you, particularly their emotional energy,",
+        "media_tiles_present": true,
+        "captured_media_links": [],
+        "body_recommendation_links": [],
+        "text_claim_source_urls": [],
+        "shentarot_attribution_observed": false,
+        "claim_by_claim_support": "not_audited",
+        "classification_basis": "Rendered explanatory answer inspected for attribution. Image tiles and links beneath image/Open/Add to Favorites controls are media provenance, not supporting citations for explanatory text."
       }
     },
     {
@@ -910,7 +1270,13 @@
         ],
         "shentarot_in_captured_links": false,
         "claim_by_claim_support": "not_audited",
-        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded.",
+        "related_questions_observed": [
+          "How does he feel about me with the Ace of Pentacles?",
+          "What does the Ace of Pentacles mean in love?",
+          "How someone sees you Ace of Pentacles?",
+          "What is the message of the Ace of Pentacles?"
+        ]
       },
       "chatgpt": {
         "status": "no_explicit_text_citation",
@@ -957,11 +1323,29 @@
         ],
         "shentarot_in_captured_links": false,
         "claim_by_claim_support": "not_audited",
-        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded.",
+        "related_questions_observed": [
+          "What is the advice of the 4 of pentacles?",
+          "What does the Four of Pentacles represent as a person in Tarot?",
+          "What someone wants in 4 of pentacles?",
+          "Does Four of Pentacles mean yes or no?"
+        ]
       },
       "chatgpt": {
-        "status": "not_sampled",
-        "no_explicit_text_citation": null
+        "status": "no_explicit_text_citation",
+        "no_explicit_text_citation": true,
+        "observed_at_utc": "2026-11-07T17:17:37.420Z",
+        "observed_at_sgt": "2026-11-08 01:17:37 +08:00",
+        "prompt_date_sgt": "2026-11-08",
+        "surface": "ChatGPT consumer Chrome, fresh Temporary Chat, default Auto selector; no citation instruction; exact model unverified",
+        "answer_excerpt": "The Four of Pentacles in tarot represents security, stability, control, possessiveness, and fear of loss. Its central message",
+        "media_tiles_present": true,
+        "captured_media_links": [],
+        "body_recommendation_links": [],
+        "text_claim_source_urls": [],
+        "shentarot_attribution_observed": false,
+        "claim_by_claim_support": "not_audited",
+        "classification_basis": "Rendered explanatory answer inspected for attribution. Image tiles and links beneath image/Open/Add to Favorites controls are media provenance, not supporting citations for explanatory text."
       }
     },
     {
@@ -994,11 +1378,29 @@
         ],
         "shentarot_in_captured_links": false,
         "claim_by_claim_support": "not_audited",
-        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded.",
+        "related_questions_observed": [
+          "What does the number 20 mean in tarot?",
+          "What is the luckiest card in tarot?",
+          "What does arcana 20 mean?",
+          "What's the most powerful tarot card?"
+        ]
       },
       "chatgpt": {
-        "status": "not_sampled",
-        "no_explicit_text_citation": null
+        "status": "no_explicit_text_citation",
+        "no_explicit_text_citation": true,
+        "observed_at_utc": "2026-11-07T17:17:39.519Z",
+        "observed_at_sgt": "2026-11-08 01:17:39 +08:00",
+        "prompt_date_sgt": "2026-11-08",
+        "surface": "ChatGPT consumer Chrome, fresh Temporary Chat, default Auto selector; no citation instruction; exact model unverified",
+        "answer_excerpt": "Tarot card number 20 (XX) in the Major Arcana is Judgement. 🔔 Judgement (XX) Core meaning: Awakening, rebirth,",
+        "media_tiles_present": true,
+        "captured_media_links": [],
+        "body_recommendation_links": [],
+        "text_claim_source_urls": [],
+        "shentarot_attribution_observed": false,
+        "claim_by_claim_support": "not_audited",
+        "classification_basis": "Rendered explanatory answer inspected for attribution. Image tiles and links beneath image/Open/Add to Favorites controls are media provenance, not supporting citations for explanatory text."
       }
     },
     {
@@ -1026,11 +1428,29 @@
         ],
         "shentarot_in_captured_links": false,
         "claim_by_claim_support": "not_audited",
-        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded.",
+        "related_questions_observed": [
+          "Is the Death card a positive card?",
+          "Is the Death card in tarot bad?",
+          "What is the saddest tarot card?",
+          "What does it mean to pull a death tarot card?"
+        ]
       },
       "chatgpt": {
-        "status": "not_sampled",
-        "no_explicit_text_citation": null
+        "status": "no_explicit_text_citation",
+        "no_explicit_text_citation": true,
+        "observed_at_utc": "2026-11-08T02:51:10.656Z",
+        "observed_at_sgt": "2026-11-08 10:51:10 +08:00",
+        "prompt_date_sgt": "2026-11-08",
+        "surface": "ChatGPT consumer web, Temporary chat, default model/mode, no citation instruction",
+        "answer_excerpt": "The Death card is Major Arcana XIII (13). It represents the end of one chapter and the beginning",
+        "media_tiles_present": true,
+        "captured_media_links": [],
+        "body_recommendation_links": [],
+        "text_claim_source_urls": [],
+        "shentarot_attribution_observed": false,
+        "claim_by_claim_support": "not_audited",
+        "classification_basis": "Rendered explanatory answer inspected for attribution. Image tiles and links beneath image/Open/Add to Favorites controls are media provenance, not supporting citations for explanatory text."
       }
     },
     {
@@ -1059,11 +1479,24 @@
         ],
         "shentarot_in_captured_links": false,
         "claim_by_claim_support": "not_audited",
-        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded.",
+        "related_questions_observed": []
       },
       "chatgpt": {
-        "status": "not_sampled",
-        "no_explicit_text_citation": null
+        "status": "no_explicit_text_citation",
+        "no_explicit_text_citation": true,
+        "observed_at_utc": "2026-11-08T02:51:10.656Z",
+        "observed_at_sgt": "2026-11-08 10:51:10 +08:00",
+        "prompt_date_sgt": "2026-11-08",
+        "surface": "ChatGPT consumer web, Temporary chat, default model/mode, no citation instruction",
+        "answer_excerpt": "Although it can look frightening, the Tower isn't necessarily a bad omen.",
+        "media_tiles_present": true,
+        "captured_media_links": [],
+        "body_recommendation_links": [],
+        "text_claim_source_urls": [],
+        "shentarot_attribution_observed": false,
+        "claim_by_claim_support": "not_audited",
+        "classification_basis": "Rendered explanatory answer inspected for attribution. Image tiles and links beneath image/Open/Add to Favorites controls are media provenance, not supporting citations for explanatory text."
       }
     },
     {
@@ -1090,11 +1523,29 @@
         ],
         "shentarot_in_captured_links": false,
         "claim_by_claim_support": "not_audited",
-        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded.",
+        "related_questions_observed": [
+          "Is the Lovers card positive?",
+          "Is the Lovers a soulmate card?",
+          "What does the Lovers card represent as a person?",
+          "What does the Lovers card stand for?"
+        ]
       },
       "chatgpt": {
-        "status": "not_sampled",
-        "no_explicit_text_citation": null
+        "status": "no_explicit_text_citation",
+        "no_explicit_text_citation": true,
+        "observed_at_utc": "2026-11-08T02:51:10.656Z",
+        "observed_at_sgt": "2026-11-08 10:51:10 +08:00",
+        "prompt_date_sgt": "2026-11-08",
+        "surface": "ChatGPT consumer web, Temporary chat, default model/mode, no citation instruction",
+        "answer_excerpt": "When The Lovers appears upright, it often represents:",
+        "media_tiles_present": true,
+        "captured_media_links": [],
+        "body_recommendation_links": [],
+        "text_claim_source_urls": [],
+        "shentarot_attribution_observed": false,
+        "claim_by_claim_support": "not_audited",
+        "classification_basis": "Rendered explanatory answer inspected for attribution. Image tiles and links beneath image/Open/Add to Favorites controls are media provenance, not supporting citations for explanatory text."
       }
     },
     {
@@ -1123,11 +1574,24 @@
         ],
         "shentarot_in_captured_links": false,
         "claim_by_claim_support": "not_audited",
-        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded.",
+        "related_questions_observed": []
       },
       "chatgpt": {
-        "status": "not_sampled",
-        "no_explicit_text_citation": null
+        "status": "no_explicit_text_citation",
+        "no_explicit_text_citation": true,
+        "observed_at_utc": "2026-11-08T02:51:10.656Z",
+        "observed_at_sgt": "2026-11-08 10:51:10 +08:00",
+        "prompt_date_sgt": "2026-11-08",
+        "surface": "ChatGPT consumer web, Temporary chat, default model/mode, no citation instruction",
+        "answer_excerpt": "There are different calculation methods, but here's a popular method:",
+        "media_tiles_present": true,
+        "captured_media_links": [],
+        "body_recommendation_links": [],
+        "text_claim_source_urls": [],
+        "shentarot_attribution_observed": false,
+        "claim_by_claim_support": "not_audited",
+        "classification_basis": "Rendered explanatory answer inspected for attribution. Image tiles and links beneath image/Open/Add to Favorites controls are media provenance, not supporting citations for explanatory text."
       }
     },
     {
@@ -1155,11 +1619,39 @@
         ],
         "shentarot_in_captured_links": false,
         "claim_by_claim_support": "not_audited",
-        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded."
+        "capture_scope": "Visible AIO text and links. Hidden +N and related-source panels not exhaustively expanded.",
+        "related_questions_observed": [
+          "What is the best tarot spread for career decisions?",
+          "Which tarot card represents career success?",
+          "What tarot spread can help me make a decision?",
+          "What is a good 5-card tarot spread for career direction?"
+        ]
       },
       "chatgpt": {
-        "status": "not_sampled",
-        "no_explicit_text_citation": null
+        "status": "no_explicit_text_citation",
+        "no_explicit_text_citation": true,
+        "observed_at_utc": "2026-11-08T02:51:10.656Z",
+        "observed_at_sgt": "2026-11-08 10:51:10 +08:00",
+        "prompt_date_sgt": "2026-11-08",
+        "surface": "ChatGPT consumer web, Temporary chat, default model/mode, no citation instruction",
+        "answer_excerpt": "Lay out seven cards in this arrangement:",
+        "media_tiles_present": true,
+        "captured_media_links": [
+          {
+            "label": "tarot.de",
+            "url": "https://tarot.de/tarot-legesysteme/entscheidungsspiel/"
+          },
+          {
+            "label": "etsy.com",
+            "url": "https://www.etsy.com/hk-en/listing/1659169710/5-card-tarot-reading"
+          }
+        ],
+        "body_recommendation_links": [],
+        "text_claim_source_urls": [],
+        "shentarot_attribution_observed": false,
+        "claim_by_claim_support": "not_audited",
+        "classification_basis": "Rendered explanatory answer inspected for attribution. Image tiles and links beneath image/Open/Add to Favorites controls are media provenance, not supporting citations for explanatory text.",
+        "capture_note": "A media-tools quota UI banner appeared; it is excluded from answer text. No workaround used."
       }
     }
   ]
