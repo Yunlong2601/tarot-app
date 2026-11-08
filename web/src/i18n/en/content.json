@@ -86,7 +86,15 @@
     "Direction"
    ],
    "blurb": "A complex situation that needs a full map of influences.",
-   "source": "Adapted from the layout A. E. Waite described in The Pictorial Key to the Tarot (1910)."
+   "source": "Adapted from the layout A. E. Waite described in The Pictorial Key to the Tarot (1910).",
+   "sourceComparison": {
+    "question": "Why do Celtic Cross guides number the positions differently?",
+    "answer": "Layouts vary. Here, 3 is the foundation, 4 the recent past and 5 the aim. Follow the labels for the layout you used.",
+    "title": "Waite’s layout and the ShenTarot layout",
+    "comparison": "In Waite’s published method, cards 3, 4 and 5 represent the aim, the foundation and the recent past. Here those roles are numbered 5, 3 and 4. Waite places a separately chosen card, the significator, under the first drawn card. In ShenTarot you enter the ten cards you drew.",
+    "practice": "Say you draw the upright Eight of Pentacles third when asking how to make time for a creative project. As the foundation here, it could point to a practice you already have. As the aim in Waite’s layout, it could suggest a practice you want to build. If you laid out cards from a book, match each position by its role before entering the cards.",
+    "checked": "Source checked"
+   }
   },
   "love_connection": {
    "name": "Where Do We Stand?",

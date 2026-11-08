@@ -26,12 +26,16 @@ const category = t(`spreadCats.${s.category}`);
 const topics = TOPICS.filter((tp) => tp.spreads.includes(id)).map((tp) => ({ slug: tp.slug, ...L.content.topics[tp.slug as keyof typeof L.content.topics] }));
 const questions = [...new Set(topics.flatMap((tp) => tp.questions))];
 const related = spreadIds.filter((x) => x !== id && SPREADS[x].category === s.category).slice(0, 3);
+const sourceComparison = id === "celtic" ? L.content.spreads.celtic.sourceComparison : undefined;
+const waiteSource = "https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3";
+const sourceChecked = "2026-11-08";
 const faq: [string, string][] = [
   [t("spread.faqCount", { name }), t("spread.faqCountA", { count, positions: positions.map((p, i) => `${i + 1}. ${p}`).join(t("spread.positionSep")) })],
   [t("spread.faqFor", { name }), tr.blurb],
+  ...(sourceComparison ? [[sourceComparison.question, sourceComparison.answer] as [string, string]] : []),
   ...(questions.length ? [[t("spread.faqQuestions", { name }), questions.join(" ")] as [string, string]] : []),
 ];
-const jsonLd = [{ "@context": "https://schema.org", "@type": "FAQPage", inLanguage: L.tag, mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) }];
+const jsonLd = [{ "@context": "https://schema.org", "@type": "FAQPage", inLanguage: L.tag, ...(sourceComparison ? { citation: waiteSource } : {}), mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) }];
 const topicName = (title: string) => (lang === "en" ? title.toLowerCase() : title);
 ---
 <Base
@@ -62,6 +66,14 @@ const topicName = (title: string) => (lang === "en" ? title.toLowerCase() : titl
     </a>
     {["three", "three_decision", "celtic"].includes(id) && <div class="panel worked-example"><h2>{w.example}</h2><p><b>{w.exampleQuestion}</b></p><div class="example-art">{["major_01_magician", "pentacles_two", "pentacles_eight"].map(c => <a href={u(`cards/${slug(c)}`)}><img src={`/cards/art/${c}.jpg`} alt={L.cards[c]!.name} loading="lazy" width="90" height="154" /></a>)}</div><p>{id === "three" ? w.exampleThree : id === "three_decision" ? w.exampleDecision : w.exampleCeltic}</p><p><a href={u("learn/connected-reading")}>{L.growth.exampleTitle}</a></p><p class="muted">{w.disclaimer}</p></div>}
   </section>
+  {sourceComparison && (
+    <section class="spread-guide" id="layout-source" aria-labelledby="layout-source-title">
+      <h2 id="layout-source-title">{sourceComparison.title}</h2>
+      <p>{sourceComparison.comparison}</p>
+      <p>{sourceComparison.practice}</p>
+      <p class="muted">{sourceComparison.checked} <time datetime={sourceChecked}>{new Intl.DateTimeFormat(L.tag, { dateStyle: "long", timeZone: "UTC" }).format(new Date(sourceChecked))}</time> · <a href={waiteSource}>A. E. Waite, <cite>The Pictorial Key to the Tarot</cite>, III §7</a></p>
+    </section>
+  )}
   <Tabs label={t("spread.about", { name })} tabs={[
     { id: "try", label: t("spread.tabTry") },
     { id: "positions", label: t("spread.tabPositions") },
@@ -82,7 +94,7 @@ const topicName = (title: string) => (lang === "en" ? title.toLowerCase() : titl
     <div data-panel="positions">
   <h2 class="sr-only">{t("spread.positions")}</h2>
   <ol class="positions">{positions.map((p) => <li>{p}</li>)}</ol>
-  {tr.source && <p class="muted" style="margin-top:1.5rem">{t("spread.source", { source: tr.source })}</p>}
+  {!sourceComparison && tr.source && <p class="muted" style="margin-top:1.5rem">{t("spread.source", { source: tr.source })}</p>}
   {questions.length > 0 && (
     <>
       <h2 style="margin:2rem 0 1rem">{t("spread.bestFor")}</h2>

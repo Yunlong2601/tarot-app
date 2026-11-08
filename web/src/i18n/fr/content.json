@@ -86,7 +86,15 @@
     "Direction"
    ],
    "blurb": "Une situation complexe qui demande une carte complète des influences.",
-   "source": "Adapté du tirage décrit par A. E. Waite dans The Pictorial Key to the Tarot (1910)."
+   "source": "Adapté du tirage décrit par A. E. Waite dans The Pictorial Key to the Tarot (1910).",
+   "sourceComparison": {
+    "question": "Pourquoi les positions de la Croix celtique changent-elles selon les guides ?",
+    "answer": "L’ordre varie. Ici, la fondation est en 3, le passé récent en 4 et l’objectif en 5. Suivez les intitulés du tirage que vous avez utilisé.",
+    "title": "Le tirage de Waite et celui de ShenTarot",
+    "comparison": "Dans la méthode publiée par Waite, les cartes 3, 4 et 5 représentent l’objectif, la fondation et le passé récent. Ici, ces rôles occupent les positions 5, 3 et 4. Waite place une carte choisie à l’avance, appelée significateur, sous la première carte tirée. Dans ShenTarot, vous saisissez les dix cartes que vous avez tirées.",
+    "practice": "Imaginez que vous cherchiez du temps pour un projet créatif et que le Huit de Deniers à l’endroit arrive en troisième position. Comme fondation ici, il peut vous faire remarquer une habitude déjà en place. Comme objectif chez Waite, il peut vous aider à réfléchir à celle que vous aimeriez prendre. Si vous avez suivi un livre, comparez le rôle de chaque position avant de saisir les cartes.",
+    "checked": "Source vérifiée le"
+   }
   },
   "love_connection": {
    "name": "Où en sommes-nous ?",

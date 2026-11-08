@@ -86,7 +86,15 @@
     "Richtung"
    ],
    "blurb": "Eine vielschichtige Situation, die eine vollständige Karte aller Einflüsse braucht.",
-   "source": "Angelehnt an die Legung, die A. E. Waite in The Pictorial Key to the Tarot (1910) beschrieben hat."
+   "source": "Angelehnt an die Legung, die A. E. Waite in The Pictorial Key to the Tarot (1910) beschrieben hat.",
+   "sourceComparison": {
+    "question": "Warum sind die Positionen beim Keltischen Kreuz unterschiedlich nummeriert?",
+    "answer": "Die Reihenfolge variiert. Hier stehen 3 für das Fundament, 4 für die jüngste Vergangenheit und 5 für das Ziel. Folge den Bezeichnungen deiner Legung.",
+    "title": "Waites Legung und die Legung von ShenTarot",
+    "comparison": "In Waites veröffentlichter Methode stehen die Karten 3, 4 und 5 für das Ziel, das Fundament und die jüngste Vergangenheit. Hier sind das die Positionen 5, 3 und 4. Waite legt eine vorher ausgewählte Karte, den Signifikator, unter die erste gezogene Karte. Bei ShenTarot gibst du die zehn gezogenen Karten ein.",
+    "practice": "Angenommen, du suchst Zeit für ein kreatives Projekt und ziehst die Acht der Münzen aufrecht als dritte Karte. Als Fundament kann sie hier auf eine bestehende Gewohnheit hinweisen. Als Ziel bei Waite kann sie eine Gewohnheit anregen, die du entwickeln möchtest. Hast du nach einem Buch gelegt, gleiche vor der Eingabe die Funktion jeder Position ab.",
+    "checked": "Quelle geprüft am"
+   }
   },
   "love_connection": {
    "name": "Wo stehen wir?",
