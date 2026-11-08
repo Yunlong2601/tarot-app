@@ -346,6 +346,8 @@
   "suitsNav": "牌组"
  },
  "card": {
+  "judgementAliases": "这张牌的英文名也写作 {short}。U.S. Games 手册把编号 20 的大牌列为 {historical}。",
+  "judgementBooklet": "U.S. Games 手册，PDF 第 11 页",
   "title": "{name}塔罗牌含义：正位与逆位 · ShenTarot",
   "description": "{name}在塔罗中的含义，正位与逆位：{keywords}。{essence}",
   "home": "首页",

@@ -346,6 +346,8 @@
   "suitsNav": "スート"
  },
  "card": {
+  "judgementAliases": "このカードの英語名には {short} という綴りもあります。U.S. Games の小冊子では、大アルカナの20番を {historical} と記載しています。",
+  "judgementBooklet": "U.S. Games の小冊子、PDF 11ページ",
   "title": "タロット「{name}」の意味:正位置・逆位置 · ShenTarot",
   "description": "タロットカード「{name}」の正位置・逆位置の意味:{keywords}。{essence}",
   "home": "ホーム",

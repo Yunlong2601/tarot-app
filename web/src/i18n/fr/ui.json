@@ -350,6 +350,8 @@
   "suitsNav": "Couleurs"
  },
  "card": {
+  "judgementAliases": "En anglais, le nom de cette carte s’écrit aussi {short}. Le livret de U.S. Games présente la carte 20 sous le nom {historical}.",
+  "judgementBooklet": "Livret de U.S. Games, page 11 du PDF",
   "title": "{name} au tarot : signification à l'endroit et renversée · ShenTarot",
   "description": "Signification de {name} au tarot, à l'endroit et renversée : {keywords}. {essence}",
   "home": "Accueil",

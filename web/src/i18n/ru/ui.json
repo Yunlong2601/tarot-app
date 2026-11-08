@@ -361,6 +361,8 @@
   "suitsNav": "Масти"
  },
  "card": {
+  "judgementAliases": "Английское название этой карты также пишется {short}. В буклете U.S. Games карта 20 названа {historical}.",
+  "judgementBooklet": "Буклет U.S. Games, страница 11 PDF",
   "title": "{name}: значение карты Таро в прямом и перевёрнутом положении · ShenTarot",
   "description": "{name} — значение карты Таро в прямом и перевёрнутом положении: {keywords}. {essence}",
   "home": "Главная",

@@ -1,5 +1,7 @@
 # Website reference hub — 2026-11-08
 
+The card-name audit now matches all 78 cards across the ShenTarot library, the Wikipedia roster, the U.S. Games booklet hosted by Amazon and a Reddit game adaptation. The Judgement page shows the booklet’s name for card 20 and accepts that name in site search. The audit records the conflicting uses of `Knave` by source.
+
 The reference hub explains which reflection the text export uses in all eight languages. A Chrome check exported the current synthetic three-card draft with its positions and orientations, then restored the separately saved reflection. Search Console and branded ChatGPT observations are recorded in `docs/geo-tarot-2026-11-07/intent-map.md`.
 
 Deployed the eight-language product/FAQ hub from merged PR #60, factual free-web introduction, 78 visible card headings with matching structured terms, and evidence-based CIT/MEN/ENT documentation. All 49 website tests, locale parity, Astro check, production build and six website audits pass. Chrome overflow checks cover all eight hub locales at 390px and English/Chinese/German/Russian at 768px and 1440px. Independent agent review findings resolved. All eight live hubs and card libraries passed, including Markdown responses. CIT is complete for 30 English question samples per surface. AI citation gain and native-speaker/screen-reader validation are not established. Release evidence: docs/geo-tarot-2026-11-07/intent-map.md.

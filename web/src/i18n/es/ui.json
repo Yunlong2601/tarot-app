@@ -385,6 +385,8 @@
   "suitsNav": "Palos"
  },
  "card": {
+  "judgementAliases": "El nombre inglés también se escribe {short}. El folleto de U.S. Games enumera la carta 20 como {historical}.",
+  "judgementBooklet": "Folleto de U.S. Games, página 11 del PDF",
   "title": "{name} en el tarot: significado al derecho e invertido · ShenTarot",
   "description": "Significado de {name} en el tarot, al derecho e invertida: {keywords}. {essence}",
   "home": "Inicio",

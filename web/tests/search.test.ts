@@ -34,6 +34,10 @@ test('card aliases share the workspace interpreter and preserve the immutable so
   assert.equal(reversed.length,1);
   assert.equal(reversed[0]!.href,'/cards/cups-queen?orientation=reversed#card-meanings');
   assert.equal(searchEntries(deck,'Queen of Cups')[0]!.href,'/cards/cups-queen');
+  const judgement = entry('major-20-judgement', 'Judgement');
+  const legacyName = searchEntries([judgement], 'The Last Judgment reversed');
+  assert.equal(legacyName[0]?.href, '/cards/major-20-judgement?orientation=reversed#card-meanings');
+  assert.equal(searchEntries([judgement], 'Last Judgment')[0]?.id, judgement.id);
   assert.deepEqual(deck,before);
 });
 
