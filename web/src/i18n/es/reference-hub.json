@@ -57,5 +57,6 @@
   ],
   "libraryFact": "Consulta {cards} cartas, al derecho o invertidas, en {languages} idiomas. La web es gratuita. Introduce las cartas de tu baraja sin crear una cuenta.",
   "webBoundary": "La web ofrece significados de referencia y ejercicios. No envía tus preguntas ni cartas a un servicio de IA ni gasta créditos de la aplicación.",
-  "savedNote": "La reflexión queda en este navegador y dispositivo. Al guardar otra vez, se sustituye. Exporta una copia antes de borrar los datos o cambiar de dispositivo."
+  "savedNote": "La reflexión queda en este navegador y dispositivo. Al guardar otra vez, se sustituye. Exporta una copia antes de borrar los datos o cambiar de dispositivo.",
+  "draftExport": "Exportar texto descarga el borrador actual. En el ejemplo de tres cartas, el archivo incluye las tres posiciones y la orientación de cada carta. Si quieres conservar ambas versiones, exporta el borrador antes de recuperar la reflexión guardada."
 }

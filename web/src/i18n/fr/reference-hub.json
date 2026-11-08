@@ -57,5 +57,6 @@
   ],
   "libraryFact": "Consultez {cards} cartes, à l’endroit ou à l’envers, dans {languages} langues. Le site est gratuit. Saisissez les cartes de votre jeu sans créer de compte.",
   "webBoundary": "Le site propose des textes de référence et des exercices. Il n’envoie pas vos questions ou cartes à un service d’IA et ne dépense pas de crédits de l’application.",
-  "savedNote": "Votre réflexion reste dans ce navigateur, sur cet appareil. Un nouvel enregistrement la remplace. Exportez une copie avant de supprimer les données ou de changer d’appareil."
+  "savedNote": "Votre réflexion reste dans ce navigateur, sur cet appareil. Un nouvel enregistrement la remplace. Exportez une copie avant de supprimer les données ou de changer d’appareil.",
+  "draftExport": "« Exporter le texte » télécharge le brouillon en cours. Pour l’exemple à trois cartes, le fichier indique les trois positions et le sens de chaque carte. Pour conserver les deux versions, exportez le brouillon avant de restaurer la réflexion enregistrée."
 }

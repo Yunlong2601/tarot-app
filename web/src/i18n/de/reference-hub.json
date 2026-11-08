@@ -57,5 +57,6 @@
   ],
   "libraryFact": "Schlage {cards} Karten in beiden Ausrichtungen und {languages} Sprachen nach. Die Website ist kostenlos. Trag deine gezogenen Karten ohne Konto ein.",
   "webBoundary": "Die Website bietet Nachschlagetexte und Übungen. Sie sendet deine Fragen oder Karten nicht an einen KI-Dienst und verbraucht keine App-Credits.",
-  "savedNote": "Deine gespeicherte Reflexion bleibt in diesem Browser auf diesem Gerät. Erneutes Speichern ersetzt sie. Exportiere eine Kopie, bevor du Browserdaten löschst oder das Gerät wechselst."
+  "savedNote": "Deine gespeicherte Reflexion bleibt in diesem Browser auf diesem Gerät. Erneutes Speichern ersetzt sie. Exportiere eine Kopie, bevor du Browserdaten löschst oder das Gerät wechselst.",
+  "draftExport": "„Text exportieren“ lädt den aktuellen Entwurf herunter. Beim Beispiel mit drei Karten enthält die Datei alle drei Positionen und die Ausrichtung jeder Karte. Exportiere den Entwurf vor dem Laden der gespeicherten Reflexion, wenn du beide behalten möchtest."
 }
