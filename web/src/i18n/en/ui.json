@@ -817,12 +817,21 @@
  },
  "random": {
   "title": "Random tarot card generator: shuffle, pick & reveal · ShenTarot",
-  "description": "Shuffle all 78 tarot cards in your browser. Choose 1 to 10 cards or a named spread, reveal upright and reversed meanings, and reflect without an account or AI request.",
+  "description": "Shuffle the 78-card tarot deck online. Choose and reveal one to ten cards to read their upright or reversed meanings.",
   "crumb": "Draw random cards",
   "h1": "Random tarot card generator",
-  "lead": "Shuffle all 78 cards, choose intentionally, and reveal your spread. Draw 1 to 10 cards freely or let a named spread set the positions. No account or AI request needed.",
+  "lead": "Shuffle the full 78-card deck in your browser. Choose a face-down card, then turn it over. Each card has a one-in-four chance of being reversed.",
   "howMany": "How many cards",
-  "turnOver": "Turn over this card"
+  "turnOver": "Turn over this card",
+  "guideTitle": "How do I draw a random tarot card online?",
+  "guideChoose": "For one card, select 1 in the card-count menu. For a larger draw, choose up to 10 cards or pick a named spread to use its positions.",
+  "guideShuffle": "Add a question if you like, then shuffle. Select a face-down card yourself or use “{choose}”.",
+  "guideReveal": "Turn over the selected cards to see their names and their upright or reversed meanings.",
+  "rulesTitle": "How the shuffle works",
+  "rules": "ShenTarot uses the browser’s secure random generator to shuffle all 78 cards. Each card can appear once per draw. Before you pick, each card has a 1-in-4 chance of being marked reversed.",
+  "controls": "You can choose with the keyboard or use “{choose}”. “{skip}” and the motion setting affect the animation only. To keep your current cards, cancel when asked to confirm a new shuffle.",
+  "continueTitle": "Continue with the same cards",
+  "guideContinue": "Reveal the entire draw, then select “{continue}”. The same browser tab carries your cards, positions, orientations and optional question into the reading workspace."
  },
  "comb": {
   "title": "Tarot card combinations: read two cards together · ShenTarot",

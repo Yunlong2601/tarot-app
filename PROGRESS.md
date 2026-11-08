@@ -1,3 +1,7 @@
+# Website random draw guide and AI search baseline — 2026-11-09
+
+All eight random draw pages explain the controls, the 78-card shuffle and the handoff into the reading workspace. Search Console showed the domain included in generative AI features and 1,067 property impressions across the 21 days shown. The intent map records the report filters and relevant pages.
+
 # Website reference FAQ length — 2026-11-09
 
 All eight About pages now use the same 80-character limit for their twelve FAQ answers. The shuffle answer links straight to the relevant lesson section. The build audit checks answer length and confirms that the visible links and structured data agree.
