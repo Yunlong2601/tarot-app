@@ -1,0 +1,59 @@
+{
+  "checkedAt": "2026-11-07T17:17:29.973Z",
+  "release": {
+    "design": "quiet-ritual-v1",
+    "revision": "37435f964a1d21dcfe122a4522df3f35401c42fd",
+    "builtAt": "2026-11-07T17:16:45.306Z"
+  },
+  "results": [
+    {
+      "locale": "en",
+      "questions": 12,
+      "cardHeadings": 78,
+      "markdown": true
+    },
+    {
+      "locale": "zh-hans/",
+      "questions": 12,
+      "cardHeadings": 78,
+      "markdown": true
+    },
+    {
+      "locale": "zh-hant/",
+      "questions": 12,
+      "cardHeadings": 78,
+      "markdown": true
+    },
+    {
+      "locale": "es/",
+      "questions": 12,
+      "cardHeadings": 78,
+      "markdown": true
+    },
+    {
+      "locale": "de/",
+      "questions": 12,
+      "cardHeadings": 78,
+      "markdown": true
+    },
+    {
+      "locale": "ja/",
+      "questions": 12,
+      "cardHeadings": 78,
+      "markdown": true
+    },
+    {
+      "locale": "fr/",
+      "questions": 12,
+      "cardHeadings": 78,
+      "markdown": true
+    },
+    {
+      "locale": "ru/",
+      "questions": 12,
+      "cardHeadings": 78,
+      "markdown": true
+    }
+  ],
+  "legalPages": true
+}
