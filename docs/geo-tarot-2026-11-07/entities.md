@@ -55,7 +55,7 @@ CSV 的 `official` 栏主要指 **ShenTarot 官网**。牌组发行商 U.S. Game
 
 凯尔特十字的主要歧义出在牌位编号和额外的指示牌。韦特原书与 Amazon 托管的手册都把目标、根基、近期的过去依次放在第 3、4、5 位，图示还给预选的指示牌留了位置。ShenTarot 的同名布局按根基、近期的过去、目标排序，只要求十张实际抽出的牌。Wikipedia 的图片支持牌阵名称。Reddit 帖文与评论提供了读者遇到不同编号的直接案例。新版在同一条牌阵页面解释录入时如何对应角色。[韦特第三部第 7 节](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3) · [出版商手册布局和指引](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=30) · [Wikipedia 图注](https://en.wikipedia.org/wiki/Tarot_card_reading#Waite_and_Crowley) · [Reddit 读牌讨论](https://www.reddit.com/r/tarot/comments/1ru7d54/the_original_celtic_cross_tarot_spread_and_when/)
 
-三牌、正逆位和洗牌行也补上逐项证据。百科确认三牌示意和历史用语。Reddit 的讨论显示用户会根据各自的读法调整牌的方向。Amazon 手册的正位标签、百科样本的洗牌细则和指示牌条目仍留作待核。[Wikipedia 三牌图注](https://en.wikipedia.org/wiki/Tarot) · [Wikipedia 正逆位历史](https://en.wikipedia.org/wiki/Tarot_card_reading#Etteilla) · [Reddit 正逆位和洗牌讨论](https://www.reddit.com/r/tarot/comments/1l6r4f1/at_what_point_do_you_upright_the_cards_in_your/)
+三牌、正逆位和洗牌行也补上逐项证据。百科确认三牌示意和历史用语。Reddit 的讨论显示用户会根据各自的读法调整牌的方向。百科样本的洗牌细则和指示牌条目仍留作待核。[Wikipedia 三牌图注](https://en.wikipedia.org/wiki/Tarot) · [Wikipedia 正逆位历史](https://en.wikipedia.org/wiki/Tarot_card_reading#Etteilla) · [Reddit 正逆位和洗牌讨论](https://www.reddit.com/r/tarot/comments/1l6r4f1/at_what_point_do_you_upright_the_cards_in_your/)
 
 ### 三张牌牌阵的位置核对
 
@@ -67,6 +67,17 @@ CSV 的 `official` 栏主要指 **ShenTarot 官网**。牌组发行商 U.S. Game
 | Reddit | 有读者问第三张代表下一步还是结果。回复分别讨论时间线和以建议为结尾的布局。[读者原帖](https://www.reddit.com/r/tarot/comments/11k13np/beginner_question_about_3_card_draws/) |
 
 四处证据共同支持三牌布局的用法，具体位置随布局而变。Tina Gong 的教学文章分别列出按时间排列的做法和以行动建议为目的的做法。ShenTarot 将同一组牌、顺序和正逆位放进两种现有布局，示范正位星币八如何分别用于思考持续练习的可能走向，以及拟定本周可尝试的一步。[教学文章](https://labyrinthos.co/blogs/learn-tarot-with-labyrinthos-academy/3-card-tarot-spreads-simple-tarot-spreads-organized-by-layout) · [ShenTarot 对照示例](https://shentarot.com/learn/connected-reading#compare-layouts)
+
+### 太阳牌正逆位核对
+
+| 来源 | 实际支持的内容 |
+| --- | --- |
+| 官网 | 牌面可见 XIX、骑白马的孩子和红旗。基础牌页用同一个画画场景比较两个方向，分别链接到可直接选中的正位和逆位。[太阳牌](https://shentarot.com/zh-hans/cards/major-19-sun) |
+| Amazon | U.S. Games 手册第 11 页把逆位列为原意减弱，与韦特原文一致。Chrome 另核对到 Amazon Music 的公开专辑有 22 个 Upright 和 22 个 Reversed 曲目标题，含太阳牌的两个方向。曲目标题只支持用词。[出版商手册](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=11) · [专辑](https://music.amazon.com/albums/B0BH87XF2V) |
+| Wikipedia | 太阳牌词条把逆位与暂时受挫、自我怀疑或成功延迟联系起来。韦特的原条目只给出减弱这一范围，词条的额外说法须分开归属。[词条解释](https://en.wikipedia.org/wiki/The_Sun_(tarot_card)#Interpretation) · [韦特原文](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3) |
+| Reddit | 原帖说见过弱化的读法。回帖还提出不满足、回避或结合其他牌解读。该帖可核对读者间的分歧。[讨论原帖](https://www.reddit.com/r/tarot/comments/18g686n/opinions_on_the_sun_rx/) |
+
+韦特和手册给出同一种历史说法，这两份文字的相似性不增加独立意见的数量。本站练习保留这层历史归属，并让读者用观察到的乐趣和疲劳比较十分钟画画与短暂休息两种尝试。[本站原文与练习](https://shentarot.com/zh-hans/cards/major-19-sun#reference-evidence-2)
 
 ### 已核对到的 Reddit 单牌提及
 

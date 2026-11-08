@@ -916,12 +916,12 @@
    "vitalité",
    "clarté"
   ],
-  "upright": "Chaleur, confiance et ouverture. Profite de ce qui va bien.",
-  "reversed": "Un enthousiasme terni ou trop d'ego. Cherche de petites sources de lumière.",
+  "upright": "Remarquez ce qui se passe bien et nommez-le précisément.",
+  "reversed": "Demandez-vous où la joie est plus difficile à ressentir, ou si vous essayez de la forcer.",
   "k": {
    "essence": "Une chaleur simple et sans complication.",
    "imagery": "Un enfant sur un cheval blanc tient une bannière rouge sous un grand soleil. Des tournesols dépassent d'un mur derrière lui.",
-   "why": "Dix-neuf se situe vers la fin du voyage, et l'image est ouverte et lumineuse, sans rien de caché. Le Soleil est l'astre habituellement associé à la carte : vitalité et clarté.",
+   "why": "L’enfant, le cheval blanc et la bannière rouge donnent des points de départ concrets à l’exercice.",
    "upright": {
     "core": "Chaleur, clarté et joie simple.",
     "light": "optimisme, vitalité, ouverture",
@@ -931,14 +931,47 @@
     "question": "Qu'est-ce qui m'apporte une joie simple et sans complication ?"
    },
    "reversed": {
-    "core": "La chaleur est ternie ou forcée.",
+    "core": "La joie peut passer inaperçue ou sembler forcée.",
     "modes": [
-     "Bloqué : des nuages sur le chemin.",
-     "Excès : une positivité forcée.",
-     "Déclin : la fatigue."
+     "Qu’est-ce qui reste satisfaisant ?",
+     "Quelle attente pouvez-vous mettre de côté ?",
+     "Une séance plus courte aiderait-elle ?"
     ],
     "question": "Où est-ce que je fais semblant d'être plus lumineux·se que je ne me sens ?"
    }
+  },
+  "evidence": {
+   "answer": "Dans le jeu Waite–Smith, le Soleil peut inviter à remarquer ce qui paraît clair ou agréable. Pour Waite, la carte renversée garde un sens proche de celui de la carte à l’endroit, avec moins d’intensité.",
+   "groupNote": "Cette carte Waite–Smith porte le numéro XIX. Le Soleil fait partie des arcanes majeurs.",
+   "sections": [
+    {
+     "h": "Ce que montrent l’image et les sources",
+     "p": [
+      "La carte montre XIX, un enfant sur un cheval blanc et une bannière rouge. Waite décrit ces trois éléments dans la deuxième partie, §2. Dans la troisième partie, il associe la carte à l’endroit au bonheur et à la satisfaction. Renversée, elle conserve ce sens avec moins d’intensité.",
+      "Le livret de l’éditeur reprend cette lecture. Pour réfléchir, le site en tire une question sur la satisfaction que vous pouvez effectivement remarquer."
+     ]
+    },
+    {
+     "h": "Un exercice de dessin original dans les deux orientations",
+     "p": [
+      "Imaginez avoir dessiné samedi et vouloir apprécier davantage la prochaine séance. [À l’endroit](cards/major-19-sun?orientation=upright#card-meanings), prenez la scène lumineuse comme point de départ pour nommer un détail satisfaisant, comme un trait que vous aimez.",
+      "[Renversée](cards/major-19-sun?orientation=reversed#card-meanings), vérifiez si le plaisir était plus difficile à remarquer. Essayez un croquis de dix minutes sans obligation de le finir et notez les différences. Si la fatigue correspond davantage à la situation, comparez avec une courte pause."
+     ]
+    },
+    {
+     "h": "Sources à consulter",
+     "p": [
+      "[Waite, deuxième partie](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, XIX, décrit l’image. La [troisième partie](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 19, donne les sens historiques. Le [livret d’U.S. Games](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=11) reprend le sens atténué pour la carte renversée.",
+      "Le [guide des cartes renversées](learn/reversed-cards) présente d’autres façons de traiter l’orientation."
+     ]
+    },
+    {
+     "h": "Vérification · 8 novembre 2026",
+     "p": [
+      "Codex a comparé l’image du site, les passages cités et cette fiche. L’exercice de dessin est original. La vérification indépendante par un spécialiste et la révision par des locuteurs natifs restent à faire. [Signaler une erreur](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_20_judgement": {
