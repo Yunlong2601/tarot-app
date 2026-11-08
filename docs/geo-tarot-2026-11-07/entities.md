@@ -55,7 +55,9 @@ CSV 的 `official` 栏主要指 **ShenTarot 官网**。牌组发行商 U.S. Game
 
 凯尔特十字的主要歧义出在牌位编号和额外的指示牌。韦特原书与 Amazon 托管的手册都把目标、根基、近期的过去依次放在第 3、4、5 位，图示还给预选的指示牌留了位置。ShenTarot 的同名布局按根基、近期的过去、目标排序，只要求十张实际抽出的牌。Wikipedia 的图片支持牌阵名称。Reddit 帖文与评论提供了读者遇到不同编号的直接案例。新版在同一条牌阵页面解释录入时如何对应角色。[韦特第三部第 7 节](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3) · [出版商手册布局和指引](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=30) · [Wikipedia 图注](https://en.wikipedia.org/wiki/Tarot_card_reading#Waite_and_Crowley) · [Reddit 读牌讨论](https://www.reddit.com/r/tarot/comments/1ru7d54/the_original_celtic_cross_tarot_spread_and_when/)
 
-三牌、正逆位和洗牌行也补上逐项证据。百科确认三牌示意和历史用语。Reddit 的讨论显示用户会根据各自的读法调整牌的方向。百科样本的洗牌细则和指示牌条目仍留作待核。[Wikipedia 三牌图注](https://en.wikipedia.org/wiki/Tarot) · [Wikipedia 正逆位历史](https://en.wikipedia.org/wiki/Tarot_card_reading#Etteilla) · [Reddit 正逆位和洗牌讨论](https://www.reddit.com/r/tarot/comments/1l6r4f1/at_what_point_do_you_upright_the_cards_in_your/)
+三牌、正逆位和洗牌行也补上逐项证据。百科确认三牌示意和历史用语。Reddit 的讨论显示用户会根据各自的读法调整牌的方向。俄语 Wikipedia 补足了这两项的直接出处。其牌阵段说明韦特两种方法的洗牌步骤，提问与指示牌段说明后者代表人物或提问事项。历史做法与本站操作分别记录。[Wikipedia 三牌图注](https://en.wikipedia.org/wiki/Tarot) · [Wikipedia 正逆位历史](https://en.wikipedia.org/wiki/Tarot_card_reading#Etteilla) · [Reddit 正逆位和洗牌讨论](https://www.reddit.com/r/tarot/comments/1l6r4f1/at_what_point_do_you_upright_the_cards_in_your/)
+
+俄语 Wikipedia 的出处可直接定位到[提问与指示牌](https://ru.wikipedia.org/wiki/Гадание_на_картах_таро#Вопрос_и_сигнификатор)及[牌阵](https://ru.wikipedia.org/wiki/Гадание_на_картах_таро#Расклады)。两节引用韦特的原文。
 
 ### 三张牌牌阵的位置核对
 
