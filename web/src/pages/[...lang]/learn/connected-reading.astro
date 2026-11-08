@@ -1,19 +1,52 @@
 ---
 import ResumeWorkspace from "../../../components/ResumeWorkspace.astro";
 import Base from '../../../layouts/Base.astro';
-import { i18n, langPaths, type Locale } from '../../../i18n';
+import { fill, i18n, langPaths, type Locale } from '../../../i18n';
+import { referenceHub } from '../../../i18n/reference-hub';
 import { EXAMPLE } from '../../../lib/example';
-import { BASE } from '../../../config';
+import { BASE, SITE_URL } from '../../../config';
 import { slug } from '../../../lib/data';
+import { SHENETIC, SHENTAROT_WEBSITE } from '../../../lib/site-entities';
 export const getStaticPaths = langPaths;
 const { lang } = Astro.props as { lang: Locale };
 const L = i18n(lang), g = L.growth, w = L.workspace;
+const compare = referenceHub(lang).compareLayouts;
+const layouts = [
+  { id: 'three', description: compare.timeline, seed: 'creative-timeline' },
+  { id: EXAMPLE.spread, description: compare.decision, seed: 'creative' },
+] as const;
+const source = 'https://labyrinthos.co/blogs/learn-tarot-with-labyrinthos-academy/3-card-tarot-spreads-simple-tarot-spreads-organized-by-layout';
+const page = new URL(L.url('learn/connected-reading'), SITE_URL).href;
+const jsonLd = [{
+  '@context': 'https://schema.org', '@type': 'Article',
+  '@id': page + '#article', headline: g.exampleTitle, url: page, inLanguage: L.tag,
+  author: SHENETIC, publisher: SHENETIC, isPartOf: SHENTAROT_WEBSITE,
+  citation: source,
+  mentions: [
+    ...layouts.map(({ id }) => ({ '@id': new URL(L.url('spreads/' + slug(id)), SITE_URL).href })),
+    ...EXAMPLE.cards.map(({ id }) => ({ '@id': new URL(L.url('cards/' + slug(id)), SITE_URL).href })),
+  ],
+}];
 ---
-<Base title={g.exampleTitle} description={g.exampleLead} path="learn/connected-reading" lang={lang} noCta>
+<Base title={g.exampleTitle} description={g.exampleLead} path="learn/connected-reading" lang={lang} jsonLd={jsonLd} noCta>
 <header class="page-head"><p class="eyebrow">{w.example}</p><h1>{g.exampleTitle}</h1><p class="lead">{g.exampleLead}</p><p>{g.editorial}</p></header>
 <ResumeWorkspace L={L} />
 <article class="connected-example"><h2>{g.exampleQuestion}</h2>
 <ol class="example-cards">{EXAMPLE.cards.map((p,i) => <li class="panel"><h3>{i+1}. {L.content.spreads[EXAMPLE.spread]!.positions[i]}</h3><a href={`${L.url(`cards/${slug(p.id)}`)}${p.reversed ? '?orientation=reversed' : ''}`}><img class:list={{'reversed-art':p.reversed}} src={`${BASE}cards/art/${p.id}.jpg`} width="150" height="257" alt={L.cards[p.id]!.name}/><b>{L.cards[p.id]!.name}</b></a><p class="eyebrow">{L.t(p.reversed ? 'card.reversed' : 'card.upright')}</p><p>{g.symbols[i]}</p><p>{g.positions[i]}</p></li>)}</ol>
 <section class="panel"><h2>{w.connections}</h2><p>{g.connections}</p><p>{g.alternative}</p><p>{g.positionShift}</p></section>
-<p><a class="btn btn-gold" href={`${L.url('read')}?example=creative`}>{g.exampleLoad}</a></p><p><a href={L.url("learn/practice")}>{L.journey.continuePractice}</a></p><p><a href={L.url('methodology')}>{g.methodTitle}</a></p><p>{w.disclaimer}</p>
+<p><a class="btn btn-gold" href={`${L.url('read')}?example=creative`}>{g.exampleLoad}</a></p>
+<section class="panel" id="compare-layouts">
+  <h2>{compare.title}</h2>
+  <p>{compare.intro}</p>
+  {layouts.map(({ id, description, seed }) => {
+    const { name } = L.content.spreads[id];
+    return <>
+      <h3><a href={L.url('spreads/' + slug(id))}>{name}</a></h3>
+      <p>{description}</p>
+      <p><a href={`${L.url('read')}?example=${seed}`}>{fill(compare.open, { layout: name })}</a></p>
+    </>;
+  })}
+  <p>{compare.source} · <a href={source}>Tina Gong, Labyrinthos</a></p>
+</section>
+<p><a href={L.url("learn/practice")}>{L.journey.continuePractice}</a></p><p><a href={L.url('methodology')}>{g.methodTitle}</a></p><p>{w.disclaimer}</p>
 </article></Base>

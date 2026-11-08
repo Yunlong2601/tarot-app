@@ -6,6 +6,6 @@ export const EXAMPLE = { spread: 'three_decision' as const, cards: [
   { id: 'pentacles_eight', reversed: false },
 ] };
 /** Replace only the confirmed cards; keep unrelated notes and independent save. */
-export function applyExample(current: Draft, question: string): Draft {
-  return { ...current, spread: EXAMPLE.spread, cards: EXAMPLE.cards.map(p => ({ ...p })), question: current.question || question };
+export function applyExample(current: Draft, question: string, spread: 'three' | typeof EXAMPLE.spread = EXAMPLE.spread): Draft {
+  return { ...current, spread, cards: EXAMPLE.cards.map(p => ({ ...p })), question: current.question || question };
 }

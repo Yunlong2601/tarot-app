@@ -302,3 +302,5 @@ Rewrote Simplified and Traditional Chinese beta-page copy, shared recruitment in
 2026-11-08 — Aligned OpenAI’s crawler rules with the existing search and training preferences. The GPTBot group now sends `Disallow: /`; OAI-SearchBot can still crawl public reference pages for ChatGPT Search. [OpenAI crawler controls](https://developers.openai.com/api/docs/bots).
 
 2026-11-08 — Unified the Shenetic publisher and ShenTarot website identifiers across localized reference pages. The card and spread catalogues now link to identifiers on their detail pages, and localized home search markup points to the working search URLs. Recovered the fourth ChatGPT sample from the November 8 follow-up and recorded a second Google index observation.
+
+2026-11-08 — Verified the three-card layout concept across four surfaces and published an eight-language comparison of the two ShenTarot layouts. The existing lesson links to the same three example cards in both workspace layouts, and About directs readers to the comparison.

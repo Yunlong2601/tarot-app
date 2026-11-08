@@ -46,6 +46,20 @@ for (const locale of locales) {
   assert.match(d.querySelector('[data-product-fact="library"]').textContent, /78/);
   assert.match(d.querySelector('[data-product-fact="library"]').textContent, /8/);
   assert.equal(d.querySelector('#example ol').children.length, 3);
+  const comparisonLink = '/' + p + 'learn/connected-reading#compare-layouts';
+  assert.ok(d.querySelector(`#example a[href="${comparisonLink}"]`));
+  const example = doc(p + 'learn/connected-reading');
+  const comparison = example.getElementById('compare-layouts');
+  assert.equal(norm(comparison.querySelector('h2').textContent), h.compareLayouts.title);
+  for (const seed of ['creative', 'creative-timeline']) {
+    assert.ok(comparison.querySelector(`a[href="/${p}read?example=${seed}"]`));
+  }
+  const exampleArticle = schemasFor(example).find(s => s['@type'] === 'Article');
+  assert.ok(comparison.querySelector(`a[href="${exampleArticle.citation}"]`));
+  for (const mention of exampleArticle.mentions) {
+    const { pathname } = new URL(mention['@id']);
+    assert.ok(example.querySelector(`a[href^="${pathname}"]`));
+  }
   assert.match(d.querySelector('#app').textContent, /1\.0\.1/);
   assert.equal(d.querySelector('#app time').getAttribute('datetime'), '2026-10-30');
   assert(!norm(d.querySelector('main').textContent).includes('{cards}'));

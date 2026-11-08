@@ -45,7 +45,8 @@ const creditEvidence = fill(B.iphoneCosts, { version: IPHONE_BETA_EVIDENCE.versi
       <ol>{EXAMPLE.cards.map((p, i) => <li><a href={L.url('cards/' + slug(p.id))}>{L.cards[p.id]!.name}</a> · {L.t(p.reversed ? 'card.reversed' : 'card.upright')} · {L.content.spreads[EXAMPLE.spread].positions[i]}</li>)}</ol>
       <p>{L.growth.connections}</p>
       <p>{L.growth.editorial}</p>
-      <p><a href={L.url('learn/connected-reading')}>{L.growth.exampleTitle}</a> · <a href={L.url('read') + '?example=creative'}>{H.openReading}</a></p>
+      <p>{H.compareLayouts.intro}</p>
+      <p><a href={L.url('learn/connected-reading') + '#compare-layouts'}>{H.compareLayouts.title}</a> · <a href={L.url('read') + '?example=creative'}>{H.openReading}</a></p>
     </section>
 
     <section id="app" data-product-fact="observed-beta">

@@ -55,7 +55,18 @@ CSV 的 `official` 栏主要指 **ShenTarot 官网**。牌组发行商 U.S. Game
 
 凯尔特十字的主要歧义出在牌位编号和额外的指示牌。韦特原书与 Amazon 托管的手册都把目标、根基、近期的过去依次放在第 3、4、5 位，图示还给预选的指示牌留了位置。ShenTarot 的同名布局按根基、近期的过去、目标排序，只要求十张实际抽出的牌。Wikipedia 的图片支持牌阵名称。Reddit 帖文与评论提供了读者遇到不同编号的直接案例。新版在同一条牌阵页面解释录入时如何对应角色。[韦特第三部第 7 节](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3) · [出版商手册布局和指引](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=30) · [Wikipedia 图注](https://en.wikipedia.org/wiki/Tarot_card_reading#Waite_and_Crowley) · [Reddit 读牌讨论](https://www.reddit.com/r/tarot/comments/1ru7d54/the_original_celtic_cross_tarot_spread_and_when/)
 
-三牌、正逆位和洗牌行也补上逐项证据。百科确认三牌示意和历史用语；Reddit 的讨论显示用户会根据各自的读法调整牌的方向。Amazon 手册的三牌布局和正位标签、百科样本的洗牌细则和指示牌条目仍留作待核。[Wikipedia 三牌图注](https://en.wikipedia.org/wiki/Tarot) · [Wikipedia 正逆位历史](https://en.wikipedia.org/wiki/Tarot_card_reading#Etteilla) · [Reddit 正逆位和洗牌讨论](https://www.reddit.com/r/tarot/comments/1l6r4f1/at_what_point_do_you_upright_the_cards_in_your/)
+三牌、正逆位和洗牌行也补上逐项证据。百科确认三牌示意和历史用语。Reddit 的讨论显示用户会根据各自的读法调整牌的方向。Amazon 手册的正位标签、百科样本的洗牌细则和指示牌条目仍留作待核。[Wikipedia 三牌图注](https://en.wikipedia.org/wiki/Tarot) · [Wikipedia 正逆位历史](https://en.wikipedia.org/wiki/Tarot_card_reading#Etteilla) · [Reddit 正逆位和洗牌讨论](https://www.reddit.com/r/tarot/comments/1l6r4f1/at_what_point_do_you_upright_the_cards_in_your/)
+
+### 三张牌牌阵的位置核对
+
+| 来源 | 可确认的内容 |
+| --- | --- |
+| 官网 | 两个实际布局分别用于梳理事情的发展和考虑下一步。第三张分别是可能走向和可尝试的行动。[时间线](https://shentarot.com/spreads/three) · [现状、挑战、前进方向](https://shentarot.com/spreads/three-decision) |
+| Amazon | Amazon Music 上的节目发布者把时间线列作一个三牌布局。零售商品页预览未能读取。[节目说明](https://music.amazon.com/podcasts/cdabf10d-e1ce-4b32-951a-4087c6d4a540/episodes/e4894f76-ee37-484b-ae47-cca21a769ae9/selami-sahin%27s-podcast-tarot-and-oracle-deck) |
+| Wikipedia | 导言图注确认这是一种三牌布局，图注没有指定每个位置的角色。[塔罗条目导言](https://en.wikipedia.org/wiki/Tarot) |
+| Reddit | 有读者问第三张代表下一步还是结果。回复分别讨论时间线和以建议为结尾的布局。[读者原帖](https://www.reddit.com/r/tarot/comments/11k13np/beginner_question_about_3_card_draws/) |
+
+四处证据共同支持三牌布局的用法，具体位置随布局而变。Tina Gong 的教学文章分别列出按时间排列的做法和以行动建议为目的的做法。ShenTarot 将同一组牌、顺序和正逆位放进两种现有布局，示范正位星币八如何分别用于思考持续练习的可能走向，以及拟定本周可尝试的一步。[教学文章](https://labyrinthos.co/blogs/learn-tarot-with-labyrinthos-academy/3-card-tarot-spreads-simple-tarot-spreads-organized-by-layout) · [ShenTarot 对照示例](https://shentarot.com/learn/connected-reading#compare-layouts)
 
 ### 已核对到的 Reddit 单牌提及
 
