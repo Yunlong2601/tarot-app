@@ -1,3 +1,7 @@
+# Website reference FAQ length — 2026-11-09
+
+All eight About pages now use the same 80-character limit for their twelve FAQ answers. The shuffle answer links straight to the relevant lesson section. The build audit checks answer length and confirms that the visible links and structured data agree.
+
 # Website birth card calculation — 2026-11-09
 
 The birth card calculator explains its digit-sum method in eight languages. A fixed date shows where ShenTarot and The Tarot School reach different cards. Both ShenTarot tools now use the same calculation functions. Chrome confirmed the one-, two- and three-card cases and the current-year result using sample dates.

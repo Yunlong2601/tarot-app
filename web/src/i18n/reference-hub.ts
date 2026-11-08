@@ -17,7 +17,7 @@ export const FAQ_TARGETS = [
   ['self-study', 'learn/how-to-read-tarot'],
   ['four-suits', 'learn/tarot-suits'],
   ['court-cards', 'learn/court-cards'],
-  ['shuffle', 'learn/how-to-read-tarot'],
+  ['shuffle', 'learn/how-to-read-tarot#s2'],
   ['online-draw', 'tools/random-card'],
   ['daily-card', 'tools/daily-card'],
   ['asking-questions', 'learn/asking-questions'],

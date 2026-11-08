@@ -78,14 +78,20 @@ for (const locale of locales) {
   assert.equal(norm(d.querySelector('main .lead').textContent), ritualCopy(locale).heroLead);
   if (locale.startsWith('zh-')) assert([...ritualCopy(locale).heroLead].length <= 50, 'BLUF exceeds 50 characters');
   h.faq.forEach((f, i) => {
-    const section = d.getElementById(FAQ_TARGETS[i][0]);
+    const [fragment, route] = FAQ_TARGETS[i];
+    const section = d.getElementById(fragment);
     assert.equal(norm(section.querySelector('h3').textContent), f.q);
-    assert.equal(norm(section.querySelector('p').textContent), f.a);
+    assert.equal(section.querySelector('p').textContent, f.a);
     assert.equal(schema.mainEntity[i].acceptedAnswer.text, f.a);
     assert.equal(schema.mainEntity[i].name, f.q);
-    assert.equal(schema.mainEntity[i]['@id'], schema.url + '#' + FAQ_TARGETS[i][0]);
-    assert.equal(schema.mainEntity[i].acceptedAnswer.url, 'https://shentarot.com/' + p + FAQ_TARGETS[i][1]);
-    if (locale.startsWith('zh-')) assert([...f.a].length <= 80, 'Chinese answer exceeds 80 characters');
+    assert.equal(schema.mainEntity[i]['@id'], schema.url + '#' + fragment);
+    const destination = new URL(section.querySelector('a').getAttribute('href'), schema.url);
+    assert.equal(destination.href, 'https://shentarot.com/' + p + route);
+    assert.equal(schema.mainEntity[i].acceptedAnswer.url, destination.href);
+    assert([...f.a].length <= 80, `${locale} FAQ "${fragment}" exceeds 80 characters`);
+    if (destination.hash) {
+      assert.ok(doc(destination.pathname.slice(1)).getElementById(destination.hash.slice(1)), destination.href);
+    }
   });
   for (const a of d.querySelectorAll('main a[href^="/"]')) {
     const target = new URL(a.getAttribute('href'), 'https://shentarot.com');

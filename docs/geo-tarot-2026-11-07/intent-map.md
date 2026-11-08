@@ -10,7 +10,7 @@ The user supplied a five-step GEO workflow. MEN, ENT, CIT, FOQ, SOM, IGN and CGP
 
 ## 12 observed question intents
 
-English questions are actual PAA labels or autocomplete predictions captured in the research evidence, with capitalization and punctuation normalized. Chinese and the other six localized versions are reader-oriented translations, not claims about observed Chinese query volume. Each Chinese answer is below 80 Unicode characters. English and other alphabetic languages use short answers below 80 words.
+English questions use the PAA labels or autocomplete predictions captured in the research evidence, with capitalization and punctuation normalized. The other seven versions translate those questions for their readers. From November 9, all 96 answers use a limit of 80 Unicode code points, including spaces and punctuation. Each links to the lesson or tool for the full explanation.
 
 | Hub fragment | Observed English question | Evidence | Full answer or action owner |
 | --- | --- | --- | --- |
@@ -18,7 +18,7 @@ English questions are actual PAA labels or autocomplete predictions captured in 
 | self-study | Can I teach myself to read tarot? | PAA, query 2 | /learn/how-to-read-tarot |
 | four-suits | What do the four card suits symbolize? | PAA, query 4 | /learn/tarot-suits |
 | court-cards | What are the 16 court cards? | PAA, query 6 | /learn/court-cards |
-| shuffle | Is there a correct way to shuffle tarot? | PAA, query 11 | /learn/how-to-read-tarot |
+| shuffle | Is there a correct way to shuffle tarot? | PAA, query 11 | /learn/how-to-read-tarot#s2 |
 | online-draw | Can I pull tarot cards online? | PAA, query 12 | /tools/random-card |
 | daily-card | How to do a daily tarot card reading? | PAA, query 13 | /tools/daily-card |
 | asking-questions | What not to ask in a tarot reading? | PAA, query 14 | /learn/asking-questions |
@@ -127,7 +127,7 @@ Shenetic is the publisher and ShenTarot the product. No Amazon/Wikipedia/Reddit 
 
 ## Verification
 
-- All eight locale JSON sets pass parity. Chinese lead <= 50 characters and all 24 Chinese FAQ answers <= 80 characters.
+- All eight locale JSON sets pass parity. Both Chinese leads use at most 50 characters. All 96 FAQ answers use at most 80 code points. The build audit verifies their visible and structured text, and confirms the shuffle link opens an existing section in each language.
 - New production audit checks eight About pages, 96 visible/schema-matched answers, 624 card headings/schema terms, fragment uniqueness, expected destinations, canonical/alternate count, sitemap presence, dated beta evidence and Markdown parity.
 - Full website tests, Astro check, build, reader/editorial, ritual, interaction, search-growth and beta audits run after implementation.
 - Real Chrome at 390px: all eight About pages had twelve questions and no document horizontal overflow. English, Simplified Chinese, German and Russian also checked at 768px and 1440px. Screenshots inspected for Chinese mobile and Russian desktop.
