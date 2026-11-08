@@ -1,3 +1,7 @@
+# Judgement reference source check — 2026-11-09
+
+Eight localized base references separate the card image, Waite’s historical meanings and an original book-swap example using the same question upright and reversed. The source audit records the second Google observation for question 25 and the four-platform comparison. Independent expert and native-language checks remain pending.
+
 # Website random draw guide and AI search baseline — 2026-11-09
 
 All eight random draw pages explain the controls, the 78-card shuffle and the handoff into the reading workspace. Search Console showed the domain included in generative AI features and 1,067 property impressions across the 21 days shown. The intent map records the report filters and relevant pages.

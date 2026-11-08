@@ -6,7 +6,6 @@ import BetaInvite from "../../../components/BetaInvite.astro";
 import ResumeWorkspace from "../../../components/ResumeWorkspace.astro";
 import Base from "../../../layouts/Base.astro";
 import Tabs from "../../../components/Tabs.astro";
-import SearchGrowthNotes from "../../../components/SearchGrowthNotes.astro";
 import { BASE } from "../../../config.ts";
 import { CARDS, cardIds, slug, type CardId } from "../../../lib/data.ts";
 import { CONTEXTS, CONTEXT_KEY } from "../../../lib/contexts.ts";
@@ -247,7 +246,6 @@ const jsonLd = [
   {evidenceCopy && <section class="section legal guide" data-card-evidence>
     {evidenceCopy.sections.map((section,n)=><section><h2 id={`reference-evidence-${n+1}`}>{section.h}</h2>{section.p.map(text=><Linked text={text} lang={lang}/>)}</section>)}
   </section>}
-  {lang === 'en' && id === 'major_20_judgement' && <SearchGrowthNotes kind="judgement" />}
   <nav class="pager" aria-label={t("card.moreCards")}>
     <a class="panel" href={u(`cards/${slug(prev)}`)}>
       <img src={`${BASE}cards/art/${prev}.jpg`} alt="" loading="lazy" width="150" height="257" />

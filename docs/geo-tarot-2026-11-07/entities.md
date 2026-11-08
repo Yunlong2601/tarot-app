@@ -87,6 +87,17 @@ CSV 的 `official` 栏主要指 **ShenTarot 官网**。牌组发行商 U.S. Game
 
 韦特和手册给出同一种历史说法，这两份文字的相似性不增加独立意见的数量。本站练习保留这层历史归属，并让读者用观察到的乐趣和疲劳比较十分钟画画与短暂休息两种尝试。[本站原文与练习](https://shentarot.com/zh-hans/cards/major-19-sun#reference-evidence-2)
 
+### 审判牌正逆位核对 · 11 月 9 日
+
+| 来源 | 实际支持的内容 |
+| --- | --- |
+| 官网 | 牌图上印着 XX 和 Judgement。号角的旗上有十字，前景三人身后还有起身的人。新练习在同一个牌位比较正位和逆位，并链接到两种显示状态。[审判牌](https://shentarot.com/zh-hans/cards/major-20-judgement) |
+| Amazon | Amazon 托管的 U.S. Games 手册把第 20 号写成 The Last Judgment。逆位列出软弱、审慎考虑和作决定等历史释义。[手册 PDF 第 11 页](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=11) |
+| Wikipedia | 审判牌独立词条收录韦特的正逆位条目，也另列当代作者对内在召唤的解读。词条转录与韦特原书是同一条历史证据。[词条释义](https://en.wikipedia.org/wiki/Judgement_(tarot_card)#Card_meanings) |
+| Reddit | 面试前抽到逆位的原帖引出不同解读。一条回帖谈自我怀疑，另一条建议观察怀疑的起因。这些是读者的情境解读。[讨论原帖](https://www.reddit.com/r/tarot/comments/siwln1/please_help_me_understand_the_judgement_card/) |
+
+韦特的图像说明特意提到起身者超过三人，逆位条目也列有审慎考虑与作决定。新版把两处原文与换书活动的原创练习分开，读者可以对照图像、原文和自己的观察。[图像说明](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2) · [正逆位条目](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3)
+
 ### 已核对到的 Reddit 单牌提及
 
 在 R1 中核对到宝剑九。R3 的帖文和评论提到愚者、倒吊人、皇后、宝剑国王、恶魔、圣杯九、星星、圣杯侍从、宝剑王牌、隐士和宝剑三。11 月 8 日针对产品页示例补查 R4，帖文明确列出魔术师、星币二和星币八，三行已在 CSV 更新为 E。两轮共核对到 15 张牌。

@@ -982,11 +982,11 @@
    "Berufung"
   ],
   "upright": "Ein Moment ehrlicher Rückschau. Vergib der Vergangenheit und folge deinem inneren Ruf.",
-  "reversed": "Selbstkritik oder das Ausweichen vor einer nötigen Entscheidung.",
+  "reversed": "Überlege, was dir bei einer Entscheidung helfen würde und ob Selbstkritik es dir schwerer macht.",
   "k": {
    "essence": "Ein Ruf, zurückzuschauen und neu anzufangen.",
    "imagery": "Ein Engel bläst aus den Wolken eine Posaune. Darunter erheben sich Gestalten mit erhobenen Armen aus offenen Särgen. Im Hintergrund stehen verschneite Berge.",
-   "why": "Zwanzig ist die Zahl des Erwachens vor der Vollendung. Die Posaune ist ein Ruf, und die aufsteigenden Gestalten sind Menschen, die ihm antworten. Die Karte handelt von Rückschau und Erneuerung, nicht von einem verhängten Urteil.",
+   "why": "Die Trompete macht einen Ruf sichtbar, und die aufstehenden Menschen scheinen darauf zu antworten. Was hast du bemerkt, und wie möchtest du darauf reagieren?",
    "upright": {
     "core": "Ein Moment der Abrechnung und Erneuerung: einen Ruf hören, anders zu leben.",
     "light": "Erwachen, Vergebung, Sinn",
@@ -996,14 +996,47 @@
     "question": "Was ruft mich, das ich immer wieder aufgeschoben habe?"
    },
    "reversed": {
-    "core": "Zweifel, den Ruf überhören oder hart mit dir selbst sein.",
+    "core": "Überlege, was dir bei einer Entscheidung helfen würde und ob Selbstkritik es dir schwerer macht.",
     "modes": [
-     "Blockiert: ignorieren, was du hörst.",
-     "Übermaß: harte Selbstkritik.",
-     "Nach innen: eine stille Abrechnung mit dir selbst."
+     "Welche Information fehlt noch?",
+     "Was wäre ein ausreichender Anhaltspunkt?",
+     "Welchen kleinen Schritt kannst du ausprobieren?"
     ],
-    "question": "Kann ich mir genug vergeben, um weiterzugehen?"
+    "question": "Was wäre ein ausreichender Anhaltspunkt?"
    }
+  },
+  "evidence": {
+   "answer": "Tarotkarte 20 (XX) ist Das Gericht. Aufrecht lädt sie dazu ein, vor einem Neuanfang zurückzublicken. Umgekehrt kannst du fragen, ob du mehr Zeit zum Entscheiden brauchst oder zu streng mit dir bist.",
+   "groupNote": "Auf der Karte steht XX. Zählst du den Narren (0) als erste Karte, steht Das Gericht an 21. Stelle.",
+   "sections": [
+    {
+     "h": "Was zeigt die Karte XX?",
+     "p": [
+      "Drei Menschen stehen im Vordergrund, weitere erheben sich dahinter. Der Engel bläst eine Trompete, an der eine Fahne mit einem Kreuz hängt. In Teil II weist Waite darauf hin, dass mehr als drei Menschen aufstehen. Er liest die Szene als Antwort auf einen inneren Ruf.",
+      "In Teil III nennt Waite für die aufrechte Karte Erneuerung und eine Veränderung der Lage. Bei der umgekehrten Karte führt er Schwäche, aber auch Abwägen und Entscheidung an. Für deine Reflexion kannst du daraus die Frage ableiten, ob dir eine Pause beim Abwägen hilft."
+     ]
+    },
+    {
+     "h": "Dieselbe Frage mit dem Gericht in beiden Lagen",
+     "p": [
+      "Stell dir vor, eine ehrenamtliche Gruppe hat einen Büchertausch organisiert und möchte den nächsten verbessern. Lege [Das Gericht aufrecht](cards/major-20-judgement?orientation=upright#card-meanings) auf „Was haben wir gelernt?“. Die Menschen auf der Karte reagieren auf die Trompete. Schau deshalb nach einer beobachtbaren Reaktion: Wann wurde laut Anmeldeliste die Schlange länger? Wähle dann eine Änderung zum Ausprobieren.",
+      "Liegt [Das Gericht umgekehrt](cards/major-20-judgement?orientation=reversed#card-meanings) auf derselben Position, frag zuerst, welche Information noch fehlt. Kamen viele Menschen gleichzeitig an, oder dauerte die Anmeldung an einem Tisch länger? Wenn die Liste das offenlässt, miss beim nächsten Tausch zehn Minuten lang die Wartezeiten an beiden Tischen.",
+      "Ergänzt du die [Acht der Münzen](cards/pentacles-eight) für die Handlung und [Die Mäßigkeit](cards/major-14-temperance) für das Tempo, übe den neuen Ablauf einmal und beurteile ihn nach der nächsten Veranstaltung."
+     ]
+    },
+    {
+     "h": "Quellen zum Nachlesen",
+     "p": [
+      "[Waite, Teil II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), Abschnitt 2, XX, beschreibt die Fahne und die zusätzlichen Figuren. [Teil III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), Abschnitt 3, Eintrag 20, nennt die Bedeutungen für beide Lagen. Auch das [Begleitheft von U.S. Games](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=11) nennt Abwägen und Entscheidung bei der umgekehrten Karte."
+     ]
+    },
+    {
+     "h": "Prüfvermerk · 9. November 2026",
+     "p": [
+      "Codex hat das hier verwendete Kartenbild, die genannten Passagen und diese Kartenseite verglichen. Der Büchertausch ist eine eigene Übung. Die unabhängige fachliche und muttersprachliche Prüfung steht noch aus. [Korrektur melden](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_21_world": {

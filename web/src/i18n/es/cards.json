@@ -982,11 +982,11 @@
    "llamada"
   ],
   "upright": "Un momento de revisión honesta. Perdona el pasado y responde a tu llamada interior.",
-  "reversed": "Autocrítica o evitar una decisión necesaria.",
+  "reversed": "Pregúntate qué te ayudaría a decidir y si la autocrítica te está poniendo las cosas más difíciles.",
   "k": {
    "essence": "Una llamada a mirar atrás y volver a empezar.",
    "imagery": "Un ángel toca una trompeta desde las nubes. Abajo, figuras con los brazos alzados se levantan de ataúdes abiertos. Detrás se alzan montañas nevadas.",
-   "why": "El veinte es el número del despertar antes de la culminación. La trompeta es una llamada, y las figuras que se levantan son personas que responden. La carta trata de revisión y renovación, no de un veredicto impuesto.",
+   "why": "La trompeta hace visible una llamada y las figuras que se levantan sugieren una respuesta. La escena invita a pensar en qué has notado y cómo te gustaría responder.",
    "upright": {
     "core": "Un momento de ajuste de cuentas y renovación: oír una llamada a vivir de otra manera.",
     "light": "despertar, perdón, propósito",
@@ -996,14 +996,47 @@
     "question": "¿Qué me está llamando que he ido posponiendo?"
    },
    "reversed": {
-    "core": "Duda, ignorar la llamada o ser duro contigo mismo.",
+    "core": "Pregúntate qué te ayudaría a decidir y si la autocrítica te está poniendo las cosas más difíciles.",
     "modes": [
-     "Bloqueo: ignorar lo que oyes.",
-     "Exceso: una autocrítica severa.",
-     "Hacia dentro: un ajuste de cuentas privado."
+     "¿Qué información te falta?",
+     "¿Con qué indicio te bastaría?",
+     "¿Qué pequeño paso puedes probar?"
     ],
-    "question": "¿Puedo perdonarme lo suficiente para seguir adelante?"
+    "question": "¿Con qué indicio te bastaría?"
    }
+  },
+  "evidence": {
+   "answer": "La carta 20 (XX) del tarot es El Juicio. Al derecho invita a hacer balance antes de volver a empezar. Invertida, pregúntate si necesitas tiempo para decidir o si te estás juzgando con demasiada dureza.",
+   "groupNote": "La carta lleva el número XX. Si empiezas a contar por El Loco, que lleva el 0, El Juicio ocupa el puesto 21.",
+   "sections": [
+    {
+     "h": "¿Qué muestra la carta XX?",
+     "p": [
+      "Hay tres figuras en primer plano y más personas que se levantan detrás. El ángel toca una trompeta de la que cuelga un estandarte con una cruz. Waite señala en la segunda parte que se levantan más de tres personas y lee la escena como una respuesta a una llamada interior.",
+      "En la tercera parte, Waite vincula la carta al derecho con la renovación y un cambio de situación. Para la invertida menciona la debilidad, pero también la deliberación o una decisión. Al reflexionar, puedes preguntarte si una pausa te ayudaría a sopesar las opciones."
+     ]
+    },
+    {
+     "h": "Prueba la misma pregunta con El Juicio al derecho e invertido",
+     "p": [
+      "Imagina que un grupo de voluntarios organizó un intercambio de libros y quiere mejorar el próximo. Coloca [El Juicio al derecho](cards/major-20-judgement?orientation=upright#card-meanings) en «¿Qué aprendimos?». Las personas que responden a la trompeta sugieren buscar una reacción concreta. Mira el registro de entradas para ver cuándo creció la fila y elige un cambio que puedas probar.",
+      "Con [El Juicio invertido](cards/major-20-judgement?orientation=reversed#card-meanings) en la misma posición, pregunta qué falta saber para decidir. ¿Llegó mucha gente a la vez o tardaba más una de las mesas? Si el registro no permite distinguirlo, mide cuánto tarda cada mesa durante diez minutos en el próximo intercambio.",
+      "Si añades el [Ocho de Oros](cards/pentacles-eight) para la acción y [La Templanza](cards/major-14-temperance) para el ritmo, ensaya una vez el nuevo registro y espera a que termine el próximo evento para valorar si ayudó."
+     ]
+    },
+    {
+     "h": "Fuentes que puedes consultar",
+     "p": [
+      "[Waite, parte II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), sección 2, XX, describe el estandarte y las figuras del fondo. La [parte III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), sección 3, entrada 20, recoge los sentidos de ambas orientaciones. El [folleto de U.S. Games](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=11) también incluye la deliberación y la decisión para la invertida."
+     ]
+    },
+    {
+     "h": "Registro de comprobación · 9 de noviembre de 2026",
+     "p": [
+      "Codex comparó la ilustración usada en el sitio, los pasajes citados y esta ficha de la carta. El intercambio de libros es un ejercicio original. Quedan pendientes la revisión por especialistas independientes y la revisión por hablantes nativos. [Envía una corrección](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_21_world": {

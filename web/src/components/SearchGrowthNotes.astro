@@ -2,7 +2,7 @@
 // Original editorial examples, deliberately limited to the audited reference pages.
 // Static HTML only: no generated readings, analytics or client-side dependency.
 import { BASE } from '../config';
-interface Props { kind: 'library' | 'love' | 'arcana' | 'judgement' }
+interface Props { kind: 'library' | 'love' | 'arcana' }
 const { kind } = Astro.props;
 ---
 <section class="growth-notes" data-growth-notes={kind}>
@@ -47,20 +47,6 @@ const { kind } = Astro.props;
       <div><img src={`${BASE}cards/art/major_01_magician.jpg`} alt="魔术师：举起的魔杖与桌上的工具" width="150" height="257" loading="lazy"/><img src={`${BASE}cards/art/pentacles_eight.jpg`} alt="星币八：工匠反复雕刻星币" width="150" height="257" loading="lazy"/></div>
       <figcaption>原创练习示例：魔术师放在“主题”位置，星币八放在“行动”位置，可以把“运用资源”落实为“每天练习十分钟”。位置和问题比单纯计算两类牌的比例更有用。</figcaption>
     </figure>
-  </>}
-  {kind === 'judgement' && <>
-    <p class="eyebrow">Read the image, then the position</p>
-    <h2>Which tarot card is number 20?</h2>
-    <p>Card 20 (XX) in the Rider-Waite-Smith Major Arcana is Judgement. Its trumpet and rising figures are commonly read as symbols of awakening, reflection and renewal. The Fool is numbered 0, so card number 20 is not the twentieth card when counting from the Fool.</p>
-    <h2>Judgement upright and reversed at a glance</h2>
-    <p>Upright, Judgement can suggest honest review, forgiveness and a decision to live differently. Reversed, it can point to avoiding that review or turning it into harsh self-criticism. It is a reflection framework, not a verdict or a prediction.</p>
-    <h3>From symbol to meaning</h3>
-    <p>The trumpet makes a call visible; the rising figures suggest a response. This supports an interpretation of noticing something and choosing how to answer it. The image does not establish that a reunion, decision or external event will happen.</p>
-    <h3>The same card in two positions</h3>
-    <p>In “what to recognise,” Judgement upright might ask you to acknowledge a pattern you have outgrown. In “what makes change difficult,” Judgement reversed might ask whether fear of getting it wrong has become a reason to postpone a small decision.</p>
-    <h3>A connected-card example</h3>
-    <p>Judgement in review, <a href={`${BASE}cards/pentacles-eight`}>Eight of Pentacles</a> in action and <a href={`${BASE}cards/major-14-temperance`}>Temperance</a> in pace suggest: name one lesson, practise one change, and leave time to adjust. This authored example is not a generated reading.</p>
-    <p><a class="btn btn-ghost" href={`${BASE}read?card=major_20_judgement`}>Reflect with Judgement in a spread</a> · <a href={`${BASE}cards/major-20-judgement?orientation=reversed#card-meanings`}>Open its reversed meaning</a></p>
   </>}
   <footer class="growth-credit">
     {kind === 'library' || kind === 'arcana'
