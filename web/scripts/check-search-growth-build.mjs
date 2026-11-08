@@ -1,11 +1,13 @@
 import assert from 'node:assert/strict';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
+import { parseHTML } from 'linkedom';
 const origin = 'https://shentarot.com';
+const drawPrefixes = ['', '/zh-hans', '/zh-hant', '/es', '/de', '/ja', '/fr', '/ru'];
 const targets = new Map([
   ['/zh-hans/cards', 'library'],
   ['/cards/pentacles-ace/love', 'love'],
-  ['/tools/random-card', 'draw'],
+  ...drawPrefixes.map(prefix => [prefix + '/tools/random-card', 'draw']),
   ['/zh-hans/learn/major-and-minor-arcana', 'arcana'],
   ['/cards/major-20-judgement', 'judgement'],
 ]);
@@ -39,6 +41,22 @@ for (const [path, kind] of targets) {
     assert.ok(target !== null || existsSync('dist' + url.pathname), `${path}: missing ${raw}`);
     if (url.hash && target) assert.ok(target.includes(`id="${url.hash.slice(1)}"`), `${path}: missing anchor ${raw}`);
   }
+  if (kind === 'draw') {
+    const locale = path === suffix ? 'en' : path.split('/')[1];
+    const { random } = JSON.parse(readFileSync(`src/i18n/${locale}/ui.json`, 'utf8'));
+    const { document } = parseHTML(html);
+    const guide = document.getElementById('how-to-draw');
+    assert.equal(guide?.querySelector('h2')?.textContent, random.guideTitle, `${path}: localized guide`);
+    assert.equal(guide.querySelectorAll('ol > li').length, 3, `${path}: choose, shuffle and reveal steps`);
+    assert.deepEqual([...guide.querySelectorAll('h3')].map(h => h.textContent), [random.rulesTitle, random.continueTitle]);
+    const markdown = readFileSync(`dist/_agent-markdown${path}.md`, 'utf8');
+    assert.ok(markdown.includes(random.guideTitle) && markdown.includes(random.rules), `${path}: guide in Markdown`);
+    const schema = [...document.querySelectorAll('script[type="application/ld+json"]')]
+      .map(script => JSON.parse(script.textContent)).find(item => item['@type'] === 'WebApplication');
+    assert.equal(schema?.url, origin + path, `${path}: tool schema uses canonical URL`);
+    assert.equal(schema.isAccessibleForFree, true);
+    assert.equal(schema.publisher.name, 'Shenetic');
+  }
   for (const [, json] of html.matchAll(/<script[^>]+type="application\/ld\+json"[^>]*>(.*?)<\/script>/gs)) {
     const schema = JSON.parse(json);
     if (schema['@type'] === 'FAQPage') for (const q of schema.mainEntity) {
@@ -55,5 +73,5 @@ function walk(dir) { for (const e of readdirSync(dir, { withFileTypes: true })) 
   else if (path.endsWith('.html') && readFileSync(path, 'utf8').includes('data-growth-notes=')) enriched++;
 } }
 walk('dist');
-assert.equal(enriched, 5, 'Editorial additions must remain scoped to exactly five routes');
-console.log('Search growth: five initial-HTML routes, canonicals, locale alternatives, sitemap, local links/artwork, anchors and FAQ parity passed. Does not prove indexing or traffic growth.');
+assert.equal(enriched, targets.size, 'Editorial additions must remain scoped to the audited routes');
+console.log(`Search growth: ${targets.size} initial-HTML routes, canonicals, locale alternatives, sitemap, local links/artwork, anchors and FAQ parity passed. Does not prove indexing or traffic growth.`);

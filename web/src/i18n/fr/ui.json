@@ -858,12 +858,21 @@
  },
  "random": {
   "title": "Tirage de carte de tarot au hasard : tire de 1 à 10 cartes · ShenTarot",
-  "description": "Tire des cartes de tarot au hasard parmi les 78 cartes du jeu Rider-Waite-Smith. Touche une carte pour la retourner et lire sa signification.",
+  "description": "Mélange les 78 cartes du tarot en ligne. Choisis et retourne une à dix cartes pour lire leur sens à l’endroit ou renversé.",
   "crumb": "Tirer des cartes au hasard",
   "h1": "Tirer une carte de tarot",
-  "lead": "Mélangées dans ton navigateur parmi les 78 cartes. Touche une carte pour la retourner. Environ une carte sur quatre sort renversée.",
+  "lead": "Mélange les 78 cartes dans ton navigateur. Choisis une carte face cachée, puis retourne-la. Chaque carte a une chance sur quatre de sortir renversée.",
   "howMany": "Nombre de cartes",
-  "turnOver": "Retourner cette carte"
+  "turnOver": "Retourner cette carte",
+  "guideTitle": "Comment tirer une carte de tarot au hasard en ligne ?",
+  "guideChoose": "Pour une seule carte, sélectionnez 1. Vous pouvez tirer jusqu’à 10 cartes ou choisir un tirage avec des positions définies.",
+  "guideShuffle": "Si vous le souhaitez, notez une question puis mélangez. Choisissez une carte face cachée ou utilisez « {choose} ».",
+  "guideReveal": "Retournez les cartes choisies pour voir leur nom et leur sens à l’endroit ou à l’envers.",
+  "rulesTitle": "Comment le jeu est mélangé",
+  "rules": "ShenTarot utilise le générateur aléatoire sécurisé du navigateur pour mélanger les 78 cartes. Chaque carte ne peut sortir qu’une fois par tirage. Avant votre choix, chaque carte a une chance sur quatre d’être placée à l’envers.",
+  "controls": "Vous pouvez choisir au clavier ou utiliser « {choose} ». « {skip} » et le réglage des animations agissent uniquement sur le mouvement. Pour garder vos cartes, annulez la confirmation d’un nouveau mélange.",
+  "continueTitle": "Poursuivre avec les mêmes cartes",
+  "guideContinue": "Retournez toutes les cartes et sélectionnez « {continue} ». Les cartes, leurs positions, leur orientation et votre question passent à l’espace de lecture dans le même onglet."
  },
  "comb": {
   "title": "Associations de cartes de tarot : lire deux cartes ensemble · ShenTarot",

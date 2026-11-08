@@ -116,7 +116,7 @@ Google 的 27 题「有来源链接」也不能直接判为「论证完整」。
 2. 在这次 30 题默认对话基线上，另做一组明确要求搜索的对照，分别记录结果，不混成同一引用率。
 3. 对准备优先改的页面，重新展开 Google 的相关来源面板，核对具体论断、实际出处和本站是否被链接；每条保存日期与可复查证据。
 4. 在发布后的稳定观察窗口重复同一组问题，分别记录：有没有生成 AI 回答、有没有来源、有没有 ShenTarot、引用的是哪一页、有没有错误描述。
-5. 用现有 Search Console 查询、页面展现和点击辅助观察。Google 的 AI 功能数据会并入 Web 搜索表现，不能仅凭该总表反推出某条 AIO 的引用效果。[Google 的表现衡量说明](https://developers.google.com/search/docs/appearance/ai-features#measuring-performance)
+5. 用 Search Console 的独立生成式 AI 报告核对页面展现。它合并 AI Overviews 与 AI Mode，原始问题仍需要逐题复测。常规 Web 报告继续用于查询、展现和点击的对比。[生成式 AI 报告说明](https://support.google.com/webmasters/answer/16984139?hl=en) · [ShenTarot 基线](intent-map.md#google-search-generative-ai-baseline-november-9)
 
 本轮完成的是 **30 题 Google 实测、30 题 ChatGPT 实测、30 题需求线索核对及出处分类**。尚未完成的是全部来源的逐句支持审计、中文平台样本、显式检索对照，以及持续的品牌引用追踪。没有把这些未完成项标成「无引用」。
 

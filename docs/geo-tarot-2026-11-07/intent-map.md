@@ -75,6 +75,26 @@ The [URL Inspection report](https://search.google.com/search-console?resource_id
 
 The [production manifest](https://shentarot.com/release.json) served revision `37435f964a1d21dcfe122a4522df3f35401c42fd`, built November 7 at 17:16:45 UTC. The live English Markdown hub served the new four H2 sections and twelve questions. The recorded crawls all precede that build. Use a crawl at or after the deployment and a complete reporting window to separate an indexed URL from verified coverage of the new hub content.
 
+### Google Search generative AI baseline, November 9
+
+On November 9 in Singapore, the domain property showed **Include** selected under Search generative AI. Its separate Generative AI features report was available. The report used the default three-month selector and **Web (text)**. It displayed October 17 through November 6, 2026. Summing all 21 dates yields **1,067 property impressions**, consistent with the rounded 1.07k on the chart. The Pages tab showed **382 URL rows**. Google counts property and page impressions differently when a result includes several links from one site. The dates in the report use Pacific Time. [Site control](https://search.google.com/search-console/settings/search-gen-ai?resource_id=sc-domain%3Ashentarot.com) · [Site report](https://search.google.com/search-console/performance/search-analytics/ai?resource_id=sc-domain%3Ashentarot.com) · [Report definitions](https://support.google.com/webmasters/answer/16984139?hl=en)
+
+| Visible page or group | Page rows | Page impressions |
+| --- | ---: | ---: |
+| Card reference URLs across languages, including contexts | 303 | 910 |
+| English Judgement reference | 1 | 53 |
+| German Hierophant reference | 1 | 53 |
+| Spanish Four of Pentacles reference | 1 | 40 |
+| English random draw | 1 | 14 |
+| Russian random draw | 1 | 3 |
+| Simplified Chinese random draw | 1 | 1 |
+
+The card group includes the three individual cards in the table. There was no row for an About hub, the birth card calculator or the Sun base reference in the displayed report. The observed impressions combine AI Overviews and AI Mode, so the report cannot assign a specific prompt or feature to a page. It establishes that links to the site appeared during this period. The individual English queries sampled in the citation audit can still omit the site.
+
+The random draw owns the online draw intent. Its eight pages now document one-card selection, the 78-card shuffle, the 1-in-4 reversal setting and the transfer of the same cards, positions, orientations and optional question into the workspace. The About hub keeps its short answer and points to the tool. The daily card tool remains the destination for a daily draw. [English tool](https://shentarot.com/tools/random-card#how-to-draw) · [Simplified Chinese tool](https://shentarot.com/zh-hans/tools/random-card#how-to-draw)
+
+A Chrome preview check on the Simplified Chinese page selected one card, shuffled, used the optional pick action and revealed an upright Page of Wands. Continuing into the workspace retained the card, upright orientation and a synthetic practice question in the tab. The question did not appear in the workspace URL. This run covered the one-card path.
+
 ## Information gaps and checkable product evidence
 
 A model’s entire training corpus cannot be inspected. It is therefore not possible to prove that a datum has never appeared in any AI corpus. Existing ShenTarot facts must not be relabelled as newly discovered facts. The implementation instead exposes sourceable, product-specific information missing from the sampled generic category answers. See the CIT report for which answers were actually captured.

@@ -893,12 +893,21 @@
  },
  "random": {
   "title": "Generador de cartas de tarot al azar: saca de 1 a 10 cartas · ShenTarot",
-  "description": "Saca cartas de tarot al azar de la baraja Rider-Waite-Smith completa de 78 cartas. Toca una carta para darle la vuelta y leer su significado.",
+  "description": "Baraja las 78 cartas del tarot en línea. Elige y revela de una a diez cartas para leer su significado al derecho o invertido.",
   "crumb": "Sacar cartas al azar",
   "h1": "Saca una carta de tarot",
-  "lead": "Se barajan en tu navegador las 78 cartas. Toca una carta para darle la vuelta. Más o menos una de cada cuatro cartas sale invertida.",
+  "lead": "Baraja las 78 cartas en tu navegador. Elige una carta boca abajo y luego dale la vuelta. Cada carta tiene una probabilidad de una entre cuatro de salir invertida.",
   "howMany": "Cuántas cartas",
-  "turnOver": "Dar la vuelta a esta carta"
+  "turnOver": "Dar la vuelta a esta carta",
+  "guideTitle": "¿Cómo saco una carta de tarot al azar en línea?",
+  "guideChoose": "Para una sola carta, selecciona 1. Puedes sacar hasta 10 cartas o elegir una tirada con posiciones ya definidas.",
+  "guideShuffle": "Si quieres, escribe una pregunta y baraja. Elige una carta boca abajo o pulsa «{choose}».",
+  "guideReveal": "Da la vuelta a las cartas para ver su nombre y su significado al derecho o invertido.",
+  "rulesTitle": "Cómo se barajan las cartas",
+  "rules": "ShenTarot utiliza el generador seguro de números aleatorios del navegador para barajar las 78 cartas. Cada carta puede salir una sola vez por tirada. Antes de elegir, cada una tiene una probabilidad de 1 entre 4 de quedar invertida.",
+  "controls": "Puedes elegir con el teclado o pulsar «{choose}». «{skip}» y el ajuste de movimiento solo afectan a la animación. Cancela la confirmación de un nuevo barajado para conservar las cartas actuales.",
+  "continueTitle": "Continúa con las mismas cartas",
+  "guideContinue": "Destapa toda la tirada y pulsa «{continue}». En la misma pestaña se trasladan las cartas, sus posiciones, sus orientaciones y tu pregunta al espacio de lectura."
  },
  "comb": {
   "title": "Combinaciones de cartas del tarot: lee dos cartas juntas · ShenTarot",

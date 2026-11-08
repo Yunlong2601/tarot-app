@@ -856,12 +856,21 @@
  },
  "random": {
   "title": "Zufällige Tarotkarte ziehen: 1 bis 10 Karten · ShenTarot",
-  "description": "Zieh zufällige Tarotkarten aus dem vollständigen Rider-Waite-Smith-Deck mit 78 Karten. Tippe auf eine Karte, um sie aufzudecken und ihre Bedeutung zu lesen.",
+  "description": "Mische alle 78 Tarotkarten online. Wähle eine bis zehn Karten und decke sie auf, um die aufrechte oder umgekehrte Bedeutung zu lesen.",
   "crumb": "Zufällige Karten ziehen",
   "h1": "Eine Tarotkarte ziehen",
-  "lead": "Im Browser aus allen 78 Karten gemischt. Tippe auf eine Karte, um sie aufzudecken. Etwa jede vierte Karte liegt umgekehrt.",
+  "lead": "Mische alle 78 Karten im Browser. Wähle eine verdeckte Karte und decke sie dann auf. Jede Karte liegt mit einer Wahrscheinlichkeit von eins zu vier umgekehrt.",
   "howMany": "Wie viele Karten",
-  "turnOver": "Diese Karte aufdecken"
+  "turnOver": "Diese Karte aufdecken",
+  "guideTitle": "Wie ziehe ich online eine zufällige Tarotkarte?",
+  "guideChoose": "Wähle 1, wenn du eine Karte ziehen willst. Du kannst bis zu 10 Karten ziehen oder ein Legemuster mit festen Positionen wählen.",
+  "guideShuffle": "Schreib bei Bedarf eine Frage auf und mische. Wähle eine verdeckte Karte oder nutze „{choose}“.",
+  "guideReveal": "Dreh die gewählten Karten um. So siehst du ihre Namen und die aufrechte oder umgekehrte Bedeutung.",
+  "rulesTitle": "So funktioniert das Mischen",
+  "rules": "ShenTarot mischt alle 78 Karten mit dem sicheren Zufallsgenerator deines Browsers. Jede Karte kann pro Legung einmal vorkommen. Schon vor der Auswahl hat jede Karte eine Chance von 1 zu 4, umgekehrt zu liegen.",
+  "controls": "Du kannst mit der Tastatur wählen oder „{choose}“ nutzen. „{skip}“ und die Bewegungseinstellung wirken sich nur auf die Animation aus. Wenn du die Karten behalten willst, brich die Bestätigung fürs erneute Mischen ab.",
+  "continueTitle": "Mit denselben Karten weiterlesen",
+  "guideContinue": "Decke alle Karten auf und wähle „{continue}“. Im selben Tab werden die Karten, ihre Positionen, ihre Ausrichtung und deine Frage in den Lesebereich übernommen."
  },
  "comb": {
   "title": "Tarot-Kartenkombinationen: zwei Karten zusammen lesen · ShenTarot",

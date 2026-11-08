@@ -1,16 +1,40 @@
 ---
 import Base from '../../../layouts/Base.astro';
 import Reader from '../../../components/Reader.astro';
-import SearchGrowthNotes from '../../../components/SearchGrowthNotes.astro';
+import { SITE_URL } from '../../../config';
 import { drawCopy } from '../../../i18n/draw';
+import { SHENETIC, SHENTAROT_WEBSITE } from '../../../lib/site-entities';
 import { i18n, langPaths, type Locale } from '../../../i18n/index.ts';
 export const getStaticPaths = langPaths;
 const { lang } = Astro.props as { lang: Locale };
-const L = i18n(lang), { t } = L;
-const positions = Array.from({ length: 3 }, (_, i) => drawCopy(lang).position.replace('{n}', String(i + 1)));
+const L = i18n(lang), { t, url } = L;
+const draw = drawCopy(lang);
+const positions = Array.from({ length: 3 }, (_, i) => draw.position.replace('{n}', String(i + 1)));
+const path = 'tools/random-card';
+const page = new URL(url(path), SITE_URL).href;
+const jsonLd = [{
+  '@context': 'https://schema.org', '@type': 'WebApplication', '@id': page,
+  name: t('random.h1'), url: page, description: t('random.description'),
+  inLanguage: L.tag, isAccessibleForFree: true, publisher: SHENETIC, isPartOf: SHENTAROT_WEBSITE,
+}];
 ---
-<Base title={t('random.title')} description={t('random.description')} path="tools/random-card" crumbs={[[t('toolsCrumb'),'tools'],[t('random.crumb'),'tools/random-card']]} lang={lang}>
+<Base title={t('random.title')} description={t('random.description')} path={path} crumbs={[[t('toolsCrumb'),'tools'],[t('random.crumb'),path]]} lang={lang} jsonLd={jsonLd}>
   <header class="page-head center"><p class="eyebrow">{t('freeTool')}</p><h1>{t('random.h1')}</h1><p class="lead">{t('random.lead')}</p></header>
   <Reader positions={positions} countSelectable lang={lang}/>
-  {lang === 'en' && <SearchGrowthNotes kind="draw" />}
+  <section class="legal guide" id="how-to-draw" data-growth-notes="draw" aria-labelledby="how-to-draw-title">
+    <h2 id="how-to-draw-title">{t('random.guideTitle')}</h2>
+    <ol>
+      <li>{t('random.guideChoose')}</li>
+      <li>{t('random.guideShuffle', { choose: draw.pickForMe })}</li>
+      <li>{t('random.guideReveal')}</li>
+    </ol>
+    <h3>{t('random.rulesTitle')}</h3>
+    <p>{t('random.rules')}</p>
+    <p>{t('random.controls', { choose: draw.pickForMe, skip: draw.skip })}</p>
+    <h3>{t('random.continueTitle')}</h3>
+    <p>{t('random.guideContinue', { continue: draw.continueDraw })}</p>
+    <p><a href={url('learn/connected-reading')}>{L.growth.exampleTitle}</a> · <a href={url('read')}>{L.workspace.title}</a></p>
+    <p><a href={url('spreads/horseshoe') + '#try'}>{L.content.spreads.horseshoe.name}</a> · <a href={url('spreads/celtic') + '#try'}>{L.content.spreads.celtic.name}</a></p>
+    <footer class="muted"><p>{L.workspace.disclaimer} <a href={url('methodology')}>{L.growth.methodTitle}</a></p></footer>
+  </section>
 </Base>
