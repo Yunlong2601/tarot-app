@@ -65,6 +65,7 @@ const jsonLd = [
         {s.p.map((p) => <Linked text={p} lang={lang} />)}
       </section>
     ))}
+    {slug === 'major-and-minor-arcana' && <p><a href={`${u('methodology')}#card-numbering`}>{L.growth.numberingTitle}</a></p>}
     <aside class="panel practice">
       <h2>{pg.practiceTitle}</h2>
       <p>{pg.practiceText}</p>

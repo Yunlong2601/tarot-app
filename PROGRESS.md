@@ -1,3 +1,7 @@
+# Website deck sources and numbering — 2026-11-09
+
+The eight methodology pages identify the historical deck, the early guide, the 1922 illustrated reprint, and a later retail edition by their documented roles and sources. A short comparison of Strength and Justice across three decks gives readers a way to check their own card titles and numbering. The Major and Minor Arcana lesson links to the comparison, and the entity ledger records the Amazon, Wikipedia and Reddit observations separately.
+
 # Website reference hub — 2026-11-08
 
 The card-name audit now matches all 78 cards across the ShenTarot library, the Wikipedia roster, the U.S. Games booklet hosted by Amazon and a Reddit game adaptation. The Judgement page shows the booklet’s name for card 20 and accepts that name in site search. The audit records the conflicting uses of `Knave` by source.

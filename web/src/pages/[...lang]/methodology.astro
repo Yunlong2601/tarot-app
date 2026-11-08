@@ -1,14 +1,80 @@
 ---
-import { SUPPORT_EMAIL } from '../../config';
+import { SITE_URL, SUPPORT_EMAIL } from '../../config';
 import Base from '../../layouts/Base.astro';
 import { i18n, langPaths, type Locale } from '../../i18n';
+import { SHENETIC, SHENTAROT_WEBSITE } from '../../lib/site-entities';
 export const getStaticPaths = langPaths;
 const { lang } = Astro.props as { lang: Locale };
 const L = i18n(lang), g = L.growth;
+const page = new URL(L.url('methodology'), SITE_URL).href;
+const waite = { '@type': 'Person', name: 'Arthur Edward Waite' };
+const smith = { '@type': 'Person', name: 'Pamela Colman Smith' };
+const rider = { '@type': 'Organization', name: 'William Rider & Son' };
+const usGames = { '@type': 'Organization', name: 'U.S. Games Systems' };
+const historySources = [
+  {
+    '@type': 'CreativeWork',
+    name: 'Rider’s advertisement in The Occult Review (December 1910)',
+    url: 'https://iapsop.com/archive/materials/occult_review/occult_review_v12_n6_dec_1910_uk_c_nw.pdf#page=98',
+    publisher: rider,
+  },
+  {
+    '@type': 'Book', name: 'The Pictorial Key to the Tarot (1922)',
+    url: 'https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot',
+    author: waite, illustrator: smith, publisher: rider,
+  },
+  {
+    '@type': 'Article', name: 'Victoria and Albert Museum · A history of tarot cards',
+    url: 'https://www.vam.ac.uk/articles/tarot-cards',
+  },
+  {
+    '@type': 'Book', name: 'U.S. Games Systems · Universal Waite Pocket Tarot guide',
+    url: 'https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=8',
+    publisher: usGames,
+  },
+];
+const numberingSources = [
+  {
+    '@type': 'Chapter', name: 'The Pictorial Key to the Tarot · II §2',
+    url: 'https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2',
+    author: waite,
+  },
+  {
+    '@type': 'Book', name: 'Piatnik · Tarot de Marseille guide',
+    url: 'https://www.piatnik.com/uploads/media/default/0001/08/f692bb2630e561d9a83aa2dd0688ecc9f01472e3.pdf',
+    publisher: { '@type': 'Organization', name: 'Piatnik' },
+  },
+  {
+    '@type': 'Book', name: 'Aleister Crowley · The Book of Thoth',
+    url: 'https://otohungary.org/documents/publication/english/Book_of_Thoth.html',
+    author: { '@type': 'Person', name: 'Aleister Crowley' },
+  },
+];
+const jsonLd = [{
+  '@context': 'https://schema.org', '@type': 'Article',
+  headline: g.methodTitle, description: g.methodLead, inLanguage: L.tag,
+  url: page, mainEntityOfPage: page, dateModified: '2026-11-09',
+  publisher: SHENETIC, isPartOf: SHENTAROT_WEBSITE,
+  mentions: [{ '@type': 'Organization', name: 'Hermetic Order of the Golden Dawn' }],
+  citation: [...historySources, ...numberingSources],
+}];
 ---
-<Base title={g.methodTitle} description={g.methodLead} path="methodology" lang={lang} noCta>
+<Base title={g.methodTitle} description={g.methodLead} path="methodology" lang={lang} jsonLd={jsonLd} noCta>
 <article class="legal guide"><h1>{g.methodTitle}</h1><p class="lead">{g.methodLead}</p>
 {[g.methodTradition,g.methodProcess,g.methodReview,g.methodAI,g.methodPrivacy,g.methodLimits].map(p => <p>{p}</p>)}
+<section aria-labelledby="deck-sources">
+  <h2 id="deck-sources">{g.provenanceTitle}</h2>
+  <p>{g.provenanceRecords}</p>
+  <p>{g.provenancePublisher}</p>
+  <ul>{historySources.map(source => <li><a href={source.url}><cite>{source.name}</cite></a></li>)}</ul>
+</section>
+<section aria-labelledby="card-numbering">
+  <h2 id="card-numbering">{g.numberingTitle}</h2>
+  <p>{g.numberingComparison}</p>
+  <p>{g.numberingPractice}</p>
+  <p><a href={L.url('cards/major-08-strength')}>{L.cards.major_08_strength.name}</a> · <a href={L.url('cards/major-11-justice')}>{L.cards.major_11_justice.name}</a></p>
+  <ul>{numberingSources.map(source => <li><a href={source.url}><cite>{source.name}</cite></a></li>)}</ul>
+</section>
 <section id="corrections"><h2>{L.journey.correction}</h2><p>{L.journey.correctionLead}</p><ol>{L.journey.correctionSteps.map(s=><li>{s}</li>)}</ol><p><a href={`mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent('ShenTarot reference correction')}`}>{L.journey.correctionSend}</a></p></section>
 <p><a href={L.url('learn/connected-reading')}>{g.exampleTitle}</a></p>
 <p><a href={L.url('learn/beginner-reference')}>{g.guideTitle}</a></p>
