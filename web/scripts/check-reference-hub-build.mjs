@@ -36,6 +36,18 @@ for (const locale of locales) {
   checkPublisher(lesson.publisher);
   const growth = JSON.parse(readFileSync('src/i18n/' + locale + '/growth.json', 'utf8'));
   for (const k of ['methodTradition','methodProcess','methodReview']) assert(norm(d.querySelector('main').textContent).includes(growth[k]));
+  const methodology = doc(p + 'methodology');
+  const methodArticle = schemasFor(methodology).find(s => s['@type'] === 'Article');
+  checkPublisher(methodArticle.publisher);
+  assert.equal(methodArticle.mainEntityOfPage, 'https://shentarot.com/' + p + 'methodology');
+  assert.deepEqual(methodArticle.citation.map(source => source.url), [...methodology.querySelectorAll('#deck-sources ~ ul a, #card-numbering ~ ul a')].map(a => a.href));
+  const methodologyMarkdown = readFileSync('dist/_agent-markdown/' + p + 'methodology.md', 'utf8');
+  for (const [fragment, key] of [['deck-sources', 'provenanceTitle'], ['card-numbering', 'numberingTitle']]) {
+    assert.equal(norm(methodology.getElementById(fragment).textContent), norm(growth[key]));
+    assert(norm(methodologyMarkdown).includes(norm(growth[key])), 'Methodology Markdown parity');
+  }
+  const arcana = doc(p + 'learn/major-and-minor-arcana');
+  assert.ok(arcana.querySelector(`main a[href="/${p}methodology#card-numbering"]`));
   assert(!JSON.stringify(schemas).includes('reviewedBy'));
   const ids = [...d.querySelectorAll('[id]')].map(n => n.id);
   assert.equal(new Set(ids).size, ids.length, 'Duplicate fragment id');

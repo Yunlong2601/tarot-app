@@ -1,6 +1,6 @@
 # ShenTarot：实体清单与跨平台表述核对
 
-观察日期：2026-11-07 至 2026-11-08。对象为塔罗，产品为 ShenTarot，发布者为 Shenetic。
+观察日期：2026-11-07 至 2026-11-09。对象为塔罗，产品为 ShenTarot，发布者为 Shenetic。
 
 本次产出 **109 个有明确指代的实体**，按与塔罗主题的关联分层排序；完整逐行证据在 [entities.csv](entities.csv)。其中包括本站所用牌组的完整 **78 张牌**，不是把一个词的不同拼写重复算作多个实体。
 
@@ -58,6 +58,12 @@ CSV 的 `official` 栏主要指 **ShenTarot 官网**。牌组发行商 U.S. Game
 三牌、正逆位和洗牌行也补上逐项证据。百科确认三牌示意和历史用语。Reddit 的讨论显示用户会根据各自的读法调整牌的方向。俄语 Wikipedia 补足了这两项的直接出处。其牌阵段说明韦特两种方法的洗牌步骤，提问与指示牌段说明后者代表人物或提问事项。历史做法与本站操作分别记录。[Wikipedia 三牌图注](https://en.wikipedia.org/wiki/Tarot) · [Wikipedia 正逆位历史](https://en.wikipedia.org/wiki/Tarot_card_reading#Etteilla) · [Reddit 正逆位和洗牌讨论](https://www.reddit.com/r/tarot/comments/1l6r4f1/at_what_point_do_you_upright_the_cards_in_your/)
 
 俄语 Wikipedia 的出处可直接定位到[提问与指示牌](https://ru.wikipedia.org/wiki/Гадание_на_картах_таро#Вопрос_и_сигнификатор)及[牌阵](https://ru.wikipedia.org/wiki/Гадание_на_картах_таро#Расклады)。两节引用韦特的原文。
+
+### 历史角色与牌组编号，11 月 9 日
+
+- 1910 年 12 月的广告列出 William Rider & Son、史密斯设计的 78 张牌和韦特的简本《The Key to the Tarot》。1922 年重印本的扉页分别写明《The Pictorial Key to the Tarot》的作者、78 幅图版设计者和出版方。新版方法论也引用 V&A 对两位创作者在黄金黎明协会相识的记载。[广告扫描，第 98 页](https://iapsop.com/archive/materials/occult_review/occult_review_v12_n6_dec_1910_uk_c_nw.pdf#page=98) · [1922 年扉页转录](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot) · [V&A](https://www.vam.ac.uk/articles/tarot-cards)
+- Amazon 托管的随牌手册确认 U.S. Games Systems 是 Universal Waite Pocket Tarot 的发行方。Amazon Music 节目说明另列韦特的完整书名。可读的 Amazon 样本仍未确认历史出版社 William Rider & Son 的全名和角色。Reddit 补足 7 条直接正文观察，其中 1 条原先只有搜索摘要。论坛的收藏者转录与讨论只用来观察表述。[Amazon 托管手册，第 8 页](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=8) · [Amazon Music 节目说明](https://music.amazon.com/podcasts/368908ae-0a04-4b32-951a-4087c6d4a540/episodes/2eefed19-b018-4be9-9e45-ce24a5b0b67c/salon-des-arcanes-podcast-4-%C2%B7-cinq-de-deniers-fil-d%27arcanes-le-tarot-rider-waite-smith-arcane-apr%C3%A8s-arcane) · [早期出版方讨论](https://www.reddit.com/r/tarot/comments/lvpqra/doing_research_on_the_riderwaitesmith_deck_and/) · [出版卡转录](https://www.reddit.com/r/tarot/comments/1t85i2i/1959_rider_waite_smith_first_american_full_color/)
+- 同为 VIII 和 XI，韦特的书、Piatnik 马赛版及托特塔罗有各自的牌名和顺序。新版提供一项可以拿实体牌复查的辨认练习。百科的两个独立条目及 Reddit 原帖也已阅读。新版官网证据先记为 L，生产核验以部署后的页面为准。[方法论的比较入口](https://shentarot.com/zh-hans/methodology#card-numbering) · [Piatnik 手册](https://www.piatnik.com/uploads/media/default/0001/08/f692bb2630e561d9a83aa2dd0688ecc9f01472e3.pdf) · [克劳利原书](https://otohungary.org/documents/publication/english/Book_of_Thoth.html) · [读者讨论](https://www.reddit.com/r/tarot/comments/1dhzhf7/rws_vs_thoth_vs_marseille/)
 
 ### 三张牌牌阵的位置核对
 
