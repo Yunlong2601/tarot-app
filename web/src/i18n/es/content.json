@@ -47,7 +47,15 @@
    "name": "Cruz celta",
    "positions": ["El centro de la cuestión", "Lo que se cruza", "Base", "Pasado reciente", "Objetivo", "Horizonte cercano", "Tú", "Entorno", "Esperanzas y temores", "Rumbo"],
    "blurb": "Una situación compleja que necesita un mapa completo de influencias.",
-   "source": "Adaptada de la tirada que A. E. Waite describió en The Pictorial Key to the Tarot (1910)."
+   "source": "Adaptada de la tirada que A. E. Waite describió en The Pictorial Key to the Tarot (1910).",
+   "sourceComparison": {
+    "question": "¿Por qué cambia la numeración de la Cruz Celta según la guía?",
+    "answer": "El orden varía. Aquí, la posición 3 es la base, la 4 el pasado reciente y la 5 el objetivo. Sigue las etiquetas de tu tirada.",
+    "title": "La tirada de Waite y la de ShenTarot",
+    "comparison": "En el método publicado por Waite, las cartas 3, 4 y 5 corresponden al objetivo, la base y el pasado reciente. Aquí esos lugares son el 5, el 3 y el 4. Waite coloca una carta elegida de antemano, el significador, debajo de la primera que saca. En ShenTarot introduces las diez cartas que has sacado.",
+    "practice": "Imagina que buscas tiempo para un proyecto creativo y sacas el Ocho de Oros al derecho en tercer lugar. Como base aquí, puede señalar un hábito que ya tienes. Como objetivo en la versión de Waite, puede sugerir un hábito que quieras desarrollar. Si seguiste un libro, compara la función de cada posición antes de introducir tus cartas.",
+    "checked": "Fuente cotejada el"
+   }
   },
   "love_connection": {
    "name": "¿En qué punto estamos?",

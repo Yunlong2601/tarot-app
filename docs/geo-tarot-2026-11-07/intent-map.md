@@ -134,3 +134,9 @@ Shenetic is the publisher and ShenTarot the product. No Amazon/Wikipedia/Reddit 
 ## Outcome follow-up
 
 Re-run the exact saved prompts in the same surface, language and requested location after indexing, keeping all original observations. Record whether ShenTarot is named, linked, and actually supports the cited claim separately. Compare inbound Search Console/Bing data when available. Do not attribute changes to this release without supporting evidence and do not count outbound links or visits as successful beta installations.
+
+### Celtic Cross layout intent and editorial check, November 8
+
+The query behind the new layout FAQ comes from a reader asking why Celtic Cross readings use a different order. The layout comparison and the answer belong on `/spreads/celtic#layout-source` and the page’s existing FAQ. The About hub keeps its twelve initial questions. [Observed reader question](https://www.reddit.com/r/tarot/comments/1mr6xdx/the_best_spread_the_celtic_cross_goes_into/)
+
+On November 8 Codex compared Waite’s Part III §7, the publisher manual’s diagram and written positions, and ShenTarot’s production labels. Waite’s roles at 3–5 map to positions 5, 3 and 4 here. His setup chooses a separate significator before ten cards are drawn. ShenTarot’s workspace takes the ten drawn cards. The upright Eight of Pentacles example uses the same card and changes the position’s role to show why the numbering matters. This is a documented editorial comparison. Independent practitioner and native-speaker reviews are pending. [Waite’s text](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3) · [U.S. Games diagram](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=30) · [U.S. Games position instructions](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=32)
