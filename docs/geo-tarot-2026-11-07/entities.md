@@ -1,10 +1,10 @@
 # ShenTarot：实体清单与跨平台表述核对
 
-观察日期：2026-11-07。对象：tarot；产品：ShenTarot；发布者：Shenetic。
+观察日期：2026-11-07，2026-11-08 补查产品示例中的三张牌。对象为塔罗，产品为 ShenTarot，发布者为 Shenetic。
 
 本次产出 **108 个有明确指代的实体**，按与塔罗主题的关联分层排序；完整逐行证据在 [entities.csv](entities.csv)。其中包括本站所用牌组的完整 **78 张牌**，不是把一个词的不同拼写重复算作多个实体。
 
-结论先说：**官网目录和 Wikipedia 的牌组总表，78 个英文牌名全部能对应；这只是身份与结构的核对，不是“四个平台都认可了每张牌的含义”。** Amazon 样本主要是整副牌的商品介绍；Reddit 样本中直接核对到 12 张牌的提及，其余逐牌含义没有完成跨平台审阅。ShenTarot 和 Shenetic 在自有页面的归属清楚，但本次品牌搜索没有取得可核对的 Amazon、Wikipedia、Reddit 独立提及。
+官网目录和 Wikipedia 的牌组总表有 78 个可对应的英文牌名。Amazon 零售样本提供整副牌的商品介绍。Reddit 样本直接核对到 15 张牌的提及。ShenTarot 官网明确标注 Shenetic 为发布者，本次品牌检索在 Amazon、Wikipedia 和 Reddit 的结果仍待独立核实。
 
 ## 这份清单能回答什么
 
@@ -53,9 +53,9 @@ CSV 的 `official` 栏主要指 **ShenTarot 官网**。牌组发行商 U.S. Game
 
 ### 已核对到的 Reddit 单牌提及
 
-在 R1 中核对到宝剑九。在 R3 的帖文/评论中核对到：愚者、倒吊人、皇后、宝剑国王、恶魔、圣杯九、星星、圣杯侍从、宝剑王牌、隐士、宝剑三。共 12 张。
+在 R1 中核对到宝剑九。R3 的帖文和评论提到愚者、倒吊人、皇后、宝剑国王、恶魔、圣杯九、星星、圣杯侍从、宝剑王牌、隐士和宝剑三。11 月 8 日针对产品页示例补查 R4，帖文明确列出魔术师、星币二和星币八，三行已在 CSV 更新为 E。两轮共核对到 15 张牌。
 
-此处只记录名称确实出现过，不复制发帖人的私人处境，不把评论解释标成事实，不推断这 12 张牌的讨论量更高。其余 66 张的 Reddit 状态为 U，而非“不存在讨论”。
+这次补查对应的是牌名。星币二的 Amazon Music 节目说明也把画面的杂耍者和生活中要兼顾的事务联系起来，与本站示例的切入点相近。本站示例的牌位、正逆位和具体结论由本站设定。Amazon Music 的内容作者与 Amazon 零售商品页分开记录，三个例牌的零售核对状态仍为 U。[星币二节目说明](https://music.amazon.com/es-us/podcasts/b2ea07b7-94a9-4b8e-b656-785ec8dccd59/episodes/3ecf9c09-8f10-4922-8e9d-d1948044993b/learn-and-memorize-tarot-cards-quick-3-minute-lessons-two-of-pentacles-tarot-card-symbolism-balance-adaptability-in-tarot-cards)
 
 ### 品牌搜索的可复查边界
 
@@ -97,6 +97,7 @@ CSV 的 `official` 栏主要指 **ShenTarot 官网**。牌组发行商 U.S. Game
 | R1 | [Reddit：What's so good about Rider-Waite deck?](https://www.reddit.com/r/tarot/comments/1kltora/whats_so_good_about_riderwaite_deck/) | 实际读到讨论和部分评论，含宝剑九；牌组选择是个人意见。Thoth相关观察仅保留为搜索摘要层级 |
 | R2 | [Reddit：Court cards](https://www.reddit.com/r/tarot/comments/1s6ug38/court_cards/) | 评论中直接列出四等级、四花色和一种元素对应；不能视为平台正式结论 |
 | R3 | [Reddit：Celtic Cross discussion](https://www.reddit.com/r/tarot/comments/1mr6xdx/the_best_spread_the_celtic_cross_goes_into/) | 牌阵偏好、位置和明确出现的牌名；未作样本代表性或准确度评价 |
+| R4 | [Reddit：三张示例牌的名称对照](https://www.reddit.com/r/tarot/comments/1w1skgf/what_would_this_relationship_be_like/) | 11 月 8 日核对帖文正文中的魔术师、星币二和星币八。仅用于名称匹配 |
 | V1 | [U.S. Games：Rider-Waite Tarot Deck](https://www.usgamesinc.com/Rider-Waite-Tarot-Deck.html) | 搜索摘要出现1910；直接打开403。因此日期仅作为需复核的差异信号，不能称官网全文已读 |
 | V2 | [U.S. Games：Rider-Waite-Smith](https://www.usgamesinc.com/tarot-and-inspiration/all-products/Rider-Waite-Smith) | 搜索结果说明现代商品重制版本；未将其图像或权利状态等同本站历史扫描 |
 
@@ -106,7 +107,7 @@ CSV 的 `official` 栏主要指 **ShenTarot 官网**。牌组发行商 U.S. Game
 
 - 完成108行实体清单，每行都有四平台状态、观察、来源、结论与建议位置。
 - 完成78张牌在官网目录与Wikipedia总表的名称/链接对应；未做78篇含义的逐项外部验证。
-- 记录12张牌的Reddit实际提及；未把其余66张的未检查当成不存在。
+- Reddit 的抽样记录覆盖 15 张牌。其余 63 张的逐牌核对仍待完成。
 - 保留日期、作者职责、名称变体和版本范围的差异，没有强行制造“四平台完全一致”。
 
 下一轮应优先处理能改善读者理解的内容证据：把每篇现有参考文章中的事实断言对应到具体原文，再补原创例子的观察—推理—限制，并记录真实完成的审阅。第三方提及应来自实际使用或独立评价；本清单本身不能证明流量会增加、AI会引用或产品会被推荐。
