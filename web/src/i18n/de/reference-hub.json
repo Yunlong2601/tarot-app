@@ -16,51 +16,51 @@
   "faq": [
     {
       "q": "Wie viele Karten hat ein Tarotdeck?",
-      "a": "Ein übliches Deck hat 78 Karten: 22 Große und 56 Kleine Arkana. Der Narr zählt zu den 22."
+      "a": "Ein übliches Tarotdeck hat 78 Karten, davon 22 Große und 56 Kleine Arkana."
     },
     {
       "q": "Kann ich mir das Tarotlesen selbst beibringen?",
-      "a": "Ja. Zieh eine Karte, beschreibe ein Bilddetail und schlage die Bedeutung nach. Formuliere dann einen eigenen Satz."
+      "a": "Ja. Zieh eine Karte, beachte ein Bilddetail und vergleiche es mit der Deutung."
     },
     {
       "q": "Wofür stehen die vier Farben im Tarot?",
-      "a": "Hier stehen Stäbe für Handeln, Kelche für Gefühle, Schwerter für Gedanken oder Konflikte und Münzen für verfügbare Mittel. Andere Traditionen weichen ab."
+      "a": "Stäbe (Tatkraft), Kelche (Gefühl), Schwerter (Denken), Münzen (Mittel)."
     },
     {
       "q": "Welche 16 Hofkarten gibt es?",
-      "a": "Jede der vier Farben hat Bube, Ritter, Königin und König. Lies die Figur einmal als Anregung zum Handeln, ohne sie einer Person zuzuordnen."
+      "a": "In jeder der vier Farben gibt es Bube, Ritter, Königin und König."
     },
     {
       "q": "Gibt es eine richtige Art, Tarotkarten zu mischen?",
-      "a": "Wähle eine Methode, bei der du die Karten gut halten kannst, ohne sie zu knicken. Bei großen Decks helfen kleine Päckchen."
+      "a": "Nein. Ist das Deck schwer zu halten, mische es in kleinen Päckchen."
     },
     {
       "q": "Kann ich eine Tarotkarte online ziehen?",
-      "a": "Ja. Öffne die Zufallsziehung und decke eine Karte auf. Eine bereits gezogene Papierkarte kannst du direkt auf dem Lesetisch eintragen."
+      "a": "Ja. Öffne die Zufallsziehung und decke eine Karte auf."
     },
     {
       "q": "Wie lese ich eine Tageskarte?",
-      "a": "Zieh eine Karte und notiere ein Detail, auf das du heute achten möchtest. Vergleiche es abends mit einem konkreten Erlebnis."
+      "a": "Zieh eine Karte, notiere ein Detail und achte im Alltag darauf."
     },
     {
       "q": "Was sollte ich die Tarotkarten nicht fragen?",
-      "a": "Verlass dich für Diagnosen oder die Gedanken anderer nicht auf Karten. Frag lieber: „Was möchte ich mit dieser Person besprechen?“"
+      "a": "Meide Fragen nach Diagnosen oder den Gedanken anderer Menschen."
     },
     {
       "q": "Muss ich umgekehrte Tarotkarten deuten?",
-      "a": "Nein. Entscheide dich vor dem Ziehen. Bei einer umgekehrten Karte kannst du fragen, wo ihr Thema ins Stocken gerät."
+      "a": "Nein. Entscheide vor dem Ziehen, ob du umgekehrte Karten liest."
     },
     {
       "q": "Verrät mir Tarot, was jemand für mich empfindet?",
-      "a": "Eine Karte kann fremde Gefühle nicht bestätigen. Unterscheide, was du selbst beobachtet hast und was du die Person fragen möchtest."
+      "a": "Das kann eine Karte nicht klären. Frag die Person am besten direkt."
     },
     {
       "q": "Woran erkenne ich, ob eine Karte Ja oder Nein bedeutet?",
-      "a": "Es gibt keine allgemeingültige Liste. Überlege, unter welchen Bedingungen du zustimmen würdest und was dich zögern lässt."
+      "a": "Es gibt keine feste Liste. Was müsste passieren, damit du Ja sagst?"
     },
     {
       "q": "Können Tarotkarten die Zukunft vorhersagen?",
-      "a": "Eine Legung beweist nicht, was passieren wird. Lies die Zukunftsposition als Möglichkeit und frag dich, was du jetzt tun kannst."
+      "a": "Nein. Nutze die Karten, um über Möglichkeiten und nächste Schritte nachzudenken."
     }
   ],
   "libraryFact": "Schlage {cards} Karten in beiden Ausrichtungen und {languages} Sprachen nach. Die Website ist kostenlos. Trag deine gezogenen Karten ohne Konto ein.",

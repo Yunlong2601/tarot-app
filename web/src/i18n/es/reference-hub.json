@@ -16,51 +16,51 @@
   "faq": [
     {
       "q": "¿Cuántas cartas tiene una baraja de tarot?",
-      "a": "Una baraja estándar tiene 78 cartas: 22 arcanos mayores y 56 menores. El Loco cuenta entre los 22."
+      "a": "Una baraja habitual tiene 78 cartas, con 22 arcanos mayores y 56 menores."
     },
     {
       "q": "¿Puedo aprender a leer el tarot por mi cuenta?",
-      "a": "Sí. Saca una carta, describe un detalle de la imagen, consulta su significado y escribe una frase con tus palabras."
+      "a": "Sí. Saca una carta, fíjate en un detalle y compáralo con su significado."
     },
     {
       "q": "¿Qué simbolizan los cuatro palos del tarot?",
-      "a": "Aquí los bastos evocan acción; las copas, emociones; las espadas, ideas o conflictos; y los oros, recursos cotidianos. Hay otras tradiciones."
+      "a": "Bastos (acción), copas (emoción), espadas (ideas) y oros (recursos)."
     },
     {
       "q": "¿Cuáles son las 16 figuras de la corte?",
-      "a": "Cada palo tiene sota, caballero, reina y rey. Una figura puede sugerir una manera de actuar sin representar a una persona concreta."
+      "a": "Cada uno de los cuatro palos tiene sota, caballero, reina y rey."
     },
     {
       "q": "¿Hay una forma correcta de barajar el tarot?",
-      "a": "Elige un método cómodo que no dañe las cartas. Si la baraja es grande, pasa pequeños grupos de una mano a la otra."
+      "a": "No. Si la baraja es difícil de sostener, baraja en grupos pequeños."
     },
     {
       "q": "¿Puedo sacar una carta de tarot por internet?",
-      "a": "Sí. Abre la tirada aleatoria y da la vuelta a una carta. Si ya has sacado una de tu baraja, introdúcela en la mesa de lectura."
+      "a": "Sí. Abre la tirada aleatoria y da la vuelta a una carta."
     },
     {
       "q": "¿Cómo se hace una lectura diaria de una carta?",
-      "a": "Saca una carta y apunta un detalle al que quieras prestar atención. Por la noche, relaciónalo con algo que haya sucedido."
+      "a": "Saca una carta, anota un detalle y fíjate si algo del día te lo recuerda."
     },
     {
       "q": "¿Qué conviene evitar al hacer una pregunta al tarot?",
-      "a": "Evita pedir diagnósticos o dar por hecho lo que otra persona piensa. Prueba con «¿Qué me gustaría preguntarle?»."
+      "a": "Evita pedir diagnósticos o certezas sobre lo que otra persona piensa."
     },
     {
       "q": "¿Es obligatorio leer las cartas invertidas?",
-      "a": "No. Decide antes de sacar las cartas. Si usas inversiones, piensa dónde se atasca el tema de la carta sin invertir todo su significado."
+      "a": "No. Antes de sacar las cartas, decide si vas a leer las invertidas."
     },
     {
       "q": "¿Puede el tarot decirme qué siente alguien por mí?",
-      "a": "Una carta no confirma sentimientos ajenos. Úsala para distinguir lo que has observado de lo que quieres preguntar directamente."
+      "a": "El tarot no confirma lo que alguien siente. Puedes preguntárselo directamente."
     },
     {
       "q": "¿Cómo sé si una carta quiere decir sí o no?",
-      "a": "No hay una lista universal. Busca una condición que te acercaría al sí y otra que te haría reconsiderar tu decisión."
+      "a": "No hay una lista universal. Piensa qué condiciones te harían decir que sí."
     },
     {
       "q": "¿Pueden las cartas predecir el futuro?",
-      "a": "Una tirada no establece lo que sucederá. Lee la posición de futuro como una posibilidad y piensa qué puedes hacer hoy."
+      "a": "No. Las cartas te pueden ayudar a pensar en opciones y próximos pasos."
     }
   ],
   "libraryFact": "Consulta {cards} cartas, al derecho o invertidas, en {languages} idiomas. La web es gratuita. Introduce las cartas de tu baraja sin crear una cuenta.",
