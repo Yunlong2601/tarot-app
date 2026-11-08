@@ -63,6 +63,8 @@ const creditEvidence = fill(B.iphoneCosts, { version: IPHONE_BETA_EVIDENCE.versi
       <h2>{H.faqTitle}</h2>
       <p>{H.intro}</p>
       <p>{H.savedNote}</p>
+      <p>{H.draftExport}</p>
+      <p><a href={L.url('read') + '#saved-reflection'}>{L.workspace.title}</a></p>
       <div class="reference-questions">{H.faq.map((f, i) => <section id={FAQ_TARGETS[i][0]}><h3>{f.q}</h3><p>{f.a}</p><a href={L.url(FAQ_TARGETS[i][1])}>{L.learn.index.read}<span class="sr-only">: {f.q}</span> →</a></section>)}</div>
     </section>
     <p>{L.workspace.disclaimer}</p>

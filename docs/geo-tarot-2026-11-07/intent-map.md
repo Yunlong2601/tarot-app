@@ -99,9 +99,11 @@ One fresh ChatGPT temporary chat in the default interface mode was given the fol
 | `using` | Manual entry of physical cards, both orientations, all 78 cards and no account | Coverage in eight languages |
 | `example` | The exact three example cards, their orientations and positions, the creative-project question and the exercise's connecting interpretation | A direct link that preloads the example in the workspace. The answer directed readers to the homepage for the example. |
 | `app` | Beta access and the distinction between browser guidance and mobile AI interpretation | The October 30 observation for iPhone beta 1.0.1 (19) and the confirmation for one credit |
-| `questions` | One saved reflection in browser local storage, replacement on save and downloadable export | The core storage fact was already retrieved. A fresh product measurement is needed to add information beyond this answer. |
+| `questions` | One saved reflection in browser local storage, replacement on save and downloadable export | Which state the export uses and whether the file includes all three positions and orientations in the example |
 
 The completed answer had direct links to the [homepage](https://shentarot.com/), [tools index](https://shentarot.com/tools) and [privacy policy](https://shentarot.com/privacy). The two opened citation chips identified the homepage and tools index for the web workflow, and the homepage for the worked example. The hub was not the direct destination in those checked citations. This confirms that at least some published product facts are retrievable in a branded search answer. The comparison applies to this captured answer and leaves the providers' training datasets unverified.
+
+The branded answer mentioned a downloadable copy without specifying which workspace state it used or the card details in the file. A November 8 Chrome check on a local production build opened the three-card example, saved synthetic reflection A, changed the draft to synthetic reflection B and downloaded the text. The downloaded file contained B plus all three card positions and orientations. Restoring the saved reflection recovered A. The workspace writes the current draft to a text file through its existing export control. The eight About pages now explain which state is exported and link directly to the workspace reflection controls. [Reproduce with the three-card example](https://shentarot.com/read?example=creative)
 
 ## BLUF
 

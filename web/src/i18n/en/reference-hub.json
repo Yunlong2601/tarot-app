@@ -57,5 +57,6 @@
   ],
   "libraryFact": "Look up {cards} cards, upright or reversed, in {languages} languages. The website is free. Enter the cards from your physical deck without creating an account.",
   "webBoundary": "The website offers reference text and practice prompts. It does not send your question or cards to an AI service or spend app credits.",
-  "savedNote": "Your saved reflection stays in this browser on this device. Saving again replaces it. Export a copy before clearing browser data or switching devices."
+  "savedNote": "Your saved reflection stays in this browser on this device. Saving again replaces it. Export a copy before clearing browser data or switching devices.",
+  "draftExport": "Export text downloads the current draft. In the three-card example, the file includes all three positions and each card’s orientation. Export your draft before restoring a saved reflection if you want to keep both."
 }
