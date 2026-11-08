@@ -88,6 +88,21 @@ A model’s entire training corpus cannot be inspected. It is therefore not poss
 
 The comparison is with actual answers, not a guess about what the models know. ChatGPT's beginner and self-reading samples (2, 9) already explain the deck and suggest journaling. They do not give ShenTarot's language coverage, physical-card entry flow or one-record retention behavior. The three-card and combination samples (15, 17) already explain positions and give examples. They do not provide ShenTarot's specific loadable three-card exercise. The online-draw sample (12) names and links other free tools, so free/no-account drawing is a shared feature; the handoff from an existing physical draw to the workspace is a different task. Generic questions did not ask about native beta credits. The dated one-credit observation answers a product-specific question that the category sample leaves outside its scope.
 
+### Branded product-answer check, November 8
+
+One fresh ChatGPT temporary chat in the default interface mode was given the following English prompt. This separate observation used a brand name and explicitly requested web search and sources. The earlier category baseline used unbranded questions.
+
+> Search the web for ShenTarot. What can I do with my own tarot cards on the website, is there a worked spread I can try, what does the app add, and how are saved reflections handled? Cite the pages that support each answer.
+
+| H2 | Fact present in the finished answer | Hub detail absent from this answer |
+| --- | --- | --- |
+| `using` | Manual entry of physical cards, both orientations, all 78 cards and no account | Coverage in eight languages |
+| `example` | The exact three example cards, their orientations and positions, the creative-project question and the exercise's connecting interpretation | A direct link that preloads the example in the workspace. The answer directed readers to the homepage for the example. |
+| `app` | Beta access and the distinction between browser guidance and mobile AI interpretation | The October 30 observation for iPhone beta 1.0.1 (19) and the confirmation for one credit |
+| `questions` | One saved reflection in browser local storage, replacement on save and downloadable export | The core storage fact was already retrieved. A fresh product measurement is needed to add information beyond this answer. |
+
+The completed answer had direct links to the [homepage](https://shentarot.com/), [tools index](https://shentarot.com/tools) and [privacy policy](https://shentarot.com/privacy). The two opened citation chips identified the homepage and tools index for the web workflow, and the homepage for the worked example. The hub was not the direct destination in those checked citations. This confirms that at least some published product facts are retrievable in a branded search answer. The comparison applies to this captured answer and leaves the providers' training datasets unverified.
+
 ## BLUF
 
 Homepage and About share one factual first paragraph in each locale.
