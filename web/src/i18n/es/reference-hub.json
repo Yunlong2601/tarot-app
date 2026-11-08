@@ -5,6 +5,14 @@
   "faqTitle": "Preguntas que surgen al leer las cartas",
   "intro": "Introduce las cartas que has sacado y guarda una reflexión en este navegador. Elige la pregunta que te interesa.",
   "openReading": "Probar la lectura con estas tres cartas",
+  "compareLayouts": {
+    "title": "Las mismas tres cartas en dos tiradas",
+    "intro": "Los dos ejercicios cargan las mismas cartas, en el mismo orden y con la misma orientación. Solo cambia el papel de cada posición.",
+    "timeline": "Como tercera carta de la línea temporal, el Ocho de Oros invita a imaginar qué podría aportar la práctica constante si mantienes el ritmo.",
+    "decision": "Como camino a seguir, el Ocho de Oros invita a elegir un paso que puedas probar esta semana, como reservar dos ratos breves para practicar.",
+    "open": "Abrir el ejemplo en {layout}",
+    "source": "Más sobre las posiciones en las tiradas de tres cartas"
+  },
   "faq": [
     {
       "q": "¿Cuántas cartas tiene una baraja de tarot?",

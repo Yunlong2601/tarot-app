@@ -213,9 +213,11 @@ for (const root of document.querySelectorAll<HTMLElement>('[data-workspace]')) {
     // If full, ask before replacing the first card.
     else if (await confirmOverwrite(w.replaceWarning,card.name)) setPick(draft, 0, card.id, params.get('orientation') === 'reversed');
   }
-  if (params.get('example') === 'creative') {
+  const example = params.get('example');
+  if (example === 'creative' || example === 'creative-timeline') {
     if (!draft.cards.some(p => p.id) || await confirmOverwrite(cfg.g.exampleWarning,cfg.g.exampleQuestion)) {
-      draft = applyExample(draft, cfg.g.exampleQuestion); status.textContent = cfg.g.exampleLoaded;
+      draft = applyExample(draft, cfg.g.exampleQuestion, example === 'creative-timeline' ? 'three' : undefined);
+      status.textContent = cfg.g.exampleLoaded;
     } else status.textContent = cfg.g.exampleKept;
   }
   // Consume seed parameters once so refresh/delete cannot re-seed old cards.

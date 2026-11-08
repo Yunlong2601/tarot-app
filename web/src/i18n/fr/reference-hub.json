@@ -5,6 +5,14 @@
   "faqTitle": "Les questions qui viennent en tirant les cartes",
   "intro": "Saisissez les cartes de votre tirage. Vous pouvez conserver une réflexion dans ce navigateur. Commencez par la question qui vous parle.",
   "openReading": "Essayer la lecture avec ces trois cartes",
+  "compareLayouts": {
+    "title": "Lire les trois mêmes cartes dans deux tirages",
+    "intro": "Les deux exercices chargent les mêmes cartes, dans le même ordre et avec la même orientation. Seul le rôle des positions change.",
+    "timeline": "En troisième position dans la chronologie, le Huit de Deniers invite à imaginer ce qu’une pratique régulière pourrait donner si le rythme se poursuit.",
+    "decision": "Comme piste pour avancer, le Huit de Deniers invite à choisir un geste à essayer cette semaine, par exemple réserver deux courtes séances de pratique.",
+    "open": "Ouvrir l’exemple avec « {layout} »",
+    "source": "Pour aller plus loin sur les positions des tirages à trois cartes"
+  },
   "faq": [
     {
       "q": "Combien de cartes y a-t-il dans un jeu de tarot ?",

@@ -5,6 +5,14 @@
   "faqTitle": "Questions from the reading table",
   "intro": "With a deck in hand, you can enter your cards and save one reflection in this browser. Start with the question closest to yours.",
   "openReading": "Try the example with these cards",
+  "compareLayouts": {
+    "title": "Read the same three cards in two layouts",
+    "intro": "Both exercises load the same cards in the same order and orientation. Only the position labels change.",
+    "timeline": "As the third card on the timeline, the Eight of Pentacles invites you to imagine what regular practice could build if the pattern continues.",
+    "decision": "As the way forward, the Eight of Pentacles invites you to pick a step you can try this week, such as putting two short practice sessions on your calendar.",
+    "open": "Open the example in {layout}",
+    "source": "Further reading on three-card positions"
+  },
   "faq": [
     {
       "q": "How many cards are in a tarot deck?",

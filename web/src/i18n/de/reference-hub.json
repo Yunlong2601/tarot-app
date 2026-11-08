@@ -5,6 +5,14 @@
   "faqTitle": "Fragen, die beim Kartenlegen auftauchen",
   "intro": "Trag die gezogenen Karten ein. Eine Reflexion kannst du hier im Browser speichern. Welche Frage beschäftigt dich gerade?",
   "openReading": "Das Beispiel mit diesen drei Karten ausprobieren",
+  "compareLayouts": {
+    "title": "Dieselben drei Karten in zwei Legungen",
+    "intro": "Beide Übungen laden dieselben Karten in derselben Reihenfolge und Ausrichtung. Nur die Bedeutung der Positionen ändert sich.",
+    "timeline": "Als dritte Karte auf der Zeitachse regt die Acht der Münzen dazu an, dir vorzustellen, was durch regelmäßiges Üben entstehen könnte, wenn du deinen Rhythmus beibehältst.",
+    "decision": "Als Weg nach vorn regt die Acht der Münzen zu einem konkreten Schritt für diese Woche an. Du könntest dir zum Beispiel zwei kurze Übungszeiten eintragen.",
+    "open": "Beispiel mit „{layout}“ öffnen",
+    "source": "Mehr zu den Positionen einer Dreierlegung"
+  },
   "faq": [
     {
       "q": "Wie viele Karten hat ein Tarotdeck?",

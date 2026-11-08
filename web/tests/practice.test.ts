@@ -13,6 +13,10 @@ test('loading a teaching example preserves personal notes and does not mutate th
   assert.equal(validDraft(loaded,[{...spread,id:EXAMPLE.spread}],EXAMPLE.cards.map(p=>p.id)),true);
   loaded.cards[0]!.reversed=true; assert.equal(EXAMPLE.cards[0]!.reversed,false);
   assert.equal(applyExample(blank(spread),'Example question').question,'Example question');
+  const timeline = applyExample(current,'Example question','three');
+  assert.equal(validDraft(timeline,[spread],EXAMPLE.cards.map(p=>p.id)),true);
+  assert.deepEqual(timeline.cards,EXAMPLE.cards);
+  assert.equal(timeline.reflection,current.reflection);
 });
 test('practice progress recovers across reloads, rejects corrupt records and resets independently of the reflection', () => {
   const values=new Map<string,string>([['shentarot-reference-v1','personal saved reflection']]);
