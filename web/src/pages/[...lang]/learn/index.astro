@@ -3,6 +3,7 @@ import ResumeWorkspace from "../../../components/ResumeWorkspace.astro";
 import Base from "../../../layouts/Base.astro";
 import { LEARN_SLUGS, fill, i18n, langPaths, type Locale } from "../../../i18n/index.ts";
 import { referenceHub } from '../../../i18n/reference-hub';
+import { SHENETIC } from "../../../lib/site-entities";
 
 export const getStaticPaths = langPaths;
 const { lang } = Astro.props as { lang: Locale };
@@ -17,7 +18,7 @@ const jsonLd = [
     description: ix.description,
     inLanguage: L.tag,
     isAccessibleForFree: true,
-    provider: { "@type": "Organization", name: "Shenetic", url: new URL(u(), Astro.site).href },
+    provider: SHENETIC,
     hasPart: LEARN_SLUGS.map((s) => ({ "@type": "Article", name: L.learn.guides[s].h1, url: new URL(u(`learn/${s}`), Astro.site).href })),
   },
 ];
