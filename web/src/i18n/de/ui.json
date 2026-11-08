@@ -693,10 +693,18 @@
   "description": "Finde deine Tarot-Geburtskarten und deine Karte für dieses Jahr aus deinem Geburtstag. Im Browser berechnet; nichts wird gesendet.",
   "crumb": "Geburtskarten-Rechner",
   "h1": "Tarot-Geburtskarten-Rechner",
-  "lead": "Eine traditionelle Methode der Numerologie: Addiere Geburtsmonat, -tag und -jahr und bilde dann die Quersumme, bis du bei 22 oder weniger ankommst. Diese Zahl ist eine Karte der Großen Arkana (22 ist der Narr). Ein zweistelliges Ergebnis ergibt außerdem die Karte für die Summe seiner Ziffern. Im Browser berechnet; nichts wird gesendet.",
+  "lead": "Addiere Geburtsmonat, Geburtstag und das vierstellige Geburtsjahr. Addiere anschließend die Ziffern der Summe, bis sie 22 oder weniger ergibt. Suche die Karte der Großen Arkana zu dieser Zahl. Die Berechnung erfolgt im Browser.",
   "button": "Meine Karten finden",
   "yours": "Deine Geburtskarten",
-  "year": "Deine Karte für {year}"
+  "year": "Deine Karte für {year}",
+  "calculation": "So berechnest du deine Tarot-Geburtskarten",
+  "example": "Probiere es mit dem 4. Januar 1988. Rechne 1 + 4 + 1988 = 1993, dann 1 + 9 + 9 + 3 = 22. Bei ShenTarot steht 22 für den Narren (0). Mit 2 + 2 erhältst du den Herrscher (4).",
+  "cases": "Ein einstelliges Ergebnis ergibt eine Karte. Bei zwei Stellen addierst du die Ziffern weiter und behältst die Karte zu jedem Schritt. 19 → 10 → 1 ergibt zum Beispiel die Sonne, das Rad des Schicksals und den Magier. Für die Jahreskarte bleiben Monat und Tag gleich. Mit dem aktuellen Jahr zählt nur das erste Ergebnis.",
+  "compareTitle": "Warum ein anderer Rechner andere Karten anzeigen kann",
+  "comparison": "The Tarot School teilt die Jahreszahl in zwei Teile. Für dasselbe Datum rechnet sie 1 + 4 + 19 + 88 = 112, dann 11 + 2 = 13 und schließlich 1 + 3 = 4. Das ergibt den Tod (13) und den Herrscher (4).",
+  "greerNote": "Mary K. Greer beschreibt die Konvention, den Narren als 22 zu zählen und auf 4 zu reduzieren. In den Geburtskartenpaaren von The Tarot School kommt der Narr nicht vor.",
+  "schoolSource": "Rechenregeln von The Tarot School",
+  "greerSource": "Mary K. Greer über den Narren und den Herrscher"
  },
  "life": {
   "title": "Lebenszahl berechnen, mit passender Tarotkarte · ShenTarot",

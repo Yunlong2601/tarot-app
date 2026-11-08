@@ -1,9 +1,9 @@
 ---
 import Base from "../../../layouts/Base.astro";
-import { BASE } from "../../../config.ts";
-import { deckForTools } from "../../../lib/data.ts";
-import { slug } from "../../../lib/data.ts";
+import { BASE, SITE_URL } from "../../../config.ts";
+import { deckForTools, slug } from "../../../lib/data.ts";
 import { BIRTH } from "../../../lib/birth.ts";
+import { SHENETIC, SHENTAROT_WEBSITE } from "../../../lib/site-entities.ts";
 import { i18n, langPaths, type Locale } from "../../../i18n/index.ts";
 
 export const getStaticPaths = langPaths;
@@ -11,59 +11,103 @@ const { lang } = Astro.props as { lang: Locale };
 const L = i18n(lang);
 const { t, url: u } = L;
 
-const majors = deckForTools(L).filter((c) => c.major);
-const T = { pick: t("pickDate"), note: t("notFate"), yours: t("birth.yours"), year: t("birth.year") };
-const CARDS = L.url("cards");
+const config = {
+  deck: deckForTools(L).filter((c) => c.major),
+  base: BASE,
+  cards: u("cards"),
+  text: { pick: t("pickDate"), note: t("notFate"), yours: t("birth.yours"), year: t("birth.year") },
+};
+const path = "tools/birth-card";
+const page = new URL(u(path), SITE_URL).href;
+const school = "https://tarotschool.com/BirthCards2.html";
+const greer = "https://marykgreer.com/2021/01/05/emperor-death-fool-birth-cards-and-daechwita/";
+const jsonLd = [{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": page,
+  url: page,
+  name: t("birth.h1"),
+  description: t("birth.description"),
+  inLanguage: L.tag,
+  publisher: SHENETIC,
+  isPartOf: SHENTAROT_WEBSITE,
+  citation: [school, greer],
+}];
 ---
 <Base
   title={t("birth.title")}
   description={t("birth.description")}
-  path="tools/birth-card"
+  path={path}
   crumbs={[[t("toolsCrumb"), "tools"], [t("birth.crumb"), "tools/birth-card"]]}
   lang={lang}
+  jsonLd={jsonLd}
 >
   <header class="page-head center">
     <p class="eyebrow">{t("freeTool")}</p>
     <h1>{t("birth.h1")}</h1>
     <p class="lead">{t("birth.lead")}</p>
   </header>
-  <div class="panel tool-panel">
-    <label>{t("birthday")} <input type="date" id="bd" /></label>
-    <button class="btn btn-gold" id="go" type="button">{t("birth.button")}</button>
+  <div data-birth-calculator>
+    <script type="application/json" data-config set:html={JSON.stringify(config).replace(/</g, "\\u003c")} />
+    <div class="panel tool-panel">
+      <label>{t("birthday")} <input type="date" id="bd" /></label>
+      <button class="btn btn-gold" id="go" type="button">{t("birth.button")}</button>
+    </div>
+    <div id="out" class="center" aria-live="polite" style="margin-top:2rem"></div>
   </div>
-  <div id="out" class="center" aria-live="polite" style="margin-top:2rem"></div>
+  <section class="section legal guide" aria-labelledby="calculation">
+    <h2 id="calculation">{t("birth.calculation")}</h2>
+    <p>{t("birth.example")}</p>
+    <p>{t("birth.cases")}</p>
+    <h3>{t("birth.compareTitle")}</h3>
+    <p>{t("birth.comparison")}</p>
+    <p>{t("birth.greerNote")}</p>
+    <ul>
+      <li><a href={school}>{t("birth.schoolSource")}</a></li>
+      <li><a href={greer}>{t("birth.greerSource")}</a></li>
+    </ul>
+  </section>
   <section class="section center">
     <h2>{L.zodiac.ui.birth.other}</h2>
     <nav class="ctx-links" style="justify-content:center" aria-label={L.zodiac.ui.birth.other}>
       {BIRTH.map((x) => <a href={u(`birth-cards/${slug(x)}`)}>{L.cards[x]!.name}</a>)}
     </nav>
   </section>
-  <script is:inline define:vars={{ DECK: majors, BASE, CARDS, T }}>
-    document.getElementById("bd").max = new Date().toISOString().slice(0, 10);
-    const digits = (n) => String(n).split("").reduce((s, d) => s + +d, 0);
-    function nums(y, m, d) {
-      let n = y + m + d;
-      while (n > 22) n = digits(n);
-      if (n === 22) return [0, 4];
-      const o = [n];
-      while (n >= 10) { n = digits(n); o.push(n); }
-      return o;
-    }
-    function card(n) {
-      const c = DECK.find((x) => x.n === n);
+</Base>
+
+<script>
+  import { readConfig } from "../../../lib/cardView.ts";
+  import { type deckForTools } from "../../../lib/data.ts";
+  import { birthCards, parseDate, yearCard } from "../../../lib/numerology.ts";
+  import { fill } from "../../../i18n/fill.ts";
+
+  const root = document.querySelector<HTMLElement>("[data-birth-calculator]");
+  if (root) {
+    const { deck, base, cards, text } = readConfig<{
+      deck: ReturnType<typeof deckForTools>;
+      base: string;
+      cards: string;
+      text: { pick: string; note: string; yours: string; year: string };
+    }>(root);
+    const input = root.querySelector<HTMLInputElement>("#bd")!;
+    const output = root.querySelector<HTMLElement>("#out")!;
+    input.max = new Date().toISOString().slice(0, 10);
+
+    function card(n: number) {
+      const c = deck.find((x) => x.n === n)!;
       const a = document.createElement("a");
       a.className = "slot";
-      a.href = `${CARDS}/${c.slug}`;
+      a.href = `${cards}/${c.slug}`;
       const img = document.createElement("img");
       img.className = "card-img";
-      img.src = `${BASE}cards/art/${c.id}.jpg`;
+      img.src = `${base}cards/art/${c.id}.jpg`;
       img.alt = "";
       const t = document.createElement("div");
       t.textContent = c.name;
       a.append(img, t);
       return a;
     }
-    function section(title, ns) {
+    function section(title: string, ns: number[]) {
       const h = document.createElement("h2");
       h.textContent = title;
       const row = document.createElement("div");
@@ -71,16 +115,26 @@ const CARDS = L.url("cards");
       row.append(...ns.map(card));
       return [h, row];
     }
-    document.getElementById("go").onclick = () => {
-      const v = document.getElementById("bd").value;
-      const out = document.getElementById("out");
-      if (!v) { out.textContent = T.pick; return; }
-      const [y, m, d] = v.split("-").map(Number);
+    root.querySelector<HTMLButtonElement>("#go")!.onclick = () => {
+      if (!input.reportValidity()) {
+        output.replaceChildren();
+        return;
+      }
+      const date = parseDate(input.value);
+      if (!date) {
+        output.textContent = text.pick;
+        return;
+      }
+      const [y, m, d] = date;
       const year = new Date().getFullYear();
       const note = document.createElement("p");
       note.className = "muted";
-      note.textContent = T.note;
-      out.replaceChildren(...section(T.yours, nums(y, m, d)), ...section(T.year.replace("{year}", year), [nums(year, m, d)[0]]), note);
+      note.textContent = text.note;
+      output.replaceChildren(
+        ...section(text.yours, birthCards(y, m, d)),
+        ...section(fill(text.year, { year }), [yearCard(year, m, d)]),
+        note,
+      );
     };
-  </script>
-</Base>
+  }
+</script>

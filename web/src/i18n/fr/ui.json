@@ -695,10 +695,18 @@
   "description": "Trouve tes cartes de naissance au tarot et ta carte de l'année à partir de ta date de naissance. Calculé dans ton navigateur ; rien n'est envoyé.",
   "crumb": "Carte de naissance",
   "h1": "Calcul de la carte de naissance au tarot",
-  "lead": "Une méthode de numérologie traditionnelle : additionne ton mois, ton jour et ton année de naissance, puis additionne les chiffres jusqu'à obtenir 22 ou moins. Ce nombre correspond à un arcane majeur (22 est Le Fou). Un résultat à deux chiffres donne aussi la carte de la somme de ses chiffres. Calculé dans ton navigateur ; rien n'est envoyé.",
+  "lead": "Additionnez votre mois et votre jour de naissance avec l’année à quatre chiffres. Additionnez ensuite les chiffres du total jusqu’à obtenir 22 ou moins, puis cherchez l’arcane majeur correspondant. Le calcul se fait dans votre navigateur.",
   "button": "Trouver mes cartes",
   "yours": "Tes cartes de naissance",
-  "year": "Ta carte pour {year}"
+  "year": "Ta carte pour {year}",
+  "calculation": "Comment calculer vos cartes de naissance du tarot",
+  "example": "Prenez le 4 janvier 1988. Calculez 1 + 4 + 1988 = 1993, puis 1 + 9 + 9 + 3 = 22. Sur ShenTarot, le 22 correspond au Fou (0). En additionnant 2 + 2, vous obtenez l’Empereur (4).",
+  "cases": "Un résultat à un chiffre donne une seule carte. À partir de deux chiffres, gardez la carte de chaque étape jusqu’à obtenir un seul chiffre. Par exemple, 19 → 10 → 1 donne le Soleil, la Roue de Fortune et le Magicien. Pour la carte de l’année, gardez le jour et le mois de naissance, prenez l’année en cours et retenez le premier résultat.",
+  "compareTitle": "Pourquoi un autre calculateur peut donner des cartes différentes",
+  "comparison": "The Tarot School divise l’année en deux parties. Pour la même date, on calcule 1 + 4 + 19 + 88 = 112, puis 11 + 2 = 13 et enfin 1 + 3 = 4. On obtient la Mort (13) et l’Empereur (4).",
+  "greerNote": "Mary K. Greer explique la convention qui attribue le 22 au Fou, puis le réduit à 4. The Tarot School ne fait pas figurer le Fou dans ses paires de cartes de naissance.",
+  "schoolSource": "Les règles de calcul de The Tarot School",
+  "greerSource": "Mary K. Greer sur le Fou et l’Empereur"
  },
  "life": {
   "title": "Calcul du chemin de vie et sa carte de tarot · ShenTarot",

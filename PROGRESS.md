@@ -1,3 +1,7 @@
+# Website birth card calculation — 2026-11-09
+
+The birth card calculator explains its digit-sum method in eight languages. A fixed date shows where ShenTarot and The Tarot School reach different cards. Both ShenTarot tools now use the same calculation functions. Chrome confirmed the one-, two- and three-card cases and the current-year result using sample dates.
+
 # Website deck sources and numbering — 2026-11-09
 
 The eight methodology pages identify the historical deck, the early guide, the 1922 illustrated reprint, and a later retail edition by their documented roles and sources. A short comparison of Strength and Justice across three decks gives readers a way to check their own card titles and numbering. The Major and Minor Arcana lesson links to the comparison, and the entity ledger records the Amazon, Wikipedia and Reddit observations separately.

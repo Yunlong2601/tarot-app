@@ -730,10 +730,18 @@
   "description": "Descubre tus cartas natales del tarot y tu carta de este año a partir de tu fecha de nacimiento. Se calcula en tu navegador; no se envía nada.",
   "crumb": "Calculadora de carta natal",
   "h1": "Calculadora de carta natal del tarot",
-  "lead": "Un método tradicional de numerología: suma el mes, el día y el año de tu nacimiento, y luego suma las cifras hasta llegar a 22 o menos. Ese número es una carta de los Arcanos Mayores (el 22 es El Loco). Un resultado de dos cifras también da la carta de la suma de sus cifras. Se calcula en tu navegador; no se envía nada.",
+  "lead": "Suma el mes, el día y el año completo de cuatro cifras de tu nacimiento. Suma después las cifras del total hasta obtener 22 o menos y busca el arcano mayor correspondiente. El cálculo se hace en tu navegador.",
   "button": "Descubrir mis cartas",
   "yours": "Tus cartas natales",
-  "year": "Tu carta para {year}"
+  "year": "Tu carta para {year}",
+  "calculation": "Cómo calcular tus cartas natales del tarot",
+  "example": "Prueba con el 4 de enero de 1988. Suma 1 + 4 + 1988 = 1993 y luego 1 + 9 + 9 + 3 = 22. En ShenTarot, el 22 corresponde a El Loco (0). Al sumar 2 + 2 obtienes El Emperador (4).",
+  "cases": "Un resultado de una cifra da una carta. Si tiene dos cifras, cada paso hasta llegar a una sola cifra da otra carta. Por ejemplo, 19 → 10 → 1 da El Sol, La Rueda de la Fortuna y El Mago. Para la carta del año se mantienen el mes y el día, se usa el año actual y se muestra solo el primer resultado.",
+  "compareTitle": "Por qué otra calculadora puede dar cartas distintas",
+  "comparison": "The Tarot School divide el año en dos partes. Para la misma fecha calcula 1 + 4 + 19 + 88 = 112, después 11 + 2 = 13 y, por último, 1 + 3 = 4. El resultado es La Muerte (13) y El Emperador (4).",
+  "greerNote": "Mary K. Greer describe la convención de contar El Loco como 22 y reducirlo a 4. The Tarot School excluye El Loco de sus parejas de cartas natales.",
+  "schoolSource": "Reglas de cálculo de The Tarot School",
+  "greerSource": "Mary K. Greer sobre El Loco y El Emperador"
  },
  "life": {
   "title": "Calculadora del número de camino de vida y su carta del tarot · ShenTarot",

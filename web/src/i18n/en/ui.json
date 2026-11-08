@@ -654,10 +654,18 @@
   "description": "Find your tarot birth cards and your card for this year from your birthday. Worked out in your browser; nothing is sent.",
   "crumb": "Birth card calculator",
   "h1": "Tarot birth card calculator",
-  "lead": "A traditional numerology method: add your birth month, day and year, then add the digits until you reach 22 or less. That number is a Major Arcana card (22 is The Fool). A two-digit result also gives the card for the sum of its digits. Worked out in your browser; nothing is sent.",
+  "lead": "Add your birth month, day and four-digit year. Keep adding the digits of the total until it is 22 or less, then look up that Major Arcana card. The calculation runs in your browser.",
   "button": "Find my cards",
   "yours": "Your birth cards",
-  "year": "Your card for {year}"
+  "year": "Your card for {year}",
+  "calculation": "How to calculate your tarot birth cards",
+  "example": "Try January 4, 1988. Add 1 + 4 + 1988 = 1993, then 1 + 9 + 9 + 3 = 22. ShenTarot reads 22 as The Fool (0). Adding 2 + 2 gives The Emperor (4).",
+  "cases": "A single-digit result gives one card. For a two-digit result, keep each step down to a single digit. For example, 19 → 10 → 1 gives The Sun, Wheel of Fortune and The Magician. The card for this year uses the same month and day with the current year and shows only the first result.",
+  "compareTitle": "Why might another calculator give different cards?",
+  "comparison": "The Tarot School splits the year into two parts. For the same date it calculates 1 + 4 + 19 + 88 = 112, then 11 + 2 = 13, and finally 1 + 3 = 4. That gives Death (13) and The Emperor (4).",
+  "greerNote": "Mary K. Greer describes the convention of counting The Fool as 22 and reducing it to 4. The Tarot School leaves The Fool out of its birth card pairs.",
+  "schoolSource": "The Tarot School’s calculation rules",
+  "greerSource": "Mary K. Greer on The Fool and The Emperor"
  },
  "life": {
   "title": "Life path number calculator with its tarot card · ShenTarot",
