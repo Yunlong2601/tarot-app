@@ -66,6 +66,13 @@ for(const [id,evidence] of Object.entries(CARD_EVIDENCE))for(const locale of loc
  assert.ok(!('reviewedBy'in schema)&&!('lastReviewed'in schema));
  const markdown=['dist/_agent-markdown/'+path+'.md','dist/_agent-markdown/'+path+'/index.md'].find(existsSync);assert.ok(markdown);
  const md=readFileSync(markdown,'utf8');for(const source of evidence.sources)assert.ok(md.includes(source.url));
+ if(id==='major_19_sun'){
+  for(const orientation of ['upright','reversed']){
+   const href=`/${path}?orientation=${orientation}#card-meanings`;
+   assert.ok(section.querySelector(`a[href="${href}"]`),locale+': Sun orientation example link');
+   assert.ok(md.includes(href),locale+': Sun orientation link in Markdown');
+  }
+ }
  assert.equal(evidence.independentExpertReview,false);assert.equal(evidence.nativeLanguageReview,false);
  // Context pages must not inherit the base reference's source-comparison date.
  for(const ctx of ['love','career','feelings','yes-or-no']){
@@ -73,4 +80,4 @@ for(const [id,evidence] of Object.entries(CARD_EVIDENCE))for(const locale of loc
   assert.ok(!readFileSync(file,'utf8').includes('data-card-evidence'),locale+': context not marked checked');
  }
 }
-console.log('Seventy-two checked base-card references: visible original example/check record, exact Article/Markdown citations and preserved reading controls; context pages are not marked checked.');
+console.log(`${Object.keys(CARD_EVIDENCE).length * locales.length} checked base-card references: visible examples and check records, Article and Markdown citations, and reading controls.`);

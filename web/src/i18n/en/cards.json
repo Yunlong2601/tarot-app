@@ -916,12 +916,12 @@
    "vitality",
    "clarity"
   ],
-  "upright": "Warmth, confidence and openness. Enjoy what is going well.",
-  "reversed": "Dimmed enthusiasm or too much ego. Look for small sources of light.",
+  "upright": "Notice what is going well and what you can name clearly.",
+  "reversed": "Ask where enjoyment is harder to feel or where you are trying to force it.",
   "k": {
    "essence": "Plain, uncomplicated warmth.",
    "imagery": "A child on a white horse holds a red banner under a large sun. Sunflowers rise over a wall behind.",
-   "why": "Nineteen is near the end of the journey, and the picture is open and bright, with nothing hidden. The Sun is the card's usual planet: vitality and clarity.",
+   "why": "The child, white horse and red banner give this exercise a concrete image to start from.",
    "upright": {
     "core": "Warmth, clarity and simple joy.",
     "light": "optimism, vitality, openness",
@@ -931,14 +931,47 @@
     "question": "What brings me plain, uncomplicated joy?"
    },
    "reversed": {
-    "core": "The warmth is dimmed or forced.",
+    "core": "Joy may be harder to notice or feel forced.",
     "modes": [
-     "Blocked: clouds in the way.",
-     "Excess: forced positivity.",
-     "Fading: tiredness."
+     "What still feels satisfying?",
+     "What expectation could you set aside?",
+     "Would a shorter session help?"
     ],
     "question": "Where am I pretending to be brighter than I feel?"
    }
+  },
+  "evidence": {
+   "answer": "In the Waite–Smith deck, The Sun can prompt you to notice what feels clear or enjoyable. Waite treats the reversed card as a milder form of its upright meaning.",
+   "groupNote": "XIX is printed on this Waite–Smith card. The Major Arcana group locates it in the deck.",
+   "sections": [
+    {
+     "h": "What the picture and the sources show",
+     "p": [
+      "The card shows XIX, a child on a white horse and a red banner. Waite describes the child, horse and banner in Part II, §2. His Part III entry links the upright card with happiness and contentment and gives the reversal a milder version of that meaning.",
+      "The publisher’s booklet follows that reading. For a reflection exercise, this site turns it into a question about how much satisfaction you can actually notice."
+     ]
+    },
+    {
+     "h": "An original drawing exercise in both orientations",
+     "p": [
+      "Imagine spending Saturday sketching and asking what would make the next session more enjoyable. [Upright](cards/major-19-sun?orientation=upright#card-meanings), use the bright scene to name one part of the session that felt satisfying, such as finding a line you liked.",
+      "[Reversed](cards/major-19-sun?orientation=reversed#card-meanings), test whether the enjoyment was harder to notice. Try a ten-minute sketch with no requirement to finish and note whether any part feels different. If tiredness fits the facts better, compare with a short break instead."
+     ]
+    },
+    {
+     "h": "Sources you can inspect",
+     "p": [
+      "[Waite, Part II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, XIX, describes the picture. [Part III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 19, gives the historical upright and reversed meanings. The [U.S. Games booklet](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=11) repeats the reduced reading for the reversal.",
+      "For other ways of handling orientation, see the [reversals guide](learn/reversed-cards)."
+     ]
+    },
+    {
+     "h": "Check record · 8 November 2026",
+     "p": [
+      "Codex compared the bundled image, the named passages and this base card page. The drawing exercise is original. Independent expert and native-language review remain pending. [Send a correction](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_20_judgement": {

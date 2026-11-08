@@ -304,3 +304,5 @@ Rewrote Simplified and Traditional Chinese beta-page copy, shared recruitment in
 2026-11-08 — Unified the Shenetic publisher and ShenTarot website identifiers across localized reference pages. The card and spread catalogues now link to identifiers on their detail pages, and localized home search markup points to the working search URLs. Recovered the fourth ChatGPT sample from the November 8 follow-up and recorded a second Google index observation.
 
 2026-11-08 — Verified the three-card layout concept across four surfaces and published an eight-language comparison of the two ShenTarot layouts. The existing lesson links to the same three example cards in both workspace layouts, and About directs readers to the comparison.
+
+2026-11-08 — Source-compared the Sun base card in eight languages and recorded four-platform evidence for upright and reversed labels. Added an original sketching exercise and exact orientation links. The editorial inventory now records 17 of 487 logical routes with limited source comparison.

@@ -121,6 +121,8 @@ The directory and detail pages now use the same localized identifier for each ca
 
 The follow-up samples for questions 15 and 17 describe reading positions and combinations in general. The product page now points to a controlled comparison using ShenTarot's actual workspace. Both links preload the upright Magician, reversed Two of Pentacles and upright Eight of Pentacles in the same order. The third position changes from possible direction to a step the reader can try. The existing connected-reading guide owns the comparison, and each spread page owns its own instructions and practice tool. [Comparison](https://shentarot.com/learn/connected-reading#compare-layouts) · [Timeline exercise](https://shentarot.com/read?example=creative-timeline) · [Decision exercise](https://shentarot.com/read?example=creative)
 
+The ChatGPT follow-up for question 19 used the Sun to illustrate joy and possible setbacks. The Sun reference now locates the historical orientation claim in Waite Part III §3, compares it with the publisher booklet and gives a repeatable drawing exercise absent from that recorded answer. The About FAQ still points to the general reversals lesson. The Sun page owns this card's source comparison and orientation controls. [Reversals lesson](https://shentarot.com/learn/reversed-cards) · [Sun example](https://shentarot.com/cards/major-19-sun#reference-evidence-2)
+
 Shenetic is the publisher and ShenTarot the product. No Amazon/Wikipedia/Reddit sameAs relationship was asserted without identity evidence. No fake stars, reviews or independent reviewer credentials were added. FAQ schema describes visible questions; it is not a promise of a Google rich result or AI citation.
 
 ## Verification

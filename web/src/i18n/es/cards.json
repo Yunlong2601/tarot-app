@@ -916,12 +916,12 @@
    "vitalidad",
    "claridad"
   ],
-  "upright": "Calidez, confianza y apertura. Disfruta de lo que va bien.",
-  "reversed": "Entusiasmo apagado o demasiado ego. Busca pequeñas fuentes de luz.",
+  "upright": "Fíjate en algo que va bien y ponle nombre.",
+  "reversed": "Pregúntate dónde cuesta sentir alegría o dónde intentas forzarla.",
   "k": {
    "essence": "Una calidez sencilla y sin complicaciones.",
    "imagery": "Un niño sobre un caballo blanco sostiene un estandarte rojo bajo un gran sol. Detrás, unos girasoles asoman por encima de un muro.",
-   "why": "El diecinueve está cerca del final del viaje, y la imagen es abierta y luminosa, sin nada oculto. El Sol es el astro que se le suele asociar: vitalidad y claridad.",
+   "why": "El niño, el caballo blanco y el estandarte rojo son detalles que puedes observar al comenzar el ejercicio.",
    "upright": {
     "core": "Calidez, claridad y alegría sencilla.",
     "light": "optimismo, vitalidad, apertura",
@@ -931,14 +931,47 @@
     "question": "¿Qué me trae una alegría sencilla y sin complicaciones?"
    },
    "reversed": {
-    "core": "La calidez está apagada o es forzada.",
+    "core": "La alegría puede pasar desapercibida o sentirse forzada.",
     "modes": [
-     "Bloqueo: nubes en el camino.",
-     "Exceso: positividad forzada.",
-     "Desvanecimiento: cansancio."
+     "¿qué sigue resultando agradable?",
+     "¿qué expectativa puedes dejar de lado?",
+     "¿ayudaría una sesión más corta?"
     ],
     "question": "¿Dónde estoy fingiendo más luminosidad de la que siento?"
    }
+  },
+  "evidence": {
+   "answer": "En la baraja Waite–Smith, El Sol puede invitarte a notar qué te resulta claro o agradable. Waite da a la carta invertida un sentido más tenue que al derecho.",
+   "groupNote": "Esta carta Waite–Smith lleva impreso XIX. El Sol forma parte de los arcanos mayores.",
+   "sections": [
+    {
+     "h": "Qué muestran la imagen y las fuentes",
+     "p": [
+      "La carta muestra el número XIX, un niño sobre un caballo blanco y un estandarte rojo. Waite describe al niño, el caballo y el estandarte en la parte II, §2. En la parte III asocia la carta al derecho con la felicidad y la satisfacción. Al revés conserva ese sentido con menor intensidad.",
+      "El folleto del editor sigue esa lectura. Como ejercicio de reflexión, este sitio la convierte en una pregunta sobre cuánta satisfacción puedes observar."
+     ]
+    },
+    {
+     "h": "Un ejercicio original de dibujo en ambas orientaciones",
+     "p": [
+      "Imagina que el sábado dibujaste y quieres disfrutar más de la próxima sesión. [Al derecho](cards/major-19-sun?orientation=upright#card-meanings), usa la escena luminosa para identificar algo satisfactorio, como haber trazado una línea que te gustó.",
+      "[Invertida](cards/major-19-sun?orientation=reversed#card-meanings), prueba si la alegría era más difícil de notar. Haz un boceto de diez minutos sin tener que acabarlo y apunta si algo se siente distinto. Si encaja mejor el cansancio, prueba una pausa breve y compara."
+     ]
+    },
+    {
+     "h": "Fuentes que puedes consultar",
+     "p": [
+      "[Waite, parte II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, XIX, describe la imagen. La [parte III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 19, recoge los sentidos históricos. El [folleto de U.S. Games](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=11) recoge el sentido atenuado de la carta invertida.",
+      "Para explorar otras formas de considerar la orientación, consulta la [guía de cartas invertidas](learn/reversed-cards)."
+     ]
+    },
+    {
+     "h": "Comprobación · 8 de noviembre de 2026",
+     "p": [
+      "Codex comparó la imagen del sitio, los pasajes citados y la ficha de esta carta. El ejercicio de dibujo es original. La revisión independiente y la revisión por hablantes nativos siguen pendientes. [Enviar una corrección](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_20_judgement": {

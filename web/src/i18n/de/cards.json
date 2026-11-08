@@ -916,12 +916,12 @@
    "Lebenskraft",
    "Klarheit"
   ],
-  "upright": "Wärme, Zuversicht und Offenheit. Genieß, was gerade gut läuft.",
-  "reversed": "Gedämpfte Begeisterung oder zu viel Ego. Such nach kleinen Lichtquellen.",
+  "upright": "Nimm wahr, was gut läuft, und benenne es konkret.",
+  "reversed": "Frage dich, wo Freude schwerer wahrnehmbar ist oder sich erzwungen anfühlt.",
   "k": {
    "essence": "Schlichte, unkomplizierte Wärme.",
    "imagery": "Ein Kind auf einem weißen Pferd hält unter einer großen Sonne ein rotes Banner. Hinter ihm ragen Sonnenblumen über eine Mauer.",
-   "why": "Neunzehn steht nahe dem Ende der Reise, und das Bild ist offen und hell, nichts ist verborgen. Die Sonne ist der übliche Planet der Karte: Lebenskraft und Klarheit.",
+   "why": "Kind, weißes Pferd und rotes Banner sind sichtbare Ausgangspunkte für die Übung.",
    "upright": {
     "core": "Wärme, Klarheit und einfache Freude.",
     "light": "Optimismus, Lebenskraft, Offenheit",
@@ -931,14 +931,47 @@
     "question": "Was bereitet mir schlichte, unkomplizierte Freude?"
    },
    "reversed": {
-    "core": "Die Wärme ist gedämpft oder erzwungen.",
+    "core": "Freude kann schwerer wahrnehmbar sein oder sich erzwungen anfühlen.",
     "modes": [
-     "Blockiert: Wolken im Weg.",
-     "Übermaß: erzwungene Positivität.",
-     "Schwindend: Müdigkeit."
+     "Was fühlt sich weiterhin gut an?",
+     "Welche Erwartung kannst du beiseitelegen?",
+     "Würde eine kürzere Übung helfen?"
     ],
     "question": "Wo tue ich so, als ginge es mir besser, als ich mich fühle?"
    }
+  },
+  "evidence": {
+   "answer": "Im Waite–Smith-Deck kann die Sonne dazu anregen, wahrzunehmen, was sich klar oder erfreulich anfühlt. Waite beschreibt die umgekehrte Karte als abgeschwächte Form der aufrechten Bedeutung.",
+   "groupNote": "Auf dieser Waite–Smith-Karte steht XIX. Die Sonne gehört zur Großen Arkana.",
+   "sections": [
+    {
+     "h": "Was Bild und Quellen zeigen",
+     "p": [
+      "Die Karte zeigt XIX, ein Kind auf einem weißen Pferd und ein rotes Banner. Waite beschreibt Kind, Pferd und Banner in Teil II, §2. In Teil III verbindet er die aufrechte Karte mit Glück und Zufriedenheit. Umgekehrt bleibt die Bedeutung in abgeschwächter Form erhalten.",
+      "Das Verlagsheft folgt dieser Lesart. Die Übung auf dieser Seite macht daraus eine Frage danach, wie viel Zufriedenheit du tatsächlich bemerkst."
+     ]
+    },
+    {
+     "h": "Eine eigene Zeichenübung in beiden Ausrichtungen",
+     "p": [
+      "Stell dir vor, du hast am Samstag skizziert und möchtest die nächste Runde mehr genießen. [Aufrecht](cards/major-19-sun?orientation=upright#card-meanings) regt das helle Bild dazu an, einen schönen Moment zu benennen, etwa eine Linie, die dir gelungen ist.",
+      "[Umgekehrt](cards/major-19-sun?orientation=reversed#card-meanings) kannst du prüfen, ob dir die Freude nur weniger aufgefallen ist. Skizziere zehn Minuten ohne Fertigstellungsdruck und notiere, was sich anders anfühlt. Wenn Müdigkeit besser zur Situation passt, vergleiche mit einer kurzen Pause."
+     ]
+    },
+    {
+     "h": "Quellen zum Nachlesen",
+     "p": [
+      "[Waite, Teil II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, XIX, beschreibt das Bild. [Teil III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 19, nennt die historischen Bedeutungen. Das [Heft von U.S. Games](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=11) gibt die abgeschwächte umgekehrte Bedeutung ebenfalls wieder.",
+      "Weitere Möglichkeiten findest du im [Leitfaden zu umgekehrten Karten](learn/reversed-cards)."
+     ]
+    },
+    {
+     "h": "Quellenabgleich · 8. November 2026",
+     "p": [
+      "Codex hat das verwendete Kartenbild, die angegebenen Passagen und diese Kartenseite verglichen. Die Zeichenübung stammt von ShenTarot. Unabhängige Fachprüfung und muttersprachliche Prüfung stehen noch aus. [Korrektur melden](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "major_20_judgement": {
