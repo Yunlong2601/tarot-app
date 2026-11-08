@@ -47,7 +47,33 @@ Inspected the actual source templates for homepage, About, methodology, Learn in
 | Mobile availability/installation | /beta | About has a small verified build observation and links to the full current installation guide. No duplicate install steps. |
 | Love meanings vs another person’s feelings | /cards/*/love vs /questions/does-he-love-me | Contexts differ. No evidence from this sample establishes cannibalization. Reject mind-reading certainty. |
 
-No query-by-page ranking time series was retrieved for this change, so “pages are competing and harming ranking” is not established. We consolidated the short-answer entry point and established clear internal destinations without removing useful pages merely because they mention similar terms.
+We consolidated the short-answer entry point and gave the complete tutorials and working tools distinct destinations. The Search Console follow-up below checks where selected queries actually landed before launch.
+
+### Search Console follow-up, November 8
+
+The [ShenTarot Performance report](https://search.google.com/search-console/performance/search-analytics?resource_id=sc-domain%3Ashentarot.com) was checked on November 8, 2026, Singapore time. Each row used Web search, the 28-day view, an exact-query filter and the Pages tab, with no country or device filter. The chart showed available data for October 17–November 5. This gives a pre-release snapshot by query and page. The page counts below refer to rows the report displayed.
+
+| Exact query | Clicks | Impressions | Page shown |
+| --- | ---: | ---: | --- |
+| `tarot card shuffle` | 0 | 34 | `/tools/random-card` |
+| `tarot shuffle` | 0 | 32 | `/tools/random-card` |
+| `random tarot card` | 0 | 8 | `/tools/random-card` |
+| `daily tarot reading` | 0 | 1 | `/topics/daily` |
+| `how many cards are in a tarot deck` | 0 | 0 shown | No data |
+| `yes or no tarot` | 0 | 0 shown | No data |
+| `shentarot` | 0 | 0 shown | No data |
+
+The three draw queries produced 74 reported impressions, all on the generator. The one reported impression for the daily query went to the daily topic guide. This supports separate destinations for drawing a card and researching daily reading. Three queries returned no rows, so their search landing pages remain unverified. The small sample and pre-release date range leave the new hub’s impact open.
+
+The [URL Inspection report](https://search.google.com/search-console?resource_id=sc-domain%3Ashentarot.com) listed all three inspected URLs as indexed. Both hub pages reported the inspected URL as Google’s selected canonical. The draw tool declared its own URL as canonical. Crawl times below are transcribed as displayed.
+
+| Inspected URL | Last crawl shown | Fetch | Indexing allowed |
+| --- | --- | --- | --- |
+| `https://shentarot.com/about` | 2026-10-22 05:53:23 | Successful | Yes |
+| `https://shentarot.com/zh-hans/about` | 2026-10-27 06:00:16 | Successful | Yes |
+| `https://shentarot.com/tools/random-card` | 2026-11-03 23:38:54 | Successful | Yes |
+
+The [production manifest](https://shentarot.com/release.json) served revision `37435f964a1d21dcfe122a4522df3f35401c42fd`, built November 7 at 17:16:45 UTC. The live English Markdown hub served the new four H2 sections and twelve questions. The recorded crawls all precede that build. Use a crawl at or after the deployment and a complete reporting window to separate an indexed URL from verified coverage of the new hub content.
 
 ## Information gaps and checkable product evidence
 
@@ -61,6 +87,21 @@ A model’s entire training corpus cannot be inspected. It is therefore not poss
 | questions | One saved reflection per browser/device, replaced on saving; explicit export before changing devices | web/src/lib/workspace.ts, web/src/scripts/workspace.ts, existing save/export tests | Browser-local storage, not account sync. No claim that the website detects app use. |
 
 The comparison is with actual answers, not a guess about what the models know. ChatGPT's beginner and self-reading samples (2, 9) already explain the deck and suggest journaling. They do not give ShenTarot's language coverage, physical-card entry flow or one-record retention behavior. The three-card and combination samples (15, 17) already explain positions and give examples. They do not provide ShenTarot's specific loadable three-card exercise. The online-draw sample (12) names and links other free tools, so free/no-account drawing is a shared feature; the handoff from an existing physical draw to the workspace is a different task. Generic questions did not ask about native beta credits. The dated one-credit observation answers a product-specific question that the category sample leaves outside its scope.
+
+### Branded product-answer check, November 8
+
+One fresh ChatGPT temporary chat in the default interface mode was given the following English prompt. This separate observation used a brand name and explicitly requested web search and sources. The earlier category baseline used unbranded questions.
+
+> Search the web for ShenTarot. What can I do with my own tarot cards on the website, is there a worked spread I can try, what does the app add, and how are saved reflections handled? Cite the pages that support each answer.
+
+| H2 | Fact present in the finished answer | Hub detail absent from this answer |
+| --- | --- | --- |
+| `using` | Manual entry of physical cards, both orientations, all 78 cards and no account | Coverage in eight languages |
+| `example` | The exact three example cards, their orientations and positions, the creative-project question and the exercise's connecting interpretation | A direct link that preloads the example in the workspace. The answer directed readers to the homepage for the example. |
+| `app` | Beta access and the distinction between browser guidance and mobile AI interpretation | The October 30 observation for iPhone beta 1.0.1 (19) and the confirmation for one credit |
+| `questions` | One saved reflection in browser local storage, replacement on save and downloadable export | The core storage fact was already retrieved. A fresh product measurement is needed to add information beyond this answer. |
+
+The completed answer had direct links to the [homepage](https://shentarot.com/), [tools index](https://shentarot.com/tools) and [privacy policy](https://shentarot.com/privacy). The two opened citation chips identified the homepage and tools index for the web workflow, and the homepage for the worked example. The hub was not the direct destination in those checked citations. This confirms that at least some published product facts are retrievable in a branded search answer. The comparison applies to this captured answer and leaves the providers' training datasets unverified.
 
 ## BLUF
 
