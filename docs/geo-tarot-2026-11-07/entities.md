@@ -1,10 +1,10 @@
 # ShenTarot：实体清单与跨平台表述核对
 
-观察日期：2026-11-07，2026-11-08 补查产品示例中的三张牌。对象为塔罗，产品为 ShenTarot，发布者为 Shenetic。
+观察日期：2026-11-07 至 2026-11-08。对象为塔罗，产品为 ShenTarot，发布者为 Shenetic。
 
 本次产出 **108 个有明确指代的实体**，按与塔罗主题的关联分层排序；完整逐行证据在 [entities.csv](entities.csv)。其中包括本站所用牌组的完整 **78 张牌**，不是把一个词的不同拼写重复算作多个实体。
 
-官网目录和 Wikipedia 的牌组总表有 78 个可对应的英文牌名。Amazon 零售样本提供整副牌的商品介绍。Reddit 样本直接核对到 15 张牌的提及。ShenTarot 官网明确标注 Shenetic 为发布者，本次品牌检索在 Amazon、Wikipedia 和 Reddit 的结果仍待独立核实。
+官网目录、Wikipedia 牌组总表、Amazon 托管的出版商手册和 Reddit 帖文中的 78 张牌已经逐张对应。Amazon 商品详情另行核对了整副牌和出版信息。ShenTarot 官网明确标注 Shenetic 为发布者，本次品牌检索在 Amazon、Wikipedia 和 Reddit 的结果仍待独立核实。
 
 ## 这份清单能回答什么
 
@@ -42,11 +42,11 @@ CSV 的 `official` 栏主要指 **ShenTarot 官网**。牌组发行商 U.S. Game
 
 | 实体/字段 | 官网或本地内容 | Amazon / Wikipedia / Reddit 的观察 | 判断与建议 |
 | --- | --- | --- | --- |
-| 78 张牌的身份 | 官网目录有完整名称和独立页面 | Wikipedia 总表的 78 个可见名称均能对应 | 身份核对通过。牌义、感情/事业推断和原创例子仍需逐篇审阅；不能用目录匹配替代 |
+| 78 张牌的身份 | 官网目录有完整名称和独立页面 | Wikipedia 总表、Amazon 托管手册、Reddit 改编名单各有 78 条直接可查的名称 | 牌名逐张对应。牌义、正逆位解释和用途分开核对 |
 | 星币 / Pentacles / Coins | 本站采用 Pentacles | Wikipedia 总表显示 Pentacles，部分目标词条地址使用 Coins | 属于可解释的名称变体；CSV保留原名与目标地址。未据此认定所有传统中的图像/读法相同 |
 | RWS / Waite–Smith / Rider–Waite | 方法论限定使用的传统 | 三个平台采用不同简称，Wikipedia列有别称 | 可作历史来源中的别称说明。不同年代的商品牌组、重新上色版本和原始图像不能合并成同一版产品 |
 | Pamela Colman Smith 的角色 | 网站说明图像的艺术家来源 | Amazon作者栏使用 Author，商品介绍说明艺术创作；Wikipedia写插画者 | 人物身份相符，元数据职责不完全一致。本站用艺术家/插画者，不照搬零售分类为文字作者 |
-| 原牌组与书籍的日期 | 方法论与本地指南分别处理图像、书籍和所查重印本 | Amazon牌组介绍为1909；U.S. Games搜索摘要出现1910。Wikipedia书史段落有1911，并带 `citation needed` | 需区分牌组、书名、修订本、再版。不得把这些数字混成同一个日期字段，也不能用来源数量“投票”决定 |
+| 原牌组与书籍的日期 | 方法论与本地指南分别处理图像、书籍和所查重印本 | Amazon 商品介绍把原牌组追溯到 1909，商品元数据另列 1971 年出版和 2003 年版次。手册导言称 Waite 的《The Key to the Tarot》于 1910 年首次发行。Wikipedia 书史段落写到 1911，并带 `citation needed` | 这些日期分属原牌组、书籍、现代商品记录和版次，引用时保留对象和来源 |
 | 宫廷牌与四花色的元素对应 | 本地指南把对应体系限定为一种传统 | Reddit评论列出一种等级/花色元素对应 | 可确认有人使用这种方法；不能写成自然规律、统一标准或所有读者的共识 |
 | 凯尔特十字与三牌布局 | 本地有不同位置的具体牌阵 | Reddit有人偏好十字、觉得三牌过于简略 | 这是个人偏好。不能据此宣传某牌阵最准、最深入或更受欢迎 |
 | ShenTarot 与 Shenetic | 方法论区分产品/网站与发布者 | 限定品牌搜索没有取得可核对的三平台独立结果 | 先维护一致的自有身份，再争取真实第三方使用与报道。不得伪造 Wikipedia 条目、Amazon上架或Reddit推荐 |
@@ -55,7 +55,19 @@ CSV 的 `official` 栏主要指 **ShenTarot 官网**。牌组发行商 U.S. Game
 
 在 R1 中核对到宝剑九。R3 的帖文和评论提到愚者、倒吊人、皇后、宝剑国王、恶魔、圣杯九、星星、圣杯侍从、宝剑王牌、隐士和宝剑三。11 月 8 日针对产品页示例补查 R4，帖文明确列出魔术师、星币二和星币八，三行已在 CSV 更新为 E。两轮共核对到 15 张牌。
 
-这次补查对应的是牌名。星币二的 Amazon Music 节目说明也把画面的杂耍者和生活中要兼顾的事务联系起来，与本站示例的切入点相近。本站示例的牌位、正逆位和具体结论由本站设定。Amazon Music 的内容作者与 Amazon 零售商品页分开记录，三个例牌的零售核对状态仍为 U。[星币二节目说明](https://music.amazon.com/es-us/podcasts/b2ea07b7-94a9-4b8e-b656-785ec8dccd59/episodes/3ecf9c09-8f10-4922-8e9d-d1948044993b/learn-and-memorize-tarot-cards-quick-3-minute-lessons-two-of-pentacles-tarot-card-symbolism-balance-adaptability-in-tarot-cards)
+补查 R5 时，只从帖文正文提取分组下的条目标题，得到 22 张大阿卡纳与 56 张小阿卡纳。再从 A2 手册 PDF 第 9 至 29 页提取各单牌标题，两组各 78 个唯一名称，与官网和 Wikipedia 的牌名逐张比对。CSV 的 Amazon 链接定位到 PDF 页码，Reddit 链接定位到原帖。[出版商手册](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf) · [Reddit 帖文](https://www.reddit.com/r/DnDBehindTheScreen/comments/hssbrl/deck_of_many_things_effects_for_tarot_deck/)
+
+- 大牌去掉开头的 `The` 后比较。本站 `Judgement`、R5 的 `Judgment` 和手册的 `The Last Judgment` 都指向同一张牌，手册编号为 20。
+- R5 在每个花色同时列出 `Knight` 和 `Knave`，因此在这一清单里用后者对应 `Page`。A2 手册导言却把 `Knave` 列为 `Knight` 的别称之一，且正文标题分别使用 `Page` 和 `Knight`。读者遇到 `Knave` 时应先确认同一牌组的宫廷等级。[手册的等级表](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=5)
+- R5 是桌游改编。它证明条目中出现了这些牌名，规则效果属于帖文作者的游戏设计。先前 15 张来自读牌讨论的名称记录仍保留。星币二的 Amazon Music 节目说明与零售页、出版商手册分开记录。[星币二节目说明](https://music.amazon.com/es-us/podcasts/b2ea07b7-94a9-4b8e-b656-785ec8dccd59/episodes/3ecf9c09-8f10-4922-8e9d-d1948044993b/learn-and-memorize-tarot-cards-quick-3-minute-lessons-two-of-pentacles-tarot-card-symbolism-balance-adaptability-in-tarot-cards)
+
+### 三牌示例的表述差异
+
+| 牌 | 核对结果 | 依据 |
+| --- | --- | --- |
+| 魔术师 | 手册把技巧和意志列在多种历史释义里，Wikipedia 的词条导言谈到潜能。本站把这一点转成小练习，建议选一项手头技能做可核查的尝试。 | [本站](https://shentarot.com/cards/major-01-magician) · [手册第 9 页](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=9) · [Wikipedia 词条](https://en.wikipedia.org/wiki/The_Magician_(tarot_card)) |
+| 星币二 | 手册图像描述有两枚星币与连接它们的绳环，历史释义同时涉及娱乐、消息和困难。本站的兼顾多项事务更接近 Wikipedia 的常见解读与 R4 的语境。 | [本站](https://shentarot.com/cards/pentacles-two) · [手册第 29 页](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=29) · [Wikipedia 常见解读](https://en.wikipedia.org/wiki/Two_of_Coins#Common_interpretation) · [Reddit 读牌讨论](https://www.reddit.com/r/tarot/comments/1w1skgf/what_would_this_relationship_be_like/) |
+| 星币八 | 手册与 Wikipedia 都提到手艺和技能。本站将其写成通过持续练习掌握技能。R4 有牌名但帖文未给出具体牌义，R5 的工匠效果属于游戏规则。 | [本站](https://shentarot.com/cards/pentacles-eight) · [手册第 27 页](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=27) · [Wikipedia 词条](https://en.wikipedia.org/wiki/Eight_of_Coins#Divination_usage) |
 
 ### 品牌搜索的可复查边界
 
@@ -92,12 +104,14 @@ CSV 的 `official` 栏主要指 **ShenTarot 官网**。牌组发行商 U.S. Game
 | O5 | [ShenTarot：Methodology](https://shentarot.com/methodology) | 图像/解释来源、AI协助与发布者归属；不是外部认证 |
 | O6 | [ShenTarot：Beta](https://shentarot.com/beta) | 产品指南身份；本报告不重新核验安装、订阅或使用数量 |
 | L1/L2/L4/L6/L7 | [入门](https://shentarot.com/learn/how-to-read-tarot)、[大小阿卡纳](https://shentarot.com/learn/major-and-minor-arcana)、[宫廷牌](https://shentarot.com/learn/court-cards)、[逆位](https://shentarot.com/learn/reversed-cards)、[牌阵](https://shentarot.com/spreads) | 本地 `web/src/i18n/en/learn.json` 与 `content.json` 核对；线上目标地址不能代替本轮未做的逐页生产验证 |
-| A1 | [Amazon：The Rider Tarot Deck，ASIN 091386613X](https://www.amazon.com/dp/091386613X) | 读取工具所提供的商品标题、作者栏和介绍；最后显示为约4周前抓取。后续检索出现503。未核对实时价格、销量、排名、评论、库存或每张牌的图片/牌义 |
+| A1 | [Amazon：The Rider Tarot Deck，ASIN 091386613X](https://www.amazon.com/dp/091386613X) | 11 月 8 日用 Chrome 读取实时商品标题、作者栏、出版商说明和版次字段。逐牌名称来自 A2 |
+| A2 | [Amazon 托管的 U.S. Games 手册](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf) | 封面标明牌组和创作者。正文 78 个标题逐一核对。导言还提到口袋版，因此不推断 A1 当前发货盒内手册的版次。PDF SHA-256 为 `5efb089881cf1d3c2c3b48071060567f4f532010de1996a87718495a880b353c` |
 | W1 | [Wikipedia：Rider–Waite Tarot](https://en.wikipedia.org/wiki/Rider%E2%80%93Waite_Tarot) | 总表、别称、角色和出版史段落；78个英文牌名与总表链接相符。独立卡牌词条未因此被算作全文已读；书史段落的缺引证标识已保留 |
 | R1 | [Reddit：What's so good about Rider-Waite deck?](https://www.reddit.com/r/tarot/comments/1kltora/whats_so_good_about_riderwaite_deck/) | 实际读到讨论和部分评论，含宝剑九；牌组选择是个人意见。Thoth相关观察仅保留为搜索摘要层级 |
 | R2 | [Reddit：Court cards](https://www.reddit.com/r/tarot/comments/1s6ug38/court_cards/) | 评论中直接列出四等级、四花色和一种元素对应；不能视为平台正式结论 |
 | R3 | [Reddit：Celtic Cross discussion](https://www.reddit.com/r/tarot/comments/1mr6xdx/the_best_spread_the_celtic_cross_goes_into/) | 牌阵偏好、位置和明确出现的牌名；未作样本代表性或准确度评价 |
 | R4 | [Reddit：三张示例牌的名称对照](https://www.reddit.com/r/tarot/comments/1w1skgf/what_would_this_relationship_be_like/) | 11 月 8 日核对帖文正文中的魔术师、星币二和星币八。仅用于名称匹配 |
+| R5 | [Reddit：桌游改编的 78 张牌清单](https://www.reddit.com/r/DnDBehindTheScreen/comments/hssbrl/deck_of_many_things_effects_for_tarot_deck/) | 11 月 8 日核对帖文正文的 78 个条目标题，保留四张 `Knave` 的语境。改编效果不用于牌义判断 |
 | V1 | [U.S. Games：Rider-Waite Tarot Deck](https://www.usgamesinc.com/Rider-Waite-Tarot-Deck.html) | 搜索摘要出现1910；直接打开403。因此日期仅作为需复核的差异信号，不能称官网全文已读 |
 | V2 | [U.S. Games：Rider-Waite-Smith](https://www.usgamesinc.com/tarot-and-inspiration/all-products/Rider-Waite-Smith) | 搜索结果说明现代商品重制版本；未将其图像或权利状态等同本站历史扫描 |
 
@@ -106,8 +120,8 @@ CSV 的 `official` 栏主要指 **ShenTarot 官网**。牌组发行商 U.S. Game
 ## 完成状态与下一轮
 
 - 完成108行实体清单，每行都有四平台状态、观察、来源、结论与建议位置。
-- 完成78张牌在官网目录与Wikipedia总表的名称/链接对应；未做78篇含义的逐项外部验证。
-- Reddit 的抽样记录覆盖 15 张牌。其余 63 张的逐牌核对仍待完成。
+- 78 张牌的名称已在官网目录、Wikipedia 总表、Amazon 托管手册和 Reddit 改编清单逐张对应。牌义仍需逐篇核对。
+- 15 张牌还有读牌讨论中的实际提及。其余牌的 Reddit 名称证据来自 R5。
 - 保留日期、作者职责、名称变体和版本范围的差异，没有强行制造“四平台完全一致”。
 
 下一轮应优先处理能改善读者理解的内容证据：把每篇现有参考文章中的事实断言对应到具体原文，再补原创例子的观察—推理—限制，并记录真实完成的审阅。第三方提及应来自实际使用或独立评价；本清单本身不能证明流量会增加、AI会引用或产品会被推荐。

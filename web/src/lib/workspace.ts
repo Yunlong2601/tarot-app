@@ -28,10 +28,17 @@ export function movePick(d: Draft, index: number, delta: number): void {
   [d.cards[index], d.cards[next]] = [d.cards[next]!, d.cards[index]!];
 }
 export const normalise = (s: string) => s.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[-_]/g, ' ').replace(/\s+/g, ' ').trim();
+export const JUDGEMENT_ALIASES = ['Judgment', 'The Last Judgment'] as const;
 export function queryParts(raw: string) {
   const reversed = /reversed|reverse\b|逆位|逆位置|invertid[ao]|renvers[eé]e?|umgekehrt|перев[её]рнут/iu.test(raw);
   const query = raw.replace(/reversed|reverse\b|逆位置|逆位|invertid[ao]|renvers[eé]e?|umgekehrt|перев[её]рнут\p{L}*/giu, ' ').trim();
-  const aliases: Record<string, string> = { qoc: 'queen cups', koc: 'king cups', judgment: 'judgement' };
+  const aliases: Record<string, string> = {
+    qoc: 'queen cups',
+    koc: 'king cups',
+    judgment: 'judgement',
+    'last judgment': 'judgement',
+    'the last judgment': 'judgement',
+  };
   const normal = normalise(query);
   const words = (aliases[normal] ?? normal).replace(/\bcoins?\b/g, 'pentacles').replace(/\bdis[ck]s?\b/g, 'pentacles').replace(/\bstaves\b|\brods\b/g, 'wands').split(' ').filter(Boolean);
   return { reversed, words };

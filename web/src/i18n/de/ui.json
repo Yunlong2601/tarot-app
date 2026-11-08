@@ -348,6 +348,8 @@
   "suitsNav": "Farben"
  },
  "card": {
+  "judgementAliases": "Der englische Name dieser Karte wird auch {short} geschrieben. Das Begleitheft von U.S. Games führt Karte 20 als {historical}.",
+  "judgementBooklet": "Begleitheft von U.S. Games, PDF-Seite 11",
   "title": "{name} Tarotkarte Bedeutung: aufrecht und umgekehrt · ShenTarot",
   "description": "{name} im Tarot, Bedeutung aufrecht und umgekehrt: {keywords}. {essence}",
   "home": "Startseite",

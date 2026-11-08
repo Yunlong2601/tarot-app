@@ -309,6 +309,8 @@
   "suitsNav": "Suits"
  },
  "card": {
+  "judgementAliases": "{short} is another English spelling of this card. The U.S. Games booklet lists card 20 as {historical}.",
+  "judgementBooklet": "U.S. Games booklet, PDF page 11",
   "title": "{name} tarot card meaning: upright and reversed · ShenTarot",
   "description": "{name} meaning in tarot, upright and reversed: {keywords}. {essence}",
   "home": "Home",

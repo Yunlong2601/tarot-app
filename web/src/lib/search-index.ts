@@ -2,9 +2,10 @@
 import { APP_SPREADS, cardIds, slug, spreadIds } from './data';
 import { firstSentence, i18n, LEARN_SLUGS, type Locale } from '../i18n';
 import { BASE } from '../config';
+import { JUDGEMENT_ALIASES } from './workspace';
 import type { SearchEntry } from './search';
 
-const shortAliases: Record<string, string[]> = { cups_queen: ['qoc'], cups_king: ['koc'], major_20_judgement: ['judgment'] };
+const shortAliases: Record<string, readonly string[]> = { cups_queen: ['qoc'], cups_king: ['koc'], major_20_judgement: JUDGEMENT_ALIASES };
 
 export function buildSearchIndex(locale: Locale): SearchEntry[] {
   const L = i18n(locale), english = i18n('en');
