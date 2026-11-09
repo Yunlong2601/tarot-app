@@ -43,6 +43,7 @@ CSV 的 `official` 栏主要指 **ShenTarot 官网**。牌组发行商 U.S. Game
 | 实体/字段 | 官网或本地内容 | Amazon / Wikipedia / Reddit 的观察 | 判断与建议 |
 | --- | --- | --- | --- |
 | 78 张牌的身份 | 官网目录有完整名称和独立页面 | Wikipedia 总表、Amazon 托管手册、Reddit 改编名单各有 78 条直接可查的名称 | 牌名逐张对应。牌义、正逆位解释和用途分开核对 |
+| 大阿卡纳与小阿卡纳 | 八语目录构建中分别可直达 22 张大牌与 56 张小牌。小牌 H2 下有四个花色 H3，结构化清单与实际链接相符 | [Amazon 托管手册](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=3)说明 22 和 56，并用 Greater/Lesser 作章节名。[Wikipedia](https://en.wikipedia.org/wiki/Minor_Arcana)列四个花色各 14 张。[Reddit](https://www.reddit.com/r/tarot/comments/wf27vu/new_to_tarot_difference_between_big_and_small/)的讨论也用 Major/Minor，并提出个人读法 | 数量和成员可核对。用 [牌义目录](https://shentarot.com/cards#minor) 查牌，在[教程](https://shentarot.com/learn/major-and-minor-arcana)理解分组与读法 |
 | 星币 / Pentacles / Coins | 本站采用 Pentacles | Wikipedia 总表显示 Pentacles，部分目标词条地址使用 Coins | 属于可解释的名称变体；CSV保留原名与目标地址。未据此认定所有传统中的图像/读法相同 |
 | RWS / Waite–Smith / Rider–Waite | 方法论限定使用的传统 | 三个平台采用不同简称，Wikipedia列有别称 | 可作历史来源中的别称说明。不同年代的商品牌组、重新上色版本和原始图像不能合并成同一版产品 |
 | Pamela Colman Smith 的角色 | 网站说明图像的艺术家来源 | Amazon作者栏使用 Author，商品介绍说明艺术创作；Wikipedia写插画者 | 人物身份相符，元数据职责不完全一致。本站用艺术家/插画者，不照搬零售分类为文字作者 |

@@ -4,7 +4,7 @@ import CardSearch from "../../../components/CardSearch.astro";
 import SearchGrowthNotes from "../../../components/SearchGrowthNotes.astro";
 import Base from "../../../layouts/Base.astro";
 import { i18n, langPaths, type Locale } from "../../../i18n/index.ts";
-import { cardIds, slug } from "../../../lib/data";
+import { cardIds, catalogArcana, slug, type CardId } from "../../../lib/data";
 import { SITE_URL } from "../../../config";
 import { SHENETIC, SHENTAROT_WEBSITE } from "../../../lib/site-entities";
 
@@ -12,15 +12,29 @@ export const getStaticPaths = langPaths;
 const { lang } = Astro.props as { lang: Locale };
 const L = i18n(lang);
 const { t } = L;
+const catalogUrl = new URL(L.url('cards'), SITE_URL).href;
+const cardUrl = (id: CardId) => new URL(L.url('cards/' + slug(id)), SITE_URL).href;
+function catalogSection({ id, cards }: { id: string; cards: readonly CardId[] }) {
+  const url = catalogUrl + '#' + id;
+  return {
+    '@type': 'WebPageElement', '@id': url, url, name: L.group(id),
+    mainEntity: { '@type': 'ItemList', numberOfItems: cards.length,
+      itemListElement: cards.map(card => ({ '@id': cardUrl(card) })) },
+  };
+}
 // List only entities actually rendered in the library. No invented sameAs,
 // ratings, reviewer credentials or external marketplace listings.
 const jsonLd = [{
   '@context': 'https://schema.org', '@type': 'CollectionPage',
-  name: t('cards.h1'), url: new URL(L.url('cards'), SITE_URL).href, inLanguage: L.tag,
+  name: t('cards.h1'), url: catalogUrl, inLanguage: L.tag,
   publisher: SHENETIC, isPartOf: SHENTAROT_WEBSITE,
+  hasPart: catalogArcana.map(group => ({
+    ...catalogSection(group),
+    ...(group.suits.length && { hasPart: group.suits.map(catalogSection) }),
+  })),
   mainEntity: { '@type': 'ItemList', numberOfItems: cardIds.length,
     itemListElement: cardIds.map((id, i) => ({ '@type': 'ListItem', position: i + 1,
-      item: { '@type': 'DefinedTerm', '@id': new URL(L.url('cards/' + slug(id)), SITE_URL).href, name: L.cards[id]!.name, url: new URL(L.url('cards/' + slug(id)), SITE_URL).href } })) },
+      item: { '@type': 'DefinedTerm', '@id': cardUrl(id), name: L.cards[id]!.name, url: cardUrl(id) } })) },
 }];
 
 ---

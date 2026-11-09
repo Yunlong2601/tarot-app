@@ -12,6 +12,22 @@ export type SpreadId = keyof typeof SPREADS;
 
 export const cardIds = Object.keys(CARDS) as CardId[];
 export const spreadIds = Object.keys(SPREADS) as SpreadId[];
+const catalogSuits = ["wands", "cups", "swords", "pentacles"] as const;
+export const catalogArcana = [
+  {
+    id: "major",
+    cards: cardIds.filter(id => !CARDS[id].suit),
+    suits: [],
+  },
+  {
+    id: "minor",
+    cards: cardIds.filter(id => !!CARDS[id].suit),
+    suits: catalogSuits.map(suit => ({
+      id: suit,
+      cards: cardIds.filter(id => CARDS[id].suit === suit),
+    })),
+  },
+] as const;
 
 /** major_00_fool -> major-00-fool, used in page addresses. */
 export const slug = (id: string) => id.replace(/_/g, "-");

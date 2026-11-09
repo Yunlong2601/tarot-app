@@ -11,7 +11,8 @@ for (const root of document.querySelectorAll<HTMLElement>('[data-card-search]'))
     const rev = orientation.value === 'reversed';
     let n = 0;
     for (const a of cards) {
-      a.hidden = !matches(a.dataset.text!, words) || (!!group.value && a.dataset.group !== group.value);
+      const inGroup = group.value === 'minor' ? a.dataset.group !== 'major' : !group.value || a.dataset.group === group.value;
+      a.hidden = !inGroup || !matches(a.dataset.text!, words);
       if (!a.hidden) n++;
       a.href = `${a.dataset.href}${rev ? '?orientation=reversed#meanings' : ''}`;
       a.querySelector<HTMLElement>('[data-short]')!.textContent = rev ? a.dataset.rev! : a.dataset.up!;
@@ -22,6 +23,17 @@ for (const root of document.querySelectorAll<HTMLElement>('[data-card-search]'))
   }
   input.addEventListener('input', () => { if (queryParts(input.value).reversed) orientation.value = 'reversed'; update(); }); group.addEventListener('change', update); orientation.addEventListener('change', update);
   root.querySelector<HTMLButtonElement>('[data-clear]')!.onclick = () => { input.value = ''; group.value = ''; orientation.value = ''; update(); input.focus(); };
+  for (const link of root.querySelectorAll<HTMLAnchorElement>('[data-catalog-jump]')) {
+    link.addEventListener('click', event => {
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      const target = document.getElementById(link.hash.slice(1));
+      if (target?.closest('[hidden]')) {
+        group.value = '';
+        input.value = '';
+        update();
+      }
+    });
+  }
   const q = new URLSearchParams(location.search).get('q');
   if (q) { input.value = q; if (queryParts(q).reversed) orientation.value = 'reversed'; }
   update();

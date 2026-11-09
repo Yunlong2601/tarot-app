@@ -176,3 +176,11 @@ Google 的 27 题「有来源链接」也不能直接判为「论证完整」。
 新 ChatGPT Temporary Chat 用 Auto 问同一个问题。完成的回答给出准备、提问、抽一张、解读和日记流程，也建议晚上复盘。可见图卡，正文和底部未见文字来源链接或 Sources 控件。两份回答的用途都是介绍日常练习，均未描述本站的日期与保存规则。
 
 Chrome 本地正式构建实测使用简体中文洗牌，选取并翻开逆位正义。刷新保留同一张牌和逆位。随后打开英语每日一牌，仍显示逆位 Justice。实现用浏览器本地日期匹配保存的牌、正逆位及日期。当前文案只说「到明天」，可以补充同一浏览器、按本地日期、需要允许保存的条件。每日工具负责实际抽牌，主题页负责问题和牌阵建议。[每日一牌](https://shentarot.com/tools/daily-card) · [每日主题](https://shentarot.com/topics/daily)
+
+### 第 3 题大小阿卡纳复测 · 11 月 9 日（新加坡时间）
+
+原题为「What is the difference between the Major and Minor Arcana?」。Google Chrome 查询使用 `hl=en&gl=sg&pws=0`。AI Overview 给出 22 张大牌、56 张小牌、四个花色及每花色 14 张，也以人生转折和日常处境作解释。可见来源包括 Times of India、Emmarie Hodge 和一份 Squarespace 托管的速查 PDF，可见区域未见 ShenTarot。[Emmarie Hodge 的文章](https://medium.com/spiritually-emmarie/the-difference-between-the-major-and-minor-arcana-in-tarot-16401f229e4f)
+
+ChatGPT 的新 Temporary Chat 用 Auto 回答同一句英语问题。完成回答也给出 22 和 56 的数量、四个花色和示例，并把大牌联系到人生课题，小牌联系到日常经验。可见图卡来源，正文和底部未见文字引用链接或 Sources 控件。两份答案都讲了通用牌组组成，均未提供本站目录的可点击分组。本站教程已说明「重大主题」和「日常处境」是读法提示。[大小阿卡纳教程](https://shentarot.com/learn/major-and-minor-arcana)
+
+在此时的英文生产目录中，大阿卡纳与四个花色各有标题。小阿卡纳可由四花色成员推得，目录没有直接写出 Minor Arcana。下一步可在该目录用实际牌记录生成 22 与 56 的两个分组入口，把四个小牌花色放在同一分类之下，并保留已有的 78 张牌义地址。Amazon 托管手册使用 Greater/Lesser Arcana，Wikipedia 与 Reddit 讨论使用 Major/Minor Arcana。数量用于核对牌组结构。[本站牌义目录](https://shentarot.com/cards) · [手册 PDF 第 5 页](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=5) · [Wikipedia](https://en.wikipedia.org/wiki/Minor_Arcana) · [Reddit 讨论](https://www.reddit.com/r/tarot/comments/wf27vu/new_to_tarot_difference_between_big_and_small/)

@@ -315,7 +315,8 @@
   "pentacles": "工作、金钱与身体"
  },
  "groups": {
-  "major": "大阿尔卡那",
+  "major": "大阿卡纳",
+  "minor": "小阿卡纳",
   "wands": "权杖",
   "cups": "圣杯",
   "swords": "宝剑",
@@ -343,7 +344,9 @@
   "eyebrow": "整副牌",
   "h1": "塔罗牌含义",
   "lead": "查找全部78张莱德-韦特-史密斯塔罗牌：搜索牌名、选择正逆位，理解图像与关键词，再结合问题和牌阵位置解读。",
-  "suitsNav": "牌组"
+  "suitsNav": "按牌组查看",
+  "cardCount": {"one": "{n} 张牌", "other": "{n} 张牌"},
+  "arcanaGuide": "大、小阿卡纳有什么区别？"
  },
  "card": {
   "judgementAliases": "这张牌的英文名也写作 {short}。U.S. Games 手册把编号 20 的大牌列为 {historical}。",

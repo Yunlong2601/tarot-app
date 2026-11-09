@@ -1,30 +1,61 @@
 ---
-import { CARDS, cardIds, slug } from '../lib/data';
+import { CARDS, cardIds, catalogArcana, slug } from '../lib/data';
 import { BASE } from '../config';
 import type { I18n } from '../i18n';
 const { L } = Astro.props as { L: I18n };
 const w = L.workspace;
-const groups = ['major', 'wands', 'cups', 'swords', 'pentacles'];
+const groups = catalogArcana.flatMap(group => [group, ...group.suits]);
+const cardCount = (n: number) => L.t('cards.cardCount', { n });
 ---
 <div data-card-search>
+  <nav class="catalog-jumps" aria-label={L.t('cards.suitsNav')}>
+    {catalogArcana.map(group => <a href={`#${group.id}`} data-catalog-jump>
+      {L.group(group.id)} <small>· {cardCount(group.cards.length)}</small>
+    </a>)}
+    <a class="arcana-guide" href={L.url('learn/major-and-minor-arcana')}>{L.t('cards.arcanaGuide')}</a>
+  </nav>
   <div class="reader-controls search-controls">
     <label class="grow">{w.search}<input type="search" data-search aria-describedby="search-help" /></label>
-    <label>{L.t('cards.suitsNav')}<select data-group><option value="">{w.all}</option>{groups.map(g => <option value={g}>{L.group(g)}</option>)}</select></label>
+    <label>{L.t('cards.suitsNav')}<select data-group><option value="">{w.all}</option>{groups.map(g => <option value={g.id}>{L.group(g.id)}</option>)}</select></label>
     <label>{w.orientation}<select data-orientation><option value="">{L.t('card.upright')}</option><option value="reversed">{L.t('card.reversed')}</option></select></label>
     <button class="btn btn-ghost" type="button" data-clear>{w.clear}</button>
   </div>
   <p class="muted" id="search-help">{w.searchHint}</p>
-  <p data-count role="status" aria-live="polite">78 / 78</p>
+  <p data-count role="status" aria-live="polite">{cardIds.length} / {cardIds.length}</p>
   <p data-empty hidden>{w.empty}</p>
-  {groups.map(g => <section data-card-group><h2 class="group-title" id={g}>{L.group(g)}</h2><div class="card-grid">
-    {cardIds.filter(id => (CARDS[id].suit ?? 'major') === g).map(id => {
-      const c = L.cards[id]!;
-      const href = L.url(`cards/${slug(id)}`);
-      return <a class="tcard search-card" href={href} data-href={href} data-search-card data-group={g} data-text={`${c.name} ${id} ${CARDS[id].name} ${c.keywords.join(' ')}`} data-up={c.upright} data-rev={c.reversed}>
-        <img src={`${BASE}cards/art/${id}.jpg`} alt="" loading="lazy" width="150" height="257" /><h3>{c.name}</h3><small data-short>{c.upright}</small>
-      </a>;
+  {catalogArcana.map(arcana => <section data-card-group aria-labelledby={arcana.id}>
+    <h2 class="group-title" id={arcana.id} tabindex="-1"><span>{L.group(arcana.id)}</span>{' '}<small>{cardCount(arcana.cards.length)}</small></h2>
+    {arcana.suits.length > 0 && <nav class="catalog-jumps suit-jumps" aria-label={L.group(arcana.id)}>
+      {arcana.suits.map(suit => <a href={`#${suit.id}`} data-catalog-jump>{L.group(suit.id)}</a>)}
+    </nav>}
+    {(arcana.suits.length ? arcana.suits : [arcana]).map(group => {
+      const isSuit = group.id !== arcana.id;
+      const CardHeading = isSuit ? 'h4' : 'h3';
+      return <div data-card-group>
+        {isSuit && <h3 class="group-title suit-title" id={group.id} tabindex="-1"><span>{L.group(group.id)}</span>{' '}<small>{cardCount(group.cards.length)}</small></h3>}
+        <div class="card-grid">
+          {group.cards.map(id => {
+            const c = L.cards[id]!;
+            const href = L.url(`cards/${slug(id)}`);
+            return <a class="tcard search-card" href={href} data-href={href} data-search-card data-group={group.id} data-text={`${c.name} ${id} ${CARDS[id].name} ${c.keywords.join(' ')}`} data-up={c.upright} data-rev={c.reversed}>
+              <img src={`${BASE}cards/art/${id}.jpg`} alt="" loading="lazy" width="150" height="257" /><CardHeading class="card-name">{c.name}</CardHeading><small data-short>{c.upright}</small>
+            </a>;
+          })}
+        </div>
+      </div>;
     })}
-  </div></section>)}
+  </section>)}
 </div>
-<style>.search-card h3 { font:inherit; font-weight:600; margin:.5rem 0; }</style>
+<style>
+  .catalog-jumps { display:flex; flex-wrap:wrap; gap:.25rem 1.5rem; margin:0 0 1rem; }
+  .catalog-jumps a { display:inline-flex; align-items:baseline; align-content:center; flex-wrap:wrap; gap:0 .35rem; min-height:2.75rem; padding:.5rem 0; color:var(--forest); text-underline-offset:.2em; }
+  .catalog-jumps a:focus-visible { outline:2px solid var(--forest); outline-offset:3px; }
+  .catalog-jumps small { color:var(--muted); font-size:.875rem; }
+  .arcana-guide { margin-inline-start:auto; }
+  .suit-jumps { margin-top:-.75rem; }
+  .group-title { flex-wrap:wrap; }
+  .suit-title { margin-top:2rem; }
+  .card-name { font:inherit; font-weight:600; margin:.5rem 0; }
+  @media (max-width: 40rem) { .arcana-guide { margin-inline-start:0; } }
+</style>
 <script src="../scripts/card-search.ts"></script>
