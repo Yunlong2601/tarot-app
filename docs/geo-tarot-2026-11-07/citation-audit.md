@@ -143,3 +143,12 @@ Google 的 27 题「有来源链接」也不能直接判为「论证完整」。
 同日上午，Search Console 仍把英文和简体中文问答页列为已收录，索引中的最后抓取时间分别是 10 月 22 日和 27 日。简体中文页 11:26 的实时测试显示可供 Google 访问，测试 HTML 含 FAQPage。线上当时提供修订版 `928f1ca9a437651f7a1b4e833c520993fbb11477`。实时访问验证和索引记录分别保存，本轮无法据此归因新版对引用的影响。[Search Console](https://search.google.com/search-console?resource_id=sc-domain%3Ashentarot.com) · [线上版本记录](https://shentarot.com/release.json)
 
 11 月 8 日晚再次打开 Google 索引报告。英文 `/about` 仍为 10 月 22 日 05:53:23，简体中文 `/zh-hans/about` 仍为 10 月 27 日 06:00:16，时间按控制台显示。两页均显示已收录。本次恢复的逆位答案仍属于上午的样本。它已经计入该轮复测，待抓取后再另开观察轮次。
+
+
+### 西语星币四样本 · 11 月 9 日（新加坡时间）
+
+西语查询「qué significa el cuatro de oros en el tarot」，Chrome，`hl=es&gl=sg&pws=0`。Google 显示 Vista creada con IA。回答的正位涵盖安全、储蓄、谨慎和过度控制；逆位列放松控制、慷慨或冲动消费，以及僵局解除。可见来源栏为 Dark Forest Tarot Cards、Tiziana Tarot、Tarot Rossana，未见 ShenTarot。[西语查询](https://www.google.com/search?q=qu%C3%A9+significa+el+cuatro+de+oros+en+el+tarot&hl=es&gl=sg&pws=0)
+
+在全新的 ChatGPT Temporary Chat，以 Auto 模式问同一个西语问题，没有提示品牌或要求出处。正文给出占有、安全感、保存资源和害怕失去等解释，逆位提到放下控制、慷慨或财务不稳定。回复完成后可见三张带来源标题的图片，正文和回复底部未见文字引文、来源链接或 Sources 控件。原有第 24 题的英语样本单独保留。两处西语样本都没有提到韦特的历史逆位条目。
+
+韦特第三部分第 2 节星币四条目写的是一枚在冠顶、一枚抱在手中、两枚在脚下。其逆位历史条目包括悬而未决、延迟和阻力；Amazon 托管的出版商手册复述同样的条目。Reddit 讨论则有人读成放手、恢复接触，有人读成正位特征的增强。新版可把历史条目、现代读法和能辨别原因的练习分开。[Waite 第三部分](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3) · [出版商手册 PDF 第 28 页](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=28) · [讨论原帖](https://www.reddit.com/r/tarot/comments/1q9mb1m/4_of_pentacles_reversed/)

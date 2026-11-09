@@ -59,19 +59,24 @@ for(const [id,evidence] of Object.entries(CARD_EVIDENCE))for(const locale of loc
  assert.ok(document.querySelector('a[data-use-card]'),locale+': preserve workspace action');
  assert.ok(document.querySelector('[data-card-orientation]'),locale+': preserve orientation');
  assert.ok(section.querySelector(`a[href="/${prefix}methodology#corrections"]`));
- const schema=[...document.querySelectorAll('script[type="application/ld+json"]')].map(s=>JSON.parse(s.textContent)).find(s=>s['@type']==='Article');
+ const schemas=[...document.querySelectorAll('script[type="application/ld+json"]')].map(s=>JSON.parse(s.textContent));
+ const schema=schemas.find(s=>s['@type']==='Article');
  assert.equal(schema.dateModified,evidence.checkedAt);
  assert.deepEqual(schema.citation.map(s=>s.url),evidence.sources.map(s=>s.url));
  for(const [i,source]of evidence.sources.entries()){assert.equal(schema.citation[i].author.name,source.author);assert.ok(section.querySelector(`a[href="${source.url}"]`));}
  assert.ok(!('reviewedBy'in schema)&&!('lastReviewed'in schema));
  const markdown=['dist/_agent-markdown/'+path+'.md','dist/_agent-markdown/'+path+'/index.md'].find(existsSync);assert.ok(markdown);
  const md=readFileSync(markdown,'utf8');for(const source of evidence.sources)assert.ok(md.includes(source.url));
- if(id==='major_19_sun'||id==='major_20_judgement'){
+ if(['major_19_sun','major_20_judgement','pentacles_four'].includes(id)){
   for(const orientation of ['upright','reversed']){
    const href=`/${path}?orientation=${orientation}#card-meanings`;
    assert.ok(section.querySelector(`a[href="${href}"]`),`${locale}: ${id} orientation example link`);
    assert.ok(md.includes(href),`${locale}: ${id} orientation link in Markdown`);
   }
+ }
+ if(id==='pentacles_four'){
+  assert.deepEqual(schemas.find(s=>s['@type']==='DefinedTerm')?.alternateName,['Four of Coins']);
+  assert.ok(section.textContent.includes('Four of Coins') && md.includes('Four of Coins'));
  }
  assert.equal(evidence.independentExpertReview,false);assert.equal(evidence.nativeLanguageReview,false);
  // Context pages must not inherit the base reference's source-comparison date.

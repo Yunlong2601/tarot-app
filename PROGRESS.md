@@ -1,3 +1,7 @@
+# Four of Pentacles reference source check — 2026-11-09
+
+Eight base references now compare the 1–1–2 illustration with Waite’s historical reversed entry and an original easel-lending exercise. Four of Coins resolves to the same card in site search and structured data. Documented one Spanish sample each for Google AI Overviews and ChatGPT plus the four-surface source comparison.
+
 # Judgement reference source check — 2026-11-09
 
 Eight localized base references separate the card image, Waite’s historical meanings and an original book-swap example using the same question upright and reversed. The source audit records the second Google observation for question 25 and the four-platform comparison. Independent expert and native-language checks remain pending.

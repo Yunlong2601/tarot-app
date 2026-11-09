@@ -2518,14 +2518,14 @@
    "Sparen",
    "Kontrolle"
   ],
-  "upright": "Festhalten, was du hast. Sicherheit ist gut; pass auf, dass du nicht klammerst.",
-  "reversed": "Die Großzügigkeit kehrt zurück, oder strenge Kontrolle lockert sich.",
+  "upright": "Überlege, was eine Reserve absichert und wann du sie nutzen würdest.",
+  "reversed": "Finde heraus, was den Ablauf verzögert und ob die Reserve noch sinnvoll ist.",
   "k": {
    "essence": "Krampfhaft festhalten.",
    "imagery": "Eine gekrönte Gestalt sitzt da und drückt eine Münze an die Brust, eine weitere liegt auf ihrem Kopf und zwei unter ihren Füßen. Dahinter steht eine Stadt.",
-   "why": "Vier ist die Zahl des Fundaments und hier der Starrheit. Jede Münze wird bewacht, damit nichts verloren gehen kann – und nichts genutzt werden kann. Die Stadt dahinter zeigt die Welt, von der er abgeschnitten ist.",
+   "why": "Alle vier Münzen liegen dicht am Körper der Figur. Das Bild lädt dazu ein, zu überlegen, was du sichern möchtest und wann du es brauchen könntest.",
    "upright": {
-    "core": "Sicherheit, die ins Klammern kippt, bei Geld, Dingen oder Kontrolle.",
+    "core": "Überlege, was eine Reserve absichert und wann du sie nutzen würdest.",
     "light": "Sicherheit, Sparen, Grenzen",
     "shadow": "Gier, Verlustangst, Kontrolle",
     "love": "Besitzdenken oder Verschlossenheit.",
@@ -2533,14 +2533,46 @@
     "question": "Woran halte ich aus Angst fest?"
    },
    "reversed": {
-    "core": "Den Griff lockern oder gedankenlos ausgeben.",
+    "core": "Finde heraus, was den Ablauf verzögert und ob die Reserve noch sinnvoll ist.",
     "modes": [
-     "Loslassen: Großzügigkeit.",
-     "Übermaß: Horten.",
-     "Blockiert: Angst vor Mangel."
+     "Wird das noch gebraucht?",
+     "Was verhindert gerade den Zugriff?",
+     "Was lässt sich mit einem Rückgabetermin verleihen?"
     ],
-    "question": "Was würde ich tun, wenn ich mich sicher fühlte?"
+    "question": "Was müsste passieren, damit du die Reservierung aufheben kannst?"
    }
+  },
+  "evidence": {
+   "answer": "Die Vier der Münzen fragt, was du in Reserve halten möchtest. Aufrecht geht es darum, was Schutz braucht. Umgekehrt kannst du prüfen, ob eine Reservierung noch sinnvoll ist oder ob etwas den Ablauf verzögert.",
+   "groupNote": "Auf der Karte steht IV. Sie gehört zu den Münzen der Kleinen Arkana.",
+   "sections": [
+    {
+     "h": "Wo die vier Münzen auf der Karte liegen",
+     "p": [
+      "Eine Münze sitzt über der Krone, eine hält die Figur in den Armen, zwei liegen unter ihren Füßen. Dahinter ist eine Stadt zu sehen. Waite beschreibt ebenfalls die Verteilung der Münzen in Gruppen von eins, eins und zwei. Das Bild kann dir helfen zu fragen, was du in deiner Nähe behalten willst.",
+      "Waite verbindet die aufrechte Karte damit, Besitz zu bewahren. Er nennt auch Geschenke und Erbschaften. Bei der umgekehrten Karte geht es in seinem Eintrag um eine ungeklärte Lage, Verzögerung oder Widerstand. Weniger festzuhalten ist eine andere, neuere Deutung."
+     ]
+    },
+    {
+     "h": "Dieselbe Frage mit der Karte in beiden Lagen",
+     "p": [
+      "Stell dir vor, eine offene Kunstwerkstatt hat vier Klappstaffeleien. Laut Ausleihliste kommen drei erst nach dem nächsten Termin zurück. Lege [die Vier der Münzen aufrecht](cards/pentacles-four?orientation=upright#card-meanings) auf die Frage „Was brauchen wir in Reserve?“. Halte die vierte frei, damit beim Termin mindestens eine bereitsteht.",
+      "Lege [die Vier der Münzen umgekehrt](cards/pentacles-four?orientation=reversed#card-meanings) auf dieselbe Position und kläre, warum eine Staffelei noch reserviert ist. Vielleicht wird sie noch gebraucht. Vielleicht wurde sie zurückgegeben, aber niemand hat es vermerkt. Sieh im Lager nach und frag bei der Person nach, die sie ausgeliehen hat. Ist sie zurück und die Reservierung beendet, gib sie wieder frei. Wird sie noch gebraucht, vereinbare einen Rückgabetermin."
+     ]
+    },
+    {
+     "h": "Quellen zum Nachlesen",
+     "p": [
+      "[Waite, Teil III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), Abschnitt 2, Vier der Münzen, beschreibt das Bild und nennt die historischen Deutungen. Das [Begleitheft von U.S. Games](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=28) übernimmt den Eintrag zur umgekehrten Karte. Auf Englisch bezeichnet auch [Four of Coins](https://en.wikipedia.org/wiki/Four_of_Coins) diese Karte."
+     ]
+    },
+    {
+     "h": "Prüfvermerk · 9. November 2026",
+     "p": [
+      "Codex hat das hier verwendete Kartenbild, die genannten Passagen und diese Kartenseite verglichen. Die Kunstwerkstatt ist eine eigene Übung. Die unabhängige fachliche und muttersprachliche Prüfung steht noch aus. [Korrektur melden](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "pentacles_five": {

@@ -321,6 +321,17 @@ Actor: Codex AI assistant. Scope: eight localized base references; context varia
 
 Article citations and visible record state limited AI-assisted comparison only. Independent expert and native-language review unconfirmed. Progress: 16/487 logical references, 56 lesson + 72 base-card localized routes. Validation: all 49 tests, locale parity, Astro check (0 errors/warnings, 2 existing hints), build, reader/editorial (128 routes), ritual, interaction, search-growth and beta audits passed. Chrome DOM checks across eight locales at 390/768/1440px found four evidence sections, two sources and no overflow. Reversed selection displayed the correct text and passed its orientation to the workspace. Chinese desktop proof: `strength-desktop.png`. Physical accessibility/native-language acceptance unverified; known mobile screenshot limitation unchanged.
 
+## Four of Pentacles base reference · 9 November 2026
+
+| Claim | Check and resulting copy |
+| --- | --- |
+| IV and the 1–1–2 arrangement | The bundled art shows a pentacle above the crown, one in the figure’s arms and two underfoot. The town is visible in the picture. [Waite, Part III, §2, Pentacles Four](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3) describes the placement. The copy treats isolation and rigidity as interpretations and removes the claim that the number four necessarily means rigidity. |
+| Upright and reversed meanings | Waite’s upright entries include retaining possessions, gifts and inheritance. He associates the reversal with an unresolved situation, delay and opposition. The [publisher booklet, PDF p. 28](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=28) repeats the reversed entry. The exercise separates that history from a modern reading about letting go. |
+| Original practice | A fictional art workshop has four folding easels. The upright example reserves the one available for the next session. The reversed example checks whether a held easel is still needed or has been returned without a record. It uses the same position and gives a concrete action for each outcome. |
+| Alternate name | The [Four of Coins entry](https://en.wikipedia.org/wiki/Four_of_Coins) explicitly names Four of Pentacles as an alias. The page, DefinedTerm metadata and site search now agree on that relationship in all eight locales. |
+
+This source comparison covers the eight base-card locales. The meaning variants and independent expert and native-language reviews remain pending. The inventory records 19 of 487 logical routes with limited source comparison. See the [Spanish citation sample](../geo-tarot-2026-11-07/citation-audit.md) and [four-surface comparison](../geo-tarot-2026-11-07/entities.md) for the separate observations.
+
 ## Judgement base reference · 9 November 2026
 
 | Claim | Check and resulting copy |
