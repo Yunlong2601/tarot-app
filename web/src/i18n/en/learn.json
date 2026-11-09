@@ -325,7 +325,10 @@
     {
      "h": "Four ranks in four suits",
      "p": [
-      "Four [suits](learn/tarot-suits) each contain four courts, giving 4 × 4 = 16 in this deck. Waite describes King, Queen, Knight and Knave/Page in Part I, §3. Titles and arrangements can differ between systems. Read the image as well as the rank rather than treating a title as a personality result."
+      "The links below group the cards by rank. Follow a rank across the four [suits](learn/tarot-suits) to compare how each picture expresses it.",
+      "Waite uses Knave for Page in Part I. The [U.S. Games booklet](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=5) puts Knave with Cavalier in its introductory list, then prints Page and Knight as separate card headings. If you find Knave, check the printed card title and which book or deck is using the word.",
+      "Crowley names the Thoth court Knight, Queen, Prince and Princess. In his book the Knight represents the father role in that scheme. Compare the titles and the picture within the deck you actually drew from before carrying a meaning across.",
+      "Try the question “Which part of my plan should I test first?” with the same title from both decks. Waite describes the [Knight of Swords](cards/swords-knight) riding at speed. Crowley describes his Knight of Swords holding a sword in one hand and a dagger in the other. From the first detail you might ask what you are rushing to do. From the second you might compare two competing approaches. Pick one small trial and record what you observe."
      ]
     },
     {
@@ -364,13 +367,14 @@
      "p": [
       "[A. E. Waite, The Pictorial Key to the Tarot, Part I](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_1), §3: four court ranks per suit, including the Knave/Page terminology and the relation of rank to suit. This supports the structure, not claims about which cards beginners find hardest or what most readers believe.",
       "[Part III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §2: Knight of Wands, Knight/Page of Pentacles, Queen of Cups and King of Swords. We checked the named scene descriptions. The four practice questions and learning scenario are editorial applications, not historical instructions or independently validated personality categories.",
-      "The consulted transcription is Waite’s 1922 reprint. Its historical descriptions of people are not evidence for identifying living people by sex, age, appearance or moral character. This guide does not apply those categories as a test of you or anyone else."
+      "The consulted transcription is Waite’s 1922 reprint. Its historical descriptions of people are not evidence for identifying living people by sex, age, appearance or moral character. This guide does not apply those categories as a test of you or anyone else.",
+      "[Crowley’s The Book of Thoth](https://otohungary.org/documents/publication/english/Book_of_Thoth.html), Part I, explains his four court names. Part III describes the sword and dagger under Knight of Swords."
      ]
     },
     {
-     "h": "Check record · 1 November 2026",
+     "h": "Check record · 9 November 2026",
      "p": [
-      "AI-assisted comparison checked the rank count, named source passages, the site’s sixteen court records and its answer-based quiz mechanism. It replaced universal rank traits and unsupported “most readers”/beginner-difficulty claims with bounded questions, image comparison and an alternative example. Independent expert and native-language review remain unconfirmed. Specific corrections can be sent through our [methodology page](methodology#corrections)."
+      "Codex compared the named passages in Waite and Crowley, the publisher booklet, the site’s 16 card records and the exercise. Independent expert and native-language review remain pending. [Send a correction](methodology#corrections)."
      ]
     }
    ],

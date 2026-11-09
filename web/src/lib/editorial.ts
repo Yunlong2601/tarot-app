@@ -31,13 +31,14 @@ export const LESSON_EVIDENCE = {
     ],
   },
   'court-cards': {
-    checkedAt: '2026-11-01',
+    checkedAt: '2026-11-09',
     checkType: 'AI-assisted source comparison',
     independentExpertReview: false,
     nativeLanguageReview: false,
     sources: [
       {author:'Arthur Edward Waite',title:'The Pictorial Key to the Tarot, Part I, section 3, court ranks',url:'https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_1'},
       {author:'Arthur Edward Waite',title:'The Pictorial Key to the Tarot, Part III, section 2, named court-card entries',url:'https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3'},
+      {author:'Aleister Crowley',title:'The Book of Thoth, Part I, court titles, and Part III, Knight of Swords',url:'https://otohungary.org/documents/publication/english/Book_of_Thoth.html'},
     ],
   },
   'tarot-suits': {

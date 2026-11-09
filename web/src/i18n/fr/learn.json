@@ -325,7 +325,10 @@
     {
      "h": "Quatre rangs dans quatre familles",
      "p": [
-      "Les quatre [familles](learn/tarot-suits) ont quatre figures chacune : 4 × 4 = 16. Waite décrit Roi, Reine, Cavalier et Knave/Page en partie I, §3. Les titres et ordres peuvent varier. Regardez l’image sans transformer un rang en résultat de personnalité."
+      "Les liens ci-dessous regroupent les cartes par rang. Compare les images d’un même rang dans les quatre [familles](learn/tarot-suits).",
+      "Dans la première partie, Waite emploie Knave pour Page, le Valet. Le [livret de U.S. Games](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=5) met Knave avec Cavalier dans son introduction, puis distingue Page et Knight dans les titres des cartes. Si tu vois Knave, vérifie le titre imprimé et le jeu ou le livre qui emploie ce mot.",
+      "Crowley nomme les figures du tarot de Thoth Knight, Queen, Prince et Princess. Dans son système, Knight joue le rôle du père. Avant de reprendre une interprétation, vérifie le nom et l’image dans le jeu dont tu as tiré la carte.",
+      "Essaie « Quelle partie de mon plan devrais-je tester en premier ? » avec deux cartes de même titre. Waite décrit le [Cavalier d’Épées](cards/swords-knight) lancé au galop. Crowley décrit son cavalier tenant une épée dans une main et une dague dans l’autre. Le galop peut t’amener à demander où tu te précipites. Les deux armes peuvent te faire comparer deux méthodes concurrentes. Choisis un petit essai et note ce que tu observes."
      ]
     },
     {
@@ -364,13 +367,14 @@
      "p": [
       "[A. E. Waite, The Pictorial Key to the Tarot, partie I](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_1), §3 : quatre rangs par famille, termes Knave/Page et lien rang-famille. Cela étaye la structure, pas une statistique sur débutants ou lecteurs.",
       "[Partie III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §2 : Cavalier de Bâtons, Cavalier/Valet de Deniers, Reine de Coupes et Roi d’Épées. Vérification des scènes ; les questions et l’exercice sont nos applications, pas des instructions historiques ou catégories de personnalité validées.",
-      "La transcription consultée est la réimpression de 1922. Les descriptions historiques n’identifient pas des personnes actuelles par sexe, âge, apparence ou moralité. Nous n’en faisons pas un test sur vous ou autrui."
+      "La transcription consultée est la réimpression de 1922. Les descriptions historiques n’identifient pas des personnes actuelles par sexe, âge, apparence ou moralité. Nous n’en faisons pas un test sur vous ou autrui.",
+      "[Le Livre de Thoth de Crowley](https://otohungary.org/documents/publication/english/Book_of_Thoth.html), première partie, explique les quatre titres. La troisième partie décrit l’épée et la dague du Cavalier d’Épées."
      ]
     },
     {
-     "h": "Relevé de vérification · 1er novembre 2026",
+     "h": "Vérification · 9 novembre 2026",
      "p": [
-      "La comparaison assistée par IA a vérifié rangs, passages, seize cartes du site et mécanisme du quiz. Des traits universels et affirmations non étayées sur majorités ou difficultés ont été remplacés par questions délimitées, images et alternative. Révision indépendante d’expert et de locuteur natif non confirmée. Corrections via [notre méthode](methodology#corrections)."
+      "Codex a comparé les passages de Waite et de Crowley, le livret de l’éditeur, les 16 fiches du site et l’exercice. Les relectures par des spécialistes indépendants et des locuteurs natifs restent à faire. [Signaler une erreur](methodology#corrections)."
      ]
     }
    ],

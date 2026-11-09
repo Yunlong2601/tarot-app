@@ -260,6 +260,12 @@ Consulted 1922 reprint transcription. Whole-site progress: 12/487 limited source
 Emperor validation: 49 tests; locale parity; Astro check (0 errors/warnings, 2 existing hints); build; reader/editorial (56 lesson + 40 card routes), ritual, interaction, search-growth and beta audits passed. Chrome DOM checks at 390/768/1440px across eight locales found four evidence sections/two sources and no overflow. Orientation selection displayed reversed meaning and passed reversed state to the workspace link. Chinese desktop evidence: `emperor-desktop.png`. Known mobile screenshot limitation remains; no physical accessibility or native-language approval claimed.
 
 
+## Court ranks follow-up · 9 November 2026
+
+Waite’s Part I describes Knave as Page. The Amazon-hosted U.S. Games booklet groups Knave with Cavalier in its introduction and uses separate Page and Knight titles for the cards. Crowley’s Part I names Knight, Queen, Prince and Princess for Thoth and assigns Knight the father role in his scheme. The lesson uses these differences to help readers check the deck they actually drew from. [Waite, Part I](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_1) · [Booklet, PDF p. 5](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=5) · [Crowley](https://otohungary.org/documents/publication/english/Book_of_Thoth.html)
+
+In the added exercise, Waite’s charging Knight of Swords and Crowley’s Knight holding a sword and dagger give different starting questions about the same plan. The four rank headings link the sixteen ShenTarot references in each locale and supply the visible terms for the schema. This is a second source comparison for an existing lesson. Independent expert and native-language reviews remain pending. [CIT follow-up](../geo-tarot-2026-11-07/citation-audit.md) · [Four-surface comparison](../geo-tarot-2026-11-07/entities.md)
+
 ## Hierophant follow-up · 9 November 2026
 
 The German AI answer samples give the conventional interpretation of questioning rules. The new first paragraph points readers to Waite’s concord entry for the reversed card. The exercise has both readers define the third position, compare their explanations and test them with the same cards. An alternative is to practise separately if the setting is distracting. [Waite, Part III, §3, 5](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3)

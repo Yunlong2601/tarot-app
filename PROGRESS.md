@@ -1,3 +1,7 @@
+# Court rank names and card links — 2026-11-09
+
+The eight court-card lessons compare Waite’s and Crowley’s rank names, explain the booklet’s use of Knave, and give a side-by-side reading exercise with the two Knights of Swords. Four rank headings match a DefinedTermSet and lead to all sixteen localized card pages. Recorded a fresh English AI sample on each platform and updated the five court entities in the four-surface register.
+
 # Hierophant deck names and reversal follow-up — 2026-11-09
 
 Eight Hierophant pages lead with Waite’s historical concord entry for reversal and an exercise that compares two ways of reading the same third position. The deck notes distinguish The Hierophant from the corresponding Marseille title, Le Pape. The Pope, Le Pape and Der Papst resolve to the existing reference in site search and structured data. Recorded one German AI answer sample per platform and four-surface evidence.
