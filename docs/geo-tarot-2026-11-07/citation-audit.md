@@ -200,3 +200,11 @@ ChatGPT 用同一问题开启新 Temporary Chat，保留界面默认设置，未
 ChatGPT 在新 Temporary Chat 回答同一英语问题，保留界面默认设置。它写真实兴趣、吸引和稳定关系的潜力，提醒有机会不代表对方会付诸行动，但也用第一人称代写对方可能在想什么。完成回答可见 U.S. Games 图片卡片，未见正文引文或 Sources 控件，也未见 ShenTarot。图片卡片只支持所展示的图片来源。
 
 ShenTarot 的英文生产页仍把「对方对你有真切的兴趣」作为开头，并在正文和 FAQ 重复。这里有一个可验证的改进：从韦特第三部分第 2 节的云中伸手、举起一枚星币出发。该条目把满足、喜悦等列入正位，逆位也列出财富的负面一面和大量财富。出版商手册第 29 页的相近文字属于同一历史传统。可用虚构的邀约示例对照「提出具体时间并赴约」与「只说改天见」；这些事实可用于选择是否发出一次清楚的邀请，对方对关系的看法仍要靠对方自己表达。Reddit 原帖与回帖实际提供了截然不同的情境读法，不能用作验证私人想法的证据。[生产感受页](https://shentarot.com/cards/pentacles-ace/feelings) · [韦特星币一条目](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3) · [手册 PDF 第 29 页](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=29)
+
+### 第 22 题对方感受复测 · 11 月 9 日（新加坡时间）
+
+原题是「Can tarot tell me how someone feels about me?」。Chrome 在 Google All 结果页使用 `hl=en&gl=sg&pws=0`。AI Overview 说塔罗不能确认他人私下想法，转而建议问关系里的主要阻碍、自己的角色等。可见来源含 Quora、Anne Sofiah 的 Medium 文章、Lamuci 和 Reddit。展开后未见 ShenTarot。被链接的 Reddit 讨论有多人明确主张可用塔罗读取他人感受，也有不同经验。这些都是参与者意见。[Google 所引讨论](https://www.reddit.com/r/Tarots/comments/1oyryh0/can_tarot_cards_tell_you_other_peoples_feelings/)
+
+ChatGPT 在新 Temporary Chat 用默认设置回答同一问题。它称阅读适合探索可能性，同时提供六个牌位，包括对方的感受、吸引、隐瞒、阻碍、意图及关系走向。完成回答可见图片卡片，未见正文引文、Sources 控件或 ShenTarot。样本里没有展示如何从一个含糊的事实推导出两种解释，再用下一步区分它们。
+
+现有英文总指南已在开头说明牌不能确认对方的感受。简体中文正式构建实测点击「在占卜中问这个问题」，打开「我们之间处于什么状态？」三牌阵，输入框却自动填上「他爱我吗？」。源模板把页面原题写入 sessionStorage。该页也把圣杯二写作双方已经互相回应，把重复抽牌直接解释为担忧。下一轮应让练习入口带入可行动的改写问题，保留原来的查询入口、三牌阵、可编辑输入和语言路径，再用另一段非私人示例分别说明事实、两种可能解释和有明确边界的一步。第 22 题由总指南负责；第 23 题仍由星币一的感受页负责。[关系问题指南](https://shentarot.com/questions/does-he-love-me) · [三牌关系牌阵](https://shentarot.com/spreads/love-connection) · [星币一感受页](https://shentarot.com/cards/pentacles-ace/feelings)
