@@ -260,6 +260,12 @@ Consulted 1922 reprint transcription. Whole-site progress: 12/487 limited source
 Emperor validation: 49 tests; locale parity; Astro check (0 errors/warnings, 2 existing hints); build; reader/editorial (56 lesson + 40 card routes), ritual, interaction, search-growth and beta audits passed. Chrome DOM checks at 390/768/1440px across eight locales found four evidence sections/two sources and no overflow. Orientation selection displayed reversed meaning and passed reversed state to the workspace link. Chinese desktop evidence: `emperor-desktop.png`. Known mobile screenshot limitation remains; no physical accessibility or native-language approval claimed.
 
 
+## Hierophant follow-up · 9 November 2026
+
+The German AI answer samples give the conventional interpretation of questioning rules. The new first paragraph points readers to Waite’s concord entry for the reversed card. The exercise has both readers define the third position, compare their explanations and test them with the same cards. An alternative is to practise separately if the setting is distracting. [Waite, Part III, §3, 5](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3)
+
+Each locale identifies Waite’s The Hierophant and the V card called Le Pape in Piatnik’s Marseille booklet. The Pope, Le Pape and Der Papst resolve to the existing card in site search and are included in its DefinedTerm markup. The record covers the eight base pages. The inventory stays at 19 of 487 logical routes with limited source comparison because this page already had a source check. Independent expert and native-language reviews remain pending. [Waite, Part II, §2, V](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2) · [Piatnik booklet, PDF p. 13](https://www.piatnik.com/uploads/media/default/0001/08/f692bb2630e561d9a83aa2dd0688ecc9f01472e3.pdf#page=13)
+
 ## Hierophant base reference: actual source comparison — 1 November 2026
 
 Actor: Codex AI assistant. Scope: eight localized base references, not the four context variants. Directly compared Waite’s Part II, §2, V and Part III, §3, 5, and the actual bundled card image. Consulted transcription of the 1922 reprint; permanent revisions [Part II, 15274517](https://en.wikisource.org/w/index.php?oldid=15274517&title=The_Pictorial_Key_to_the_Tarot/Part_2) and [Part III, 15274510](https://en.wikisource.org/w/index.php?oldid=15274510&title=The_Pictorial_Key_to_the_Tarot/Part_3).

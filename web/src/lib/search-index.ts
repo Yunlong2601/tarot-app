@@ -2,14 +2,13 @@
 import { APP_SPREADS, cardIds, slug, spreadIds } from './data';
 import { firstSentence, i18n, LEARN_SLUGS, type Locale } from '../i18n';
 import { BASE } from '../config';
-import { FOUR_OF_PENTACLES_ALIASES, JUDGEMENT_ALIASES } from './workspace';
+import { CARD_REFERENCE_ALIASES } from './workspace';
 import type { SearchEntry } from './search';
 
-const searchAliases: Record<string, readonly string[]> = {
+const searchAliases: Partial<Record<string, readonly string[]>> = {
   cups_queen: ['qoc'],
   cups_king: ['koc'],
-  major_20_judgement: JUDGEMENT_ALIASES,
-  pentacles_four: FOUR_OF_PENTACLES_ALIASES,
+  ...CARD_REFERENCE_ALIASES,
 };
 
 export function buildSearchIndex(locale: Locale): SearchEntry[] {

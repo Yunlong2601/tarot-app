@@ -29,7 +29,11 @@ export function movePick(d: Draft, index: number, delta: number): void {
 }
 export const normalise = (s: string) => s.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[-_]/g, ' ').replace(/\s+/g, ' ').trim();
 export const JUDGEMENT_ALIASES = ['Judgment', 'The Last Judgment'] as const;
-export const FOUR_OF_PENTACLES_ALIASES = ['Four of Coins'] as const;
+export const CARD_REFERENCE_ALIASES: Partial<Record<string, readonly string[]>> = {
+  major_05_hierophant: ['The Pope', 'Le Pape', 'Der Papst'],
+  major_20_judgement: JUDGEMENT_ALIASES,
+  pentacles_four: ['Four of Coins'],
+};
 export function queryParts(raw: string) {
   const reversed = /reversed|reverse\b|逆位|逆位置|invertid[ao]|renvers[eé]e?|umgekehrt|перев[её]рнут/iu.test(raw);
   const query = raw.replace(/reversed|reverse\b|逆位置|逆位|invertid[ao]|renvers[eé]e?|umgekehrt|перев[её]рнут\p{L}*/giu, ' ').trim();

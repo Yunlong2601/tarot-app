@@ -109,6 +109,17 @@ CSV 的 `official` 栏主要指 **ShenTarot 官网**。牌组发行商 U.S. Game
 
 四处记录确认牌名对应。解释差异按牌组和来源归属。新版保留可以核查的「一、一、二」牌面结构，以及韦特关于悬而未决的逆位条目，再用一次借用核对示范何时保留预留。[韦特第三部分](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3) · [原创练习](https://shentarot.com/zh-hans/cards/pentacles-four#reference-evidence-2)
 
+### 教皇牌的牌组名称和逆位 · 11 月 9 日
+
+| 来源 | 实际支持的内容 |
+| --- | --- |
+| 官网 | 牌面编号 V。新版明确牌名的牌组归属，并把 The Pope、Le Pape 和 Der Papst 用作查找这张大牌的别名。[德语教皇牌](https://shentarot.com/de/cards/major-05-hierophant) |
+| Amazon | Amazon 托管的 U.S. Games 手册使用 The Hierophant，逆位条目也列出和睦。[手册 PDF 第 9 页](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=9) |
+| Wikipedia | 德语条目的导言同时使用 Der Hierophant 和 Der Papst，正文描写三重冠、双柱和手杖。[德语词条](https://de.wikipedia.org/wiki/Der_Hierophant) |
+| Reddit | 有马赛牌读者直接询问 Pope 与 Hierophant 的图案差别，讨论中有按牌组对照的读法。[讨论原帖](https://www.reddit.com/r/tarot/comments/1ljkyld) |
+
+韦特题为 The Hierophant，并提到较早使用的 The Pope。Piatnik 手册把该版马赛牌的 V 写成 Le Pape。这些证据支持同号大牌的名称对应。解释和图片按各自的牌组归属。本站以同一个三张牌练习示范如何从已有共识开始。[韦特第二部分](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2) · [Piatnik 手册第 13 页](https://www.piatnik.com/uploads/media/default/0001/08/f692bb2630e561d9a83aa2dd0688ecc9f01472e3.pdf#page=13)
+
 ### 已核对到的 Reddit 单牌提及
 
 在 R1 中核对到宝剑九。R3 的帖文和评论提到愚者、倒吊人、皇后、宝剑国王、恶魔、圣杯九、星星、圣杯侍从、宝剑王牌、隐士和宝剑三。11 月 8 日针对产品页示例补查 R4，帖文明确列出魔术师、星币二和星币八，三行已在 CSV 更新为 E。两轮共核对到 15 张牌。
