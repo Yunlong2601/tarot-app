@@ -93,7 +93,17 @@ The card group includes the three individual cards in the table. There was no ro
 
 The random draw owns the online draw intent. Its eight pages now document one-card selection, the 78-card shuffle, the 1-in-4 reversal setting and the transfer of the same cards, positions, orientations and optional question into the workspace. The About hub keeps its short answer and points to the tool. The daily card tool remains the destination for a daily draw. [English tool](https://shentarot.com/tools/random-card#how-to-draw) · [Simplified Chinese tool](https://shentarot.com/zh-hans/tools/random-card#how-to-draw)
 
-A Chrome preview check on the Simplified Chinese page selected one card, shuffled, used the optional pick action and revealed an upright Page of Wands. Continuing into the workspace retained the card, upright orientation and a synthetic practice question in the tab. The question did not appear in the workspace URL. This run covered the one-card path.
+A Chrome preview check on the Simplified Chinese random draw selected one card, shuffled, used the optional pick action and revealed an upright Page of Wands. Continuing into the workspace retained the card, upright orientation and a synthetic practice question in the tab. The question did not appear in the workspace URL. This run covered the one-card path.
+
+### Daily draw and daily practice
+
+The daily tool owns the actual one-card draw and explains its date and storage behavior in all eight locales. It writes the card ID, orientation and local date after reveal. Reopening the tool looks up the current local date and restores the result from that browser profile when available. A Chrome preview retained reversed Justice after refresh and after switching from Simplified Chinese to English. The topic page owns broader daily questions and spread suggestions. The random tool remains the destination for a fresh shuffle on demand. [Daily tool guide](https://shentarot.com/zh-hans/tools/daily-card#daily-guide) · [Daily topic](https://shentarot.com/zh-hans/topics/daily) · [CIT sample 13](citation-audit.md)
+
+### Report refresh through November 7
+
+The same domain report was checked again on November 9 in Singapore. The 22 daily rows from October 17 through November 7 sum to **1,162 property impressions**. November 7 accounts for 95, and the Pages tab shows 411 URL rows. A table filter for `/tools/daily-card` returned one German URL with one impression. A filter for `/about` returned zero rows. These are counts across Google’s generative search features. [Generative AI report](https://search.google.com/search-console/performance/search-analytics/ai?resource_id=sc-domain%3Ashentarot.com)
+
+The English About inspection still reports the URL as indexed and selected as canonical. The last crawl displayed is October 22, 05:53:23. This crawl predates the hub rewrite. The refreshed report provides a baseline for the daily guide before its release. [URL Inspection](https://search.google.com/search-console?resource_id=sc-domain%3Ashentarot.com)
 
 ## Information gaps and checkable product evidence
 

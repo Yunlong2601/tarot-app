@@ -3,11 +3,12 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { parseHTML } from 'linkedom';
 const origin = 'https://shentarot.com';
-const drawPrefixes = ['', '/zh-hans', '/zh-hant', '/es', '/de', '/ja', '/fr', '/ru'];
+const localePrefixes = ['', '/zh-hans', '/zh-hant', '/es', '/de', '/ja', '/fr', '/ru'];
 const targets = new Map([
   ['/zh-hans/cards', 'library'],
   ['/cards/pentacles-ace/love', 'love'],
-  ...drawPrefixes.map(prefix => [prefix + '/tools/random-card', 'draw']),
+  ...localePrefixes.map(prefix => [prefix + '/tools/random-card', 'draw']),
+  ...localePrefixes.map(prefix => [prefix + '/tools/daily-card', 'daily']),
   ['/zh-hans/learn/major-and-minor-arcana', 'arcana'],
 ]);
 const fileFor = path => ['dist' + path + '.html', 'dist' + path + '/index.html'].find(existsSync);
@@ -40,16 +41,24 @@ for (const [path, kind] of targets) {
     assert.ok(target !== null || existsSync('dist' + url.pathname), `${path}: missing ${raw}`);
     if (url.hash && target) assert.ok(target.includes(`id="${url.hash.slice(1)}"`), `${path}: missing anchor ${raw}`);
   }
-  if (kind === 'draw') {
+  if (kind === 'draw' || kind === 'daily') {
     const locale = path === suffix ? 'en' : path.split('/')[1];
-    const { random } = JSON.parse(readFileSync(`src/i18n/${locale}/ui.json`, 'utf8'));
+    const copy = JSON.parse(readFileSync(`src/i18n/${locale}/ui.json`, 'utf8'))[kind === 'draw' ? 'random' : 'daily'];
     const { document } = parseHTML(html);
-    const guide = document.getElementById('how-to-draw');
-    assert.equal(guide?.querySelector('h2')?.textContent, random.guideTitle, `${path}: localized guide`);
+    const guide = document.querySelector(`[data-growth-notes="${kind}"]`);
+    assert.equal(guide?.querySelector('h2')?.textContent, copy.guideTitle, `${path}: localized guide`);
     assert.equal(guide.querySelectorAll('ol > li').length, 3, `${path}: choose, shuffle and reveal steps`);
-    assert.deepEqual([...guide.querySelectorAll('h3')].map(h => h.textContent), [random.rulesTitle, random.continueTitle]);
+    assert.deepEqual([...guide.querySelectorAll('h3')].map(h => h.textContent), [copy.rulesTitle, copy.continueTitle ?? copy.exampleTitle]);
     const markdown = readFileSync(`dist/_agent-markdown${path}.md`, 'utf8');
-    assert.ok(markdown.includes(random.guideTitle) && markdown.includes(random.rules), `${path}: guide in Markdown`);
+    assert.ok(markdown.includes(copy.guideTitle) && markdown.includes(copy.rules), `${path}: guide in Markdown`);
+    if (kind === 'daily') {
+      const prefix = path.slice(0, -suffix.length);
+      assert.ok(guide.textContent.includes(copy.savedLimits) && markdown.includes(copy.savedLimits), `${path}: browser storage limits`);
+      for (const destination of ['/cards/pentacles-two', '/topics/daily', '/tools/random-card']) {
+        const href = prefix + destination;
+        assert.ok(guide.querySelector(`a[href="${href}"]`) && markdown.includes(href), `${path}: ${destination} in HTML and Markdown`);
+      }
+    }
     const schema = [...document.querySelectorAll('script[type="application/ld+json"]')]
       .map(script => JSON.parse(script.textContent)).find(item => item['@type'] === 'WebApplication');
     assert.equal(schema?.url, origin + path, `${path}: tool schema uses canonical URL`);

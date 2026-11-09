@@ -1,3 +1,7 @@
+# Daily one-card guide — 2026-11-09
+
+All eight daily tools explain what the browser saves after a reveal and how to recover the draw for the local date. A Two of Pentacles exercise pairs a morning prompt with a check against what happened that evening. The tool and topic guide link distinct tasks. Chrome confirmed that a reversed card returned after a reload and across the Chinese and English routes.
+
 # Court rank names and card links — 2026-11-09
 
 The eight court-card lessons compare Waite’s and Crowley’s rank names, explain the booklet’s use of Knave, and give a side-by-side reading exercise with the two Knights of Swords. Four rank headings match a DefinedTermSet and lead to all sixteen localized card pages. Recorded a fresh English AI sample on each platform and updated the five court entities in the four-surface register.
