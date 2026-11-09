@@ -168,3 +168,11 @@ Google 的 27 题「有来源链接」也不能直接判为「论证完整」。
 在新的 ChatGPT Temporary Chat 用 Auto 问同一个问题。完整回答逐项讲四等级、四花色、16 张牌，并给出「学习、行动、理解、掌握」的次序。可见图卡来源，正文和底部没有文字引用链接或 Sources 控件。两份样本都未对照 Knave、Page 和托特版的 Knight、Prince、Princess 等牌名。
 
 本站现有课程已经注明 Waite 在第一部分第 3 节把 Knave 也叫 Page。U.S. Games 托管手册导言的等级表同时把 Knave 放在 Cavalier 一行，实际单牌条目则用 Page 与 Knight。Crowley 为托特版明确采用 Knight、Queen、Prince、Princess。读者在 Reddit 提出两副牌名字相同、角色却可能不同的问题。后续可在现有课程用原书对照说明该看哪一副牌、哪一个标签，并链接实际的 16 张牌义。[本站宫廷牌](https://shentarot.com/learn/court-cards) · [Waite 第一部分](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_1) · [U.S. Games 手册第 5 页](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=5) · [Crowley《The Book of Thoth》](https://otohungary.org/documents/publication/english/Book_of_Thoth.html) · [Reddit 读者原帖](https://www.reddit.com/r/tarot/comments/1rk08sg/can_someone_please_explain_the_thoth_deck_court/)
+
+### 第 13 题每日一牌复测 · 11 月 9 日（新加坡时间）
+
+英语问题为「How do I do a daily one-card tarot reading?」。Google 用原问题与 `hl=en&gl=sg&pws=0`，显示带出处的 AI Overview。可见正文建议在固定时间抽牌、写下第一印象、晚上回看，来源包括 Hermit’s Mirror、Biddy Tarot、Suburban Witchery 和 Angie Green Tarot。可见摘要和来源中未见 ShenTarot。[Hermit’s Mirror](https://www.hermitsmirror.com/musings/from-daily-card-to-meaningful-card-part-1) · [Suburban Witchery](https://www.suburbanwitchery.com/blog/tarot-spreads-for-beginners)
+
+新 ChatGPT Temporary Chat 用 Auto 问同一个问题。完成的回答给出准备、提问、抽一张、解读和日记流程，也建议晚上复盘。可见图卡，正文和底部未见文字来源链接或 Sources 控件。两份回答的用途都是介绍日常练习，均未描述本站的日期与保存规则。
+
+Chrome 本地正式构建实测使用简体中文洗牌，选取并翻开逆位正义。刷新保留同一张牌和逆位。随后打开英语每日一牌，仍显示逆位 Justice。实现用浏览器本地日期匹配保存的牌、正逆位及日期。当前文案只说「到明天」，可以补充同一浏览器、按本地日期、需要允许保存的条件。每日工具负责实际抽牌，主题页负责问题和牌阵建议。[每日一牌](https://shentarot.com/tools/daily-card) · [每日主题](https://shentarot.com/topics/daily)
