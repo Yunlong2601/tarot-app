@@ -239,19 +239,61 @@
  "guides": {
   "does-he-love-me": {
    "question": "Does he love me?",
-   "answer": "Tarot cannot see into another person's heart, and no card proves what someone feels. What a reading can do is show how the connection looks from where you stand: what you are giving, what you are getting back and what you are hoping for.",
+   "answer": "Only the person can tell you how they feel. Tarot can help you reflect on what you have noticed and what you want to ask.",
    "better": [
-    "How do I feel in this relationship?",
-    "What is the connection between us right now?",
-    "What do I need from them that I am not getting?"
+    "What would help me talk about this relationship clearly?",
+    "What have we actually said or done?",
+    "What would I like to ask directly?"
    ],
    "cards": {
-    "cups_two": "A mutual bond: both people are meeting each other halfway.",
-    "major_06_lovers": "A real choice about values and closeness, not only attraction.",
-    "cups_four": "Something offered is being missed or turned away.",
-    "swords_three": "Hurt that needs to be named before things can move on."
+    "cups_two": "Two people raise cups. Think of a time when both of you made an effort.",
+    "major_06_lovers": "Two figures stand beneath a winged figure. What matters to you about getting closer?",
+    "cups_four": "A fourth cup is offered to someone sitting apart. Which invitations do you want to accept or leave open?",
+    "swords_three": "Three swords pierce a heart. What hurt can you name from your own experience?"
    },
-   "tip": "If you find yourself drawing again and again for the same answer, the reading is telling you about your own worry. That is worth listening to."
+   "tip": "If you want to draw again, write down the first reading and what has actually changed since. You can put the deck away and come back when you have something new to consider.",
+   "editorial": {
+    "practiceLabel": "Try this question in the three-card spread",
+    "faq": [
+     {
+      "q": "Can tarot tell me how someone feels about me?",
+      "a": "For their feelings, ask them. Use tarot to reflect on your part."
+     },
+     {
+      "q": "Which spread can I use to reflect on the relationship?",
+      "a": "Where Do We Stand? has three positions about you, the connection and your part."
+     },
+     {
+      "q": "How can I rephrase “Does he love me?”",
+      "a": "What would help me talk about this relationship clearly?"
+     }
+    ],
+    "sections": [
+     {
+      "anchor": "relationship-example",
+      "h": "One unanswered message, three places to look",
+      "p": [
+       "Imagine you sent a message yesterday about going to an exhibition on Sunday. There is still no reply. They could be busy or unsure about going. You know that the plan is unconfirmed.",
+       "In [Where Do We Stand?](spreads/love-connection), imagine three upright cards. The first, [the Lovers](cards/major-06-lovers), prompts you to name what matters to you. The second, [Two of Cups](cards/cups-two), shows two people with cups. Recall an actual exchange where both of you took part. The third, [Four of Cups](cards/cups-four), shows an offered cup. Leave room for the other person to accept or decline.",
+       "If you need to plan your Sunday, send one practical message: “Are you still up for the exhibition? I’m sorting out my Sunday tomorrow.” If the plan stays open, make your own. Their response can clarify the plan. Talk about feelings separately if both of you want that conversation."
+      ]
+     },
+     {
+      "anchor": "relationship-sources",
+      "h": "What Waite’s text describes",
+      "p": [
+       "In [Part II §2](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), Waite describes the two people under a winged figure on the Lovers. [Part III §2](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3) describes two people with cups, a fourth cup being offered, and a heart pierced by three swords. These passages document the images and Waite’s reading tradition. The three positions and the message example are ShenTarot’s reflection practice."
+      ]
+     },
+     {
+      "anchor": "relationship-check",
+      "h": "Check record · 9 November 2026",
+      "p": [
+       "Codex compared the previous guide, the website card images, Waite’s 1922 reprint transcription and the reader’s question field. The message example is fictional. Independent practitioner and native-language reviews are pending. [Suggest a correction](methodology#corrections)."
+      ]
+     }
+    ]
+   }
   },
   "will-my-ex-come-back": {
    "question": "Will my ex come back?",

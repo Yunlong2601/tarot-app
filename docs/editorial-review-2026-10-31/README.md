@@ -4,7 +4,7 @@ The owner explicitly included all website reference content, beyond the initial 
 
 ## Current progress
 
-Twenty-one logical references in the inventory have limited AI-assisted primary-source comparisons and original worked examples in all eight locales. They are seven foundational lessons, thirteen base card pages and one contextual card page. Independent expert and native-language review are pending. Each page's context variants have separate inventory records.
+Twenty-two logical references in the inventory have limited AI-assisted primary-source comparisons and original worked examples in all eight locales. They are seven foundational lessons, thirteen base card pages, one contextual card page and one question guide. Independent expert and native-language review are pending. Each page's context variants have separate inventory records.
 
 Work in batches: major-card references; minor-card references; contextual interpretations; spreads/question/topic references; zodiac/birth/numerology and tool formulas; navigation and publisher consistency. A contextual interpretation needs its own reasoning, not a copied historical citation that never discussed that context. Reconcile newly added/removed routes before declaring the inventory complete.
 
@@ -365,3 +365,9 @@ Codex compared the actual card image, the old base reference and Waite’s 1922 
 ## Ace of Pentacles feelings context — 9 November 2026
 
 Codex compared the prior feelings page, the website card image and the Pentacles — Ace entry in Waite's 1922 reprint. The hand from a cloud supports the visual description. The historical text lists satisfaction and joy upright and mentions both harmful wealth and great riches reversed. The example uses the coin as a prompt to consider an actual invitation. It distinguishes a suggested date and completed meeting from an open plan, gives two plausible explanations for the latter, and lets the other person express their feelings. The independent review fields remain pending. This record covers the feelings route alone. [Waite, Part III §2](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3) · [Publisher booklet, PDF page 29](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=29) · [Ace of Coins entry](https://en.wikipedia.org/wiki/Ace_of_Coins)
+
+## Relationship question guide — 9 November 2026
+
+Codex compared the previous guide, Waite's 1922 reprint transcription and the actual card artwork. Part II §2 describes two people under a winged figure in the Lovers. Part III §2 describes two figures with cups, the fourth cup being offered and three swords piercing a heart. The guide now uses those images to prompt reflection, with an original three-position example about an unanswered invitation to an exhibition. A message left unanswered since yesterday leaves the plan unconfirmed. A busy day and uncertainty about the invitation are both plausible. One time-specific follow-up can clarify plans and leave the person's feelings to them to express.
+
+The previous Chinese button loaded the original “Does he love me?” query into the browser's spread input. The updated button shows and passes the same revised question from the guide's alternatives to the existing three-card spread. No independent practitioner or native-language review was performed. [Waite, Part II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2) · [Waite, Part III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3) · [Practice guide](https://shentarot.com/questions/does-he-love-me#relationship-example)

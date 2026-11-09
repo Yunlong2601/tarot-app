@@ -45,7 +45,7 @@ Inspected the actual source templates for homepage, About, methodology, Learn in
 | Daily draw vs random draw | /tools/daily-card vs /tools/random-card | Retained different tasks (daily reflection and another random draw). No false canonical merger. |
 | Card pairs vs whole spread | /tools/combinations vs /read | Retained pair exploration versus entering a complete physical spread. |
 | Mobile availability/installation | /beta | About has a small verified build observation and links to the full current installation guide. No duplicate install steps. |
-| Relationship meanings vs feelings for a specific card vs framing a relationship question | /cards/*/love, /cards/*/feelings and /questions/does-he-love-me, respectively | The Ace of Pentacles feelings page owns question 23 and its coffee example. The love page covers the relationship scenario, the question guide covers the broader question, and the base card owns the card identity. Each serves a different task. |
+| Relationship meanings vs feelings for a specific card vs framing a relationship question | /cards/*/love, /cards/*/feelings and /questions/does-he-love-me, respectively | The Ace of Pentacles feelings page owns question 23 and its coffee example. The love page covers the relationship scenario. The question guide owns question 22 and starts a three-card practice with the revised question. The base card owns the card identity. |
 
 We consolidated the short-answer entry point and gave the complete tutorials and working tools distinct destinations. The Search Console follow-up below checks where selected queries actually landed before launch.
 

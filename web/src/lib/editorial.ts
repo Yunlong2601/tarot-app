@@ -1,4 +1,16 @@
 /** Scoped evidence records. Absence means not source-compared, never approved. */
+export const QUESTION_EVIDENCE = {
+  "does-he-love-me": {
+    checkedAt: "2026-11-09",
+    independentExpertReview: false,
+    nativeLanguageReview: false,
+    sources: [
+      { author: "Arthur Edward Waite", title: "The Pictorial Key to the Tarot, Part II, section 2, VI The Lovers", url: "https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2" },
+      { author: "Arthur Edward Waite", title: "The Pictorial Key to the Tarot, Part III, section 2, Cups — Two and Four, Swords — Three", url: "https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3" },
+    ],
+  },
+} as const;
+
 export const CONTEXT_EVIDENCE = {
   "cards/pentacles-ace/feelings": {
     checkedAt: "2026-11-09",

@@ -239,19 +239,61 @@
  "guides": {
   "does-he-love-me": {
    "question": "Est-ce qu'il m'aime ?",
-   "answer": "Le tarot ne peut pas lire dans le cœur d'une autre personne, et aucune carte ne prouve ce que quelqu'un ressent. Ce qu'un tirage peut faire, c'est montrer à quoi ressemble le lien de là où tu te trouves : ce que tu donnes, ce que tu reçois en retour et ce que tu espères.",
+   "answer": "Seule la personne peut vous dire ce qu’elle ressent. Le tarot peut vous aider à réfléchir à ce que vous avez observé et à ce que vous voulez demander.",
    "better": [
-    "Comment est-ce que je me sens dans cette relation ?",
-    "Quel est le lien entre nous en ce moment ?",
-    "De quoi ai-je besoin de sa part que je ne reçois pas ?"
+    "Qu’est-ce qui m’aiderait à parler clairement de cette relation ?",
+    "Qu’avons-nous réellement dit ou fait ?",
+    "Qu’aimerais-je demander directement ?"
    ],
    "cards": {
-    "cups_two": "Un lien réciproque : chacun fait la moitié du chemin vers l'autre.",
-    "major_06_lovers": "Un vrai choix de valeurs et de proximité, pas seulement d'attirance.",
-    "cups_four": "Quelque chose qui est offert passe inaperçu ou est refusé.",
-    "swords_three": "Une blessure qui doit être nommée avant que les choses puissent avancer."
+    "cups_two": "Deux personnes lèvent leur coupe. Souvenez-vous d’un moment où vous avez tous les deux fait un pas.",
+    "major_06_lovers": "Deux personnes se tiennent sous une figure ailée. Qu’est-ce qui compte pour vous à mesure que vous vous rapprochez ?",
+    "cups_four": "Une quatrième coupe est offerte à une personne assise. Quelles invitations avez-vous envie d’accepter ?",
+    "swords_three": "Trois épées traversent un cœur. Qu’est-ce qui vous a blessé dans votre propre expérience ?"
    },
-   "tip": "Si tu te surprends à tirer encore et encore pour obtenir la même réponse, le tirage te parle de ta propre inquiétude. Ça vaut la peine de l'écouter."
+   "tip": "Avant de tirer une autre carte, notez votre première lecture et ce qui a réellement changé depuis. Vous pouvez reposer le jeu jusqu’à ce qu’un élément nouveau se présente.",
+   "editorial": {
+    "practiceLabel": "Essayer cette question avec le tirage à trois cartes",
+    "faq": [
+     {
+      "q": "Le tarot peut-il me dire ce que l’autre ressent pour moi ?",
+      "a": "Demandez-lui ce qu’elle ressent. Le tarot aide à réfléchir à votre rôle."
+     },
+     {
+      "q": "Quel tirage utiliser pour réfléchir à la relation ?",
+      "a": "Trois cartes pour explorer votre apport, le lien et votre rôle."
+     },
+     {
+      "q": "Comment reformuler « Est-ce qu’il m’aime ? » ?",
+      "a": "Qu’est-ce qui m’aiderait à parler clairement de cette relation ?"
+     }
+    ],
+    "sections": [
+     {
+      "anchor": "relationship-example",
+      "h": "Un message sans réponse et trois pistes à examiner",
+      "p": [
+       "Imaginez avoir proposé hier de voir une exposition dimanche, sans réponse pour l’instant. La personne est peut-être occupée ou hésite à y aller. Vous savez que le rendez-vous reste à confirmer.",
+       "Dans [le tirage sur la relation](spreads/love-connection), imaginez trois cartes à l’endroit. [L’Amoureux](cards/major-06-lovers), dans « Ce que j’apporte », invite à nommer ce qui vous importe. Le [Deux de Coupes](cards/cups-two), dans « Le lien lui-même », montre deux personnes avec des coupes : rappelez-vous un échange auquel vous avez tous les deux participé. Le [Quatre de Coupes](cards/cups-four), dans « Ce qu’il me demande », montre une coupe tendue : laissez la personne libre d’accepter ou de refuser.",
+       "Si vous devez organiser votre dimanche, posez une fois une question concrète : « Tu veux toujours voir l’exposition ? Je prévois mon dimanche demain. » Si rien ne se précise, organisez votre journée. La réponse peut éclaircir le rendez-vous. Parlez des sentiments à part si vous le souhaitez tous les deux."
+      ]
+     },
+     {
+      "anchor": "relationship-sources",
+      "h": "Ce que décrit le texte de Waite",
+      "p": [
+       "Dans [la partie II, §2](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), Waite décrit deux personnes sous une figure ailée sur la carte de l’Amoureux. [La partie III, §2](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3) décrit deux personnes avec des coupes, une quatrième coupe tendue et un cœur traversé par trois épées. Ces passages documentent les images et la tradition de Waite. Les trois positions et l’exemple du message sont un exercice proposé par ShenTarot."
+      ]
+     },
+     {
+      "anchor": "relationship-check",
+      "h": "Trace de vérification · 9 novembre 2026",
+      "p": [
+       "Codex a comparé l’ancienne page, les cartes du site, la transcription de la réédition de Waite de 1922 et le champ de saisie. L’exemple est fictif. La relecture indépendante par des praticiens et celle par des locuteurs natifs restent à faire. [Suggérer une correction](methodology#corrections)."
+      ]
+     }
+    ]
+   }
   },
   "will-my-ex-come-back": {
    "question": "Est-ce que mon ex va revenir ?",
