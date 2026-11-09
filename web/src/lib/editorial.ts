@@ -79,7 +79,7 @@ export const LESSON_EVIDENCE = {
 /** Base card references only; context subpages are not covered by these records. */
 export const CARD_EVIDENCE = {
   major_09_hermit: {
-    checkedAt: '2026-11-01',
+    checkedAt: '2026-11-09',
     checkType: 'AI-assisted source comparison',
     independentExpertReview: false,
     nativeLanguageReview: false,

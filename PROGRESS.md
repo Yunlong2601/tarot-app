@@ -1,3 +1,7 @@
+# Hermit beacon and orientation example — 2026-11-09
+
+The eight Hermit references now lead with Waite’s beacon image and give the historical reversed entries a clear source. An original paper-folding example keeps the question and spread position fixed while readers switch between upright and reversed. Recorded fresh Google and ChatGPT answers and the four-surface comparison. Independent expert and native-language checks remain pending.
+
 # Major and Minor Arcana in the card library — 2026-11-09
 
 All eight card libraries group the actual card records into 22 Major Arcana and 56 Minor Arcana. Four suit headings and links sit inside Minor Arcana. The two group anchors, all four suit anchors and the 78 card URLs agree with the CollectionPage and Markdown. The linked lesson remains the source for the detailed comparison.
