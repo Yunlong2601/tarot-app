@@ -98,16 +98,50 @@ for (const locale of locales) {
     assert(file(target.pathname.slice(1)), 'Missing guide ' + target.href);
   }
   const library = doc(p + 'cards');
+  const libraryCopy = JSON.parse(readFileSync(`src/i18n/${locale}/ui.json`, 'utf8'));
+  const pluralRules = new Intl.PluralRules(locale);
+  const libraryUrl = 'https://shentarot.com/' + p + 'cards';
+  const libraryMarkdown = readFileSync(`dist/_agent-markdown/${p}cards/index.md`, 'utf8');
   const collection = schemasFor(library).find(s => s['@type'] === 'CollectionPage');
   checkPublisher(collection.publisher);
   const list = collection.mainEntity;
   assert.equal(list.numberOfItems, 78);
   assert.equal(list.itemListElement.length, cardIds.length);
-  assert.equal(library.querySelectorAll('[data-search-card] h3').length, cardIds.length);
+  assert.equal(library.querySelectorAll('[data-search-card] .card-name').length, cardIds.length);
+  assert.deepEqual(collection.hasPart.map(section => section['@id']), [libraryUrl + '#major', libraryUrl + '#minor']);
+  const [major, minor] = collection.hasPart;
+  assert.deepEqual(minor.hasPart.map(section => section['@id']), ['wands', 'cups', 'swords', 'pentacles'].map(suit => libraryUrl + '#' + suit));
+  const checkSection = (section, id, count, level) => {
+    const heading = library.getElementById(id);
+    assert.equal(heading.tagName, 'H' + level);
+    assert.equal(heading.querySelector('span').textContent, libraryCopy.groups[id]);
+    assert.equal(section.name, libraryCopy.groups[id]);
+    const forms = libraryCopy.cards.cardCount;
+    const countText = (forms[pluralRules.select(count)] ?? forms.other).replace('{n}', count);
+    assert.equal(heading.querySelector('small').textContent, countText);
+    assert.ok(libraryMarkdown.split('\n').includes(`${'#'.repeat(level)} ${section.name} ${countText}`));
+    assert.ok(library.querySelector(`[data-catalog-jump][href="#${id}"]`));
+    assert.ok(library.querySelector(`[data-group] option[value="${id}"]`));
+    assert.equal(section.url, libraryUrl + '#' + id);
+    assert.equal(section.mainEntity.numberOfItems, count);
+    assert.deepEqual(section.mainEntity.itemListElement.map(item => item['@id']),
+      [...heading.parentElement.querySelectorAll('[data-search-card]')].map(a => new URL(a.getAttribute('href'), libraryUrl).href));
+    assert.equal(heading.parentElement.querySelectorAll('[data-search-card]').length, count);
+  };
+  checkSection(major, 'major', 22, 2);
+  checkSection(minor, 'minor', 56, 2);
+  for (const section of minor.hasPart) {
+    const id = new URL(section.url).hash.slice(1);
+    checkSection(section, id, 14, 3);
+    assert.ok(library.getElementById('minor').parentElement.contains(library.getElementById(id)));
+  }
+  assert.equal(library.querySelector('.arcana-guide').getAttribute('href'), '/' + p + 'learn/major-and-minor-arcana');
   cardIds.forEach((id, i) => {
     const card = library.querySelector('[data-search-card][data-href="/' + p + 'cards/' + slug(id) + '"]');
     assert(card);
-    assert.equal(list.itemListElement[i].item.name, norm(card.querySelector('h3').textContent));
+    const cardHeading = card.querySelector('.card-name');
+    assert.equal(cardHeading.tagName, id.startsWith('major_') ? 'H3' : 'H4');
+    assert.equal(list.itemListElement[i].item.name, norm(cardHeading.textContent));
     const detail = schemasFor(doc(p + 'cards/' + slug(id)));
     assert.equal(detail.find(s => s['@type'] === 'DefinedTerm')['@id'], list.itemListElement[i].item['@id']);
     const page = detail.find(s => s['@type'] === 'WebPage');

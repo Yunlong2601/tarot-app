@@ -355,6 +355,7 @@
  },
  "groups": {
   "major": "Arcanos Mayores",
+  "minor": "Arcanos Menores",
   "wands": "Bastos",
   "cups": "Copas",
   "swords": "Espadas",
@@ -382,7 +383,9 @@
   "eyebrow": "La baraja completa",
   "h1": "Significado de las cartas del tarot",
   "lead": "Las 78 cartas de la baraja Rider-Waite-Smith, al derecho e invertidas, con lo que muestra cada carta y por qué.",
-  "suitsNav": "Palos"
+  "suitsNav": "Grupo de cartas",
+  "cardCount": {"one": "{n} carta", "other": "{n} cartas"},
+  "arcanaGuide": "En qué se diferencian los dos grupos"
  },
  "card": {
   "judgementAliases": "El nombre inglés también se escribe {short}. El folleto de U.S. Games enumera la carta 20 como {historical}.",

@@ -318,6 +318,7 @@
  },
  "groups": {
   "major": "Große Arkana",
+  "minor": "Kleine Arkana",
   "wands": "Stäbe",
   "cups": "Kelche",
   "swords": "Schwerter",
@@ -345,7 +346,9 @@
   "eyebrow": "Das ganze Deck",
   "h1": "Bedeutung der Tarotkarten",
   "lead": "Alle 78 Karten des Rider-Waite-Smith-Decks, aufrecht und umgekehrt, mit dem, was jede Karte zeigt und warum.",
-  "suitsNav": "Farben"
+  "suitsNav": "Kartengruppe",
+  "cardCount": {"one": "{n} Karte", "other": "{n} Karten"},
+  "arcanaGuide": "Wie sich die beiden Gruppen unterscheiden"
  },
  "card": {
   "judgementAliases": "Der englische Name dieser Karte wird auch {short} geschrieben. Das Begleitheft von U.S. Games führt Karte 20 als {historical}.",

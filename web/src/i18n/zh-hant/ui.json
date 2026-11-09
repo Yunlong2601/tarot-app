@@ -316,6 +316,7 @@
  },
  "groups": {
   "major": "大阿爾克那",
+  "minor": "小阿爾克那",
   "wands": "權杖",
   "cups": "聖杯",
   "swords": "寶劍",
@@ -343,7 +344,9 @@
   "eyebrow": "整副牌",
   "h1": "塔羅牌義",
   "lead": "偉特塔羅牌全部 78 張牌的正位與逆位，以及每張牌畫了什麼、為什麼這樣解讀。",
-  "suitsNav": "牌組"
+  "suitsNav": "依牌組瀏覽",
+  "cardCount": {"one": "{n} 張牌", "other": "{n} 張牌"},
+  "arcanaGuide": "大、小阿爾克那有什麼不同？"
  },
  "card": {
   "judgementAliases": "這張牌的英文名也寫作 {short}。U.S. Games 手冊把編號 20 的大牌列為 {historical}。",

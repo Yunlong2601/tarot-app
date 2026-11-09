@@ -40,7 +40,7 @@ Inspected the actual source templates for homepage, About, methodology, Learn in
 | Content tradition, AI assistance, review limitations | /methodology | Kept a concise disclosure on About and the methodology link. Exact disclosure repetition is useful context, not proof of search cannibalization. Detailed correction process remains on methodology. |
 | “How to read” vs printable beginner reference | /learn/how-to-read-tarot for full lesson; /learn/beginner-reference for pocket guide | Retained distinct outcomes. No unsupported redirect or deletion. |
 | Deck count, major/minor structure | /learn/major-and-minor-arcana | Hub gives only the direct answer, then links to the source-checked lesson. |
-| Card names/78-card entity inventory | /cards | Five group H2s and 78 visible card H3s match the CollectionPage/ItemList. Detailed meaning stays on the card URL. |
+| Card names/78-card entity inventory | /cards | Two group H2s cover Major and Minor Arcana. Four H3s within Minor Arcana contain the suits. All 78 card names, links and memberships match the CollectionPage and its lists. The linked lesson explains the distinction, while each card URL owns its detailed meaning. |
 | Three-card original example vs homepage example | /learn/connected-reading | About summarizes the same fixed editorial fixture and links to the full reasoning and a loadable example. It does not invent a new personal reading. |
 | Daily draw vs random draw | /tools/daily-card vs /tools/random-card | Retained different tasks (daily reflection and another random draw). No false canonical merger. |
 | Card pairs vs whole spread | /tools/combinations vs /read | Retained pair exploration versus entering a complete physical spread. |
@@ -145,7 +145,7 @@ This is 45 Unicode characters. The build audit enforces the 50-character limit. 
 
 ## Entity placement
 
-See entities.md and entities.csv for 109 ranked entities and four-platform status. The 78 card entries on /cards each have a visible H3 and a matching DefinedTerm in a 78-item list. Five group H2s retain the deck hierarchy. The hub links to this library and names the three cards in its worked example.
+See entities.md and entities.csv for 109 ranked entities and four-platform status. The 78 entries on /cards each have a visible heading and a matching DefinedTerm in a 78-item list. Major and Minor Arcana have separate H2s and fragment links. Each of the four suits has an H3 under Minor Arcana. The section lists point to the same card identifiers as the full list. The hub links to this library and names the three cards in its worked example.
 
 The directory and detail pages now use the same localized identifier for each card and spread. The spread catalogue derives its item list from the same groups and order as the visible headings. Home, About, card references, spread references and learning pages use the canonical Shenetic publisher ID. The website entity has its own ID and refers to Shenetic as publisher. Each homepage’s search action points to its actual localized search URL. The schema describes first-party relationships. The cross-platform observations remain in the entity register. [W3C node identifiers](https://www.w3.org/TR/json-ld11/#node-identifiers) · [Google organization markup](https://developers.google.com/search/docs/appearance/structured-data/organization)
 

@@ -1,3 +1,7 @@
+# Major and Minor Arcana in the card library — 2026-11-09
+
+All eight card libraries group the actual card records into 22 Major Arcana and 56 Minor Arcana. Four suit headings and links sit inside Minor Arcana. The two group anchors, all four suit anchors and the 78 card URLs agree with the CollectionPage and Markdown. The linked lesson remains the source for the detailed comparison.
+
 # Daily one-card guide — 2026-11-09
 
 All eight daily tools explain what the browser saves after a reveal and how to recover the draw for the local date. A Two of Pentacles exercise pairs a morning prompt with a check against what happened that evening. The tool and topic guide link distinct tasks. Chrome confirmed that a reversed card returned after a reload and across the Chinese and English routes.
