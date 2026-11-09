@@ -18,6 +18,7 @@ for(const [i,locale] of locales.entries()){
  const reversed=searchEntries(entries,queen.title+' '+reversal[i])[0];assert.ok(reversed.href.endsWith('?orientation=reversed#card-meanings'));
  assert.equal(searchEntries(entries,'coins').filter(e=>e.type==='cards').length,14);
  assert.equal(searchEntries(entries,'Four of Coins')[0]?.id,'pentacles_four',`${locale}: card alias`);
+ for(const alias of ['The Pope','Le Pape','Der Papst']) assert.equal(searchEntries(entries,alias)[0]?.id,'major_05_hierophant',`${locale}: ${alias}`);
  assert.deepEqual(searchEntries(entries,'zz_nonexistent_tarot_word_zz'),[]);
  const search=readFileSync(output('/'+locale+'search'),'utf8');assert.ok(search.includes('data-search-empty')&&search.includes('search-page-result'));
  const read=readFileSync(output('/'+locale+'read'),'utf8');for(const marker of ['data-workspace-loading','data-workspace-failed','id="card-picker"','data-draft-status','id="companion-concept"','data-desk-board','data-desk-spread-name','data-desk-connections','data-motion-toggle'])assert.ok(read.includes(marker),`${locale} missing ${marker}`);

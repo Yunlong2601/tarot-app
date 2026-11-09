@@ -137,7 +137,7 @@ export const CARD_EVIDENCE = {
     ],
   },
   major_05_hierophant: {
-    checkedAt: '2026-11-01',
+    checkedAt: '2026-11-09',
     checkType: 'AI-assisted source comparison',
     independentExpertReview: false,
     nativeLanguageReview: false,

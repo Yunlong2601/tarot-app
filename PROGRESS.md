@@ -1,3 +1,7 @@
+# Hierophant deck names and reversal follow-up — 2026-11-09
+
+Eight Hierophant pages lead with Waite’s historical concord entry for reversal and an exercise that compares two ways of reading the same third position. The deck notes distinguish The Hierophant from the corresponding Marseille title, Le Pape. The Pope, Le Pape and Der Papst resolve to the existing reference in site search and structured data. Recorded one German AI answer sample per platform and four-surface evidence.
+
 # Four of Pentacles reference source check — 2026-11-09
 
 Eight base references now compare the 1–1–2 illustration with Waite’s historical reversed entry and an original easel-lending exercise. Four of Coins resolves to the same card in site search and structured data. Documented one Spanish sample each for Google AI Overviews and ChatGPT plus the four-surface source comparison.

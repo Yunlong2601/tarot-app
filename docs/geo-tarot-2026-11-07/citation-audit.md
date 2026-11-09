@@ -152,3 +152,11 @@ Google 的 27 题「有来源链接」也不能直接判为「论证完整」。
 在全新的 ChatGPT Temporary Chat，以 Auto 模式问同一个西语问题，没有提示品牌或要求出处。正文给出占有、安全感、保存资源和害怕失去等解释，逆位提到放下控制、慷慨或财务不稳定。回复完成后可见三张带来源标题的图片，正文和回复底部未见文字引文、来源链接或 Sources 控件。原有第 24 题的英语样本单独保留。两处西语样本都没有提到韦特的历史逆位条目。
 
 韦特第三部分第 2 节星币四条目写的是一枚在冠顶、一枚抱在手中、两枚在脚下。其逆位历史条目包括悬而未决、延迟和阻力；Amazon 托管的出版商手册复述同样的条目。Reddit 讨论则有人读成放手、恢复接触，有人读成正位特征的增强。新版可把历史条目、现代读法和能辨别原因的练习分开。[Waite 第三部分](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3) · [出版商手册 PDF 第 28 页](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=28) · [讨论原帖](https://www.reddit.com/r/tarot/comments/1q9mb1m/4_of_pentacles_reversed/)
+
+### 德语教皇牌样本 · 11 月 9 日（新加坡时间）
+
+德语问题为「Was bedeutet der Hierophant im Tarot?」。Chrome 搜索使用 `hl=de&gl=sg&pws=0`，展开了「Übersicht mit KI」。回答称 V 是大阿尔卡那的 Hierophant，也用 Der Papst 和 Der Hohepriester。它把逆位解作突破惯例、拒绝盲从，也提到僵化教条。可见来源包括德语 Wikipedia、Tarot.nl、Andreas Roth 和 Dark Forest Tarot Cards。展开区域未见 ShenTarot。[德语查询](https://www.google.com/search?q=Was+bedeutet+der+Hierophant+im+Tarot%3F&hl=de&gl=sg&pws=0) · [德语 Wikipedia 条目](https://de.wikipedia.org/wiki/Der_Hierophant)
+
+在新的 ChatGPT Temporary Chat 中，以 Auto 模式问同一个问题，没有提示品牌或要求来源。回答称 Hierophant 也叫 Hohepriester，逆位建议质疑惯例、摆脱僵化规则、相信自己的直觉。完整答复可见四张来源图卡，正文和底部未见文字出处或 Sources 控件。两边的可见逆位段落均未提到韦特列出的和睦。现有 ShenTarot 基础牌页已在来源段落说明此项，尚可把它移到读者首先看到的答案里。[韦特第三部分](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3) · [德语牌义页](https://shentarot.com/de/cards/major-05-hierophant)
+
+后续可让牌名按牌组归属。韦特第二部分第 2 节将 V 题为 The Hierophant，并说明较旧的 Pope 叫法。Amazon 托管的 U.S. Games 手册第 9 页使用 The Hierophant，逆位同样列有和睦。Piatnik 的马赛牌手册第 13 页把 V 标为 Le Pape，对应 The Pope 或 The High Priest。Reddit 读者也会直接问这两种牌名和图案的区别。编号对应可以核对，牌图与释义仍应注明是哪一副牌。[韦特第二部分](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2) · [U.S. Games 手册第 9 页](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=9) · [Piatnik 手册第 13 页](https://www.piatnik.com/uploads/media/default/0001/08/f692bb2630e561d9a83aa2dd0688ecc9f01472e3.pdf#page=13) · [讨论原帖](https://www.reddit.com/r/tarot/comments/1ljkyld)

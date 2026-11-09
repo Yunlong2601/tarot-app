@@ -361,34 +361,36 @@
    }
   },
   "evidence": {
-   "answer": "Aquí el Hierofante plantea preguntas sobre enseñanza y costumbres compartidas. No certifica maestros ni exige obediencia.",
+   "answer": "El Hierofante (V) invita a examinar una tradición o un método compartido. Waite también incluye la concordia para la carta invertida. Puedes empezar por lo que el grupo ya tiene en común.",
    "groupNote": "La imagen lleva V. Compararla con los Cincos es un ejercicio, no una etapa universal de conflicto.",
    "sections": [
     {
      "h": "La institución histórica y nuestra pregunta de aprendizaje",
      "p": [
-      "La parte II, §2, V describe corona triple, pilares, llaves y ministros arrodillados e interpreta la autoridad religiosa institucional. También advierte que el titular puede confundirse con todo lo que representa su cargo. La parte III, §3 ofrece varios sentidos; la inversión incluye concordia, no solo rebelión. Son interpretaciones históricas, no predicciones ni aprobación de autoridades actuales."
+      "La parte II, §2, V describe corona triple, pilares, llaves y ministros arrodillados e interpreta la autoridad religiosa institucional. También advierte que el titular puede confundirse con todo lo que representa su cargo. La parte III, §3 ofrece varios sentidos; la inversión incluye concordia, no solo rebelión. Son interpretaciones históricas, no predicciones ni aprobación de autoridades actuales.",
+      "En la segunda parte, Waite titula la carta V The Hierophant y comenta el nombre anterior The Pope. El [folleto del tarot de Marsella de Piatnik](https://www.piatnik.com/uploads/media/default/0001/08/f692bb2630e561d9a83aa2dd0688ecc9f01472e3.pdf#page=13) llama Le Pape a su carta V y da The Pope o The High Priest como nombres en inglés. En alemán también se conoce como Der Papst. Para compararlas, fíjate en el número y en la baraja."
      ]
     },
     {
      "h": "Ejemplo original: aprender una tirada con alguien",
      "p": [
-      "Dos amigos practican tres cartas. Imagina esta carta derecha en «¿Cómo aprender esta tirada?». Es ficción, no la historia de un tester. Observa primero la figura sentada, las llaves y las dos figuras arrodilladas.",
+      "Dos amigos practican una tirada de tres cartas. Coloca [El Hierofante al derecho](cards/major-05-hierophant?orientation=upright#card-meanings) en «¿Qué nos ayudaría a aprender esta tirada?». Fíjate primero en la figura sentada, las llaves cruzadas y las dos personas arrodilladas.",
       "Una lectura conecta la figura central con una explicación y la pareja con aprender juntos. Pide que te expliquen una posición, prueba una pregunta sin datos privados y anota qué encaja y qué no. Es nuestro razonamiento desde imagen y posición hacia una acción, no una instrucción de Waite ni prueba de que el amigo tenga razón.",
-      "Alternativa: ya entiendes el método y necesitas practicar a solas. No inventes la necesidad de un maestro. Guarda ambas posibilidades y discrepancias en tus [notas](read). Invertir puede sugerir otra organización sin llamar dogmático a nadie."
+      "Pon [El Hierofante invertido](cards/major-05-hierophant?orientation=reversed#card-meanings) en el mismo lugar y prueba la idea de la concordia que menciona Waite. Que cada persona escriba en una frase para qué sirve la tercera posición. Si coinciden, probad esa regla una vez. Si difieren, probad las dos con las mismas cartas y anotad qué cambia. Si la regla está clara y el problema es la distracción, practicad por separado y comparad las [notas](read)."
      ]
     },
     {
      "h": "Fuentes consultables",
      "p": [
       "[A. E. Waite, The Pictorial Key to the Tarot, parte II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), §2, V The Hierophant: detalles e interpretación institucional. Documenta su simbolismo, no la verdad de una enseñanza.",
-      "[Parte III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 5 The Hierophant: sentidos históricos derechos e invertidos. Transcripción de la reimpresión de 1922. El ejercicio es editorial; las páginas de amor, carrera, sentimientos y sí/no siguen pendientes."
+      "[Parte III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §3, 5 The Hierophant: sentidos históricos derechos e invertidos. Transcripción de la reimpresión de 1922. El ejercicio es editorial; las páginas de amor, carrera, sentimientos y sí/no siguen pendientes.",
+      "El [folleto de U.S. Games](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=9) titula la carta V The Hierophant y también recoge la concordia para la invertida. El folleto de Piatnik citado arriba permite comprobar el nombre de la carta de Marsella."
      ]
     },
     {
-     "h": "Registro de comprobación · 1 de noviembre de 2026",
+     "h": "Registro de comprobación · 9 de noviembre de 2026",
      "p": [
-      "Comparación asistida por IA de pasajes, imagen publicada y referencia base. Se sustituyeron Tauro/sabiduría probada sin respaldo y la inversión fija por propuestas explícitas. Revisión experta independiente y lingüística sin confirmar. Correcciones mediante la [metodología](methodology#corrections)."
+      "Codex comparó la ilustración del sitio, los dos pasajes de Waite y los folletos de los editores. La práctica es original. Quedan pendientes la revisión por especialistas independientes y la revisión por hablantes nativos. [Envía una corrección](methodology#corrections)."
      ]
     }
    ]
