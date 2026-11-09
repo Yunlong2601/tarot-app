@@ -192,3 +192,11 @@ ChatGPT 的新 Temporary Chat 用 Auto 回答同一句英语问题。完成回�
 ChatGPT 用同一问题开启新 Temporary Chat，保留界面默认设置，未主动选择联网或改变个性化设置。答复把正位讲成内省与选择独处，逆位讲成疏离、想得太多或需要重新与人接触。它提到灯里的六角星，也在图片旁显示 Tarot from Scratch 链接。完成时未见正文引文、Sources 控件或 ShenTarot 链接。[图片旁链接](https://tarotfromscratch.com/the-hermit-tarot-card/)
 
 两份可见回答均未说明韦特把举灯写作让别人也能循光到达，也未具体列出其逆位条目中的无根据的谨慎。新版把这两点归到原书的不同部分。折纸示例用同一个问题和牌位比较两种方向。正位把步骤说到别人能跟上，逆位先核对犹豫是不是因为图缺了箭头，再据第二份图决定是否试讲。此处的差异针对本次两个样本。[韦特第二部分](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2) · [第三部分](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3)
+
+### 第 23 题星币一作为对方的感受复测 · 11 月 9 日（新加坡时间）
+
+原题为「What does the Ace of Pentacles mean as feelings?」。Chrome 在 Google 的 All 结果页使用 `hl=en&gl=sg&pws=0`。AI Overview 出现后，正位写稳定、实际的好感及长远可能，并举约见、帮忙和如约出现等行为。逆位写犹豫、现实阻碍或缺少行动。可见和展开后的来源包括 Dark Forest Tarot Cards、Daily Tarot Girl 的 YouTube 视频、Empowered Gems Tarot 和 Reddit。可见摘要与展开来源里未见 ShenTarot。[Dark Forest Tarot Cards](https://darkforesttarotcards.com/blogs/news/ace-of-pentacles-tarot-card-meaning) · [Google 链接的 Reddit 帖文](https://www.reddit.com/r/tarot/comments/2widmf/ace_of_pentacles_in_a_feelingslove_reading/)
+
+ChatGPT 在新 Temporary Chat 回答同一英语问题，保留界面默认设置。它写真实兴趣、吸引和稳定关系的潜力，提醒有机会不代表对方会付诸行动，但也用第一人称代写对方可能在想什么。完成回答可见 U.S. Games 图片卡片，未见正文引文或 Sources 控件，也未见 ShenTarot。图片卡片只支持所展示的图片来源。
+
+ShenTarot 的英文生产页仍把「对方对你有真切的兴趣」作为开头，并在正文和 FAQ 重复。这里有一个可验证的改进：从韦特第三部分第 2 节的云中伸手、举起一枚星币出发。该条目把满足、喜悦等列入正位，逆位也列出财富的负面一面和大量财富。出版商手册第 29 页的相近文字属于同一历史传统。可用虚构的邀约示例对照「提出具体时间并赴约」与「只说改天见」；这些事实可用于选择是否发出一次清楚的邀请，对方对关系的看法仍要靠对方自己表达。Reddit 原帖与回帖实际提供了截然不同的情境读法，不能用作验证私人想法的证据。[生产感受页](https://shentarot.com/cards/pentacles-ace/feelings) · [韦特星币一条目](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3) · [手册 PDF 第 29 页](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=29)
