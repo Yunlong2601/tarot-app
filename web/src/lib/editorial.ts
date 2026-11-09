@@ -12,6 +12,16 @@ export const QUESTION_EVIDENCE = {
 } as const;
 
 export const CONTEXT_EVIDENCE = {
+  "cards/cups-two/feelings": {
+    checkedAt: "2026-11-09",
+    checkType: "AI-assisted source comparison",
+    independentExpertReview: false,
+    nativeLanguageReview: false,
+    continuePath: "questions/does-he-love-me",
+    sources: [
+      { author: "Arthur Edward Waite", title: "The Pictorial Key to the Tarot, Part III, section 2, Cups — Two", url: "https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3" },
+    ],
+  },
   "cards/pentacles-ace/feelings": {
     checkedAt: "2026-11-09",
     checkType: "AI-assisted source comparison",
@@ -103,6 +113,16 @@ export const LESSON_EVIDENCE = {
 
 /** Base card references only; context subpages are not covered by these records. */
 export const CARD_EVIDENCE = {
+  cups_two: {
+    checkedAt: "2026-11-09",
+    checkType: "AI-assisted source comparison",
+    independentExpertReview: false,
+    nativeLanguageReview: false,
+    sources: [
+      { author: "Arthur Edward Waite", title: "The Pictorial Key to the Tarot, Part III, sections 2 and 4, Cups — Two", url: "https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3" },
+      { publisher: "U.S. Games Systems, Inc.", title: "Rider Waite Tarot Deck booklet, Two of Cups, PDF page 22", url: "https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=22" },
+    ],
+  },
   major_09_hermit: {
     checkedAt: '2026-11-09',
     checkType: 'AI-assisted source comparison',

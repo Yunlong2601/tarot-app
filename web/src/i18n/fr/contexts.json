@@ -57,7 +57,11 @@
  "editorial": {
   "cards/pentacles-ace/feelings": {
    "headline": "As de Deniers et sentiments : que pouvez-vous observer ?",
-   "faqQuestions": ["Que signifie l’As de Deniers dans une question sur les sentiments ?", "Comment lire l’As de Deniers à l’envers quand un projet reste flou ?", "Que faire si j’ai envie de voir cette personne ?"],
+   "faqQuestions": [
+    "Que signifie l’As de Deniers dans une question sur les sentiments ?",
+    "Comment lire l’As de Deniers à l’envers quand un projet reste flou ?",
+    "Que faire si j’ai envie de voir cette personne ?"
+   ],
    "continueText": "Reformulez la question sur les sentiments de l’autre pour trouver une action à votre portée.",
    "continueLabel": "Apprendre à formuler sa question",
    "answer": "L’As de Deniers peut évoquer une occasion de mieux se connaître. Pour comprendre ce que l’autre souhaite, écoutez ses mots et observez ses actes.",
@@ -90,6 +94,49 @@
      "anchor": "context-check",
      "p": [
       "Codex a comparé l’image de la carte, la transcription de la réédition de Waite de 1922 et la page précédente. ShenTarot a créé l’exemple fictif du café. La relecture indépendante par des praticiens et la relecture par des locuteurs natifs restent à faire. [Suggérer une correction](methodology#corrections)."
+     ]
+    }
+   ]
+  },
+  "cards/cups-two/feelings": {
+   "headline": "Deux de Coupes et sentiments : comment observer la réciprocité ?",
+   "faqQuestions": [
+    "Que signifie le Deux de Coupes dans une question sur les sentiments ?",
+    "Comment lire le Deux de Coupes à l’envers dans ce contexte ?",
+    "Comment vérifier si l’intérêt est réciproque ?"
+   ],
+   "continueText": "Essayez un tirage à trois cartes avec une question qui vous aide à agir.",
+   "continueLabel": "Ouvrir le guide sur les questions de relation",
+   "answer": "Le Deux de Coupes invite à repérer les échanges où chacun prête attention à l’autre. Les paroles de la personne restent le moyen le plus clair de comprendre ses sentiments.",
+   "advice": {
+    "up": "Pour reparler, demandez-lui et laissez-lui le temps de répondre.",
+    "rev": "Si la personne dit vouloir de l’amitié, prenez ses mots au sérieux."
+   },
+   "questions": [
+    "Qu’a dit ou fait chaque personne ?",
+    "Qu’est-ce que j’ajoute par espoir ?"
+   ],
+   "sections": [
+    {
+     "h": "Les deux coupes et le texte de Waite",
+     "anchor": "card-source",
+     "p": [
+      "[Waite, partie III, §2](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), décrit deux personnes qui lèvent leur coupe et cite l’amitié et la concorde aux côtés de l’amour. Partez de la participation des deux personnes dans l’image. Pour les différences historiques à l’envers, voyez [la fiche de la carte](cards/cups-two#reference-evidence-1)."
+     ]
+    },
+    {
+     "h": "Une conversation après le cours de dessin",
+     "anchor": "conversation-example",
+     "p": [
+      "Imaginez que quelqu’un vous parle de votre dessin, écoute votre réponse et vous montre ensuite son propre croquis. Vous avez tous les deux participé. Voilà l’échange que vous avez pu observer.",
+      "Pour « Qu’a apporté chacun à la conversation ? », les deux coupes invitent à remarquer les deux contributions. La même discussion peut relever de la gentillesse ou de l’intérêt. Si vous voulez reparler, proposez une fois de partager vos dessins la semaine prochaine. La réponse éclairera cette invitation. Respectez les limites exprimées."
+     ]
+    },
+    {
+     "h": "Trace de vérification · 9 novembre 2026",
+     "anchor": "context-check",
+     "p": [
+      "Codex a comparé l’ancienne page, le dessin et la transcription de la réédition de Waite de 1922. ShenTarot a créé cet exemple fictif. Les relectures indépendante et par des locuteurs natifs restent à faire. [Suggérer une correction](methodology#corrections)."
      ]
     }
    ]
@@ -1068,8 +1115,8 @@
     "rev": "Un partenariat est inégal ou la communication faiblit. Le travail ou les études peuvent comporter des malentendus ou une collaboration qui dérive. Les accords d'argent demandent des termes plus clairs. Clarifie les attentes des deux côtés."
    },
    "feelings": {
-    "up": "Cette personne ressent un vrai lien et du respect pour toi, et souhaite une relation d'égal à égal. Ses sentiments sont réciproques et sincères. Elle est ouverte au partage et à l'écoute.",
-    "rev": "Ses sentiments sont inégaux, ou la confusion la pousse à reculer. Elle ne voit peut-être pas le lien comme toi. Parle avec elle pour savoir où elle en est."
+    "up": "À l’endroit, repensez à un échange où chacun écoute et répond.",
+    "rev": "À l’envers, vérifiez si vous avez compris la conversation différemment."
    },
    "yesno": {
     "verdict": [

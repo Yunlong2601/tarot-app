@@ -1593,29 +1593,60 @@
    "partnership",
    "mutual respect"
   ],
-  "upright": "A balanced bond built on respect and shared feeling.",
-  "reversed": "Imbalance or miscommunication in a relationship.",
+  "upright": "Look for something each person actually contributes.",
+  "reversed": "Check whether you heard the same agreement.",
   "k": {
-   "essence": "A meeting of equals.",
-   "imagery": "A man and a woman face each other and hold out cups in a pledge. Above them floats a winged lion head over a staff entwined with two snakes. A house stands on a hill behind.",
-   "why": "Two is the number of pairs. This is a picture of mutual exchange: each person offers a cup and each receives. The winged lion and snake staff are old symbols of strong bonds and healing.",
+   "essence": "An exchange you can look at from both sides.",
+   "imagery": "Two people hold up cups. Above them are a winged lion’s head and a staff with two entwined snakes.",
+   "why": "The two cups suggest an exchange. Start with what you can see in the picture, then look for a real exchange in the situation.",
    "upright": {
-    "core": "Connection built on mutual respect, in love or friendship.",
+    "core": "Think of a moment when both people took part and check what each contributed.",
     "light": "partnership, attraction, balance",
     "shadow": "an unequal exchange, idealising the other",
-    "love": "A bond with give and take on both sides.",
-    "work": "A good working partnership.",
-    "question": "Is what I give and what I receive in balance?"
+    "love": "Recall a real moment when both of you made room to listen or speak.",
+    "work": "Name what each person can take responsibility for and check that you agree.",
+    "question": "What did each of us offer?"
    },
    "reversed": {
-    "core": "Imbalance, miscommunication or a bond drifting apart.",
+    "core": "There may be a gap between what each person thinks was agreed.",
     "modes": [
-     "Blocked: unable to open up to the other.",
-     "Excess: merging too fast.",
-     "Fading: closeness cooling."
+     "Words: repeat what you understood.",
+     "Timing: check when each person can help.",
+     "Choice: leave room to say no."
     ],
-    "question": "Where is the exchange between us uneven?"
+    "question": "Which part of our agreement still needs clarifying?"
    }
+  },
+  "evidence": {
+   "answer": "The Two of Cups shows two people raising cups toward each other. Read it as a prompt to notice what each person offers and to check what both have agreed.",
+   "groupNote": "The two cups suggest an exchange. Start with what you can see in the picture, then look for a real exchange in the situation.",
+   "sections": [
+    {
+     "h": "What the picture shows and where the historical meanings differ",
+     "p": [
+      "In Part III §2, Waite describes the raised cups, the caduceus and the winged lion’s head, then leaves their emblematic meanings aside. His main list includes friendship and concord. For reversal, the supplementary list in §4 gives passion, while the U.S. Games booklet includes misunderstanding. Each source supplies a different historical reading."
+     ]
+    },
+    {
+     "h": "Original example: sharing work at a book swap",
+     "p": [
+      "You and another volunteer are setting up a book swap. You both say you can help. In the position “What should we agree on?”, [the upright card](cards/cups-two?orientation=upright#card-meanings) suggests making both offers concrete. One person brings labels and the other sorts the books. Write down the two jobs and check that you both agree.",
+      "Keep the question and position and look at [the reversed card](cards/cups-two?orientation=reversed#card-meanings). You might have taken “I can help” to mean setting up, while the other person meant packing away. Ask which part they meant. If time is the problem instead, split the work by shift. Use the answer you actually get to make the plan."
+     ]
+    },
+    {
+     "h": "Sources you can inspect",
+     "p": [
+      "[Waite, Part III §§2 and 4](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3) documents the picture, the main list and the supplementary reversed entry. [The U.S. Games booklet, PDF page 22](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=22) gives a different reversed list. Read the [feelings example](cards/cups-two/feelings) to apply the picture to a conversation."
+     ]
+    },
+    {
+     "h": "Check record · 9 November 2026",
+     "p": [
+      "Codex checked the actual card image, Waite’s 1922 reprint transcription and the publisher booklet. ShenTarot wrote the fictional book-swap example. Independent practitioner and native-language reviews are pending. [Suggest a correction](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "cups_three": {

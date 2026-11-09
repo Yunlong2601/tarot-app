@@ -95,7 +95,12 @@ const jsonLd = [
     description:answer, url:term.url, mainEntityOfPage:term.url, inLanguage:L.tag,
     image:term.image, dateModified:evidence.checkedAt,
     author:SHENETIC, publisher:SHENETIC,
-    citation:evidence.sources.map(source=>({"@type":"Book",name:source.title,url:source.url,author:{"@type":"Person",name:source.author}})),
+    citation: evidence.sources.map(source => ({
+      "@type": "Book", name: source.title, url: source.url,
+      ...("author" in source
+        ? { author: { "@type": "Person", name: source.author } }
+        : { publisher: { "@type": "Organization", name: source.publisher } }),
+    })),
   }] : []),
   ...(faq.length
     ? [{ "@context": "https://schema.org", "@type": "FAQPage", inLanguage: L.tag, mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) }]

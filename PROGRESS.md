@@ -1,3 +1,7 @@
+# Two of Cups base and feelings references — 2026-11-09
+
+All eight base references distinguish the visible illustration, Waite's historical readings and the publisher booklet's reversed reading. An original book-swap example links to each orientation. The eight feelings pages use a separate conversation example, three short answers and a link to the general relationship guide. Both routes record AI-assisted source checks, with independent and native-language reviews pending.
+
 # Relationship question guide and practice handoff — 2026-11-09
 
 The eight relationship question guides now show the revised question before passing it to the existing three-card spread. An unanswered-message example separates observed facts, plausible explanations and one practical next step. Original card sources, a short contextual FAQ and a dated check record are visible in the page and Markdown.

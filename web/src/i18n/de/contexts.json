@@ -57,7 +57,11 @@
  "editorial": {
   "cards/pentacles-ace/feelings": {
    "headline": "Ass der Münzen als Gefühle: Was kannst du beobachten?",
-   "faqQuestions": ["Was bedeutet das Ass der Münzen bei einer Frage nach Gefühlen?", "Was legt das umgekehrte Ass der Münzen bei einem offenen Plan nahe?", "Was kann ich tun, wenn ich mich treffen möchte?"],
+   "faqQuestions": [
+    "Was bedeutet das Ass der Münzen bei einer Frage nach Gefühlen?",
+    "Was legt das umgekehrte Ass der Münzen bei einem offenen Plan nahe?",
+    "Was kann ich tun, wenn ich mich treffen möchte?"
+   ],
    "continueText": "Formuliere die Frage nach den Gefühlen einer anderen Person so, dass du selbst etwas tun kannst.",
    "continueLabel": "Die Frage anders stellen",
    "answer": "Das Ass der Münzen kann auf eine Gelegenheit hinweisen, jemanden besser kennenzulernen. Was die Person möchte, zeigt sich in ihren Worten und Taten.",
@@ -90,6 +94,49 @@
      "anchor": "context-check",
      "p": [
       "Codex hat das Kartenbild, die Transkription von Waites Neuauflage von 1922 und die frühere Fassung verglichen. ShenTarot hat das fiktive Kaffeebeispiel für diese Seite geschrieben. Eine unabhängige Prüfung durch Tarotpraktizierende und eine muttersprachliche Prüfung stehen aus. [Korrektur vorschlagen](methodology#corrections)."
+     ]
+    }
+   ]
+  },
+  "cards/cups-two/feelings": {
+   "headline": "Zwei der Kelche als Gefühle: Woran merkst du Gegenseitigkeit?",
+   "faqQuestions": [
+    "Was bedeutet die Zwei der Kelche bei einer Frage nach Gefühlen?",
+    "Wie lese ich die umgekehrte Zwei der Kelche bei Gefühlen?",
+    "Wie kann ich prüfen, ob das Interesse auf Gegenseitigkeit beruht?"
+   ],
+   "continueText": "Probiere in der Drei-Karten-Legung eine Frage aus, bei der du selbst etwas tun kannst.",
+   "continueLabel": "Zur Anleitung für Beziehungsfragen",
+   "answer": "Die Zwei der Kelche lädt dazu ein, auf gegenseitige Aufmerksamkeit zu achten. Was die andere Person empfindet, erfährst du am klarsten aus ihren eigenen Worten.",
+   "advice": {
+    "up": "Wenn du weiterreden möchtest, frag und lass Zeit für die Antwort.",
+    "rev": "Sagt die Person, dass sie Freundschaft möchte, nimm das ernst."
+   },
+   "questions": [
+    "Was hat jede Person tatsächlich gesagt oder getan?",
+    "Was kommt aus meiner eigenen Hoffnung?"
+   ],
+   "sections": [
+    {
+     "h": "Die zwei Kelche und Waites Liste",
+     "anchor": "card-source",
+     "p": [
+      "[Waite, Teil III, §2](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3) beschreibt zwei Menschen mit erhobenen Kelchen und nennt neben Liebe auch Freundschaft und Eintracht. Beide sind im Bild beteiligt. Für die unterschiedlichen historischen Deutungen der umgekehrten Karte siehe [die Kartenreferenz](cards/cups-two#reference-evidence-1)."
+     ]
+    },
+    {
+     "h": "Ein Gespräch nach dem Zeichenkurs",
+     "anchor": "conversation-example",
+     "p": [
+      "Stell dir vor, jemand fragt nach deiner Zeichnung, hört dir zu und zeigt dir dann die eigene Skizze. Ihr habt beide etwas zum Gespräch beigetragen. Diesen Austausch kannst du beobachten.",
+      "Bei „Was haben wir beide zum Gespräch beigetragen?“ erinnern die zwei Kelche an beide Beiträge. Dieselbe Unterhaltung kann freundlich gemeint sein oder Interesse zeigen. Wenn du weiterreden möchtest, frag einmal, ob ihr nächste Woche wieder Skizzen anschauen wollt. Die Antwort betrifft diese Einladung. Achte auf ausdrücklich genannte Grenzen."
+     ]
+    },
+    {
+     "h": "Prüfprotokoll · 9. November 2026",
+     "anchor": "context-check",
+     "p": [
+      "Codex verglich die frühere Seite, das Kartenbild und die Transkription von Waites Neuauflage von 1922. ShenTarot schrieb das fiktive Beispiel. Unabhängige Fach- und muttersprachliche Prüfungen stehen aus. [Korrektur vorschlagen](methodology#corrections)."
      ]
     }
    ]
@@ -1068,8 +1115,8 @@
     "rev": "Eine Partnerschaft ist ungleich, oder die Kommunikation hakt. Bei Arbeit oder Studium kann es Missverständnisse geben oder eine Zusammenarbeit, die auseinanderdriftet. Geldvereinbarungen brauchen klarere Bedingungen. Klärt die Erwartungen auf beiden Seiten."
    },
    "feelings": {
-    "up": "Diese Person spürt eine echte Verbindung und Respekt für dich und wünscht sich eine Bindung auf Augenhöhe. Ihre Gefühle sind gegenseitig und aufrichtig. Sie ist offen fürs Teilen und Zuhören.",
-    "rev": "Die Gefühle dieser Person sind ungleich, oder Verwirrung lässt sie zurückweichen. Vielleicht sieht sie die Verbindung nicht so wie du. Sprich mit ihr, um herauszufinden, wo sie steht."
+    "up": "Aufrecht: Achte darauf, ob ihr beide zuhört und aufeinander eingeht.",
+    "rev": "Umgekehrt: Frag, ob ihr das Gespräch unterschiedlich verstanden habt."
    },
    "yesno": {
     "verdict": [

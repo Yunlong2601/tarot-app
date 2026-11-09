@@ -1593,29 +1593,60 @@
    "partenariat",
    "respect mutuel"
   ],
-  "upright": "Un lien équilibré, fondé sur le respect et des sentiments partagés.",
-  "reversed": "Déséquilibre ou malentendu dans une relation.",
+  "upright": "Regardez ce que chacun apporte concrètement.",
+  "reversed": "Vérifiez si vous avez compris le même accord.",
   "k": {
-   "essence": "Une rencontre d'égal à égal.",
-   "imagery": "Un homme et une femme se font face et se tendent des coupes en signe d'engagement. Au-dessus d'eux flotte une tête de lion ailée, au-dessus d'un bâton autour duquel s'enroulent deux serpents. Une maison se dresse sur une colline derrière eux.",
-   "why": "Deux est le nombre des paires. C'est une image d'échange mutuel : chacun offre une coupe et chacun en reçoit une. Le lion ailé et le bâton aux serpents sont d'anciens symboles de liens forts et de guérison.",
+   "essence": "Un échange vu des deux côtés.",
+   "imagery": "Deux personnes lèvent leur coupe. Au-dessus, on voit une tête de lion ailée et un bâton entouré de deux serpents.",
+   "why": "Les deux coupes évoquent un échange. Partez de l’image, puis cherchez un échange qui a réellement eu lieu.",
    "upright": {
-    "core": "Un lien fondé sur le respect mutuel, en amour ou en amitié.",
+    "core": "Repensez à un moment où vous avez tous deux participé et voyez ce que chacun a apporté.",
     "light": "partenariat, attirance, équilibre",
     "shadow": "un échange inégal, idéaliser l'autre",
-    "love": "Un lien où chacun donne et reçoit.",
-    "work": "Un bon partenariat professionnel.",
-    "question": "Ce que je donne et ce que je reçois sont-ils équilibrés ?"
+    "love": "Repensez à une conversation où chacun a pu parler et écouter.",
+    "work": "Dites qui peut prendre en charge chaque tâche, puis confirmez l’accord.",
+    "question": "Qu’a proposé chacun ?"
    },
    "reversed": {
-    "core": "Déséquilibre, malentendu, ou un lien qui se distend.",
+    "core": "Vous avez peut-être compris différemment le même accord.",
     "modes": [
-     "Bloqué : incapable de s'ouvrir à l'autre.",
-     "Excès : fusionner trop vite.",
-     "Déclin : une proximité qui se refroidit."
+     "Paroles : reformulez ce que vous avez compris.",
+     "Temps : demandez quand chacun peut aider.",
+     "Choix : laissez la possibilité de refuser."
     ],
-    "question": "Où l'échange entre nous est-il inégal ?"
+    "question": "Quel point de l’accord reste à clarifier ?"
    }
+  },
+  "evidence": {
+   "answer": "Le Deux de Coupes montre deux personnes qui lèvent leur coupe. Il invite à regarder ce que chacun apporte et à vérifier ce dont vous êtes convenus.",
+   "groupNote": "Les deux coupes évoquent un échange. Partez de l’image, puis cherchez un échange qui a réellement eu lieu.",
+   "sections": [
+    {
+     "h": "Le dessin et les divergences entre les lectures historiques",
+     "p": [
+      "Dans la partie III, §2, Waite décrit les coupes, le caducée et la tête de lion ailée. Il laisse leur sens emblématique de côté. Sa liste principale cite l’amitié et la concorde. Pour la carte à l’envers, le §4 cite la passion, tandis que le livret U.S. Games mentionne entre autres le malentendu."
+     ]
+    },
+    {
+     "h": "Exemple original : répartir les tâches d’un échange de livres",
+     "p": [
+      "Vous vous proposez à deux pour aider lors d’un échange de livres. Pour « Sur quoi devons-nous nous mettre d’accord ? », [la carte à l’endroit](cards/cups-two?orientation=upright#card-meanings) invite à préciser les deux offres. Une personne apporte les étiquettes et l’autre trie les livres. Notez les tâches et confirmez l’accord.",
+      "Gardez la question et la position avec [la carte à l’envers](cards/cups-two?orientation=reversed#card-meanings). Vous avez peut-être compris « Je peux aider » comme une offre d’installation, alors que la personne parlait du rangement. Demandez-lui ce qu’elle voulait dire. Si les horaires bloquent, répartissez le travail par créneaux. Appuyez-vous sur la réponse réelle."
+     ]
+    },
+    {
+     "h": "Sources à consulter",
+     "p": [
+      "[Waite, partie III, §§2 et 4](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3) documente le dessin, la liste principale et le sens à l’envers supplémentaire. [Le livret U.S. Games, PDF page 22](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=22) propose une autre liste à l’envers. Pour appliquer la carte à une conversation, voyez [l’exemple sur les sentiments](cards/cups-two/feelings)."
+     ]
+    },
+    {
+     "h": "Trace de vérification · 9 novembre 2026",
+     "p": [
+      "Codex a comparé l’image, la transcription de la réédition de Waite de 1922 et le livret. ShenTarot a écrit l’exemple fictif. Les relectures indépendante et par des locuteurs natifs restent à faire. [Suggérer une correction](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "cups_three": {

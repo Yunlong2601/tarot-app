@@ -1593,29 +1593,60 @@
    "pareja",
    "respeto mutuo"
   ],
-  "upright": "Un vínculo equilibrado, construido sobre el respeto y un sentimiento compartido.",
-  "reversed": "Desequilibrio o falta de comunicación en una relación.",
+  "upright": "Fíjate en lo que cada persona aporta de verdad.",
+  "reversed": "Comprueba si ambos entendisteis lo mismo.",
   "k": {
-   "essence": "Un encuentro entre iguales.",
-   "imagery": "Un hombre y una mujer, frente a frente, se ofrecen sus copas en señal de compromiso. Sobre ellos flota una cabeza de león alada encima de un bastón con dos serpientes entrelazadas. Detrás, una casa se alza sobre una colina.",
-   "why": "El dos es el número de las parejas. Es una imagen de intercambio mutuo: cada persona ofrece una copa y cada una recibe. El león alado y el bastón con serpientes son antiguos símbolos de vínculos fuertes y de sanación.",
+   "essence": "Un intercambio visto desde los dos lados.",
+   "imagery": "Dos personas alzan sus copas. Encima hay una cabeza de león alada y una vara con dos serpientes entrelazadas.",
+   "why": "Las dos copas evocan un intercambio. Empieza por lo que ves en el dibujo y busca un intercambio real en tu situación.",
    "upright": {
-    "core": "Una conexión construida sobre el respeto mutuo, en el amor o en la amistad.",
+    "core": "Recuerda una ocasión en que participasteis los dos y mira qué aportó cada persona.",
     "light": "compañerismo, atracción, equilibrio",
     "shadow": "un intercambio desigual, idealizar al otro",
-    "love": "Un vínculo en el que ambos dan y reciben.",
-    "work": "Una buena alianza de trabajo.",
-    "question": "¿Están en equilibrio lo que doy y lo que recibo?"
+    "love": "Recuerda una conversación en que las dos personas tuvieron espacio para hablar y escuchar.",
+    "work": "Aclarad qué puede asumir cada persona y comprobad si estáis de acuerdo.",
+    "question": "¿Qué ofreció cada persona?"
    },
    "reversed": {
-    "core": "Desequilibrio, falta de comunicación o un vínculo que se va distanciando.",
+    "core": "Puede que cada persona haya entendido algo diferente.",
     "modes": [
-     "Bloqueo: no poder abrirte a la otra persona.",
-     "Exceso: fusionarse demasiado rápido.",
-     "Desvanecimiento: la cercanía se enfría."
+     "Palabras: repite lo que entendiste.",
+     "Tiempo: pregunta cuándo puede ayudar cada persona.",
+     "Elección: deja espacio para decir que no."
     ],
-    "question": "¿Dónde es desigual el intercambio entre nosotros?"
+    "question": "¿Qué parte del acuerdo queda por aclarar?"
    }
+  },
+  "evidence": {
+   "answer": "El Dos de Copas muestra a dos personas que alzan sus copas. Úsalo para pensar qué aporta cada una y qué habéis acordado de verdad.",
+   "groupNote": "Las dos copas evocan un intercambio. Empieza por lo que ves en el dibujo y busca un intercambio real en tu situación.",
+   "sections": [
+    {
+     "h": "Qué muestra la carta y en qué difieren las lecturas históricas",
+     "p": [
+      "En la parte III, §2, Waite describe las copas, el caduceo y la cabeza de león alada. Deja aparte su simbolismo e incluye la amistad y la concordia en su lista principal. Para la carta invertida, el §4 menciona la pasión y el folleto de U.S. Games incluye el malentendido. Cada texto ofrece una lectura histórica distinta."
+     ]
+    },
+    {
+     "h": "Ejemplo original: repartir el trabajo en un intercambio de libros",
+     "p": [
+      "Tú y otra persona os ofrecéis a ayudar en un intercambio de libros. En la posición «¿Qué debemos acordar?», [la carta al derecho](cards/cups-two?orientation=upright#card-meanings) invita a concretar las dos ofertas. Una persona trae las etiquetas y la otra clasifica los libros. Anotad las dos tareas y confirmad el acuerdo.",
+      "Con la misma pregunta y posición, mira [la carta invertida](cards/cups-two?orientation=reversed#card-meanings). Quizá entendiste que la otra persona ayudaría a montar la mesa, pero pensaba recoger al final. Pregunta a qué se refería. Si el problema es el horario, repartid el trabajo por turnos. Organizad el plan según lo que os digáis."
+     ]
+    },
+    {
+     "h": "Fuentes consultables",
+     "p": [
+      "[Waite, parte III, §§2 y 4](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3) documenta la imagen, la lista principal y la entrada invertida adicional. [El folleto de U.S. Games, página 22 del PDF](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=22) ofrece otra lista para la carta invertida. Para aplicarla a una conversación, lee [el ejemplo sobre sentimientos](cards/cups-two/feelings)."
+     ]
+    },
+    {
+     "h": "Registro de comprobación · 9 de noviembre de 2026",
+     "p": [
+      "Codex comparó la imagen, la transcripción de la reedición de Waite de 1922 y el folleto editorial. ShenTarot creó el ejemplo ficticio. Quedan pendientes la revisión independiente y por hablantes nativos. [Sugerir una corrección](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "cups_three": {
