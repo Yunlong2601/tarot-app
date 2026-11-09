@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
 import {parseHTML} from 'linkedom';
-import {LESSON_EVIDENCE,CARD_EVIDENCE} from '../src/lib/editorial.ts';
+import {LESSON_EVIDENCE,CARD_EVIDENCE,CONTEXT_EVIDENCE} from '../src/lib/editorial.ts';
 const locales=['en','zh-hans','zh-hant','es','de','ja','fr','ru'];
 const lessons = {
  'how-to-read-tarot': {sources:2,cards:['cups-five','swords-two','pentacles-three']},
@@ -108,3 +108,75 @@ for(const [id,evidence] of Object.entries(CARD_EVIDENCE))for(const locale of loc
  }
 }
 console.log(`${Object.keys(CARD_EVIDENCE).length * locales.length} checked base-card references: visible examples and check records, Article and Markdown citations, and reading controls.`);
+
+for (const [path, evidence] of Object.entries(CONTEXT_EVIDENCE)) for (const locale of locales) {
+ const prefix = locale === 'en' ? '' : locale + '/';
+ const route = prefix + path;
+ const file = ['dist/' + route + '.html', 'dist/' + route + '/index.html'].find(existsSync);
+ assert.ok(file, route);
+ const {document} = parseHTML(readFileSync(file, 'utf8'));
+ const localized = JSON.parse(readFileSync(`src/i18n/${locale}/contexts.json`, 'utf8'));
+ const copy = localized.editorial[path];
+ const section = document.querySelector('[data-context-evidence]');
+ assert.ok(section && copy, route + ': scoped contextual evidence');
+ assert.equal(document.querySelector('.answer').textContent, copy.answer);
+ assert.equal(document.querySelector('h1').textContent, copy.headline);
+ assert.equal(document.querySelector('title').textContent, copy.headline + ' · ShenTarot');
+ assert.equal(document.querySelector(`main a[href="/${prefix}${evidence.continuePath}"]`).textContent, copy.continueLabel);
+ assert.deepEqual([...section.querySelectorAll('h2')].map(h => [h.id, h.textContent]),
+  copy.sections.map(item => [item.anchor, item.h]));
+ assert.ok(section.querySelector(`a[href="/${prefix}methodology#corrections"]`));
+ const schemas = [...document.querySelectorAll('script[type="application/ld+json"]')].map(s => JSON.parse(s.textContent));
+ const article = schemas.find(schema => schema['@type'] === 'Article');
+ const url = 'https://shentarot.com/' + route;
+ assert.equal(article.url, url);
+ assert.equal(article.about['@id'], url.slice(0, url.lastIndexOf('/')));
+ assert.equal(article.dateModified, evidence.checkedAt);
+ assert.equal(article.publisher.name, 'Shenetic');
+ assert.ok(!('reviewedBy' in article) && !('lastReviewed' in article));
+ assert.equal(evidence.independentExpertReview, false);
+ assert.equal(evidence.nativeLanguageReview, false);
+ assert.deepEqual(article.citation.map(source => source.url), evidence.sources.map(source => source.url));
+ const markdownPath = ['dist/_agent-markdown/' + route + '.md', 'dist/_agent-markdown/' + route + '/index.md'].find(existsSync);
+ assert.ok(markdownPath, route);
+ const markdown = readFileSync(markdownPath, 'utf8');
+ for (const source of evidence.sources) {
+  assert.ok(section.querySelector(`a[href="${source.url}"]`) && markdown.includes(source.url));
+ }
+ for (const heading of section.querySelectorAll('h2')) assert.ok(markdown.includes('## ' + heading.textContent));
+ const faq = schemas.find(schema => schema['@type'] === 'FAQPage').mainEntity;
+ const answers = [...document.querySelectorAll('.faq details')].map(entry => [
+  entry.querySelector('summary').textContent.trim(), entry.querySelector('p').textContent,
+ ]);
+ assert.deepEqual(faq.map(item => [item.name, item.acceptedAnswer.text]), answers);
+ assert.deepEqual(answers.map(([question]) => question), copy.faqQuestions);
+ assert.ok(answers.length === 3 && answers.every(([, answer]) => [...answer].length <= 80));
+
+ const [, slug, ctx] = path.split('/');
+ const cardPath = prefix + 'cards/' + slug;
+ const cardFile = ['dist/' + cardPath + '.html', 'dist/' + cardPath + '/index.html'].find(existsSync);
+ const cardDoc = parseHTML(readFileSync(cardFile, 'utf8')).document;
+ const term = [...cardDoc.querySelectorAll('script[type="application/ld+json"]')]
+  .map(script => JSON.parse(script.textContent)).find(schema => schema['@type'] === 'DefinedTerm');
+ assert.equal(term['@id'], article.about['@id']);
+ const id = slug.replaceAll('-', '_');
+ for (const orientation of ['', '&orientation=reversed']) {
+  assert.ok(document.querySelector(`a[href="/${prefix}read?card=${id}${orientation}"]`));
+ }
+ for (const other of ['love', 'career', 'feelings', 'yes-or-no'].filter(value => value !== ctx)) {
+  const sibling = ['dist/' + cardPath + '/' + other + '.html', 'dist/' + cardPath + '/' + other + '/index.html'].find(existsSync);
+  assert.ok(!readFileSync(sibling, 'utf8').includes('data-context-evidence'), locale + ': sibling scope');
+ }
+ if (slug === 'pentacles-ace') {
+  assert.deepEqual(term.alternateName, ['Ace of Coins']);
+  const index = JSON.parse(readFileSync(`dist/${prefix}search-index.json`, 'utf8'));
+  assert.ok(index.find(item => item.id === id).aliases.includes('Ace of Coins'));
+  assert.ok(section.textContent.includes('Ace of Coins') && markdown.includes('Ace of Coins'));
+  if (locale === 'en') {
+   const full = readFileSync('dist/llms-full.txt', 'utf8');
+   assert.ok(full.includes(localized.cards[id].feelings.up) && full.includes(localized.cards[id].feelings.rev));
+   assert.ok(!full.includes('This person feels a steady, real interest in you.'));
+  }
+ }
+}
+console.log(`${Object.keys(CONTEXT_EVIDENCE).length * locales.length} contextual references: sources, examples, limited check records, FAQ and card identity verified.`);

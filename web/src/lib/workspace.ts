@@ -32,6 +32,7 @@ export const JUDGEMENT_ALIASES = ['Judgment', 'The Last Judgment'] as const;
 export const CARD_REFERENCE_ALIASES: Partial<Record<string, readonly string[]>> = {
   major_05_hierophant: ['The Pope', 'Le Pape', 'Der Papst'],
   major_20_judgement: JUDGEMENT_ALIASES,
+  pentacles_ace: ['Ace of Coins'],
   pentacles_four: ['Four of Coins'],
 };
 export function queryParts(raw: string) {

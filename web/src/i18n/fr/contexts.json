@@ -54,6 +54,47 @@
    }
   }
  },
+ "editorial": {
+  "cards/pentacles-ace/feelings": {
+   "headline": "As de Deniers et sentiments : que pouvez-vous observer ?",
+   "faqQuestions": ["Que signifie l’As de Deniers dans une question sur les sentiments ?", "Comment lire l’As de Deniers à l’envers quand un projet reste flou ?", "Que faire si j’ai envie de voir cette personne ?"],
+   "continueText": "Reformulez la question sur les sentiments de l’autre pour trouver une action à votre portée.",
+   "continueLabel": "Apprendre à formuler sa question",
+   "answer": "L’As de Deniers peut évoquer une occasion de mieux se connaître. Pour comprendre ce que l’autre souhaite, écoutez ses mots et observez ses actes.",
+   "advice": {
+    "up": "Si vous voulez vous voir, proposez une heure et laissez l’autre répondre.",
+    "rev": "Si le projet reste flou, demandez-vous combien de temps vous voulez attendre."
+   },
+   "questions": [
+    "Qu’a proposé cette personne, concrètement ?",
+    "Qu’est-ce que j’aimerais lui demander directement ?"
+   ],
+   "sections": [
+    {
+     "h": "La main, le denier et le texte original de Waite",
+     "anchor": "card-source",
+     "p": [
+      "Une main sort d’un nuage et présente un pentacle. Dans [la partie III, §2](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), Waite cite la satisfaction et la joie à l’endroit. À l’envers, il mentionne à la fois le mauvais côté de la richesse et une grande richesse. Le passage parle de circonstances matérielles. Ici, le denier tendu invite à chercher une possibilité concrète. La carte apparaît aussi sous le nom anglais [Ace of Coins](https://en.wikipedia.org/wiki/Ace_of_Coins)."
+     ]
+    },
+    {
+     "h": "Une invitation à prendre un café : les faits et la suite",
+     "anchor": "coffee-example",
+     "p": [
+      "Imaginez tirer l’As de Deniers en demandant « Quelle occasion puis-je explorer ? ». Quelqu’un propose un café samedi. Vous fixez une heure et la personne vient. Vous savez qu’un rendez-vous précis a eu lieu. Comme le denier tendu sur la carte, l’invitation est une proposition concrète à laquelle vous pouvez répondre.",
+      "Si la personne dit simplement « On devrait prendre un café un de ces jours », rien n’est encore fixé. Sa semaine est peut-être chargée, ou elle l’a dit en passant. Si vous avez envie de la voir, proposez une heure et attendez sa réponse. Si vous souhaitez savoir ce qu’elle ressent, laissez-la l’exprimer elle-même."
+     ]
+    },
+    {
+     "h": "Trace de vérification · 9 novembre 2026",
+     "anchor": "context-check",
+     "p": [
+      "Codex a comparé l’image de la carte, la transcription de la réédition de Waite de 1922 et la page précédente. ShenTarot a créé l’exemple fictif du café. La relecture indépendante par des praticiens et la relecture par des locuteurs natifs restent à faire. [Suggérer une correction](methodology#corrections)."
+     ]
+    }
+   ]
+  }
+ },
  "cards": {
   "major_00_fool": {
    "love": {
@@ -1729,8 +1770,8 @@
     "rev": "Une occasion t'échappe ou un plan manque de fondations. Les questions d'argent demandent peut-être un meilleur budget. Vérifie les détails avant de t'engager."
    },
    "feelings": {
-    "up": "Cette personne éprouve un intérêt stable et réel pour toi. Ses sentiments sont concrets et sincères, et elle voit un avenir. Elle te le montre peut-être en étant fiable.",
-    "rev": "Cette personne n'est peut-être pas prête à s'engager, ou son intérêt manque de substance. Elle laisse peut-être passer l'occasion de dire ce qu'elle ressent. Les sentiments ont besoin d'une base plus ferme."
+    "up": "À l’endroit, cherchez une occasion concrète de faire connaissance.",
+    "rev": "À l’envers, voyez ce qu’il reste à convenir pour concrétiser le projet."
    },
    "yesno": {
     "verdict": [

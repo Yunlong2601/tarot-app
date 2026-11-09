@@ -1,3 +1,7 @@
+# Ace of Pentacles as feelings — 2026-11-09
+
+The eight feelings pages now distinguish a practical opportunity from another person's feelings. They compare a concrete coffee invitation with an unconfirmed plan, cite Waite's separate material readings and explain the Ace of Coins name. The short FAQ, Markdown, search alias and Article data follow the same scoped reference.
+
 # Hermit beacon and orientation example — 2026-11-09
 
 The eight Hermit references now lead with Waite’s beacon image and give the historical reversed entries a clear source. An original paper-folding example keeps the question and spread position fixed while readers switch between upright and reversed. Recorded fresh Google and ChatGPT answers and the four-surface comparison. Independent expert and native-language checks remain pending.
