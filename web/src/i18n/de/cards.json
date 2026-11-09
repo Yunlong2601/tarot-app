@@ -1593,29 +1593,60 @@
    "Partnerschaft",
    "gegenseitiger Respekt"
   ],
-  "upright": "Eine ausgewogene Verbindung, die auf Respekt und gemeinsamem Gefühl beruht.",
-  "reversed": "Ungleichgewicht oder Missverständnisse in einer Beziehung.",
+  "upright": "Achte darauf, was jede Person tatsächlich beiträgt.",
+  "reversed": "Prüfe, ob ihr dieselbe Abmachung meint.",
   "k": {
-   "essence": "Eine Begegnung auf Augenhöhe.",
-   "imagery": "Ein Mann und eine Frau stehen einander gegenüber und reichen sich Kelche wie bei einem Versprechen. Über ihnen schwebt ein geflügelter Löwenkopf über einem Stab, um den sich zwei Schlangen winden. Auf einem Hügel dahinter steht ein Haus.",
-   "why": "Zwei ist die Zahl der Paare. Das Bild zeigt gegenseitigen Austausch: Jeder bietet einen Kelch an, und jeder empfängt einen. Der geflügelte Löwe und der Schlangenstab sind alte Symbole für starke Bindungen und Heilung.",
+   "essence": "Ein Austausch aus zwei Blickwinkeln.",
+   "imagery": "Zwei Menschen halten ihre Kelche hoch. Darüber sind ein geflügelter Löwenkopf und ein Stab mit zwei Schlangen zu sehen.",
+   "why": "Die zwei Kelche erinnern an einen Austausch. Geh vom Bild aus und suche einen Austausch, der wirklich stattgefunden hat.",
    "upright": {
-    "core": "Eine Verbindung, die auf gegenseitigem Respekt beruht, in Liebe oder Freundschaft.",
+    "core": "Erinnere dich an einen Moment, an dem beide beteiligt waren. Was hat jede Person beigetragen?",
     "light": "Partnerschaft, Anziehung, Ausgleich",
     "shadow": "ein ungleicher Austausch, den anderen idealisieren",
-    "love": "Eine Bindung, in der beide Seiten geben und nehmen.",
-    "work": "Eine gute Arbeitspartnerschaft.",
-    "question": "Sind das, was ich gebe, und das, was ich bekomme, im Gleichgewicht?"
+    "love": "Denk an ein Gespräch, in dem beide zuhören und sich äußern konnten.",
+    "work": "Sprecht ab, wer was übernehmen kann, und prüft, ob ihr euch einig seid.",
+    "question": "Was haben wir jeweils angeboten?"
    },
    "reversed": {
-    "core": "Ungleichgewicht, Missverständnisse oder eine Bindung, die auseinanderdriftet.",
+    "core": "Vielleicht habt ihr dieselbe Abmachung unterschiedlich verstanden.",
     "modes": [
-     "Blockiert: sich dem anderen nicht öffnen können.",
-     "Übermaß: zu schnell verschmelzen.",
-     "Schwindend: Die Nähe kühlt ab."
+     "Worte: Wiederhole, was du verstanden hast.",
+     "Zeit: Frag, wann jede Person helfen kann.",
+     "Wahl: Lass Raum für ein Nein."
     ],
-    "question": "Wo ist der Austausch zwischen uns ungleich?"
+    "question": "Was müssen wir noch klären?"
    }
+  },
+  "evidence": {
+   "answer": "Auf der Zwei der Kelche heben zwei Menschen ihre Kelche. Die Karte lädt dazu ein, zu prüfen, was beide beitragen und worauf sie sich geeinigt haben.",
+   "groupNote": "Die zwei Kelche erinnern an einen Austausch. Geh vom Bild aus und suche einen Austausch, der wirklich stattgefunden hat.",
+   "sections": [
+    {
+     "h": "Was das Bild zeigt und wo sich die historischen Lesarten unterscheiden",
+     "p": [
+      "In Teil III, §2, beschreibt Waite die Kelche, den Hermesstab und den geflügelten Löwenkopf. Die symbolische Deutung dieser Zeichen lässt er beiseite. Seine Hauptliste nennt Freundschaft und Eintracht. Für die umgekehrte Karte nennt §4 Leidenschaft. Das Begleitheft von U.S. Games führt unter anderem ein Missverständnis an."
+     ]
+    },
+    {
+     "h": "Eigenes Beispiel: Aufgaben bei einer Büchertauschbörse verteilen",
+     "p": [
+      "Du und eine andere Person wollt bei einer Büchertauschbörse helfen. Bei „Was sollten wir absprechen?“ regt die [aufrechte Karte](cards/cups-two?orientation=upright#card-meanings) dazu an, beide Angebote konkret zu machen. Eine Person bringt die Etiketten, die andere sortiert die Bücher. Schreibt beides auf und bestätigt die Abmachung.",
+      "Bei derselben Frage und Position siehst du die [umgekehrte Karte](cards/cups-two?orientation=reversed#card-meanings). Vielleicht meint die andere Person mit „Ich helfe“ das Aufräumen und du denkst an den Aufbau. Frag nach, was sie meinte. Liegt es an der Zeit, teilt die Arbeit nach Schichten. Plant anhand der tatsächlichen Antwort."
+     ]
+    },
+    {
+     "h": "Nachprüfbare Quellen",
+     "p": [
+      "[Waite, Teil III, §§2 und 4](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3) dokumentiert Bild, Hauptliste und den ergänzenden Eintrag zur umgekehrten Karte. [Das U.S. Games Begleitheft, PDF-Seite 22](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=22) nennt andere umgekehrte Bedeutungen. Für ein Gesprächsbeispiel siehe [die Seite über Gefühle](cards/cups-two/feelings)."
+     ]
+    },
+    {
+     "h": "Prüfprotokoll · 9. November 2026",
+     "p": [
+      "Codex verglich das Kartenbild, die Transkription von Waites Neuauflage von 1922 und das Begleitheft. ShenTarot hat das Tauschbeispiel erfunden. Unabhängige Fach- und muttersprachliche Prüfungen stehen aus. [Korrektur vorschlagen](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "cups_three": {

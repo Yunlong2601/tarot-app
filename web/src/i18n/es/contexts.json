@@ -57,7 +57,11 @@
  "editorial": {
   "cards/pentacles-ace/feelings": {
    "headline": "As de Oros como sentimientos: qué puedes observar",
-   "faqQuestions": ["¿Qué significa el As de Oros como sentimientos?", "¿Cómo leer el As de Oros invertido si el plan sigue en el aire?", "¿Qué puedo hacer si quiero quedar?"],
+   "faqQuestions": [
+    "¿Qué significa el As de Oros como sentimientos?",
+    "¿Cómo leer el As de Oros invertido si el plan sigue en el aire?",
+    "¿Qué puedo hacer si quiero quedar?"
+   ],
    "continueText": "Cambia una pregunta sobre lo que siente otra persona por una que puedas llevar a la práctica.",
    "continueLabel": "Aprende a formular tu pregunta",
    "answer": "El As de Oros puede sugerir una ocasión para conocerse mejor. Para saber qué quiere la otra persona, presta atención a sus palabras y sus actos.",
@@ -90,6 +94,49 @@
      "anchor": "context-check",
      "p": [
       "Codex comparó la imagen de la carta, la transcripción de la reedición de Waite de 1922 y la página anterior. ShenTarot creó el ejemplo ficticio del café. Quedan pendientes la revisión independiente por profesionales y la revisión lingüística por hablantes nativos. [Sugerir una corrección](methodology#corrections)."
+     ]
+    }
+   ]
+  },
+  "cards/cups-two/feelings": {
+   "headline": "Dos de Copas como sentimientos: cómo reconocer un intercambio",
+   "faqQuestions": [
+    "¿Qué significa el Dos de Copas como sentimientos?",
+    "¿Cómo leer el Dos de Copas invertido en este contexto?",
+    "¿Cómo puedo comprobar si el interés es mutuo?"
+   ],
+   "continueText": "Prueba la tirada de tres cartas con una pregunta que te ayude a decidir qué hacer.",
+   "continueLabel": "Abrir la guía de preguntas sobre relaciones",
+   "answer": "El Dos de Copas invita a observar si ambas personas escuchan y responden. Para conocer los sentimientos de alguien, escucha lo que esa persona te diga.",
+   "advice": {
+    "up": "Si quieres volver a hablar, pregunta y deja tiempo para responder.",
+    "rev": "Si te dice que prefiere la amistad, toma sus palabras en serio."
+   },
+   "questions": [
+    "¿Qué dijo o hizo cada persona?",
+    "¿Qué estoy añadiendo desde mis expectativas?"
+   ],
+   "sections": [
+    {
+     "h": "Las dos copas y la lista de Waite",
+     "anchor": "card-source",
+     "p": [
+      "[Waite, parte III, §2](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), describe a dos personas que alzan sus copas y cita la amistad y la concordia junto al amor. Empieza por la participación de ambas en la imagen. Para comparar las lecturas invertidas, consulta [la ficha de la carta](cards/cups-two#reference-evidence-1)."
+     ]
+    },
+    {
+     "h": "Una conversación después de clase de dibujo",
+     "anchor": "conversation-example",
+     "p": [
+      "Imagina que alguien te pregunta por tu dibujo, escucha tu respuesta y luego te muestra su boceto. Ambas personas han participado. Ese es el intercambio que puedes observar.",
+      "Para «¿Qué aportó cada persona a la conversación?», las dos copas invitan a fijarte en ambas aportaciones. La misma charla puede ser un gesto de amistad o de interés. Si quieres volver a hablar, pregunta una vez si le apetece compartir dibujos la próxima semana. La respuesta aclara esa invitación. Respeta los límites que te comunique."
+     ]
+    },
+    {
+     "h": "Registro de comprobación · 9 de noviembre de 2026",
+     "anchor": "context-check",
+     "p": [
+      "Codex comparó la página anterior, la imagen y la transcripción de la reedición de Waite de 1922. ShenTarot creó el ejemplo ficticio. Quedan pendientes las revisiones independientes y por hablantes nativos. [Sugerir una corrección](methodology#corrections)."
      ]
     }
    ]
@@ -1068,8 +1115,8 @@
     "rev": "Una alianza es desigual o la comunicación falla. El trabajo o el estudio pueden traer malentendidos o una colaboración que se va a la deriva. Los acuerdos de dinero necesitan condiciones más claras. Aclara las expectativas de las dos partes."
    },
    "feelings": {
-    "up": "Siente una conexión real y respeto hacia ti, y quiere un vínculo entre iguales. Sus sentimientos son mutuos y sinceros. Está abierta a compartir y a escuchar.",
-    "rev": "Sus sentimientos no son iguales, o la confusión la hace retroceder. Puede que no vea la conexión como tú. Habla para saber dónde está."
+    "up": "Al derecho, fíjate en si las dos personas escuchan y responden.",
+    "rev": "Invertida, pregunta si cada persona entendió algo distinto."
    },
    "yesno": {
     "verdict": [

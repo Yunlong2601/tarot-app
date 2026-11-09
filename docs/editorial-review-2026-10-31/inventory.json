@@ -1350,7 +1350,7 @@
     {
       "path": "/cards/cups-two",
       "category": "cards",
-      "sourceComparison": "not_started",
+      "sourceComparison": "ai_assisted_passage_comparison",
       "independentExpertReview": "not_verified",
       "languageReview": {
         "en": "not_verified",
@@ -4406,7 +4406,7 @@
     {
       "path": "/cards/cups-two/feelings",
       "category": "cards",
-      "sourceComparison": "not_started",
+      "sourceComparison": "ai_assisted_passage_comparison",
       "independentExpertReview": "not_verified",
       "languageReview": {
         "en": "not_verified",

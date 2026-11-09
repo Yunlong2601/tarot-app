@@ -57,7 +57,11 @@
  "editorial": {
   "cards/pentacles-ace/feelings": {
    "headline": "Ace of Pentacles as feelings: what can you observe?",
-   "faqQuestions": ["What does the Ace of Pentacles mean as feelings?", "What does the reversed Ace of Pentacles suggest about a vague plan?", "What can I do if I want to meet?"],
+   "faqQuestions": [
+    "What does the Ace of Pentacles mean as feelings?",
+    "What does the reversed Ace of Pentacles suggest about a vague plan?",
+    "What can I do if I want to meet?"
+   ],
    "continueText": "Turn a question about someone else’s feelings into one you can act on.",
    "continueLabel": "Learn to frame your question",
    "answer": "The Ace of Pentacles can suggest a chance to get to know someone. Use their words and actions to understand what they want.",
@@ -90,6 +94,49 @@
      "anchor": "context-check",
      "p": [
       "Codex compared the card image, Waite’s 1922 reprint transcription and the previous feelings page. ShenTarot wrote the fictional coffee example for this page. Independent practitioner and native-language reviews are pending. [Suggest a correction](methodology#corrections)."
+     ]
+    }
+   ]
+  },
+  "cards/cups-two/feelings": {
+   "headline": "Two of Cups as feelings: how to notice reciprocity",
+   "faqQuestions": [
+    "What does the Two of Cups mean as feelings?",
+    "How can I read the reversed Two of Cups as feelings?",
+    "How can I check if the interest is mutual?"
+   ],
+   "continueText": "For a different situation, try a three-card reflection with a question you can act on.",
+   "continueLabel": "Open the relationship question guide",
+   "answer": "The Two of Cups can prompt you to look for two-way attention. The other person’s own words are the clearest way to learn how they feel.",
+   "advice": {
+    "up": "If you want to talk again, ask and give them room to answer.",
+    "rev": "If they say they want friendship, take that at face value."
+   },
+   "questions": [
+    "What did each person do or say?",
+    "What am I adding from my own hopes?"
+   ],
+   "sections": [
+    {
+     "h": "The two cups and Waite’s list",
+     "anchor": "card-source",
+     "p": [
+      "[Waite, Part III §2](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3) describes two people raising cups and lists friendship and concord alongside love. Start with the two people’s participation in the picture. For the different historical readings of reversal, see the [base card reference](cards/cups-two#reference-evidence-1)."
+     ]
+    },
+    {
+     "h": "A conversation after drawing class",
+     "anchor": "conversation-example",
+     "p": [
+      "Imagine that someone asks about your drawing, listens to your answer and then shows you their sketch. You both took part in this conversation. That is the exchange you can observe.",
+      "For “What did each of us bring to the conversation?”, the two raised cups suggest paying attention to both contributions. The same conversation could reflect friendliness or interest. If you would like to talk again, ask once whether they want to share sketches next week. Their answer tells you about that invitation. Take any stated boundary at face value."
+     ]
+    },
+    {
+     "h": "Check record · 9 November 2026",
+     "anchor": "context-check",
+     "p": [
+      "Codex compared the old feelings page, the actual card image and Waite’s 1922 reprint transcription. ShenTarot wrote the fictional drawing-class example. Independent practitioner and native-language reviews are pending. [Suggest a correction](methodology#corrections)."
      ]
     }
    ]
@@ -1068,8 +1115,8 @@
     "rev": "A partnership is uneven or communication falters. Work or study may involve misunderstandings or a collaboration that drifts. Money agreements need clearer terms. Clarify expectations on both sides."
    },
    "feelings": {
-    "up": "They feel a real connection and respect for you, wanting an equal bond. Their feelings are mutual and sincere. They are open to sharing and listening.",
-    "rev": "Their feelings are unequal, or confusion makes them pull back. They may not see the connection as you do. Talk to find out where they are."
+    "up": "Upright, look for an exchange in which you both listen and respond.",
+    "rev": "Reversed, check if you each understood the exchange differently."
    },
    "yesno": {
     "verdict": [

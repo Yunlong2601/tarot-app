@@ -79,16 +79,27 @@ for(const [id,evidence] of Object.entries(CARD_EVIDENCE))for(const locale of loc
  const schema=schemas.find(s=>s['@type']==='Article');
  assert.equal(schema.dateModified,evidence.checkedAt);
  assert.deepEqual(schema.citation.map(s=>s.url),evidence.sources.map(s=>s.url));
- for(const [i,source]of evidence.sources.entries()){assert.equal(schema.citation[i].author.name,source.author);assert.ok(section.querySelector(`a[href="${source.url}"]`));}
+ for (const [i, source] of evidence.sources.entries()) {
+  if ('author' in source) assert.equal(schema.citation[i].author.name, source.author);
+  else {
+   assert.equal(schema.citation[i].publisher.name, source.publisher);
+   assert.ok(!('author' in schema.citation[i]));
+  }
+  assert.ok(section.querySelector(`a[href="${source.url}"]`));
+ }
  assert.ok(!('reviewedBy'in schema)&&!('lastReviewed'in schema));
  const markdown=['dist/_agent-markdown/'+path+'.md','dist/_agent-markdown/'+path+'/index.md'].find(existsSync);assert.ok(markdown);
  const md=readFileSync(markdown,'utf8');for(const source of evidence.sources)assert.ok(md.includes(source.url));
- if(['major_05_hierophant','major_09_hermit','major_19_sun','major_20_judgement','pentacles_four'].includes(id)){
+ if(['major_05_hierophant','major_09_hermit','major_19_sun','major_20_judgement','cups_two','pentacles_four'].includes(id)){
   for(const orientation of ['upright','reversed']){
    const href=`/${path}?orientation=${orientation}#card-meanings`;
    assert.ok(section.querySelector(`a[href="${href}"]`),`${locale}: ${id} orientation example link`);
    assert.ok(md.includes(href),`${locale}: ${id} orientation link in Markdown`);
   }
+ }
+ if (id === 'cups_two') {
+  const href = `/${path}/feelings`;
+  assert.ok(section.querySelector(`a[href="${href}"]`) && md.includes(href));
  }
  if(id==='major_05_hierophant'){
   const aliases=['The Pope','Le Pape','Der Papst'];
@@ -166,6 +177,17 @@ for (const [path, evidence] of Object.entries(CONTEXT_EVIDENCE)) for (const loca
  for (const other of ['love', 'career', 'feelings', 'yes-or-no'].filter(value => value !== ctx)) {
   const sibling = ['dist/' + cardPath + '/' + other + '.html', 'dist/' + cardPath + '/' + other + '/index.html'].find(existsSync);
   assert.ok(!readFileSync(sibling, 'utf8').includes('data-context-evidence'), locale + ': sibling scope');
+ }
+ if (slug === 'cups-two') {
+  const href = `/${cardPath}#reference-evidence-1`;
+  assert.ok(section.querySelector(`a[href="${href}"]`) && markdown.includes(href));
+  assert.ok(cardDoc.querySelector('[data-card-evidence] #reference-evidence-1'));
+  assert.ok(section.querySelector('#conversation-example'));
+  if (locale === 'en') {
+   const full = readFileSync('dist/llms-full.txt', 'utf8');
+   assert.ok(full.includes(localized.cards[id].feelings.up) && full.includes(localized.cards[id].feelings.rev));
+   assert.ok(!full.includes('They feel a real connection and respect for you, wanting an equal bond.'));
+  }
  }
  if (slug === 'pentacles-ace') {
   assert.deepEqual(term.alternateName, ['Ace of Coins']);
