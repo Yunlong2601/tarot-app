@@ -10,7 +10,7 @@ import { BASE } from "../../../config.ts";
 import { CARDS, cardIds, slug, type CardId } from "../../../lib/data.ts";
 import { CONTEXTS, CONTEXT_KEY } from "../../../lib/contexts.ts";
 import { SHENETIC } from "../../../lib/site-entities";
-import { JUDGEMENT_ALIASES } from "../../../lib/workspace.ts";
+import { FOUR_OF_PENTACLES_ALIASES, JUDGEMENT_ALIASES } from "../../../lib/workspace.ts";
 import { fill, i18n, joinAnd, langPathsFor, type Locale } from "../../../i18n/index.ts";
 
 export function getStaticPaths() {
@@ -22,7 +22,8 @@ const { t, url: u } = L;
 const c = CARDS[id];
 const tr = L.cards[id]!;
 const name = tr.name;
-const alternateNames = id === 'major_20_judgement' ? JUDGEMENT_ALIASES : undefined;
+const judgementAliases = id === 'major_20_judgement' ? JUDGEMENT_ALIASES : undefined;
+const alternateNames = id === 'pentacles_four' ? FOUR_OF_PENTACLES_ALIASES : judgementAliases;
 const evidence = CARD_EVIDENCE[id as keyof typeof CARD_EVIDENCE];
 const evidenceCopy = evidence && 'evidence' in tr ? tr.evidence : undefined;
 const w = L.workspace;
@@ -123,7 +124,7 @@ const jsonLd = [
       <p class="meta">{kind}</p>
       <h1>{name}</h1>
       <p class="answer">{answer}</p>
-      {alternateNames && <p>{t('card.judgementAliases', {short: alternateNames[0], historical: alternateNames[1]})} <a href="https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=11">{t('card.judgementBooklet')}</a></p>}
+      {judgementAliases && <p>{t('card.judgementAliases', {short: judgementAliases[0], historical: judgementAliases[1]})} <a href="https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=11">{t('card.judgementBooklet')}</a></p>}
       {k && <p class="essence">{k.essence}</p>}
       <p class="lead">{tr.upright}</p>
       <p><a class="btn btn-gold" data-use-card href={`${u("read")}?card=${id}`}>{w.title}</a></p>

@@ -2518,14 +2518,14 @@
    "saving",
    "control"
   ],
-  "upright": "Holding on to what you have. Security is good; watch for clinging.",
-  "reversed": "Generosity returns, or tight control loosens.",
+  "upright": "Notice what a reserve protects, then decide when you would use it.",
+  "reversed": "Check what is holding things up and whether a reserve still serves its purpose.",
   "k": {
    "essence": "Holding on tightly.",
    "imagery": "A crowned figure sits clutching one coin to the chest, with another on the head and two under the feet. A city stands behind.",
-   "why": "Four is the number of foundation and, here, rigidity. Every coin is guarded so that nothing can be lost, and nothing can be used. The city behind shows the world he is cut off from.",
+   "why": "Look at how close the pentacles are to the figure. Use the image to ask what you are protecting and when you might need to use it.",
    "upright": {
-    "core": "Security that tips into clinging, with money, things or control.",
+    "core": "Notice what a reserve protects, then decide when you would use it.",
     "light": "security, saving, boundaries",
     "shadow": "greed, fear of loss, control",
     "love": "Possessiveness or guardedness.",
@@ -2533,14 +2533,46 @@
     "question": "What am I holding onto out of fear?"
    },
    "reversed": {
-    "core": "Loosening your grip, or spending without thought.",
+    "core": "Check what is holding things up and whether a reserve still serves its purpose.",
     "modes": [
-     "Releasing: generosity.",
-     "Excess: hoarding.",
-     "Blocked: scarcity fear."
+     "Is this still needed?",
+     "What is holding up access?",
+     "What can be shared with a return time?"
     ],
-    "question": "What would I do if I felt safe?"
+    "question": "What would make it reasonable to release the hold?"
    }
+  },
+  "evidence": {
+   "answer": "The Four of Pentacles asks what is worth keeping in reserve. Upright, consider what needs protecting. Reversed, check whether a hold is still useful or a delay needs sorting out.",
+   "groupNote": "The image is marked IV. It belongs to the Pentacles suit of the Minor Arcana.",
+   "sections": [
+    {
+     "h": "What the four pentacles show",
+     "p": [
+      "One pentacle sits above the crown, one is held in the arms and two sit under the feet. A town is visible behind the figure. Waite’s description identifies the same 1–1–2 arrangement. It is a starting point for reflecting on what you hold close.",
+      "Waite associates the upright card with keeping possessions, and also lists gifts and inheritance. His reversed entry points to something left in suspense, delay or opposition. Reading it as loosening your grip is a separate, modern interpretation."
+     ]
+    },
+    {
+     "h": "Try both orientations with a shared resource",
+     "p": [
+      "A community art group has four folding stands. The sign-out sheet shows that three are due back after its next session. With the [upright card](cards/pentacles-four?orientation=upright#card-meanings) in “What do we need to keep available?”, reserve the fourth stand so the session has at least one ready to use.",
+      "With the [reversed card](cards/pentacles-four?orientation=reversed#card-meanings) in the same position, ask why a stand is still on hold. It could still be needed, or someone may have forgotten to mark it returned. Check the shelf and ask the borrower. If the stand is back and the hold has ended, make it available again. If it is still needed, agree on a return time."
+     ]
+    },
+    {
+     "h": "Sources you can inspect",
+     "p": [
+      "[Waite, Part III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §2, Pentacles Four, describes the picture and lists historical meanings. The [U.S. Games booklet](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=28) repeats the reversed entry. The alternative English name [Four of Coins](https://en.wikipedia.org/wiki/Four_of_Coins) identifies the same card."
+     ]
+    },
+    {
+     "h": "Check record · 9 November 2026",
+     "p": [
+      "Codex compared the bundled picture, the cited passages and this base card page. The art group is an original practice example. Independent expert and native-language review remain pending. [Send a correction](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "pentacles_five": {

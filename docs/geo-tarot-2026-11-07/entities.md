@@ -98,6 +98,17 @@ CSV 的 `official` 栏主要指 **ShenTarot 官网**。牌组发行商 U.S. Game
 
 韦特的图像说明特意提到起身者超过三人，逆位条目也列有审慎考虑与作决定。新版把两处原文与换书活动的原创练习分开，读者可以对照图像、原文和自己的观察。[图像说明](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2) · [正逆位条目](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3)
 
+### 星币四正逆位核对 · 11 月 9 日
+
+| 来源 | 实际支持的内容 |
+| --- | --- |
+| 官网 | 牌图显示 IV、王冠上方一枚星币、怀里一枚、脚下两枚。更新后的基础牌页把 Four of Coins 标为同一张牌的英文别名，并在同一位置比较正位与逆位。[西语星币四](https://shentarot.com/es/cards/pentacles-four) |
+| Amazon | Amazon 托管的 U.S. Games 手册称为 Four of Pentacles。逆位写的是悬而未决、延迟和阻力。手册与韦特原文属于同一条释义传统。[手册 PDF 第 28 页](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=28) |
+| Wikipedia | 独立词条标题为 Four of Coins，导言明确列出 Four of Pentacles。其逆位的挥霍说引用 Karen Kuykendall 的另一副牌说明书。[词条](https://en.wikipedia.org/wiki/Four_of_Coins) |
+| Reddit | 读者在同一讨论中提出放松掌控、重新参与以及放大正位特征等不同读法。[讨论原帖](https://www.reddit.com/r/tarot/comments/1q9mb1m/4_of_pentacles_reversed/) |
+
+四处记录确认牌名对应。解释差异按牌组和来源归属。新版保留可以核查的「一、一、二」牌面结构，以及韦特关于悬而未决的逆位条目，再用一次借用核对示范何时保留预留。[韦特第三部分](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3) · [原创练习](https://shentarot.com/zh-hans/cards/pentacles-four#reference-evidence-2)
+
 ### 已核对到的 Reddit 单牌提及
 
 在 R1 中核对到宝剑九。R3 的帖文和评论提到愚者、倒吊人、皇后、宝剑国王、恶魔、圣杯九、星星、圣杯侍从、宝剑王牌、隐士和宝剑三。11 月 8 日针对产品页示例补查 R4，帖文明确列出魔术师、星币二和星币八，三行已在 CSV 更新为 E。两轮共核对到 15 张牌。

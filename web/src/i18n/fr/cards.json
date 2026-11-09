@@ -2518,14 +2518,14 @@
    "épargne",
    "contrôle"
   ],
-  "upright": "T'accrocher à ce que tu as. La sécurité, c'est bien ; attention à ne pas t'y agripper.",
-  "reversed": "La générosité revient, ou un contrôle serré se relâche.",
+  "upright": "Regarde ce que cette réserve protège et dans quelles circonstances tu l’utiliserais.",
+  "reversed": "Cherche ce qui bloque et demande-toi si la réserve reste utile.",
   "k": {
    "essence": "S'accrocher fermement.",
    "imagery": "Un personnage couronné est assis, serrant un denier contre sa poitrine, avec un autre sur la tête et deux sous les pieds. Une ville se dresse derrière lui.",
-   "why": "Quatre est le nombre des fondations et, ici, de la rigidité. Chaque denier est gardé pour que rien ne puisse être perdu, et rien ne peut donc être utilisé. La ville derrière montre le monde dont il s'est coupé.",
+   "why": "Les quatre deniers sont tout près du personnage. Tu peux partir de cette image pour te demander ce que tu protèges et à quel moment tu en auras besoin.",
    "upright": {
-    "core": "Une sécurité qui bascule dans l'agrippement, à l'argent, aux choses ou au contrôle.",
+    "core": "Regarde ce que cette réserve protège et dans quelles circonstances tu l’utiliserais.",
     "light": "sécurité, épargne, limites",
     "shadow": "l'avidité, la peur de perdre, le contrôle",
     "love": "La possessivité ou la méfiance.",
@@ -2533,14 +2533,46 @@
     "question": "À quoi est-ce que je m'accroche par peur ?"
    },
    "reversed": {
-    "core": "Desserrer ta prise, ou dépenser sans réfléchir.",
+    "core": "Cherche ce qui bloque et demande-toi si la réserve reste utile.",
     "modes": [
-     "Libération : la générosité.",
-     "Excès : tout amasser.",
-     "Bloqué : la peur de manquer."
+     "Est-ce encore nécessaire ?",
+     "Qu’est-ce qui en empêche l’accès ?",
+     "Que pourrais-tu prêter avec une date de retour ?"
     ],
-    "question": "Que ferais-je si je me sentais en sécurité ?"
+    "question": "À quel moment pourrais-tu lever la réservation ?"
    }
+  },
+  "evidence": {
+   "answer": "Le Quatre de Deniers invite à réfléchir à ce que tu veux garder en réserve. À l’endroit, regarde ce qui mérite d’être protégé. Renversé, vérifie si la réserve reste utile ou si quelque chose bloque.",
+   "groupNote": "La carte porte le chiffre IV et appartient à la famille des Deniers, dans les arcanes mineurs.",
+   "sections": [
+    {
+     "h": "Où sont les quatre deniers sur la carte ?",
+     "p": [
+      "Un denier est au-dessus de la couronne, un autre dans les bras du personnage et deux sous ses pieds. Une ville est visible derrière lui. Waite décrit aussi la répartition des quatre deniers en groupes de un, un et deux. Tu peux partir de ce détail pour réfléchir à ce que tu veux garder près de toi.",
+      "Waite associe la carte à l’endroit à la conservation des biens. Il mentionne aussi les dons et l’héritage. Dans son entrée sur la carte renversée, il évoque l’attente, le retard et l’opposition. Lâcher prise est une autre lecture, plus récente."
+     ]
+    },
+    {
+     "h": "Une même question avec les deux orientations",
+     "p": [
+      "Imagine un atelier d’art associatif qui possède quatre chevalets pliants. Le registre indique que trois reviendront après la prochaine séance. Place [le Quatre de Deniers à l’endroit](cards/pentacles-four?orientation=upright#card-meanings) sur « Que devons-nous garder à disposition ? ». Réserve le quatrième pour qu’il y en ait au moins un prêt le jour de la séance.",
+      "Place [le Quatre de Deniers renversé](cards/pentacles-four?orientation=reversed#card-meanings) au même endroit et vérifie pourquoi un chevalet est toujours réservé. Peut-être sert-il encore, ou peut-être est-il revenu sans avoir été noté. Regarde dans le rangement et demande à la personne qui l’a emprunté. Si le chevalet est revenu et que la réservation est terminée, remets-le à disposition. S’il sert encore, fixe une date de retour."
+     ]
+    },
+    {
+     "h": "Sources à consulter",
+     "p": [
+      "[Waite, partie III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), section 2, Quatre de Deniers, décrit l’image et donne les interprétations historiques. Le [livret de U.S. Games](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=28) reprend l’entrée pour la carte renversée. En anglais, [Four of Coins](https://en.wikipedia.org/wiki/Four_of_Coins) désigne aussi cette carte."
+     ]
+    },
+    {
+     "h": "Vérification · 9 novembre 2026",
+     "p": [
+      "Codex a comparé l’illustration utilisée sur le site, les passages cités et cette fiche. L’atelier est un exercice original. Les relectures par des spécialistes indépendants et des locuteurs natifs restent à faire. [Signaler une erreur](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "pentacles_five": {

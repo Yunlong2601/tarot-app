@@ -77,6 +77,15 @@ export const LESSON_EVIDENCE = {
 
 /** Base card references only; context subpages are not covered by these records. */
 export const CARD_EVIDENCE = {
+  pentacles_four: {
+    checkedAt: '2026-11-09',
+    checkType: 'AI-assisted source comparison',
+    independentExpertReview: false,
+    nativeLanguageReview: false,
+    sources: [
+      {author:'Arthur Edward Waite',title:'The Pictorial Key to the Tarot, Part III, section 2, Pentacles Four',url:'https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3'},
+    ],
+  },
   major_20_judgement: {
     checkedAt: '2026-11-09',
     checkType: 'AI-assisted source comparison',

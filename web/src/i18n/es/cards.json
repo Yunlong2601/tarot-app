@@ -2518,14 +2518,14 @@
    "ahorro",
    "control"
   ],
-  "upright": "Aferrarte a lo que tienes. La seguridad es buena; cuidado con no soltar nada.",
-  "reversed": "Vuelve la generosidad, o un control férreo se afloja.",
+  "upright": "Fíjate en qué protege esa reserva y decide cuándo te serviría utilizarla.",
+  "reversed": "Averigua qué retrasa las cosas y si sigue teniendo sentido mantener algo en reserva.",
   "k": {
    "essence": "Aferrarte con fuerza.",
    "imagery": "Una figura coronada está sentada apretando una moneda contra el pecho, con otra sobre la cabeza y dos bajo los pies. Detrás se ve una ciudad.",
-   "why": "El cuatro es el número de los cimientos y, aquí, de la rigidez. Cada moneda está vigilada para que no se pierda nada, y así nada se puede usar. La ciudad del fondo muestra el mundo del que se ha aislado.",
+   "why": "Los cuatro oros están pegados al cuerpo de la figura. Puedes usar esa imagen para pensar qué estás protegiendo y cuándo lo necesitarás.",
    "upright": {
-    "core": "Una seguridad que se convierte en aferrarse, al dinero, a las cosas o al control.",
+    "core": "Fíjate en qué protege esa reserva y decide cuándo te serviría utilizarla.",
     "light": "seguridad, ahorro, límites",
     "shadow": "codicia, miedo a perder, control",
     "love": "Posesividad o actitud a la defensiva.",
@@ -2533,14 +2533,46 @@
     "question": "¿A qué me estoy aferrando por miedo?"
    },
    "reversed": {
-    "core": "Aflojar el agarre, o gastar sin pensar.",
+    "core": "Averigua qué retrasa las cosas y si sigue teniendo sentido mantener algo en reserva.",
     "modes": [
-     "Liberación: generosidad.",
-     "Exceso: acumular.",
-     "Bloqueo: miedo a la escasez."
+     "¿Sigue haciendo falta?",
+     "¿Qué impide usarlo ahora?",
+     "¿Qué se puede prestar con una fecha de devolución?"
     ],
-    "question": "¿Qué haría si me sintiera seguro?"
+    "question": "¿Qué tendría que pasar para que pudieras liberar la reserva?"
    }
+  },
+  "evidence": {
+   "answer": "El Cuatro de Oros plantea qué merece la pena guardar. Al derecho, piensa qué necesitas proteger. Invertido, comprueba si la reserva sigue siendo útil o si hay algo que está retrasando las cosas.",
+   "groupNote": "La carta lleva el número IV y pertenece al palo de oros de los arcanos menores.",
+   "sections": [
+    {
+     "h": "Dónde están los cuatro oros de la carta",
+     "p": [
+      "Un oro está sobre la corona, otro entre los brazos y dos bajo los pies. Al fondo se ve una ciudad. Waite también describe la distribución de los cuatro oros en grupos de uno, uno y dos. Puedes empezar por ahí y preguntarte qué quieres tener a mano.",
+      "Waite relaciona la carta al derecho con conservar lo que se posee. También menciona regalos y herencias. Para la invertida habla de asuntos pendientes, demoras u oposición. La idea de aflojar el control es otra lectura, más reciente."
+     ]
+    },
+    {
+     "h": "Una práctica con la misma pregunta en ambas posiciones",
+     "p": [
+      "Imagina que un taller comunitario tiene cuatro caballetes plegables. En el registro figura que tres se devolverán después de la próxima sesión. Coloca [el Cuatro de Oros al derecho](cards/pentacles-four?orientation=upright#card-meanings) en «¿Qué necesitamos tener disponible?». Reserva el cuarto para que haya al menos uno listo el día de la sesión.",
+      "Pon [el Cuatro de Oros invertido](cards/pentacles-four?orientation=reversed#card-meanings) en el mismo lugar y averigua por qué un caballete sigue reservado. Quizá todavía lo necesiten o quizá ya lo devolvieron sin anotarlo. Mira en el almacén y pregunta a quien lo tomó prestado. Si ya está de vuelta y terminó la reserva, ponlo otra vez a disposición del grupo. Si aún lo necesitan, acuerda cuándo se devolverá."
+     ]
+    },
+    {
+     "h": "Fuentes que puedes consultar",
+     "p": [
+      "[Waite, parte III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), sección 2, Cuatro de Oros, describe la imagen y enumera los significados históricos. El [folleto de U.S. Games](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=28) repite la entrada de la invertida. En inglés, [Four of Coins](https://en.wikipedia.org/wiki/Four_of_Coins) también se refiere a esta carta."
+     ]
+    },
+    {
+     "h": "Registro de comprobación · 9 de noviembre de 2026",
+     "p": [
+      "Codex comparó la ilustración usada en el sitio, los pasajes citados y esta ficha. El taller comunitario es un ejercicio original. Quedan pendientes la revisión por especialistas independientes y la revisión por hablantes nativos. [Envía una corrección](methodology#corrections)."
+     ]
+    }
+   ]
   }
  },
  "pentacles_five": {
