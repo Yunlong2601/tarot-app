@@ -184,3 +184,11 @@ Chrome 本地正式构建实测使用简体中文洗牌，选取并翻开逆位�
 ChatGPT 的新 Temporary Chat 用 Auto 回答同一句英语问题。完成回答也给出 22 和 56 的数量、四个花色和示例，并把大牌联系到人生课题，小牌联系到日常经验。可见图卡来源，正文和底部未见文字引用链接或 Sources 控件。两份答案都讲了通用牌组组成，均未提供本站目录的可点击分组。本站教程已说明「重大主题」和「日常处境」是读法提示。[大小阿卡纳教程](https://shentarot.com/learn/major-and-minor-arcana)
 
 在此时的英文生产目录中，大阿卡纳与四个花色各有标题。小阿卡纳可由四花色成员推得，目录没有直接写出 Minor Arcana。下一步可在该目录用实际牌记录生成 22 与 56 的两个分组入口，把四个小牌花色放在同一分类之下，并保留已有的 78 张牌义地址。Amazon 托管手册使用 Greater/Lesser Arcana，Wikipedia 与 Reddit 讨论使用 Major/Minor Arcana。数量用于核对牌组结构。[本站牌义目录](https://shentarot.com/cards) · [手册 PDF 第 5 页](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=5) · [Wikipedia](https://en.wikipedia.org/wiki/Minor_Arcana) · [Reddit 讨论](https://www.reddit.com/r/tarot/comments/wf27vu/new_to_tarot_difference_between_big_and_small/)
+
+### 补充问题：隐士正位与逆位 · 11 月 9 日（新加坡时间）
+
+英语原题为「What does the Hermit card mean upright and reversed?」。Chrome 在 Google 的 All 结果页使用 `hl=en&gl=sg&pws=0`。AI Overview 给出独处、反思与内在指引，逆位侧重过度孤立或重新与人联系。展开可见来源后，看到 Dark Forest Tarot Cards、Tarot.nl、Labyrinthos、Biddy Tarot 的 YouTube 视频及 Reddit 帖文。可见摘要和来源中未见 ShenTarot。摘要将一条讨论称为共识；阅读原帖和回帖后可见，读者也提出回顾过去、准备将来等不同读法。[Tarot.nl](https://www.tarot.nl/magazine/tarot-card-the-hermit) · [Google 链接的讨论](https://www.reddit.com/r/tarot/comments/1v882cr/the_symbolism_of_the_hermit_reversed/)
+
+ChatGPT 用同一问题开启新 Temporary Chat，保留界面默认设置，未主动选择联网或改变个性化设置。答复把正位讲成内省与选择独处，逆位讲成疏离、想得太多或需要重新与人接触。它提到灯里的六角星，也在图片旁显示 Tarot from Scratch 链接。完成时未见正文引文、Sources 控件或 ShenTarot 链接。[图片旁链接](https://tarotfromscratch.com/the-hermit-tarot-card/)
+
+两份可见回答均未说明韦特把举灯写作让别人也能循光到达，也未具体列出其逆位条目中的无根据的谨慎。新版把这两点归到原书的不同部分。折纸示例用同一个问题和牌位比较两种方向。正位把步骤说到别人能跟上，逆位先核对犹豫是不是因为图缺了箭头，再据第二份图决定是否试讲。此处的差异针对本次两个样本。[韦特第二部分](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2) · [第三部分](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3)

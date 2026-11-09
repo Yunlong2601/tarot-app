@@ -83,7 +83,7 @@ for(const [id,evidence] of Object.entries(CARD_EVIDENCE))for(const locale of loc
  assert.ok(!('reviewedBy'in schema)&&!('lastReviewed'in schema));
  const markdown=['dist/_agent-markdown/'+path+'.md','dist/_agent-markdown/'+path+'/index.md'].find(existsSync);assert.ok(markdown);
  const md=readFileSync(markdown,'utf8');for(const source of evidence.sources)assert.ok(md.includes(source.url));
- if(['major_05_hierophant','major_19_sun','major_20_judgement','pentacles_four'].includes(id)){
+ if(['major_05_hierophant','major_09_hermit','major_19_sun','major_20_judgement','pentacles_four'].includes(id)){
   for(const orientation of ['upright','reversed']){
    const href=`/${path}?orientation=${orientation}#card-meanings`;
    assert.ok(section.querySelector(`a[href="${href}"]`),`${locale}: ${id} orientation example link`);
