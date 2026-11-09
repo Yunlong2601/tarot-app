@@ -208,3 +208,11 @@ ShenTarot 的英文生产页仍把「对方对你有真切的兴趣」作为开�
 ChatGPT 在新 Temporary Chat 用默认设置回答同一问题。它称阅读适合探索可能性，同时提供六个牌位，包括对方的感受、吸引、隐瞒、阻碍、意图及关系走向。完成回答可见图片卡片，未见正文引文、Sources 控件或 ShenTarot。样本里没有展示如何从一个含糊的事实推导出两种解释，再用下一步区分它们。
 
 现有英文总指南已在开头说明牌不能确认对方的感受。简体中文正式构建实测点击「在占卜中问这个问题」，打开「我们之间处于什么状态？」三牌阵，输入框却自动填上「他爱我吗？」。源模板把页面原题写入 sessionStorage。该页也把圣杯二写作双方已经互相回应，把重复抽牌直接解释为担忧。下一轮应让练习入口带入可行动的改写问题，保留原来的查询入口、三牌阵、可编辑输入和语言路径，再用另一段非私人示例分别说明事实、两种可能解释和有明确边界的一步。第 22 题由总指南负责；第 23 题仍由星币一的感受页负责。[关系问题指南](https://shentarot.com/questions/does-he-love-me) · [三牌关系牌阵](https://shentarot.com/spreads/love-connection) · [星币一感受页](https://shentarot.com/cards/pentacles-ace/feelings)
+
+### 补充问题：圣杯二作为对方的感受 · 11 月 9 日（新加坡时间）
+
+以「What does the Two of Cups mean as feelings?」在 Chrome 的 Google All 结果页查询，参数为 `hl=en&gl=sg&pws=0`。AI Overview 写互有吸引、情绪回应和亲近感，也说这不能保证长远承诺，且可能是友谊。可见来源有 Luna Factory、Grapevine Birmingham、Instagram、Tarot Forum 和 Labyrinthos。展开后的可见来源中未见 ShenTarot。[Luna Factory](https://lunafactory.com/blogs/tarot-card-meanings/two-of-cups-tarot-meaning) · [Tarot Forum](https://tarotforum.net/threads/2-of-cups-as-feelings.221088/)
+
+在新的 ChatGPT Temporary Chat 保留默认设置并问同一句。答复给出相互吸引和希望建立关系，也区分正逆位。完整回答可见图片卡片，未见正文引用、Sources 控件或 ShenTarot 链接。两个样本都谈互惠，均未具体区分韦特历史释义和这次抽牌之外能够观察到的事实。
+
+英文生产感受页当前断定对方真心在意你，并重复「双方的感觉真诚且相互回应」。基础页把翼狮头与双蛇杖概括为古老的连结和疗愈象征。韦特第三部分第 2 节写的是两人举杯、双蛇杖和带翼狮头，并说明没有展开这些符号的意义。正位列表含友谊、亲近与和睦。出版商手册 PDF 第 21 至 22 页延续画面与历史读法，手册还列出误解等逆位词；所读韦特第 2 节的这张牌条目没有这行，而第 4 节的补充列表写的是激情。引用时须分开。Wikipedia 提供自己的象征说明。Reddit 原帖呈现牌面解释与现实交流不一致的场景，回帖也有友情、早期浪漫和个人期待的不同说法。下一轮可一起核对基础牌页与感受分支，给两页各自的问题和原创例子。[基础牌义](https://shentarot.com/cards/cups-two) · [感受分支](https://shentarot.com/cards/cups-two/feelings) · [韦特第三部分](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3) · [手册 PDF 第 21 页](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=21) · [Wikipedia](https://en.wikipedia.org/wiki/Two_of_Cups) · [读者原帖](https://www.reddit.com/r/tarot/comments/11cvhmn/i_keep_getting_the_two_of_cups_on_a_man_who_isnt/)
