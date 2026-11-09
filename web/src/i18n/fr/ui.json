@@ -627,12 +627,21 @@
  },
  "daily": {
   "title": "Tarot du jour : ta carte du jour gratuite · ShenTarot",
-  "description": "Tire ta carte de tarot du jour, avec sa signification et une question pour réfléchir. Ta carte reste la même jusqu'à demain. Gratuit, dans ton navigateur.",
+  "description": "Tire une carte de tarot et lis son sens et une question pour réfléchir. Si le navigateur autorise le stockage, tu retrouves la carte révélée dans le même navigateur ce jour-là.",
   "crumb": "Carte du jour",
   "h1": "Ta carte du jour",
-  "lead": "Respire, pense à la journée qui t'attend et tire une carte. Lis sa signification le matin, et reviens à la question le soir. Ta carte reste la même jusqu'à demain.",
+  "lead": "Tire une carte et lis sa signification. Reviens plus tard dans le même navigateur pour y réfléchir.",
   "position": "Ta carte pour aujourd'hui",
-  "button": "Tirer la carte du jour"
+  "button": "Tirer la carte du jour",
+  "guideTitle": "Comment faire un tirage quotidien de tarot avec une carte ?",
+  "guideChoose": "Pense à une chose à laquelle tu aimerais prêter attention aujourd’hui.",
+  "guideShuffle": "Choisis « {shuffle} », puis une carte face cachée, ou utilise « {choose} ».",
+  "guideReveal": "Retourne la carte. Lis sa signification et la question proposée, puis note une chose que tu veux observer.",
+  "rulesTitle": "Quand tu retrouves la même carte",
+  "rules": "Lorsque tu retournes la carte, ShenTarot enregistre la carte, son orientation et la date dans ce navigateur. Si tu actualises la page ou changes la langue du site le même jour, le même tirage s’affiche.",
+  "savedLimits": "La date suit le calendrier local de ton appareil. Ouvre la page un nouveau jour pour tirer une autre carte. Utilise le même profil de navigateur et autorise le stockage des données du site pour retrouver la carte du jour. Effacer ces données supprime la carte enregistrée.",
+  "exampleTitle": "Une question le matin, un retour le soir",
+  "example": "Imagine que tu tires le [Deux de Deniers](cards/pentacles-two). Le matin, note deux activités qui se disputent ton temps et choisis celle que tu peux déplacer. Le soir, vérifie si l’un des deux plans a vraiment changé. Si tout s’est passé comme prévu, note-le aussi."
  },
  "weekly": {
   "title": "Tirage de tarot de la semaine : une carte gratuite pour chaque jour · ShenTarot",

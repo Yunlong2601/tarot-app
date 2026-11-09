@@ -662,12 +662,21 @@
  },
  "daily": {
   "title": "Carta del tarot del día: tu carta diaria · ShenTarot",
-  "description": "Saca tu carta del tarot del día, con su significado y una pregunta para reflexionar. Tu carta no cambia hasta mañana. Gratis, en tu navegador.",
+  "description": "Saca una carta del tarot y lee su significado y una pregunta para reflexionar. Si el navegador permite guardar datos, recupera la carta en el mismo navegador ese día.",
   "crumb": "Carta del tarot del día",
   "h1": "Tu carta del día",
-  "lead": "Respira hondo, piensa en el día que tienes por delante y saca una carta. Lee su significado por la mañana y vuelve a la pregunta por la noche. Tu carta no cambia hasta mañana.",
+  "lead": "Saca una carta y lee su significado. Vuelve más tarde, en el mismo navegador, para reflexionar sobre ella.",
   "position": "Tu carta de hoy",
-  "button": "Saca la carta de hoy"
+  "button": "Saca la carta de hoy",
+  "guideTitle": "Cómo hacer una lectura diaria de tarot con una carta",
+  "guideChoose": "Piensa en una cosa a la que quieras prestar atención hoy.",
+  "guideShuffle": "Pulsa «{shuffle}» y elige una carta boca abajo o usa «{choose}».",
+  "guideReveal": "Dale la vuelta. Lee su significado y la pregunta de reflexión, y anota algo que quieras observar hoy.",
+  "rulesTitle": "Cuándo vuelves a ver la misma carta",
+  "rules": "Al darle la vuelta, ShenTarot guarda la carta, su orientación y la fecha en este navegador. Si recargas la página o cambias el idioma del sitio ese mismo día, vuelve a aparecer la misma carta.",
+  "savedLimits": "La fecha es la del calendario local de tu dispositivo. Abre la página en un nuevo día local para sacar otra carta. Para recuperar la de hoy, usa el mismo perfil del navegador y permite que el sitio guarde datos. Borrar los datos del sitio elimina la carta guardada.",
+  "exampleTitle": "Una pregunta por la mañana y una revisión por la noche",
+  "example": "Imagina que sacas el [Dos de Oros](cards/pentacles-two). Por la mañana, anota dos planes que compiten por tu tiempo y elige uno que puedas mover. Por la noche, comprueba si realmente cambió alguno. Si ambos siguieron según lo previsto, apúntalo también."
  },
  "weekly": {
   "title": "Tarot semanal: una carta gratis para cada día · ShenTarot",

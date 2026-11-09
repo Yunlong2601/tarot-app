@@ -625,12 +625,21 @@
  },
  "daily": {
   "title": "Tageskarte Tarot: deine Karte des Tages · ShenTarot",
-  "description": "Zieh deine Tarot-Tageskarte, mit ihrer Bedeutung und einer Frage zum Nachdenken. Deine Karte bleibt bis morgen dieselbe. Kostenlos, im Browser.",
+  "description": "Zieh eine Tarotkarte mit ihrer Bedeutung und einer Frage zum Nachdenken. Wenn der Browser das Speichern erlaubt, findest du die aufgedeckte Karte am selben Tag dort wieder.",
   "crumb": "Tageskarte",
   "h1": "Deine Karte des Tages",
-  "lead": "Atme einmal durch, denk an den Tag, der vor dir liegt, und zieh eine Karte. Lies morgens ihre Bedeutung und komm abends auf die Frage zurück. Deine Karte bleibt bis morgen dieselbe.",
+  "lead": "Zieh eine Karte und lies ihre Bedeutung. Komm später am selben Tag im gleichen Browser darauf zurück.",
   "position": "Deine Karte für heute",
-  "button": "Heutige Karte ziehen"
+  "button": "Heutige Karte ziehen",
+  "guideTitle": "Wie ziehst du eine Tarotkarte für den Tag?",
+  "guideChoose": "Überlege, worauf du heute achten möchtest.",
+  "guideShuffle": "Wähle „{shuffle}“ und dann eine verdeckte Karte oder „{choose}“.",
+  "guideReveal": "Deck die Karte auf. Lies ihre Bedeutung und die Frage dazu. Schreib auf, was du heute beobachten möchtest.",
+  "rulesTitle": "Wann dieselbe Karte wieder erscheint",
+  "rules": "Beim Aufdecken speichert ShenTarot die Karte, ihre Ausrichtung und das Datum in diesem Browser. Lädst du die Seite am selben Tag neu oder wechselst die Sprache der Website, siehst du dieselbe Karte.",
+  "savedLimits": "Das Datum richtet sich nach dem lokalen Kalender deines Geräts. Öffne die Seite an einem neuen Tag erneut, um eine Karte zu ziehen. Verwende dasselbe Browserprofil und erlaube das Speichern von Websitedaten, um die heutige Karte wiederzufinden. Löschst du diese Daten, wird die gespeicherte Karte entfernt.",
+  "exampleTitle": "Morgens eine Frage, abends ein kurzer Rückblick",
+  "example": "Stell dir vor, du ziehst die [Zwei der Münzen](cards/pentacles-two). Schreib morgens zwei Vorhaben auf, die um deine Zeit konkurrieren, und wähle eines, das du verschieben kannst. Schau abends, ob sich tatsächlich etwas verschoben hat. Lief beides wie geplant, halte auch das fest."
  },
  "weekly": {
   "title": "Tarot-Wochenlegung: eine kostenlose Karte für jeden Tag · ShenTarot",

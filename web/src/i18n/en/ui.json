@@ -586,12 +586,21 @@
  },
  "daily": {
   "title": "Daily tarot card: your card of the day · ShenTarot",
-  "description": "Draw your tarot card of the day, with its meaning and a question to reflect on. Your card stays the same until tomorrow. Free, in your browser.",
+  "description": "Draw one tarot card with its meaning and a reflection question. Your revealed card is saved for the day in the same browser when storage is available.",
   "crumb": "Daily tarot card",
   "h1": "Your card of the day",
-  "lead": "Take a breath, think about the day ahead and draw one card. Read its meaning in the morning, and come back to the question tonight. Your card stays the same until tomorrow.",
+  "lead": "Draw one card and read its meaning. Return in the same browser later today to reflect on it.",
   "position": "Your card for today",
-  "button": "Draw today's card"
+  "button": "Draw today's card",
+  "guideTitle": "How to do a daily one-card tarot reading",
+  "guideChoose": "Think of one thing you want to pay attention to today.",
+  "guideShuffle": "Select “{shuffle}”, then pick a face-down card or use “{choose}”.",
+  "guideReveal": "Turn the card over. Read its meaning and the reflection question, then jot down one thing you want to notice.",
+  "rulesTitle": "When you see the same card again",
+  "rules": "When you reveal a card, ShenTarot saves the card, its orientation and the date in this browser. Refresh or switch the site’s language on the same day and it shows the same draw.",
+  "savedLimits": "The date comes from your device’s local calendar. Open this page on a new local date for a fresh draw. Keep using the same browser profile and allow site storage to return to today’s card. Clearing site data removes the saved draw.",
+  "exampleTitle": "Try a morning question and an evening check",
+  "example": "Imagine you draw the [Two of Pentacles](cards/pentacles-two). In the morning, write down two plans competing for your time and one you can move. When you return in the evening, check whether either plan actually changed. If both stayed as planned, write that down too."
  },
  "weekly": {
   "title": "Weekly tarot reading: one free card for each day · ShenTarot",
