@@ -325,7 +325,10 @@
     {
      "h": "四個等級，分布於四個牌組",
      "p": [
-      "四個[牌組](learn/tarot-suits)各有四張宮廷牌，4×4＝16。Waite 第一部分第3節列國王、王后、騎士與 Knave／Page（侍從）。體系之間名稱及排列可能不同；仍要讀圖像，不把名稱直接當成人格結論。"
+      "下面按等級列出牌義。你可以在四個[牌組](learn/tarot-suits)裡挑同一個等級，對照畫面哪裡相似、哪裡不同。",
+      "Waite 在第一部分把 Knave 解釋為 Page（侍者）。[U.S. Games 隨牌手冊](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=5)的導言卻把 Knave 放在 Cavalier 那一欄，後面的單牌標題仍分別用 Page 和 Knight。看到 Knave 時，先看牌上寫的是什麼，再確認這副牌的手冊怎麼用這個詞。",
+      "Crowley 把托特牌組的四個等級定為 Knight（騎士）、Queen（皇后）、Prince（王子）和 Princess（公主）。他的書把 Knight 放在這個體系的父親角色。抽到牌以後，先核對手上這副牌的名稱和畫面，再考慮別的牌組能不能提供參考。",
+      "拿兩副牌裡同名的寶劍騎士練一個問題：「計畫裡的哪一部分值得先試？」Waite 寫到[寶劍騎士](cards/swords-knight)策馬疾馳，Crowley 則寫他的寶劍騎士一手持劍、一手握短匕首。看到疾馳，可以問自己是不是太急著推進。看到兩把武器，可以先列出兩種有衝突的做法，選一個小試驗，記下實際發生了什麼。"
      ]
     },
     {
@@ -364,13 +367,14 @@
      "p": [
       "[A. E. Waite《The Pictorial Key to the Tarot》第一部分](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_1)第3節：四個等級、Knave／Page 用詞、等級及牌組的關係。支持結構，不支持新手難度或「大多數讀牌者」的統計。",
       "[第三部分](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3)第2節：權杖騎士、星幣騎士及侍從、聖杯王后、寶劍國王。核對圖像描述；提問及學習示例是原創應用，不是歷史指令或驗證過的人格分類。",
-      "所用轉錄是1922年再版。歷史人物描述不是按性別、年齡、外貌或品德識別真人的證據；本文不拿這些類別測試你或他人。"
+      "所用轉錄是1922年再版。歷史人物描述不是按性別、年齡、外貌或品德識別真人的證據；本文不拿這些類別測試你或他人。",
+      "[Crowley《托特之書》](https://otohungary.org/documents/publication/english/Book_of_Thoth.html)第一部分說明四個宮廷等級的用名，第三部分的寶劍騎士條目寫到劍和短匕首。"
      ]
     },
     {
-     "h": "核對紀錄 · 2026年11月1日",
+     "h": "核對紀錄 · 2026 年 11 月 9 日",
      "p": [
-      "AI 輔助比對數量、具體段落、本站16張牌與測驗配對機制，將固定特質及無依據的讀牌者比例、新手難度改為有限提問、圖像及替代示例。獨立專家及母語審校未確認。更正可至[編寫方法頁](methodology#corrections)。"
+      "Codex 對照了 Waite 和 Crowley 的原文、隨牌手冊、本站 16 張宮廷牌及原創練習。獨立專家與母語審閱還未完成。[回報錯誤](methodology#corrections)。"
      ]
     }
    ],

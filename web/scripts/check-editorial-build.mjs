@@ -7,7 +7,7 @@ const lessons = {
  'how-to-read-tarot': {sources:2,cards:['cups-five','swords-two','pentacles-three']},
  'asking-questions': {sources:2,cards:['major-01-magician','pentacles-two','pentacles-eight']},
  'reversed-cards': {sources:2,cards:['wands-ace','major-09-hermit','major-08-strength','major-19-sun','major-16-tower','swords-ten','pentacles-eight']},
- 'court-cards': {sources:2,cards:['pentacles-page','wands-knight','pentacles-knight','cups-queen','swords-king']},
+ 'court-cards': {sources:3,cards:['pentacles-page','wands-knight','pentacles-knight','cups-queen','swords-king']},
  'tarot-suits': {sources:3,cards:['wands-four','cups-four','cups-two','swords-ace','pentacles-ten','wands-ace']},
  'tarot-numbers': {sources:2,cards:['cups-five','wands-eight','swords-eight','pentacles-eight']},
  'major-and-minor-arcana': {sources:3,cards:['major-00-fool','major-21-world','major-01-magician','pentacles-eight']},
@@ -41,6 +41,22 @@ for(const locale of locales){
  assert.ok(!('reviewedBy' in schema)&&!('lastReviewed' in schema),locale+': no fictitious human review');
  const markdown=['dist/_agent-markdown/'+path+'.md','dist/_agent-markdown/'+path+'/index.md'].find(existsSync);assert.ok(markdown);
  const md=readFileSync(markdown,'utf8');for(const source of sourceURLs)assert.ok(md.includes(source),locale+': Markdown citations');
+ if(slug==='court-cards'){
+  const termSet=schemas.find(s=>s['@type']==='DefinedTermSet');
+  assert.equal(termSet?.['@id'],`https://shentarot.com/${path}#court-ranks`);
+  assert.equal(schema.hasPart['@id'],termSet['@id']);
+  const ranks=['page','knight','queen','king'];
+  assert.deepEqual(termSet.hasDefinedTerm.map(term=>term.termCode),ranks);
+  for(const [i,rank] of ranks.entries()){
+   const heading=article.querySelector(`#court-ranks h3#court-${rank}`);
+   const term=termSet.hasDefinedTerm[i];
+   assert.equal(heading?.textContent,term.name);
+   assert.equal(term['@id'],`https://shentarot.com/${path}#court-${rank}`);
+   assert.deepEqual([...heading.nextElementSibling.querySelectorAll('a')].map(a=>a.getAttribute('href')).sort(),
+    ['cups','pentacles','swords','wands'].map(suit=>`/${prefix}cards/${suit}-${rank}`));
+   for(const link of heading.nextElementSibling.querySelectorAll('a')) assert.ok(md.includes(link.getAttribute('href')));
+  }
+ }
 }
 assert.equal(evidence.independentExpertReview,false);
 assert.equal(evidence.nativeLanguageReview,false);

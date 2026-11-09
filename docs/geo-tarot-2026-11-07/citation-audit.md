@@ -160,3 +160,11 @@ Google 的 27 题「有来源链接」也不能直接判为「论证完整」。
 在新的 ChatGPT Temporary Chat 中，以 Auto 模式问同一个问题，没有提示品牌或要求来源。回答称 Hierophant 也叫 Hohepriester，逆位建议质疑惯例、摆脱僵化规则、相信自己的直觉。完整答复可见四张来源图卡，正文和底部未见文字出处或 Sources 控件。两边的可见逆位段落均未提到韦特列出的和睦。现有 ShenTarot 基础牌页已在来源段落说明此项，尚可把它移到读者首先看到的答案里。[韦特第三部分](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3) · [德语牌义页](https://shentarot.com/de/cards/major-05-hierophant)
 
 后续可让牌名按牌组归属。韦特第二部分第 2 节将 V 题为 The Hierophant，并说明较旧的 Pope 叫法。Amazon 托管的 U.S. Games 手册第 9 页使用 The Hierophant，逆位同样列有和睦。Piatnik 的马赛牌手册第 13 页把 V 标为 Le Pape，对应 The Pope 或 The High Priest。Reddit 读者也会直接问这两种牌名和图案的区别。编号对应可以核对，牌图与释义仍应注明是哪一副牌。[韦特第二部分](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2) · [U.S. Games 手册第 9 页](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=9) · [Piatnik 手册第 13 页](https://www.piatnik.com/uploads/media/default/0001/08/f692bb2630e561d9a83aa2dd0688ecc9f01472e3.pdf#page=13) · [讨论原帖](https://www.reddit.com/r/tarot/comments/1ljkyld)
+
+### 第 6 题宫廷牌复测 · 11 月 9 日（新加坡时间）
+
+英语问题为「What do the court cards mean in tarot?」。Chrome 用 `hl=en&gl=sg&pws=0` 打开同一查询。AI Overview 写明 4 个花色各有 Page、Knight、Queen、King，把等级按成熟阶段和行动方式解释。可见来源包括 Learning the Tarot、The Tarot Lady、Reddit、Carrie Mallon、Labyrinthos 和 Keen，摘要与可见来源中未见 ShenTarot。[Learning the Tarot](https://learntarot.com/less14.htm) · [Google 摘要引用的讨论](https://www.reddit.com/r/tarot/comments/13jtpfk/whats_your_method_for_learningknowing_the_court/)
+
+在新的 ChatGPT Temporary Chat 用 Auto 问同一个问题。完整回答逐项讲四等级、四花色、16 张牌，并给出「学习、行动、理解、掌握」的次序。可见图卡来源，正文和底部没有文字引用链接或 Sources 控件。两份样本都未对照 Knave、Page 和托特版的 Knight、Prince、Princess 等牌名。
+
+本站现有课程已经注明 Waite 在第一部分第 3 节把 Knave 也叫 Page。U.S. Games 托管手册导言的等级表同时把 Knave 放在 Cavalier 一行，实际单牌条目则用 Page 与 Knight。Crowley 为托特版明确采用 Knight、Queen、Prince、Princess。读者在 Reddit 提出两副牌名字相同、角色却可能不同的问题。后续可在现有课程用原书对照说明该看哪一副牌、哪一个标签，并链接实际的 16 张牌义。[本站宫廷牌](https://shentarot.com/learn/court-cards) · [Waite 第一部分](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_1) · [U.S. Games 手册第 5 页](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=5) · [Crowley《The Book of Thoth》](https://otohungary.org/documents/publication/english/Book_of_Thoth.html) · [Reddit 读者原帖](https://www.reddit.com/r/tarot/comments/1rk08sg/can_someone_please_explain_the_thoth_deck_court/)

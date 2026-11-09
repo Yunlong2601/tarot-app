@@ -325,7 +325,10 @@
     {
      "h": "Cuatro rangos en cuatro palos",
      "p": [
-      "Cada uno de los cuatro [palos](learn/tarot-suits) contiene cuatro figuras: 4 × 4 = 16. Waite describe Rey, Reina, Caballero y Knave/Page en la parte I, §3. Otros sistemas pueden cambiar títulos y orden. Mira también la imagen, sin convertir un rango en resultado de personalidad."
+      "Los enlaces de abajo agrupan las cartas por rango. Sigue el mismo rango en los cuatro [palos](learn/tarot-suits) para comparar las imágenes.",
+      "En la primera parte, Waite usa Knave para Page, la Sota. El [folleto de U.S. Games](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=5) incluye Knave en la línea de Cavalier de su introducción y después usa Page y Knight como títulos distintos. Si aparece Knave, fíjate en el título impreso y en la baraja o el libro que usa esa palabra.",
+      "Crowley llama Knight, Queen, Prince y Princess a las figuras del tarot de Thoth. En su sistema, Knight ocupa el papel del padre. Antes de trasladar una interpretación, comprueba el nombre y la imagen en la baraja de la que salió la carta.",
+      "Prueba «¿Qué parte de mi plan conviene poner a prueba primero?» con dos cartas de igual título. Waite describe al [Caballero de Espadas](cards/swords-knight) cabalgando a toda velocidad. Crowley describe a su Caballero con una espada en una mano y una daga en la otra. La velocidad puede llevarte a preguntar qué estás acelerando. Las dos armas pueden sugerir dos métodos que compiten entre sí. Elige una prueba pequeña y anota lo que observes."
      ]
     },
     {
@@ -364,13 +367,14 @@
      "p": [
       "[A. E. Waite, The Pictorial Key to the Tarot, parte I](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_1), §3: cuatro figuras por palo, términos Knave/Page y relación de rango y palo. Apoya la estructura, no qué les cuesta más a principiantes ni lo que cree la mayoría.",
       "[Parte III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §2: Caballero de Bastos, Caballero/Sota de Oros, Reina de Copas y Rey de Espadas. Se contrastaron las escenas; preguntas y ejercicio son aplicaciones editoriales, no instrucciones históricas ni categorías de personalidad validadas.",
-      "La transcripción consultada es la reimpresión de 1922. Sus descripciones históricas no prueban cómo identificar personas actuales por sexo, edad, apariencia o carácter moral. No usamos esas categorías para evaluar a nadie."
+      "La transcripción consultada es la reimpresión de 1922. Sus descripciones históricas no prueban cómo identificar personas actuales por sexo, edad, apariencia o carácter moral. No usamos esas categorías para evaluar a nadie.",
+      "[El libro de Thoth de Crowley](https://otohungary.org/documents/publication/english/Book_of_Thoth.html), parte I, explica cómo se llaman sus figuras. En la parte III, el Caballero de Espadas lleva una espada y una daga."
      ]
     },
     {
-     "h": "Registro de comprobación · 1 de noviembre de 2026",
+     "h": "Registro de comprobación · 9 de noviembre de 2026",
      "p": [
-      "La comparación asistida por IA revisó rangos, pasajes, dieciséis registros del sitio y el mecanismo del test. Sustituyó rasgos universales y afirmaciones no respaldadas sobre mayoría y dificultad por preguntas acotadas, imágenes y alternativa. Revisión independiente de expertos y hablantes nativos no confirmada. Correcciones por [nuestra metodología](methodology#corrections)."
+      "Codex comparó los pasajes de Waite y Crowley, el folleto editorial, las 16 fichas del sitio y la práctica. Quedan pendientes la revisión por especialistas independientes y la revisión por hablantes nativos. [Envía una corrección](methodology#corrections)."
      ]
     }
    ],

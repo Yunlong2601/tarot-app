@@ -6,6 +6,7 @@ import Base from "../../../layouts/Base.astro";
 import Linked from "../../../components/Linked.astro";
 import SearchGrowthNotes from "../../../components/SearchGrowthNotes.astro";
 import { plain } from "../../../lib/learn.ts";
+import { cardIds, slug as cardSlug, titleCase } from "../../../lib/data";
 import { SHENETIC, SHENETIC_PROFILE } from "../../../lib/site-entities";
 import { LEARN_SLUGS, fill, i18n, langPathsFor, type Locale } from "../../../i18n/index.ts";
 
@@ -23,6 +24,13 @@ const prev = LEARN_SLUGS[i - 1];
 const next = LEARN_SLUGS[i + 1];
 const page = new URL(u(`learn/${slug}`), Astro.site).href;
 const evidence = LESSON_EVIDENCE[slug as keyof typeof LESSON_EVIDENCE];
+const courtRanks = slug === 'court-cards' ? (['page', 'knight', 'queen', 'king'] as const).map(rank => ({
+  code: rank,
+  id: `court-${rank}`,
+  name: titleCase(L.t(`card.ranks.${rank}`)),
+  cards: cardIds.filter(id => id.endsWith(`_${rank}`)),
+})) : [];
+const courtTermSetId = page + '#court-ranks';
 const jsonLd = [
   {
     "@context": "https://schema.org",
@@ -36,6 +44,7 @@ const jsonLd = [
     image: new URL("og.png", Astro.site).href,
     author: SHENETIC,
     publisher: SHENETIC_PROFILE,
+    ...(courtRanks.length ? { hasPart: { "@id": courtTermSetId } } : {}),
     isPartOf: { "@type": "Course", name: ix.h1, url: new URL(u("learn"), Astro.site).href },
   },
   {
@@ -44,6 +53,21 @@ const jsonLd = [
     inLanguage: L.tag,
     mainEntity: g.faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: plain(f.a) } })),
   },
+  ...(courtRanks.length ? [{
+    "@context": "https://schema.org",
+    "@type": "DefinedTermSet",
+    "@id": courtTermSetId,
+    name: g.sections[0]!.h,
+    url: courtTermSetId,
+    inLanguage: L.tag,
+    hasDefinedTerm: courtRanks.map(rank => ({
+      "@type": "DefinedTerm",
+      "@id": `${page}#${rank.id}`,
+      name: rank.name,
+      termCode: rank.code,
+      inDefinedTermSet: { "@id": courtTermSetId },
+    })),
+  }] : []),
 ];
 ---
 <Base title={fill(pg.title, { title: g.title })} description={g.description} path={`learn/${slug}`} crumbs={[[ix.crumb, "learn"], [g.h1, `learn/${slug}`]]} jsonLd={jsonLd} lang={lang}>
@@ -63,6 +87,14 @@ const jsonLd = [
       <section>
         <h2 id={`s${n + 1}`}>{s.h}</h2>
         {s.p.map((p) => <Linked text={p} lang={lang} />)}
+        {n === 0 && courtRanks.length > 0 && <div id="court-ranks">
+          {courtRanks.map(rank => <section>
+            <h3 id={rank.id}>{rank.name}</h3>
+            <ul>
+              {rank.cards.map(id => <li><a href={u(`cards/${cardSlug(id)}`)}>{L.cards[id]!.name}</a></li>)}
+            </ul>
+          </section>)}
+        </div>}
       </section>
     ))}
     {slug === 'major-and-minor-arcana' && <p><a href={`${u('methodology')}#card-numbering`}>{L.growth.numberingTitle}</a></p>}

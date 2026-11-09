@@ -325,7 +325,10 @@
     {
      "h": "Vier Ränge in vier Farben",
      "p": [
-      "Jede der vier [Farben](learn/tarot-suits) hat vier Hofkarten: 4 × 4 = 16. Waite beschreibt König, Königin, Ritter und Knave/Page in Teil I, §3. Andere Systeme können Titel und Anordnung ändern. Lies das Bild, statt einen Rang als Persönlichkeitsergebnis zu behandeln."
+      "Die Links unten gruppieren die Karten nach Rang. Vergleiche die Bilder eines Rangs in den vier [Farben](learn/tarot-suits).",
+      "In Teil I nennt Waite den Buben Knave oder Page. Das [Begleitheft von U.S. Games](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=5) führt Knave in der Einleitung bei Cavalier auf, verwendet für die Karten danach aber die getrennten Titel Page und Knight. Steht irgendwo Knave, schau zuerst auf den Kartentitel und prüfe, welches Deck oder Buch den Begriff verwendet.",
+      "Crowley nennt die Hofkarten des Thoth-Tarots Knight, Queen, Prince und Princess. Knight steht in seinem System für die Vaterrolle. Prüfe erst den Namen und das Bild in deinem eigenen Deck, bevor du eine Deutung aus einem anderen Deck überträgst.",
+      "Probiere bei zwei Karten mit demselben Titel die Frage „Welchen Teil meines Plans sollte ich zuerst testen?“. Waite beschreibt den [Ritter der Schwerter](cards/swords-knight) in vollem Galopp. Crowleys Ritter hält ein Schwert in der einen und einen Dolch in der anderen Hand. Der Galopp kann dich fragen lassen, wo du dich beeilst. Bei den zwei Waffen kannst du zwei konkurrierende Ansätze vergleichen. Wähle einen kleinen Versuch und halte deine Beobachtung fest."
      ]
     },
     {
@@ -364,13 +367,14 @@
      "p": [
       "[A. E. Waite, The Pictorial Key to the Tarot, Teil I](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_1), §3: vier Hofränge, Knave/Page-Begriffe und Verbindung von Rang und Farbe. Belegt wird Aufbau, keine Anfängerumfrage oder Mehrheitsmeinung.",
       "[Teil III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), §2: Ritter der Stäbe, Ritter/Page der Münzen, Königin der Kelche, König der Schwerter. Geprüft wurden die Bilder; Fragen und Übung sind eigene Anwendungen, keine historischen Anweisungen oder bestätigten Persönlichkeitsklassen.",
-      "Die Transkription stammt aus dem Nachdruck von 1922. Historische Personenbeschreibungen identifizieren heutige Menschen nicht nach Geschlecht, Alter, Aussehen oder Moral. Hier werden solche Kategorien nicht als Test angewandt."
+      "Die Transkription stammt aus dem Nachdruck von 1922. Historische Personenbeschreibungen identifizieren heutige Menschen nicht nach Geschlecht, Alter, Aussehen oder Moral. Hier werden solche Kategorien nicht als Test angewandt.",
+      "[Crowleys The Book of Thoth](https://otohungary.org/documents/publication/english/Book_of_Thoth.html) erklärt in Teil I die vier Hofkartentitel. In Teil III beschreibt er beim Ritter der Schwerter ein Schwert und einen Dolch."
      ]
     },
     {
-     "h": "Prüfvermerk · 1. November 2026",
+     "h": "Prüfvermerk · 9. November 2026",
      "p": [
-      "Der KI-gestützte Vergleich prüfte Ränge, Stellen, sechzehn Karten und die antwortbasierte Quizlogik. Universelle Eigenschaften und unbelegte Mehrheits-/Schwierigkeitsaussagen wurden durch begrenzte Fragen, Bilder und Alternative ersetzt. Unabhängige Fach- und Muttersprachprüfung sind unbestätigt. Korrekturen über [unsere Methodik](methodology#corrections)."
+      "Codex hat die Passagen von Waite und Crowley, das Begleitheft, die 16 Kartenseiten und die Übung verglichen. Die unabhängige fachliche und muttersprachliche Prüfung steht noch aus. [Korrektur melden](methodology#corrections)."
      ]
     }
    ],

@@ -120,6 +120,17 @@ CSV 的 `official` 栏主要指 **ShenTarot 官网**。牌组发行商 U.S. Game
 
 韦特题为 The Hierophant，并提到较早使用的 The Pope。Piatnik 手册把该版马赛牌的 V 写成 Le Pape。这些证据支持同号大牌的名称对应。解释和图片按各自的牌组归属。本站以同一个三张牌练习示范如何从已有共识开始。[韦特第二部分](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2) · [Piatnik 手册第 13 页](https://www.piatnik.com/uploads/media/default/0001/08/f692bb2630e561d9a83aa2dd0688ecc9f01472e3.pdf#page=13)
 
+### 宫廷牌和四个等级 · 11 月 9 日
+
+| 来源 | 实际支持的内容 |
+| --- | --- |
+| 官网 | 八语教程按侍从、骑士、王后和国王分组，各连到四个花色的牌义。四个结构化词条各自对应可点击的标题。[宫廷牌教程](https://shentarot.com/zh-hans/learn/court-cards#court-ranks) |
+| Amazon | U.S. Games 托管手册的导言列出 King、Queen、Jack（Valet、Page）和 Cavalier（Knight、Knave），正文牌名仍分 Page 与 Knight。[手册 PDF 第 5 页](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=5) |
+| Wikipedia | 小阿尔卡那正文把 Page、Knight、Queen、King 列作常见四个宫廷等级，把 Jack 或 Knave 归在 Page，并说明不同牌组也有其他角色。[词条](https://en.wikipedia.org/wiki/Minor_Arcana) |
+| Reddit | 托特牌讨论的原帖同时列出两副牌的四个名称。回帖对具体等级如何对应有不同解释。[读者原帖](https://www.reddit.com/r/tarot/comments/1rk08sg/can_someone_please_explain_the_thoth_deck_court/) |
+
+等级数量可以对照，名称要连同牌组和出处一起读。韦特用 Knave 指 Page，克劳利在托特牌里用 Knight、Queen、Prince 和 Princess。本站用两个同名的宝剑骑士示范怎样从实际画面起步。[韦特第一部分](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_1) · [克劳利《托特之书》](https://otohungary.org/documents/publication/english/Book_of_Thoth.html)
+
 ### 已核对到的 Reddit 单牌提及
 
 在 R1 中核对到宝剑九。R3 的帖文和评论提到愚者、倒吊人、皇后、宝剑国王、恶魔、圣杯九、星星、圣杯侍从、宝剑王牌、隐士和宝剑三。11 月 8 日针对产品页示例补查 R4，帖文明确列出魔术师、星币二和星币八，三行已在 CSV 更新为 E。两轮共核对到 15 张牌。
