@@ -1,10 +1,13 @@
 ---
 import Base from "../../../layouts/Base.astro";
+import Linked from "../../../components/Linked.astro";
 import Tabs from "../../../components/Tabs.astro";
 import { BASE } from "../../../config.ts";
 import { SPREADS, slug, type CardId } from "../../../lib/data.ts";
+import { QUESTION_EVIDENCE } from "../../../lib/editorial.ts";
 import { QUESTION_GUIDES, type QuestionGuide } from "../../../lib/questions.ts";
 import { recommendSpread } from "../../../lib/recommend.ts";
+import { SHENETIC } from "../../../lib/site-entities.ts";
 import { TOPICS } from "../../../lib/topics.ts";
 import { firstSentence, i18n, langPathsFor, type Locale } from "../../../i18n/index.ts";
 
@@ -15,6 +18,13 @@ const { g, lang } = Astro.props as { g: QuestionGuide; lang: Locale };
 const L = i18n(lang);
 const { t, url: u } = L;
 const tr = L.content.guides[g.slug as keyof typeof L.content.guides];
+const evidence = QUESTION_EVIDENCE[g.slug as keyof typeof QUESTION_EVIDENCE];
+const editorial = evidence && 'editorial' in tr ? tr.editorial : undefined;
+const prompt = editorial ? tr.better[0]! : tr.question;
+const path = `questions/${g.slug}`;
+const url = new URL(u(path), Astro.site).href;
+// Keep the audited introduction in the Markdown body.
+const Intro = editorial ? 'div' : 'header';
 const guideQ = (s: string) => L.content.guides[s as keyof typeof L.content.guides].question;
 // The spread is matched on the English wording, so every language suggests the same one.
 const spread = recommendSpread(g.question);
@@ -28,33 +38,46 @@ const more = QUESTION_GUIDES.filter((x) => x.slug !== g.slug && x.topic === g.to
   .concat(QUESTION_GUIDES.filter((x) => x.topic !== g.topic))
   .slice(0, 3);
 const href = `${u(`spreads/${slug(spread)}`)}#try`;
-const faq: [string, string][] = [
+const faq: [string, string][] = editorial ? editorial.faq.map(({ q, a }) => [q, a]) : [
   [t("guide.faqCan", { question: tr.question }), tr.answer],
   [t("guide.faqWhich", { question: tr.question }), t("guide.faqWhichA", { name: sp.name, count, blurb: sp.blurb })],
   [t("guide.faqWord"), t("guide.faqWordA", { better: tr.better.join(" ") })],
 ];
-const jsonLd = {
+const jsonLd = [{
   "@context": "https://schema.org",
   "@type": "FAQPage",
   inLanguage: L.tag,
   mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
-};
+}, ...(evidence && editorial ? [{
+  "@context": "https://schema.org", "@type": "Article",
+  headline: tr.question, description: tr.answer,
+  url, mainEntityOfPage: url, inLanguage: L.tag,
+  image: new URL(`cards/art/${g.cards[0]![0]}.jpg`, Astro.site).href,
+  dateModified: evidence.checkedAt, author: SHENETIC, publisher: SHENETIC,
+  mentions: [`spreads/${slug(spread)}`, ...g.cards.map(([id]) => `cards/${slug(id)}`)]
+    .map(target => ({ "@id": new URL(u(target), Astro.site).href })),
+  citation: evidence.sources.map(source => ({
+    "@type": "Book", name: source.title, url: source.url,
+    author: { "@type": "Person", name: source.author },
+  })),
+}] : [])];
 ---
 <Base
   title={t("guide.title", { question: tr.question })}
   description={t("guide.description", { first: firstSentence(tr.answer) })}
-  path={`questions/${g.slug}`}
+  path={path}
   image={`cards/art/${g.cards[0]![0]}.jpg`}
   crumbs={[[t("questions.crumb"), "questions"], [tr.question, `questions/${g.slug}`]]}
-  jsonLd={[jsonLd]}
+  jsonLd={jsonLd}
   lang={lang}
 >
-  <header class="page-head">
+  <Intro class="page-head">
     <p class="eyebrow">{t("guide.eyebrow", { topic: topicText.name })}</p>
     <h1>{tr.question}</h1>
     <p class="lead">{tr.answer}</p>
-    <p><a class="btn btn-gold" href={href} data-ask-guide={tr.question}>{t("guide.askThis")}</a></p>
-  </header>
+    {editorial && <p data-guide-prompt>{prompt}</p>}
+    <p><a class="btn btn-gold" href={href} data-ask-guide={prompt}>{editorial?.practiceLabel ?? t("guide.askThis")}</a></p>
+  </Intro>
 
   <Tabs label={t("guide.tabsLabel")} tabs={[{ id: "ask", label: t("guide.tabAsk") }, { id: "spread", label: t("guide.tabSpread") }, { id: "cards", label: t("guide.tabCards") }, { id: "note", label: t("guide.tabNote") }, { id: "faq", label: t("guide.tabFaq") }]}>
   <section data-panel="ask">
@@ -105,6 +128,13 @@ const jsonLd = {
   </section>
 
   </Tabs>
+  {editorial && <section class="section legal guide" data-question-evidence>
+    {editorial.sections.map(({ h, anchor, p }) => <section>
+      <h2 id={anchor}>{h}</h2>
+      {p.map(value => <Linked text={value} lang={lang} />)}
+    </section>)}
+    <p class="muted">{L.workspace.disclaimer}</p>
+  </section>}
   <section class="section">
     <h2>{t("guide.more")}</h2>
     <ul class="guide-list">

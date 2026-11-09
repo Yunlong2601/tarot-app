@@ -239,19 +239,61 @@
  "guides": {
   "does-he-love-me": {
    "question": "Liebt er mich?",
-   "answer": "Tarot kann nicht in das Herz eines anderen Menschen schauen, und keine Karte beweist, was jemand fühlt. Was eine Legung kann: zeigen, wie die Verbindung von deinem Standpunkt aus aussieht – was du gibst, was zurückkommt und worauf du hoffst.",
+   "answer": "Wie sich jemand fühlt, kann dir nur die Person selbst sagen. Tarot kann dir helfen, über deine Beobachtungen und Fragen nachzudenken.",
    "better": [
-    "Wie fühle ich mich in dieser Beziehung?",
-    "Wie ist die Verbindung zwischen uns gerade?",
-    "Was brauche ich von ihm, das ich nicht bekomme?"
+    "Was hilft mir, klar über diese Beziehung zu sprechen?",
+    "Was haben wir wirklich gesagt oder getan?",
+    "Was möchte ich direkt fragen?"
    ],
    "cards": {
-    "cups_two": "Eine gegenseitige Verbindung: Beide kommen einander auf halbem Weg entgegen.",
-    "major_06_lovers": "Eine echte Entscheidung über Werte und Nähe, nicht nur über Anziehung.",
-    "cups_four": "Etwas, das angeboten wird, wird übersehen oder abgelehnt.",
-    "swords_three": "Schmerz, der benannt werden muss, bevor es weitergehen kann."
+    "cups_two": "Zwei Menschen heben Kelche. Denk an einen Moment, in dem beide etwas beigetragen haben.",
+    "major_06_lovers": "Zwei Menschen stehen unter einer geflügelten Gestalt. Was ist dir wichtig, wenn ihr euch näherkommt?",
+    "cups_four": "Jemandem wird ein vierter Kelch angeboten. Welche Einladung möchtest du annehmen, welche offenlassen?",
+    "swords_three": "Drei Schwerter durchbohren ein Herz. Was hat dich selbst konkret verletzt?"
    },
-   "tip": "Wenn du immer wieder Karten für dieselbe Antwort ziehst, erzählt dir die Legung etwas über deine eigene Sorge. Es lohnt sich, darauf zu hören."
+   "tip": "Wenn du erneut ziehen möchtest, halte die erste Deutung fest und notiere, was sich seither tatsächlich geändert hat. Du kannst die Karten beiseitelegen, bis es etwas Neues zu bedenken gibt.",
+   "editorial": {
+    "practiceLabel": "Diese Frage in der Drei-Karten-Legung ausprobieren",
+    "faq": [
+     {
+      "q": "Kann Tarot mir sagen, was jemand für mich empfindet?",
+      "a": "Frag die Person nach ihren Gefühlen. Tarot hilft dir, deine Rolle zu bedenken."
+     },
+     {
+      "q": "Welche Legung hilft mir, über die Beziehung nachzudenken?",
+      "a": "Drei Karten betrachten deinen Beitrag, eure Verbindung und deine Rolle."
+     },
+     {
+      "q": "Wie kann ich „Liebt er mich?“ anders fragen?",
+      "a": "Was hilft mir, klar über diese Beziehung zu sprechen?"
+     }
+    ],
+    "sections": [
+     {
+      "anchor": "relationship-example",
+      "h": "Eine unbeantwortete Nachricht und drei Blickwinkel",
+      "p": [
+       "Angenommen, du hast gestern gefragt, ob ihr am Sonntag zusammen in eine Ausstellung geht. Bisher kam keine Antwort. Die Person kann beschäftigt oder noch unentschlossen sein. Fest steht nur: Der Plan ist offen.",
+       "Stell dir in der [Beziehungslegung](spreads/love-connection) drei aufrechte Karten vor. [Die Liebenden](cards/major-06-lovers) auf „Was ich einbringe“ regen dich an, zu benennen, was dir wichtig ist. Die [Zwei der Kelche](cards/cups-two) auf „Die Verbindung selbst“ zeigen zwei Menschen mit Kelchen: Denk an einen Austausch, zu dem ihr beide beigetragen habt. Die [Vier der Kelche](cards/cups-four) auf „Was sie von mir verlangt“ zeigen einen angebotenen Kelch. Lass der anderen Person Raum für ein Ja oder Nein.",
+       "Wenn du den Sonntag planen musst, frag einmal konkret: „Hast du noch Lust auf die Ausstellung? Ich plane morgen meinen Sonntag.“ Bleibt der Plan offen, mach deine eigenen Pläne. Eine Antwort kann den Termin klären. Über Gefühle könnt ihr getrennt sprechen, wenn ihr beide möchtet."
+      ]
+     },
+     {
+      "anchor": "relationship-sources",
+      "h": "Was Waite im Original beschreibt",
+      "p": [
+       "In [Teil II, §2](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2) beschreibt Waite die zwei Menschen unter einer geflügelten Gestalt bei den Liebenden. [Teil III, §2](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3) beschreibt zwei Menschen mit Kelchen, einen angebotenen vierten Kelch und ein von drei Schwertern durchbohrtes Herz. Das sind Quellen zum Bild und zu Waites Tradition. Die drei Positionen und das Nachrichtenbeispiel hat ShenTarot als Übung gestaltet."
+      ]
+     },
+     {
+      "anchor": "relationship-check",
+      "h": "Prüfprotokoll · 9. November 2026",
+      "p": [
+       "Codex verglich die frühere Anleitung, die Kartenbilder, die Transkription von Waites Neuauflage von 1922 und das Fragefeld. Das Beispiel ist erfunden. Unabhängige Fach- und muttersprachliche Prüfungen stehen aus. [Korrektur vorschlagen](methodology#corrections)."
+      ]
+     }
+    ]
+   }
   },
   "will-my-ex-come-back": {
    "question": "Kommt mein Ex zurück?",

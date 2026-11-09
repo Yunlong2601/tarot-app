@@ -1,3 +1,7 @@
+# Relationship question guide and practice handoff — 2026-11-09
+
+The eight relationship question guides now show the revised question before passing it to the existing three-card spread. An unanswered-message example separates observed facts, plausible explanations and one practical next step. Original card sources, a short contextual FAQ and a dated check record are visible in the page and Markdown.
+
 # Ace of Pentacles as feelings — 2026-11-09
 
 The eight feelings pages now distinguish a practical opportunity from another person's feelings. They compare a concrete coffee invitation with an unconfirmed plan, cite Waite's separate material readings and explain the Ace of Coins name. The short FAQ, Markdown, search alias and Article data follow the same scoped reference.

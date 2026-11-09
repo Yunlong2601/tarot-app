@@ -141,15 +141,61 @@
  "guides": {
   "does-he-love-me": {
    "question": "¿Me quiere?",
-   "answer": "El tarot no puede ver dentro del corazón de otra persona, y ninguna carta demuestra lo que alguien siente. Lo que sí puede hacer una lectura es mostrarte cómo se ve la conexión desde donde estás tú: lo que das, lo que recibes y lo que esperas.",
-   "better": ["¿Cómo me siento en esta relación?", "¿Cómo es la conexión entre nosotros ahora mismo?", "¿Qué necesito de esa persona que no estoy recibiendo?"],
+   "answer": "Solo la otra persona puede decirte cómo se siente. El tarot puede ayudarte a reflexionar sobre lo que has observado y lo que quieres preguntar.",
+   "better": [
+    "¿Qué me ayudaría a hablar con claridad sobre esta relación?",
+    "¿Qué nos hemos dicho o qué hemos hecho?",
+    "¿Qué quiero preguntar directamente?"
+   ],
    "cards": {
-    "cups_two": "Un vínculo mutuo: las dos personas se encuentran a mitad de camino.",
-    "major_06_lovers": "Una elección real sobre valores y cercanía, no solo atracción.",
-    "cups_four": "Algo que se ofrece pasa desapercibido o se rechaza.",
-    "swords_three": "Un dolor que hay que nombrar antes de poder seguir adelante."
+    "cups_two": "Dos personas alzan sus copas. Recuerda una ocasión en que ambas hicieron un esfuerzo.",
+    "major_06_lovers": "Dos figuras están bajo un ser alado. ¿Qué valoras al acercarte a alguien?",
+    "cups_four": "Se ofrece una cuarta copa a alguien sentado aparte. ¿Qué invitaciones te apetece aceptar?",
+    "swords_three": "Tres espadas atraviesan un corazón. ¿Qué te dolió en tu propia experiencia?"
    },
-   "tip": "Si te descubres sacando cartas una y otra vez buscando la misma respuesta, la lectura te está hablando de tu propia preocupación. Vale la pena escucharla."
+   "tip": "Si te apetece volver a sacar cartas, anota primero la lectura anterior y lo que ha cambiado desde entonces. Puedes dejar la baraja y retomarla cuando haya algo nuevo.",
+   "editorial": {
+    "practiceLabel": "Prueba esta pregunta en la tirada de tres cartas",
+    "faq": [
+     {
+      "q": "¿Puede el tarot decirme lo que alguien siente por mí?",
+      "a": "Pregúntale cómo se siente. Usa el tarot para reflexionar sobre tu papel."
+     },
+     {
+      "q": "¿Qué tirada puedo usar para reflexionar sobre la relación?",
+      "a": "La tirada de tres cartas explora lo que aportas, el vínculo y tu papel."
+     },
+     {
+      "q": "¿Cómo puedo reformular «¿Me quiere?»?",
+      "a": "¿Qué me ayudaría a hablar con claridad sobre esta relación?"
+     }
+    ],
+    "sections": [
+     {
+      "anchor": "relationship-example",
+      "h": "Un mensaje sin respuesta y tres aspectos que mirar",
+      "p": [
+       "Imagina que ayer preguntaste si quería ir a una exposición el domingo. Todavía no te ha contestado. Quizá tenga mucho que hacer o no haya decidido si quiere ir. Por ahora, el plan sigue sin confirmar.",
+       "En [la tirada de tres cartas sobre la relación](spreads/love-connection), imagina tres cartas al derecho. [Los Enamorados](cards/major-06-lovers), en «Lo que aporto», te invitan a nombrar lo que más valoras. El [Dos de Copas](cards/cups-two), en «La conexión en sí», muestra a dos personas con copas: recuerda una ocasión en que ambas participasteis. El [Cuatro de Copas](cards/cups-four), en «Lo que me pide», muestra una copa ofrecida: deja espacio para aceptar o rechazar la propuesta.",
+       "Si necesitas organizar el domingo, pregunta una vez: «¿Te sigue apeteciendo ir a la exposición? Mañana organizo el domingo». Si no se concreta, haz tu propio plan. La respuesta puede aclarar la cita. Podéis hablar de sentimientos aparte si ambas personas queréis."
+      ]
+     },
+     {
+      "anchor": "relationship-sources",
+      "h": "Qué describe el texto de Waite",
+      "p": [
+       "En [la parte II, §2](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2), Waite describe las dos figuras bajo un ser alado en Los Enamorados. En [la parte III, §2](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3) describe dos personas con copas, una cuarta copa que se ofrece y un corazón atravesado por tres espadas. Son fuentes para las imágenes y la tradición de Waite. Las tres posiciones y el ejemplo del mensaje son un ejercicio de ShenTarot."
+      ]
+     },
+     {
+      "anchor": "relationship-check",
+      "h": "Registro de comprobación · 9 de noviembre de 2026",
+      "p": [
+       "Codex comparó la guía anterior, las imágenes del sitio, la transcripción de la reedición de Waite de 1922 y el campo de la tirada. El ejemplo es ficticio. Quedan pendientes las revisiones independientes y por hablantes nativos. [Sugerir una corrección](methodology#corrections)."
+      ]
+     }
+    ]
+   }
   },
   "will-my-ex-come-back": {
    "question": "¿Volverá mi ex?",

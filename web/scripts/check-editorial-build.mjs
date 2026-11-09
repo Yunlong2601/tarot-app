@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
 import {parseHTML} from 'linkedom';
-import {LESSON_EVIDENCE,CARD_EVIDENCE,CONTEXT_EVIDENCE} from '../src/lib/editorial.ts';
+import {LESSON_EVIDENCE,CARD_EVIDENCE,CONTEXT_EVIDENCE,QUESTION_EVIDENCE} from '../src/lib/editorial.ts';
 const locales=['en','zh-hans','zh-hant','es','de','ja','fr','ru'];
 const lessons = {
  'how-to-read-tarot': {sources:2,cards:['cups-five','swords-two','pentacles-three']},
@@ -180,3 +180,57 @@ for (const [path, evidence] of Object.entries(CONTEXT_EVIDENCE)) for (const loca
  }
 }
 console.log(`${Object.keys(CONTEXT_EVIDENCE).length * locales.length} contextual references: sources, examples, limited check records, FAQ and card identity verified.`);
+
+for (const [slug, evidence] of Object.entries(QUESTION_EVIDENCE)) for (const locale of locales) {
+ const prefix = locale === 'en' ? '' : locale + '/';
+ const path = prefix + 'questions/' + slug;
+ const url = 'https://shentarot.com/' + path;
+ const htmlPath = 'dist/' + path + '.html';
+ const { document } = parseHTML(readFileSync(htmlPath, 'utf8'));
+ const copy = JSON.parse(readFileSync(`src/i18n/${locale}/content.json`, 'utf8')).guides[slug];
+ const editorial = document.querySelector('[data-question-evidence]');
+ const markdown = readFileSync('dist/_agent-markdown/' + path + '.md', 'utf8');
+ const practice = document.querySelector('[data-ask-guide]');
+ assert.equal(document.querySelector('h1').textContent, copy.question);
+ assert.equal(document.querySelector('.page-head .lead').textContent, copy.answer);
+ assert.equal(practice.textContent, copy.editorial.practiceLabel);
+ assert.equal(practice.getAttribute('data-ask-guide'), copy.better[0]);
+ assert.notEqual(practice.getAttribute('data-ask-guide'), copy.question);
+ assert.equal(document.querySelector('[data-guide-prompt]').textContent, copy.better[0]);
+ assert.equal(practice.getAttribute('href'), '/' + prefix + 'spreads/love-connection#try');
+ assert.ok(readFileSync('dist/' + prefix + 'spreads/love-connection.html', 'utf8').includes('id="try"'));
+ assert.ok(markdown.includes('# ' + copy.question) && markdown.includes(copy.answer) && markdown.includes(copy.better[0]));
+ assert.deepEqual([...editorial.querySelectorAll('h2')].map(h => [h.id, h.textContent]),
+  copy.editorial.sections.map(section => [section.anchor, section.h]));
+ for (const target of ['cards/major-06-lovers', 'cards/cups-two', 'cards/cups-four', 'spreads/love-connection', 'methodology#corrections']) {
+  assert.ok(editorial.querySelector(`a[href="/${prefix}${target}"]`));
+  assert.ok(markdown.includes('/' + prefix + target));
+ }
+ const schemas = [...document.querySelectorAll('script[type="application/ld+json"]')].map(s => JSON.parse(s.textContent));
+ const article = schemas.find(s => s['@type'] === 'Article');
+ const faq = schemas.find(s => s['@type'] === 'FAQPage');
+ assert.equal(article.url, url);
+ assert.equal(article.dateModified, evidence.checkedAt);
+ assert.equal(article.publisher.name, 'Shenetic');
+ assert.ok(!('reviewedBy' in article) && !('lastReviewed' in article));
+ assert.equal(evidence.independentExpertReview, false);
+ assert.equal(evidence.nativeLanguageReview, false);
+ assert.deepEqual(article.citation.map(source => source.url), evidence.sources.map(source => source.url));
+ for (const citation of article.citation) {
+  assert.ok(editorial.querySelector(`a[href="${citation.url}"]`) && markdown.includes(citation.url));
+ }
+ for (const item of article.mentions) {
+  assert.ok(document.querySelector(`main a[href="${new URL(item['@id']).pathname}"]`));
+ }
+ assert.equal(faq.mainEntity.length, 3);
+ assert.deepEqual(faq.mainEntity.map(q => [q.name, q.acceptedAnswer.text]), copy.editorial.faq.map(q => [q.q, q.a]));
+ assert.deepEqual(faq.mainEntity.map(q => [q.name, q.acceptedAnswer.text]),
+  [...document.querySelectorAll('.faq details')].map(entry => [
+   entry.querySelector('summary').textContent.trim(), entry.querySelector('p').textContent,
+  ]));
+ assert.ok(faq.mainEntity.every(q => [...q.acceptedAnswer.text].length <= 80));
+ const next = parseHTML(readFileSync('dist/' + prefix + 'questions/will-my-ex-come-back.html', 'utf8')).document;
+ assert.equal(next.querySelector('[data-ask-guide]').getAttribute('data-ask-guide'), next.querySelector('h1').textContent);
+ assert.ok(!next.querySelector('[data-question-evidence]'));
+}
+console.log(`${Object.keys(QUESTION_EVIDENCE).length * locales.length} question guides: scoped citations, examples, prompt handoff, FAQ and Markdown verified.`);
