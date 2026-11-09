@@ -54,6 +54,47 @@
    }
   }
  },
+ "editorial": {
+  "cards/pentacles-ace/feelings": {
+   "headline": "Ace of Pentacles as feelings: what can you observe?",
+   "faqQuestions": ["What does the Ace of Pentacles mean as feelings?", "What does the reversed Ace of Pentacles suggest about a vague plan?", "What can I do if I want to meet?"],
+   "continueText": "Turn a question about someone else’s feelings into one you can act on.",
+   "continueLabel": "Learn to frame your question",
+   "answer": "The Ace of Pentacles can suggest a chance to get to know someone. Use their words and actions to understand what they want.",
+   "advice": {
+    "up": "If you want to meet, suggest one clear plan and leave room for a reply.",
+    "rev": "If plans stay vague, decide whether you want to wait or move on."
+   },
+   "questions": [
+    "What did they actually offer to do?",
+    "What do I want to ask them directly?"
+   ],
+   "sections": [
+    {
+     "h": "The hand, the coin and Waite’s original entry",
+     "anchor": "card-source",
+     "p": [
+      "A hand reaches from a cloud and holds up one pentacle. [Waite, Part III §2](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), lists contentment and joy upright, and includes both the harmful side of wealth and great riches reversed. His entry concerns material circumstances. We use the offered coin as a prompt to look for a practical opening. The card also appears under [Ace of Coins](https://en.wikipedia.org/wiki/Ace_of_Coins)."
+     ]
+    },
+    {
+     "h": "A coffee invitation: facts, a possible reading and a next step",
+     "anchor": "coffee-example",
+     "p": [
+      "Imagine drawing the Ace of Pentacles for “What is available to explore?”. Someone suggests Saturday coffee, you agree on a time, and they show up. Those are facts about one plan. Like the coin held out in the picture, there is a concrete offer you can respond to.",
+      "Now imagine they said “We should go for coffee sometime”, and you have no time or place. A busy week and a casual suggestion are both plausible. Treat the plan as open. If you want to go, offer one time and wait for a reply. If what matters is how they feel, leave that for them to tell you."
+     ]
+    },
+    {
+     "h": "Check record · 9 November 2026",
+     "anchor": "context-check",
+     "p": [
+      "Codex compared the card image, Waite’s 1922 reprint transcription and the previous feelings page. ShenTarot wrote the fictional coffee example for this page. Independent practitioner and native-language reviews are pending. [Suggest a correction](methodology#corrections)."
+     ]
+    }
+   ]
+  }
+ },
  "cards": {
   "major_00_fool": {
    "love": {
@@ -1729,8 +1770,8 @@
     "rev": "An opportunity slips by or a plan lacks foundation. Money matters may need a better budget. Check the details before committing."
    },
    "feelings": {
-    "up": "This person feels a steady, real interest in you. Their feelings are practical and sincere, and they see a future. They may show it by being dependable.",
-    "rev": "This person may not be ready to commit, or their interest lacks substance. They may be missing the chance to say how they feel. Feelings need a firmer base."
+    "up": "Upright, look for a small, practical chance to get to know each other.",
+    "rev": "Reversed, check what still needs agreeing before a plan can happen."
    },
    "yesno": {
     "verdict": [

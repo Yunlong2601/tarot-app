@@ -54,6 +54,47 @@
    }
   }
  },
+ "editorial": {
+  "cards/pentacles-ace/feelings": {
+   "headline": "As de Oros como sentimientos: qué puedes observar",
+   "faqQuestions": ["¿Qué significa el As de Oros como sentimientos?", "¿Cómo leer el As de Oros invertido si el plan sigue en el aire?", "¿Qué puedo hacer si quiero quedar?"],
+   "continueText": "Cambia una pregunta sobre lo que siente otra persona por una que puedas llevar a la práctica.",
+   "continueLabel": "Aprende a formular tu pregunta",
+   "answer": "El As de Oros puede sugerir una ocasión para conocerse mejor. Para saber qué quiere la otra persona, presta atención a sus palabras y sus actos.",
+   "advice": {
+    "up": "Si te apetece quedar, propón una hora y da tiempo para responder.",
+    "rev": "Si el plan sigue en el aire, decide cuánto quieres esperar."
+   },
+   "questions": [
+    "¿Qué propuso hacer la otra persona, en concreto?",
+    "¿Qué me gustaría preguntarle directamente?"
+   ],
+   "sections": [
+    {
+     "h": "La mano, la moneda y lo que escribió Waite",
+     "anchor": "card-source",
+     "p": [
+      "Una mano sale de una nube y sostiene un pentáculo. En [la parte III, §2](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3), Waite incluye la satisfacción y la alegría al derecho, y tanto el lado perjudicial de la riqueza como la abundancia en la lectura invertida. El pasaje trata de circunstancias materiales. En este ejercicio, la moneda que se ofrece nos invita a buscar una oportunidad concreta. La carta también aparece con el nombre inglés [Ace of Coins](https://en.wikipedia.org/wiki/Ace_of_Coins)."
+     ]
+    },
+    {
+     "h": "Un café: qué pasó, cómo leerlo y qué podrías hacer",
+     "anchor": "coffee-example",
+     "p": [
+      "Imagina que sale el As de Oros al preguntar «¿Qué oportunidad puedo explorar?». Alguien propone tomar un café el sábado, acordáis una hora y esa persona acude. Sabes que un plan concreto se cumplió. Como la moneda que muestra la carta, hay algo concreto a lo que puedes responder.",
+      "Ahora imagina que solo dice «Tenemos que tomar un café algún día» y no concretáis nada. Quizá tenga una semana complicada o lo haya dicho al pasar. El plan sigue abierto. Si quieres ir, propón una hora y espera la respuesta. Si te importa cómo se siente, deja que esa persona te lo cuente."
+     ]
+    },
+    {
+     "h": "Registro de comprobación · 9 de noviembre de 2026",
+     "anchor": "context-check",
+     "p": [
+      "Codex comparó la imagen de la carta, la transcripción de la reedición de Waite de 1922 y la página anterior. ShenTarot creó el ejemplo ficticio del café. Quedan pendientes la revisión independiente por profesionales y la revisión lingüística por hablantes nativos. [Sugerir una corrección](methodology#corrections)."
+     ]
+    }
+   ]
+  }
+ },
  "cards": {
   "major_00_fool": {
    "love": {
@@ -1729,8 +1770,8 @@
     "rev": "Una oportunidad se escapa, o un plan carece de cimientos. El dinero puede necesitar un mejor presupuesto. Comprueba los detalles antes de comprometerte."
    },
    "feelings": {
-    "up": "Esa persona siente un interés firme y real por ti. Sus sentimientos son prácticos y sinceros, y ve un futuro. Puede mostrarlo siendo alguien con quien se puede contar.",
-    "rev": "Esa persona puede no estar lista para comprometerse, o su interés carece de fondo. Puede estar perdiendo la ocasión de decir lo que siente. Los sentimientos necesitan una base más firme."
+    "up": "Al derecho, busca una ocasión concreta para conoceros mejor.",
+    "rev": "Invertida, revisa qué falta acordar para que el plan se cumpla."
    },
    "yesno": {
     "verdict": [

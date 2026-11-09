@@ -54,6 +54,47 @@
    }
   }
  },
+ "editorial": {
+  "cards/pentacles-ace/feelings": {
+   "headline": "Ass der Münzen als Gefühle: Was kannst du beobachten?",
+   "faqQuestions": ["Was bedeutet das Ass der Münzen bei einer Frage nach Gefühlen?", "Was legt das umgekehrte Ass der Münzen bei einem offenen Plan nahe?", "Was kann ich tun, wenn ich mich treffen möchte?"],
+   "continueText": "Formuliere die Frage nach den Gefühlen einer anderen Person so, dass du selbst etwas tun kannst.",
+   "continueLabel": "Die Frage anders stellen",
+   "answer": "Das Ass der Münzen kann auf eine Gelegenheit hinweisen, jemanden besser kennenzulernen. Was die Person möchte, zeigt sich in ihren Worten und Taten.",
+   "advice": {
+    "up": "Wenn du dich treffen willst, schlag eine Zeit vor und warte die Antwort ab.",
+    "rev": "Bleibt der Plan vage, überlege, wie lange du warten möchtest."
+   },
+   "questions": [
+    "Was hat die andere Person konkret vorgeschlagen?",
+    "Was möchte ich direkt fragen?"
+   ],
+   "sections": [
+    {
+     "h": "Die Hand, die Münze und Waites Originaltext",
+     "anchor": "card-source",
+     "p": [
+      "Eine Hand ragt aus einer Wolke und hält ein Pentakel hoch. In [Teil III, §2](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3) nennt Waite aufrecht unter anderem Zufriedenheit und Freude. Umgekehrt erwähnt er sowohl die schädliche Seite des Reichtums als auch großen Reichtum. Die Stelle handelt von materiellen Umständen. Die dargebotene Münze nehmen wir als Anstoß, nach einer konkreten Gelegenheit zu suchen. Die Karte erscheint auch unter dem englischen Namen [Ace of Coins](https://en.wikipedia.org/wiki/Ace_of_Coins)."
+     ]
+    },
+    {
+     "h": "Eine Einladung zum Kaffee: Was ist passiert und was kannst du tun?",
+     "anchor": "coffee-example",
+     "p": [
+      "Stell dir vor, du fragst „Welche Gelegenheit kann ich erkunden?“ und ziehst das Ass der Münzen. Jemand schlägt Samstag für einen Kaffee vor. Ihr einigt euch auf eine Zeit und die Person kommt. Damit weißt du, dass ein konkretes Treffen zustande gekommen ist. Wie die dargebotene Münze ist das ein Angebot, auf das du reagieren kannst.",
+      "Sagt die Person nur „Wir sollten mal einen Kaffee trinken“, steht noch kein Treffen fest. Vielleicht ist die Woche voll, vielleicht war es beiläufig gemeint. Wenn du dich treffen möchtest, schlag eine Zeit vor und warte auf die Antwort. Was die Person für dich empfindet, kann sie dir selbst sagen."
+     ]
+    },
+    {
+     "h": "Prüfprotokoll · 9. November 2026",
+     "anchor": "context-check",
+     "p": [
+      "Codex hat das Kartenbild, die Transkription von Waites Neuauflage von 1922 und die frühere Fassung verglichen. ShenTarot hat das fiktive Kaffeebeispiel für diese Seite geschrieben. Eine unabhängige Prüfung durch Tarotpraktizierende und eine muttersprachliche Prüfung stehen aus. [Korrektur vorschlagen](methodology#corrections)."
+     ]
+    }
+   ]
+  }
+ },
  "cards": {
   "major_00_fool": {
    "love": {
@@ -1729,8 +1770,8 @@
     "rev": "Eine Gelegenheit zieht vorüber, oder einem Plan fehlt das Fundament. Bei Geldfragen braucht es vielleicht ein besseres Budget. Prüfe die Details, bevor du dich festlegst."
    },
    "feelings": {
-    "up": "Diese Person empfindet ein stetiges, echtes Interesse an dir. Ihre Gefühle sind praktisch und aufrichtig, und sie sieht eine Zukunft. Sie zeigt es vielleicht dadurch, dass sie verlässlich ist.",
-    "rev": "Diese Person ist vielleicht nicht bereit, sich zu binden, oder ihr Interesse hat wenig Substanz. Sie verpasst womöglich die Chance zu sagen, was sie fühlt. Die Gefühle brauchen eine festere Basis."
+    "up": "Aufrecht: Achte auf eine konkrete Gelegenheit, euch kennenzulernen.",
+    "rev": "Umgekehrt: Prüfe, was ihr noch absprechen müsst, damit der Plan klappt."
    },
    "yesno": {
     "verdict": [

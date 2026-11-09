@@ -4,7 +4,7 @@ The owner explicitly included all website reference content, beyond the initial 
 
 ## Current progress
 
-Twenty logical references in the inventory have limited AI-assisted primary-source comparisons and original worked examples in all eight locales. They are the seven foundational lessons and thirteen base card pages. Independent expert and native-language review are pending. Each page's context variants have separate inventory records.
+Twenty-one logical references in the inventory have limited AI-assisted primary-source comparisons and original worked examples in all eight locales. They are seven foundational lessons, thirteen base card pages and one contextual card page. Independent expert and native-language review are pending. Each page's context variants have separate inventory records.
 
 Work in batches: major-card references; minor-card references; contextual interpretations; spreads/question/topic references; zodiac/birth/numerology and tool formulas; navigation and publisher consistency. A contextual interpretation needs its own reasoning, not a copied historical citation that never discussed that context. Reconcile newly added/removed routes before declaring the inventory complete.
 
@@ -361,3 +361,7 @@ Codex inspected the bundled artwork and checked Waite Part II §2 XIX, Waite Par
 ## Hermit base reference check — 9 November 2026
 
 Codex compared the actual card image, the old base reference and Waite’s 1922 reprint transcription. Part II §2 names the star and describes the raised beacon as something others may follow. Part III §3 records prudence upright and includes fear and unwarranted caution reversed. The U.S. Games booklet repeats the reversed terms, and the Wikipedia entry reproduces Waite’s list. The article now attributes those historical meanings and uses the paper-folding exercise to test which step someone can follow. Reversal asks what supports hesitation and checks a second diagram if needed. The record covers the base card in eight languages. Its four context variants have separate records and still await this comparison. [Image and original example](https://shentarot.com/cards/major-09-hermit) · [Waite, Part II](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2) · [Waite, Part III](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3) · [U.S. Games booklet, PDF page 10](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=10)
+
+## Ace of Pentacles feelings context — 9 November 2026
+
+Codex compared the prior feelings page, the website card image and the Pentacles — Ace entry in Waite's 1922 reprint. The hand from a cloud supports the visual description. The historical text lists satisfaction and joy upright and mentions both harmful wealth and great riches reversed. The example uses the coin as a prompt to consider an actual invitation. It distinguishes a suggested date and completed meeting from an open plan, gives two plausible explanations for the latter, and lets the other person express their feelings. The independent review fields remain pending. This record covers the feelings route alone. [Waite, Part III §2](https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3) · [Publisher booklet, PDF page 29](https://m.media-amazon.com/images/I/910OvOHFBVL.pdf#page=29) · [Ace of Coins entry](https://en.wikipedia.org/wiki/Ace_of_Coins)
